@@ -1,0 +1,38 @@
+{
+  "headerValue": {
+    "moduleId": "ARMCOINV",
+    "simulate": "N"
+  },
+  "data": [
+    {
+      "customerId": "",
+      "rawStatus": 0,
+      "number": 7300005700,
+      "date": "05/12/0021",
+      "amount": "3211",
+      "dueDate": "05/12/0021",
+      "corpFileStatusCode": "OK",
+      "corpFileStatusDetail": "OK",
+      "sequenceNumber": "0",
+      "acknowledgementNumber": "",
+      "statusCode": "0",
+      "statusDetail": "Open",
+      "equivalentAmountinUSD": "6966.14"
+    },
+    {
+        "customerId": "",
+        "rawStatus": 0,
+        "number": 7300005700,
+        "date": "05/12/0021",
+        "amount": "-3210",
+        "dueDate": "05/12/0021",
+        "corpFileStatusCode": "OK",
+        "corpFileStatusDetail": "OK",
+        "sequenceNumber": "0",
+        "acknowledgementNumber": "",
+        "statusCode": "0",
+        "statusDetail": "Open",
+        "equivalentAmountinUSD": "6966.14"
+      }
+  ]
+}

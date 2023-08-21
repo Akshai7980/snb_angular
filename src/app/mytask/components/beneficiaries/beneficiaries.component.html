@@ -1,0 +1,16 @@
+<div class="worksapceBase">
+    <div class="content-header" translate>LBL_BENEFICIARY_DETAILS</div>
+    
+    <div class="tabCntr">
+        <ul>
+            <!-- <li [class]="singleMenu" (click)="menuclick('single')" translate> Single (0)</li>
+            <li [class]="bulkMenu" (click)="menuclick('bulk')" translate>Bulk (0)</li> -->
+            <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_SINGLE_TRANSFER_BENEFICIARIES_INQ"><a routerLink="singlefile" [class.active]="rootScopeData.activeTabName === 'singlefile'" translate>LBL_SINGLE <span *ngIf="this.rootScopeData.singleBeneficiaryCount" class="actionHide">({{this.rootScopeData.singleBeneficiaryCount}})</span></a></li>
+            <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_FILE_TRANSFER_BENEFICIARIES_INQ"><a routerLink="bulkfile" [class.active]="rootScopeData.activeTabName === 'bulkfile'" translate>LBL_BULK_UPLOAD <span *ngIf="this.rootScopeData.benUploadBeneficiaryCount" class="actionHide">({{this.rootScopeData.benUploadBeneficiaryCount}})</span></a></li>      
+        </ul>
+    </div>
+    <div class="tabDataCntr">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+    

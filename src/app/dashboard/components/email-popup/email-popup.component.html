@@ -1,0 +1,48 @@
+<div class="mainContainer">
+    <div class="topOptions">
+        <h3 class="title">Title</h3>
+        <div>
+            <label class="closelabel" translate mat-dialog-close>LBL_CLOSE</label>
+            <div class="mat-dialog-close" mat-dialog-close></div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="formCntr">
+            <form>
+                <div class="field">
+                    <label for="To">To<span class="mandatory">*</span></label>&nbsp;&nbsp;
+                    <div>
+                        <input type="text" [(ngModel)]="toAddress" name="toaddress">
+                        <div class="errorMsg" [hidden]="isToaddressvalid" translate>LBL_ERROR_MSG_PLEASE_ENTER_TO_ADDRESS</div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="subject">Subject<span class="mandatory">*</span></label>&nbsp;&nbsp;
+                    <div>
+                    <input type="text" [(ngModel)]="subject" name="subject">
+                    <div class="errorMsg" [hidden]="isSubjectvalid" translate>LBL_ERROR_MSG_PLEASE_ENTER_SUBJECT</div>
+                </div>
+                </div>
+                <div class="field">
+                    <label for="msg">Message<span class="mandatory">*</span></label>&nbsp;&nbsp;
+                    <div>
+                    <textarea type="text" [(ngModel)]="message" name="message"></textarea>
+                    <div class="errorMsg" [hidden]="isMessagevalid" translate>LBL_ERROR_MSG_PLEASE_ENTER_MESSAGE</div>
+                </div>
+                </div>
+                <div class="field">
+                    <span for="att">Attachment</span>&nbsp;&nbsp;
+                    <div id="myProgress" *ngIf="!isAttached">
+                        <div class="myBar" [ngStyle]="{'width': width+'%'}"></div>
+                    </div>
+                    <div *ngIf="isAttached"><img src="../../../../assets/images/icoPdf.png" alt="pdf"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<div class="bottomBtnCntr">
+    <button class="primaryBtn" mat-dialog-close translate>LBL_CANCEL</button>
+    <button class="secondaryBtn" translate (click)="sendMail()">LBL_SEND</button>
+</div>

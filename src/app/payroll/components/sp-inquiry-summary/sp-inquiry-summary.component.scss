@@ -1,0 +1,144 @@
+.payrollInquiryListContainer {
+    background-color: var(--primary-widget-bg-color);
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+}
+
+table {
+    width: 100%;
+    background-color: var(--primary-widget-bg-color);
+    // border: 1px solid var(--widget-border-color);
+}
+
+td.mat-cell {
+    color: var(--tableData-header-color);
+    border-bottom-style: none;
+    padding: 15px;
+}
+
+th.mat-header-cell {
+    border-bottom-style: none;
+    height: 40px;
+    padding: 15px;
+    background-size: cover;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+    color: var(--table-header-color);
+    text-decoration: none solid rgb(162, 162, 162);
+}
+
+th.mat-header-cell {
+    font-size: 15px;
+}
+
+th.mat-header-cell:first-of-type {
+    padding: 15px !important;
+}
+
+td.mat-cell:first-of-type {
+    padding: 15px;
+}
+
+tr.mat-row {
+    padding: 15px;
+}
+
+th.mat-header-cell:last-of-type {
+    padding-right: 15px;
+}
+
+.mat-row:nth-child(odd) {
+    background-color: var(--summary-row-bg-color);
+}
+
+.casaTable {
+    width: 100%;
+}
+
+.mTop_18 {
+    position: relative;
+    padding-top: 18px;
+}
+
+.rightPanel {
+    text-align: right;
+}
+
+.outerContainer {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.title {
+    width: 215px;
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+@media print{
+    #logoPrint{display: block;}
+    div.divFooter {
+        position: fixed;
+        bottom: 0;
+        font-family: 'HelveticaNeueMed' !important;
+        margin-left:35%;
+      }
+    .subTitleConatiner .listInactive,.actionsConatiner{display: none;}
+    .subTitleConatiner .listActive{border-bottom: none !important;}
+}
+@media screen{
+    #logoPrint{display: none;}
+    .divFooter {
+        display: none;
+      }
+}
+.logo{height:60px;margin-top:10px;margin-left:48%;width:60px;vertical-align: middle;padding-bottom: 10px;}
+
+::ng-deep .mat-tooltip{
+    width: 186px;
+min-height: 20px;
+padding: 5px;
+background-color: #d18686;
+background-size: cover;
+font-family: 'HelveticaNeue', Arial, sans-serif;
+font-size: 12px;
+color: #ffffff;
+line-height: 16px;
+z-index: 1;
+position: absolute;
+top: 5px;
+left: -4px;
+border-radius: 4px;
+}
+::ng-deep .mat-tooltip::after{
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 50%;
+    transform: rotate(180deg);
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color:  #d18686 transparent transparent transparent;
+}
+ ::ng-deep .mat-tooltip {
+    display: inline;
+    position: relative;
+   
+  }
+
+.img-style {
+    padding-right: 0px !important;
+}
+
+.sortUp {
+    right: 18px !important;
+}

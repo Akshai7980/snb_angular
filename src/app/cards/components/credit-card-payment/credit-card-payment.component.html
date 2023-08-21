@@ -1,0 +1,192 @@
+<div class="mainContainer" id="creditCardPaymentLayout" *ngIf="title !== 'receipt'">
+  <div class="topContainer">
+
+    <div>
+      <div class="title" translate *ngIf="title !== 'review'"> LBL_CREDIT_CARD_PAYMENT </div>
+      <div class="title" translate *ngIf="title === 'review'"> LBL_REVIEW </div>
+    </div>
+
+    <div class="dailyLimitContainer">
+      <app-daily-limit *ngIf="this.rootScopeData.dailyLimit && showDailyLimit"></app-daily-limit>
+    </div>
+
+  </div>
+  <div [ngClass]="title !== '' ? 'subContainer' : ''">
+    <div translate class="subTitles" *ngIf="title !== ''">LBL_CARD_DETAILS</div>
+
+    <div [ngClass]="title !== '' ? 'removeBorderFromData' : ''">
+      <app-debit-lookup *ngIf="showAccountList" [debitAccDetails]="fromDataDetailsObj" (onAccountSelect)="getDisplayStatus($event, 'fromData')"
+        [shownsearch]="shownSearchFlag" [tableId]="'debitData'" [clear]="clearFlag" [setWidth]="setColumnWidth">
+      </app-debit-lookup>
+    </div>
+
+    <div [ngClass]="title === '' ? 'creditListContainer' : 'removeBorderCreditCard'">
+      <app-debit-lookup *ngIf="toCreditCardList" [debitAccDetails]="creditCardDetailsObj"
+        (onAccountSelect)="getDisplayStatus($event, 'creditCard')" [shownsearch]="shownSearchFlag"
+        [tableId]="'creditData'" [setWidth]="setColumnWidth"></app-debit-lookup>
+    </div>
+  </div>
+
+  <div class="mainContainer" *ngIf="title === 'creditCardPayment'">
+    <div class="subContainer toggleContainer">
+      <div translate class="subTitles"> LBL_AMOUNT_DETAILS </div>
+
+      <mat-button-toggle-group>
+        <mat-button-toggle *ngFor="let menu of amountDetailsMenu" [value]="menu.key" disableRipple="true" #togglebtn1 (click)="displayContent(menu.key)"
+          [ngClass]="isChecked === menu.key?'hoverSelected':'baseSelected'">{{menu.payOption}}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <!-- <mat-button-toggle-group>
+        <mat-button-toggle value="Outstanding" disableRipple="true" #togglebtn1 (click)="displayContent('Outstanding')"
+          [ngClass]="isChecked === 'Outstanding'?'hoverSelected':'baseSelected'">{{ 'LBL_FULL_OUTSTANDING' | translate}}
+        </mat-button-toggle>
+        <mat-button-toggle value="Statement" disableRipple="true" #togglebtn1 (click)="displayContent('Statement')"
+          [ngClass]="isChecked === 'Statement'?'hoverSelected':'baseSelected'">{{'LBL_STATEMENT_DUE' | translate}}
+        </mat-button-toggle>
+        <mat-button-toggle value="Minimum" disableRipple="true" #togglebtn1 (click)="displayContent('Minimum')"
+          [ngClass]="isChecked === 'Minimum'?'hoverSelected':'baseSelected'">{{'LBL_MIN_DUE' | translate}}
+        </mat-button-toggle>
+
+        <mat-button-toggle value="Amount" disableRipple="true" #togglebtn2 (click)="displayContent('Amount')"
+          [ngClass]="isChecked === 'Amount'?'hoverSelected':'baseSelected'">{{'LBL_SPECIFIC_AMOUNT' | translate}}
+        </mat-button-toggle>
+      </mat-button-toggle-group> -->
+
+      <div *ngIf="isChecked === 'FO'">
+
+        <div class="rowInnerCntr">
+          <div class="field">
+            <div class="label" translate>LBL_AMOUNT</div>
+            <div class="information1">{{(amountDetails.balance && selectedCardData.currency) ? (amountDetails.balance | currencyFormat: selectedCardData.currency + ' ' + selectedCardData.currency) : '--'}}</div>
+            <!-- <div class="information1">9,125.00 SAR</div> -->
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_COMMENTS</div>
+            <div class="commentTextarea">
+              <textarea type="text" cols="35" rows="5" [(ngModel)]="comments"></textarea>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div *ngIf="isChecked === 'SD'">
+
+        <div class="rowInnerCntr">
+          <div class="field">
+            <div class="label" translate>LBL_AMOUNT</div>
+            <div class="information1">{{(amountDetails.statementBalance && selectedCardData.currency) ? (amountDetails.statementBalance | currencyFormat: selectedCardData.currency + ' ' + selectedCardData.currency) : '--'}}</div>
+            <!-- <div class="information1">7,000.00 SAR</div> -->
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_COMMENTS</div>
+            <div class="commentTextarea">
+              <textarea type="text" cols="35" rows="5" [(ngModel)]="comments"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="isChecked === 'MD'">
+
+        <div class="rowInnerCntr">
+          <div class="field">
+            <div class="label" translate>LBL_AMOUNT</div>
+            <div class="information1">{{(amountDetails.dueAmount && selectedCardData.currency) ? (amountDetails.dueAmount | currencyFormat: selectedCardData.currency + ' ' + selectedCardData.currency) : '--'}}</div>
+            <!-- <div class="information1">400.00 SAR</div> -->
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_COMMENTS</div>
+            <div class="commentTextarea">
+              <textarea type="text" cols="35" rows="5" [(ngModel)]="comments"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="isChecked === 'SA'">
+
+        <div class="rowInnerCntr">
+          <div class="field">
+            <div class="label" translate>LBL_FULL_AMOUNT</div>
+            <div class="information1">{{(amountDetails.balance && selectedCardData.currency) ? (amountDetails.balance | currencyFormat: selectedCardData.currency + ' ' + selectedCardData.currency) : '--'}}</div>
+            <!-- <div class="information1">9,125.00 SAR</div> -->
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_MIN_DUE</div>
+            <div class="information1">{{(amountDetails.dueAmount && selectedCardData.currency) ? (amountDetails.dueAmount | currencyFormat: selectedCardData.currency + ' ' + selectedCardData.currency) : '--'}}</div>
+            <!-- <div class="information1">9,125.00 SAR</div> -->
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_OTHER_AMOUNT</div>
+            <div class="information">
+              <input class="limitText" type="text" [(ngModel)]="otherAmount" (change)="onChangeLimit($event)"
+                (keypress)="numberOnly($event)" />
+              <span class="currency" translate>LBL_SAR</span>
+            </div>
+            <div *ngIf="errMsg">
+                <span class="errorMsg mr10" translate>LBL_PROVIDE_VALID_AMOUNT</span>
+            </div>
+          </div>
+          <div class="field pad_t_20">
+            <div class="label" translate>LBL_COMMENTS</div>
+            <div class="commentTextarea">
+              <textarea type="text" cols="35" rows="5" [(ngModel)]="comments"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="creditCardPaymentLayout" *ngIf="title === 'review'">
+    <div class="sub">
+      <div>
+        <div class="subTitles" translate>LBL_AMOUNT_DETAILS</div>
+      </div>
+    </div>
+
+    <div class="rowInnerCntr">
+      <div class="field">
+        <div class="label" translate>{{labelToShow}}</div>
+        <div class="information1">{{amountToShow ? amountToShow + ' ' + selectedCardData.currency : '--'}}</div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_COMMENTS</div>
+        <div class="information1" translate>LBL_NOT_PROVIDED</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="title === 'review'" class="commonContainer">
+    <app-authorization *ngIf="flexAuthResp?.flexiAuth === 'true'" [authListDataSource]="authOptions" (authEmit)="getAuthorizationEmit($event)"
+      [authError]="noAuthorError"></app-authorization>
+    <app-authentication (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)"
+      [otpError]="otpError"></app-authentication>
+  </div>
+
+  <div class="footer">
+    <div *ngIf="title === 'review'" class="termsAndConditions" translate>
+      LBL_TERMS <a href="{{url}}" target="_blank" translate>LBL_THE_TERMS_AND_CONDITIONS</a>
+    </div>
+    <div class="finalProceed">
+      <app-tertiary-button buttonValue="LBL_CANCEL" (click)="toCancel()" *ngIf="title !== ''">
+      </app-tertiary-button>
+      <app-primary-button buttonValue="LBL_PROCEED" (click)="toProceed()" *ngIf="title === 'creditCardPayment'">
+      </app-primary-button>
+      <app-secondary-button buttonValue="LBL_MODIFY" (click)="toModify()" *ngIf="title === 'review'">
+      </app-secondary-button>
+      <!-- <app-primary-button buttonValue="LBL_SUBMIT" (click)="toSubmit()" *ngIf="title === 'review'">
+      </app-primary-button> -->
+    </div>
+  </div>
+</div>
+<app-receipt *ngIf="title === 'receipt'" [receiptDetails]="receiptObject" (onInitAgainClick)="makeAnotherPayment()"
+(DownloadReceiptClick)="downloadPdf()"
+>
+</app-receipt>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

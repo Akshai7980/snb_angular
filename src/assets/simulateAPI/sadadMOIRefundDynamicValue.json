@@ -1,0 +1,84 @@
+{
+    "data": [
+        {
+            "serviceCode": "001",
+            "parameters": [
+                {
+                    "maximumLength": 10,
+                    "minimumLength": 10,
+                    "type": "Number",
+                    "required": "true",
+                    "englishName": "Border Number",
+                    "name": "BeneficiaryId",
+                    "order": 1,
+                    "code": null,
+                    "parameterNameInArabic": null
+                },
+                {
+                    "maximumLength": 2,
+                    "minimumLength": 2,
+                    "type": "Dropdown",
+                    "required": "true",
+                    "englishName": "Job Category",
+                    "name": "JobCategory",
+                    "order": 4,
+                    "code": null,
+                    "parameterNameInArabic": "??? ??????",
+                    "DropdownValues": [
+                        {
+                            "typeCode": "JobCategory_Enum",
+                            "typeValue": "06",
+                            "typeValueNameLocal": "????? ??????",
+                            "typeValueNameEnglish": "Farming Labor",
+                            "lastDateTime": 1659983400000
+                        },
+                        {
+                            "typeCode": "JobCategory_Enum",
+                            "typeValue": "20",
+                            "typeValueNameLocal": "???????",
+                            "typeValueNameEnglish": "Relatives (Family Visa)",
+                            "lastDateTime": 1659983400000
+                        },
+                        {
+                            "typeCode": "JobCategory_Enum",
+                            "typeValue": "21",
+                            "typeValueNameLocal": "??????? ????????",
+                            "typeValueNameEnglish": "Housing Labor",
+                            "lastDateTime": 1659983400000
+                        },
+                        {
+                            "typeCode": "JobCategory_Enum",
+                            "typeValue": "22",
+                            "typeValueNameLocal": "????? ?????",
+                            "typeValueNameEnglish": "Shepherd Labor",
+                            "lastDateTime": 1659983400000
+                        },
+                        {
+                            "typeCode": "JobCategory_Enum",
+                            "typeValue": "23",
+                            "typeValueNameLocal": "????",
+                            "typeValueNameEnglish": "Other",
+                            "lastDateTime": 1659983400000
+                        }
+                    ]
+                },
+                {
+                  "maximumLength": 10,
+                  "minimumLength": 10,
+                  "type": "Date",
+                  "required": "true",
+                  "englishName": "Date",
+                  "name": "ValueDate",
+                  "order": 1,
+                  "code": null,
+                  "parameterNameInArabic": "??? ??????"
+              }
+            ]
+        }
+    ],
+    "headerValue": {
+        "moduleId": "SADADREFPARAMETRS",
+        "simulate": "N",
+        "_dinsess": "fc04350f-4eb8-49b9-95b9-aded41af85a0"
+    }
+}

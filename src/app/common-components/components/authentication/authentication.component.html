@@ -1,0 +1,105 @@
+
+<div class="authentication">
+  <div translate class="subTitles">LBL_AUTHENTICATION</div>
+  <mat-button-toggle-group *ngIf="isShowOtpTokenToggle">
+    <mat-button-toggle *ngIf="authtype.indexOf('O') >= 0"
+      value="OTP"
+      disableRipple="true"
+      #togglebtn1
+      (click)="displayContent('OTP')"
+      [ngClass]="isChecked == 'OTP'?'hoverSelected':'baseSelected'"
+      >{{'LBL_OTP' | translate}}</mat-button-toggle
+    >
+    <mat-button-toggle *ngIf="authtype.indexOf('ES') >= 0"
+      value="sftToken"
+      disableRipple="true"
+      #togglebtn1
+      (click)="displayContent('sftToken')"
+      [ngClass]="isChecked == 'sftToken'?'hoverSelected':'baseSelected'"
+      >{{'LBL_SOFT_TOKEN' | translate}}</mat-button-toggle
+    >
+    <mat-button-toggle *ngIf="authtype.indexOf('EH') >= 0"
+      value="Token"
+      disableRipple="true"
+      #togglebtn2
+      (click)="displayContent('Token')"
+      [ngClass]="isChecked == 'Token'?'hoverSelected':'baseSelected'"
+      >{{'LBL_TOKEN' | translate}}</mat-button-toggle
+    >
+  </mat-button-toggle-group>
+  <div class="otpContainer">
+    <div *ngIf="isChecked == 'OTP'">
+      <!-- <div translate class="geneStaTitles genericTitles">LBL_OTP</div> -->
+      <div class="mtop_10">
+        <div class="contentText">
+          <div><span translate>LBL_OTP_MSG</span></div>
+          <div class="mobNum">{{rootScopeData.userInfo.mobileNo}}</div>
+        </div>
+        <input type="password" autocomplete="off" #selectInput class="selectInput" placeholder="{{'LBL_OTP' | translate}}"  maxlength="4"  (keyup)="sendData($event)" (keypress)="numberOnly($event)" (blur)="otpOnBlur($event)"/>
+        <div *ngIf="otpError">
+          <small translate class="errorMsg">{{otpError}}</small>
+        </div>
+      </div>
+      <div class="otpMsgDiv">
+        <a *ngIf="!isShownOtp"(click)="shownOtp()">{{'LBL_RESEND_OTP' | translate}}</a>
+        <span class="otpmsg" *ngIf="isShownOtp">{{'LBL_REQUEST_RESEND_OTP' | translate}} {{timeLeft}} {{'LBL_SEC' | translate}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="sftToknContainer">
+    <div *ngIf="isChecked == 'sftToken'">
+      <div class="mtop_10">
+        <div class="contentText">
+         <div translate>LBL_TOKEN_MSG</div>
+        </div>
+        <input #selectInput class="selectInput" placeholder="{{'LBL_TOKEN_CODE' | translate}}" maxlength="8"
+          (keypress)="numberOnly($event)" (blur)="onBlurToken($event)" />
+        <div  *ngIf="otpError">
+          <small translate class="errorMsg">{{otpError}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tokenBox" *ngIf="isChecked == 'Token'">
+  
+      <!-- <div class="pvn">
+        <div translate class="geneStaTitles genericTitles">LBL_PVN</div>
+        <div class="mtop_10">
+          <input class="selectInput" placeholder="{{'LBL_TOKEN_CODE' | translate}}" />
+        </div>
+      </div>
+      <div class="tokenCode">
+        <div translate class="geneStaTitles genericTitles">LBL_TOKEN_CODE</div>
+        <div class="mtop_10">
+        <input class="selectInput" placeholder="" />
+      </div>
+      </div> -->
+  <div class="tokenContainer">
+    <div class="mtop_10">
+      <div class="contentText">
+      <div translate>LBL_TOKEN_MSG</div>
+      </div>
+      <div>      
+        <input   class="selectInput" placeholder="{{'LBL_TOKEN_CODE' | translate}}" maxlength="8"
+        (keypress)="numberOnly($event)"  (blur)="onBlurToken($event)" (keyup)="setFieldStatus($event)" [(ngModel)]="tokenCode" />
+       
+      </div>
+    </div>
+    <div class="mtop_10">
+      <div class="contentText">
+      <div translate>LBL_PVN_MSG</div>
+      </div>
+      <div>      
+        <input #selectInput type="password" class="selectInput shortText" placeholder="{{'LBL_PVN' | translate}}" maxlength="4" 
+        (keypress)="numberOnly($event)"  (keyup)="sendData($event)" [disabled]="disableField"/>
+      </div>
+    </div>
+    
+  </div>    
+  <div class="tokenErr" *ngIf="otpError">
+    <small translate class="errorMsg">{{otpError}}</small>
+  </div>
+    
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> 

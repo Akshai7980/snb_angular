@@ -1,0 +1,91 @@
+<div class="parentDiv" id="serviceInquiryRequestSummary">
+    <div class="mainTitle">
+        <div class="backIcon backArrow" (click)="onClickBackArrow()"></div>
+        <span translate>LBL_REQ_SUMMARY</span>
+    </div>
+    <div class="container">
+        <div class="right_align">
+            <app-summary-tools [printSection]="printSection" [moduleId]="'CARDINQ'" [isshowndownloadablePrint]="true" [isshownPrint]="false"></app-summary-tools>
+        </div>
+        <div class="row" id="logoPrint">
+            <div><img class="logo" src="{{ logo }}" /></div>
+            <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+        </div>
+        <div class="fileDetails">
+            <div class="title bold">
+                {{'LBL_REISSUE_CARD_REQ_FROM' | translate}} {{serviceDetails.cardName}}, {{serviceDetails.accNo}}
+                <!-- Name and account number -->
+            </div>
+            <div class="title">
+                {{"LBL_TRANSACTION_REF_NUM" | translate}}
+                {{serviceDetails.refNo}}
+                <!-- Reference number -->
+            </div>
+            <div class="title">
+                {{'LBL_ON' | translate}} {{serviceDetails.cardDate}}
+                <!-- Show date from an api -->
+                <!-- <div class="pad_l_10">
+                    <button class="status-red-button statusButton" translate>
+                        Pending for Approval
+                    </button>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="cardDetailsContainer">
+            <div class="subContainer">
+                <div class="subTitles" translate> LBL_REQUEST_DETAILS </div>
+                <div class="rowInnerCntr">
+                    <div class="field">
+                        <div class="label" translate> LBL_CARD_TYPE </div>
+                        <div class="information">
+                            <span> {{serviceDetails.cardType}} </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_CARD_NO </div>
+                        <div class="information">
+                            <span> {{serviceDetails.cardNo | maskCardNumber}} </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_CARD_HOLDER_NAME</div>
+                        <div class="information"> {{serviceDetails.cardName}} </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_DATE</div>
+                        <div class="information"> {{serviceDetails.cardDate}} </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_STATUS</div>
+                        <div class="information">{{serviceDetails.statusDesc}}</div>
+                    </div>
+                    <!-- <div class="field">
+                        <div class="label" translate>LBL_VAT</div>
+                        <div class="information">0.8 SAR</div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="summaryOuterContainer">
+        <div class="summaryContainer">
+            <app-work-flow [workFlowData]="workFlowAndHistoryParams"></app-work-flow>
+        </div>
+    </section>
+
+    <section class="summaryOuterContainer">
+        <div class="summaryContainer">
+            <app-history [historyData]="workFlowAndHistoryParams"></app-history>
+        </div>
+    </section>
+
+    <div class="btnGroup mtop_20">
+        <div>
+            <app-tertiary-button buttonValue="LBL_BACK" (click)="onClickBackArrow()">
+            </app-tertiary-button>
+        </div>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

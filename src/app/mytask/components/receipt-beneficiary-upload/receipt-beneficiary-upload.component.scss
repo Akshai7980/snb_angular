@@ -1,0 +1,126 @@
+.mainContainer {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 25px 0px 0px;
+
+  .title {
+    padding: 0px 0px 0px 5px;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    margin: 0px;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+  }
+}
+
+.main-container {
+  position: relative;
+  padding: 20px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-family: 'HelveticaNeue', arial, sans-serif;
+  font-size: 16px;
+  color: var(--tableData-header-color);
+  text-decoration: none solid var(--input-text-color);
+  margin-top: 20px;
+
+  .sub-title {
+    font-size: 15px;
+    color: var(--tableData-header-color);
+    margin: 0px;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    margin-bottom: 20px;
+  }
+
+  .input-label {
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    font-size: 14px;
+    color: var(--table-header-color);
+  }
+
+  .fileDetailsContainer {
+    padding: 0px 0px 25px 10px;
+  }
+
+  .fileDetailsSubContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.record-summary-container {
+  margin-top: 20px;
+  position: relative;
+
+}
+
+.actionGroup {
+  float: right;
+  display: flex;
+  align-self: flex-end;
+  justify-content: flex-end;
+  margin-top: 30px;
+  // margin-right: 18px;
+}
+
+.fileNameDownload {
+  margin-left: -25px;
+  margin-top: -8px;
+}
+
+.fileName {
+  margin-top: 15px;
+  word-break: break-word;
+}
+
+.summaryOuterConainer {
+  .summaryConainer {
+    border-radius: 10px;
+    background: var(--primary-widget-bg-color);
+    border: 1px solid var(--widget-border-color);
+    margin-top: 20px;
+
+    padding-bottom: 15px !important;
+  }
+}
+
+.backButton {
+  margin-right: 15px;
+  width: 100px !important;
+}
+
+.fileDownload {
+  color: var(--input-text-color);
+  font-size: 14px;
+  font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+
+.label-content {
+  color: var(--input-text-color);
+  font-size: 14px;
+  font-family:  'HelveticaNeueMed', arial, sans-serif;
+}
+
+.input-records {
+  font-size: 14px;
+  font-family:'HelveticaNeueMed', arial, sans-serif;
+}
+
+.spinnerPosition{
+  position: absolute;
+  top: 15px;
+  left: 20%;
+
+}

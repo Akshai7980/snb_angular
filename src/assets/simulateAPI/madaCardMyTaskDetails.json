@@ -1,0 +1,18 @@
+{
+  "data": {
+    "refNo": "TBC2207021533397",
+    "cardNo": "10107654360011",
+    "expiryDate": "23/09/2025",
+    "cardName": "Dameer Ahsan",
+    "currentLmt": "10000",
+    "newLmt": "20000",
+    "ccy": "SAR",
+    "status": "active",
+    "productCode": "CORESVS",
+    "subProductCode": "MADPOSLIM",
+    "functionCode": "POSLMFNC"
+  },
+  "headerValue": {
+    "moduleId": "MADAPOSLMTDETAIL"
+  }
+}

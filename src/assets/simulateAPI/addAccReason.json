@@ -1,0 +1,28 @@
+{
+    "headerValue": {
+        "moduleId": "ACCREASON",
+        "simulate": "N",
+        "export": null,
+        "exportType": null,
+        "_dinsess": "9c6e5df8-4cc9-4862-9209-c3c19b588149",
+        "sortColumn": null,
+        "sortOrder": null,
+        "sortDirection": null
+    },
+    "data": [
+        {
+            "reasonDetails": [
+                {
+                    "reasonId": "02",
+                    "reason": "Business Related"
+                  
+                },
+                {
+                    "reasonId": "01",
+                    "reason": "Saving "
+                  
+                }
+            ]
+        }
+    ]
+}

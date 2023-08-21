@@ -1,0 +1,135 @@
+<div>
+    <div class="mTop_18">
+        <!-- <div class="actionsConatiner">
+            <div class="leftPannel">
+              <div class="searchCntnrLeft">
+                  <app-search [showAdvanceSearch]="true" (childEvent)="triggerSearchFilter($event)"></app-search>
+              </div>
+          </div>
+          <div>
+              <div>
+                  <app-refresh (onRefresh)="refreshSummary()"></app-refresh>
+              </div>
+          </div>
+        </div> -->
+        <!-- <div class="refreshCntr"><app-refresh (click)="refreshSummary()"></app-refresh></div> -->
+    </div>
+    <div *ngIf="!norecordflag" id="alertsDefaultCntr">
+        <table mat-table [dataSource]="dataSourceToPass" class="casaTable" *ngIf="responseHeader !== undefined">
+
+            <!-- <ng-container matColumnDef="checkbox">
+                <th mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox [(ngModel)]="selectedAll" (change)="triggerCheckAll($event)"
+                    ></mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let element let i = index">
+                    <mat-checkbox [(ngModel)]="element.selected" (change)="triggercheckIfAllSelected($event,element, i)">
+                    </mat-checkbox>
+                </td>
+                <td mat-footer-cell *matFooterCellDef></td>
+            </ng-container> -->
+
+
+            <ng-container matColumnDef="datetime">
+                <th mat-header-cell *matHeaderCellDef class="col-date">
+                    <div class="position_rel"
+                    (click)="sortColumn('messageStrTs')"
+                        translate>LBL_DATETIME
+
+                        <span
+                            *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'messageStrTs'">
+                            <img src="assets/images/sortDown.svg" class="img-style">
+                            <img src="assets/images/sortDown.svg" class="sortUp">
+                        </span>
+                        <span
+                            *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'messageStrTs'">
+                            <img src="assets/images/sortDown.svg"
+                                *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+                                class="img-style">
+                            <img src="assets/images/sortDown.svg"
+                                *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+                                class="sortUpAscending">
+                        </span>
+
+                    </div>
+                </th>
+                <td mat-cell *matCellDef="let element" class="col-date"> {{element.messageStrTs |dateFormat}}<span
+                        *ngIf="!element.messageStrTs">--</span> </td>
+            </ng-container>
+            <ng-container matColumnDef="refno">
+                <th mat-header-cell *matHeaderCellDef class="col-transtype">
+                    <div class="position_rel"
+                    (click)="sortColumn('odRelNumber')"
+                        translate> LBL_REF_NUMBER
+
+                        <span
+                            *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'odRelNumber'">
+                            <img src="assets/images/sortDown.svg" class="img-style" (click)="sortdown('odRelNumber')">
+                            <img src="assets/images/sortDown.svg" class="sortUp" (click)="sortup('odRelNumber')">
+                        </span>
+                        <span
+                            *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'odRelNumber'">
+                            <img src="assets/images/sortDown.svg"
+                                *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+                                class="img-style">
+                            <img src="assets/images/sortDown.svg"
+                                *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+                                class="sortUpAscending">
+                        </span>
+
+                    </div>
+                </th>
+                <td mat-cell *matCellDef="let element" class="col-transtype"> {{element.odRelNumber}} </td>
+            </ng-container>
+            <ng-container matColumnDef="subject">
+                <th mat-header-cell *matHeaderCellDef class="col-mes">
+                    <div class="position_rel"
+                    (click)="sortColumn('odMailSubject')"
+                        translate>LBL_SUBJECT
+
+                        <span
+                            *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'odMailSubject'">
+                            <img src="assets/images/sortDown.svg" class="img-style" (click)="sortdown('odMailSubject')">
+                            <img src="assets/images/sortDown.svg" class="sortUp" (click)="sortup('odMailSubject')">
+                        </span>
+                        <span
+                            *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'odMailSubject'">
+                            <img src="assets/images/sortDown.svg"
+                                *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+                                class="img-style">
+                            <img src="assets/images/sortDown.svg"
+                                *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+                                class="sortUpAscending">
+                        </span>
+
+                    </div>
+                </th>
+                <td mat-cell *matCellDef="let element" class="col-mes">
+                    {{(element.odMailSubject.length>20)? (element.odMailSubject |
+                    slice:0:25)+'...':(element.odMailSubject)}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef translate>LBL_ACTION</th>
+                <td mat-cell *matCellDef="let element">
+                    <div class="actionIcon" (click)="popupFunction(element)"></div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <div *ngIf="norecordflag">
+        <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+    </div>
+    <div *ngIf="!norecordflag">
+        <app-pagination #paginator [dataSourceLength]="dataSourceLength" [currentRecord]="'trash'"
+            [totalRecords]="totalRecords" (onPaginationChange)="paginationChangeClick($event)"></app-pagination>
+
+    </div>
+    
+</div>
+
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

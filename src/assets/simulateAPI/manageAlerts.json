@@ -1,0 +1,48 @@
+{
+    "headerValue": {
+      "moduleId": "MANAGEALERTS",
+      "simulate": null
+    },
+    "data": [
+      {
+        "channelSms": null,
+        "channelEmail": null,
+        "channelPushNotify": null,
+        "odProductCode": "Collections and Receivables",
+        "odSubprodCode": "DDIUPL",
+        "channelInbox": "Y",
+        "alertDescription": "Direct Debit Instruction Upload",
+        "odPortalProductCode": "COLREC"
+      },
+      {
+        "channelSms": null,
+        "channelEmail": null,
+        "channelPushNotify": null,
+        "odProductCode": "Collections and Receivables",
+        "odSubprodCode": "DDMUPL",
+        "channelInbox": "Y",
+        "alertDescription": "Direct Debit Mandate Upload",
+        "odPortalProductCode": "COLREC"
+      },
+      {
+        "channelSms": null,
+        "channelEmail": null,
+        "channelPushNotify": null,
+        "odProductCode": "Collections and Receivables",
+        "odSubprodCode": "DDTXN",
+        "channelInbox": "Y",
+        "alertDescription": "Direct Debit Transaction",
+        "odPortalProductCode": "COLREC"
+      },
+      {
+        "channelSms": null,
+        "channelEmail": null,
+        "channelPushNotify": null,
+        "odProductCode": "Collections and Receivables",
+        "odSubprodCode": "DEREC",
+        "channelInbox": "Y",
+        "alertDescription": "De Reconciliation",
+        "odPortalProductCode": "COLREC"
+      }
+    ]
+  }

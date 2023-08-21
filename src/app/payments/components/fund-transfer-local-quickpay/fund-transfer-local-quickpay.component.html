@@ -1,0 +1,106 @@
+<div class="subconatiner mtop_20">
+    <div translate class="subTitles">LBL_TO</div>
+    <div translate class="subTitles_mtop21">LBL_QUICK_TRANSFER</div>
+
+    <div class="rowInnerCntr">
+        <div class="field">
+            <div translate class="label">LBL_RECEIPIENT_BANK<span class="required">*</span></div>
+            <div class="mtop_10">
+                <div class="information">
+                    <mat-select class="selectInput" panelClass="dropDownOption" [(value)]="quickTransferDetailsObj.quickTransferReceipientBank" disableOptionCentering (selectionChange)="recipientBankChanged($event)" placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}">                                
+                        <mat-option value="{{recipientBank.bankName}}" *ngFor="let recipientBank of recipientBankArrayDataSource" (click)="selectedBank(recipientBank)">
+                            {{recipientBank.bankName}}
+                    </mat-option>
+                    </mat-select>
+                </div>
+                <small *ngIf="quickTransferDetailsObj.quickTransferReceipientBankError" translate class="errorMsg">{{quickTransferDetailsObj.quickTransferReceipientBankError}}</small>          
+            </div>
+        </div>
+
+        <div class="field">
+            <div translate class="label">LBL_AMOUNT<span class="required">*</span></div>
+            <div class="mtop_10">
+                <div class="information"><input type="text" [(ngModel)]="quickTransferDetailsObj.quickTransferAmount"
+                        (blur)="amountOnBlur()" (keypress)="validateNumber($event)" maxlength="100" name="AccountNumber" matInput autocomplete="off">
+                </div>
+                <small *ngIf="quickTransferDetailsObj.quickTransferAmountError" translate class="errorMsg">{{quickTransferDetailsObj.quickTransferAmountError}}</small>
+            </div>
+        </div>
+        <div class="field_verify">
+            <app-primary-button buttonValue="LBL_VERIFY" (click)="onVerify()"></app-primary-button>
+        </div>
+    </div>
+
+    <div *ngIf="onNextVerify" class="togglePayment">
+        <div *ngFor="let statementInfo of displayList" class="toggle"
+            (click)="displayContent(statementInfo.id)" [class.active]="paymentActiveTab == statementInfo.id">
+            {{statementInfo.values | translate}}</div>            
+    </div>
+
+    <div class="rowInnerCntr">
+        <div class="field" *ngIf="onNextVerify && paymentActiveTab === 'IBAN'">
+            <div translate class="label">LBL_ACC_IBAN_NO<span class="required">*</span></div>
+            <div class="mtop_10">                 
+                <div class="information overlapPosition">
+                    <span class="overlapInputInQuickTrans" translate>LBL_SA</span>
+                    <input type="text" [(ngModel)]="quickTransferDetailsObj.quickTransferIBAN" class="overlapInputData ibanNo"
+                        placeholder="{{'LBL_ENTER_IBAN' | translate}}" (blur)="onQTiban()" maxlength="22" name="AccountNumber" matInput
+                        autocomplete="off" minlength="22"  (keypress)="numberOly($event)" appNumbersOly>
+                </div>
+            </div>
+            <small *ngIf="quickTransferDetailsObj.quickTransferIBANError" translate class="errorMsg">{{quickTransferDetailsObj.quickTransferIBANError}}</small>
+            <small *ngIf="bankverifyError" translate class="errorMsg">LBL_PLEASE_SELECT_VALID_BANK</small>
+        </div>
+
+        <div class="field" *ngIf="paymentActiveTab === 'MOB'">
+            <div translate class="label">LBL_MOBILE_NUMBER<span class="required">*</span></div>
+            <div class="mtop_10">
+                <div class="information"><input type="text" [(ngModel)]="quickTransferDetailsObj.quickTransferMobileNum" maxlength="100" 
+                        name="AccountNumber" (blur)="onQTMobile()" (keypress)="checkPhoneNumberValidate($event)" matInput autocomplete="off" maxlength="12" appNumbersOly>
+                </div>
+            </div>
+            <small *ngIf="quickTransferDetailsObj.quickTransferMobileNumError" translate class="errorMsg">{{quickTransferDetailsObj.quickTransferMobileNumError}}</small>
+        </div>
+
+        <div class="field" *ngIf="paymentActiveTab === 'NID'">
+            <div translate class="label">LBL_NATIONAL_ID<span class="required">*</span></div>
+            <div class="mtop_10">
+                <div class="information"><input type="text" [(ngModel)]="quickTransferDetailsObj.quickTransferNationalID"
+                        (keypress)="numberOly($event)" maxlength="10" name="AccountNumber" (blur)="onQTnational()" matInput
+                        autocomplete="off" appNumbersOly>
+                </div>
+            </div>
+            <small *ngIf="quickTransferDetailsObj.quickTransferNationalIDError" translate class="errorMsg">{{quickTransferDetailsObj.quickTransferNationalIDError}}</small>
+        </div>
+
+        <div class="field" *ngIf="paymentActiveTab === 'EID'">
+            <div translate class="label">LBL_EMAIL_ID<span class="required">*</span></div>
+            <div class="mtop_10">
+                <div class="information"><input type="text" [(ngModel)]="quickTransferDetailsObj.quickTransferEmailID"
+                    maxlength="50" name="AccountNumber" (blur)="onQTEmail()"matInput
+                        autocomplete="off">
+                </div>
+            </div>
+            <small *ngIf="quickTransferDetailsObj.quickTransferEmailIDError" translate class="errorMsg">{{quickTransferDetailsObj.quickTransferEmailIDError}}</small>
+            <small *ngIf="!isEmailValidation" translate class="errorMsg">LBL_ENTER_VAL_EMAIL_ID</small>
+        </div>
+
+        <div class="field" *ngIf="onNextVerify && paymentActiveTab === 'IBAN'">
+            <div translate class="label">LBL_BENEFICIARY_FULL_NAME<span class="required">*</span></div>
+            <div class="mtop_10">
+                <div class="information"><input type="text" [(ngModel)]="quickTransferDetailsObj.quickTransferBeneName"
+                        placeholder="{{'LBL_ENTER_FULL_NAME' | translate}}" (keypress)="omit_special_char($event)" maxlength="70" (blur)="onQTBeneName()"
+                        name="AccountNumber" matInput autocomplete="off">
+                </div>
+            </div>
+            <small *ngIf="quickTransferDetailsObj.quickTransferBeneNameError" translate class="errorMsg">{{quickTransferDetailsObj.quickTransferBeneNameError}}</small>
+        </div>       
+    </div>
+</div>
+<div class="flexEnd">
+    <app-tertiary-button *ngIf="backbutton" class="backButton" buttonValue="LBL_BACK" (click)="back()">
+    </app-tertiary-button>
+</div>
+
+
+

@@ -1,0 +1,84 @@
+.title {
+  width: 215px;
+  height: 30px;
+  padding: 0px 0px 0px 5px;
+  background-size: cover;
+  font-size: 18px;
+  color: var(--input-text-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+
+.beneficiaryDetails {
+  padding: 15px;
+  margin-top: 15px;
+  border: 1px solid var(--bene-border-color);
+  border-radius: 10px;
+  background-color: var(--secondary-btn-print-bgcolor);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  .sub {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .inner {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.rowInnerCntr {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 11px;
+  padding-top: 14px;
+  .field {
+    width: 33.33%;
+    padding-bottom: 20px;
+    &.field-bottom {
+      padding-bottom: 5px;
+    }
+    .label {
+      font-family: "HelveticaNeueMed", arial, sans-serif;
+      color: var(--table-header-color);
+      font-size: 14px;
+    }
+    .label-content {
+      font-family: "HelveticaNeue";
+      font-size: 14px;
+      color: var(--input-text-color);
+      text-decoration: none solid var(--text-decoration-color);
+    }
+    .information {
+      padding-top: 10px;
+      color: var(--tableData-header-color);
+
+      &.data {
+        padding-top: 20px;
+      }
+    }
+  }
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+a{
+  text-decoration: none;
+}
+
+.footerText {
+  margin-left: 5px;
+  display: inline-block;
+  font-family: "HelveticaNeue", arial, sans-serif;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  .termsContainer {
+    color: var(--secondary-btn-print-border-color);
+  }
+}

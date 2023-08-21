@@ -1,0 +1,107 @@
+.outerContainer {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.beneficiaryDetails {
+  padding: 15px;
+  margin-top: 15px;
+  border: 1px solid var(--bene-border-color);
+  border-radius: 10px;
+  background-color: var(--secondary-btn-print-bgcolor);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+}
+
+.rowInnerCntr {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  padding-left: 11px;
+  padding-top: 14px;
+}
+
+.field {
+  width: 33.33%;
+  padding-bottom: 20px;
+}
+
+.label {
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  color: var(--table-header-color);
+  font-size: 14px;
+}
+
+.information {
+  padding-top: 10px;
+  color: var(--tableData-header-color);
+
+  &.data {
+    padding-top: 20px;
+  }
+}
+
+.selectInput {
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  width: 300px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--input-text-color);
+  cursor: pointer;
+}
+
+.templateGuideLineContainer {
+  margin: 0px 20px 0px 33px;
+  display: flex;
+  cursor: pointer;
+  color: var(--secondary-btn-bg-color);
+
+  & img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+}
+
+.templateContainer {
+  display: flex;
+  margin: 41px 0px 0px 0px;
+}
+
+.actionGroup {
+  float: right;
+  display: flex;
+  align-self: flex-end;
+  justify-content: flex-end;
+  margin-top: 30px;
+  margin-right: 18px;
+}
+
+.showButtons {
+  margin-left: 12px;
+}
+
+.browseContainer {
+  margin-left: 12px;
+}
+
+.uploadContainer {
+  display: flex;
+  align-items: center;
+  padding: 15px 15px 0px;
+
+  .upload-file {
+    width: 28%;
+    max-height: 350px;
+
+    .upload-file-title {
+      font-family: "HelveticaNeueMed", arial, sans-serif;
+    }
+  }
+
+
+}

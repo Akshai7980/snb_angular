@@ -1,0 +1,35 @@
+{
+    "headerValue": {
+        "moduleId": "PMNTSGETFLDDATA",
+        "simulate": null,
+        "export": null,
+        "exportType": null,
+        "_dinsess": null,
+        "languageId": null,
+        "sortColumn": null,
+        "sortOrder": null
+    },
+    "data": [
+        {
+            "bankDetails": [
+                {
+                    "bankShortCode": "AUB SEEF HQ",
+                    "location": "BH",
+                    "zip": null,
+                    "bankDescription": "AHLI UNITED BANK B S C",
+                    "state": null,
+                    "status": "O",
+                    "city": "SAUDI",
+                    "country": "BAHRAIN",
+                    "swiftCode": "AUBBBHBMXXX",
+                    "branchCode": "999999",
+                    "bankCode": "5970",
+                    "branchName": "AUB SEEF HQ2832 2495 ROAD",
+                    "address1": "AUB SEEF HQ2832 2495 ROAD",
+                    "address2": "ALSEEF DISTRICT 428MANAMA",
+                    "countryCode": "BH"
+                }
+            ]
+        }
+    ]
+}

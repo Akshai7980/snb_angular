@@ -1,0 +1,98 @@
+<div class="titleContainer" translate>LBL_USER_PROFILE</div>
+<div class="subContainer">
+<div class="subTitles" translate>LBL_USER_DETAILS</div>
+<div class="profilePicContainer">
+   <div class="inputEditIcon">
+      <div class="inputalign">
+        <input type="file" (change)="selectFile($event)" id="imgInput" accept="image/*" />
+            <img class="camIcon" src="./assets/images/Icopencial.svg" alt="upload img" >
+        </div>
+    </div>
+   <div class="profileDummyIcon"><img *ngIf="profilePicUrl"  src="{{profilePicUrl}}?{{rootScopeData.randomeNumber}}" class="profilePic" onerror="this.src='./assets/images/blank-profile-picture.png'"></div>
+</div>
+<div *ngIf="showInvalidFileError" class="error"><small class="required" translate>LBL_SUPPORTED_FILES</small></div>
+<div class="detailsContainer">
+   <div class="fxContainer">
+      <div class="column1">
+         <div class="headerColumn" translate>LBL_NAME</div>
+         <div class="dataColumn" *ngIf="userProfiledata.FIRST_NAME">{{userProfiledata.FIRST_NAME}}</div>
+         <div class="dataColumn" *ngIf="!userProfiledata.FIRST_NAME">--</div>
+      </div>
+      <div class="column2">
+         <div class="headerColumn" translate>LBL_ACTION_BY</div>
+         <div class="dataColumn" *ngIf="userProfiledata.OD_MAKER_NAME">{{userProfiledata.OD_MAKER_NAME}}</div>
+         <div class="dataColumn" *ngIf="!userProfiledata.OD_MAKER_NAME">--</div>
+      </div>
+      <div class="column3">
+         <div class="headerColumn" translate>LBL_ROLE</div>
+         <div class="dataColumn" *ngIf="userProfiledata.OD_ROLE_DESC">{{userProfiledata.OD_ROLE_DESC}}</div>
+         <div class="dataColumn" *ngIf="!userProfiledata.OD_ROLE_DESC">--</div>
+      </div>
+   </div>
+   <div class="subHead" translate>LBL_CONTACT_DETAILS</div>
+   <div class="fxContainer mt-top">
+      <div class="column1">
+         <div class="headerColumn" translate>LBL_EMAIL_ID</div>
+         <div class="dataColumn"*ngIf="userProfiledata.EMAIL_ID">{{userProfiledata.EMAIL_ID}}</div>
+         <div class="dataColumn" *ngIf="!userProfiledata.EMAIL_ID">--</div>
+      </div>
+      <div class="column2">
+         <div class="headerColumn" translate>LBL_LANDLINE</div>
+         <div class="dataColumn"*ngIf="userProfiledata.OFF_PH">{{userProfiledata.OFF_PH}}</div>
+         <div class="dataColumn" *ngIf="!userProfiledata.OFF_PH">--</div>
+      </div>
+      <div class="column3">
+         <div class="headerColumn" translate>LBL_MOBILE</div>
+         <div class="dataColumn"*ngIf="userProfiledata.MOBILE_NO">{{userProfiledata.MOBILE_NO}}</div>
+         <div class="dataColumn" *ngIf="!userProfiledata.MOBILE_NO">--</div>
+      </div>
+   </div>
+   <div class="subHead" translate>LBL_ADDRESS</div>
+   <div class="fxContainer mt-top">
+      <div class="column1">
+         <div class="headerColumn" translate>LBL_ADDRESS_LINE1</div>
+         <div class="dataColumn"*ngIf="userProfiledata.ADDRESS_LINE1">{{userProfiledata.ADDRESS_LINE1}}</div>
+         <div class="dataColumn" *ngIf="!userProfiledata.ADDRESS_LINE1">--</div>
+      </div>
+      <div class="column2">
+         <div class="headerColumn" translate>LBL_ADDRESS_LINE2</div>
+         <div class="dataColumn"*ngIf="userProfiledata.ADDRESS_LINE2">{{userProfiledata.ADDRESS_LINE2}}</div>
+         <div class="dataColumn" *ngIf="!userProfiledata.ADDRESS_LINE2">--</div>
+      </div>
+      <div class="column3">
+         <div class="headerColumn" translate>LBL_RESIDENTIAL_AREA</div>
+         <div class="dataColumn"*ngIf="userProfiledata.OD_RES_AREA_UL">{{userProfiledata.OD_RES_AREA_UL}}</div>
+         <div class="dataColumn" *ngIf="!userProfiledata.OD_RES_AREA_UL">--</div>
+      </div>
+   </div>
+   <div class="fxContainer inner-mt-top">
+      <div class="column1">
+         <div class="headerColumn" translate>LBL_COUNTRY</div>
+         <div class="dataColumn"*ngIf="userProfiledata.OD_COUNTRY_UL">{{userProfiledata.OD_COUNTRY_UL}}</div>
+         <div class="dataColumn" *ngIf="!userProfiledata.OD_COUNTRY_UL">--</div>
+      </div>
+      <div class="column2">
+         <div class="headerColumn" translate>LBL_CITY</div>
+         <div class="dataColumn"*ngIf="userProfiledata">{{userProfiledata.OD_CITY_UL}}</div>
+         <div class="dataColumn" *ngIf="!userProfiledata.OD_CITY_UL">--</div>
+      </div>
+      <div  class="column3">
+         <div class="headerColumn" translate>LBL_PROVINCE_STATE</div>
+         <div class="dataColumn"*ngIf="userProfiledata.OD_CITY_UL">{{userProfiledata.OD_PROVINCE_UL}}</div>
+         <div class="dataColumn" *ngIf="!userProfiledata.OD_PROVINCE_UL">--</div>
+      </div>
+   </div>
+   <div class="fxContainer inner-mt-top">
+      <div class="column1">
+         <div class="headerColumn" translate>LBL_PO_BOX</div>
+         <div class="dataColumn"*ngIf="userProfiledata.ZIP_CODE">{{userProfiledata.ZIP_CODE}}</div>
+         <div class="dataColumn" *ngIf="!userProfiledata.ZIP_CODE">--</div>
+      </div>
+   </div>
+   <div class="inner-mt-top"></div>
+</div>
+</div>
+<div class="buttons">
+   <app-tertiary-button (click)="onClickBack()" buttonValue="LBL_BACK"></app-tertiary-button>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

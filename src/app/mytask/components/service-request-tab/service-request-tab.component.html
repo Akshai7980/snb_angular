@@ -1,0 +1,15 @@
+<div class="worksapceBase">
+    <div class="content-header" translate>LBL_SERVICE_REQUEST</div>
+    
+    <div class="tabCntr">
+        <ul>
+         
+            <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_OTHER_REQUEST"><a routerLink="deposit" [class.active]="rootScopeData.activeTabName === 'deposit'" translate>LBL_OTHER_REQUEST<span *ngIf="this.rootScopeData.serviceRequestDepositCount" class="actionHide"> ({{this.rootScopeData.serviceRequestDepositCount}})</span></a></li>
+            <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_ADDITIONAL_ACCOUNT" class="add"><a routerLink="additionalAccount" [class.active]="rootScopeData.activeTabName === 'additionalAccount'" translate>LBL_ADDITIONAL_ACCOUNT<span *ngIf="this.rootScopeData.additionalAccountCount"  class="actionHide"> ({{this.rootScopeData.additionalAccountCount}})</span></a></li>      
+        </ul>
+    </div>
+    <div class="tabDataCntr">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+    

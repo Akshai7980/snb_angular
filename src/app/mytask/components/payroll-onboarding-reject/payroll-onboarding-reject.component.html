@@ -1,0 +1,57 @@
+<div *ngIf="!receiptForm">
+  <div class="detailsTitleContainer">
+    <div>
+      <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+      <div class="mainTitle" translate>LBL_REJ_PAYROLL_ONBOARDING</div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="subTitles">
+      <span translate>LBL_PAYROLL_ONBOARDING</span>
+    </div>
+    <div class="refNO">
+      {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+      <b><span>{{
+          onboardingFeeDetails?.referenceNo
+          ? onboardingFeeDetails?.referenceNo
+          : "--"
+          }}</span></b>
+    </div>
+    <div class="title">
+      <button *ngIf="onboardingFeeDetails?.statusDesc" class="status-green-button" translate [class.status-red-button]="
+          onboardingFeeDetails?.statusCode === 'RN' ||
+          onboardingFeeDetails?.statusCode === 'RS' ||
+          onboardingFeeDetails?.statusCode === 'RE' ||
+          onboardingFeeDetails?.statusCode === 'RO' ||
+          onboardingFeeDetails?.statusCode === 'RH'
+        ">
+        {{ onboardingFeeDetails.statusDesc }}
+      </button>
+    </div>
+    <div class="rejectReasonContainer">
+      <div class="rejecthead" translate>
+        LBL_RJCT_RSN
+        <span class="required">*</span>
+      </div>
+      <div>
+        <div class="rejecttextarea">
+          <textarea autofocus [(ngModel)]="rejectReasonText" maxlength="200" (keyup)="onEnterReason()"></textarea>
+          <div class="errorMsg" *ngIf="isRejectReasonValid" translate>
+            {{ rejectReasonError }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="btnContainer">
+        <app-tertiary-button buttonValue="LBL_CANCEL" class="tertiaryBtn" (click)="initiateAnotherRequest()">
+        </app-tertiary-button>
+        <app-primary-button buttonValue="LBL_SUBMIT" (click)="onSubmit()">
+        </app-primary-button>
+      </div>
+    </section>
+  </div>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)">
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

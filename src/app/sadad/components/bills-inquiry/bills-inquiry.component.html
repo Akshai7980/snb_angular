@@ -1,0 +1,47 @@
+<div class="mainContainer">
+    <div translate class="title">LBL_BILL_INQUIRY</div>
+    <div class="subContainer" id="accountsPrintSection">
+        <div class="row" id="logoPrint">
+            <div><img class="logo" src="assets/images/snb-logo-print.png"> </div>
+            <!-- <div><span class="logotext" translate>LBL_ECORP</span></div> -->
+            <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+        </div>
+        <div class="titleConatiner">
+            <div class="titleIcons">
+                <div class="gridline01">
+                    <div class="accountIcon"></div><div translate>LBL_BILLS</div> 
+                </div>
+                <div class="gridline02">
+                    <div class="summarytools" *ngIf="enablePropertty"><app-summary-tools [printSection]="printSection" [isshowndownloadablePrint]="isShownDocPrint" [isshownPrint]="shownPrint"  [moduleId]=rootScopeData.accountsActiveModule></app-summary-tools></div>           
+                </div>   
+            </div>
+            
+            <div class="actionConatinere">
+                
+            </div>
+        </div>
+        <div class="mtop_10 subTitleConatiner">
+            <ul class="titleList">
+                <li *ngIf="rootScopeData.userEntitlements.tabs.SADAD_BILLER_INQ" routerLink="./sadadBillerInquiry" class="animate" [ngClass]="this.rootScopeData.activeTabName==='sadadBiller' ? 'listActive':'listInactive'"><a translate>LBL_SADAD <span *ngIf="rootScopeData.sadadBillerInquiryCount && rootScopeData.sadadBillerInquiryCount > 0" class="actionHide">({{rootScopeData.sadadBillerInquiryCount}})</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.ESAL_BILLER_INQ" routerLink="./esalBillerInquiry" class="animate" [ngClass]="this.rootScopeData.activeTabName==='esalBiller' ? 'listActive':'listInactive'"><a translate>LBL_ESAL <span *ngIf="rootScopeData.esalBillerInquiryCount && rootScopeData.esalBillerInquiryCount > 0" class="actionHide">({{rootScopeData.esalBillerInquiryCount}})</span></a></li>
+            </ul>
+            <!-- <hr class="separator"> -->
+        </div>
+        <div class="mTop_18">
+            <div class="actionsConatiner">
+                <div class="leftPannel">
+                    <!-- <div *ngIf="enablePropertty"> -->
+                    <div>
+                        <app-selection [moreActionList]="contextMenuList" (onMenuClick)="triggerDropdownFilter($event)" ></app-selection>
+                    </div>
+                    <!-- <div class="searchCntnrLeft" *ngIf="enablePropertty">
+                        <app-search [showAdvanceSearch]="false" (childEvent)="triggerSearchFilter($event)"></app-search>
+                    </div> -->
+                </div>
+            </div>
+            <div>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

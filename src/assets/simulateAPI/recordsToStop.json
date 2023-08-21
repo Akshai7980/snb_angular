@@ -1,0 +1,19 @@
+{
+  "dataValue": [
+    {
+      "record": "1",
+      "bank": "SNB",
+      "accNo": "SA1010010010000000123",
+      "fullName": "Dameer Ahsan",
+      "amt": "1235.00 ",
+      "ccy": "SAR",
+      "uti": "",
+      "childRef": "668879",
+      "referenceId": "EA828302",
+      "status": "Pending"
+    }
+  ],
+  "headerValue": {
+    "moduleId": "STPPMNTRECSUM"
+  }
+}

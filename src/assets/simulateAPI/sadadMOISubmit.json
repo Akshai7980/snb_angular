@@ -1,0 +1,11 @@
+{
+    "dataValue": {
+        "INPUT_REFERENCE_NO": "TBC2205061228401",
+        "OD_STATUS": "",
+        "OD_STATUS_DESC": "Success",
+        "TXN_STATUS" : "RH"
+    },
+    "headerValue": {
+        "moduleId": "SADADMOISUBMIT"
+    }
+}

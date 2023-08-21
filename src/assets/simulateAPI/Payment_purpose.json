@@ -1,0 +1,98 @@
+{
+    "headerValue": {
+        "moduleId": "PMNTSGETFLDDATA",
+        "simulate": null,
+        "export": null,
+        "exportType": null,
+        "_dinsess": null,
+        "languageId": null,
+        "sortColumn": null,
+        "sortOrder": null
+    },
+    "data": [
+        {
+            "purposeOfTransfer": [
+                {
+                    "paymentMode": "EFTS",
+                    "purposeCode": "001",
+                    "purposeCodeDesc": "Ordinary transfers"
+                },
+                {
+                    "paymentMode": "RTGS",
+                    "purposeCode": "001",
+                    "purposeCodeDesc": "Ordinary transfers"
+                },
+                {
+                    "paymentMode": "EFTS",
+                    "purposeCode": "020",
+                    "purposeCodeDesc": "Fee payment"
+                },
+                {
+                    "paymentMode": "RTGS",
+                    "purposeCode": "020",
+                    "purposeCodeDesc": "Fee payment"
+                },
+                {
+                    "paymentMode": "EFTS",
+                    "purposeCode": "021",
+                    "purposeCodeDesc": "Salary payment"
+                },
+                {
+                    "paymentMode": "RTGS",
+                    "purposeCode": "021",
+                    "purposeCodeDesc": "Salary payment"
+                },
+                {
+                    "paymentMode": "EFTS",
+                    "purposeCode": "022",
+                    "purposeCodeDesc": "Generic bill payment"
+                },
+                {
+                    "paymentMode": "EFTS",
+                    "purposeCode": "023",
+                    "purposeCodeDesc": "Top-up of pre-paid account"
+                },
+                {
+                    "paymentMode": "EFTS",
+                    "purposeCode": "024",
+                    "purposeCodeDesc": "Transfer from Prepaid Account to Bank Account"
+                },
+                {
+                    "paymentMode": "EFTS",
+                    "purposeCode": "025",
+                    "purposeCodeDesc": "Credit card settlement"
+                },
+                {
+                    "paymentMode": "EFTS",
+                    "purposeCode": "026",
+                    "purposeCodeDesc": "Pension"
+                },
+                {
+                    "paymentMode": "EFTS",
+                    "purposeCode": "027",
+                    "purposeCodeDesc": "Dividends"
+                },
+                {
+                    "paymentMode": "EFTS",
+                    "purposeCode": "028",
+                    "purposeCodeDesc": "Interest received"
+                },
+                {
+                    "paymentMode": "EFTS",
+                    "purposeCode": "029",
+                    "purposeCodeDesc": "Loan Installment"
+                },
+                {
+                    "paymentMode": "EFTS",
+                    "purposeCode": "030",
+                    "purposeCodeDesc": "Rental"
+                },
+                {
+                    "paymentMode": "EFTS",
+                    "purposeCode": "031",
+                    "purposeCodeDesc": "Charity payments"
+                }
+            ]
+        }
+    ]
+}

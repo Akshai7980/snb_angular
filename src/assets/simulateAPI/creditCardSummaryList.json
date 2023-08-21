@@ -1,0 +1,315 @@
+{
+    "dataValue": {
+        "pageDetails": {
+            "totalNumberOfResults": "4",
+            "currentNumberOfResults": "4",
+            "currentPageNumber": "1",
+            "pageSize": "100",
+            "totalNumberOfPages": "1"
+        },
+        "entityCardDetailsList": {
+            "entityCardDetails": [
+                {
+                    "cardProduct": {
+                        "productCode": "975",
+                        "institutionCode": "NCB",
+                        "bin": "556675",
+                        "description": "MasterCard Corporate"
+                    },
+                    "cardDetails": {
+                        "expiryDate": "20250331",
+                        "firstName": "sreenath",
+                        "lastName": "mekala",
+                        "serviceCode": "201",
+                        "additional": "false",
+                        "embossingName": "SREENATH M",
+                        "title": "Mr.",
+                        "lastStatusChangeDate": "20201011",
+                        "responseCardIdentifier": {
+                            "vpan": "0",
+                            "sequenceNumber": "0",
+                            "maskedPan": "556675_0350",
+                            "pan": "UEXfDPbbgD/RztOXkkiXI21iJzEzZSe4xHraSDAnZRKQMa/XvCABaXl23nOL/n5D1"
+                        },
+                        "effectiveDate": "20200324",
+                        "cardStatus": "9",
+                        "batchNumber": "62713"
+                    },
+                    "linkedAccountsList": {
+                        "linkedAccount": [
+                            {
+                                "isDefault": "true",
+                                "accountDetails": {
+                                    "curCurrency": "SAR",
+                                    "accountStatus": "12",
+                                    "classId": "2",
+                                    "availableBalanceToSpend": "72620",
+                                    "institutionCode": "NCB",
+                                    "accountTypeCode": "20",
+                                    "creditLimit": "70000",
+                                    "accountNumber": "1100010",
+                                    "blockedAmount": "0",
+                                    "vipFlag": "0",
+                                    "availableBalance": "72620"
+                                },
+                                "accountIdentifier": {
+                                    "institutionCode": "NCB",
+                                    "accountNumber": "1100010",
+                                    "currencyCode": "SAR"
+                                }
+                            }
+                        ]
+                    },
+                    "cardStatus": {
+                        "canceled": "true",
+                        "description": "G - DAMAGED",
+                        "actionCode": "1",
+                        "statusCode": "0",
+                        "responseCode": "1"
+                    },
+                    "CifMap": [
+                        {
+                            "shortCIF": "1100010",
+                            "EntlSubProduct": [
+                                "CRDCRELIM",
+                                "CRDREISSU",
+                                "CRDVWPIN",
+                                "CARDSTP",
+                                "CRDWITHCH"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "cardProduct": {
+                        "productCode": "975",
+                        "institutionCode": "NCB",
+                        "bin": "556675",
+                        "description": "MasterCard Corporate"
+                    },
+                    "cardDetails": {
+                        "expiryDate": "20250331",
+                        "firstName": "sreenath",
+                        "lastName": "mekala",
+                        "serviceCode": "201",
+                        "additional": "false",
+                        "embossingName": "SREENATH M",
+                        "title": "Mr.",
+                        "lastStatusChangeDate": "20201011",
+                        "responseCardIdentifier": {
+                            "vpan": "0",
+                            "sequenceNumber": "0",
+                            "maskedPan": "556675_0350",
+                            "pan": "UEXfDPbbgD/RztOXkkiXI21iJzEzZSe4xHraSDAnZRKQMa/XvCABaXl23nOL/n5D2"
+                        },
+                        "effectiveDate": "20200324",
+                        "cardStatus": "9",
+                        "batchNumber": "62713"
+                    },
+                    "linkedAccountsList": {
+                        "linkedAccount": [
+                            {
+                                "isDefault": "true",
+                                "accountDetails": {
+                                    "curCurrency": "SAR",
+                                    "accountStatus": "12",
+                                    "classId": "2",
+                                    "availableBalanceToSpend": "72620",
+                                    "institutionCode": "NCB",
+                                    "accountTypeCode": "20",
+                                    "creditLimit": "70000",
+                                    "accountNumber": "1100010",
+                                    "blockedAmount": "0",
+                                    "vipFlag": "0",
+                                    "availableBalance": "72620"
+                                },
+                                "accountIdentifier": {
+                                    "institutionCode": "NCB",
+                                    "accountNumber": "1100010",
+                                    "currencyCode": "SAR"
+                                }
+                            }
+                        ]
+                    },
+                    "cardStatus": {
+                        "canceled": "true",
+                        "description": "G - DAMAGED",
+                        "actionCode": "1",
+                        "statusCode": "9",
+                        "responseCode": "1"
+                    },
+                    "CifMap": [
+                        {
+                            "shortCIF": "1100010",
+                            "EntlSubProduct": [
+                                "CRDCRELIM",
+                                "CRDLIMAD",
+                                "CARDSVS",
+                                "CARDPAY",
+                                "CRDREISSU",
+                                "CRDVWPIN",
+                                "CARDSTP",
+                                "CARDACT",
+                                "CRDWITHCH"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "cardProduct": {
+                        "productCode": "975",
+                        "institutionCode": "NCB",
+                        "bin": "556675",
+                        "description": "MasterCard Corporate"
+                    },
+                    "cardDetails": {
+                        "expiryDate": "20250331",
+                        "firstName": "sreenath",
+                        "lastName": "mekala",
+                        "serviceCode": "201",
+                        "additional": "false",
+                        "embossingName": "SREENATH M",
+                        "title": "Mr.",
+                        "lastStatusChangeDate": "20201011",
+                        "responseCardIdentifier": {
+                            "vpan": "0",
+                            "sequenceNumber": "0",
+                            "maskedPan": "556675_0350",
+                            "pan": "UEXfDPbbgD/RztOXkkiXI21iJzEzZSe4xHraSDAnZRKQMa/XvCABaXl23nOL/n5D3"
+                        },
+                        "effectiveDate": "20200324",
+                        "cardStatus": "9",
+                        "batchNumber": "62713"
+                    },
+                    "linkedAccountsList": {
+                        "linkedAccount": [
+                            {
+                                "isDefault": "true",
+                                "accountDetails": {
+                                    "curCurrency": "SAR",
+                                    "accountStatus": "12",
+                                    "classId": "2",
+                                    "availableBalanceToSpend": "72620",
+                                    "institutionCode": "NCB",
+                                    "accountTypeCode": "20",
+                                    "creditLimit": "70000",
+                                    "accountNumber": "1100010",
+                                    "blockedAmount": "0",
+                                    "vipFlag": "0",
+                                    "availableBalance": "72620"
+                                },
+                                "accountIdentifier": {
+                                    "institutionCode": "NCB",
+                                    "accountNumber": "1100010",
+                                    "currencyCode": "SAR"
+                                }
+                            }
+                        ]
+                    },
+                    "cardStatus": {
+                        "canceled": "true",
+                        "description": "G - DAMAGED",
+                        "actionCode": "1",
+                        "statusCode": "9",
+                        "responseCode": "1"
+                    },
+                    "CifMap": [
+                        {
+                            "shortCIF": "1100010",
+                            "EntlSubProduct": [
+                                "CRDCRELIM",
+                                "CRDLIMAD",
+                                "CARDSVS",
+                                "CARDPAY",
+                                "CRDREISSU",
+                                "CRDVWPIN",
+                                "CARDSTP",
+                                "CARDACT",
+                                "CRDWITHCH"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "cardProduct": {
+                        "productCode": "975",
+                        "institutionCode": "NCB",
+                        "bin": "556675",
+                        "description": "MasterCard Corporate"
+                    },
+                    "cardDetails": {
+                        "expiryDate": "20250331",
+                        "firstName": "sreenath",
+                        "lastName": "mekala",
+                        "serviceCode": "201",
+                        "additional": "false",
+                        "embossingName": "SREENATH M",
+                        "title": "Mr.",
+                        "lastStatusChangeDate": "20201011",
+                        "responseCardIdentifier": {
+                            "vpan": "0",
+                            "sequenceNumber": "0",
+                            "maskedPan": "556675_0350",
+                            "pan": "UEXfDPbbgD/RztOXkkiXI21iJzEzZSe4xHraSDAnZRKQMa/XvCABaXl23nOL/n5D4"
+                        },
+                        "effectiveDate": "20200324",
+                        "cardStatus": "9",
+                        "batchNumber": "62713"
+                    },
+                    "linkedAccountsList": {
+                        "linkedAccount": [
+                            {
+                                "isDefault": "true",
+                                "accountDetails": {
+                                    "curCurrency": "SAR",
+                                    "accountStatus": "12",
+                                    "classId": "2",
+                                    "availableBalanceToSpend": "72620",
+                                    "institutionCode": "NCB",
+                                    "accountTypeCode": "20",
+                                    "creditLimit": "70000",
+                                    "accountNumber": "1100010",
+                                    "blockedAmount": "0",
+                                    "vipFlag": "0",
+                                    "availableBalance": "72620"
+                                },
+                                "accountIdentifier": {
+                                    "institutionCode": "NCB",
+                                    "accountNumber": "1100010",
+                                    "currencyCode": "SAR"
+                                }
+                            }
+                        ]
+                    },
+                    "cardStatus": {
+                        "canceled": "true",
+                        "description": "G - DAMAGED",
+                        "actionCode": "1",
+                        "statusCode": "9",
+                        "responseCode": "1"
+                    },
+                    "CifMap": [
+                        {
+                            "shortCIF": "1100010",
+                            "EntlSubProduct": [
+                                "CRDCRELIM",
+                                "CRDLIMAD",
+                                "CARDSVS",
+                                "CARDPAY",
+                                "CRDREISSU",
+                                "CRDVWPIN",
+                                "CARDSTP",
+                                "CARDACT",
+                                "CRDWITHCH"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "headerValue": {
+        "moduleId": "CARDSUMMY",
+        "simulate": "N"
+    }
+}

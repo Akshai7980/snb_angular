@@ -1,0 +1,175 @@
+<div class="outerContainer">
+  <div class="title" translate>LBL_TERMINAL_MANAGEMENT</div>
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_ACCOUNT</div>
+    <table>
+      <tr class="tableHeader">
+        <th translate>LBL_ACC_NUMBER</th>
+        <th translate>LBL_NICK_NAME</th>
+        <th translate>LBL_FULL_NAME</th>
+        <th translate>LBL_STATUS</th>
+        <th translate>LBL_BALANCE</th>
+      </tr>
+      <ng-container>
+        <tr class="tableRowConatiner">
+          <td>SA1010 0100 1000 0000123</td>
+          <td>Dameer</td>
+          <td>Dameer Ahsan</td>
+          <td>Active</td>
+          <td>1,235.00 SAR</td>
+          <div class="downArrowAcc"></div>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+  <div class="accountDetails">
+    <div class="title" translate>LBL_EDIT_MERCHANT</div>
+    <div class="details" translate>LBL_MERCHANT_DETAILS</div>
+    <div class="flex merchnatContainer">
+      <div class="commericialContainer">
+        <div translate class="headerColor">
+          LBL_COM_REG_NAME_ARB <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" value="ضمير إحسان" />
+      </div>
+      <div class="commericialContainer">
+        <div translate class="headerColor">
+          LBL_TERMINAL_ADDRESS_ARABIC <span class="errorMsg">*</span>
+        </div>
+        <input
+          type="text"
+          class="selectInput"
+          value="مركز العقارية, حي العليا"
+        />
+      </div>
+      <div class="commericialContainer">
+        <div translate class="headerColor">
+          LBL_SHOP_NAME_AS_IT_WILL_APPEAR_ON_THE_RECEIPT_ARABIC
+          <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" value="مياه زمزم" />
+      </div>
+    </div>
+    <div class="flex merchnatContainer">
+      <div class="commericialContainer">
+        <div translate class="headerColor">
+          LBL_COM_REG_NAME_ENG <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" value="Dameer Ahsan" />
+      </div>
+      <div class="commericialContainer">
+        <div translate class="headerColor">
+          LBL_TERMINAL_ADDRESS <span class="errorMsg">*</span>
+        </div>
+        <input
+          type="text"
+          class="selectInput"
+          value="Aqariya Center, Ulaya Dist."
+        />
+      </div>
+      <div class="commericialContainer">
+        <div translate class="headerColor">
+          LBL_SHOP_NAME_AS_IT_WILL_APPEAR_ON_THE_RECEIPT
+          <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" value="Zamzam Water" />
+      </div>
+    </div>
+    <div class="flex merchnatContainer">
+      <div class="commericialContainer">
+        <div translate class="headerColor">
+          LBL_TERMINAL_CITY_NAME_OR_NEAREST_CITY <span class="errorMsg">*</span>
+        </div>
+
+        <mat-select
+          panelClass="dropDownOption"
+          disableOptionCentering
+          class="matSelectInput mt-top"
+          placeholder="{{ 'LBL_SELECT_CITY' | translate }}"
+          name="fileType"
+        >
+          <mat-option *ngFor="let type of shopName" value="{{type.value}}">{{
+            type.value
+          }}</mat-option>
+        </mat-select>
+      </div>
+      <div class="commericialContainer">
+        <div translate class="headerColor">
+          LBL_PHONE <span class="errorMsg">*</span>
+        </div>
+        <input
+          type="text"
+          (keypress)="allowNumbersOnly($event)"
+          class="selectInput"
+        />
+      </div>
+      <div class="commericialContainer">
+        <div translate class="headerColor">
+          LBL_COMPANY_EMAIL_1_(TO_RECEIVE_FINANCIAL_DISPUTE)
+          <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" />
+      </div>
+    </div>
+    <div class="flex merchnatContainer">
+      <div class="commericialContainer">
+        <div translate class="headerColor">
+          LBL_DELEGATE_PERSON_FIRST_NAME <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" />
+      </div>
+      <div class="commericialContainer">
+        <div translate class="headerColor">
+          LBL_DELEGATE_PERSON_LAST_NAME <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" />
+      </div>
+      <div class="commericialContainer">
+        <div translate class="headerColor">
+          LBL_MOBILE_NUMBER_1_(DELEGATE_PERSON_IN_LOCATION)
+          <span class="errorMsg">*</span>
+        </div>
+        <input
+          type="text"
+          (keypress)="allowNumbersOnly($event)"
+          class="selectInput"
+        />
+      </div>
+    </div>
+    <div class="flex">
+      <div class="commericialContainer">
+        <div translate class="headerColor">
+          LBL_MOBILE_NUMBER_2_(DELEGATE_PERSON_IN_LOCATION)
+          <span class="errorMsg">*</span>
+        </div>
+        <input
+          type="text"
+          (keypress)="allowNumbersOnly($event)"
+          class="selectInput"
+        />
+      </div>
+      <div class="commericialContainer">
+        <div translate class="headerColor">LBL_COMMENTS</div>
+        <input type="text" class="selectInput" />
+      </div>
+      <div class="commericialContainer">
+        <div translate class="headerColor">LBL_NUMBER_OF_TERMINALS</div>
+        <div class="m-top">2</div>
+      </div>
+    </div>
+    <div class="actionGroup">
+      <app-tertiary-button buttonValue="LBL_BACK" class="tertiaryBtn">
+      </app-tertiary-button>
+    </div>
+  </div>
+  <div class="btnContainer">
+    <app-tertiary-button buttonValue="LBL_CANCEL" translate>
+    </app-tertiary-button>
+    <app-primary-button
+      buttonValue="LBL_UPDATE"
+      translate
+      (click)="merchnatReview()"
+    >
+    </app-primary-button>
+  </div>
+</div>

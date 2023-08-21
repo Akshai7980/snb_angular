@@ -1,0 +1,8 @@
+<div class="mainContainer">
+  <div translate class="mainTitle">LBL_DIGITAL_HUB</div>
+  <div *ngFor="let banner of banners">
+    <div class="subconatiner banner" (click)="redirect(banner)">
+      <img src="{{ banner.base64 }}" />
+    </div>
+  </div>
+</div>

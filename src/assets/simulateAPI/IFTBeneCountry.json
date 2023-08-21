@@ -1,0 +1,1692 @@
+{
+    "headerValue": {
+        "moduleId": "COUNTRYLKPIFT",
+        "simulate": "N",
+        "export": null,
+        "exportType": null,
+        "_dinsess": "3a0b8455-e405-4036-abbb-807e9347fbcd",
+        "languageId": null
+    },
+    "data": [
+        {
+            "countryIsoCode": "NCL",
+            "unitDesc": null,
+            "countryName": "NEW CALEDONIA",
+            "ccyCode": "XPF",
+            "countryCode": "NC",
+            "totalCount": null,
+            "clearCodeInq" : "Y"
+        },
+        {
+            "countryIsoCode": "CHE",
+            "unitDesc": null,
+            "countryName": "SWITZERLAND",
+            "ccyCode": "CHF",
+            "countryCode": "CH",
+            "totalCount": null,
+            "clearCodeInq" : "N"
+        },
+        {
+            "countryIsoCode": "FJI",
+            "unitDesc": null,
+            "countryName": "FIJI",
+            "ccyCode": "FJD",
+            "countryCode": "FJ",
+            "totalCount": null,
+            "clearCodeInq" : "N"
+        },
+        {
+            "countryIsoCode": "TZA",
+            "unitDesc": null,
+            "countryName": "TANZANIA",
+            "ccyCode": "TZS",
+            "countryCode": "TZ",
+            "totalCount": null,
+            "clearCodeInq" : "N"
+        },
+        {
+            "countryIsoCode": "ALA",
+            "unitDesc": null,
+            "countryName": "LAND ISLANDS",
+            "ccyCode": "AED",
+            "countryCode": "AX",
+            "totalCount": null,
+            "clearCodeInq" : "N"
+        },
+        {
+            "countryIsoCode": "HND",
+            "unitDesc": null,
+            "countryName": "HONDURAS",
+            "ccyCode": "HNL",
+            "countryCode": "HN",
+            "totalCount": null,
+            "clearCodeInq" : "N"
+        },
+        {
+            "countryIsoCode": "IRL",
+            "unitDesc": null,
+            "countryName": "IRELAND",
+            "ccyCode": "EUR",
+            "countryCode": "IE",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "PER",
+            "unitDesc": null,
+            "countryName": "PERU",
+            "ccyCode": "PEN",
+            "countryCode": "PE",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "REU",
+            "unitDesc": null,
+            "countryName": "REUNION",
+            "ccyCode": "EUR",
+            "countryCode": "RE",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "PRT",
+            "unitDesc": null,
+            "countryName": "PORTUGAL",
+            "ccyCode": "EUR",
+            "countryCode": "PT",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "CRI",
+            "unitDesc": null,
+            "countryName": "COSTA RICA",
+            "ccyCode": "CRC",
+            "countryCode": "CR",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "IMB",
+            "unitDesc": null,
+            "countryName": "ISLE OF MAN",
+            "ccyCode": "USD",
+            "countryCode": "IM",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BHS",
+            "unitDesc": null,
+            "countryName": "BAHAMAS",
+            "ccyCode": "BSD",
+            "countryCode": "BS",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MWI",
+            "unitDesc": null,
+            "countryName": "MALAWI",
+            "ccyCode": "MWK",
+            "countryCode": "MW",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "NLD",
+            "unitDesc": null,
+            "countryName": "NETHERLANDS ANTILLES",
+            "ccyCode": "ANG",
+            "countryCode": "AN",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GRL",
+            "unitDesc": null,
+            "countryName": "GREEN LAND",
+            "ccyCode": "DKK",
+            "countryCode": "GL",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GRC",
+            "unitDesc": null,
+            "countryName": "GREECE",
+            "ccyCode": "EUR",
+            "countryCode": "GR",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "TCA",
+            "unitDesc": null,
+            "countryName": "TURKS AND CAICOS ISLAND",
+            "ccyCode": "USD",
+            "countryCode": "TC",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "IOT",
+            "unitDesc": null,
+            "countryName": "BRITISH INDIAN OCEAN TERR",
+            "ccyCode": "GBP",
+            "countryCode": "IO",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "CHN",
+            "unitDesc": null,
+            "countryName": "CHINA",
+            "ccyCode": "CNY",
+            "countryCode": "CN",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "NPL",
+            "unitDesc": null,
+            "countryName": "NETHERLANDS",
+            "ccyCode": "EUR",
+            "countryCode": "NL",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GUY",
+            "unitDesc": null,
+            "countryName": "GUYANA",
+            "ccyCode": "GYD",
+            "countryCode": "GY",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ROU",
+            "unitDesc": null,
+            "countryName": "ROMANIA",
+            "ccyCode": "ROL",
+            "countryCode": "RO",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ASM",
+            "unitDesc": null,
+            "countryName": "AMERICAN SAMOA",
+            "ccyCode": "EUR",
+            "countryCode": "AS",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "FIN",
+            "unitDesc": null,
+            "countryName": "FINLANDIA",
+            "ccyCode": "EUR",
+            "countryCode": "FI",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GMB",
+            "unitDesc": null,
+            "countryName": "GAMBIA",
+            "ccyCode": "GMD",
+            "countryCode": "GM",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ATG",
+            "unitDesc": null,
+            "countryName": "ANTIGUA AND BARBUDA",
+            "ccyCode": "XCD",
+            "countryCode": "AG",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MAC",
+            "unitDesc": null,
+            "countryName": "MACAU",
+            "ccyCode": "MOP",
+            "countryCode": "MO",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ZMB",
+            "unitDesc": null,
+            "countryName": "ZAMBIA",
+            "ccyCode": "ZMK",
+            "countryCode": "ZM",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GUM",
+            "unitDesc": null,
+            "countryName": "GUAM",
+            "ccyCode": "USD",
+            "countryCode": "GU",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MDG",
+            "unitDesc": null,
+            "countryName": "MADAGASCAR",
+            "ccyCode": "MGF",
+            "countryCode": "MG",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SVK",
+            "unitDesc": null,
+            "countryName": "SLOVAKIA",
+            "ccyCode": "SKK",
+            "countryCode": "SK",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "WLF",
+            "unitDesc": null,
+            "countryName": "WALLIS AND FUTUNA ISLANDS",
+            "ccyCode": "XPF",
+            "countryCode": "WF",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ABW",
+            "unitDesc": null,
+            "countryName": "ARUBA",
+            "ccyCode": "ANG",
+            "countryCode": "AW",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "DZA",
+            "unitDesc": null,
+            "countryName": "ALGERIA",
+            "ccyCode": "DZD",
+            "countryCode": "DZ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MCO",
+            "unitDesc": null,
+            "countryName": "MONACO",
+            "ccyCode": "EUR",
+            "countryCode": "MC",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MNG",
+            "unitDesc": null,
+            "countryName": "MONGOLIA",
+            "ccyCode": "MNT",
+            "countryCode": "MN",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GTM",
+            "unitDesc": null,
+            "countryName": "GUATEMALA",
+            "ccyCode": "GTQ",
+            "countryCode": "GT",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "UZB",
+            "unitDesc": null,
+            "countryName": "UZBEKISTAN",
+            "ccyCode": "UZS",
+            "countryCode": "UZ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "LSO",
+            "unitDesc": null,
+            "countryName": "LESOTHO",
+            "ccyCode": "ZAR",
+            "countryCode": "LS",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MAR",
+            "unitDesc": null,
+            "countryName": "MOZAMBIQUE",
+            "ccyCode": "MZM",
+            "countryCode": "MZ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "KEN",
+            "unitDesc": null,
+            "countryName": "KENYA",
+            "ccyCode": "KES",
+            "countryCode": "E",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "TKL",
+            "unitDesc": null,
+            "countryName": "TOKELAU",
+            "ccyCode": "NZD",
+            "countryCode": "TK",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "HKG",
+            "unitDesc": null,
+            "countryName": "HONG KONG",
+            "ccyCode": "HKD",
+            "countryCode": "HK",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "KEN",
+            "unitDesc": null,
+            "countryName": "KENYA",
+            "ccyCode": "KES",
+            "countryCode": "KE",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "CHL",
+            "unitDesc": null,
+            "countryName": "CHILE",
+            "ccyCode": "CLP",
+            "countryCode": "CL",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MDA",
+            "unitDesc": null,
+            "countryName": "MOLDOVA",
+            "ccyCode": "MDL",
+            "countryCode": "MD",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "NRU",
+            "unitDesc": null,
+            "countryName": "NAURU",
+            "ccyCode": "AUD",
+            "countryCode": "NR",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BWA",
+            "unitDesc": null,
+            "countryName": "BOSTWANA",
+            "ccyCode": "BWP",
+            "countryCode": "BW",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "TJK",
+            "unitDesc": null,
+            "countryName": "TAJIKISTAN",
+            "ccyCode": "TJR",
+            "countryCode": "TJ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ATA",
+            "unitDesc": null,
+            "countryName": "ANTARCTICA",
+            "ccyCode": "USD",
+            "countryCode": "AQ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "PYF",
+            "unitDesc": null,
+            "countryName": "FRENCH POLYNESIA",
+            "ccyCode": "XPF",
+            "countryCode": "PF",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BVT",
+            "unitDesc": null,
+            "countryName": "BOUVET ISLAND",
+            "ccyCode": "NOK",
+            "countryCode": "BV",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SGS",
+            "unitDesc": null,
+            "countryName": "SOUTH GEORGIA AND S SANDWICH",
+            "ccyCode": "GBP",
+            "countryCode": "GS",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "HRV",
+            "unitDesc": null,
+            "countryName": "CROATIA",
+            "ccyCode": "HRK",
+            "countryCode": "HR",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SWE",
+            "unitDesc": null,
+            "countryName": "SWEDEN",
+            "ccyCode": "SEK",
+            "countryCode": "SE",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "KIR",
+            "unitDesc": null,
+            "countryName": "KIRIBATI",
+            "ccyCode": "AUD",
+            "countryCode": "KI",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "LBN",
+            "unitDesc": null,
+            "countryName": "LEBANON",
+            "ccyCode": "LBP",
+            "countryCode": "LB",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MNE",
+            "unitDesc": null,
+            "countryName": "MONTSERRAT",
+            "ccyCode": "XCD",
+            "countryCode": "MS",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "FSM",
+            "unitDesc": null,
+            "countryName": "MICRONESIA",
+            "ccyCode": "USD",
+            "countryCode": "FM",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "IDN",
+            "unitDesc": null,
+            "countryName": "INDONESIA",
+            "ccyCode": "IDR",
+            "countryCode": "ID",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BDI",
+            "unitDesc": null,
+            "countryName": "BURUNDI",
+            "ccyCode": "BIF",
+            "countryCode": "BI",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "KAZ",
+            "unitDesc": null,
+            "countryName": "KAZAKHSTAN",
+            "ccyCode": "KZT",
+            "countryCode": "KZ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ARG",
+            "unitDesc": null,
+            "countryName": "ARGENTINA",
+            "ccyCode": "ARP",
+            "countryCode": "AR",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ZAF",
+            "unitDesc": null,
+            "countryName": "SOUTH AFRICA",
+            "ccyCode": "ZAR",
+            "countryCode": "ZA",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "JAM",
+            "unitDesc": null,
+            "countryName": "JAMAICA",
+            "ccyCode": "JMD",
+            "countryCode": "JM",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BRN",
+            "unitDesc": null,
+            "countryName": "BRUNEI DARUSSALAM",
+            "ccyCode": "BND",
+            "countryCode": "BN",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "COL",
+            "unitDesc": null,
+            "countryName": "COLOMBIA",
+            "ccyCode": "COP",
+            "countryCode": "CO",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ARE",
+            "unitDesc": null,
+            "countryName": "UNITED ARAB EMIRATES",
+            "ccyCode": "AED",
+            "countryCode": "AE",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SJM",
+            "unitDesc": null,
+            "countryName": "SYALBARD AND JAN MAYEN ISL ",
+            "ccyCode": "NOK",
+            "countryCode": "SJ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "UMI",
+            "unitDesc": null,
+            "countryName": "U S MINOR OUTLAYING ISL ",
+            "ccyCode": "USD",
+            "countryCode": "UM",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BHR",
+            "unitDesc": null,
+            "countryName": "BAHRAIN",
+            "ccyCode": "BHD",
+            "countryCode": "BH",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "HTI",
+            "unitDesc": null,
+            "countryName": "HAITI",
+            "ccyCode": "HTG",
+            "countryCode": "HT",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BGD",
+            "unitDesc": null,
+            "countryName": "BANGLADESH",
+            "ccyCode": "BDT",
+            "countryCode": "BD",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "LUX",
+            "unitDesc": null,
+            "countryName": "LUXEMBOURG",
+            "ccyCode": "EUR",
+            "countryCode": "LU",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MLT",
+            "unitDesc": null,
+            "countryName": "MALTA",
+            "ccyCode": "MTL",
+            "countryCode": "MT",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BGR",
+            "unitDesc": null,
+            "countryName": "BULGARIA",
+            "ccyCode": "BGL",
+            "countryCode": "BG",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "LKA",
+            "unitDesc": null,
+            "countryName": "SRILANKA",
+            "ccyCode": "LKR",
+            "countryCode": "LK",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MUS",
+            "unitDesc": null,
+            "countryName": "MAURITIUS",
+            "ccyCode": "MUR",
+            "countryCode": "MU",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SAU",
+            "unitDesc": null,
+            "countryName": "SAUDI ARABIA",
+            "ccyCode": "SAR",
+            "countryCode": "SA",
+            "totalCount": null,
+            "clearCodeInq" : "N"
+        },
+        {
+            "countryIsoCode": "GLP",
+            "unitDesc": null,
+            "countryName": "GUADELOUPE",
+            "ccyCode": "EUR",
+            "countryCode": "GP",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "HUN",
+            "unitDesc": null,
+            "countryName": "HUNGARY",
+            "ccyCode": "HUF",
+            "countryCode": "HU",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "PAN",
+            "unitDesc": null,
+            "countryName": "PANAMA",
+            "ccyCode": "PAB",
+            "countryCode": "PA",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SRB",
+            "unitDesc": null,
+            "countryName": "SERBIA",
+            "ccyCode": "USD",
+            "countryCode": "RS",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "EST",
+            "unitDesc": null,
+            "countryName": "ESTONIA",
+            "ccyCode": "EEK",
+            "countryCode": "EE",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "EGY",
+            "unitDesc": null,
+            "countryName": "EGYPT",
+            "ccyCode": "EGP",
+            "countryCode": "EG",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "QAT",
+            "unitDesc": null,
+            "countryName": "QATAR",
+            "ccyCode": "QAR",
+            "countryCode": "QA",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "TGO",
+            "unitDesc": null,
+            "countryName": "TOGO",
+            "ccyCode": "XOF",
+            "countryCode": "TG",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "AND",
+            "unitDesc": null,
+            "countryName": "ANDORRA",
+            "ccyCode": "EUR",
+            "countryCode": "AD",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MYS",
+            "unitDesc": null,
+            "countryName": "MALAYSIA",
+            "ccyCode": "MYR",
+            "countryCode": "MY",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "PSE",
+            "unitDesc": null,
+            "countryName": "PALESTINIAN TERRITORYOCCUPIED",
+            "ccyCode": "ILS",
+            "countryCode": "PS",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "VGB",
+            "unitDesc": null,
+            "countryName": "VIRGIN ISLANDS US",
+            "ccyCode": "USD",
+            "countryCode": "VI",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "JOR",
+            "unitDesc": null,
+            "countryName": "JORDAN",
+            "ccyCode": "JOD",
+            "countryCode": "JO",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "CYM",
+            "unitDesc": null,
+            "countryName": "CAYMAN ISLAND",
+            "ccyCode": "KYD",
+            "countryCode": "KY",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "NFK",
+            "unitDesc": null,
+            "countryName": "NORFOLK ISLAND",
+            "ccyCode": "AUD",
+            "countryCode": "NF",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "NOR",
+            "unitDesc": null,
+            "countryName": "NORWEGIA",
+            "ccyCode": "NOK",
+            "countryCode": "NO",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "TWN",
+            "unitDesc": null,
+            "countryName": "TAIWAN",
+            "ccyCode": "TWD",
+            "countryCode": "TW",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "URY",
+            "unitDesc": null,
+            "countryName": "URUGUAY",
+            "ccyCode": "UYU",
+            "countryCode": "UY",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MLI",
+            "unitDesc": null,
+            "countryName": "MALI",
+            "ccyCode": "XOF",
+            "countryCode": "ML",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ESP",
+            "unitDesc": null,
+            "countryName": "SPAIN",
+            "ccyCode": "EUR",
+            "countryCode": "ES",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "LCA",
+            "unitDesc": null,
+            "countryName": "SAINT LUCIA",
+            "ccyCode": "XCD",
+            "countryCode": "LC",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MSR",
+            "unitDesc": null,
+            "countryName": "MOROCCO",
+            "ccyCode": "MAD",
+            "countryCode": "MA",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "COM",
+            "unitDesc": null,
+            "countryName": "COMOROS",
+            "ccyCode": "KMF",
+            "countryCode": "KM",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SYC",
+            "unitDesc": null,
+            "countryName": "SEYCHELLES",
+            "ccyCode": "SCR",
+            "countryCode": "SC",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "CYP",
+            "unitDesc": null,
+            "countryName": "CYPRUS",
+            "ccyCode": "CYP",
+            "countryCode": "CY",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "JEY",
+            "unitDesc": null,
+            "countryName": "JERSEY C I",
+            "ccyCode": "GBP",
+            "countryCode": "JE",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MNE",
+            "unitDesc": null,
+            "countryName": "MONTENEGRO REPUBLIC OF",
+            "ccyCode": "USD",
+            "countryCode": "ME",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MEX",
+            "unitDesc": null,
+            "countryName": "MEXICO",
+            "ccyCode": "MXP",
+            "countryCode": "MX",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SGP",
+            "unitDesc": null,
+            "countryName": "SINGAPORE",
+            "ccyCode": "SGD",
+            "countryCode": "SG",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "VCT",
+            "unitDesc": null,
+            "countryName": "ST VINCENT AND GRENADINES",
+            "ccyCode": "USD",
+            "countryCode": "VC",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "AUT",
+            "unitDesc": null,
+            "countryName": "AUSTRIA",
+            "ccyCode": "EUR",
+            "countryCode": "AT",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GNQ",
+            "unitDesc": null,
+            "countryName": "EQUATORIAL GUINEA",
+            "ccyCode": "XAF",
+            "countryCode": "GQ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "PCN",
+            "unitDesc": null,
+            "countryName": "PITCAIRN",
+            "ccyCode": "NZD",
+            "countryCode": "PN",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "POL",
+            "unitDesc": null,
+            "countryName": "POLAND",
+            "ccyCode": "PLZ",
+            "countryCode": "PL",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ESH",
+            "unitDesc": null,
+            "countryName": "WESTERN SAHARA",
+            "ccyCode": "MAD",
+            "countryCode": "EH",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BMU",
+            "unitDesc": null,
+            "countryName": "BERMUDA",
+            "ccyCode": "BMD",
+            "countryCode": "BM",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BOL",
+            "unitDesc": null,
+            "countryName": "BOLIVIA",
+            "ccyCode": "BOB",
+            "countryCode": "BO",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "KHM",
+            "unitDesc": null,
+            "countryName": "CAMBODIA",
+            "ccyCode": "KHR",
+            "countryCode": "KH",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "CIV",
+            "unitDesc": null,
+            "countryName": "COTE D IVOIRE",
+            "ccyCode": "XOF",
+            "countryCode": "CI",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MYT",
+            "unitDesc": null,
+            "countryName": "MAYOTTE",
+            "ccyCode": "EUR",
+            "countryCode": "YT",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "FRA",
+            "unitDesc": null,
+            "countryName": "FRANCE",
+            "ccyCode": "EUR",
+            "countryCode": "FR",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SPM",
+            "unitDesc": null,
+            "countryName": "SAINT PIERRE AND MIQUELON",
+            "ccyCode": "AED",
+            "countryCode": "PM",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "DNK",
+            "unitDesc": null,
+            "countryName": "DENMARK",
+            "ccyCode": "DKK",
+            "countryCode": "DK",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "DOM",
+            "unitDesc": null,
+            "countryName": "DOMINICAN REPUBLIC",
+            "ccyCode": "DOP",
+            "countryCode": "DO",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MKD",
+            "unitDesc": null,
+            "countryName": "MACEDONIA",
+            "ccyCode": "MKD",
+            "countryCode": "MK",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "PRY",
+            "unitDesc": null,
+            "countryName": "PARAGUAY",
+            "ccyCode": "PYG",
+            "countryCode": "PY",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "TON",
+            "unitDesc": null,
+            "countryName": "TONGA",
+            "ccyCode": "TOP",
+            "countryCode": "TO",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "TUV",
+            "unitDesc": null,
+            "countryName": "TUVALU",
+            "ccyCode": "AUD",
+            "countryCode": "TV",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BEN",
+            "unitDesc": null,
+            "countryName": "BENIN",
+            "ccyCode": "XOF",
+            "countryCode": "BJ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "CXR",
+            "unitDesc": null,
+            "countryName": "CHRISTMAS ISLAND",
+            "ccyCode": "AUD",
+            "countryCode": "CX",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SUR",
+            "unitDesc": null,
+            "countryName": "SURINAME",
+            "ccyCode": "SRG",
+            "countryCode": "SR",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "VEN",
+            "unitDesc": null,
+            "countryName": "VATICAN CITY STATE",
+            "ccyCode": "EUR",
+            "countryCode": "VA",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "PRI",
+            "unitDesc": null,
+            "countryName": "PUERTO RICO",
+            "ccyCode": "USD",
+            "countryCode": "PR",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "DEU",
+            "unitDesc": null,
+            "countryName": "GERMANY",
+            "ccyCode": "EUR",
+            "countryCode": "DE",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SLV",
+            "unitDesc": null,
+            "countryName": "EL SAVADOR",
+            "ccyCode": "SVC",
+            "countryCode": "SV",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "JPN",
+            "unitDesc": null,
+            "countryName": "JAPAN",
+            "ccyCode": "JPY",
+            "countryCode": "JP",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "NRU",
+            "unitDesc": null,
+            "countryName": "NEPAL",
+            "ccyCode": "NPR",
+            "countryCode": "NP",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "COK",
+            "unitDesc": null,
+            "countryName": "COOK ISLAND",
+            "ccyCode": "NZD",
+            "countryCode": "CK",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "CPV",
+            "unitDesc": null,
+            "countryName": "CAPE VERDE",
+            "ccyCode": "CVE",
+            "countryCode": "CV",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GEO",
+            "unitDesc": null,
+            "countryName": "GEORGIA",
+            "ccyCode": "GEL",
+            "countryCode": "GE",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "TLS",
+            "unitDesc": null,
+            "countryName": "TIMOR LESTES",
+            "ccyCode": "AED",
+            "countryCode": "TL",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "TTO",
+            "unitDesc": null,
+            "countryName": "TRINIDAD and TOBAGO",
+            "ccyCode": "TTD",
+            "countryCode": "TT",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GHA",
+            "unitDesc": null,
+            "countryName": "GHANA",
+            "ccyCode": "GHC",
+            "countryCode": "GH",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SMR",
+            "unitDesc": null,
+            "countryName": "SAN MARINO",
+            "ccyCode": "EUR",
+            "countryCode": "SM",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BIH",
+            "unitDesc": null,
+            "countryName": "BOSNIAHERZEGOVINA",
+            "ccyCode": "BAK",
+            "countryCode": "BA",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SEN",
+            "unitDesc": null,
+            "countryName": "SENEGAL",
+            "ccyCode": "XOF",
+            "countryCode": "SN",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ATF",
+            "unitDesc": null,
+            "countryName": "FRENCH SOUTHERN TERRITORI",
+            "ccyCode": "EUR",
+            "countryCode": "TF",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "AGO",
+            "unitDesc": null,
+            "countryName": "ANGOLA",
+            "ccyCode": "AOK",
+            "countryCode": "AO",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "NER",
+            "unitDesc": null,
+            "countryName": "NIGER",
+            "ccyCode": "XOF",
+            "countryCode": "NE",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SLE",
+            "unitDesc": null,
+            "countryName": "SIERRA LEONE",
+            "ccyCode": "SLL",
+            "countryCode": "SL",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MTQ",
+            "unitDesc": null,
+            "countryName": "MARTINIQUE",
+            "ccyCode": "EUR",
+            "countryCode": "MQ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "USA",
+            "unitDesc": null,
+            "countryName": "UNITED STATES",
+            "ccyCode": "USD",
+            "countryCode": "US",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "KGZ",
+            "unitDesc": null,
+            "countryName": "KYRGYZSTAN",
+            "ccyCode": "KGS",
+            "countryCode": "KG",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ALB",
+            "unitDesc": null,
+            "countryName": "ALBANIA",
+            "ccyCode": "ALL",
+            "countryCode": "AL",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GUF",
+            "unitDesc": null,
+            "countryName": "FRENCH GUIANA",
+            "ccyCode": "EUR",
+            "countryCode": "GF",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "FLK",
+            "unitDesc": null,
+            "countryName": "FALKLAND ISLANDMALVINAS",
+            "ccyCode": "FKP",
+            "countryCode": "FK",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ITA",
+            "unitDesc": null,
+            "countryName": "ITALY",
+            "ccyCode": "EUR",
+            "countryCode": "IT",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "PLW",
+            "unitDesc": null,
+            "countryName": "PALAU",
+            "ccyCode": "USD",
+            "countryCode": "PW",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "KWT",
+            "unitDesc": null,
+            "countryName": "KUWAIT",
+            "ccyCode": "KWD",
+            "countryCode": "KW",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "WSM",
+            "unitDesc": null,
+            "countryName": "SAMOA",
+            "ccyCode": "EUR",
+            "countryCode": "WS",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BRA",
+            "unitDesc": null,
+            "countryName": "BRAZIL",
+            "ccyCode": "BRL",
+            "countryCode": "BR",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "KNA",
+            "unitDesc": null,
+            "countryName": "SAINT KITTS AND NEVIS",
+            "ccyCode": "XCD",
+            "countryCode": "KN",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BLZ",
+            "unitDesc": null,
+            "countryName": "BELIZE",
+            "ccyCode": "BZD",
+            "countryCode": "BZ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "DMA",
+            "unitDesc": null,
+            "countryName": "DOMINICA",
+            "ccyCode": "XCD",
+            "countryCode": "DM",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "KOR",
+            "unitDesc": null,
+            "countryName": "SOUTH KOREA",
+            "ccyCode": "KRW",
+            "countryCode": "KR",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GBR",
+            "unitDesc": null,
+            "countryName": "UNITED KINGDOM",
+            "ccyCode": "GBP",
+            "countryCode": "GB",
+            "totalCount": null,
+            "clearCodeInq" : "Y"
+        },
+        {
+            "countryIsoCode": "MNP",
+            "unitDesc": null,
+            "countryName": "NORTHERN MARIANA ISLANDS",
+            "ccyCode": "USD",
+            "countryCode": "MP",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BRB",
+            "unitDesc": null,
+            "countryName": "BARBADOS",
+            "ccyCode": "BBD",
+            "countryCode": "BB",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "CCK",
+            "unitDesc": null,
+            "countryName": "COCOS KEELING ISLANDS",
+            "ccyCode": "AUD",
+            "countryCode": "CC",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "DJI",
+            "unitDesc": null,
+            "countryName": "DJIBOUTI",
+            "ccyCode": "DJF",
+            "countryCode": "DJ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "LIE",
+            "unitDesc": null,
+            "countryName": "LIECHTENSTEIN",
+            "ccyCode": "CHF",
+            "countryCode": "LI",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MDV",
+            "unitDesc": null,
+            "countryName": "MALDIVES",
+            "ccyCode": "MVR",
+            "countryCode": "MV",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "IND",
+            "unitDesc": null,
+            "countryName": "INDIA",
+            "ccyCode": "INR",
+            "countryCode": "IN",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "THA",
+            "unitDesc": null,
+            "countryName": "THAILAND",
+            "ccyCode": "THB",
+            "countryCode": "TH",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "AIA",
+            "unitDesc": null,
+            "countryName": "ANGUILLA",
+            "ccyCode": "XCD",
+            "countryCode": "AI",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "LTU",
+            "unitDesc": null,
+            "countryName": "LITHUANIA",
+            "ccyCode": "LTL",
+            "countryCode": "LT",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "FXX",
+            "unitDesc": null,
+            "countryName": "FRANCE METROPOLITAN",
+            "ccyCode": "EUR",
+            "countryCode": "FX",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GNB",
+            "unitDesc": null,
+            "countryName": "GUINEABISSAU",
+            "ccyCode": "XOF",
+            "countryCode": "GW",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "NZL",
+            "unitDesc": null,
+            "countryName": "NEW ZEALAND",
+            "ccyCode": "NZD",
+            "countryCode": "NZ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "TCD",
+            "unitDesc": null,
+            "countryName": "CHAD",
+            "ccyCode": "XAF",
+            "countryCode": "TD",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MRT",
+            "unitDesc": null,
+            "countryName": "MAURITANIA",
+            "ccyCode": "MRO",
+            "countryCode": "MR",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GRD",
+            "unitDesc": null,
+            "countryName": "GRENADA",
+            "ccyCode": "GRD",
+            "countryCode": "GD",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "NIU",
+            "unitDesc": null,
+            "countryName": "NIUE",
+            "ccyCode": "NZD",
+            "countryCode": "NU",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "VGB",
+            "unitDesc": null,
+            "countryName": "VIRGIN ISLANDS BRITISH",
+            "ccyCode": "USD",
+            "countryCode": "VG",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BFA",
+            "unitDesc": null,
+            "countryName": "BURKINA FASO",
+            "ccyCode": "XOF",
+            "countryCode": "BF",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "CAN",
+            "unitDesc": null,
+            "countryName": "CANADA",
+            "ccyCode": "CAD",
+            "countryCode": "CA",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GGY",
+            "unitDesc": null,
+            "countryName": "GUERNSEY C I",
+            "ccyCode": "USD",
+            "countryCode": "GG",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SHN",
+            "unitDesc": null,
+            "countryName": "SAINT HELENA",
+            "ccyCode": "AED",
+            "countryCode": "SH",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BEL",
+            "unitDesc": null,
+            "countryName": "BELGIUM",
+            "ccyCode": "EUR",
+            "countryCode": "BE",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "BTN",
+            "unitDesc": null,
+            "countryName": "BHUTAN",
+            "ccyCode": "BTR",
+            "countryCode": "BT",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SVN",
+            "unitDesc": null,
+            "countryName": "SLOVENIA",
+            "ccyCode": "EUR",
+            "countryCode": "SI",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "CSG",
+            "unitDesc": null,
+            "countryName": "SERBIA AND MONTENEGRO",
+            "ccyCode": "RSD",
+            "countryCode": "CS",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "CZE",
+            "unitDesc": null,
+            "countryName": "CZECH REPUBLIC",
+            "ccyCode": "CSK",
+            "countryCode": "CZ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "FRO",
+            "unitDesc": null,
+            "countryName": "FAEROE ISLANDS",
+            "ccyCode": "DKK",
+            "countryCode": "FO",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "HMD",
+            "unitDesc": null,
+            "countryName": "HEARD AND MCDONALD ISLAND",
+            "ccyCode": "AUD",
+            "countryCode": "HM",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MHL",
+            "unitDesc": null,
+            "countryName": "MARSHALL ISLAND",
+            "ccyCode": "USD",
+            "countryCode": "MH",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "PNG",
+            "unitDesc": null,
+            "countryName": "PAPUA NEW GUINEA",
+            "ccyCode": "PGK",
+            "countryCode": "PG",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "CMR",
+            "unitDesc": null,
+            "countryName": "CAMEROON",
+            "ccyCode": "XAF",
+            "countryCode": "CM",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GIB",
+            "unitDesc": null,
+            "countryName": "GIBRALTAR",
+            "ccyCode": "GIP",
+            "countryCode": "GI",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "LVA",
+            "unitDesc": null,
+            "countryName": "LATVIA",
+            "ccyCode": "LVL",
+            "countryCode": "LV",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "PHL",
+            "unitDesc": null,
+            "countryName": "PHILLIPINES",
+            "ccyCode": "PHP",
+            "countryCode": "PH",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "NIC",
+            "unitDesc": null,
+            "countryName": "NICARAGUA",
+            "ccyCode": "NIO",
+            "countryCode": "NI",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SWZ",
+            "unitDesc": null,
+            "countryName": "SWAZILAND",
+            "ccyCode": "SZL",
+            "countryCode": "SZ",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "ISL",
+            "unitDesc": null,
+            "countryName": "ICELAND",
+            "ccyCode": "ISK",
+            "countryCode": "IS",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "MMR",
+            "unitDesc": null,
+            "countryName": "NAMIBIA",
+            "ccyCode": "NAD",
+            "countryCode": "NA",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "SLB",
+            "unitDesc": null,
+            "countryName": "SOLOMON ISLAND",
+            "ccyCode": "SBD",
+            "countryCode": "SB",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "OMN",
+            "unitDesc": null,
+            "countryName": "OMAN",
+            "ccyCode": "OMR",
+            "countryCode": "OM",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "GAB",
+            "unitDesc": null,
+            "countryName": "GABON",
+            "ccyCode": "XAF",
+            "countryCode": "GA",
+            "totalCount": null
+        },
+        {
+            "countryIsoCode": "VNM",
+            "unitDesc": null,
+            "countryName": "VIETNAM",
+            "ccyCode": "VND",
+            "countryCode": "VN",
+            "totalCount": null
+        }
+    ]
+}

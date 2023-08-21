@@ -1,0 +1,56 @@
+{
+    "data": [{
+        "serviceCode": "002",
+        "parameters": [
+            {
+                "maximumLength": 10,
+                "minimumLength": 10,
+                "type": "Number",
+                "required": "true",
+                "englishName": "Border Number",
+                "name": "BeneficiaryId",
+                "order": 1,
+                "code": null,
+                "parameterNameInArabic": null
+            },
+            {
+                "maximumLength": 10,
+                "minimumLength": 10,
+                "type": "Number",
+                "required": "true",
+                "englishName": "Employer ID",
+                "name": "SponsorId",
+                "order": 2,
+                "code": null,
+                "parameterNameInArabic": null
+            },
+            {
+                "maximumLength": 10,
+                "minimumLength": 10,
+                "type": "IqamaDurations_Enum",
+                "required": "true",
+                "englishName": "Iqama Duration in Months",
+                "name": "IqamaDuration",
+                "order": 3,
+                "code": null,
+                "parameterNameInArabic": null
+            },
+            {
+                "maximumLength": 10,
+                "minimumLength": 10,
+                "type": "JobCategory_Enum",
+                "required": "true",
+                "englishName": "Job Category",
+                "name": "JobCategory",
+                "order": 4,
+                "code": null,
+                "parameterNameInArabic": null
+            }
+        ]
+    }],
+    "headerValue": {
+        "moduleId": "SADADPARAMETRS",
+        "simulate": "N",
+        "_dinsess": null
+    }
+}

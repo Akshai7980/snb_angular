@@ -1,0 +1,36 @@
+<div class="receiptConatiner">
+    <div translate class="mainTitle">LBL_RECEIPT</div>
+    <div class="row" id="logoPrint">
+        <div><img class="logo" src="{{logo}}"> </div>
+        <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+      </div>
+    <div class="receiptSubconatiner" id="receiptConatiner">
+        <div class="titleContainer">
+            <div><img class="receiptIcon" src="./assets/images/iconShield.png" alt="success"></div>
+            <div *ngIf="receiptDetails.msg1" class="paymentStatus" translate>{{receiptDetails.msg1}}</div>
+            <div *ngIf="receiptDetails.msg2" class="approval" translate>{{receiptDetails.msg2}}</div>
+            <div *ngIf="receiptDetails.referenceNumber" class="referenceNo"><span translate>LBL_RECEIPT_REF</span><span> {{receiptDetails.referenceNumber}}</span></div>
+        </div>
+        <div class="row" *ngFor="let group of receiptDetails.receiptDetails">
+            <div translate class="subTitles">{{group.title}}</div>
+            <table *ngIf="group.isTable=='true'" class="mat-table cdk-table ng-star-inserted">
+                <tr class="mat-header-row cdk-header-row ng-star-inserted">
+                    <th class="mat-header-cell cdk-header-cell label cdk-column-actionby mat-column-actionby ng-star-inserted" *ngFor="let field of group.fieldDetails" translate>{{field.dispKey}}</th>
+                </tr>
+                <tr class="mat-row cdk-row" *ngFor="let dataField of group.data">
+                    <td class="mat-cell cdk-cell information cdk-column-actionby mat-column-actionby ng-star-inserted" *ngFor="let field of group.fieldDetails">{{dataField[field.dataKey]}} <span *ngIf="dataField[field.dataKeySupport]">{{dataField[field.dataKeySupport]}}</span></td>
+                </tr>
+            </table>
+            <div *ngIf="group.isTable=='false'" class="rowInnerCntr">
+                <div class="field" *ngFor="let field of group.fieldDetails">
+                    <div class="label" translate>{{field.dispKey}}</div>
+                    <div class=" information " translate>{{field.dataKey}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttonContainer">
+        <app-primary-button  (click)="logOut()" buttonValue="{{receiptDetails.LoginButton.buttonLabel}}"></app-primary-button>
+
+    </div>
+</div>

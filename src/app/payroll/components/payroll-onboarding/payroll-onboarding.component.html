@@ -1,0 +1,37 @@
+<div class="outerContainer">
+	<div *ngIf="title" class="title">{{title | translate}}</div>
+	<app-payroll-onboarding-details #payrollOnboardingDetailsComponent [hidden]="showScreen === 'receipt'" [makeSelectable]="makeSelectable" (onProceedEmit)="onProceedClick($event)"
+	>
+	</app-payroll-onboarding-details>
+
+	<div class="subContainer callBackDiv" *ngIf="showScreen === 'review'">
+		<app-call-back [pageName]="payrollOnboarding" [pageName]='pageCall' (onSuccessEmit)="callBackSuccess()"  
+		(clickCancelCallBck)="getCanelBtnClick()"></app-call-back>
+	</div>
+
+	<app-authorization *ngIf="showScreen === 'review' && showAuth" [authListDataSource]="authOptions"
+		(authEmit)="getData($event)"></app-authorization>
+
+	<app-authentication *ngIf="showScreen === 'review'  && showAuth" (onTwoAuthClick)="onSecondFactorValue($event)"
+		(getOtpClick)="getOtpValue($event)" [otpError]="otpError" (authenticationType)="getAuthType($event)"></app-authentication>
+
+	<app-receipt *ngIf="showScreen === 'receipt'" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" [hideButton]="true" (DownloadReceiptClick)="downloadPdf($event)"></app-receipt>
+
+	<div class="footer">
+		<div *ngIf="showScreen === 'review'" class="termsAndConditions" translate>
+			LBL_TERMS <a (click)="openTermsAndCondition()" translate>LBL_THE_TERMS_AND_CONDITIONS</a>
+		</div>
+		<div class="finalProceed">
+			<app-tertiary-button *ngIf="showScreen === 'review'" translate buttonValue="LBL_CANCEL" class="tertiaryBtn"
+				(click)="cancel(); payrollOnboardingDetailsComponent.clearData()"></app-tertiary-button>
+			<!-- <app-primary-button *ngIf="showScreen === 'review'" translate buttonValue="LBL_SUBMIT" class="tertiaryBtn" (click)="submit()">
+			</app-primary-button> -->
+			<app-primary-button *ngIf="showScreen !== 'review' && showScreen !== 'receipt'" translate buttonValue="LBL_PROCEED"
+				(click)="payrollOnboardingDetailsComponent.proceedNext()">
+			</app-primary-button>
+		</div>
+	</div>
+
+	<app-ajax-loader class="ajaxLoaderMedium" [hidden]="isLoadingCompelete"></app-ajax-loader>
+
+</div>

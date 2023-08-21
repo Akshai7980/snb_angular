@@ -1,0 +1,160 @@
+<div class="outerContainer" *ngIf="!showReceipt">
+  <div class="title" translate>LBL_REVIEW</div>
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_MERCHANT_DETAILS</div>
+    <div class="acc" translate>LBL_ACCOUNT</div>
+    <table>
+      <tr class="tableHeader">
+        <th translate>LBL_ACC_NUMBER</th>
+        <th translate>LBL_NICK_NAME</th>
+        <th translate>LBL_FULL_NAME</th>
+        <th translate>LBL_STATUS</th>
+        <th translate>LBL_BALANCE</th>
+      </tr>
+      <ng-container>
+        <tr class="tableRowConatiner">
+          <td>SA1010 0100 1000 0000123</td>
+          <td>Dameer</td>
+          <td>Dameer Ahsan</td>
+          <td>Active</td>
+          <td>1,235.00 SAR</td>
+          <div class="downArrowAcc"></div>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+  <div class="accountDetails">
+    <div class="subTitles subTitlesDetails" translate>LBL_MERCHANT_DETAILS</div>
+    <div class="flex merchnatContainer">
+      <div class="commericialContainer">
+        <div translate>
+          LBL_COM_REG_NAME_ARB <span class="errorMsg">*</span>
+        </div>
+        <div class="m-top">ضمير إحسان</div>
+      </div>
+      <div class="commericialContainer">
+        <div translate>
+          LBL_TERMINAL_ADDRESS_ARABIC <span class="errorMsg">*</span>
+        </div>
+        <div class="m-top">مركز العقارية, حي العليا</div>
+      </div>
+      <div class="commericialContainer">
+        <div translate>
+          LBL_SHOP_NAME_AS_IT_WILL_APPEAR_ON_THE_RECEIPT_ARABIC
+          <span class="errorMsg">*</span>
+        </div>
+        <div class="m-top">مياه زمزم</div>
+      </div>
+    </div>
+    <div class="flex merchnatContainer">
+      <div class="commericialContainer">
+        <div translate>
+          LBL_COM_REG_NAME_ENG <span class="errorMsg">*</span>
+        </div>
+        <div class="m-top">Dameer Ahsan</div>
+      </div>
+      <div class="commericialContainer terminalAdd">
+        <div translate>
+          LBL_TERMINAL_ADDRESS <span class="errorMsg">*</span>
+        </div>
+        <div class="m-top">Aqariya Center, Ulaya Dist.</div>
+      </div>
+      <div class="commericialContainer shopName">
+        <div translate>
+          LBL_SHOP_NAME_AS_IT_WILL_APPEAR_ON_THE_RECEIPT
+          <span class="errorMsg">*</span>
+        </div>
+        <div class="m-top">Zamzam Water</div>
+      </div>
+    </div>
+    <div class="flex merchnatContainer">
+      <div class="commericialContainer">
+        <div translate>
+          LBL_TERMINAL_CITY_NAME_OR_NEAREST_CITY <span class="errorMsg">*</span>
+        </div>
+        <div class="m-top">Abha</div>
+      </div>
+      <div class="commericialContainer phone">
+        <div translate>LBL_PHONE <span class="errorMsg">*</span></div>
+        <div class="m-top">04-8222297</div>
+      </div>
+      <div class="commericialContainer companyEmail">
+        <div translate>
+          LBL_COMPANY_EMAIL_1_(TO_RECEIVE_FINANCIAL_DISPUTE)
+          <span class="errorMsg">*</span>
+        </div>
+        <div class="m-top">info@zamzam.com</div>
+      </div>
+    </div>
+    <div class="flex merchnatContainer">
+      <div class="commericialContainer">
+        <div translate>
+          LBL_DELEGATE_PERSON_FIRST_NAME <span class="errorMsg">*</span>
+        </div>
+        <div class="m-top">Ahmad</div>
+      </div>
+      <div class="commericialContainer delegatePerson">
+        <div translate>
+          LBL_DELEGATE_PERSON_LAST_NAME <span class="errorMsg">*</span>
+        </div>
+        <div class="m-top">Hussain</div>
+      </div>
+      <div class="commericialContainer mobileNumber">
+        <div translate>
+          LBL_MOBILE_NUMBER_1_(DELEGATE_PERSON_IN_LOCATION)
+          <span class="errorMsg">*</span>
+        </div>
+        <div class="m-top">+966 00966 3 5966764</div>
+      </div>
+    </div>
+    <div class="flexContainer">
+      <div class="commericialContainer">
+        <div translate>
+          LBL_MOBILE_NUMBER_2_(DELEGATE_PERSON_IN_LOCATION)
+          <span class="errorMsg">*</span>
+        </div>
+        <div class="m-top">+966 00966 1 2411681</div>
+      </div>
+      <div class="commericialContainer comments">
+        <div translate>LBL_COMMENTS</div>
+        <div class="m-top">Not Provided</div>
+      </div>
+      <div class="commericialContainer number">
+        <div translate>LBL_NUMBER_OF_TERMINALS</div>
+        <div class="m-top">2</div>
+      </div>
+    </div>
+  </div>
+  <app-authorization></app-authorization>
+  <app-authentication></app-authentication>
+  <div class="footerText" translate>
+    LBL_TERMS
+    <a href="{{ url }}" target="_blank"
+      ><span class="termsContainer" translate
+        >LBL_THE_TERMS_AND_CONDITIONS</span
+      ></a
+    >
+  </div>
+  <div class="btnGroup mtop_20">
+    <div>
+      <!-- <button type="button" class="button-secondary" translate>
+        LBL_CANCEL
+      </button> -->
+      <app-tertiary-button buttonValue="LBL_CANCEL" class="tertiaryBtn">
+      </app-tertiary-button>
+    </div>
+    <div>
+      <!-- <button type="button" class="button-primary" (click)="submit()" translate>
+        LBL_SUBMIT
+      </button> -->
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showReceipt">
+  <app-receipt
+    [receiptDetails]="receiptData"
+    (onInitAgainClick)="initiateAnotherRequest()"
+  >
+  </app-receipt>
+</div>

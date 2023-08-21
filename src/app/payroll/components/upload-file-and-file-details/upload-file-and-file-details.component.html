@@ -1,0 +1,154 @@
+<div id="authFileUpload">
+  <div class="beneficiaryDetails">
+    <div class="subTitles" translate>LBL_UPLOAD_FILE</div>
+    <div class="rowInnerCntr">
+      <div class="field" [hidden]="rootScopeData.currentUrl === '/payroll/vendorPayment' ">
+        <div class="label" translate>LBL_DEPO_TYPE</div>
+        <p class="label-content">{{ uploadFileDetails?.fileType?.subPdtDesc ? uploadFileDetails?.fileType?.subPdtDesc :
+          "--" }}</p>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_FORMAT</div>
+        <p class="label-content">{{ uploadFileDetails?.format?.typeDesc ? uploadFileDetails?.format?.typeDesc : "--" }}
+        </p>
+      </div>
+      <div class="field" *ngIf="fileDetails?.valueDate">
+        <div class="label" translate>LBL_VALUE_DATE</div>
+        <p class="label-content">
+          {{ fileDetails?.valueDate ? fileDetails?.valueDate : "--" }}
+        </p>
+      </div>
+      <div class="field" *ngIf="uploadFileDetails?.commercialNo">
+        <div class="label" translate>LBL_COMMERCIAL_NO</div>
+        <p class="label-content">{{ uploadFileDetails?.commercialNo ? uploadFileDetails?.commercialNo : "--" }}</p>
+      </div>
+      <div class="field" *ngIf="uploadFileDetails?.molId">
+        <div class="label" translate>LBL_MOL_ID</div>
+        <p class="label-content">{{ uploadFileDetails?.molId ? uploadFileDetails?.molId : "--" }}</p>
+      </div>
+    </div>
+    <div class="uploadFile">
+      <div class="rowInnerCntr">
+        <div class="field field-bottom">
+          <div class="label" translate>LBL_UPLOAD_FILE</div>
+          <div class="fileNameDownloadContainer" *ngIf="!showFileErrMsg">
+            <p class="label-content">
+              {{ uploadFileDetails?.selectedFile?.fileActualName ? uploadFileDetails.selectedFile.fileActualName : "--"
+              }}
+            </p>
+            <app-uploaded-file-download *ngIf="uploadFileDetails?.selectedFile?.fileActualName"
+              [fileUploadedDetails]="fileUploadedDetails">
+            </app-uploaded-file-download>
+          </div>
+
+          <div *ngIf="showFileErrMsg">
+            <span class="errorMsg mr10"> {{ fileDetails?.rejectReason ? fileDetails.rejectReason : '--' }} </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <app-debit-lookup *ngIf="debitDataObj" [debitAccDetails]="debitDataObj" (onArrowClickEmit)="onArrowClick()">
+      </app-debit-lookup>
+    </div>
+  </div>
+
+  <div [hidden]="fileDetails?.fileStatusCd === 'CONFAL' || fileDetails?.fileStatusCd === 'VERFAL'">
+    <div class="beneficiaryDetails marginLeft_0 pR">
+      <div class="sub">
+        <div>
+          <div class="subTitles" translate>LBL_FILE_DETAILS</div>
+        </div>
+      </div>
+
+      <div class="rowInnerCntr">
+        <div class="field">
+          <div class="label" translate>LBL_SNB_RECORDS</div>
+          <p class="label-content">{{ fileDetails?.snbCount ? fileDetails.snbCount : "--" }}</p>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_SNB_AMOUNT</div>
+          <p class="label-content">
+            {{ fileDetails?.snbAmt ? (fileDetails.snbAmt | currencyFormat: fileDetails?.snbCcy ?? fileDetails?.snbCcy )
+            + " " + ((fileDetails?.snbAmt && fileDetails?.snbCcy) ? fileDetails.snbCcy : ' ') : "--" }}
+          </p>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_FILE_STATUS</div>
+          <p class="label-content">
+            {{ fileDetails?.status ? fileDetails.status : "--" }}
+          </p>
+        </div>
+      </div>
+
+      <div class="rowInnerCntr">
+        <div class="field">
+          <div class="label" translate>LBL_OTHER_BANKS_RECORDS</div>
+          <p class="label-content">{{ fileDetails?.bankRec ? fileDetails.bankRec : "--" }}</p>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_OTHER_BANKS_AMOUNT</div>
+          <p class="label-content">
+            {{ fileDetails?.bankAmt ? (fileDetails.bankAmt | currencyFormat: fileDetails?.bankCcy ??
+            fileDetails?.bankCcy ) + " " + ((fileDetails?.bankAmt && fileDetails?.bankCcy) ? fileDetails.bankCcy : ' ')
+            : "--" }}
+          </p>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_BASE_FEE</div>
+          <p class="label-content">
+            {{ fileDetails?.bseFee ? (fileDetails.bseFee | currencyFormat: fileDetails?.bseCcy ?? fileDetails?.bseCcy )
+            + " " + ((fileDetails?.bseFee && fileDetails?.bseCcy) ? fileDetails.bseCcy : ' ') : "--" }}
+          </p>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_CARD_RECORDS</div>
+          <p class="label-content">{{ fileDetails?.crdRec ? fileDetails.crdRec : "--" }}</p>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_CARD_AMOUNT</div>
+          <p class="label-content">
+            {{ fileDetails?.crdAmt ? (fileDetails.crdAmt | currencyFormat: fileDetails?.crdCcy ?? fileDetails?.crdCcy )
+            + " " + ((fileDetails?.crdAmt && fileDetails?.crdCcy) ? fileDetails.crdCcy : ' ') : "--" }}
+          </p>
+        </div>
+        <div class="field">
+          <div class="label">
+            <span translate>LBL_VAT </span> <span translate>LBL_FEE</span>
+          </div>
+          <p class="label-content">
+            {{ fileDetails?.vatFee ? (fileDetails.vatFee | currencyFormat: fileDetails?.vatCcy ?? fileDetails?.vatCcy )
+            + " " + ((fileDetails?.vatFee && fileDetails?.vatCcy) ? fileDetails.vatCcy : ' ') : "--" }}
+          </p>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_TOTAL_RECAORDS</div>
+          <p class="label-content">{{ fileDetails?.totalCount ? fileDetails?.totalCount : "--" }}</p>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_TOTAL_AMOUNT</div>
+          <p class="label-content">
+            {{ fileDetails?.odFileAmount ? (fileDetails.odFileAmount | currencyFormat: fileDetails?.odTxnCy ??
+            fileDetails.odTxnCy) + " " + ((fileDetails?.odFileAmount && fileDetails?.odTxnCy) ? fileDetails.odTxnCy : '
+            ') : "--" }}
+          </p>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_FEE</div>
+          <p class="label-content">
+            {{ fileDetails?.fee ? (fileDetails.fee | currencyFormat: fileDetails?.feeCcy ?? fileDetails.feeCcy) + " " +
+            ((fileDetails?.fee && fileDetails?.feeCcy) ? fileDetails.feeCcy : ' ') : "--" }}
+          </p>
+        </div>
+      </div>
+      <div *ngIf="balanceValidation" class="errorMsg errorMsgBottomMargin" translate>
+        LBL_AMOUNT_SHOULD_BE_LESS_THAN_DEBIT_AMOUNT</div>
+      <app-ajax-loader-medium [hidden]="isLoadingCompeleteMedium"></app-ajax-loader-medium>
+    </div>
+  </div>
+</div>
+
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

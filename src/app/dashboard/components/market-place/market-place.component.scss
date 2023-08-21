@@ -1,0 +1,105 @@
+.titleContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 12px 6px 12px;
+    .title{
+        font-size: 16px;
+        color: var(--primary-fontColor);
+        font-family: 'HelveticaNeueMed', arial, sans-serif;
+    }
+    // .viewAll{
+    //     font-size: 14px;
+    //     color: var(--secondary-btn-bg-color);
+    //     cursor: pointer;
+    // }
+    // .viewAll:hover{
+    //   color: var(--primary-selected-color);
+    // }
+}
+.marketPlaceInfo{
+    padding: 2px 7px 26px 12px;
+    font-size: 14px;
+    line-height: 16px;
+    height: 75px;
+    // display: flex;
+    justify-content: space-between;
+}
+.pointSale{
+img{
+width: 54px;
+height: 55px;
+margin-right: 3px;
+margin-top: 3px;
+}
+&.temp img{
+    width: 100%;
+    height: 100px;
+}
+}
+.carouselIndicators {
+    border: none;
+    background-color: var(--widget-border-color);
+    padding: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+    margin-left: 10px;
+}
+
+.carouselbg {
+    background-color: var(--primary-unselected-color);
+}
+
+.carouselLoopGrp {
+    // width: 62px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.carouselBtnIndicators {
+    display: flex;
+    float: right;
+}
+
+.nexticon {
+    background: url(../../../../assets/images/icoNextArrow.svg) no-repeat center;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-size: contain;
+    margin-top: -6px;
+    cursor: pointer;
+}
+
+.marketPlaceData{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.subtitle{
+    font-size: 12px;
+    color: var( --primary-fontColor);
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    padding-bottom: 8px;
+    margin-left: 5px;
+}
+.marketPlaceData{
+    font-size: 12px;
+    color: var( --primary-fontColor);
+    margin-left: 5px;
+}
+
+.mainConatiner {
+    padding: unset;
+}
+
+.imgCursor{
+    cursor: pointer;
+}

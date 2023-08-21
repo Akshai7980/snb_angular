@@ -1,0 +1,49 @@
+.mainTitle{
+    margin-left: 31px;
+}
+.mainContainer {margin-bottom: 50px;}
+.paymentToggels{
+    display: flex;
+    position: absolute;
+    margin-left: 45px;
+    margin-top: 25px;
+}
+.toggle{
+    cursor: pointer;
+    height: 40px;
+    min-width: 204px;
+    //to align the text center both vertically and horizontally
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: var(--tableData-header-color);
+
+    &:hover{
+        background-color:var(--toggle-hover-bg-color);
+    }
+
+    &.active{
+        background-color:var(--short-profile-txt-color);
+        color:#fff;
+        font-family: "HelveticaNeueMed", arial, sans-serif
+    }
+
+    &#toggle1{
+        border: 1px solid var(--widget-border-color);
+        border-radius: 100px 0 0 100px;
+    }
+
+    &#toggle2{
+        border-top: 1px solid var(--widget-border-color);
+        border-bottom: 1px solid var(--widget-border-color);
+    }
+
+    &#toggle3{
+        border: 1px solid var(--widget-border-color);
+        border-radius: 0 100px 100px 0;
+
+    }
+}
+
+
+

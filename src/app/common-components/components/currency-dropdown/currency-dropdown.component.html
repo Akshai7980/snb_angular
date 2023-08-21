@@ -1,0 +1,13 @@
+<div *ngIf="showAmtDetInitiateScreen">
+    <div class="mtop_10">
+        <mat-select class="selectInput" panelClass="smallDdropDownOption" [(value)]="paymentCurrency"
+            disableOptionCentering (selectionChange)="currencyChanged($event)">
+            <mat-option value="{{currency}}" *ngFor="let currency of currencyArrayDataSource">
+                {{currency}}
+            </mat-option>
+        </mat-select>
+        <div *ngIf="paymentCurrencyError">
+            <small translate class="required">{{paymentCurrencyError}}</small>
+        </div>
+    </div>
+</div>

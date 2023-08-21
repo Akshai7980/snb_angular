@@ -1,0 +1,24 @@
+{
+    "headerValue": {
+        "moduleId": "EPYAMTTYPE",
+        "simulate": "N",
+        "export": null,
+        "exportType": null,
+        "_dinsess": "9c6e5df8-4cc9-4862-9209-c3c19b588149",
+        "sortColumn": null,
+        "sortOrder": null,
+        "sortDirection": null
+    },
+    "data": [
+        {
+            "amountType": [
+                {
+                    "amountType": "full"
+                },
+                {
+                    "amountType": "partial"
+                }
+            ]
+        }
+    ]
+}

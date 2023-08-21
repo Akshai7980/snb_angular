@@ -1,0 +1,15 @@
+{
+  "dataValue": {
+    "STATUS": "Success",
+    "SELECTED_RECORDS": "TBC2208191503042",
+    "STATUS_CODE": "UA",
+    "INTERNAL_REFERENCE_NO": "TBC2208231633287",
+    "TXN_STATUS" : "AH",
+    "JOURNAL_ID" : "121212",
+    "UTI_REFERENCE": "",
+    "OD_REJECT_REASON" :"Your transaction is rejected due to Insufficient Fund"
+  },
+  "headerValue": {
+    "moduleId": "TXNAUTH"
+  }
+}

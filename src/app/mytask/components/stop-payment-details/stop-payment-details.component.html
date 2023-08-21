@@ -1,0 +1,186 @@
+<div>
+  <div class="titleConatiner">
+    <div translate class="mainTitle">LBL_STOP_PAYMENT_DETAILS</div>
+  </div>
+  <div>
+    <div class="container">
+      <app-stop-payment-file-details></app-stop-payment-file-details>
+    </div>
+    <div
+      class="summaryOuterConainer"
+      *ngIf="selectedStopPaymentType === 'record'"
+    >
+      <div class="summaryConainer" id="recordSummaryPrintSection">
+        <div>
+          <div class="subTitles" translate>
+            LBL_RECORDS_TO_STOP
+            <div class="gridline02">
+              <div class="summarytools" *ngIf="!noRecordFlag">
+                <app-summary-tools
+                  [moduleId]="moduleId"
+                  [isEnabledPropertyPrint]="true"
+                ></app-summary-tools>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tableAlignment" *ngIf="!noRecordFlag">
+          <table
+            mat-table
+            [dataSource]="recordsForStopPayment"
+            class="mat-elevation-z0"
+            matSort
+          >
+            <ng-container matColumnDef="recordNumber">
+              <th mat-header-cell *matHeaderCellDef class="recordHeader">
+                <div class="position_rel" translate>LBL_RECORD</div>
+              </th>
+              <td mat-cell *matCellDef="let element" class="recordHeader">
+                <div class="recordDetails" *ngIf="element.record">
+                  {{ element.record }}
+                </div>
+                <div *ngIf="!element.record">--</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="bank">
+              <th mat-header-cell *matHeaderCellDef>
+                <div class="position_rel" translate>LBL_BANK</div>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <div *ngIf="element.bank">{{ element.bank }}</div>
+                <div *ngIf="!element.bank">--</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="accountNumber">
+              <th mat-header-cell *matHeaderCellDef>
+                <div class="position_rel" translate>LBL_Account_Number</div>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <div *ngIf="element.accNo">{{ element.accNo }}</div>
+                <div *ngIf="!element.accNo">--</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fullName">
+              <th mat-header-cell *matHeaderCellDef>
+                <div class="position_rel" translate>LBL_FULL_NAME</div>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <div *ngIf="element.fullName">{{ element.fullName }}</div>
+                <div *ngIf="!element.fullName">--</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amount">
+              <th mat-header-cell *matHeaderCellDef>
+                <div class="position_rel" translate>LBL_AMOUNT</div>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <div *ngIf="element.amt && element.ccy">
+                  {{ element.amt | currencyFormat: element.ccy }}
+                  {{ element.ccy }}
+                </div>
+                <div *ngIf="!(element.amt && element.ccy)">--</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="uti">
+              <th mat-header-cell *matHeaderCellDef>
+                <div class="position_rel" translate>LBL_UTI</div>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <div *ngIf="element.uti">{{ element.uti }}</div>
+                <div *ngIf="!element.uti">--</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="childRef">
+              <th mat-header-cell *matHeaderCellDef>
+                <div class="position_rel" translate>LBL_CHILD_REFERENCE</div>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <div *ngIf="element.childRef">{{ element.childRef }}</div>
+                <div *ngIf="!element.childRef">--</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="refId">
+              <th mat-header-cell *matHeaderCellDef>
+                <div class="position_rel" translate>LBL_REFERENCE_ID</div>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <div *ngIf="element.referenceId">{{ element.referenceId }}</div>
+                <div *ngIf="!element.referenceId">--</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef>
+                <div class="position_rel" translate>LBL_STATUS</div>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <div *ngIf="element.status">{{ element.status }}</div>
+                <div *ngIf="!element.status">--</div>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="reviewDisplayColumns"></tr>
+            <tr
+              mat-row
+              *matRowDef="let row; columns: reviewDisplayColumns"
+            ></tr>
+          </table>
+        </div>
+        <div *ngIf="noRecordFlag">
+          <app-no-record-found
+            [noRecordFoundInfo]="noRecordFoundInfoObj"
+          ></app-no-record-found>
+        </div>
+      </div>
+    </div>
+    <section class="summaryOuterConainer">
+      <div class="summaryConainer">
+        <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+      </div>
+    </section>
+    <section class="summaryOuterConainer">
+      <div class="summaryConainer">
+        <app-history [historyData]="workFlowHistoryParams"></app-history>
+      </div>
+    </section>
+    <section>
+      <div class="footerText" translate>
+        LBL_TERMS
+        <a href="{{ url }}" target="_blank"
+          ><span class="termsContainer" translate
+            >LBL_THE_TERMS_AND_CONDITIONS</span
+          ></a
+        >
+      </div>
+      <div class="btnContainer">
+        <button
+          class="button-secondary backButton"
+          routerLink="/mytask/Payroll/stop-payment"
+          translate
+        >
+          LBL_BACK
+        </button>
+        <button
+          class="button-print-secondary"
+          (click)="rejectStopPayment()"
+          translate
+        >
+          LBL_REJECT
+        </button>
+        <button
+          class="button-print-secondary"
+          (click)="authorizeStopPayment()"
+          translate
+        >
+          LBL_AUTHORIZE
+        </button>
+      </div>
+    </section>
+  </div>
+</div>

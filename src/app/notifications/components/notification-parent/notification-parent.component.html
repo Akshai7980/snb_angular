@@ -1,0 +1,16 @@
+<div class="worksapceBase">
+    <div class="content-header" translate>LBL_NOTIFICATION</div>
+    
+    <div class="tabCntr">
+        <ul>
+            <li *ngIf="rootScopeData.userEntitlements.tabs.ALERTS_INQ"><a routerLink="alerts" [class.active]="rootScopeData.activeTabName === 'alerts'" translate>LBL_ALERTS <span *ngIf="rootScopeData.alertSummaryCount && rootScopeData.alertSummaryCount > 0">({{rootScopeData.alertSummaryCount}})</span></a></li>
+            <li *ngIf="rootScopeData.userEntitlements.tabs.NOTIFICATIONS_INQ"><a routerLink="notifications" [class.active]="rootScopeData.activeTabName === 'notifications'" translate>LBL_NOTIFICATIONS <span *ngIf="rootScopeData.notificationSummaryCount && rootScopeData.notificationSummaryCount > 0">({{rootScopeData.notificationSummaryCount}})</span></a></li>  
+            <!-- <li *ngIf="rootScopeData.userEntitlements.tabs.ANNOUNCEMENTS_INQ"><a routerLink="announcements" [class.active]="rootScopeData.activeTabName === 'announcement'" translate>LBL_ANNOUNCEMENTS <span *ngIf="rootScopeData.announcementSummaryCount && rootScopeData.announcementSummaryCount > 0">({{rootScopeData.announcementSummaryCount}})</span></a></li>     -->
+           
+        </ul>
+    </div>
+    <div class="tabDataCntr">
+        <router-outlet></router-outlet>
+    </div>
+    </div>
+    

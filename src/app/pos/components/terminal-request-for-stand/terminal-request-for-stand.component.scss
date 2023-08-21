@@ -1,0 +1,197 @@
+.outerContainer {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.subTitles {
+  margin-bottom: 15px;
+
+}
+
+.merchantDetails {
+  padding: 15px;
+  margin-top: 15px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+}
+
+.subTitles {
+  margin-bottom: 15px;
+
+}
+
+.detailContainer {
+  margin-left: -16px;
+}
+
+.tableHeader {
+  color: var(--secondary-font-color);
+  background-size: cover;
+  font-family: "HelveticaNeue", arial, sans-serif;
+  font-size: 14px
+}
+
+.emailContainer {
+  color: var(--secondary-font-color);
+  background-size: cover;
+  font-family: "HelveticaNeue", arial, sans-serif;
+  font-size: 14px
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+
+}
+
+.tableRowConatiner {
+  background-color: var(--summary-hover-color);
+  font-size: 14px;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+
+.downArrowAcc {
+  background: url(../../../../assets/images/iconDownGreen.svg) no-repeat center;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  cursor: pointer;
+  transform: rotate(180deg);
+  transition: 1s transform;
+  margin-top: 6px;
+  margin-left: -26px;
+}
+
+th,
+td {
+  // padding: 8px;
+  text-align: left;
+}
+
+td:first-of-type {
+  border-top-left-radius: 10px 10px;
+  border-bottom-left-radius: 10px 10px;
+}
+
+td:last-of-type {
+  border-top-right-radius: 10px 10px;
+  border-bottom-right-radius: 10px 10px;
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.selectInput {
+  margin-bottom: 10px;
+  min-width: 300px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  cursor: auto;
+  background-color: var(--primary-widget-bg-color);
+}
+
+.matSelectInput {
+  margin-bottom: 10px;
+  width: 300px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  cursor: auto;
+  background-color: var(--primary-widget-bg-color);
+}
+
+.textArea {
+  min-width: 280px;
+  height: 80px;
+  padding: 8px;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #5d5d5d;
+}
+
+.btnGroup {
+  float: right;
+  display: flex;
+}
+
+.mtop_20 {
+  margin-top: 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.inputConatiner {
+  margin-left: 21%;
+}
+
+.descriptionContainer {
+  margin-left: 2%;
+}
+
+.amount {
+  margin-left: 2%;
+}
+
+.financialContainer {
+  margin-left: 2%;
+}
+
+.beneficiaryDetails {
+  padding: 15px;
+  margin-top: 15px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+}
+
+.uploadContainer {
+  display: flex;
+  align-items: center;
+  padding: 15px 15px 0px;
+
+  .upload-file {
+    width: 15%;
+    max-height: 350px;
+
+    .upload-file-title {
+      font-family: "HelveticaNeueMed", sans-serif;
+    }
+  }
+
+  .download-template {
+    position: relative;
+    top: 20px;
+    width: calc(100% - 20%);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+
+    app-download-template {
+      display: flex;
+      align-items: center;
+      width: calc(100% - 20%);
+      margin-top: -61px;
+    }
+  }
+}

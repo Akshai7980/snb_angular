@@ -1,0 +1,252 @@
+{
+    "DATA": {
+        "TOTAL_COUNT": 5,
+        "ALL_RECORDS": [
+            {
+                "ARM_ID": "23424234234124",
+                "ARM_NAME": "Al Masaood Oil & Gas",
+                "SCHEME_ID": "ARAMCO0001",
+                "SCHEME_DESC":"Aramco Scheme 1",
+                "REMITTER_ID": "400411",
+                "COLLECTN_ACC": "4423452395825758941",
+                "IS_ALL_SELECTED":false,
+                "INV_DATA":[
+                    {
+                        "INV_NO":"234242342341214",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"1,000.00",
+                        "INV_CURN_CODE":"SAR",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"23424234234125",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"1,000.00",
+                        "INV_CURN_CODE":"SAR",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341241",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"266.59",
+                        "INV_CURN_CODE":"USD",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"23424234234124",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"266.59",
+                        "INV_CURN_CODE":"USD",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    }
+                ]
+            },
+            {
+                "ARM_ID": "23424234234123",
+                "ARM_NAME": "Al Masaood Gas & Oil",
+                "SCHEME_ID": "ARAMCO0002",
+                "SCHEME_DESC":"Aramco Scheme 2",
+                "REMITTER_ID": "400412",
+                "COLLECTN_ACC": "4423452395825758942",
+                "IS_ALL_SELECTED":false,
+                "INV_DATA":[
+                    {
+                        "INV_NO":"234242342341214",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"1,000.00",
+                        "INV_CURN_CODE":"SAR",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"23424234234125",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"1,000.00",
+                        "INV_CURN_CODE":"SAR",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341241",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"266.59",
+                        "INV_CURN_CODE":"USD",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"23424234234124",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"266.59",
+                        "INV_CURN_CODE":"USD",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    }
+                ]
+            },
+            {
+                "ARM_ID": "23424234234126",
+                "ARM_NAME": "Al Masaood Oil & Gas",
+                "SCHEME_ID": "ARAMCO0003",
+                "SCHEME_DESC":"Aramco Scheme 3",
+                "REMITTER_ID": "400413",
+                "COLLECTN_ACC": "4423452395825758943",
+                "IS_ALL_SELECTED":false,
+                "INV_DATA":[
+                    {
+                        "INV_NO":"234242342341214",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"1,000.00",
+                        "INV_CURN_CODE":"SAR",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"23424234234125",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"1,000.00",
+                        "INV_CURN_CODE":"SAR",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341241",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"266.59",
+                        "INV_CURN_CODE":"USD",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"23424234234124",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"266.59",
+                        "INV_CURN_CODE":"USD",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    }
+                ]
+            },
+            {
+                "ARM_ID": "23424234234127",
+                "ARM_NAME": "Al Masaood Gas & Oil",
+                "SCHEME_ID": "ARAMCO0004",
+                "SCHEME_DESC":"Aramco Scheme 4",
+                "REMITTER_ID": "400414",
+                "COLLECTN_ACC": "4423452395825758944",
+                "IS_ALL_SELECTED":false,
+                "INV_DATA":[
+                    {
+                        "INV_NO":"234242342341214",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"1,000.00",
+                        "INV_CURN_CODE":"SAR",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"23424234234125",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"1,000.00",
+                        "INV_CURN_CODE":"SAR",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341241",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"266.59",
+                        "INV_CURN_CODE":"USD",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"23424234234124",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"266.59",
+                        "INV_CURN_CODE":"USD",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    }
+                ]
+            },
+            {
+                "ARM_ID": "23424234234127",
+                "ARM_NAME": "Al Masaood Gas & Oil",
+                "SCHEME_ID": "ARAMCO0005",
+                "SCHEME_DESC":"Aramco Scheme 5",
+                "REMITTER_ID": "400415",
+                "COLLECTN_ACC": "4423452395825758945",
+                "IS_ALL_SELECTED":false,
+                "INV_DATA":[
+                    {
+                        "INV_NO":"234242342341214",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"1,000.00",
+                        "INV_CURN_CODE":"SAR",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"23424234234125",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"1,000.00",
+                        "INV_CURN_CODE":"SAR",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341241",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"266.59",
+                        "INV_CURN_CODE":"USD",
+                        "AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"23424234234124",
+                        "DATE":"10/12/2021",
+                        "DUE_DATE":"30/12/2021",
+                        "INV_AMT":"266.59",
+                        "INV_CURN_CODE":"USD",
+                        "AMT_SAR":"1,000.00",
+                        "IS_SELECTED":false
+                    }
+                ]
+            }
+        ]
+    },
+    "HEADER_VALUE": {
+        "sortColumn": "ARM_ID",
+        "sortOrder": "desc",
+        "MODULE_ID": "CARDMODSUM",
+        "TXN_PROCESS_DATE_TIME": ""
+    }
+}

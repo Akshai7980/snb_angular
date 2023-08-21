@@ -1,0 +1,17 @@
+{
+    "headerValue": {
+        "moduleId": "PYTGTWAY"
+    },
+    "data": [
+        {
+            "payGateWays": [
+                {
+                    "gateWays": "Paytabs"
+                },
+                {
+                    "gateWays": "Amazon Payment Services"
+                }
+            ]
+        }
+    ]
+}

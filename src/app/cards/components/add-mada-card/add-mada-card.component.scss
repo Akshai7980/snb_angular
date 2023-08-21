@@ -1,0 +1,29 @@
+.finalProceed {
+    position: relative;
+    float: right;
+    bottom: 10px;
+}
+.footer {
+    margin: 36px 30px 0 46px;
+
+    .termsAndConditions {
+        position: absolute;
+        color: var(--tableData-header-color);
+        font-size: 14px;
+        font-family: 'HelveticaNeue', arial, sans-serif;
+
+        a {
+            color: var(--short-profile-txt-color);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}
+.title {
+    padding: 0px 0px 0px 5px;margin-bottom: 15px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--input-text-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+.gutterContainer{margin: 0 20px 30px}.mtop20{margin-top: 20px;}

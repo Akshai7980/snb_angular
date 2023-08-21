@@ -1,0 +1,33 @@
+.mainContainer{
+    margin-right: 15px;
+}
+.subContainer {
+    border-radius: 6px;
+    background-color: #ffffff;
+    padding: 19px 40px 31px 22px ;
+    border: 1px solid #e8e8e8;
+    margin-top: 20px;
+}
+.geneStaTitles {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+}
+
+.plainText {
+    margin-top: 10px;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+}
+
+.row {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+}
+
+.column {
+    margin-bottom: 20px;
+}

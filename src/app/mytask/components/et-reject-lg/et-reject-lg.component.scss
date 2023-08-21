@@ -1,0 +1,79 @@
+.mainContainer {
+  margin: 0px 20px 0px 20px;
+}
+
+.refNO {
+  padding-top: 13px;
+}
+
+.title {
+  padding: 16px 0px 20px 0px;
+  display: flex;
+}
+
+.subContainer {
+  border-radius: 10px;
+  background: var(--summary-row-bg-color);
+  margin: 20px 20px 20px 0;
+  padding: 12px 0 15px 18px;
+}
+
+.pad_l_10 {
+  padding-left: 10px;
+}
+
+.summaryOuterConainer {
+  .summaryConainer {
+    border-radius: 10px;
+    background: var(--primary-widget-bg-color);
+    border: 1px solid var(--widget-border-color);
+    padding: 20px 20px 20px 20px;
+  }
+}
+
+.container {
+  border-radius: 10px;
+  background: var(--primary-widget-bg-color);
+  margin: 20px 0px 20px 0;
+  padding: 10px 0px 10px 0px;
+}
+
+.btnGroup {
+  float: right;
+  display: flex;
+  margin: 20px;
+}
+
+.rejectReasonContainer {
+  margin-bottom: 30px;
+}
+
+.rejecthead {
+  font-family: "HelveticaNeueMed", arial, sans-serif !important;
+  color: var(--table-header-color);
+  font-size: 14px;
+}
+
+.rejecttextarea {
+  margin-top: 10px !important;
+}
+
+textarea {
+  width: 300px;
+  height: 80px;
+  border: 1px solid var(--input-border-color);
+  resize: none;
+  border-radius: 5px;
+  outline: none;
+  color: var(--default-text-color);
+  background-color: var(--primary-widget-bg-color);
+}
+
+.headerTitle {
+  display: flex;
+  margin-bottom: 23px;
+}
+
+.detailsTitleContainer {
+  margin: -15px 0px -27px 0px;
+}

@@ -1,0 +1,38 @@
+<div class="parentDiv">
+  <div class="mainTitle cusTitle">
+    <div class="backIcon backArrow" routerLink="/mytask/cards/creditCard"></div>
+    <span translate>LBL_CREDIT_CARD_SUMMARY</span>
+  </div>
+  <div class="container">
+    <app-credit-card-details></app-credit-card-details>
+  </div>
+  <section class="summaryOuterConainer">
+    <div class="summaryConainer">
+      <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+    </div>
+  </section>
+  <section class="summaryOuterConainer">
+    <div class="summaryConainer">
+      <app-history [historyData]="workFlowHistoryParams"></app-history>
+    </div>
+  </section>
+
+  <div class="btnGroup mtop_20">
+    <div class="btnContainer">
+      <app-tertiary-button
+        buttonValue="LBL_BACK"
+        routerLink="/mytask/cards/creditCard"
+      ></app-tertiary-button>
+      <app-secondary-button
+        buttonValue="LBL_REJECT"
+        (click)="onClickReject()"
+      ></app-secondary-button>
+      <app-secondary-button
+        buttonValue="LBL_AUTHORIZE"
+        (click)="onClickAuthorize()"
+      >
+      </app-secondary-button>
+    </div>
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

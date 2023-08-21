@@ -1,0 +1,45 @@
+
+<div id="singleTransferInquiryPrinSection">
+  <div class="detailsTitleContainer">
+    <div class="mainTitle" translate>LBL_TRANSFER_SUMMARY</div>
+    <div class="row" id="logoPrint">
+      <div><img class="logo" src="{{logo}}"> </div>
+      <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+    </div>
+    <app-summary-tools
+      [printSection]="printSection"
+      [enabledProperty]="true"
+      id="printCheque"
+      [moduleId]="rootScopeData.accountsActiveModule"
+      (onPDFdownloadChange)="printPdf('singleTransferInquiryPrinSection','save')"  [isshownPrint]="shownPrint" [saveReceiptObject]="saveReceiptObject" [isshowndetailsPrint]="isshowndetailsPrint" (onDetailsPagePrintemit)="selectDetailsPagePrint()"
+      ></app-summary-tools>
+      <!-- class="summaryContainer" -->
+    </div>
+    <div class="detailsDataCntr">
+      <section class="summaryOuterConainer">
+        <div>
+          <app-single-transfer-details></app-single-transfer-details>
+        </div>
+      </section>
+      <section class="summaryOuterConainer">
+        <div class="summaryConainer">
+          <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+        </div>
+      </section>
+      <section class="summaryOuterConainer">
+        <div class="summaryConainer">
+          <app-history [historyData]="workFlowHistoryParams"></app-history>
+        </div>
+      </section>
+      <section>
+        <div class="btnContainer">
+          <app-tertiary-button
+            buttonValue="LBL_BACK"
+            (click)="back()"
+          ></app-tertiary-button>
+        </div>
+      </section>
+    </div>
+  
+</div>
+

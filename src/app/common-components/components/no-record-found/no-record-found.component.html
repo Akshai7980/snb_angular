@@ -1,0 +1,12 @@
+<!-- <p>no-record-found works!</p> -->
+<div class="parent">
+    <div class="child">
+        <img class="icon-size" *ngIf="noRecordFoundInfo.showIcon !='false'" src="assets/images/importent.png">
+      <div class="noinvestdiv" *ngIf="noRecordFoundInfo.showMsg !='false'">
+        <span translate>{{noRecordFoundInfo.msg}}</span>
+       </div>
+        <div class="investdiv" *ngIf="noRecordFoundInfo.showBtn !='false'">
+        <button routerLink="{{noRecordFoundInfo.btnLink}}" class="investnowbtn animate hide">{{noRecordFoundInfo.btnLabel}}</button>
+        </div>
+    </div>
+</div>

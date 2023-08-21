@@ -1,0 +1,38 @@
+.additionDetailsContainer {
+  padding: 20px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  margin: 5px 20px 20px 30px;
+}
+
+.container {
+  color: var(--table-header-color);
+  margin-top: 20px;
+  margin-left: 16px;
+  display: flex;
+  flex-direction: row;
+}
+
+.readOnlyContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 300px;
+  // margin-right: 150px;
+}
+.fixedWidth {
+  flex-basis: 320px;
+}
+
+.dataContent {
+  color: var(--tableData-header-color);
+  font-family: "HelveticaNeue", arial, sans-serif;
+}
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,15 @@
+{
+  "data": {
+    "secfRefNo": "1234567",
+    "mobNo": "9023800",
+    "statusDesc": "Success",
+    "secfText": "Otp has been sent to mobile number",
+    "emailId": "imh@gmail.com",
+    "authType": "O,ES,EH",
+    "status": "Success",
+    "token": "1234567"
+  },
+  "headerValue": {
+    "moduleId": "SECFACINIT"
+  }
+}

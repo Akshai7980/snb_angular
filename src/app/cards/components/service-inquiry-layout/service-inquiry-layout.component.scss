@@ -1,0 +1,180 @@
+.mTop_18 {
+    position: relative;
+    padding-top: 18px;
+}
+
+.subContainer {
+    border-radius: 6px;
+    background-color: var(--primary-widget-bg-color);
+    padding: 20px 20px 30px 20px;
+    border: 1px solid var(--widget-border-color);
+    margin: 5px 30px;
+}
+
+.subTitles {
+    font-size: 16px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    color: var(--tableData-header-color);
+}
+
+.title {
+    width: 215px;
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    margin: 5px 0px 0px 25px;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+
+.advSearch {
+    margin-left: 15px;
+}
+
+.rightPanel {
+    text-align: right;
+}
+
+.alignRightPanel {
+    display: inline-flex;
+}
+
+.casaTable1 {
+    width: 100%;
+    background-color: var(--primary-widget-bg-color);
+}
+
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type,
+th.mat-header-cell:first-of-type {
+    padding-left: 5px;
+}
+
+.subTitleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.casaTable1 th.mat-header-cell:last-of-type,
+.casaTable1 td.mat-cell:last-of-type {
+    width: 20%;
+    text-align: left;
+}
+
+.mat-row:nth-child(odd) {
+    background-color: var(--summary-row-bg-color);
+}
+
+.mat-row:hover {
+    background-color: var(--summary-hover-color);
+    cursor: pointer;
+}
+
+td.mat-cell:first-of-type {
+    border-radius: 10px 0px 0px 10px !important;
+    padding: 0px 0px 0px 5px;
+}
+
+th.mat-header-cell:first-of-type {
+    padding: 0px 0px 0px 5px;
+}
+
+td.mat-cell:last-of-type {
+    border-radius: 0px 10px 10px 0px !important;
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+    border: none !important;
+}
+
+th.mat-header-cell {
+    font-family: 'HelveticaNeueMed', arial, sans-serif !important;
+    font-size: 14px !important;
+    color: var(--table-header-color) !important;
+    cursor: default;
+}
+
+td.mat-cell {
+    font-family: 'HelveticaNeueMed', arial, sans-serif !important;
+    font-size: 14px !important;
+    color: var(--tableData-header-color) !important;
+}
+
+@media print {
+    #logoPrint {
+        display: block;
+    }
+
+    div.divFooter {
+        position: fixed;
+        bottom: 0;
+        font-family: 'HelveticaNeueMed' !important;
+        margin-left: 35%;
+    }
+
+    .subTitleConatiner .listInactive,
+    .actionsConatiner {
+        display: none;
+    }
+
+    .subTitleConatiner .listActive {
+        border-bottom: none !important;
+    }
+}
+
+@media screen {
+    #logoPrint {
+        display: none;
+    }
+
+    .divFooter {
+        display: none;
+    }
+}
+
+.logo {
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 48%;
+    width: 60px;
+    vertical-align: middle;
+    padding-bottom: 10px;
+}
+
+::ng-deep .mat-tooltip {
+    width: 186px;
+    min-height: 20px;
+    padding: 5px;
+    background-color: var(--tooltip-background-color);
+    background-size: cover;
+    font-family: 'HelveticaNeue', Arial, sans-serif;
+    font-size: 12px;
+    color: var(--primary-widget-bg-color);
+    line-height: 16px;
+    z-index: 1;
+    position: absolute;
+    top: 5px;
+    left: -4px;
+    border-radius: 4px;
+}
+
+::ng-deep .mat-tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 50%;
+    transform: rotate(180deg);
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--tooltip-background-color) transparent transparent transparent;
+}
+
+::ng-deep .mat-tooltip {
+    display: inline;
+    position: relative;
+}

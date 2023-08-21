@@ -1,0 +1,14 @@
+.casaTable{
+    table-layout: fixed;
+    .mat-header-cell{cursor: pointer;}
+    .mat-cell{line-height:40px;cursor: pointer;}
+    .mat-cell > div{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+    .mat-column-nickname{width:11%}
+    .mat-column-action{width: 70px;}
+    .mat-column-accountnumber{width:25.12%}
+    .mat-column-bank{width:18.20%;}
+    .mat-column-paymenttype{width:18.20%;padding-right: 10px;}
+}
+
+
+    

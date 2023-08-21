@@ -1,0 +1,118 @@
+.authentication {
+  padding: 20px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  color: var(--tableData-header-color);
+  margin-top: 20px;
+}
+mat-button-toggle-group {
+  width: max-content;
+  height: 27px;
+  border-radius: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 0;
+  margin: 14px;
+  font-size: 14px;
+}
+mat-button-toggle {
+  width: 100px;
+}
+
+.otpMsgDiv{
+  margin-top: 30px;
+}
+
+.otpContainer,
+.tokenContainer,
+.sftToknContainer {
+  margin: 20px 16px;
+  margin-bottom: 5px;
+}
+.genericTitles {
+  color: var(--table-header-color);
+  font-family: 'HelveticaNeueMed', arial, sans-serif;
+  font-size: 14px;
+}
+.selectInput {
+  width: 300px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  letter-spacing: 4px;
+  background-color: var(--primary-widget-bg-color);
+}
+.selectInput::placeholder {
+  color: #bbbbbb;
+  letter-spacing: normal;
+}
+.tokenContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  >div{
+    margin-right: 16px;
+  }
+}
+.tokenBox{
+  height: 130px;
+}
+.shortText{
+  width: 134px;
+}
+.tokenErr{
+  margin-left: 16px;
+}
+// .tokenCode {
+//   margin-left: 40px;
+// }
+.baseSelected {
+  background-color: var(--toggle-base-color);
+  color: var(--tableData-header-color);
+}
+.baseSelected:hover{
+   background-color:var(--toggle-hover-bg-color)
+}
+.hoverSelected {
+  background-color: var(--short-profile-txt-color);
+  color: var(--secondary-btn-print-bgcolor);
+}
+.contentText {
+  font-family: 'HelveticaNeue', arial, sans-serif !important;;
+  font-size: 14px;
+  color:var(--tableData-header-color); 
+  margin-bottom: 20px;
+}
+a{
+  color:var(--short-profile-txt-color);
+  font-family:'HelveticaNeueMed', arial, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+a:hover{
+  color:var(--primary-hover-color);
+  cursor: pointer;
+}
+.otpmsg{
+  color:var(--short-profile-txt-color);
+  font-family:'HelveticaNeueMed', arial, sans-serif;
+  font-size: 12px;
+  // padding-left: 20px;
+}
+.mat-button-toggle-group-appearance-standard {
+  border: solid 1px var(--widget-border-color);
+}
+.mat-button-toggle-group-appearance-standard .mat-button-toggle+.mat-button-toggle {
+  border-left: solid 1px var(--widget-border-color);
+}
+input:disabled{
+  opacity: 0.5;
+}

@@ -1,0 +1,24 @@
+{
+    "payments":[
+        {
+            "ITEM_ID":"Payments",
+            "DISPLAY_NAME":"LBL_PAYMENTS",
+            "ITEM_COUNT":"22"
+        },
+        {
+            "ITEM_ID":"ServiceRequest",
+            "DISPLAY_NAME":"LBL_SERVICE_REQUEST",
+            "ITEM_COUNT":"7"
+        },
+        {
+            "ITEM_ID":"Beneficiaries",
+            "DISPLAY_NAME":"LBL_BENEFICIARIES",
+            "ITEM_COUNT":"21"
+        },
+        {
+            "ITEM_ID":"BillPayments",
+            "DISPLAY_NAME":"LBL_BILL_PAYMENTS",
+            "ITEM_COUNT":"17"
+        }
+    ]
+}

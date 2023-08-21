@@ -1,0 +1,31 @@
+{
+    "headerValue": {
+      "moduleId": "VIEWESTMT"
+    },
+    "data": [
+      {
+        "res_Year": "2017",
+        "res_InvoiceDate": "31-12-2022",
+        "res_Seg_No": "1",
+        "res_InvoiceNumber": "42387434574857",
+        "res_Month": "12",
+        "statement": "",
+        "path": "",
+        "fileType": "",
+        "fileName": "",
+        "accNo": ""
+      },
+      {
+        "res_Year": "2018",
+        "res_InvoiceDate": "20171230",
+        "res_Seg_No": "2",
+        "res_InvoiceNumber": "42387434574856",
+        "res_Month": "11",
+        "statement": "",
+        "path": "",
+        "fileType": "",
+        "fileName": "",
+        "accNo": ""
+      }
+    ]
+  }

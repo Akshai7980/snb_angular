@@ -1,0 +1,300 @@
+<div class="mainContainer">
+  <div class="subContainer" [ngClass]="{pm_60:oneTimePaymentDisplay}">
+    <div translate class="subTitles">LBL_TO</div>
+    <mat-button-toggle-group *ngIf="!selectedCash && !oneTimePaymentDisplay && !isProceed && creditTabs">
+      <mat-button-toggle disableRipple="true" #togglebtn1 (click)="displayContent('cash')"
+        [ngClass]="displayedContent === 'cash'?'hoverSelected':'baseSelected'">{{'LBL_DIRECT_PAYMENTS' | translate}}</mat-button-toggle>
+      <mat-button-toggle disableRipple="true" #togglebtn2 (click)="displayContent('credit')"
+        [ngClass]="displayedContent === 'credit'?'hoverSelected':'baseSelected'">{{'LBL_INVOICE_PAYMENTS' | translate}}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <mat-button-toggle-group class="matSelectedAll" *ngIf="!selectedCash && !oneTimePaymentDisplay && !isProceed && !creditTabs" >     
+      <mat-button-toggle disableRipple="true" #togglebtn2 (click)="displayContent('credit')"
+        [ngClass]="displayedContent === 'credit'?'hoverSelected':'baseSelected'">{{'LBL_INVOICE_PAYMENTS' | translate}}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <div *ngIf="displayedContent === 'cash'" class="cashContainer">
+      <div *ngIf="!oneTimePaymentDisplay">
+        <!-- <div>
+          <table mat-table [dataSource]="creditSource" class="tableInfo casaTable" id="remitterId"
+            [ngClass]="creditSource.length==1?'removeAllign':''">
+            <ng-container matColumnDef="remitterId">
+              <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+                LBL_REMITTER_ID
+              </th>
+              <td mat-cell *matCellDef="let element" class="tableInfoFonts" (click)="cashRemitterId(element)">
+                {{ element.remitterId }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="creditColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: creditColumns"></tr>
+          </table>
+        </div> -->
+        <div class="fieldSet">
+          <div class="remitterClass">
+            <div translate class="geneStaTitles">LBL_REMITTER_ID</div>
+                <div class="amtContainer" *ngIf="!isProceed">
+                  <input type="text" [(ngModel)]="invoiceId" placeholder="{{'LBL_ENTER_REMITTER_ID' | translate}}" class="inputField"
+                  (keypress)="numberOnly($event)" (blur)="getRemitterIdValidate()">     
+                </div>
+                <div class="plainText" *ngIf="isProceed">{{invoiceId}}</div>
+          </div>
+          <div class="remitterClass" *ngIf="isShownCustomerName">
+            <div class="geneStaTitles" translate>LBL_CUSTOMER_NAME</div>
+            <div class="plainText">{{customerName}}</div>
+          </div>
+          <div *ngIf="isShownCheckbox">
+            <input type="checkbox" [(ngModel)]="addtoLibCheckBox" class="addlibraryClass" (change)="checkAddtoLibrary($event)"><span class="plainText" translate>LBL_ADD_TO_LIBRARY</span>
+            
+          </div>
+          </div>
+        <small translate class="errorMsg"> {{ remitterIdinvalidError }} </small>   
+        <!-- <div *ngIf="invoiceNumberContainer">
+          <div class="fieldSet" *ngIf="!isProceed">
+            <div>
+              <input type="text" [(ngModel)]="invoiceId" placeholder="Enter Invoice Number" class="inputField"
+                (keypress)="numberOnly($event)">
+              <button class="nextBtn" (click)="getInvoiceDetailsById()"></button>
+            </div>
+          </div>
+          <div *ngIf="!invoiceId">
+            <small translate class="errorMsg"> {{ showInputError }} </small>
+          </div>
+        </div> -->
+        <!-- <div *ngIf="displayInvoiceTable">
+
+          <table mat-table [dataSource]="invoiceSource" class="tableInfo casaTable" id="inVoice"
+            [ngClass]="isProceed?'removeAllign':''">
+            <ng-container matColumnDef="checkBox">
+              <th mat-header-cell *matHeaderCellDef translate class="checkData">
+                <mat-checkbox id="tableHeadCheckBox" [ngClass]="!isProceed  ? '' : 'hide'" [checked]="checkedAlways"
+                  disabled="true">
+                </mat-checkbox>
+              </th>
+
+              <td mat-cell *matCellDef="let element; let i = index" class="checkData">
+                <mat-checkbox [ngClass]="!isProceed  ? 'checkBoxPrimary' : 'hide'" [checked]="checkedAlways"
+                  disabled="true"></mat-checkbox>
+              </td>
+              <td mat-footer-cell *matFooterCellDef></td>
+            </ng-container>
+            <ng-container matColumnDef="invNo">
+              <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+                LBL_INVOICE_NUMBER
+              </th>
+              <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+                <u class="underlineText">
+                  {{ element.number }}
+                </u>
+              </td>
+              <td mat-footer-cell *matFooterCellDef></td>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+                LBL_DATE
+              </th>
+              <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+                {{ element.date | dateFormat }}
+              </td>
+              <td mat-footer-cell *matFooterCellDef></td>
+            </ng-container>
+
+            <ng-container matColumnDef="dueDate">
+              <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+                LBL_DUE_DATE
+              </th>
+              <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+                {{ element.dueDate | dateFormat }}
+              </td>
+              <td mat-footer-cell *matFooterCellDef></td>
+            </ng-container>
+
+            <ng-container matColumnDef="amtSAR">
+              <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+                {{'LBL_AMOUNT_IN' | translate}} {{debitCcy}}
+              </th>
+              <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+                {{element.equivalentAmountinUSD | currencyFormat:debitCcy}}
+              </td>
+              <td mat-footer-cell *matFooterCellDef>
+                <div translate class="totalFonts totalHeader">LBL_Total</div>
+              </td>
+             
+            </ng-container>
+  
+            <ng-container matColumnDef="invAmt">
+              <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+                LBL_INVOICE_AMOUNT
+              </th>
+              <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+                {{ element.amount | currencyFormat:element.equivalentCcy}}
+              </td>
+              <td mat-footer-cell *matFooterCellDef>
+                <div class="totalFonts">
+                  {{total+"" | currencyFormat:formatType}}
+                </div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef>
+              </th>
+              <td mat-cell *matCellDef="let element" class="action">
+                <div *ngIf="invoiceSource.length >= 1"
+                  [ngClass]="invoiceSource.length >= 1 ?'arrowRotate moveRight': 'removeArrow'" class="downArrow"
+                  (click)="selectedRow('iconClick', 'invoice')"></div>
+              </td>
+              <td mat-footer-cell *matFooterCellDef></td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="cashColumn"></tr>
+            <tr mat-row *matRowDef="let row; columns: cashColumn" [ngClass]="{ selected: isProceed }"></tr>
+            <tr mat-footer-row *matFooterRowDef="cashColumn"></tr>
+          </table>
+        </div> -->
+       
+      </div>
+
+    </div>
+    <div *ngIf="displayedContent === 'credit'" class="creditContainer">
+      <!-- <app-search class="creditSearch" *ngIf="!(creditSource.length===1)" [showAdvanceSearch]="false"
+        (childEvent)="triggerSearchFilter($event,'remitterId')"></app-search> -->
+      <div>
+        <table mat-table [dataSource]="creditSource" class="tableInfo casaTable" id="remitterId"
+          [ngClass]="creditSource.length==1?'removeAllign':''">
+          <ng-container matColumnDef="remitterId">
+            <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+              LBL_REMITTER_ID
+            </th>
+            <td mat-cell *matCellDef="let element" class="tableInfoFonts" (click)="selectedData(element)">
+              {{ element.remitterId }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>
+            </th>
+            <td mat-cell *matCellDef="let element" class="action">
+              <div *ngIf="creditSource.length >= 1 && !isProceed"
+                [ngClass]="creditSource.length === 1   && !isProceed  ?'arrowRotate moveRight': 'removeArrow'" [ngStyle]="{'display':creditSource.length > 1 ? 'none' : 'block'}" 
+                class="downArrow" (click)="selectedRow('iconClick', 'card')"></div>
+            </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="creditColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: creditColumns" [ngClass]="{ selected: creditSource.length === 1 }"
+            (click)="selectedRow(row, 'card')"></tr>
+        </table>
+      </div>
+      <div *ngIf="creditSource.length===1 && !norecordflag">
+        <app-search class="creditSearch" [showAdvanceSearch]="true" *ngIf="!isProceed" (searchParams)="advancedSearchApply($event)"
+          (childEvent)="triggerSearchFilter($event,'inVoice')"></app-search>
+        <table *ngIf="displayInvoiceTable" mat-table [dataSource]="invoiceSource" class="tableInfo casaTable"
+          id="inVoice" [ngClass]="isProceed?'removeAllign':''">
+          <ng-container matColumnDef="checkBox">
+            <th mat-header-cell *matHeaderCellDef translate class="checkData">
+              <!-- <mat-checkbox #tableHeadCheckBox id="tableHeadCheckBox" id='checkBoxMain'
+                (change)="selectAll(tableHeadCheckBox.checked)" [ngClass]="!isProceed  ? '' : 'hide'"
+                [(ngModel)]="setCheck">
+              </mat-checkbox> -->
+            </th>
+
+            <td mat-cell *matCellDef="let element; let i = index" class="checkData">
+              <mat-checkbox [ngClass]="!isProceed  ? 'checkBoxPrimary' : 'hide'" [checked]="element.IS_SELECTED" *ngIf="element.amount < '0'" [disabled]="true"
+                (change)="checked(i)"></mat-checkbox>
+              <mat-checkbox [ngClass]="!isProceed  ? 'checkBoxPrimary' : 'hide'" [checked]="element.IS_SELECTED" *ngIf="element.amount > '0'"
+                (change)="checked(i)"></mat-checkbox>              
+
+            </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+          <ng-container matColumnDef="invNo">
+            <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+              LBL_INVOICE_NUMBER
+            </th>
+            <td mat-cell *matCellDef="let element" class="tableInfoFonts text-word">
+                {{ element.number }}
+            </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+              LBL_DATE
+            </th>
+            <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+              {{ element.date | dateFormat }}
+            </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+
+          <ng-container matColumnDef="dueDate">
+            <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+              LBL_DUE_DATE
+            </th>
+            <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+              {{ element.dueDate | dateFormat }}
+            </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+
+          <ng-container matColumnDef="invAmt">
+            <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+              LBL_INVOICE_AMOUNT
+            </th>
+            <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+              {{ element.amount | currencyFormat:element.invoiceCurrency}} {{element.invoiceCurrency}}
+            </td>
+            <td mat-footer-cell *matFooterCellDef>
+              <div translate class="totalFonts totalHeader">LBL_Total</div>              
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="amtSAR">
+            <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+              LBL_EQUIVALENT_AMOUNT
+            </th>
+            <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+              {{element.equivalentAmount | currencyFormat:element.equivalentCurrency}} {{element.equivalentCurrency}}
+            </td>
+            <td mat-footer-cell *matFooterCellDef>
+              <div class="totalFonts">
+                {{total+"" | currencyFormat:debitCcy}} {{debitCcy}}
+              </div>
+            </td>
+           
+          </ng-container>         
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>
+            </th>
+            <td mat-cell *matCellDef="let element" class="action">
+              <div *ngIf="invoiceSource.length >= 1"
+                [ngClass]="invoiceSource.length >= 1 ?'arrowRotate moveRight': 'removeArrow'" class="downArrow"
+                (click)="selectedRow('iconClick', 'invoice')"></div>
+            </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="creditColumn"></tr>
+          <tr mat-row *matRowDef="let row; columns: creditColumn" [ngClass]="{ selected: isProceed }"></tr>
+          <tr mat-footer-row *matFooterRowDef="creditColumn"></tr>
+        </table>
+
+        <div *ngIf="showFileErrMsg" class="errorMsgBottomMargin">
+          <span class="errorMsg" translate> LBL_TOTAL_AMOUNT_SHOULD_BE_GREATER_THAN_0 </span>
+        </div>
+        <!-- <div  *ngIf="insufficientErrMsg" class="errorMsgBottomMargin">
+          <span class="errorMsg" translate> LBL_INSUFFICIENT_BALANCE </span>
+        </div> -->
+      </div>
+    </div>
+    <div *ngIf="norecordflag">
+      <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+    </div>
+  </div>
+  <app-primary-button *ngIf="oneTimePaymentDisplay || showProceed" buttonValue="LBL_PROCEED" (click)="proceedNext()"
+    routerPath="./" class="proceedBtn"></app-primary-button>
+</div>
+
+<app-ajax-loader *ngIf="isLoadingCompelete"></app-ajax-loader>

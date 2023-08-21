@@ -1,0 +1,58 @@
+{
+    "data": [
+        {
+            "transactionDate": "2023-02-11",
+            "refNo": "TBC2212231917478",
+            "claimType": "claimType1",
+            "refundType": "Full",
+            "currency": null,
+            "amount": "239.98"
+        },
+        {
+            "transactionDate": "2023-01-23",
+            "refNo": "TBC2212231917479",
+            "claimType": "claimType2",
+            "refundType": "partial",
+            "currency": null,
+            "amount": "234.78"
+        },
+        {
+            "transactionDate": "2023-02-11",
+            "refNo": "TBC2212231917478",
+            "claimType": "claimType1",
+            "refundType": "Full",
+            "currency": null,
+            "amount": "239.98"
+        },
+        {
+            "transactionDate": "2023-01-23",
+            "refNo": "TBC2212231917479",
+            "claimType": "claimType2",
+            "refundType": "partial",
+            "currency": null,
+            "amount": "234.78"
+        },
+        {
+            "transactionDate": "2023-02-11",
+            "refNo": "TBC2212231917478",
+            "claimType": "claimType1",
+            "refundType": "Full",
+            "currency": null,
+            "amount": "239.98"
+        },
+        {
+            "transactionDate": "2023-01-23",
+            "refNo": "TBC2212231917479",
+            "claimType": "claimType2",
+            "refundType": "partial",
+            "currency": null,
+            "amount": "234.78"
+        }
+    ],
+    "headerValue": {
+        "moduleId": "MULCLMRCRDSUMMY",
+        "sortColumn": "",
+        "sortOrder": "asc",
+        "totalCount": "148"
+    }
+}

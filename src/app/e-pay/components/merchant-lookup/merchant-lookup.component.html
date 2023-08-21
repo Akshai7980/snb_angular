@@ -1,0 +1,70 @@
+<div>
+    <div class="subContainer">
+    <div class="subTitles" translate>LBL_SELECT_MERCHANT</div>
+    <div class="mtop_10" *ngIf="!isProceed">
+        <app-search (childEvent)="triggerSearchFilter($event)"></app-search>
+    </div>
+    <div>
+        <table mat-table [dataSource]="!isProceed?dataSource:dummySource" class="tableInfo casaTable" [ngClass]="isProceed ?'checkedToRead':''"
+          id="merchantData">
+          <ng-container matColumnDef="checkbox">
+            <th mat-header-cell *matHeaderCellDef translate class="checkData">
+                <mat-checkbox (change)="selectAll($event)" [ngClass]="!isProceed  ? '' : 'hide'" [checked]="IS_ALL_SELECTED"></mat-checkbox>
+            </th>
+  
+            <td mat-cell *matCellDef="let element; let i = index" class="checkData">
+              <mat-checkbox [ngClass]="!isProceed  ? 'checkBoxPrimary' : 'hide'" [checked]="element.IS_SELECTED"
+                (change)="checked(element,i)"></mat-checkbox>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="merchntName">
+            <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+                LBL_MERCHANT_NAME
+            </th>
+            <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+                <div *ngIf="!isProceed || (dummySource.length===1 && !element.IS_DUMMY)">{{ element.merchantEnglishName }}</div>
+                <div *ngIf="isProceed && element.IS_DUMMY" translate>LBL_MULTIPLE_ACCOUNT_SELECTED</div>
+            </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="merchntID">
+            <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+                LBL_MERCHANT_ID
+            </th>
+            <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+                <div *ngIf="!isProceed || dummySource.length===1">{{ element.merchantNumber }}</div>
+                <div *ngIf="isProceed" translate></div>
+              
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+              LBL_STATUS
+            </th>
+            <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+                <div *ngIf="!isProceed || dummySource.length===1"> {{ element.status }}</div>
+                <div *ngIf="isProceed" translate></div>
+             
+            </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+            </th>
+            <td mat-cell *matCellDef="let element; let i = index" class="tableInfoFonts">
+                <div  class="arrowRotate downArrow" (click)="reset('iconClick')" ></div>
+            </td>
+            
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;let i = index" [ngClass]="{ selected: dataSource[i].IS_SELECTED || (dummySource && dummySource.length>0 && dummySource[i].IS_SELECTED)}"></tr>
+        </table> 
+    </div>
+    </div>
+    <div class="btnGroup" *ngIf="!isProceed">
+        <app-tertiary-button  buttonValue="LBL_CANCEL" (click)="onClickCancel()" ></app-tertiary-button>
+        <app-primary-button  buttonValue="LBL_PROCEED" (click)="proceedNext()"></app-primary-button>
+    </div>
+</div>

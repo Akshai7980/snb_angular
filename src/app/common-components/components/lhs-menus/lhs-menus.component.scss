@@ -1,0 +1,190 @@
+.container {
+    padding: 5px;
+}
+ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+li {
+    transition: all .25s;
+}
+.menuLevel1 {
+    width: 100%;
+    a {
+        display: flex;
+        padding-left: 10px;
+        border-radius: 10px;
+        height: 28px;
+        overflow: hidden;
+        text-decoration: none;
+        border:1px solid transparent !important;
+        cursor: pointer;
+        font-size: 12px;
+        font-family: 'HelveticaNeueMed' !important;
+        color: var(--secondary-font-color);
+        .icon {
+             background-size: 16px 16px;
+             display: inline-block;
+             width: 20px;
+             height: 16px;
+             align-self: center;
+            //  background-color: #9a9a9a;
+        }
+        // &.applyFor .icon {
+        //     -webkit-mask-image: url(../../../../assets/images/lhs_menu_drilldown_arrow.svg);
+        //      mask-image: url(../../../../assets/images/lhs_menu_drilldown_arrow.svg);
+        //      visibility: visible;
+        // }
+        // &.applyFor.expanded .icon {
+        //     transform: rotate(90deg);
+        // }       
+        .expanded{
+            transform: rotate(90deg);
+        }
+        .icon-ACCOUNTS,.icon-TRANSFERS,.icon-SADAD,.icon-ARAMCO,.icon-E_TRADE,
+        .icon-MY_TASK,.icon-PAYROLL,.icon-CARDS,.icon-POS,.icon-NOTIFICATIONS,
+        .icon-TRANSACTION_INQUIRY,.icon-CONFIGURATION_MANAGEMENT,.icon-E_PAY,
+        .icon-TICKET_INQUIRY,.icon-SETTINGS,.icon-POS_FINANCE{
+            font-size: 15px;
+        } 
+        .icon-next_active{
+            align-self: center;
+            font-size: 9px;
+            color: var(--secondary-font-color);
+            // text-align: right;
+            visibility: visible;
+        }
+        &.HOME .icon {
+            -webkit-mask-image: url(../../../../assets/images/lhs-menu-home.svg);
+             mask-image: url(../../../../assets/images/lhs-menu-home.svg);
+        }       
+        // &.ACCOUNTS .icon {
+        //     background-image: url(../../../../assets/images/lhs-menu-account.png);
+        //     background-color: transparent !important;
+        // }
+         // &.ACCOUNTS .icon-accounts_active{           
+        //     &::before{
+        //         cursor: pointer;
+        //         font-size: 23px;
+        //         color: #006a52;
+        //     }
+        // }
+        // &.SADAD .icon {
+        //     -webkit-mask-image: url(../../../../assets/images/lhs-menu-sadad.svg);
+        //      mask-image: url(../../../../assets/images/lhs-menu-sadad.svg);
+        // }
+        // &.ARAMCO .icon {
+        //     background-image: url(../../../../assets/images/Aramco-icon.png);
+        //     background-color: transparent !important;
+        // }
+        // &.TRANSFERS .icon {
+        //      background-image: url(../../../../assets/images/lhs-menu-trans.png);
+        //      background-color: transparent !important;
+        // }
+        // &.PAYROLL .icon {
+        //     background-image: url(../../../../assets/images/lhs-menu-payroll.png);
+        //     background-color: transparent !important;
+        // }&.CARDS .icon {
+        //     background-image: url(../../../../assets/images/lhs-menu-cards.png);
+        //     background-color: transparent !important;
+        // }
+        // &.POS .icon {
+        //     background-image: url(../../../../assets/images/pos.png);
+        //     background-color: transparent !important;
+        // }
+        // &.NOTIFICATIONS .icon {
+        //     background-image: url(../../../../assets/images/ico-notifications.png);
+        //     background-color: transparent !important;
+        // }
+        // &.MY_TASK .icon {
+        //     -webkit-mask-image: url(../../../../assets/images/lhs-menu-task.svg);
+        //      mask-image: url(../../../../assets/images/lhs-menu-task.svg);
+        // }
+        // &.SETTINGS .icon {
+        //     -webkit-mask-image: url(../../../../assets/images/settings.svg);
+        //      mask-image: url(../../../../assets/images/settings.svg);
+        // }
+        // &.TRADE_SSO .icon {
+        //     -webkit-mask-image: url(../../../../assets/images/settings.svg);
+        //      mask-image: url(../../../../assets/images/settings.svg);
+        // }
+        // &.TRANSACTION_INQUIRY .icon {
+        //     -webkit-mask-image: url(../../../../assets/images/transactionInquiry.svg);
+        //      mask-image: url(../../../../assets/images/transactionInquiry.svg);
+        // }
+        // &.CONFIGURATION_MANAGEMENT .icon {
+        //     background-image: url(../../../../assets/images/lhs-menu-account.png);
+        //     background-color: transparent !important;
+        // }
+        // &.E_PAY .icon {
+        //     background-image: url(../../../../assets/images/lhs-menu-epay.png);
+        //     background-color: transparent !important;
+        // }
+          // &.ACCOUNTS .icon-accounts_active{           
+        //     &::before{
+        //         cursor: pointer;
+        //         font-size: 23px;
+        //         color: #006a52;
+        //     }
+        // }
+        // &.E_TRADE .icon {
+        //     background-image: url(../../../../assets/images/eTrade.png);
+        //     background-color: transparent !important;
+        // }
+        // &.TICKET_INQUIRY .icon {
+        //     background-image: url(../../../../assets/images/lhs-menu-ticketInquiry.png);
+        //     background-color: transparent !important;
+        // }
+        // &.POS_FINANCE .icon {
+        //     background-image: url(../../../../assets/images/PoS-finance.png);
+        //     background-color: transparent !important;
+        // }
+        // &.E_FINANCE .icon{
+        //     background-image: url(../../../../assets/images/PoS-finance.png);
+        //     background-color: transparent !important;
+        // }
+        &.active, &:hover {
+            background-color: var(--primary-hover-color);
+            color: var(--static-white);
+            transition: all .25s;
+            .icon-next_active{
+                color: var(--static-white);
+                transition: all .25s;
+            }
+            .icon {
+                // background-color: var(--static-white);
+             }
+            // &.ACCOUNTS, &.NOTIFICATIONS, &.PAYROLL, &.TRANSFERS, &.CONFIGURATION_MANAGEMENT,&.E_PAY, &.POS, &.TICKET_INQUIRY, &.E_FINANCE, &.POS_FINANCE {
+            //     .icon {
+            //         filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(300%) contrast(100%);
+            //     }
+            // }
+        }
+        &.highlight{
+            border: 1px solid var(--primary-hover-color) !important;
+        }
+        .label {
+            align-self: center;
+            padding-left: 5px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            padding-right: 20px;
+            width: 100%;
+        }
+        
+    }
+    .collapse {height: 0; overflow: hidden; opacity: 0;}
+    // .dashBoard{
+    //    // background: url(../../../../assets/images/lhs-menu-home.svg) no-repeat 10px center;
+    // }
+}
+.menuLevel2, .menuLevel3 {
+    .icon {
+        visibility: hidden;
+    }
+}
+.menuLevel3 .label {
+    padding-left: 10px !important;
+}

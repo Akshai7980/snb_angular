@@ -1,0 +1,25 @@
+.casaTable {
+    width: 100%;
+    background-color: var(--primary-widget-bg-color);
+}
+th.mat-header-cell {
+    border: none !important;
+}
+.refreshCntr {
+    position: relative;
+    app-refresh {
+        position: absolute;       
+        right: 0;
+    }
+    app-search{
+        position: absolute;
+        left : 73px;
+    }
+}
+.actionIcon {
+    background: url(../../../../assets/images/downloadIcon.svg) no-repeat center;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}

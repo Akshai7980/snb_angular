@@ -1,0 +1,112 @@
+<div>
+  <div class="mTop_18">
+    <div class="actionsConatiner">
+      <div class="leftPannel">
+        <div class="searchCntnrLeft">
+          <app-search [showAdvanceSearch]="true" (searchParams)="advancedSearchApply($event)" (childEvent)="triggerSearchFilter($event)"></app-search>
+        </div>
+      </div>
+      <div>
+        <div>
+          <app-refresh (onRefresh)="refreshSummary()"></app-refresh>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!norecordflag" id="sadadbillersDefaultCntr">
+    <table mat-table [dataSource]="dataSourceToPass" class="casaTable" *ngIf="responseHeader !== undefined">
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef (click)="sortColumn('BillerName')" translate>LBL_NAME
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'BillerName'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'BillerName'">
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element">{{element.BillerName}}</td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="shortName">
+        <th mat-header-cell *matHeaderCellDef (click)="sortColumn('nickName')" translate>LBL_SHORT_NAME
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'nickName'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'nickName'">
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.nickName}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="customerNumber">
+        <th mat-header-cell *matHeaderCellDef (click)="sortColumn('consumerNumber')" translate>LBL_CUSTOMER_NUMBER
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'consumerNumber'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'consumerNumber'">
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.consumerNumber}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="subscriberID">
+        <th mat-header-cell *matHeaderCellDef (click)="sortColumn('SubscriberID')" translate>LBL_SUBSCRIBER_ID
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'SubscriberID'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'SubscriberID'">
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.SubscriberID}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_ACTION</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="acceptIcon" (click)="onApproveClick($event,element)"></div>
+          <div class="rejectIcon" (click)="onRejectClick($event,element)"></div>
+        </td>
+        <!-- <td mat-cell *matCellDef="let element"> <div class="acceptIcon"></div><div class="rejectIcon"></div></td> -->
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="goToDetailsScreen(row)"></tr>
+    </table>
+  </div>
+  <div *ngIf="norecordflag">
+    <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+  </div>
+  <app-pagination #paginator [dataSourceLength]="dataSourceLength" [currentRecord]="'Sadadbillers'"
+    [totalRecords]="totalRecords" (onPaginationChange)="paginationChangeClick($event)" [flagForRefreshPage]="refreshClickedFlag" ></app-pagination>
+  <!-- <mat-paginator *ngIf="!norecordflag" [length]="dataLength"
+                  [pageSizeOptions]="[5, 10, 25, 100]"
+                  aria-label="Select page" #paginator>
+      </mat-paginator> -->
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

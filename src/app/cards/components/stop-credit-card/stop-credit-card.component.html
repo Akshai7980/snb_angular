@@ -1,0 +1,65 @@
+<div *ngIf="title !== 'receipt'" class="container">
+    <div class="title" translate *ngIf="title !== 'review'">LBL_STOP_CARD</div>
+    <div class="title" translate *ngIf="title === 'review'">LBL_REVIEW</div>
+    <app-debit-lookup [debitAccDetails]="creditCardObj" (onAccountSelect)="onAccountSelect($event)"></app-debit-lookup>
+
+    <div class="creditCardDetails marginLeft_0 pR">
+        <div class="sub">
+            <div>
+                <div class="subTitles" translate>LBL_ADDITIONAL_DETAILS</div>
+            </div>
+        </div>
+
+        <div class="rowInnerCntr">
+            <div class="field">
+                <div class="label" translate>
+                    LBL_REASON_TO_STOP <span class="required" *ngIf="title !== 'review'">*</span>
+                </div>
+                <div *ngIf="title !== 'review'" class="information">
+                    <mat-select panelClass="dropDownOption" disableOptionCentering class="selectInput"
+                        placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}" name="reason"
+                        [(ngModel)]="reason">
+                        <mat-option class="option" *ngFor="let reason of reasonsList" [value]="reason.reasonDesc"
+                            (click)="onSelectedReason()">{{ reason.reasonDesc }}</mat-option>
+                    </mat-select>
+                </div>
+                <div *ngIf="title === 'review'" class="information">{{reason}}</div>
+                <span class="errorMsg" translate *ngIf="selectReasonError">LBL_PLEASE_SELECT_REASON</span>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_COMMENTS</div>
+                <div class="rejectTextarea" *ngIf="title !== 'review'">
+                    <textarea [(ngModel)]="comment" maxlength="200" (keypress)="validateSpace($event)"></textarea>
+                </div>
+                <div *ngIf="title === 'review'" class="information">{{comment ? comment : 'LBL_NOT_PROVIDED' |
+                    translate}}</div>
+            </div>
+        </div>
+
+    </div>
+
+    <app-authorization *ngIf="title === 'review' && flexiAuth === 'true'" [authListDataSource]="authOptions" (authEmit)="getData($event)">
+    </app-authorization>
+
+    <app-authentication *ngIf="title === 'review'" (onTwoAuthClick)="onSecondFactorValue($event)"
+        (getOtpClick)="getOtpValue($event)" [otpError]="otpError"></app-authentication>
+</div>
+
+<app-receipt *ngIf="title === 'receipt'" (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptObject"
+    (DownloadReceiptClick)="downloadPdf()"></app-receipt>
+
+<div class="footer" *ngIf="title !== 'receipt'">
+    <div *ngIf="title === 'review'" class="termsAndConditions" translate>
+        LBL_TERMS <a href="{{url}}" target="_blank" translate>LBL_THE_TERMS_AND_CONDITIONS</a>
+    </div>
+    <div class="finalProceed">
+        <app-tertiary-button buttonValue="{{'LBL_CANCEL' | translate}}" routerLink="/cards/cardsInquiry/credit">
+        </app-tertiary-button>
+        <app-primary-button buttonValue="{{'LBL_PROCEED' | translate}}" *ngIf="title !== 'review'"
+            (click)="toProceed()"></app-primary-button>
+        <!-- <app-primary-button buttonValue="{{'LBL_SUBMIT' | translate}}" *ngIf="title === 'review'" (click)="onSubmit()">
+        </app-primary-button> -->
+    </div>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

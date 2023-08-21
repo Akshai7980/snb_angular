@@ -1,0 +1,157 @@
+
+.filter-search-popup{
+        width: 660px;
+        padding: 20px 20px 20px 20px;
+        border: 1px solid var(--widget-border-color);
+        border-radius: 5px;
+        background-color: var(--advance-filter-bg-color);
+        color: var(--tableData-header-color);
+        text-decoration: none;
+        line-height: 18px;
+        position: absolute;
+        left: -320px;
+        top: 46px;
+        z-index: 1;
+    }
+    .header{
+        font-family: 'HelveticaNeueMed', Arial, sans-serif;
+        margin-bottom: -24px;
+        font-size: 14px;
+    }
+    .flexCntr {
+        display: flex;
+        // flex-wrap: wrap;
+        
+    }
+    .searchError{
+      display: block;
+    }
+    .toggleCntr{
+        display: flex;
+        margin-top: 51px;
+        font-size: 14px;
+        .toggle {
+            text-align: center;
+            height: 30px;
+            width:102px;
+            font-family: 'HelveticaNeueMed', Arial, sans-serif;
+            padding: 10px 0 1px;
+            border: 1px solid var(--widget-border-color);
+            background-color: var(--primary-widget-bg-color);
+            transition: background-color .9s;
+            &:hover {
+                background-color: var(--summary-row-bg-color);
+            }
+            &.active {
+                background-color: var( --short-profile-txt-color);
+                color: #fff;
+            }
+            &#leftToggle{
+                border-radius: 100px 0 0 100px;
+                border-right: 0 none;
+            }
+            &#rightToggle{
+                border-radius: 0 100px 100px 0;
+                border-left: 0 none;
+            }
+        }
+    }
+    .cardContainer {
+        padding-top: 10px;
+        color: var(--tableData-header-color);
+       
+      
+      
+        &.data {
+          padding-top: 20px;
+        }
+      }
+      .fieldLabel {
+        color: var(--table-header-color);
+        font-family: "HelveticaNeueMed", Arial, sans-serif;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+      .selectInput {
+        font-family: "HelveticaNeueMed", arial, sans-serif;
+        width: 300px;
+        line-height: 40px;
+        padding: 0px 0px 0px 10px;
+        border: 1px solid var(--input-border-color);
+        border-radius: 5px;
+        font-size: 14px;
+        color: var(--input-text-color);
+        cursor: pointer;
+      }
+      .amountDetails{
+        width: 123px !important;
+          height: 40px;
+          padding: 0px 8px;
+          margin-top: 10px;
+          border: 1px solid var(--widget-border-color);
+          border-radius: 4px;
+          color: var(--tableData-header-color);
+          background-color: var(--primary-widget-bg-color);
+      }
+      .toTitle {
+        margin-left: 6px;
+       color: var(--table-header-color);
+       font-family: "HelveticaNeueMed", Arial, sans-serif;
+       margin-top: 10px;
+       margin-left: 30px;
+       font-size: 14px;
+     }
+     .toDetails{
+        width: 123px !important;
+          height: 40px;
+          padding: 0px 8px;
+          margin-top: 10px;
+          margin-left: 30px;
+          border: 1px solid var(--widget-border-color);
+          border-radius: 4px;
+          color: var(--tableData-header-color);
+          background-color: var(--primary-widget-bg-color);
+      }
+      .flexContainer{
+        display: flex;
+      }
+      .searchWithinContainer{
+        color: var(--tableData-header-color);
+        margin-left: 30px;
+        margin-top: 20px;
+       &.data {
+
+          padding-top: 20px;
+        }
+      }
+      .fromto {
+        display: flex;
+        
+        margin: 10px 0px 19px 28px;
+      }
+      .mt-top {
+        margin-top: 10px;
+      }
+      .dateto {
+        margin-left: 34px;
+      }
+      .searchWithinDetails{
+        margin-left: 135px;
+      }
+      .periodContainer{
+        margin-left: 30px;
+        margin-top: 20px;
+      }
+      .actionGroup {
+        float: right;
+        margin-top: 30px;
+       
+      }
+      .zeroHeight{
+        height:0px;
+      
+      }
+.close-icon {
+  float: right;
+  cursor: pointer;
+}

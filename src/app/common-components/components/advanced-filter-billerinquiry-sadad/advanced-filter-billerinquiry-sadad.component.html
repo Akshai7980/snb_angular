@@ -1,0 +1,35 @@
+<div class="filter-search-popup" *ngIf="showAdvancedSearchPopup" (click)="stopAdvancedSearchClose($event)">
+    <div translate class="header">LBL_FILTER
+        <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+    </div>
+    <div class="flexCntr">
+        <!-- <div class="toggleCntr">
+            <div translate id="leftToggle" class="toggle active" (click)="leftToggleCntl()">LBL_BY_DATE</div>
+            <div translate id="rightToggle" class="toggle" (click)="rightToggleCntl()">LBL_BY_PERIOD</div>
+        </div> -->
+        <div class="searchwithin">
+            <div translate class="fieldLabel">LBL_BILLER_GROUP</div>
+            <mat-select #matRef panelClass="dropDownOption" class="selectInput" disableOptionCentering  [(value)]="englishName">
+                <mat-option *ngFor="let grpOption of billergroupsfromApi" [value]="grpOption.englishName" (click)="groupOption(grpOption)">{{grpOption.englishName}}</mat-option>
+            </mat-select>
+        </div>
+
+        <div class="searchwithin">
+            <div translate class="fieldLabel">LBL_BILLER_COMPANY</div>
+            <mat-select #matRefNew panelClass="dropDownOption" class="selectInput" disableOptionCentering [(value)]="billerName">
+                <mat-option *ngFor="let nameOption of billerNamefromApi" [value]="nameOption.billerName" (click)="BillerNameOption(nameOption)">{{nameOption.billerName}}</mat-option>
+            </mat-select>
+        </div>
+        
+    </div>
+    <div class="submt">
+        <div>
+            <!-- <button class="clr" (click)="onClickClear()" translate>LBL_CLEAR</button> -->
+            <app-tertiary-button buttonValue="LBL_CLEAR" (click)="onClickClear()"></app-tertiary-button>
+        </div>
+        <div>
+            <!-- <button class="apply" (click)="onClickApply()" translate>LBL_APPLY</button> -->
+            <app-primary-button (click)="onClickApply()" buttonValue="LBL_APPLY"></app-primary-button>
+        </div>
+    </div>
+</div>

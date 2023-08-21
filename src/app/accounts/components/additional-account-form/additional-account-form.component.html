@@ -1,0 +1,129 @@
+<div class="mainConatiner">
+  <div class="mainTitle" translate>LBL_ADDITIONAL_ACCOUNT</div>
+
+  <div class="bodyConatiners">
+    <div class="subconatiner">
+      <div translate class="subTitles">LBL_DETAILS</div>
+      <div class="mtop_20 generateStatementContainer">
+        <div>
+          <div translate class="geneStaTitles">
+            LBL_CURRENCY <span class="required">*</span>
+          </div>
+          <!-- <mat-select panelClass="dropDownOption" disableOptionCentering class="selectInput" [(ngModel)]="currency"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}" name="currency">
+            <mat-option *ngFor="let item of currencyList" [value]="item">{{ item.currencyName }}
+            </mat-option>
+          </mat-select> -->
+          <div class="information">
+            <input
+              type="text"
+              matInput
+              [(ngModel)]="currencyModal"  name="currency"
+              placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}"                          
+              [matAutocomplete]="currencySearch"
+              (input)="searchCountry($event)"
+              (blur)="resetCountryInput($event)"
+              (focus)="currencyList = localCurrencyList"
+              #currencyRef="ngModel"
+              #currencyInputRef
+              class="selectInput"
+              required
+              >
+            <span class="dropdownIcon sprite" (click)="currencyInputRef.focus()"></span>
+            <mat-autocomplete #currencySearch="matAutocomplete" disableOptionCentering>
+              <mat-option *ngFor="let item of currencyList"
+              [value]="item"  (click)="setCurrency(item)">
+                {{item.currencyName}}
+              </mat-option>
+            </mat-autocomplete>
+          </div>
+          
+        </div>
+
+        <div>
+          <div translate class="geneStaTitles">
+            LBL_REASON <span class="required">*</span>
+          </div>
+          <!-- <mat-select panelClass="dropDownOption" disableOptionCentering class="selectInput" [(ngModel)]="reason"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}" name="reason">
+            <mat-option *ngFor="let item of reasonList" [value]="item">{{ item.reason }}
+            </mat-option>
+          </mat-select> -->
+
+          <div class="information">
+            <input
+              type="text"
+              matInput
+              [(ngModel)]="reasonModal"  name="reason"
+              placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}"                          
+              [matAutocomplete]="reasonSearch"
+              (input)="searchReaon($event)"
+              (blur)="resetReasonInput($event)"
+              (focus)="reasonList = localReasonList"
+              #reasonRef="ngModel"
+              #reasonInputRef
+              class="selectInput"
+              required
+              >
+            <span class="dropdownIcon sprite" (click)="reasonInputRef.focus()"></span>
+            <mat-autocomplete #reasonSearch="matAutocomplete" disableOptionCentering>
+              <mat-option *ngFor="let item of reasonList"
+              [value]="item"  (click)="setReason(item)">
+                {{item.reason}}
+              </mat-option>
+            </mat-autocomplete>
+          </div>
+        </div>
+        <div>
+          <div translate class="geneStaTitles">
+            LBL_LINK_ACCOUNT <span class="required">*</span>
+          </div>
+          <!-- <mat-select panelClass="dropDownOption" disableOptionCentering class="selectInput" [(ngModel)]="account"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}" name="account">
+            <mat-option *ngFor="let item of accountList" value="{{ item.OD_ACC_NO }}"
+              (click)="onSelectedAccount($event, item)">{{ item.OD_ACC_NO }}
+            </mat-option> 
+            </mat-select>-->
+
+            <div class="information">
+              <input
+                type="text"
+                matInput
+                [(ngModel)]="linkAccModal"  name="acclink"
+                placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}"                          
+                [matAutocomplete]="linkSearch"
+                (input)="searchLink($event)"
+                (blur)="resetLinkInput($event)"
+                (focus)="accountList = localAccountList"
+                #accountRef="ngModel"
+                #accountInputRef
+                class="selectInput"
+                required
+                >
+              <span class="dropdownIcon sprite" (click)="accountInputRef.focus()"></span>
+              <mat-autocomplete #linkSearch="matAutocomplete" disableOptionCentering>
+                <mat-option *ngFor="let item of accountList"
+                [value]="item"  (click)="onSelectedAccount($event, item)">
+                  {{item.OD_ACC_NO}}
+                </mat-option>
+              </mat-autocomplete>
+            </div>
+        </div>
+      </div>
+      <div *ngIf="showEligibleAccountError" class="errorMsg errorMsgBottomMargin" translate>
+        LBL_YOU_ARE_NOT_ELIGIBLE_TO_INITIATE_ADDITIONAL_ACCOUNT</div>
+        <div *ngIf="showNationalIdError" class="errorMsg errorMsgBottomMargin" translate>
+          {{showNationalIDValidationMsg}}
+          </div>
+    </div>
+
+    <div class="btnGroup mtop_20">
+      <app-tertiary-button buttonValue="LBL_CANCEL" *ngIf="currency || reason || account" (click)="onCancel()">
+      </app-tertiary-button>
+      <app-primary-button buttonValue="LBL_PROCEED" *ngIf="currency && reason && account && showProceed"
+        (click)="onProceedNext()">
+      </app-primary-button>
+    </div>
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

@@ -1,0 +1,56 @@
+<div class="detailsTitleContainer">
+    <div class="mainTitle" translate>LBL_DELETE_SADAD_BILLER</div>
+</div>
+<div class="detailsDataCntr">  
+<section class="summaryOuterConainer">    
+<div class="summaryConainer">
+<div class="detailsContainer">
+<div class="titleContainer">
+   <div class="titleContainerLeft">
+      <span *ngIf="details && details.billerName">{{details.billerName}} </span><span *ngIf="!details || !details.billerName">--</span>,
+      <span *ngIf="details && details.billerGroupName">{{details.billerGroupName}}</span><span *ngIf="!details || !details.billerGroupName">--</span>
+   </div>
+</div>
+<div class="subTitleContainer">
+    <div class="subTitleContainerLeft">{{'LBL_TRANSACTION_REF_NUM' | translate}} <span *ngIf="details && details.refNum">{{details.refNum}}</span> <span *ngIf="!details || !details.refNum">--</span></div>
+</div>
+<div class="dataContainer">
+    <span class="header" translate>LBL_BILLER_DETAILS</span>
+    <div class="fxContainer mt-top">
+        <div class="column1">
+            <label class="label" translate>LBL_CUSTOMER_ID</label>
+            <div class="dataInfo" *ngIf="details && details.CustomerId">{{details.CustomerId}}</div>
+            <div class="dataInfo" *ngIf="!details || !details.CustomerId">--</div>
+        </div>
+        <div class="column2">
+            <label class="label" translate>LBL_SUBSCRIBER_ID</label>
+            <div class="dataInfo" *ngIf="details && details.subscriberId">{{details.subscriberId}}</div>
+            <div class="dataInfo" *ngIf="!details || !details.subscriberId">--</div>
+        </div>
+        <div class="column3">
+            <label class="label" translate>LBL_SHORT_NAME</label>
+            <div class="dataInfo" *ngIf="details && details.shortName">{{details.shortName}}</div>
+            <div class="dataInfo" *ngIf="!details || !details.shortName">--</div>
+        </div>
+    </div>
+    <div class="fxContainer">
+        <div class="column1">
+            <label class="label" translate>LBL_STATUS</label>
+            <div class="dataInfo" *ngIf="details && details.status">{{details.status}}</div>
+            <div class="dataInfo" *ngIf="!details || !details.status">--</div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+</section>
+<section>
+    <div class="btnContainer">
+        <button class="button-secondary backButton" routerLink="/sadad/billsInquiry/sadadBillerInquiry" translate>LBL_BACK</button>
+        <button class="button-primary backButton" (click)="deleteSadadBiller()" translate>LBL_DELETE</button>
+     </div>
+</section>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>
+
+

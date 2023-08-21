@@ -1,0 +1,39 @@
+<div *ngIf="!receiptForm">
+    <div class="detailsTitleContainer">
+        <div>
+            <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+            <div class="mainTitle" translate>LBL_REJECT_IPS_REG</div>
+        </div>
+    </div>
+    <div class="container">
+        <div>
+            <app-instant-transfer-registration-details></app-instant-transfer-registration-details>
+        </div>
+    </div>
+    <div class="proxyContainer">
+        <div>
+            <app-proxy-identifier-registration></app-proxy-identifier-registration>
+        </div>
+        <div class="rejectReasonContainer">
+            <div class="rejecthead" translate>LBL_RJCT_RSN
+                <!-- <span class="required">*</span> -->
+            </div>
+            <div>
+                <div class="rejecttextarea">
+                    <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="textArea_Click()"></textarea>
+                    <div class="errorMsg" *ngIf="isrejectreasonValid" translate>LBL_ERROR_MESSAGE_RJCT_RSN
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section>
+            <div class="btnContainer">
+                <!-- <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button> -->
+                <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+            </div>
+        </section>
+    </div>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm"  (DownloadReceiptClick)="downloadPdf($event)" [rejectMsg]="rejectMsg">
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

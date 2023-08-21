@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "odArabic": "SSSSSS",
+      "odEnglish": "Ahmed"
+    },
+    {
+      "odArabic": "SSSSSS",
+      "odEnglish": "Ahmed"
+    }
+  ],
+  "headerValue": {
+    "moduleId": "GETLGNICKNAME",
+    "simulate": "N",
+    "_dinsess": "b1dce474-842c-4fe0-a3be-ba8b184faddb"
+  }
+}

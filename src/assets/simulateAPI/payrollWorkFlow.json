@@ -1,0 +1,56 @@
+{
+  "approverDetails": {
+    "initiator": {
+      "initiateDate": "05/08/2022",
+      "initiateTime": "12:29:26",
+      "txnType": "Own Account Transfer",
+      "referenceNo": "TBC2208051359079",
+      "makerName": ""
+    },
+    "pendingAuthorizer": [
+      {
+        "displayMsg": null,
+        "pendingRole": "D",
+        "pendingCount": 1,
+        "strParseRuleId": "6925",
+        "strCurrentRole": "Y",
+        "strRoleDesc": "Auth Group D"
+      },
+      {
+        "displayMsg": null,
+        "pendingRole": "C",
+        "pendingCount": 1,
+        "strParseRuleId": "6925",
+        "strCurrentRole": null,
+        "strRoleDesc": "Auth Group C"
+      },
+      {
+        "displayMsg": null,
+        "pendingRole": "B",
+        "pendingCount": 1,
+        "strParseRuleId": "6867",
+        "strCurrentRole": "Y",
+        "strRoleDesc": "Auth Group B"
+      },
+      {
+        "displayMsg": null,
+        "pendingRole": "A",
+        "pendingCount": 1,
+        "strParseRuleId": "6867",
+        "strCurrentRole": null,
+        "strRoleDesc": "Auth Group A"
+      }
+    ],
+    "authorizer": []
+  },
+  "headerValue": {
+    "moduleId": "PAYWRKFLW",
+    "simulate": "N",
+    "export": null,
+    "exportType": null,
+    "_dinsess": "92af5d64-6361-43be-9e54-1530f69bbf72",
+    "languageId": null,
+    "sortColumn": null,
+    "sortOrder": null
+  }
+}

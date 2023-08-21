@@ -1,0 +1,36 @@
+<div class="mainContainer" id="efinancePrintSection">
+  <div translate class="title">LBL_FUNDED_FACILITY</div>
+  <div class="subContainer" id="efinancePrintSection">
+    <div class="row" id="logoPrint">
+      <div><img class="logo" src="{{ logo }}" /></div>
+      <!-- <div><span class="logotext" translate>LBL_ECORP</span></div> -->
+      <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+    </div>
+    <div class="titleConatiner">
+      <div class="titleIcons">
+        <div class="gridline01">
+          <div translate>LBL_INQUIRY</div>
+        </div>
+        <div class="gridline02">
+          <div class="summarytools">
+            <app-summary-tools [printSection]="printSection"
+              [moduleId]="rootScopeData.accountsActiveModule" [isshowndownloadablePrint]="true" [isshownPrint]="false"></app-summary-tools>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="actionConatinere"></div> -->
+    </div>
+    <div class="mtop_10 subTitleConatiner">
+      <app-funding-facility-inquiry></app-funding-facility-inquiry>
+    </div>
+    <!-- <div class="mTop_18">
+      <div class="actionsConatiner">
+        <div class="leftPannel"></div>
+      </div>
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </div> -->
+  </div>
+</div>

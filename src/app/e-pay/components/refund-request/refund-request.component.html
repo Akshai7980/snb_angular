@@ -1,0 +1,192 @@
+<div *ngIf="pageType !== 'receipt'">
+    <div class="subTitles" translate>LBL_MERCHANT_FINANCE_DISPUTE</div>
+    <div class="merchantDetails">
+        <div class="subTitles" translate>LBL_MERCHANT_DETAILS</div>
+        <div class="outerContainer">
+            <div class="accountDetails">
+                <div class="subTitles" translate>LBL_ACCOUNT</div>
+                <table>
+                    <tr class="tableHeader">
+                        <th translate>LBL_ACC_NUMBER</th>
+                        <th translate>LBL_NICK_NAME</th>
+                        <th translate>LBL_FULL_NAME</th>
+                        <th translate>LBL_STATUS</th>
+                        <th translate>LBL_BALANCE</th>
+                    </tr>
+                    <ng-container>
+                        <tr class="tableRowConatiner">
+                            <td>{{ merchantDetails.accNo ? merchantDetails.accNo : '--' }}</td>
+                            <td>{{ merchantDetails.nickname ? merchantDetails.nickname : '--' }}</td>
+                            <td>{{ merchantDetails.fullname ? merchantDetails.fullname : '--' }}</td>
+                            <td>{{ merchantDetails.Status ? merchantDetails.Status : '--' }}</td>
+                            <td>{{ (merchantDetails.amount && merchantDetails.currency) ?
+                                (merchantDetails.amount | currencyFormat :
+                                merchantDetails.currency) + ' ' + merchantDetails.currency : '--' }}
+                            </td>
+                            <div class="downArrowAcc" (click)="cancelMerchantDetail()"></div>
+                        </tr>
+                    </ng-container>
+                </table>
+            </div>
+        </div>
+
+        <div class="outerContainer">
+            <div class="accountDetails">
+                <table>
+                    <tr class="tableHeader">
+                        <th translate>LBL_MERCHANT_NAME</th>
+                        <th translate>LBL_MERCHANT_ID</th>
+                    </tr>
+                    <ng-container>
+                        <tr class="tableRowConatiner">
+                            <td>{{ merchantDetails.merchantName ? merchantDetails.merchantName : '--' }}</td>
+                            <td>{{ merchantDetails.merchantId ? merchantDetails.merchantId : '--' }}</td>
+                            <div class="downArrowAcc" (click)="cancelMerchantDetail()"></div>
+                        </tr>
+                    </ng-container>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="merchantDetails">
+        <div class="subTitles" translate>LBL_TRANSACTION_DETAILS</div>
+        <div class="outerContainer">
+            <table>
+                <tr class="tableHeader">
+                    <th translate>LBL_REF_NUMBER</th>
+                    <th translate>LBL_SEQUENCE</th>
+                    <th translate>LBL_CARD_TYPE</th>
+                    <th translate>LBL_CARD_NO</th>
+                    <th translate>LBL_DATE</th>
+                    <th translate>LBL_AMOUNT_SAR</th>
+                </tr>
+                <ng-container>
+                    <tr class="tableRowConatiner">
+                        <td>{{ merchantDetails.refNo ? merchantDetails.refNo : '--' }}</td>
+                        <td>{{ merchantDetails.sequenceNo ? merchantDetails.sequenceNo : '--' }}</td>
+                        <td>{{ merchantDetails.cardType ? merchantDetails.cardType : '--' }}</td>
+                        <td>{{ rootScopeData.selectedEPayTransaction?.maskedpan ?
+                            rootScopeData.selectedEPayTransaction?.maskedpan : '--' }}</td>
+                        <td>{{ merchantDetails.epayDate ? merchantDetails.epayDate : '--' }}</td>
+                        <td>{{ (merchantDetails.amount && merchantDetails.currency) ?
+                            (merchantDetails.amount | currencyFormat :
+                            merchantDetails.currency) + ' ' + merchantDetails.currency : '--' }}
+                        </td>
+                    </tr>
+                </ng-container>
+            </table>
+        </div>
+    </div>
+
+    <div class="merchantDetails pad_b_40">
+        <div class="subTitles" translate>LBL_REQUEST_DETAILS</div>
+        <div class="outerContainer">
+            <div class="row">
+                <div class="column">
+                    <div class="mtop_10">
+                        <div class="geneStaTitles" translate>LBL_MOBILE_NUMBER<span *ngIf="pageType !== 'review'"
+                                class="required">*</span></div>
+                        <div class="inpField">
+                            <span *ngIf="pageType === 'review'">{{mobileNumber}}</span>
+                            <input *ngIf="pageType !== 'review'" class="inputFields" autofocus maxlength="16"
+                                [(ngModel)]="mobileNumber" type="text" (blur)="validateInput(mobileNumber)"
+                                (keypress)="allowNumbersOnly($event)">
+                            <div *ngIf="errMsg === 'mobileNumber'">
+                                <span class="errorMsg mr10" translate>LBL_MOB_NUM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="mtop_10">
+                        <div class="geneStaTitles" translate>LBL_RRN<span *ngIf="pageType !== 'review'"
+                                class="required">*</span></div>
+                        <div class="inpField">
+                            <span *ngIf="pageType === 'review'">{{rrn}}</span>
+                            <input *ngIf="pageType !== 'review'" class="inputFields" (blur)="validateInput(rrn)"
+                                maxlength="12" [(ngModel)]="rrn" type="text" (keypress)="allowNumbersOnly($event)">
+                            <div *ngIf="errMsg === 'rrn'">
+                                <span class="errorMsg mr10" translate>LBL_RRN_ERR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="mtop_10">
+                        <div class="geneStaTitles" translate>LBL_REFUND_TYPE<span *ngIf="pageType !== 'review'"
+                                class="required">*</span></div>
+                        <div class="mtop_10" *ngIf="pageType !== 'review'">
+                            <mat-select panelClass="dropDownOption" class="selectInput"
+                                placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}" [(ngModel)]="refundType"
+                                (selectionChange)="getRefundType(); validateInput(refundType)" disableOptionCentering>
+                                <mat-option *ngFor="let type of refundTypes" value="{{type.amountType}}"
+                                    [value]="type.amountType">{{type.amountType}}</mat-option>
+                            </mat-select>
+                            <div *ngIf="errMsg === 'refundType'">
+                                <span class="errorMsg mr10" translate>LBL_REFUND_TYPE_ERR</span>
+                            </div>
+                        </div>
+                        <div class="mtop_10" *ngIf="pageType === 'review'">{{refundType}}</div>
+                    </div>
+                </div>
+                <div class="column" *ngIf="refundType">
+                    <div class="mtop_10">
+                        <div class="geneStaTitles" translate>LBL_REFUND_AMOUNT<span *ngIf="pageType !== 'review'"
+                                class="required">*</span></div>
+                        <div class="inpField" *ngIf="refundType !== 'full' && pageType !== 'review'">
+                            <input class="inputFields1" [(ngModel)]="refundAmount" type="text" maxlength="15"
+                                (blur)="validateInput(refundAmount)" (keypress)="allowNumbersOnly($event)">
+                            <span class="currency" translate>LBL_SAR</span>
+                            <div>
+                                <span *ngIf="errMsg === 'refundAmount'" class="errorMsg mr10"
+                                    translate>LBL_REFUND_AMOUNT_ERR</span>
+                                <span *ngIf="errMsg === 'validRefundAmount'" class="errorMsg mr10"
+                                    translate>LBL_INVALID_REFUND_AMOUNT_ERR</span>
+                            </div>
+                        </div>
+                        <div class="inpField" *ngIf="refundType === 'full' || pageType === 'review'">
+                            <span>{{refundAmount}} {{'LBL_SAR' | translate}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="mtop_10">
+                        <div class="geneStaTitles" translate>LBL_CLAIM_DESCRIPTION</div>
+                        <div class="inpField">
+                            <div class="textareaInput">
+                                <textarea *ngIf="pageType !== 'review'" [(ngModel)]="description"
+                                    maxlength="250"></textarea>
+                                <span *ngIf="pageType === 'review'">{{description.length > 0 ? description :
+                                    ('LBL_NOT_PROVIDED' | translate)}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-authorization *ngIf="pageType === 'review' && flexAuthResp.flexiAuth === 'true'"
+        [authListDataSource]="authOptions" (authEmit)="getAuthorizationEmit($event)"></app-authorization>
+
+    <app-authentication *ngIf="pageType === 'review'" (onTwoAuthClick)="onSecondFactorValue($event)"
+        (getOtpClick)="getOtpValue($event)" [otpError]="otpError"></app-authentication>
+
+    <div class="footer">
+        <div *ngIf="pageType === 'review'" class="termsAndConditions" translate>
+            LBL_TERMS <a href="{{url}}" target="_blank" translate>LBL_THE_TERMS_AND_CONDITIONS</a>
+        </div>
+        <div class="finalProceed">
+            <app-tertiary-button (click)="cancelMerchantDetail()" buttonValue="LBL_CANCEL">
+            </app-tertiary-button>
+            <app-primary-button *ngIf="pageType !== 'review'" (click)="proceedButton()" buttonValue="LBL_PROCEED">
+            </app-primary-button>
+        </div>
+    </div>
+</div>
+
+<app-receipt *ngIf="pageType === 'receipt'" [receiptDetails]="receiptObject" [saveReceiptObject]="saveReceiptObject"
+    (onInitAgainClick)="makeAnotherTransaction()" (DownloadReceiptClick)="downloadPdf()"></app-receipt>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

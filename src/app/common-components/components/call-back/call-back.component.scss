@@ -1,0 +1,67 @@
+.callBackConatiner {
+    // width: 68%;
+    margin: auto;
+    // border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    // border: 1px solid var(--widget-border-color);
+    padding: 20px;
+}
+
+.title {
+    padding: 0 0 10px 0;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 16px;
+    color: var(--tableData-header-color);
+}
+
+.onGoing {
+    font-size: 14px;
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+
+.failed {
+    align-items: center;
+    font-size: 14px;
+    color: var(--mandatory-mark-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    display: flex;
+}
+
+.success {
+    font-size: 14px;
+    color: var(--primary-selected-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    display: flex;
+    align-items: center;
+
+}
+
+.subContainer {
+    width: 450px;
+    margin-left: 10px;
+}
+
+.message {
+    margin-top: 10px;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    color: var(--tableData-header-color);
+}
+
+.buttons {
+    padding-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+img{
+    align-items: center;
+    justify-content: center;
+}
+
+.iconText{
+    margin-left: 5px;
+}
+.mobNum{
+    display: inline-block;
+}

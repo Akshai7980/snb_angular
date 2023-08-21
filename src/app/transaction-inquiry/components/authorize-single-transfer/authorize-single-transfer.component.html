@@ -1,0 +1,39 @@
+<div *ngIf="!hideAll">
+<div class="detailsTitleContainer">
+    <div class="mainTitle" translate>LBL_AUTHORIZE_PAYMENT</div>
+    <app-summary-tools ></app-summary-tools>
+</div>
+<section>    
+    <div class="container">
+        <div class="subTitles">Within Bank Transfer {{'LBL_ACC_TO' | translate}}  Ahmed, 93656650839756657685</div>
+        <div class="title">{{'LBL_TRANSACTION_REF_NUM' | translate}} 5452106032021030</div>
+        <div class="title">
+        <div  translate>LBL_AMOUNT <span>1,000.00 SAR</span> on 20/04/2022</div>
+        <button class="status-green-button" translate>LBL_PENDING_APPROVAL</button>
+        </div>
+    </div>
+</section>
+<section class="summaryOuterConainer">
+    <div>
+        <app-authorization ></app-authorization>
+    </div>
+</section>
+<section class="summaryOuterConainer">
+    <div>
+        <app-authentication></app-authentication>
+    </div>
+</section>
+<section class="summaryOuterConainer">
+    <div class="footer">
+        <span class="termsAndContion" translate>LBL_TERMS</span>
+        <a href="#" class="terms" translate>LBL_THE_TERMS_AND_CONDITIONS</a>
+    </div>
+    <div class="actionGroup">
+        <app-tertiary-button buttonValue="LBL_CANCEL" ></app-tertiary-button>
+        <app-secondary-button buttonValue="LBL_MODIFY"></app-secondary-button>
+        <app-primary-button buttonValue="LBL_SUBMIT" (click)="submit()"></app-primary-button>
+    </div>
+</section>
+</div>
+<app-receipt [receiptDetails]="receiptData" *ngIf="hideAll" ></app-receipt>
+

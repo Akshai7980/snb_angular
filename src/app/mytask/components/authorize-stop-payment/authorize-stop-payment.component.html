@@ -1,0 +1,42 @@
+<div *ngIf="!receiptForm">
+  <div class="detailsTitleContainer">
+    <div class="headerTitle">
+      <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+      <div class="mainTitle" translate>LBL_AUTHORIZE_STOP_PAYMENT</div>
+    </div>
+  </div>
+  <div class="container">
+    <app-stop-payment-file-details></app-stop-payment-file-details>
+  </div>
+  <div class="authContainer">
+    <app-authorization
+      (authEmit)="authorizationDetails($event)"
+      [authListDataSource]="authorsList"
+      [authError]="authError"
+    ></app-authorization>
+  </div>
+
+  <div class="btnContainer">
+    <button
+      class="button-secondary backButton"
+      routerLink="/mytask/Payroll/stop-payment"
+      translate
+    >
+      LBL_CANCEL
+    </button>
+    <button class="button-primary backButton" translate (click)="authorizeStopPayment()">
+      LBL_SUBMIT
+    </button>
+  </div>
+</div>
+
+<app-receipt
+  (onInitAgainClick)="initiateAnotherRequest()"
+  [receiptDetails]="receiptData"
+  [saveReceiptObject]="saveReceiptObject"
+  *ngIf="receiptForm"
+  (DownloadReceiptClick)="downloadPdf($event)"
+  [rejectMsg]="rejectMsg"
+>
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

@@ -1,0 +1,335 @@
+<div>
+    <!-- chequeBook Request -->
+    <div class="mainConatiner" *ngIf="chequeBookRequest">
+        <div class="ttileConatiner">
+            <div class="backIcon" (click)="backToDashboard()"></div>
+            <div translate *ngIf="!showChequeBookReview" class="mainTitle">LBL_CHEQUE_BOOK_REQUEST</div>
+            <div translate *ngIf="showChequeBookReview" class="mainTitle">LBL_REVIEW</div>
+        </div>
+        <div class="detailsDataCntr">
+        <div class="bodyConatiners">
+            <app-debit-lookup *ngIf="debitAccountDetailsObj" (onAccountSelect)="afterFromAccountSelection($event)" [debitAccDetails]="debitAccountDetailsObj" [clear]="clearFlag" [shownsearch]="searchShownFlag" [tableId]="'chequeBook'"></app-debit-lookup>
+            <!-- <div class="subconatiner">
+                <div translate class="subTitles">LBL_FROM</div>
+
+                <div class="dslk_flex mtop_19">
+                    <div class="searchCntnrLeft">
+                        <app-search (childEvent)="triggerSearchFilter($event)"></app-search>
+                    </div>
+                </div>
+                <div class="mtop_21" id="chequeRequestInquirytable">
+                    
+                    <table mat-table [dataSource]="dataSource" class="tableInfo casaTable">
+                        <ng-container matColumnDef="nickName">
+                            <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">LBL_NICKNAME</th>
+                            <td mat-cell *matCellDef="let element"  class="tableInfoFonts">
+                                {{element.EMB_NAME}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="accNumber">
+                            <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">LBL_ACC_NUMBER</th>
+                            <td mat-cell *matCellDef="let element"  class="tableInfoFonts">
+                                {{element.CARD_ACC_NO}}
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="accStatus">
+                            <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">LBL_ACCOUNT_STATUS
+                            </th>
+                            <td mat-cell *matCellDef="let element"  class="tableInfoFonts">
+                                {{element.STATUS}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="balance">
+                            <th mat-header-cell *matHeaderCellDef translate class="chequesTitles"> LBL_BALANCE </th>
+                            <td mat-cell *matCellDef="let element"  class="tableInfoFonts">
+                                {{element.PAY_DUE_AMT}}
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef></th>
+                            <td mat-cell *matCellDef="let element">
+                                <div *ngIf="dataSource.length == 1" [ngClass]="dataSource.length == 1 ? 'arrowRotate':''" class="downArrow"></div>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectedRow(row)"></tr>
+                    </table>
+                </div>
+            </div> -->
+            <div *ngIf="showChequeBookDetails">
+                <div class="subconatiner mtop_20">
+                    <div translate class="subTitles">LBL_CHEQUE_BOOK_DETAILS</div>
+                    <div class="mtop_17 mbot_4 chequeBookDetailsContainer">
+                        <div>
+                            <div translate class="chequesTitles">LBL_CHEQUE_BOOK_TYPE<span class="required">*</span></div>
+                            <div class="mtop_10">
+                                <div class="inputField">                                                                   
+                                <!-- <mat-select panelClass="dropDownOption" [disabled]="isChqBookTypeReadOnly" *ngIf="rootScopeData.userInfo.mLanguage === 'en_US'" class="selectInput " [(ngModel)]="chequeBookTyp_en_us"  disableOptionCentering>                                 
+                                    <mat-option value="{{option.ENGLISHNAME}}" *ngFor="let option of dataSourceToPass" (blur)="onNumberOfChequesSelect()">
+                                    {{option.ENGLISHNAME}}</mat-option>
+                                </mat-select> -->
+                                <div class="information" *ngIf="rootScopeData.userInfo.mLanguage === 'en_US'">
+                                    <input 
+                                      type="text" [readonly]="isChqBookTypeReadOnly"
+                                      matInput
+                                      [(ngModel)]="chequeBookTyp_en_us"  name="chequeType"
+                                      placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}"                          
+                                      [matAutocomplete]="chequebkENSearch"
+                                      (input)="searchEnglishType($event)"
+                                      (blur)="EnglishInput($event)"
+                                      (focus)="dataSourceToPass = localdataSource"
+                                      #chqbkTypeRef="ngModel"
+                                      #chqbkTypeInputRef
+                                      class="selectInput"
+                                      required
+                                      >
+                                    <span class="dropdownIcon sprite" (click)="chqbkTypeInputRef.focus()"></span>
+                                    <mat-autocomplete #chequebkENSearch="matAutocomplete" disableOptionCentering>
+                                      <mat-option (click)="selectCurrentChqueBook(option)" *ngFor="let option of dataSourceToPass"
+                                      [value]="option.ENGLISHNAME" >
+                                        {{option.ENGLISHNAME}}
+                                      </mat-option>
+                                    </mat-autocomplete>
+                                  </div>
+                                <!-- <mat-select panelClass="dropDownOption" [disabled]="isChqBookTypeReadOnly" *ngIf="rootScopeData.userInfo.mLanguage === 'ar_SA'" class="selectInput " [(ngModel)]="chequeBookTyp_ar"  disableOptionCentering>                                   
+                                        <mat-option value="{{option.ARABICNAME}}" *ngFor="let option of dataSourceToPass" (blur)="onNumberOfChequesSelect()">
+                                        {{option.ARABICNAME}}</mat-option>
+                                </mat-select>                                -->
+
+                                <div class="information" *ngIf="rootScopeData.userInfo.mLanguage === 'ar_SA'">
+                                    <input 
+                                      type="text" [readonly]="isChqBookTypeReadOnly"
+                                      matInput
+                                      [(ngModel)]="chequeBookTyp_ar"  name="chequeType"
+                                      placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}"                          
+                                      [matAutocomplete]="chequebkARSearch"
+                                      (input)="searchArabicType($event)"
+                                      (blur)="arabicInput($event)"
+                                      (focus)="dataSourceToPass = localdataSource"
+                                      #chqbkTypeRef="ngModel"
+                                      #chqbkTypeInputRef
+                                      class="selectInput"
+                                      required
+                                      >
+                                    <span class="dropdownIcon sprite" (click)="chqbkTypeInputRef.focus()"></span>
+                                    <mat-autocomplete #chequebkARSearch="matAutocomplete" disableOptionCentering>
+                                      <mat-option (click)="selectCurrentChqueBook(option)" *ngFor="let option of dataSourceToPass"
+                                      [value]="option.ARABICNAME" >
+                                        {{option.ARABICNAME}}
+                                      </mat-option>
+                                    </mat-autocomplete>
+                                  </div>
+                            </div>
+                            <div [class.hide]="isnumberofchequevalid"><small translate class="required">LBL_PLSE_SELECT_NO_OF_CHEQUE</small></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div translate class="chequesTitles">LBL_NO_OF_BOOKS<span class="required">*</span></div>
+                            <div class="mtop_10">
+                                <mat-select panelClass="dropDownOption" class="selectInput" [(ngModel)]="numberofChequeBooks"  disableOptionCentering>
+                                    <mat-option value="1" (blur)="onNumberOfChequeBooksSelect()">1</mat-option>                                   
+                                </mat-select>
+                            </div>
+                            <div [class.hide]="isnumberofbookvalid"><small translate class="required">LBL_PLSE_SELECT_NO_OF_BOOKS</small></div>
+                        </div>
+                        <div>
+                            <div>
+                                <div translate class="chequesTitles">LBL_COLLECTION_BRANCH<span class="required">*</span></div>
+                                <div class="mtop_10">
+                                    <!-- <mat-select panelClass="dropDownOption" [disabled]="isChqBookBranchCodeReadOnly" class="selectInput" [(ngModel)]="collectionOption"  disableOptionCentering>
+                                        <!-- <mat-option value="prince">Prince Sultan Road Branch</mat-option>
+                                        <mat-option value="jeddah">Jeddah Branch</mat-option> -->
+                                      <!--   <mat-option value="{{option.branchDesc}}" *ngFor="let option of branchLookup" (blur)="oncollectionBranchSelect()">
+                                        {{option.branchDesc}}
+                                        </mat-option>
+                                    </mat-select> -->
+
+                                    <div class="information" >
+                                        <input 
+                                          type="text" [readonly]="isChqBookBranchCodeReadOnly"
+                                          matInput
+                                          [(ngModel)]="collectionOption"  name="collectionoptiov"
+                                          placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}"                          
+                                          [matAutocomplete]="collectionOptionSearch"
+                                          (input)="searchCollectionOption($event)"
+                                          (blur)="collectionOptionInput($event)"
+                                          (focus)="branchLookup = localbranchlookup"
+                                          #collectionOptionRef="ngModel"
+                                          #collectionOptionInputRef
+                                          class="selectInput"
+                                          required
+                                          >
+                                        <span class="dropdownIcon sprite" (click)="collectionOptionInputRef.focus()"></span>
+                                        <mat-autocomplete #collectionOptionSearch="matAutocomplete" disableOptionCentering>
+                                          <mat-option *ngFor="let option of branchLookup"
+                                          [value]="option.branchDesc" >
+                                            {{option.branchDesc}}
+                                          </mat-option>
+                                        </mat-autocomplete>
+                                      </div>
+
+
+                                </div>
+                                <div class="mtop_5"><span class="informationIcon"></span><span class="collectionNote"
+                                        > {{'LBL_CHEQUE_BOOK_COLL_DATE' |translate :{collectiondays:'3'} }}</span></div>
+                                <div [class.hide]="isCollectionBranchValid"><small translate class="required">LBL_PLSE_SELECT_COLLECTION_BRANCH</small></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="subconatiner mtop_20">
+                    <div translate class="subTitles ">LBL_CHARGE_DTLS</div>
+                    <div class="mtop_21 chargeDtlsContainer">
+                        <div>
+                            <div translate class="chequesTitles">LBL_CHARGE_AMT</div>
+                            <div class="infoFontSize mtop_4" *ngIf="chequeaddressCharge">{{chequeaddressCharge |currencyFormat:chequeaddressCCY}} {{chequeaddressCCY}}</div>
+                        </div>
+                        <div>
+                            <div translate class="chequesTitles">LBL_TAX_AMT</div>
+                            <div class="infoFontSize mtop_4" *ngIf="chequeaddressTax">{{chequeaddressTax |currencyFormat:chequeaddressCCY}} {{chequeaddressCCY}}</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div *ngIf="showChequeBookReview">
+                <div class="subconatiner mtop_20">
+                    <div translate class="subTitles">LBL_CHEQUE_BOOK_DETAILS</div>
+                    <div class="mtop_17 mbot_4 chequeBookDetailsContainer">
+                        <div>
+                            <div class="field">
+                                <div class="label" translate>LBL_CHEQUE_BOOK_TYPE<span class="required">*</span></div>
+                                <div *ngIf="rootScopeData.userInfo.mLanguage === 'en_US'">
+                                <div class="information" *ngIf="chequeBookTyp_en_us">{{chequeBookTyp_en_us}}</div>
+                                <div class="information" *ngIf="!chequeBookTyp_en_us">--</div>
+                                </div>
+                                <div *ngIf="rootScopeData.userInfo.mLanguage === 'ar_SA'">
+                                <div class="information" *ngIf="chequeBookTyp_ar">{{chequeBookTyp_ar}}</div>
+                                <div class="information" *ngIf="!chequeBookTyp_ar">--</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="field">
+                                <div class="label" translate>LBL_NO_OF_BOOKS<span class="required">*</span></div>
+                                <div class="information" *ngIf="numberofChequeBooks">{{numberofChequeBooks}}</div>
+                                <div class="information" *ngIf="!numberofChequeBooks">--</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <div class="mtop_10">
+                                    <div class="field">
+                                        <div class="label" translate>LBL_COLLECTION_BRANCH<span class="required">*</span></div>
+                                        <div class="information" *ngIf="collectionOption">{{collectionOption}}</div>
+                                        <div class="information" *ngIf="!collectionOption">--</div>
+                                    </div>
+                                </div>
+                                <div class="mtop_5"><span class="informationIcon"></span><span class="collectionNote"
+                                        > {{'LBL_CHEQUE_BOOK_COLL_DATE' |translate :{collectiondays:'3'} }}</span></div>
+                                <div [class.hide]="isCollectionBranchValid"><small translate class="required">LBL_PLSE_SELECT_COLLECTION_BRANCH</small></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="subconatiner mtop_20">
+                    <div translate class="subTitles ">LBL_CHARGE_DTLS</div>
+                    <div class="mtop_21 chargeDtlsContainer">
+                        <div>
+                            <div class="field">
+                                <div class="label" translate>LBL_CHARGE_AMT</div>
+                                <div class="information" *ngIf="chequeaddressCharge">{{chequeaddressCharge |currencyFormat:chequeaddressCCY}} {{chequeaddressCCY}}</div>
+                                <div class="information" *ngIf="!chequeaddressCharge">--</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="field">
+                                <div class="label" translate>LBL_TAX_AMT</div>
+                                <div class="information"*ngIf="chequeaddressTax">{{chequeaddressTax |currencyFormat:chequeaddressCCY}} {{chequeaddressCCY}}</div>
+                                <div class="information" *ngIf="!chequeaddressTax">--</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="afterproceed">
+                    <app-authorization *ngIf="showAuthorization" (authEmit)="autherizationDetailsReceived($event)" [authListDataSource]="authListArray" [authError]="authError"></app-authorization>
+                    <!-- <app-authentication (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError"></app-authentication> -->
+                    <app-authentication *ngIf="showAuthentication" (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError" (authenticationType)="getAuthType($event)" [initParam]="initReqParam"></app-authentication>
+                </div>
+               
+            </div>
+        </div>
+       
+    </div>
+    <div class="btnGroup mtop_20" *ngIf="showChequeBookDetails">
+        <!-- <div><button type="button" class="button-secondary" (click)="clearData()" translate>LBL_CLEAR</button></div>
+        <div><button type="button" class="button-primary" (click)="proceed()" translate>LBL_PROCEED</button></div> -->
+        <app-tertiary-button buttonValue="LBL_CLEAR" (click)="clearData()"></app-tertiary-button>
+        <app-primary-button buttonValue="LBL_PROCEED" (click)="proceed()"></app-primary-button>
+    </div>
+    <div class="btnGroup mtop_20" *ngIf="showChequeBookReview">
+        <!-- <div><button type="button" class="button-secondary" (click)="cancel()" translate>LBL_CANCEL</button></div> -->
+        <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()"></app-tertiary-button>
+        <!-- <div><button type="button" class="button-primary" (click)="submit()" translate>LBL_SUBMIT</button></div> -->
+    </div>
+    </div>
+    <!-- Receipt -->
+    <app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)" [rejectMsg]="rejectMsg"></app-receipt>
+    <!-- <div class="receiptConatiner" *ngIf="receiptForm">
+        <div translate class="mainTitle">LBL_RECEIPT</div>
+        <div class="receiptSubconatiner">
+            <div class="titleContainer">
+                <div class="textalign_center"><img class="shieldIcon" src="/assets/images/iconShield.png"
+                        alt="success"></div>
+                <div class="textalign_center subTitles" translate>LBL_CHEQUE_BOOK_SUCCESS</div>
+                <div class="textalign_center infoFontSize" translate>LBL_CHEQUE_APPROVAL_REQUEST</div>
+            </div>
+            <div class="fromContainer ">
+                <div translate class="subTitles">LBL_FROM</div>
+                <div class="fromsubConatiner mtop_12">
+                    <div>
+                        <div translate class="chequesTitles">LBL_ACTION_BY</div>
+                        <div class="mtop_4 infoFontSize">{{accountName}}</div>
+                    </div>
+                    <div>
+                        <div translate class="chequesTitles">LBL_ACC_NUMBER</div>
+                        <div class="mtop_4 infoFontSize">{{accountnumber}}</div>
+                    </div>
+                    <div>
+                        <div translate class="chequesTitles">LBL_NICKNAME</div>
+                        <div class="mtop_4 infoFontSize">{{accountName}}</div>
+                    </div>
+                </div>
+            </div>
+            <hr class="seperator">
+            <div class="chequeBookContainer">
+                <div translate class="subTitles">LBL_CHEQUE_BOOK_DETAILS</div>
+                <div class="chequeBookSubConatiner mtop_12">
+                    <div>
+                        <div translate class="chequesTitles">LBL_NUMBER_OF_CHEQUE</div>
+                        <div class="mtop_4 infoFontSize">{{numberCheque}}</div>
+                    </div>
+                    <div>
+                        <div translate class="chequesTitles">LBL_NO_OF_BOOKS</div>
+                        <div class="mtop_4 infoFontSize">{{numberofChequeBooks}}</div>
+                    </div>
+                    <div>
+                        <div translate class="chequesTitles">LBL_COLLECTION_BRANCH</div>
+                        <div class="mtop_4 infoFontSize">{{collectionOption}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btnGroup mtop_24">
+            <button type="button" class="button-primary finish" (click)="finish()" translate>LBL_FINISH</button>
+        </div>
+    </div> -->
+
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> 

@@ -1,0 +1,35 @@
+.container{
+    margin: 10px 15px 0px 15px;
+}
+.subContainer {
+    border-radius: 10px;
+    background: var(--summary-row-bg-color);
+    margin: 20px 30px 10px 0;
+    padding: 12px 0 15px 18px;
+}
+.refNO{
+    padding-top: 5px;
+    color: var(--default-text-color);
+}
+.flexCntr {
+    display: flex;
+    flex-wrap: wrap;
+    > div {
+        width: 33%;
+    }
+}
+.label {
+    width: 107px;
+    height: 30px;
+    font-size: 14px;
+    color: var(--table-header-color);
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+
+.dataInfo {
+    height: 40px;
+    font-family: 'HelveticaNeue', arial, sans-serif;
+    font-size: 12px;
+    color: var(--input-text-color);
+    margin-top: 8px;
+}

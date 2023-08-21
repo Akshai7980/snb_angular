@@ -1,0 +1,88 @@
+.accountsContainer {
+  background-color: var(--primary-widget-bg-color);
+  padding: 15px;
+  margin-top: 15px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  height: 30vh;
+}
+
+.rightPanel {
+  text-align: right;
+}
+
+.outerContainer {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.title {
+  width: 215px;
+  height: 30px;
+  padding: 0px 0px 0px 5px;
+  background-size: cover;
+  font-size: 18px;
+  color: var(--tableData-header-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+
+.img-style {
+  padding-right: 0px !important;
+}
+
+.sortUp {
+  right: 18px !important;
+}
+
+.mtop_20 {
+  margin-top: 20px;
+}
+
+.selectInput {
+  width: 300px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--input-text-color);
+  cursor: pointer;
+}
+
+.btnGroup {
+  float: right;
+  display: flex;
+  margin-top: 25px;
+}
+
+.container {
+  color: var(--table-header-color);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.rightContent {
+  flex-basis: 313px;
+}
+
+.leftContent {
+  margin-left: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.feilds {
+  margin-right: 40px;
+}
+.comment {
+  width: 307px;
+  height: 80px;
+  border-radius: 4px;
+  border: 1px solid var(--input-border-color);
+  background-color: var(--primary-widget-bg-color);
+  color: var(--default-text-color);
+}

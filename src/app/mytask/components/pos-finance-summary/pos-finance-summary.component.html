@@ -1,0 +1,48 @@
+<div  class="outerContainer" id="posFinanceRequestSummaryDetails">
+    <div class="title" translate>LBL_REQ_SUMMARY</div>
+    <div class="accountDetails">
+      <div class="flexContiner">
+        <div>
+        <div class="subTitles" translate> LBL_POSFINANCE_REQUEST
+            <span translate>{{'LBL_FROM' | translate}} <span>{{posFinanceRequestMytaskSummaryDetails.res.makerName}}, {{posFinanceRequestMytaskSummaryDetails.res.accNo}}</span></span>
+        </div>
+        <div class="reference" translate>{{'LBL_REF_NUMBER' | translate}}: {{posFinanceRequestMytaskSummaryDetails.res.refNo ? posFinanceRequestMytaskSummaryDetails.res.refNo :'--'}}</div>
+        <div translate>{{'LBL_FINANCE_AMOUNT' | translate}} <b>{{posFinanceRequestMytaskSummaryDetails.res.financeAmt | currencyFormat :posFinanceRequestMytaskSummaryDetails.res.financeAmt }} {{posFinanceRequestMytaskSummaryDetails.res.currency }}</b> {{'LBL_ON' | translate}} {{posFinanceRequestMytaskSummaryDetails.res.valueDate}}  <button class="status-red-button">{{posFinanceRequestMytaskSummaryDetails.res.statusDesc}} </button></div>
+        </div>
+        <app-summary-tools
+              [printSection]="printSection"
+              [moduleId]="moduleId"
+            ></app-summary-tools>
+      </div>
+        <app-request-details-summary></app-request-details-summary>
+    </div>
+
+    <section class="summaryOuterConainer">
+      <div class="summaryConainer">
+          <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+      </div>
+  </section>
+  <section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-history [historyData]="workFlowHistoryParams"></app-history>
+    </div>
+</section>
+</div>
+<div class="actionGroup btnCntr">
+    <button
+      class="button-secondary backButton"
+      routerLink="/mytask/posFinance"
+      translate
+    >
+      LBL_BACK
+    </button>
+    <button class="button-print-secondary"  translate (click)="onClickReject($event)">
+      LBL_REJECT
+    </button>
+    <button
+      class="button-print-secondary" translate
+      (click)="onClickAuthorize($event)"
+    >
+      LBL_AUTHORIZE
+    </button>
+  </div>

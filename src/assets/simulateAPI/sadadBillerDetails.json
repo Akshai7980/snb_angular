@@ -1,0 +1,22 @@
+{
+    "headerValue": {
+      "moduleId": "SADADBILLERDETAIL",
+      "simulate": "N"
+    },
+    "data": [
+      {
+        "billerName": "Vodafone",
+        "billerGroupName": "TeleCom",
+        "billerGroupId": "",
+        "functionCode": "SADLB",
+        "shortName": "testststs",
+        "CustomerId": "3000010021",
+        "billerId": 1,
+        "status": "ACTIVE",
+        "ceilingAmount": "",
+        "restrictedAccess": "",
+        "enableAutoPay": "",
+        "subscriberId": "2"
+      }
+    ]
+  }

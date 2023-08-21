@@ -1,0 +1,65 @@
+{
+    "data":{
+        "CATEGORY":[
+            {
+                "CAT_NAME": "Category 1"
+            },
+            {
+                "CAT_NAME": "Category 2"
+            },
+            {
+                "CAT_NAME": "Category 3"
+            },
+            {
+                "CAT_NAME": "Category 4"
+            },
+            {
+                "CAT_NAME": "Category 5"
+            }
+        ],
+        "TYPE":[ 
+            {
+                "TYPE": "Type 1"
+            },
+            {
+                "TYPE": "Type 2"
+            },
+            {
+                "TYPE": "Type 3"
+            }
+        ],
+        "SCOOP":[
+            {
+                "SCOOP":"Scoop 1"
+            },
+            {
+                "SCOOP":"Scoop 2"
+            }
+        ],
+        "POINT":[
+            {
+                "POINT": "Point 1"
+            },
+            {
+                "POINT": "Point 2"
+            },
+            {
+                "POINT": "Point 3"
+            }
+        ],
+        "LEVEL":[
+            {
+                "LEVEL": "Level 1"
+            },
+            {
+                "LEVEL": "Level 2"
+            },
+            {
+                "LEVEL": "Level 3"
+            }
+        ]
+    },
+    "headerValue": {
+        "moduleId": ""
+    }
+}

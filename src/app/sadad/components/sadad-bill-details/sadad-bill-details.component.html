@@ -1,0 +1,129 @@
+<div class="mainContainer">
+    <div class="subTitle" translate>LBL_BILL_DETAILS</div>
+    <div class="childContainer" *ngIf="!rootScopeData.addSadadBillerReviewMode ">
+        <div class="billerGroup">
+            <div class="info"><label for="group" translate>LBL_BILLER_GROUP</label></div>
+            <div class="autosugges">
+                <!-- <mat-select id="group" class="box" placeholder="All" panelClass="dropDownOption" disableOptionCentering >
+                    <mat-option value="All">All</mat-option>
+                    <mat-option value="Service & Telecom">Service & Telecom</mat-option>
+                    <mat-option value="Gov. Agencies">Gov. Agencies</mat-option>
+                    <mat-option value="Banking & Finance">Banking & Finance</mat-option>
+                    <mat-option value="Internet & PC">Internet & PC</mat-option>
+                </mat-select> -->
+                <!-- <mat-select id="group"  [(ngModel)]="groupoption"  name="groupoption" class="box" panelClass="dropDownOption" disableOptionCentering >
+                    <mat-option *ngFor="let grpOption of billergroupsfromApi" [value]="grpOption.englishName" (click)="groupOption(grpOption)">{{grpOption.englishName}}</mat-option>
+                </mat-select> -->
+
+                <div class="information">
+                    <input
+                      type="text"
+                      matInput
+                      [(ngModel)]="groupoption"
+                      placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}"                          
+                      [matAutocomplete]="billGroup"
+                      (input)="searchBillGroup($event)"
+                      (blur)="resetBillGroupInput($event)"
+                      (focus)="selectedBillerGroup"
+                      #billGroupRef="ngModel"
+                      #billGroupInputRef
+                      class="selectInput"
+                      required
+                      >
+                    <span class="dropdownIcon sprite" (click)="billGroupInputRef.focus()"></span>
+                  <mat-autocomplete #billGroup="matAutocomplete" disableOptionCentering>
+                    <mat-option *ngFor="let grpOption of billergroupsfromApiLocal"
+                    [value]="grpOption.englishName" (click)="groupOption(grpOption)">
+                    {{grpOption.englishName}}
+                    </mat-option>
+                  </mat-autocomplete></div>
+                  <div class="errorMsg" *ngIf="billGroupRef?.touched && billGroupRef?.invalid || billerGroupEmpty" translate>
+                    LBL_PLEASE_SELECT_BILLER_GROUP
+                  </div>
+
+            </div>
+        </div>
+        <div class="billerGroup" >
+            <div class="info"><label for="company" translate>LBL_BILLER_COMPANY<span class="required">*</span></label></div>
+            <div class="autosugges">
+                <!-- <mat-select id="company" class="box" placeholder="Choose an option" panelClass="dropDownOption" disableOptionCentering>
+                    <mat-option value="Saudi Telecom">Saudi Telecom</mat-option>
+                    <mat-option value="Saudi Electric Company">Saudi Electric Company</mat-option>
+                    <mat-option value="American Express">American Express</mat-option>
+                    <mat-option value="Arab Open University">Arab Open University</mat-option>
+                    <mat-option value="Ryadh Municipality">Ryadh Municipality</mat-option>
+                </mat-select> -->
+                <!-- <mat-select id="company" class="box"  [(ngModel)]="nameoption" name="nameoption" panelClass="dropDownOption" disableOptionCentering>
+                    <mat-option *ngFor="let nameOption of billerNamefromApi" [value]="nameOption.billerName" (click)="BillerNameOption(nameOption)">{{nameOption.billerName}}</mat-option>
+                </mat-select> -->
+
+                <div class="information">
+                    <input
+                      type="text"
+                      matInput
+                      [(ngModel)]="nameoption"
+                      placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}"                          
+                      [matAutocomplete]="billCompany"
+                      (input)="searchBillCompany($event)"
+                      (blur)="resetBillCompanyInput($event)"
+                      (focus)="selectedBillerCompany"
+                      #billCompanyRef="ngModel"
+                      #billCompanyInputRef
+                      class="selectInput"
+                      required
+                      >
+                    <span class="dropdownIcon sprite" (click)="billCompanyInputRef.focus()"></span>
+                  <mat-autocomplete #billCompany="matAutocomplete" disableOptionCentering>
+                    <mat-option *ngFor="let nameOption of billerNamefromApiLocal"
+                    [value]="nameOption.billerName" (click)="BillerNameOption(nameOption)">
+                    {{nameOption.billerName}}
+                    </mat-option>
+                  </mat-autocomplete></div>
+<!-- <div *ngIf="isNameValid"> -->
+                <div *ngIf="billCompanyRef?.touched && billCompanyRef?.invalid || billerCompanyEmpty">
+                    <small translate class=" errorMsg">LBL_PLSE_SELECT_BILLER_COMPANY</small>
+                </div>
+            </div>
+        </div>
+        <div class="billerGroup">
+            <div class="info" translate>LBL_SUBSCRIBER_NUMBER<span class="required">*</span></div>
+            <div class="data"><input type="text" class="margin_Class" [(ngModel)]="subscriberID" (paste)="(false)" (keypress)="alphabetsValidation($event)" maxlength="18" (blur)="onSubscriberValidation()" autocomplete="off"
+                name="subscriberID" matInput></div>
+                <div *ngIf="isSubscriberValid">
+                    <small translate class="errorMsg">LBL_PLSE_ENTER_SUBSCRIBERID</small>
+                </div>
+                <div *ngIf="isSubscriberInValid">
+                    <small translate class="errorMsg">LBL_PLSE_ENTER_VALID_SUBSCRIBERID</small>
+                </div>
+        </div>
+        <div class="billerGroup">
+            <div class="info" translate>LBL_SHORT_NAME<span class="required">*</span></div>
+            <div class="data"><input type="text" class="margin_Class" [(ngModel)]="nickname" name="nickname" (blur)="onNickNameValidation()" (keypress)="specialCharValidation($event)" maxlength="35" autocomplete="off" matInput></div>
+            <div *ngIf="isShortNameValid">
+                <small translate class="errorMsg">LBL_PLSE_ENTER_SHORTNAME</small>               
+            </div>
+            <small translate class="required" [class.hide]="isNicknameValidCheck">LBL_ERROR_MESSAGE_SHORT_NAME_ALREADY_EXIST</small>
+        </div>
+    </div>
+    
+    <div class="childContainer" *ngIf="rootScopeData.addSadadBillerReviewMode ">
+        <div class="billerGroup">
+            <div class="info" translate>LBL_BILLER_GROUP</div>
+            <div class="billercontent">{{getBillerGroupFromName}}</div>
+        </div>
+        <div class="billerGroup">
+            <div class="info" translate>LBL_BILLER_COMPANY<span class="required">*</span></div>
+            <div class="billercontent">{{nameoption}}</div>
+        </div>
+        <div class="billerGroup">
+            <div class="info" translate>LBL_SUBSCRIBER_NUMBER<span class="required">*</span></div>
+            <div class="billercontent1">{{subscriberID}}</div>
+        </div >
+        <div class="billerGroup">
+            <div class="info" translate>LBL_SHORT_NAME<span class="required">*</span></div>
+            <div class="billercontent1">{{nickname}}</div>
+        </div>
+        
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> 

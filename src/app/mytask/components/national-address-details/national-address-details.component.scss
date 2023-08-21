@@ -1,0 +1,62 @@
+.outerContainer {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .accountDetails {
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+  }
+  .flexContainer{
+    display: grid;
+    grid-template-columns: 50% 40% 40% ;
+    margin: 0 20% 3% 1%;
+  }
+ 
+  .refNo{
+    margin-bottom: 10px;
+  }
+  .wrappe{
+    word-wrap: break-word;
+    width: 80%;
+  }
+  .label{
+    font-family: "HelveticaNeueMed", arial, sans-serif !important;
+    font-size: 14px !important;
+    color: var(--table-header-color) !important;
+    margin-bottom: 10px;
+}
+.data{
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+    color: var(--default-text-color);
+    
+}
+
+.ref{
+  font-size: 16px;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  color: var(--tableData-header-color);
+}
+.detailContainer{
+  background-color: var(--summary-row-bg-color);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+.alignContainer{
+  margin: 1% 0 1% 1%;
+}
+.subTitles{
+    margin-bottom: 5px;
+}
+.btnContainer{
+    float: right;
+    margin-top: 25px;
+    padding-right: 21px;
+}

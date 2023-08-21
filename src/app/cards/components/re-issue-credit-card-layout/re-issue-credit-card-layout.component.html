@@ -1,0 +1,14 @@
+<div class="mainContainer">
+    <div class="title" translate>LBL_RE_ISSUE_CARD</div>
+    <div class="debitContainer">
+        <app-debit-lookup *ngIf="showCardDetails" [debitAccDetails]="reIssueDetailsObj"></app-debit-lookup>
+    </div>
+
+    <div class="buttonContainer">
+
+        <app-tertiary-button *ngIf="reIssueDetails.length > 0" buttonValue="LBL_CANCEL" (click)="toCancel()"></app-tertiary-button>
+        <app-primary-button *ngIf="reIssueDetails.length > 0" buttonValue="LBL_PROCEED" (click)="toProceed()"></app-primary-button>
+
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

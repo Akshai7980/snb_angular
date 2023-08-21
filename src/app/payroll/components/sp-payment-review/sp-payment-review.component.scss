@@ -1,0 +1,45 @@
+.mainTitle {
+
+    margin: -26px 0px 0px 33px;
+}
+
+.btnGroup {
+    float: right;
+    display: flex;
+    margin-right: 20px;
+}
+
+.mtop_20 {
+    margin-top: 20px;
+}
+
+.authorizationContainer {
+    margin: 0px 20px 0px 30px;
+}
+
+.authenticationContainer {
+    margin: 0px 20px 0px 30px;
+}
+
+.footerText {
+    margin: 40px 0px 0px 33px;
+    display: inline-block;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+
+    .termsContainer {
+        color: var(--secondary-btn-print-border-color);
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.summaryContainerForEditableRecordSummary {
+    border-radius: 10px;
+    background: var(--primary-widget-bg-color);
+    margin-right: 17px;
+    margin-left: 29px;
+}

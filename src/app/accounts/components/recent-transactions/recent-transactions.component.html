@@ -1,0 +1,251 @@
+<div class="transactionCntr">
+    <div class="ng-toolPanel">
+        <div class="leftSide">
+            <div><app-search  (searchParams)="advancedSearchApply($event)" [showAdvanceSearch]="true" (childEvent)="triggerSearchFilter($event)"></app-search></div>
+        </div>
+        <div class="rightSide dslk_flex">
+            <div><app-export-statements *ngIf="enableProperty" [enableButton]="setDownload" [childMessage]="mtFlag" [moduleId]="'CASASTATEMENT'" [reqUnitId]="unitId" [reqCif]="cifNumber" [reqAccNumber]="accNumber" [reqPortalAccNumber]="portalAccNumber" [selectRange]="advSearchPeriod" [rangeFromDate]="advSearchFromDate" [rangeToDate]="advSearchToDate" [downloadBalancePopup]="true" [resFlag]="advSearchSearchWithin" (emit942Data)="callbackmt942()"></app-export-statements></div>
+            <div><app-refresh (onRefresh)="refreshSummary()"></app-refresh></div>
+        </div>
+    </div>
+</div>
+<div class="table" *ngIf="!norecordflag" id="recenttransactContainer">
+    <table id="casaDetailsDefault" mat-table matSort [dataSource]="dataSourceToPassValue" multiTemplateDataRows class="casaTable1">
+        <ng-container matColumnDef="expand">
+            <th mat-header-cell *matHeaderCellDef aria-label="row actions"></th>
+            <td mat-cell  *matCellDef="let dataSourceToPassValue" class="drp-width" >
+              <button class="btnView" mat-icon-button aria-label="expand row" (click)="(expandedElement = expandedElement === dataSourceToPassValue ? null : dataSourceToPassValue); $event.stopPropagation();dataSourceToPassValue === expandedElement ? getNarrationAPICall(dataSourceToPassValue):null">
+                <img *ngIf="expandedElement === dataSourceToPassValue" src="assets/images/iconDownGreen.svg" class="drp-column">
+                <img *ngIf="expandedElement !== dataSourceToPassValue" src="assets/images/iconDownGreen.svg" class="up-drp-column">
+              </button>
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="res_Txn_Dt">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="tb-head-align">
+                <div class="position_rel" translate>LBL_VALUE_DATE</div></th>
+            <td mat-cell *matCellDef="let dataSourceToPassValue" class="tb-head-align"> 
+                <!-- <img src="assets/images/down-arrow-short.svg" class="drp-column"> -->
+                <span *ngIf="dataSourceToPassValue.res_Txn_Dt">{{(dataSourceToPassValue.res_Txn_Dt | date: rootScopeData.userInfo.mDateFormat)}}</span>
+                <span *ngIf="!dataSourceToPassValue.res_Txn_Dt">--</span>
+            </td>
+        </ng-container>
+        <!-- <ng-container matColumnDef="res_beneName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <div class="position_rel" translate>LBL_DESCRIPTION</div></th>
+            <td mat-cell *matCellDef="let dataSourceToPassValue">
+                <span *ngIf="dataSourceToPassValue.res_beneName">{{dataSourceToPassValue.res_beneName}}<span *ngIf="dataSourceToPassValue.res_beneName">, </span>{{dataSourceToPassValue.res_Txn_Ref_No}}</span>
+                <span *ngIf="!dataSourceToPassValue.res_beneName && dataSourceToPassValue.res_Txn_Ref_No">--</span>
+            </td>
+        </ng-container> -->
+        <ng-container matColumnDef="res_Description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <div class="position_rel" translate>LBL_DETAILS</div></th>
+            <td mat-cell *matCellDef="let dataSourceToPassValue">
+               
+                <div *ngIf="dataSourceToPassValue.res_Description">{{dataSourceToPassValue.res_Description}}</div>
+                <span *ngIf="!dataSourceToPassValue.res_Description && !dataSourceToPassValue.res_ExtraDesc">--</span>
+                <div class="extraDesc" *ngIf="dataSourceToPassValue.res_ExtraDesc">{{dataSourceToPassValue.res_ExtraDesc}}</div>
+                
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="res_DebitCreditAmt">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="txt-align">
+                <div class="position_rel" translate>LBL_DR_CR_AMOUNT</div></th>
+            <td mat-cell *matCellDef="let dataSourceToPassValue" class="txt-align red" [class.green]="(dataSourceToPassValue.res_Flag === 'CR')" >
+                <span>
+                    <span *ngIf="dataSourceToPassValue.res_DebitCreditAmt && dataSourceToPassValue.res_Txn_CCY && !rootScopeData.userInfo.maskingFlag">{{dataSourceToPassValue.res_DebitCreditAmt }}</span>
+                    <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}}</span>
+                    <span *ngIf="(!dataSourceToPassValue.res_DebitCreditAmt || !dataSourceToPassValue.res_Txn_CCY) && !rootScopeData.userInfo.maskingFlag">--</span>
+                </span>
+                <!-- <span *ngIf="dataSourceToPassValue.res_Flag === 'CR'">
+                    <span *ngIf="dataSourceToPassValue.res_Credit_Amt && dataSourceToPassValue.res_Txn_CCY && !rootScopeData.userInfo.maskingFlag">{{dataSourceToPassValue.res_Credit_Amt | amountUnformatPipe:dataSourceToPassValue.res_Txn_CCY}}</span>
+                    <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}}</span>
+                    <span *ngIf="(!dataSourceToPassValue.res_Credit_Amt || !dataSourceToPassValue.res_Txn_CCY) && !rootScopeData.userInfo.maskingFlag">--</span>
+                </span>
+                <span *ngIf="dataSourceToPassValue.res_Flag === 'DR'">
+                    <span *ngIf="dataSourceToPassValue.res_Debit_Amt && dataSourceToPassValue.res_Txn_CCY && !rootScopeData.userInfo.maskingFlag">{{dataSourceToPassValue.res_Debit_Amt | amountUnformatPipe:dataSourceToPassValue.res_Txn_CCY}}</span>
+                    <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}}</span>
+                    <span *ngIf="(!dataSourceToPassValue.res_Debit_Amt || !dataSourceToPassValue.res_Txn_CCY) && !rootScopeData.userInfo.maskingFlag">--</span>   
+                </span> -->
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="hide_res_Credit_Amt">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="txt-align" [style.display]="'none'">
+                <div class="position_rel" translate>LBL_DR_CR_AMOUNT</div></th>
+            <td mat-cell *matCellDef="let dataSourceToPassValue" class="txt-align red" [class.green]="(dataSourceToPassValue.res_Flag === 'CR')" [style.display]="'none'">
+                    <span *ngIf="dataSourceToPassValue.res_Flag === 'CR'">
+                        <span *ngIf="dataSourceToPassValue.res_Credit_Amt && dataSourceToPassValue.res_Txn_CCY">{{dataSourceToPassValue.res_Credit_Amt | amountUnformatPipe:dataSourceToPassValue.res_Txn_CCY}}</span>
+                        <span *ngIf="!dataSourceToPassValue.res_Credit_Amt || !dataSourceToPassValue.res_Txn_CCY">--</span>
+                    </span>
+                    <span *ngIf="dataSourceToPassValue.res_Flag === 'DR'">
+                        <span *ngIf="dataSourceToPassValue.res_Debit_Amt && dataSourceToPassValue.res_Txn_CCY">{{dataSourceToPassValue.res_Debit_Amt | amountUnformatPipe:dataSourceToPassValue.res_Txn_CCY}}</span>
+                        <span *ngIf="!dataSourceToPassValue.res_Debit_Amt || !dataSourceToPassValue.res_Txn_CCY">--</span>   
+                    </span>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="res_Running_Bal">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="txt-align">
+                <div class="position_rel" translate>LBL_RUNNING_BAL</div></th>
+            <td mat-cell *matCellDef="let dataSourceToPassValue" class="txt-align">
+                <span *ngIf="dataSourceToPassValue.res_Running_Bal && dataSourceToPassValue.res_Txn_CCY && !rootScopeData.userInfo.maskingFlag">{{dataSourceToPassValue.res_Running_Bal | currencyFormat:dataSourceToPassValue.res_Txn_CCY}}</span>
+                <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}}</span>
+                <span *ngIf="(!dataSourceToPassValue.res_Running_Bal || !dataSourceToPassValue.res_Txn_CCY) && !rootScopeData.userInfo.maskingFlag">--</span>
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="hide_res_Running_Bal">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="txt-align" [style.display]="'none'">
+                <div class="position_rel" translate>LBL_RUNNING_BAL</div></th>
+            <td mat-cell *matCellDef="let dataSourceToPassValue" class="txt-align" [style.display]="'none'">
+                <span *ngIf="dataSourceToPassValue.res_Running_Bal && dataSourceToPassValue.res_Txn_CCY">
+                    {{dataSourceToPassValue.res_Running_Bal | amountUnformatPipe:dataSourceToPassValue.res_Txn_CCY}}
+                </span>
+                <span *ngIf="!dataSourceToPassValue.res_Running_Bal && !dataSourceToPassValue.res_Txn_CCY">
+                    --
+                </span>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="res_TxnType">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="txt-align">
+                <div class="position_rel" translate>LBL_TRANSACTION_TYPE</div></th>
+            <td mat-cell *matCellDef="let dataSourceToPassValue" class="txt-align">
+                <span *ngIf="dataSourceToPassValue.res_TxnType">{{dataSourceToPassValue.res_TxnType}}</span>
+                <span *ngIf="!dataSourceToPassValue.res_TxnType">--</span>
+            </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef class="action-cls" translate> LBL_ACTION</th>
+            <td mat-cell *matCellDef="let dataSourceToPassValue" class="drp-width1">
+                <!-- <app-more-action  [moreActionList]="getcontextMenuList(dataSourceToPassValue)" [hideViewDetails]="true" (onMenuClick)="getNarrationAPIForPdfCall(dataSourceToPassValue, $event)" ></app-more-action>             -->
+                <app-more-action  [moreActionList]= "(dataSourceToPassValue.res_TxnType == 'SF') ? contextMenuListPdf : contextMenuListPdfDownload" [hideViewDetails]="true" (onMenuClick)="getNarrationAPIForPdfCall(dataSourceToPassValue, $event)" [currentRecord]="dataSourceToPassValue"></app-more-action>            
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let dataSourceToPassValue" [attr.colspan]="displayedColumnsWithExpand.length">
+              <div class="example-element-detail"
+                   [@detailExpand]="dataSourceToPassValue === expandedElement ? 'expanded' : 'collapsed'">
+                    <div class="subInfoData">
+                        <div class="refNumber-collapsedPanel">
+                           <p><span class="title" translate>LBL_REF_NUMBER</span> <br>
+                              <span class="extraDesc" *ngIf="dataSourceToPassValue.res_Txn_Ref_No">{{dataSourceToPassValue.res_Txn_Ref_No}}</span>
+                              <span *ngIf="!dataSourceToPassValue.res_Txn_Ref_No">--</span>
+                            </p>
+                        </div>
+                        <div class="refNumber-collapsedPanel narrationBox">
+                            <p><span class="title" translate>LBL_NARRATION</span><br>
+                                <span class="extraDesc" *ngIf="dataSourceToPassValue.NARRATION">{{dataSourceToPassValue.NARRATION}}</span>
+                                <span *ngIf="!dataSourceToPassValue.NARRATION">--</span>
+                            </p>
+                        </div>
+                        <div class="refNumber-collapsedPanel">
+                            <p><span class="title" translate>LBL_BRANCH</span><br><span class="extraDesc" *ngIf="dataSourceToPassValue.res_branch">{{dataSourceToPassValue.res_branch}}</span><span *ngIf="!dataSourceToPassValue.res_branch">--</span></p>
+                        </div>
+                        <div class="refNumber-collapsedPanel">
+                            <p><span class="title" translate>LBL_TRANSACTION_DATE</span><br>
+                                <span class="extraDesc" *ngIf="dataSourceToPassValue.res_Txn_Dt">{{(dataSourceToPassValue.res_Txn_Dt | date: rootScopeData.userInfo.mDateFormat)}}</span>
+                                <span *ngIf="!dataSourceToPassValue.res_Txn_Dt">--</span>
+                            </p>
+                        </div>
+                        <div class="refNumber-collapsedPanel">
+                            <p><span class="title" translate>LBL_ACCOUNT_TYPE</span><br>
+                                <span class="extraDesc" *ngIf="rootScopeData.accountsSummaryObject.OD_ACC_TYPE_2">{{rootScopeData.accountsSummaryObject.OD_ACC_TYPE_2}} {{rootScopeData.accDetailsObject.res_CurrencyCode}}</span>
+                                <span *ngIf="!rootScopeData.accountsSummaryObject.OD_ACC_TYPE_2">--</span>
+                            </p>
+                        </div>
+                        <div class="refNumber-collapsedPanel">
+                            <p><span class="title" translate>LBL_ACCOUNT_NAME</span><br>
+                                <span class="extraDesc" *ngIf="this.rootScopeData.accDetailsObject.res_Account_Name">{{this.rootScopeData.accDetailsObject.res_Account_Name}}</span>
+                                <span *ngIf="!this.rootScopeData.accDetailsObject.res_Account_Name">--</span>
+                            </p>
+                        </div>
+                    </div>
+              </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsWithExpand"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsWithExpand;"  class="example-element-row"
+        [class.example-expanded-row]="expandedElement === dataSourceToPassValue"
+        (click)="expandedElement = expandedElement === dataSourceToPassValue ? null : dataSourceToPassValue"></tr>
+         <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+
+    </table> 
+    <!-- <table width="100%" id="accountRecenttransactionDefault" class="mainTableStr" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr class="mat-header-row">                      
+                <th class="mat-header-cell" translate>LBL_VALUE_DATE
+                    <span>
+                        <img src="assets/images/sortDown.svg" class="img-style">
+                        <img src="assets/images/sortDown.svg" class="sortUp">
+                    </span>
+                </th>
+                <th class="mat-header-cell" translate>LBL_DESCRIPTION
+                    <span>
+                        <img src="assets/images/sortDown.svg" class="img-style">
+                        <img src="assets/images/sortDown.svg" class="sortUp">
+                    </span>
+                </th>
+                <th class="mat-header-cell" translate>LBL_DR_CR_AMOUNT
+                    <span>
+                        <img src="assets/images/sortDown.svg" class="img-style">
+                        <img src="assets/images/sortDown.svg" class="sortUp">
+                    </span>
+                </th>
+                <th class="mat-header-cell" translate>LBL_RUNNING_BAL
+                    <span>
+                        <img src="assets/images/sortDown.svg" class="img-style">
+                        <img src="assets/images/sortDown.svg" class="sortUp">
+                    </span>
+                </th>
+                <th class="mat-header-cell" translate>LBL_ACTION</th>
+            </tr>
+        </thead>
+         <tbody class="mainTableData" *ngFor="let trnData of dataSource; let i=index">
+            <tr class="mainTable" [ngClass]="i % 2 == 0 ? 'tablebgColor' : ''">                      
+                <td  [attr.data-label]="'LBL_VALUE_DATE' | translate"><div><img class="arrowIcon" [ngClass]="i===currentAct ? '' : 'overRotate'" src="assets/images/iconDownGreen.svg" (click)="selectedRow(i)"></div><div class="arrowText">{{trnData.res_Txn_Dt}}</div></td>
+                <td [attr.data-label]="'LBL_DESCRIPTION' | translate">{{trnData.res_Description}}</td>
+                <td [ngClass]="(trnData.res_Flag === 'DR')? 'red' : 'green'" [attr.data-label]="'LBL_DR_CR_AMOUNT' | translate"><span
+                        *ngIf="trnData.res_Flag === 'CR' && trnData.res_Credit_Amt">{{trnData.res_Credit_Amt | currencyFormat:trnData.res_Txn_CCY}}</span><span
+                        *ngIf="trnData.res_Flag === 'DR' && trnData.res_Debit_Amt">{{trnData.res_Debit_Amt | currencyFormat:trnData.res_Txn_CCY}}</span></td>
+                <td [attr.data-label]="'LBL_DR_CR_AMOUNT' | translate">{{trnData.res_Running_Bal | currencyFormat:trnData.res_Txn_CCY}}</td>
+                <td [attr.data-label]="'LBL_ACTION' | translate">
+                    <div><app-more-action (onMenuClick)="actionOnMenuClick($event)"></app-more-action></div>
+               </td>
+            </tr>
+            <tr class="subInfo" *ngIf="i===currentAct">                      
+                 <td colspan="6">
+                     <div class="subInfoData">
+                         <div>
+                           <div class="title" translate>LBL_REF_NUMBER</div> <div>{{trnData.res_Txn_Ref_No}}</div>
+                         </div>
+                         <div>
+                             <div class="title" translate>LBL_NARRATION</div><div>Domestic Transfer to Eicher Motors Pvt. Ltd.</div>
+                         </div>
+                         <div>
+                             <div class="title" translate>LBL_TRANS_DTE_TIME</div><div>{{trnData.res_Txn_Dt}}</div>
+                         </div>
+                     </div>
+                 </td>
+            </tr>
+        </tbody>     
+    </table> -->
+</div>
+<!-- <div  *ngIf="!norecordflag">
+    <app-secondary-pagination #paginator class="actionHide" [dataSourceLength]="dataSourceLength" [currentRecord]="'RecentTransaction'"
+    [totalRecords]="totalRecords" (onPaginationChange)="paginationChangeClick($event)"></app-secondary-pagination>
+  </div> -->
+  <div *ngIf="!norecordflag">
+    <app-pagination #paginator class="actionHide" [dataSourceLength]="dataSourceLength" [currentRecord]="'RecentTransaction'"
+    [totalRecords]="totalRecords" (onPaginationChange)="paginationChangeClick($event)" [setPageSize]="'y'"></app-pagination>
+  </div>
+<div *ngIf="norecordflag">
+    <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found></div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>
+
+

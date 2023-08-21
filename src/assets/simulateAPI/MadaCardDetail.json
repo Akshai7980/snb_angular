@@ -1,0 +1,75 @@
+{
+  "dataValue": 
+    {
+      "ATMCardDetailsResponse": {
+        "success": {
+          "name": "KEERTHAN",
+          "status": 1,
+          "cardType": 1,
+          "subCardType": "MS",
+          "subCardTypeDescription": "Mass Non-Payroll",
+          "internationalCardType": 1,
+          "numberOfFailedPinRetries": 0,
+          "issuedDate": 20221121,
+          "changedDate": 20221121,
+          "expiry": "11/2025",
+          "transferAmount": 10,
+          "cashLimit": 5000,
+          "cardLimit": 25000,
+          "chequesLimit": 0,
+          "posLimit": 0,
+          "pinSet": "Y",
+          "cafATMATravelCheckLimit": 0,
+          "cafATMCreditLimit": 0,
+          "cafATMOfflineCcalLimit": 0,
+          "cafATMTransferLimit": 0,
+          "cafATMTotalCcaLimit": 0,
+          "cafATMUsageLimit": 4,
+          "cafOfflineCcaLimit": 0,
+          "cafOfflineWithdrawalLimit": 25000,
+          "cafPosOfflineCcaLimit": 0,
+          "cafPosOfflineRefundLimit": 20000,
+          "cafPosOfflineWithdrawalLimit": 20000,
+          "cafPosTotalCcaLimit": 0,
+          "cafPosTotalRefundLimit": 20000,
+          "cafPosTotalWithdrawalLimit": 20000,
+          "cafPosUsageLimit": 10,
+          "cafTotalCcaLimit": 0,
+          "cafTotalWithdrawalLimit": 25000,
+          "linkAccounts": {
+            "ownerAccount": [
+              {
+                "sequenceNumber": 1,
+                "accountId": 5100005059209,
+                "description": "",
+                "type": 1,
+                "status": 3,
+                "canDepositToThisAccount": "Y",
+                "canPayFromThisAccount": "Y",
+                "canTransferFromThisAccount": "Y",
+                "canWithdrawFromThisAccount": "Y",
+                "canTransferToThisAccount": "Y",
+                "canInqThisAccount": "Y",
+                "level": false
+              }
+            ]
+          },
+          "physicalCardType": "Y",
+          "contactlessIndicator": "N",
+          "offlineLimitsFlg": "N",
+          "lowerConsecutiveOfflineLimit": 0,
+          "upperConsecutiveOfflineLimit": 0,
+          "lowerConsecutiveOfflineTransactionLimit": 0,
+          "upperConsecutiveOfflineTransactionLimit": 0,
+          "ecommerceStatus": "Y",
+          "ecommerceLimit": 0,
+          "secondaryCardExpiryDate": 0
+        }
+      }
+    }
+  ,
+
+  "headerValue": {
+    "moduleId": "MADCRDSUMMY"
+  }
+}

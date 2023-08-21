@@ -1,0 +1,56 @@
+<div class="title" translate>LBL_FILE_UPLOAD</div>
+
+<app-upload-file-and-file-details
+  (onAccountClickEmit)="onAccountClick()"
+  (getFileDetailsEmit)="onFileDetailsEmit($event)"
+  (getShowProceedBalanceValidation)="showProceedBalanceValidation($event)"
+  [dropDown]="dropDownArrow"
+></app-upload-file-and-file-details>
+<app-record-summary [hidden]="fileDetailsEmitted?.fileStatusCd === 'CONFAL'"
+  *ngIf="showRecSumm"
+  (sortColumnEmit)="onSortColumn($event)"
+  [moduleId]="moduleId"
+  [sortOptions]="sortOptions"
+  [recordSummaryObject]="recordSummaryObject"  [refNo]="uploadFileDetails?.fileDetails?.odDRefNo" [subprdt]="uploadFileDetails?.fileType?.subPdtCode" [pageCall]="pageName"
+></app-record-summary>
+<app-duplicate-records
+*ngIf="this.fileDetailsEmitted?.duplicateFlag === 'Y' && duplicateRecordList"
+  [duplicateList]="duplicateRecordList"
+  [duplicateDetailsList]="dupDetailsList"
+  (sortColumnEmit)="onDupSortColumn($event)"
+  (sortColumnEmitDup)="onSortColumnDup($event)"
+  [moduleId]="dupModuleId"
+  [totalrecords]="totalrecords"
+  [sortOptions]="dupSortOptions" (callDuplicateRecordEmit)="fetchDuplicateFileDetails()"
+></app-duplicate-records>
+
+<div class="footer-container" *ngIf="fileDetailsEmitted?.fileStatusCd === 'PNRFV'">
+  <div class="footerText" translate *ngIf="duplicateRecordList.length > 0">
+    <img src="assets/images/Icon.svg" alt="" /> 
+
+    <span class="termsContainer" translate>
+      LBL_DUPLICATE_TRANSACTION_FOOTER_TXT
+    </span>
+  </div>
+  <div class="footerText" translate *ngIf="fileDetailsEmitted?.duplicateFlag === 'N' || fileDetailsEmitted?.duplicateFlag === null">
+    <img src="assets/images/Icon.svg" alt="" /> 
+
+    <span class="termsContainer" translate>
+      LBL_NO_POSSIBLE_DUPLICATE_FOOTER_TXT
+    </span>
+  </div>
+
+  <div class="actionGroup">
+    <app-tertiary-button
+      buttonValue="LBL_CANCEL"
+      class="tertiaryBtn"
+      (click)="toCancel()"
+    ></app-tertiary-button>
+    <app-primary-button *ngIf="showProceed"
+      buttonValue="LBL_PROCEED"
+      (click)="onProceed()"
+    ></app-primary-button>
+  </div>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

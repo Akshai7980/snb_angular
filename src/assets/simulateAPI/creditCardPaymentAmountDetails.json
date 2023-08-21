@@ -1,0 +1,10 @@
+{
+    "data": {
+        "currency": "SAR",
+        "fullAmount": "200.097",
+        "minimumDue": "400.00"
+    },
+    "headerValue": {
+        "moduleId": "CRDCDAMTDET"
+    }
+}

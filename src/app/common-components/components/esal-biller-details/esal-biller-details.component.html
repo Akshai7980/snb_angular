@@ -1,0 +1,30 @@
+<div class="detailsContainer" id="esalBillerDetailsPrintSection">
+    <div class="row" id="logoPrint">
+        <div><img class="logo" src="{{logo}}"> </div>
+        <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+    </div>
+    <div class="titleContainer">
+        <div class="titleContainerLeft">
+            <span *ngIf="payerName">{{payerName}}</span><span *ngIf="!payerName">--</span>
+        </div>
+    </div>
+    <div class="subTitleContainer">
+    <div class="subTitleContainerLeft">{{'LBL_TRANSACTION_REF_NUM' | translate}} <b><span *ngIf="refNum">{{refNum}}</span> <span *ngIf="!refNum">--</span></b></div>
+</div>
+    <div class="dataContainer">
+        <span class="header" translate>LBL_BILLER_DETAILS</span>
+        <div class="fxContainer mt-top">
+            <div class="column1">
+                <label class="label" translate>LBL_PAYER_ID</label>
+                <div class="dataInfo" *ngIf="payerId">{{payerId}}</div>
+                <div class="dataInfo" *ngIf="!payerId">--</div>
+            </div>
+            <div class="column2">
+                <label class="label" translate>LBL_PAYER_SHORT_NAME</label>
+                <div class="dataInfo" *ngIf="payerNickName">{{payerNickName}}</div>
+                <div class="dataInfo" *ngIf="!payerNickName">--</div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

@@ -1,0 +1,37 @@
+.mainContainer {
+    margin: 3% 0 0 0;
+  }
+  
+  .title {
+    margin: 20px 0px 0px 0px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .refreshIcon {
+    border-style: none;
+  }
+  
+  .casaTable {
+    width: 100%;
+  }
+  
+  .searchCntnrLeft {
+    margin-left: 15px;
+  }
+  
+  td.mat-cell:first-of-type {
+    width: 30%;
+    padding-left: 40px;
+  }
+  
+  th.mat-header-cell:first-of-type {
+    padding-left: 40px;
+  }
+  
+  #serviceRequestDefaultCntr {
+    min-height: 233px !important;
+  }

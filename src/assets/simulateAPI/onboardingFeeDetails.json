@@ -1,0 +1,13 @@
+{
+	"data": {
+		"setupFee": "1.00",
+		"monthlyFee": "1.00",
+		"prepaidCards": "1.00",
+		"perSNBrecord": "1.00",
+		"perSarieRecord": "1.00",
+		"ccy": "SAR"
+	},
+	"headerValue": {
+		"moduleId": "PAYROLLONFEE"
+	}
+}

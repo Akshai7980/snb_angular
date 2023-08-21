@@ -1,0 +1,40 @@
+<div class="parentDiv">
+  <div class="mainTitle">
+    <span translate>LBL_STOP_PAYMENT</span>
+  </div>
+
+  <div>
+    <mat-button-toggle-group>
+      <mat-button-toggle disableRipple="true" (click)="changeStopPaymentType('file')" [ngClass]="
+          selectedStopPaymentType === 'file' ? 'hoverSelected' : 'baseSelected'
+        ">{{ "LBL_STOP_FILE" | translate }}</mat-button-toggle>
+      <mat-button-toggle disableRipple="true" (click)="changeStopPaymentType('record')" [ngClass]="
+          selectedStopPaymentType === 'record'
+            ? 'hoverSelected'
+            : 'baseSelected'
+        ">{{ "LBL_STOP_RECORD" | translate }}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div>
+    <app-sp-stop-file class="mtop_20" *ngIf="selectedStopPaymentType === 'file' && isShowDetails"></app-sp-stop-file>
+    <app-sp-record-stop class="mtop_20" *ngIf="selectedStopPaymentType === 'record' && isShowDetails"></app-sp-record-stop>
+  </div>
+
+  <div class="btnGroup mtop_20">
+    <div>
+      <!-- <button type="button" class="button-secondary" (click)="returnToSummary()" translate>
+        LBL_CANCEL
+      </button> -->
+      <app-tertiary-button buttonValue="LBL_CANCEL" (click)="returnToSummary()"></app-tertiary-button>
+    </div>
+    <div *ngIf="(selectedStopPaymentType === 'record' && this.rootScopeData.selectedRecordsForReview.length > 0) || selectedStopPaymentType === 'file'">
+      <!-- <button type="button" class="button-primary" (click)="proceedForAuthentication()" translate>
+        LBL_PROCEED
+      </button> -->
+      <app-primary-button buttonValue="LBL_PROCEED" (click)="proceedForAuthentication()"></app-primary-button>
+    </div>
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

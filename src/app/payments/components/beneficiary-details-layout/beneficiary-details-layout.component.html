@@ -1,0 +1,27 @@
+<div class="detailsTitleContainer">
+    <div class="mainTitle" translate>LBL_SINGLE_BENE_DETAILS</div>
+</div>
+<div class="detailsDataCntr">
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-payments-single-beneficiary-details></app-payments-single-beneficiary-details>
+      </div>
+</section>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+    </div>
+</section>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-history [historyData]="workFlowHistoryParams"></app-history>
+      </div>
+</section>
+<section>
+    <div class="btnContainer">
+        <!-- <button class="button-secondary backButton" routerLink="/payments/beneficiaryInquiry" translate>LBL_BACK</button> -->
+        <app-tertiary-button buttonValue="LBL_BACK" (click)="onClickBack()"></app-tertiary-button>
+        <app-primary-button *ngIf="isInActivate" buttonValue="LBL_ACTIVATE" (click)="onClickActivate()"></app-primary-button>
+    </div>
+</section>
+</div>

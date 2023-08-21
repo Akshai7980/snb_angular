@@ -1,0 +1,22 @@
+{
+    "headerValue": {
+      "moduleId": "SADADSERVTYPE",
+      "simulate": "N"
+  
+   },
+    "data": [
+              {
+               "serviceCode" : "002",
+               "serviceName" : "Issue New Iqama",
+                           "allowRefund" : "true",
+                           "allowOverPay" : "false",
+                           "allowUnderPay" : "false",
+                           "allowAdvancePay" : "false",
+                           "allowCCPay" : "false",
+                           "allowCCReversal" : "false",
+                           "allowCCRefund" : "false",
+                           "voiceTag" : "FSVC_001"
+               }
+                          
+         ]
+  }

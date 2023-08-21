@@ -1,0 +1,103 @@
+table {
+  width: 100%;
+  background-color: var(--primary-widget-bg-color);
+  // border: 1px solid var(--widget-border-color);
+}
+.mat-expansion-panel {
+  margin: 10px 0 10px 0;
+  box-shadow: none;
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  border: 1px solid var(--widget-border-color);
+}
+
+.disable_ripple:hover {
+  background: var(--primary-widget-bg-color) !important;
+}
+td.mat-cell {
+  color: var(--tableData-header-color);
+  border-bottom-style: none;
+  padding: 8px;
+}
+
+
+th.mat-header-cell {
+  border-bottom-style: none;
+  width: 200px;
+  height: 40px;
+  padding: 0px 0px 0px 5px;
+  background-size: cover;
+  font-family: "HelveticaNeueMed", arial, sans-serif;;
+  font-size: 14px;
+  color: var(--table-header-color);
+  text-decoration: none solid rgb(162, 162, 162);
+}
+::ng-deep .arrowColor > .mat-expansion-indicator:after {
+  color:#006a52;
+}
+th.mat-header-cell{
+  font-size: 15px;
+}
+th.mat-header-cell:first-of-type{
+  padding: 0px!important;
+  
+}
+td.mat-cell:first-of-type{
+  padding: 0px;
+}
+tr.mat-row{
+  padding:8px;
+}
+
+.mat-row:nth-child(odd){
+  background-color: var(--summary-row-bg-color);;
+}
+
+.disable_ripple {
+  position: relative;
+}
+.gridline02 {
+  position: absolute;
+  right: 4%;
+  top: 4%;
+}
+
+.casaTable {
+  width: 100%;
+  table-layout: fixed;
+  background-color: var(--primary-widget-bg-color);
+  .mat-column-transactionId{
+      width: 11.6% !important;
+  }
+  .mat-column-accNo {
+      width: 13% !important;
+  }
+  .mat-column-valueDate {
+      width: 10% !important;
+  } 
+  .mat-column-amount {
+      width: 8% !important;
+  }
+  .mat-column-filename  {
+      width: 11.66% !important;
+  }
+  .mat-column-subType {
+      width: 9% !important;
+  }
+  .mat-column-orderDate {
+      width: 11% !important;
+      text-align:left !important;
+  }  
+}
+.actionIcon {
+  background: url(../../../../assets/images/delete.svg) no-repeat center;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.underlineText {
+  color: var(--short-profile-txt-color);
+  word-break: break-word;
+}

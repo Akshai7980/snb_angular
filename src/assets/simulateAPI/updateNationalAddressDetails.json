@@ -1,0 +1,14 @@
+{
+    "dataValue":{  
+        "city": 408,
+        "postCode": "26513",
+        "street": "الجبيل",
+        "district": "حي الشهداء الشمالية",
+        "basicNumber": 3644,
+        "cityNameEnglish": "AT TAIF",
+        "countryOfBirth": "SA" 
+    },
+    "headerValue": {
+        "moduleId": "NATADDDETAILS"
+    }
+}

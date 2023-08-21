@@ -1,0 +1,47 @@
+<div class="mainContainer" *ngIf="!showReceipt">
+    <div translate class="title">LBL_TOKEN_REQUEST</div>
+    <div>
+        <app-debit-lookup *ngIf="debitDataObj" [debitAccDetails]="debitDataObj" [clear]="DebitClearFlag"
+            (onAccountSelect)="afterFromAccountSelection($event)" [ngClass]="selectedDebitObj?'padding_0':''"
+            class="arrange" [tableId]="'tokenRequest'" [shownsearch]="searchShownFlag"></app-debit-lookup>
+    </div>
+    <div class="subContainer" *ngIf="showFeeDetails">
+        <div class="subTitle" translate>LBL_FEE_DETAILS</div>
+        <div class="detailsContainer">
+            <div class="row">
+                <div class="column">
+                    <div class="geneStaTitles" translate>LBL_FEE</div>
+                    <div class="mtop_10 dataContainer">{{feeDetailsObj.tax}} {{feeDetailsObj.ccy}}</div>
+                </div>
+                <div class="column">
+                    <div class="geneStaTitles" translate>LBL_VAT</div>
+                    <div class="mtop_10 dataContainer">{{feeDetailsObj.vat}} {{feeDetailsObj.ccy}}</div>
+                </div>
+                <div class="column">
+                    <div class="geneStaTitles" translate>LBL_TOTAL_FEES</div>
+                    <div class="mtop_10 dataContainer">{{totalFee}} {{feeDetailsObj.ccy}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mtop_20" *ngIf="showAuthentication">
+        <app-authentication (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [isShowOtpTokenToggle]="false"
+            [otpError]="otpError" [initParam]="initReqParam"></app-authentication>
+    </div>
+    <div>
+        <div class="footer" *ngIf="showAuthentication">
+            <span class="termsAndContion" translate>LBL_TERMS</span>
+            <a href="{{ url }}" target="_blank"><span class="terms" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>
+        </div>
+    </div>
+    <div class="btnGroup" *ngIf="showFeeDetails" translate>
+        <div><button type="button" class="button-secondary" (click)="onClickCancel()" translate>LBL_CANCEL</button>
+        </div>
+        <div><button type="button" class="button-primary" *ngIf="!showAuthentication" (click)="onClickSubmit()" translate>LBL_SUBMIT</button>
+        </div>
+        <div><button type="button" class="button-primary" *ngIf="showAuthentication" (click)="onClickFinalSubmit()" translate>LBL_SUBMIT</button>
+        </div>
+    </div>
+</div>
+<app-receipt [hideButton]="true" [receiptDetails]="receiptData" *ngIf="showReceipt"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

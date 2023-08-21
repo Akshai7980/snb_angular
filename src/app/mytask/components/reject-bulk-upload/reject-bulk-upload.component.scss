@@ -1,0 +1,111 @@
+.detailsTitleContainer {
+  margin: -15px 0px -27px 30px;
+}
+
+.backArrow {
+  top: 40px;
+  left: -20px;
+}
+
+.container {
+  padding: 16px 0 14px 18px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  margin: 5px 20px 0px 30px;
+}
+
+.refNO {
+  padding-top: 5px;
+}
+
+.btnContainer {
+  float: right;
+  margin-top: 25px;
+}
+
+.headerTitle {
+  margin-bottom: 23px;
+}
+
+.textColor {
+  color: var(--secondary-btn-print-text-color);
+}
+
+.fileDetailsContainer {
+  padding: 0px 0px 25px 10px;
+}
+
+.fileDetailsSubContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 82px 0px -8px;
+}
+
+.main-container {
+  position: relative;
+  padding: 12px 20px;
+  margin: 26px 18px 0px 0px;
+  font-family: 'HelveticaNeue', Arial, sans-serif;
+
+  .sub-title {
+    font-size: 15px;
+    color: var(--tableData-header-color);
+    margin: 0px;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    margin-bottom: 20px;
+  }
+
+  .input-label {
+
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    font-size: 14px;
+    color: var(--table-header-color);
+  }
+}
+
+.fileNameDownload {
+  margin-left: -25px;
+  margin-top: -8px;
+}
+
+.fileName {
+  margin-top: 15px;
+  font-family: 'HelveticaNeueMed', arial, sans-serif;
+  font-size: 14px;
+  color: var(--table-header-color);
+}
+
+.rejecttextarea {
+  margin-top: 10px !important;
+}
+
+.rejectReasonContainer {
+  margin-left: 5px;
+}
+
+.rejecthead {
+  font-family: 'HelveticaNeueMed', arial, sans-serif;
+  color: var(--table-header-color);
+  font-size: 14px;
+}
+
+textarea {
+  width: 300px;
+  height: 80px;
+  border: 1px solid var(--input-border-color);
+  resize: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: var(--primary-widget0bg-color);
+  color: var(--default-text-color);
+}
+
+.input-records {
+  font-size: 14px;
+  font: 400 14px/20px 'HelveticaNeueMed', arial, sans-serif;
+}

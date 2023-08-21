@@ -1,0 +1,63 @@
+<div class="filter-search-popup" *ngIf="showAdvancedSearchPopup" (click)="stopAdvancedSearchClose($event)">
+    <div translate class="header">LBL_FILTER
+        <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+    </div>
+    <div class="flexCntr">
+        <div class="toggleCntr">   
+            <div translate id="leftToggle" class="toggle" [class.active]="leftToggle" (click)="leftToggleCntl()">LBL_DATE</div>
+            <div translate id="rightToggle" class="toggle" [class.active]="rightToggle" (click)="rightToggleCntl()">LBL_AMOUNT</div> 
+        </div>
+    </div>
+    <div class="flexCntrData">
+        <div class="dateFrom" *ngIf="leftToggle">
+            <div class="datefrom">
+                <div translate class="fieldLabel" id="proctm">LBL_DATE_FROM</div>
+                <div class="shortDatePicker mt-top"><app-date-picker [clearFlag]="clearFlag" [showDateErrorMessage]="fromDateErrorMessage" (dateValue)="getFromDate($event)" [maxDate]="maxFromDate" [minDate]="minFromDate" [newDate]="fromDateValue"></app-date-picker></div>
+            </div>
+            <div class="dateto">
+                <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+                <div class="shortDatePicker mt-top"><app-date-picker [clearFlag]="clearFlag" [showDateErrorMessage]="toDateErrorMessage" (dateValue)="getToDate($event)" [maxDate]="maxToDate" [minDate]="minToDate" [newDate]="toDateValue"></app-date-picker></div>
+            </div>
+        </div>
+        <div class="fromto" *ngIf="rightToggle && !leftToggle">           
+            <div class="datefrom">
+                <div translate class="fieldLabel" id="proctm">LBL_AMOUNT</div>
+                <div class="shortInput"><input type="text" [(ngModel)]="amount" (keypress)="numericOnly($event)" (blur)="filterAmtValidation()" class="txt-fld mt-top"></div>
+            </div>
+            <div class="dateto">
+                <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+                <div class="shortInput"><input type="text" [(ngModel)]="to" (keypress)="numericOnly($event)" (blur)="filterAmtValidation()" class="txt-fld mt-top"></div>
+                <small *ngIf="isShownAmountValidation" translate class="errorMsg">LBL_TO_AMOUNT_SHOULD_BE_GREATER_THAN_FROM_AMOUNT</small>
+            </div>
+        </div>
+        <div class="searchwithin">
+            <div translate class="fieldLabel">LBL_TRANSACTION_TYPE</div>
+            <mat-select panelClass="dropDownOption advdownWidth_210" class="selectInput" [(value)]="transactionType" disableOptionCentering>
+                <!-- <mat-option value="Own Transfer">{{'LBL_WITHIN_MY_ACC' | translate}}</mat-option>
+                <mat-option value="Within SNB">{{'LBL_WITHIN_SNB' | translate}}</mat-option>
+                <mat-option value="Local Transfer">{{'LBL_IPS' | translate}}</mat-option>
+                <mat-option value="International">{{'LBL_SHARIE' | translate}}</mat-option> -->
+                <mat-option value="" selected>{{'LBL_ANY' | translate}}</mat-option>
+                <mat-option value="Own Transfer">{{'LBL_BKSIFT' | translate}}</mat-option>
+                <mat-option value="Within SNB">{{'LBL_WITHIN_SNB' | translate}}</mat-option>               
+                <mat-option value="Local Transfer">{{'LBL_BKSRNT' | translate}}</mat-option>
+                <mat-option value="International">{{'LBL_INTERNATIONAL' | translate}}</mat-option>
+                <mat-option value="Direct Payments">Direct Payments</mat-option>
+                <mat-option value="Invoice Payments">Invoice Payments</mat-option>               
+            </mat-select>
+        </div>
+    </div>
+      
+   
+    <div class="submt">
+        <div>
+            <!-- <button class="clr" (click)="onClickClear()" translate>LBL_CLEAR</button> -->
+            <app-tertiary-button buttonValue="LBL_CLEAR" (click)="onClickClear()"></app-tertiary-button>
+        </div>
+        <div>
+            <!-- <button class="apply" (click)="onClickApply()" translate>LBL_APPLY</button> -->
+            <app-primary-button (click)="onClickApply()" buttonValue="LBL_APPLY"></app-primary-button>
+        </div>
+    </div>
+</div>
+

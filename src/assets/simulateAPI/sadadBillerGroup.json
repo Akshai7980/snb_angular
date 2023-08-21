@@ -1,0 +1,25 @@
+{
+    "headerValue": {
+      "moduleId": "SADADBLRGRP",
+      "simulate": "N"
+  
+   },
+    "data": [
+                          {
+                          "billergroupId" : "1",
+                          "billerGroupCode" : "TELCO",
+                          "englishName" : "Services & Telecom",
+                          "arabicName" : "",
+                          "voiceTag" : "GROUP_TELCO",
+                          "rank" : "1"
+                          },
+                          {
+                          "billergroupId" : "5",
+                          "billerGroupCode" : "GOVT",
+                          "englishName" : "Gov. Agencies",
+                          "arabicName" : "",
+                          "voiceTag" : "GROUP_GOVT",
+                          "rank" : "2"
+                          }
+                                            ]
+  }

@@ -1,0 +1,183 @@
+<div id="sp_upload">
+  <div class="container">
+    <div class="fileDetails">
+      <div class="subTitles">
+        {{ "LBL_FILE_UPLOAD" | translate }} {{ "LBL_FROM" | translate }}
+        {{ transferDetails.makerName ? transferDetails.makerName : "--" }},
+        {{ transferDetails.accNo ? transferDetails.accNo : "--" }}
+      </div>
+      <div class="refNO">
+        {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+        {{
+          transferDetails.uploadTransactionID
+            ? transferDetails.uploadTransactionID
+            : "--"
+        }}
+      </div>
+      <div class="title">
+        <div>
+          {{ "LBL_AMOUNT" | translate }}
+          <span *ngIf="transferDetails.totalAmt">{{
+            (transferDetails.totalAmt
+              | currencyFormat : transferDetails.odTxnCy) +
+              " " +
+              transferDetails.odTxnCy
+          }}</span>
+          <span *ngIf="!transferDetails.totalAmt">--</span>
+          {{ "LBL_ON" | translate }}
+          {{
+            transferDetails.makerDate
+              ? (transferDetails.makerDate | dateFormat)
+              : "--"
+          }}
+        </div>
+        <div class="pad_l_10">
+          <button
+            class="status-green-button"
+            translate
+            [class.status-red-button]="fileStatus === 'Rejected'"
+          >
+            {{ fileStatus }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="subContainer">
+      <div class="subTitles" translate>LBL_TRANSFER_DETAILS</div>
+      <div class="rowInnerCntr">
+        <div class="row-sp-upload-details">
+          <div class="field">
+            <div class="label" translate>LBL_UPLOAD_TRANSACTION_ID</div>
+            <div class="information">
+              {{
+                transferDetails.uploadTransactionID
+                  ? transferDetails.uploadTransactionID
+                  : "--"
+              }}
+            </div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_FILE_NAME</div>
+            <div class="fileNameDownloadContainer">
+              <p class="label-content" *ngIf="!transferDetails.fileName">--</p>
+              <app-uploaded-file-download
+                *ngIf="transferDetails.fileName"
+                [fileUploadedDetails]="fileUploadedDetails"
+              ></app-uploaded-file-download>
+            </div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_FILE_FORMAT</div>
+            <div class="information">
+              {{
+                transferDetails.fileFormat ? transferDetails.fileFormat : "--"
+              }}
+            </div>
+          </div>
+        </div>
+        <div class="row-sp-upload-details">
+          <div class="field">
+            <div class="label" translate>LBL_CALENDAR</div>
+            <div class="information">
+              {{ transferDetails.cal ? transferDetails.cal : "--" }}
+            </div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_SNB_RECORDS</div>
+            <div class="information">
+              {{
+                transferDetails.snbRecords ? transferDetails.snbRecords : "--"
+              }}
+            </div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_SNB_AMOUNT</div>
+            <div class="information" *ngIf="transferDetails.snbAmt">
+              {{
+                (transferDetails.snbAmt
+                  | currencyFormat : transferDetails.odTxnCy) +
+                  " " +
+                  transferDetails.odTxnCy
+              }}
+            </div>
+            <div class="information" *ngIf="!transferDetails.snbAmt">--</div>
+          </div>
+        </div>
+        <div class="row-sp-upload-details">
+          <div class="field">
+            <div class="label" translate>LBL_OTHER_BANKS_RECORDS</div>
+            <div class="information">
+              {{
+                transferDetails.otherBankRecs
+                  ? transferDetails.otherBankRecs
+                  : "--"
+              }}
+            </div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_OTHER_BANKS_AMOUNT</div>
+            <div class="information" *ngIf="transferDetails.bankAmt">
+              {{
+                (transferDetails.bankAmt
+                  | currencyFormat : transferDetails.odTxnCy) +
+                  " " +
+                  transferDetails.odTxnCy
+              }}
+            </div>
+            <div class="information" *ngIf="!transferDetails.bankAmt">--</div>
+          </div>
+          <div class="field">
+            <div class="label" translate>
+              LBL_FEE<span class="disclaimer"> #</span>
+            </div>
+            <div class="information" *ngIf="transferDetails.fee">
+              {{
+                (transferDetails.fee
+                  | currencyFormat : transferDetails.odTxnCy) +
+                  " " +
+                  transferDetails.odTxnCy
+              }}
+            </div>
+            <div class="information" *ngIf="!transferDetails.fee">--</div>
+          </div>
+        </div>
+        <div class="row-sp-upload-details">
+          <div class="field">
+            <div class="label" translate>LBL_TOTAL_RECAORDS</div>
+            <div class="information">
+              {{ transferDetails.totalRecs ? transferDetails.totalRecs : "--" }}
+            </div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_TOTAL_AMOUNT</div>
+            <div class="information" *ngIf="transferDetails.totalAmt">
+              {{
+                (transferDetails.totalAmt
+                  | currencyFormat : transferDetails.odTxnCy) +
+                  " " +
+                  transferDetails.odTxnCy
+              }}
+            </div>
+            <div class="information" *ngIf="!transferDetails.totalAmt">--</div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_TOTAL_FEES</div>
+            <div class="information" *ngIf="transferDetails.totalFee">
+              {{
+                (transferDetails.totalFee
+                  | currencyFormat : transferDetails.odTxnCy) +
+                  " " +
+                  transferDetails.odTxnCy
+              }}
+            </div>
+            <div class="information" *ngIf="!transferDetails.totalFee">--</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="feeVatLabel" translate>
+      <span class="disclaimer"># </span>LBL_FEE_VAT
+    </div>
+  </div>
+</div>

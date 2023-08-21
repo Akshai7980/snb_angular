@@ -1,0 +1,11 @@
+{
+    "headerValue": {
+      "moduleId": "TRADETKT"
+    },
+    "dataValue": {
+      "pwd": "121122",
+      "tokenId": "TC122122",
+      "existTkt": "Y",
+      "url":"http://rhlux50027:9080/peachtree/login?username=1234567890&password=test&loginMode=EGI"
+    }
+  }

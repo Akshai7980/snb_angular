@@ -1,0 +1,114 @@
+.rowInnerCntr {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 11px;
+    padding-top: 14px;
+    .field {
+        width: 33.33%;
+        padding-bottom: 20px;
+        .label{
+            font-family: 'HelveticaNeueMed', arial, sans-serif;
+            color: var(--table-header-color);
+            font-size: 14px;
+        }
+        .information{
+            position: relative;  //balaji
+            padding-top: 10px;
+            color: var(--tableData-header-color);
+            &.data{
+                padding-top: 20px;
+            }
+        }
+    }
+    
+}
+.beneficiaryDetails{
+    // padding: 22px 20px 0 0;
+    padding: 83px 0 0 18px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    margin: 5px 20px 0px 30px;
+}
+.beneficiaryReviewDetails{
+    padding: 20px 0 0 18px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    margin: 5px 20px 0px 30px;
+}
+
+.selectInput{
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    cursor: pointer;
+    // font-family: 'HelveticaNeue', Arial, sans-serif;
+    font-family: "HelveticaNeueLight", arial, sans-serif;
+}
+.mat-option {
+    padding: 5px;
+    line-height: 40px !important;
+    font-family: 'HelveticaNeue', Arial, sans-serif;
+     color: var(--tableData-header-color);
+    font-size: 14px;
+}
+.actionGroupNext{
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-top: 30px;
+    margin-right: 24px;
+}
+.actionGroupSubmit{
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-top: -21px;
+    margin-right: 8px;
+}
+.footer{
+    padding-top: 28px;
+    margin-left: -29px;
+    .termsAndContion{
+        padding-left: 33px;
+        color: var(--tableData-header-color);;
+        font-family: 'HelveticaNeue', arial, sans-serif;
+        font-size: 14px;
+    }
+    .terms{
+        margin-left: 2px;
+        color: var(--short-profile-txt-color);
+        font-family: 'HelveticaNeue', arial, sans-serif;
+        font-size: 14px;
+        text-decoration: none;
+    }
+    a{
+        text-decoration: none;
+    }
+
+}
+.afterProceed{
+    margin: -25px 20px 0px 30px;
+}
+
+//balaji
+.dropdownIcon{
+    position: absolute;
+    right: 30px;
+    background-position: -153px -346px;
+    width: 20px;
+    height: 16px;
+    margin: 7px 10px;
+    float: right;
+  }

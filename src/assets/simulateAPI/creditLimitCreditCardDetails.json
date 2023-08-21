@@ -1,0 +1,22 @@
+{
+  "data": {
+    "refNo": "TBC2207021533397",
+    "currency": "SAR",
+    "cardName": "Dameer Ahsan",
+    "cardType": "Master Card",
+    "cardStatus": "active",
+    "balance": "665",
+    "maxLmt": "97897",
+    "minLmt": "6665",
+    "totalAmt": "100000003152",
+    "currentLmt": "345.55",
+    "newLmt": "500",
+    "productCode": "CORESVS",
+    "subProductCode": "CRDCRELIM",
+    "functionCode": "CRLMCHG"
+  },
+
+  "headerValue": {
+    "moduleId": "CARDLMTDETAILS"
+  }
+}

@@ -1,0 +1,145 @@
+
+<div class="header-panel">
+    <div class="header-panel-left headerPanelWidth">
+        <div class="accountsHeader" translate>LBL_DEPOSITS</div>
+    </div>
+    <div class="header-panel-right headerPanelWidth">
+        <div class="accordion" [ngClass]="{'accordionUp':!isDepositExpand,accordionDown:isDepositExpand}" (click)="onClickExpand($event)"></div>
+        <div *ngIf="!isDepositExpand" id="depositsummaryToolsElement">
+            <app-summary-tools [printSection]="printSection"></app-summary-tools>
+        </div>
+    </div>
+</div>
+<div id="depositexpandCollapseElement" class="animate expandCollpase" [ngClass]="{'collapse':isDepositExpand}" [ngStyle]="{'height': contentHeight+'px'}">
+<div class="searchCntnr">
+    <div class="searchCntnrLeft">
+        <app-search [showAdvanceSearch]="false" (childEvent)="triggerSearchFilter($event)"></app-search>
+    </div>
+    <div class="searchCntnrRight">
+        <span class="searchCntnrRightText" *ngIf="!isViewAllBalClicked" (click)="onViewAllBalanceClick()"
+            translate>LBL_VIEW_ALL_BALANCES</span>
+        <span *ngIf="isViewAllBalClicked" class="hideAllBalance">Balance is 10000 BHD</span>
+        <span class="searchCntnrRightText" *ngIf="isViewAllBalClicked" (click)="onHideAllBalanceClick()"
+            translate>LBL_HIDE_ALL_BALANCES</span>
+    </div>
+</div>
+<div id="DepositDefaultCntr" *ngIf="!norecordflag">
+    <table id="depositsDefault" mat-table [dataSource]="dataSourceToPass" class="dashboardTable" (contentChanged)="getTableHeight()" *ngIf="responseHeader != undefined">
+        <ng-container matColumnDef="depositAccountNumber">
+            <th mat-header-cell *matHeaderCellDef translate>LBL_ACC_NUMBER
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn != 'DEPOSIT_REFERENCE'">
+                    <img src="assets/images/sortDown.svg" class="img-style">
+                    <img src="assets/images/sortDown.svg" class="sortUp">
+                </span>
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn == 'DEPOSIT_REFERENCE'">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'desc'"
+                        class="img-style">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'asc'"
+                        class="sortUpAscending">
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let DepositData">
+                {{DepositData.DEPOSIT_REFERENCE}}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="depositType">
+            <th mat-header-cell *matHeaderCellDef  translate>LBL_DEPO_TYPE
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn != 'DEPOSIT_TYPE_DESC'">
+                    <img src="assets/images/sortDown.svg" class="img-style">
+                    <img src="assets/images/sortDown.svg" class="sortUp">
+                </span>
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn == 'DEPOSIT_TYPE_DESC'">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'desc'"
+                        class="img-style">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'asc'"
+                        class="sortUpAscending">
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let DepositData">
+                {{DepositData.DEPOSIT_TYPE_DESC}}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="tenor">
+            <th mat-header-cell *matHeaderCellDef translate>LBL_TENURE
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn != 'TENURE'">
+                    <img src="assets/images/sortDown.svg" class="img-style">
+                    <img src="assets/images/sortDown.svg" class="sortUp">
+                </span>
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn == 'TENURE'">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'desc'"
+                        class="img-style">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'asc'"
+                        class="sortUpAscending">
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let DepositData" >
+                {{DepositData.TENURE}}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="rateofInterest">
+            <th mat-header-cell *matHeaderCellDef  translate>LBL_RATE_OF_INT
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn != 'RATE_OF_INTRST_AMT'">
+                    <img src="assets/images/sortDown.svg" class="img-style">
+                    <img src="assets/images/sortDown.svg" class="sortUp">
+                </span>
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn == 'RATE_OF_INTRST_AMT'">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'desc'"
+                        class="img-style">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'asc'"
+                        class="sortUpAscending">
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let DepositData">
+                {{DepositData.RATE_OF_INTRST_AMT}}
+            </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="maturityAmount">
+            <th mat-header-cell class="fcenter" *matHeaderCellDef translate>LBL_MAT_AMT
+                <span
+                    *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn != 'MATURITY_AMOUNT'">
+                    <img src="assets/images/sortDown.svg" class="img-style">
+                    <img src="assets/images/sortDown.svg" class="sortUp">
+                </span>
+                <span
+                    *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn == 'MATURITY_AMOUNT'">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'desc'"
+                        class="img-style">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'asc'"
+                        class="sortUpAscending">
+                </span>
+            </th>
+
+            <td mat-cell *matCellDef="let DepositData;let i=index">
+                <div *ngIf="!isViewBalClicked[i]" (click)="onViewBalanceClick(i)" class="viewBalance" translate>
+                    LBL_VIEW_BALANCE</div>
+                <div *ngIf="isViewBalClicked[i]">{{DepositData.MATURITY_AMOUNT |currencyFormat :DepositData.CURRENCY_CODE }}&nbsp;{{DepositData.CURRENCY_CODE}}
+                </div>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th mat-header-cell class="fcenter actionHide" *matHeaderCellDef translate>LBL_ACTION</th>
+            <td mat-cell *matCellDef="let DepositData">
+                <div><app-more-action [moreActionList]="contextMenuList" (onMenuClick)="actionOnMenuClick($event)"></app-more-action></div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+</div>
+<div *ngIf="norecordflag">
+    <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+  </div>
+</div>

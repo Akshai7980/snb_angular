@@ -1,0 +1,110 @@
+<div *ngIf="!receiptForm">
+    <div class="detailsTitleContainer">
+        <div>
+            <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+            <div *ngIf="rootScopeData.myTasksESALSummaryObject.subprcode==='ESALPAY'" class="mainTitle" translate>LBL_AUTHORIZE_ESAL_PAYMENT</div>
+            <div *ngIf="rootScopeData.myTasksESALSummaryObject.subprcode==='ESALONEPAY'" class="mainTitle" translate>LBL_AUTHORIZE_ESAL_ONE_TIME_PMT</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="subTitles">
+            <span *ngIf="esalDetails && esalDetails.txnType">{{esalDetails.txnType}}</span>
+            <span *ngIf="!esalDetails || !esalDetails.txnType">--</span>
+        </div>
+        <div class="refNO">
+            {{'LBL_TRANSACTION_REF_NUM' | translate }} <b><span
+                    *ngIf="esalDetails && esalDetails.referenceNo">{{esalDetails.referenceNo}}</span><span
+                    *ngIf="!esalDetails || !esalDetails.referenceNo">--</span></b>
+        </div>
+        <div class="refNO">
+            {{'LBL_AMOUNT' | translate }} <b><span
+                    *ngIf="esalDetails && esalDetails.paymentAmount && esalDetails.paymentCcy">{{esalDetails.paymentAmount |
+                    currencyFormat:esalDetails.paymentCcy}} {{esalDetails.paymentCcy}}</span><span
+                    *ngIf="!esalDetails || (!esalDetails.paymentAmount && ! esalDetails.paymentCcy)">--</span></b>
+        </div>
+        <div class="title" *ngIf="esalDetails && esalDetails.odStatusCode">
+            <button class="status-green-button" translate
+                [class.status-red-button]="esalDetails.odStatusCode === 'RN' ||esalDetails.odStatusCode === 'RS' ||esalDetails.odStatusCode === 'RE' ||esalDetails.odStatusCode === 'RO' ||esalDetails.odStatusCode === 'RH'">
+                {{esalDetails.odStatus}}
+            </button>
+        </div>
+        <div class="subContainer">
+            <div class="subTitles mt-btm" translate>LBL_DEBIT_FROM</div>
+            <div class="information">
+                <span *ngIf="esalDetails && esalDetails.debitAccName">{{esalDetails.debitAccName}}</span>
+                <span *ngIf="!esalDetails || !esalDetails.debitAccName">--</span>,
+                <span *ngIf="esalDetails && esalDetails.debitAccNo">{{esalDetails.debitAccNo}}</span>
+                <span *ngIf="!esalDetails || !esalDetails.debitAccNo">--</span>
+            </div>
+            <div class="information mt-btm">
+                {{'LBL_BANK' | translate}} :
+                <span *ngIf="esalDetails && esalDetails.debitBank">{{esalDetails.debitBank}}</span>
+                <span *ngIf="!esalDetails || !esalDetails.debitBank">--</span>
+            </div>
+            <div class="subTitles" translate>LBL_PAY_TO</div>
+            <table mat-table [dataSource]="esalBillerDetails" class="casaTable" id="creditData">
+                <ng-container matColumnDef="nickName">
+                  <th mat-header-cell *matHeaderCellDef translate >LBL_NICKNAME</th>
+                  <td mat-cell *matCellDef="let element">
+                    <span *ngIf="element.billerNickName">{{element.billerNickName}}</span>
+                    <span *ngIf="!element.billerNickName">--</span>
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef translate >LBL_NAME</th>
+                    <td mat-cell *matCellDef="let element">
+                      <span *ngIf="element.billerName">{{element.billerName}}</span>
+                      <span *ngIf="!element.billerName">--</span>
+                    </td>
+                  </ng-container>
+        
+                  <ng-container matColumnDef="subscriberId">
+                    <th mat-header-cell *matHeaderCellDef translate >LBL_SUBSCRIBER_ID</th>
+                    <td mat-cell *matCellDef="let element">
+                      <span *ngIf="element.subscriberID">{{element.subscriberID}}</span>
+                      <span *ngIf="!element.subscriberID">--</span>
+                    </td>
+                  </ng-container>
+        
+                  <ng-container matColumnDef="dueDate">
+                    <th mat-header-cell *matHeaderCellDef translate >LBL_DUE_DATE</th>
+                    <td mat-cell *matCellDef="let element">
+                      <span *ngIf="element.dueDate">{{element.dueDate | dateFormat}}</span>
+                      <span *ngIf="!element.dueDate">--</span>
+                    </td>
+                  </ng-container>
+        
+                  <ng-container matColumnDef="amount">
+                    <th mat-header-cell *matHeaderCellDef translate >LBL_AMOUNT</th>
+                    <td mat-cell *matCellDef="let element">
+                      <span *ngIf="element.amount && paymentCCY">{{element.amount | currencyFormat:paymentCCY}} {{paymentCCY}}</span>
+                      <span *ngIf="!element.amount || !paymentCCY">--</span>
+                    </td>
+                  </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+              </table>
+        </div>
+
+        
+    </div>
+
+    <section>
+      <div *ngIf="showAuthorization" class="afterproceed">
+        <app-authorization [authListDataSource]="authOptions" (authEmit)="getDisplayStatus($event)"></app-authorization>      <!-- <app-authentication (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError"></app-authentication> -->
+        <!-- <app-authentication *ngIf="showAuthentication" (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError" (authenticationType)="getAuthType($event)"></app-authentication> -->
+      </div>
+  </section>
+
+    <section>
+        <div class="btnContainer">
+            <!-- <button class="button-secondary" routerLink="/mytask/payment/single-payments" translate>LBL_CANCEL</button>
+            <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button> -->
+            <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()"></app-tertiary-button>
+            <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+        </div>
+    </section>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)" [rejectMsg]="rejectMsg">
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

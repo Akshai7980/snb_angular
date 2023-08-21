@@ -1,0 +1,9 @@
+<div class="row" mat-dialog-title><span translate>LBL_CONFIRMATION</span><img
+    src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close></div>
+<div mat-dialog-content translate>LBL_DELETE_RECORD</div>
+<div mat-dialog-actions>
+<!-- <button mat-dialog-close class="button-secondary" translate>LBL_NO</button>
+<button class="button-primary" (click)="deleteRecord()" translate>LBL_YES</button> -->
+<app-tertiary-button buttonValue="LBL_NO" mat-dialog-close></app-tertiary-button>
+<app-primary-button buttonValue="LBL_YES" (click)="deleteRecord()"></app-primary-button>
+</div>

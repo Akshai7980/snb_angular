@@ -1,0 +1,108 @@
+<div class="filter-search-popup" *ngIf="showAdvancedSearchPopup" (click)="stopAdvancedSearchClose($event)">
+    <div translate class="header">LBL_FILTER
+        <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+    </div>
+    <!-- <div class="flexCntr">
+        <div class="toggleCntr">   
+            <div translate id="leftToggle" class="toggle active" (click)="leftToggleCntl()">LBL_INVOICE</div>
+            <div translate id="rightToggle" class="toggle" (click)="rightToggleCntl()">LBL_PAID</div> 
+        </div>
+    </div> -->
+    <div class="flexCntr">
+       
+        <div class="invoiceNo">
+            <div class="fieldLabel" translate>LBL_REFERENCE_NO</div>
+            <input type="text" [(ngModel)]="accountNumber"  class="txt-fld mt-top">
+        </div>
+
+        <div class="invoiceNo">
+            <div class="fieldLabel" translate>LBL_REMITTER_ID</div>
+            <input type="text" [(ngModel)]="remitterID"  class="txt-fld mt-top">
+        </div>
+        
+
+        
+            <!-- <div class="fromto"> -->
+                <div class="datefrom">
+                    <div translate class="fieldLabel" id="proctm">LBL_FROM_AMOUNT</div>
+                    <input type="text" [(ngModel)]="amount" placeholder="0.00" (keypress)="numericOnly($event)"  (blur)="filterAmtValidation()" class="txt-fld mt-top">
+                </div>
+                <div class="datefrom">
+                    <div translate class="fieldLabel" id="proctm">LBL_TO_AMOUNT</div>
+                    <input type="text" [(ngModel)]="to" placeholder="0.00" (keypress)="numericOnly($event)"  (blur)="filterAmtValidation()" class="txt-fld mt-top">
+                    <small *ngIf="isShownAmountValidation" translate class="required amtErr">LBL_TO_AMOUNT_SHOULD_BE_GREATER_THAN_FROM_AMOUNT</small>
+                </div>
+        <!-- </div> -->
+      
+    <!-- <div class="fromto"> -->
+        <div class="datefrom">           
+            <div class="fieldLabel" translate>LBL_REQUEST_TYPE</div>
+            <!-- <input type="text" [(ngModel)]="requestType" name="requestType"  class="txt-fld mt-top">            -->
+            <mat-select class="selectInput" panelClass="dropDownOption" [(value)]="requestType" disableOptionCentering (selectionChange)="clickrequestType($event)">
+                <mat-option value="" selected> Any </mat-option>
+                <mat-option value="{{type}}" *ngFor="let type of requestTypeList"> {{type}}                
+                </mat-option>
+            </mat-select>
+        </div>
+    <!-- </div> -->
+       
+        
+       
+        
+<!-- 
+        <div class="invoiceNo">
+            <div class="fieldLabel" translate>LBL_STATUS</div>
+            <input type="text" [(ngModel)]="invoiceNumber"  class="txt-fld mt-top">
+        </div> -->
+        <!-- <div>
+            <div class="fieldCntr">
+                <div translate class="fieldLabel">LBL_SEARCH_WITHIN</div>
+                <mat-select panelClass="dropDownOption advdownWidth_300" [(value)]="searchWithin" class="selectInput"  disableOptionCentering>
+                    <mat-option value="invoicenumber">{{'LBL_INVOICE_NUMBER' | translate}}</mat-option>
+                    <mat-option value="invoicedate">{{'LBL_INVOICE_DATE' | translate}}</mat-option>
+                    <mat-option value="amount">{{'LBL_AMOUNT' | translate}}</mat-option>
+                    <mat-option value="currency">{{'LBL_CURRENCY' | translate}}</mat-option>
+                    <mat-option value="invoiceduedate">{{'LBL_INVOICE_DUE_DATE' | translate}}</mat-option>
+                    <mat-option value="status">{{'LBL_STATUS' | translate}}</mat-option>
+                </mat-select>
+            </div>
+            <div class="fieldCntr1">
+                <div translate class="fieldLabel">LBL_STATUS</div>
+                <mat-select panelClass="dropDownOption advdownWidth_300" [(value)]="status" class="selectInput"  disableOptionCentering>
+                    <mat-option value="paid">{{'LBL_PAID' | translate}}</mat-option>
+                    <mat-option value="unpaid">{{'LBL_UNPAID' | translate}}</mat-option>
+                </mat-select>
+            </div>
+        </div> -->
+        <!-- <div> -->
+            <!-- <div class="fieldCntr">
+                <div translate class="fieldLabel">LBL_DATE_ORDER</div>
+                <mat-select panelClass="dropDownOption advdownWidth_300" [(value)]="dateOrder" class="selectInput"  disableOptionCentering>
+                    <mat-option value="ascending">{{'LBL_ASCENDING' | translate}}</mat-option>
+                    <mat-option value="descending">{{'LBL_DESCENDING' | translate}}</mat-option>
+                </mat-select>
+            </div> -->
+            <!-- <div class="fieldCntr1">
+                <div translate class="fieldLabel">LBL_RESULTS_PER_PAGE</div>
+                <mat-select panelClass="dropDownOption advdownWidth_300" class="selectInput"  disableOptionCentering>
+                    <mat-option value="25">{{'25' | translate}}</mat-option>
+                    <mat-option value="50">{{'50' | translate}}</mat-option>
+                    <mat-option value="100">{{'100' | translate}}</mat-option>
+                </mat-select>
+            </div> -->
+        <!-- </div> -->
+    </div>
+      
+   
+    <div class="submt">
+        <div>
+            <!-- <button class="clr"  translate>LBL_CLEAR</button> -->
+            <app-tertiary-button buttonValue="LBL_CLEAR" (click)="onClickClear()"></app-tertiary-button>
+        </div>
+        <div>
+            <!-- <button class="apply"  translate>LBL_APPLY</button> -->
+            <app-primary-button buttonValue="LBL_APPLY" (click)="onClickApply()"></app-primary-button>
+        </div>
+    </div>
+</div>
+

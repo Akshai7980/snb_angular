@@ -1,0 +1,59 @@
+{
+    "DATA": {
+        "TOTAL_COUNT": 1,
+        "ALL_RECORDS": [
+            {
+                "CARD_NO": "4557360960010109",
+                "UNIT_ID": "AE",
+                "PAY_DUE_AMT": "1020700",
+                "REQ_COUNTRY_CODE": "AE",
+                "CARD_TYPE": "CC",
+                "REQ_COUNTRY_DESC": "AE",
+                "CARD_ACC_NO": "4557360960010109",
+                "EXP_DT": "20231109",
+                "CR_LIMIT_AMT": "1000000",
+                "CR_LIMIT": "1000000",
+                "STATUS": "Active",
+                "TOTAL_COUNT": 1,
+                "POST_DT": "10-JUN-20",
+                "CCY": "BHD",
+                "CIF_NO": "",
+                "MIN_AMT_DUE": "50000",
+                "CARD_CATEGORY": "VISA",
+                "CARD_EXP_DATE": "15-12-2022",
+                "EMB_NAME": "Sheik",
+                "AVL_LIMIT": "900000",
+                "DUE_DT": "15-12-2022"
+            },
+            {
+                "CARD_NO": "4557360960010115",
+                "UNIT_ID": "AE",
+                "PAY_DUE_AMT": "4520700",
+                "REQ_COUNTRY_CODE": "AE",
+                "CARD_TYPE": "CC",
+                "REQ_COUNTRY_DESC": "AE",
+                "CARD_ACC_NO": "4557360960010115",
+                "EXP_DT": "20231109",
+                "CR_LIMIT_AMT": "1000000",
+                "CR_LIMIT": "1000000",
+                "STATUS": "Active",
+                "TOTAL_COUNT": 1,
+                "POST_DT": "10-JUN-20",
+                "CCY": "BHD",
+                "CIF_NO": "",
+                "MIN_AMT_DUE": "50000",
+                "CARD_CATEGORY": "VISA",
+                "CARD_EXP_DATE": "15-12-2022",
+                "EMB_NAME": "Asif",
+                "AVL_LIMIT": "450000",
+                "DUE_DT": "15-12-2022"
+            }
+        ]
+    },
+    "HEADER_VALUE": {
+        "sortColumn": "EMB_NAME",
+        "sortOrder": "desc",
+        "MODULE_ID": "CARDMODSUM",
+        "TXN_PROCESS_DATE_TIME": ""
+    }
+}

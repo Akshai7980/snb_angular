@@ -1,0 +1,171 @@
+<div class="outerContainer">
+    <div class="subContainer">
+        <div class="payrollInquiryListContainer">
+            <div>
+                <div class="border" id="payrollInquiryRecords">
+                    <div>
+                        <div class="mTop_18" *ngIf="!noRecordFlag">
+                            <div class="actionsConatiner">
+                                <div class="leftPannel">
+                                    <div class="searchCntnrLeft advSearch">
+                                        <app-search (searchParams)="advancedSearchApply($event)"
+                                        [showAdvanceSearch]="true" [statuses]="statuses" [transactionTypes]="transactionTypes"
+                                            (childEvent)="triggerSearchFilter($event)">
+                                        </app-search>
+                                    </div>
+                                </div>
+                                <div class="rightPanel dslk_flex">
+                                    <app-export-statements [enableButton]="setDownload" [moduleId]="''"
+                                        [reqUnitId]="unitId" [reqCif]="cifNumber" [reqAccNumber]="accNumber"
+                                        [reqPortalAccNumber]="portalAccNumber" [selectRange]="advSearchPeriod"
+                                        [rangeFromDate]="advSearchFromDate" [rangeToDate]="advSearchToDate">
+                                    </app-export-statements>
+                                    <app-refresh (onRefresh)="refreshPayrollInquiry()"></app-refresh>
+                                </div>
+                            </div>
+                        </div>
+                        <table mat-table [dataSource]="recentTransactionsDataSource" class="casaTable"
+                            id="stopPaymentInquiryTable" multiTemplateDataRows
+                            *ngIf="!noRecordFlag && recentTransactionsDataSource.filteredData?.length > 0">
+                            <ng-container matColumnDef="date">
+                                <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('date')">
+                                    LBL_VAL_DATE
+                                    <span *ngIf="currentColumn && currentColumn !== 'date'">
+                                        <img src="assets/images/sortDown.svg" class="img-style" />
+                                        <img src="assets/images/sortDown.svg" class="sortUp" />
+                                    </span>
+                                    <span *ngIf="currentColumn && currentColumn === 'date'">
+                                        <img src="assets/images/sortDown.svg"
+                                            *ngIf="sortDirection && sortDirection === 'desc'" class="img-style" />
+                                        <img src="assets/images/sortDown.svg"
+                                            *ngIf="sortDirection && sortDirection === 'asc'" class="sortUpAscending" />
+                                    </span>
+                                </th>
+                                <td mat-cell *matCellDef="let element" [matTooltip]="element.date">
+                                    <div class="ellipsis downArrowCus">
+                                        <button class="btnView" mat-icon-button aria-label="expand row"
+                                            (click)="showTransactionDetails(element)">
+                                            <img *ngIf="showTransactionId === element.recordNumber"
+                                                src="assets/images/iconDownGreen.svg" class="drp-column">
+                                            <img *ngIf="showTransactionId !== element.recordNumber"
+                                                src="assets/images/iconDownGreen.svg" class="up-drp-column">
+                                        </button>
+                                        <span *ngIf="element.date">{{ element.date }}</span><span
+                                            *ngIf="!element.date">--</span>
+                                    </div>
+                                </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="description">
+                                <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('description')">
+                                    LBL_DESCRIPTION
+                                    <span *ngIf="currentColumn && currentColumn !== 'description'">
+                                        <img src="assets/images/sortDown.svg" class="img-style" />
+                                        <img src="assets/images/sortDown.svg" class="sortUp" />
+                                    </span>
+                                    <span *ngIf="currentColumn && currentColumn === 'description'">
+                                        <img src="assets/images/sortDown.svg"
+                                            *ngIf="sortDirection && sortDirection === 'desc'" class="img-style" />
+                                        <img src="assets/images/sortDown.svg"
+                                            *ngIf="sortDirection && sortDirection === 'asc'" class="sortUpAscending" />
+                                    </span>
+                                </th>
+                                <td mat-cell *matCellDef="let element" [matTooltip]="element.description">
+                                    <div class="ellipsis">
+                                        <span *ngIf="element.description">{{ element.description }}</span><span
+                                            *ngIf="!element.description">--</span>
+                                    </div>
+                                </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="amount">
+                                <th mat-header-cell *matHeaderCellDef (click)="sortColumn('amount')">
+                                    {{"LBL_DR_CR_AMOUNT" | translate}} {{"LBL_SAR" | translate}}
+                                    <span *ngIf="currentColumn && currentColumn !== 'amount'">
+                                        <img src="assets/images/sortDown.svg" class="img-style" />
+                                        <img src="assets/images/sortDown.svg" class="sortUp" />
+                                    </span>
+                                    <span *ngIf="currentColumn && currentColumn === 'amount'">
+                                        <img src="assets/images/sortDown.svg"
+                                            *ngIf="sortDirection && sortDirection === 'desc'" class="img-style" />
+                                        <img src="assets/images/sortDown.svg"
+                                            *ngIf="sortDirection && sortDirection === 'asc'" class="sortUpAscending" />
+                                    </span>
+                                </th>
+                                <td mat-cell *matCellDef="let element" [matTooltip]="((element.amount && element.currencyCode) ? ((element.amount | currencyFormat: element.currencyCode) + ' ' + element.currencyCode) : '--')">
+                                    <div class="ellipsis">
+                                        <span [ngClass]="element.type">{{(element.amount && element.currencyCode)
+                                            ? (element.amount | currencyFormat: element.currencyCode) +
+                                            " " +
+                                            element.currencyCode
+                                            : "--"}}</span><span *ngIf="!element.amount">--</span>
+                                    </div>
+                                </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+                                    LBL_ACTION
+                                </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <app-more-action [moreActionList]="moreActionLabels" [hideViewDetails]="true"
+                                     (onMenuClick)="getNarrationAPIForPdfCall(element)"></app-more-action>
+                                </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="expandedDetail">
+                                <td mat-cell *matCellDef="let element"
+                                    [attr.colspan]="displayedColumnsForExpandData.length">
+                                    <div class="example-element-detail"
+                                        [@detailExpand]="showTransactionId === element.recordNumber ? 'expanded' : 'collapsed'">
+                                        <div class="subInfoData">
+                                            <div class="refNumber-collapsedPanel">
+                                                <p><span class="title" translate>LBL_REF_NUMBER</span> <br>
+                                                    <span class="data_adjust"
+                                                        *ngIf="element.refNo">{{element.refNo}}</span>
+                                                    <span *ngIf="!element.refNo">--</span>
+                                                </p>
+                                            </div>
+                                            <div class="refNumber-collapsedPanel narrationBox">
+                                                <p><span class="title" translate>LBL_NARRATION</span><br>
+                                                    <span class="data_adjust"
+                                                        *ngIf="element.description">{{element.description}}</span>
+                                                    <span *ngIf="!element.description">--</span>
+                                                </p>
+                                            </div>
+                                            <div class="refNumber-collapsedPanel uniqTransSeqNum">
+                                                <p><span class="title" translate>LBL_UNIQ_TRANS_SEQ_NUM</span><br>
+                                                    <span class="data_adjust"
+                                                        *ngIf="element.transactionCode">{{(element.transactionCode)}}</span>
+                                                    <span *ngIf="!element.transactionCode">--</span>
+                                                </p>
+                                            </div>
+                                            <div class="refNumber-collapsedPanel">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row"
+                                [class.example-expanded-row]="showTransactionId === row.id"></tr>
+                            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"
+                                (click)="showTransferDetails(row)"></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div *ngIf="noRecordFlag || recentTransactionsDataSource.filteredData?.length <= 0">
+                    <app-no-record-found [noRecordFoundInfo]="noRecordFoundObject"></app-no-record-found>
+                </div>
+                <div [hidden]="recentTransactionsDataSource.filteredData?.length <= 0 || noRecordFlag">
+                    <app-pagination #paginator [dataSourceLength]="dataSourceLength" [currentRecord]="'recordSummary'"
+                        [totalRecords]="totalRecords" (onPaginationChange)="paginationChangeClick($event)">
+                    </app-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

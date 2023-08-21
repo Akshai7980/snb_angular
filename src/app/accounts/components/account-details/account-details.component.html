@@ -1,0 +1,106 @@
+<div class="accountDetailsCntr">
+    <div class="topTittleCntr">
+        <div><div class="backIcon backArrow" (click)="onBackArrowClick()"></div><a class="mainTitle" translate>LBL_ACCOUNT_SUMMARY</a></div>
+    </div>
+    <div class="sub-container">
+        <div>
+            <div class="accDetails">{{detailedDataSrc.res_Account_Name}}<span *ngIf="detailedDataSrc.res_Account_Name">, </span>{{'LBL_NICKNAME' | translate}} {{accountDetailsData.ALIAS_NAME}} <img class="pencilIcon"
+                    src="./assets/images/Icopencial.svg" alt="pencial" *ngIf="isEdit"
+                    (click)="isEdit_click()">
+                    <!-- <img class="closeIcon" src="./assets/images/icoClose.svg"
+                    alt="close" *ngIf="!isEdit" (click)="isEdit_click()"> -->
+                </div>
+            <div class="inputField" *ngIf="!isEdit" @enterAnimation>
+                <input type="text" placeholder="{{'LBL_ENTER_NICKNAME' | translate}}" class="nicknameField" [(ngModel)]="enteredNickName" maxlength="35" (keypress)="nickNameValidation($event)">
+                <!-- <span *ngIf="errorMessage"><app-tooltip></app-tooltip></span>  -->
+                <div  (click)="changeName()" class="acceptIcon"></div>
+                <div  (click)="isEdit_click()" class="cancelIcon"></div>
+                <!-- <button class="tickIcon" (click)="changeName()"></button> -->
+            </div>
+            <app-tooltip *ngIf="errorMessage" class="errorTooltip"></app-tooltip>
+            <span class="currentAccAmount">{{accountDetailsData.OD_ACC_TYPE_2}}, {{detailedDataSrc.res_Acc_No}}</span><br>
+            <div class="balance">{{'LBL_AVAILABLE_BALANCE' | translate}} <span class="amount" *ngIf="detailedDataSrc.res_AvailableBalance && detailedDataSrc.res_CurrencyCode && !rootScopeData.userInfo.maskingFlag"> {{detailedDataSrc.res_AvailableBalance | currencyFormat:detailedDataSrc.res_CurrencyCode}} {{detailedDataSrc.res_CurrencyCode}}</span>
+                <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}}&nbsp;{{detailedDataSrc.res_CurrencyCode}}</span>
+                 <button
+                    class="showDetails" (click)="showDetails()" *ngIf="isShow"
+                    translate>LBL_SHOW_DETAILS</button><button class="showDetails" (click)="showDetails()"
+                    *ngIf="!isShow" translate>LBL_HIDE_DETAILS</button></div>
+
+        </div>
+        <div class="accDetailsInfo" *ngIf="!isShow" @enterAnimation>
+            <div class="titleBar">
+                <h4 translate>LBL_ACCOUNT_DETAILS</h4>
+            </div>
+            <div class="accInfo">
+                <div class="fxContainer">
+                    <div class="column1">
+                        <label class="label" translate>LBL_CURRENT_BAL</label>
+                        <div class="dataInfo" *ngIf="detailedDataSrc.CURRENT_BAL_AMT && detailedDataSrc.res_CurrencyCode && !rootScopeData.userInfo.maskingFlag">{{detailedDataSrc.CURRENT_BAL_AMT | currencyFormat:detailedDataSrc.res_CurrencyCode}} {{detailedDataSrc.res_CurrencyCode}}</div>
+                        <div class="dataInfo" *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}} {{detailedDataSrc.res_CurrencyCode}}</div>
+                        <div class="dataInfo" *ngIf="(!detailedDataSrc.CURRENT_BAL_AMT || !detailedDataSrc.res_CurrencyCode) && !rootScopeData.userInfo.maskingFlag">--</div>
+                    </div>
+                    <div class="column2">
+                        <label class="label" translate>LBL_OVER_DRAFT</label>
+                        <div class="dataInfo"*ngIf="detailedDataSrc.res_OD_Lt && detailedDataSrc.res_CurrencyCode && !rootScopeData.userInfo.maskingFlag">{{detailedDataSrc.res_OD_Lt | currencyFormat:detailedDataSrc.res_CurrencyCode}} {{detailedDataSrc.res_CurrencyCode}}</div>
+                        <div class="dataInfo" *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}} {{detailedDataSrc.res_CurrencyCode}}</div>
+                        <div class="dataInfo"*ngIf="(!detailedDataSrc.res_OD_Lt || !detailedDataSrc.res_CurrencyCode) && !rootScopeData.userInfo.maskingFlag">--</div>
+                    </div>
+                    <div class="column3">
+                        <label class="label" translate>LBL_HOLD</label>
+                        <div class="dataInfo" *ngIf="detailedDataSrc.res_FrozenAmount && detailedDataSrc.res_CurrencyCode && !rootScopeData.userInfo.maskingFlag">{{detailedDataSrc.res_FrozenAmount | currencyFormat:detailedDataSrc.res_CurrencyCode}} {{detailedDataSrc.res_CurrencyCode}}</div>
+                        <div class="dataInfo" *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}} {{detailedDataSrc.res_CurrencyCode}}</div>
+                        <div class="dataInfo" *ngIf="(!detailedDataSrc.res_FrozenAmount || !detailedDataSrc.res_CurrencyCode) && !rootScopeData.userInfo.maskingFlag">--</div>
+                    </div>
+                </div>
+                <div class="fxContainer mt-top">
+                    <!-- <div class="column1">
+                        <label class="label" translate>LBL_NOMINEE_DETAILS</label>
+                        <div class="dataInfo">Not Provided</div>
+                    </div> -->
+                    <div class="column1">
+                        <label class="label" translate>LBL_COUNTRY</label>
+                        <div class="dataInfo" *ngIf="accountDetailsData.COUNTRY">{{accountDetailsData.COUNTRY}}</div>
+                        <div class="dataInfo" *ngIf="!accountDetailsData.COUNTRY">--</div>
+                    </div>
+                    <div class="column2">
+                        <label class="label" translate>LBL_ACC_OPENING_DATE</label>
+                        <div class="dataInfo" *ngIf="accountDetailsData.ACC_OPEN_DATE">{{accountDetailsData.ACC_OPEN_DATE | dateFormat}}</div>
+                        <div class="dataInfo" *ngIf="!accountDetailsData.ACC_OPEN_DATE">--</div>
+                    </div>
+                    <div class="column3">
+                        <label class="label" translate>LBL_IBAN_VALUE</label>
+                        <div class="dataInfo">{{detailedDataSrc && detailedDataSrc.res_IBAN_VALUE ? detailedDataSrc.res_IBAN_VALUE : '--'}}</div>
+                    </div>
+                </div>
+                <!-- <div class="fxContainer mt-top">
+                    <div class="column1">
+                        <label class="label" translate>LBL_REGISTRED_ADDRESS</label>
+                        <div class="dataInfo">Not Provided</div>
+                    </div>
+                    <div class="column2">
+                        <label class="label" translate>LBL_MAILING_ADDRESS</label>
+                        <div class="dataInfo">Not Provided</div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="tabCntr row-head">
+            <ul class="titleList">
+                <li><a class="animate" routerLink="recenttransaction"
+                    [class.active]="rootScopeData.activeTabName ==='recenttransaction'"><span translate>LBL_RECENT_TRANSACTION</span>
+                </a></li>
+                <li><a class="animate" routerLink="statements"
+                    [class.active]="rootScopeData.activeTabName ==='statements'"><span translate>LBL_STATEMENTS</span>
+                </a></li>
+            </ul>
+        </div>
+        <div class="tabDataCntr">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+<!-- <button class="button-secondary" (click)="onBackArrowClick()" translate>LBL_BACK</button> -->
+<div class="button-pos">
+    <app-tertiary-button buttonValue="LBL_BACK" (click)="onBackArrowClick()"></app-tertiary-button>
+</div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

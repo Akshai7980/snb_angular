@@ -1,0 +1,21 @@
+
+{
+    "data": 
+      [{
+       "cityName":"Jeddah",
+       "cityCode":"123"
+      }, 
+      {
+        "cityName":"Qatar",
+        "cityCode":"123"
+       },
+      {
+        "cityName":"Alra",
+        "cityCode":"123"
+       }
+    ]
+    ,
+    "headerValue": {
+      "moduleId": "IBANCITYLIST"
+    }
+  }

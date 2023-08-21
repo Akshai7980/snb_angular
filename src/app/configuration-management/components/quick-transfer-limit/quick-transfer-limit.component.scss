@@ -1,0 +1,175 @@
+.subContainer {
+    border-radius: 6px;
+    // background-color: #ffffff;
+    padding: 19px 40px 31px 22px ;
+    // border: 1px solid #e8e8e8;
+    border: 1px solid var(--widget-border-color);
+    background-color: var(--primary-widget-bg-color);
+    color: var(--tableData-header-color);
+    margin-top: 10px;
+}
+
+.fieldSets {
+    // width: 75%;
+    margin-left: 2px;
+    margin-top: 25px;
+    display: flex;
+    // justify-content: space-between;
+}
+
+.transferAmounrt {
+    width: 33.33%;
+}
+
+.geneStaTitles {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+}
+
+.geneStaTitlesRes {
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+.ownAmount{
+    width: 33.33%;
+    margin-right: 20px;
+}
+
+input[type=text],
+.selectInputCustomerLimit {
+    margin-top: 5px;
+    line-height: 40px;
+    padding: 0px 40px 0px 10px;
+    // border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 250px;
+    border: 1px solid var(--input-border-color);
+    background-color: var(--primary-widget-bg-color);
+}
+
+input::placeholder {
+    font-family: "HelveticaNeue",arial,sans-serif;
+    font-size: 14px;
+    color: var(--table-header-color);
+}
+
+.amtContainer,
+.currencyContainer {
+    display: inline;
+    float: left;
+}
+
+.currencyContainer {
+    margin-left: 15px;
+    width: 70px;
+}
+
+.plainText {
+    margin-top: 10px;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+}
+
+.row {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+}
+
+.column {
+    margin-bottom: 20px;
+}
+
+.mLeft_45 {
+    margin-left: 30px;
+
+}
+.title {
+    width: 215px;
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    color: #5d5d5d;
+    margin: 0px;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+.actionGroup {
+    float: right;
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-top: 30px;
+    margin-right: 18px;
+}
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 25px 0px 0px;
+}
+.footerText {
+    margin-top: 30px;
+    display: inline-block;
+    font-family: "HelveticaNeue",arial,sans-serif;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    .termsContainer{
+      color: var(--secondary-btn-print-border-color);
+    }
+  }
+
+.curencyPosition{
+    position: relative;
+    right: 39px;
+    color: var(--tableData-header-color);
+}
+
+.selectInput {
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--input-text-color);
+    cursor: auto;
+    
+  }
+  .selectInput::placeholder,.mat-select::placeholder{
+    color: #bbbbbb;
+  }
+  // ::ng-deep.cdk-overlay-pane{
+  //  left: unset !important;
+  // }
+  
+  .mat-option {
+    padding: 5px;
+    // border-left: 1px solid #e8e8e8;
+    // border-right: 1px solid #e8e8e8;
+    // border-bottom: 1px solid #e8e8e8;
+    line-height: 40px !important;
+    color: var(--default-text-color);
+  }
+  .mat-option:first-child {
+    background-color: transparent;
+  }
+//   .mat-option:hover,
+//   .mat-option.mat-selected {
+//     background-color: #f0fcf9 !important;
+//   }
+  ::ng-deep.mat-select-value-text {
+    font-family:inherit;
+    font-size: 14px;
+    // color: #5d5d5d;
+    color: var(--tableData-header-color);
+    text-decoration: none solid rgb(93, 93, 93);
+  }
+  input:focus {
+    outline: none;
+  }

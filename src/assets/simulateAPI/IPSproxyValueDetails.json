@@ -1,0 +1,25 @@
+{
+    "headerValue": {
+      "moduleId": "IPSREGIBANPROXY",
+      "simulate": "N"
+  
+   },
+    "data": {
+                          "res_ErrorMessage": "Sucess",
+                          "res_ErrorCode": 0,
+              "registrationId": "49ab5802-d9c5-4329-9fd1-8f67a13ec9bb",
+              "participantCode": "SAINMA",
+              "displayName": "SAUDI BRITISH COMPANY(SAUDI BRITISH COMPANY)",
+              "proxy": {
+                 "type": 12,
+                 "value": "sabrco@gmail.com"
+              },
+              "account": {
+                 "type": 1,
+                 "value": "SA8505000068200001330000",
+                 "name": "SAUDI BRITISH CO.S"
+              },
+              "accountUsg": "",
+              "requestId": "9bc0ed5ad022451381a6fe8a51dba76a"
+    }
+  }

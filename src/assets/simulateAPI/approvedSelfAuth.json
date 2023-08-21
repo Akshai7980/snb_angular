@@ -1,0 +1,43 @@
+{
+    "data": {
+        "selfAuth": "false",
+        "authList": [
+            {
+                "OD_LEVEL": "A",
+                "OD_GCIF": "10000188",
+                "OD_USER_NO": "202223008220",
+                "AUTH_NAME": "test test2",
+                "OD_ROLE_DESC": "Auth Group A",
+                "OD_RULE_PARSE_ID": 6781
+            },
+            {
+                "OD_LEVEL": "A",
+                "OD_GCIF": "10000188",
+                "OD_USER_NO": "202230006900",
+                "AUTH_NAME": "SNB CHKR",
+                "OD_ROLE_DESC": "Auth Group A",
+                "OD_RULE_PARSE_ID": 6781
+            },
+            {
+                "OD_LEVEL": "H",
+                "OD_GCIF": "10000188",
+                "OD_USER_NO": "202202006961",
+                "AUTH_NAME": "Malik maker",
+                "OD_ROLE_DESC": "Maker",
+                "OD_RULE_PARSE_ID": 6781
+            },
+            {
+                "OD_LEVEL": "H",
+                "OD_GCIF": "10000188",
+                "OD_USER_NO": "202203007381",
+                "AUTH_NAME": "SHAFI86 SHAIK",
+                "OD_ROLE_DESC": "Maker",
+                "OD_RULE_PARSE_ID": 6781
+            }
+        ],
+        "flexiAuth": "true"
+    },
+    "headerValue": {
+        "moduleId": "SELFAUTHCHECK"
+    }
+}

@@ -1,0 +1,122 @@
+<div class="titleContainer" translate>LBL_PREFERENCES</div>
+<div class="preferenceContainer">
+    <!-- <div class="fxCntr">
+        <div class="leftColumn textColor" translate>LBL_LANGUAGE</div>
+        <div class="rightColumn textColor" translate>LBL_AMOUNT_FORMAT</div>
+    </div>
+    <div class="fxCntr">
+        <div class="leftColumn">
+            <mat-select id="selectedLang" panelClass="dropDownOption" disableOptionCentering name="selectedLang" [(ngModel)]="selectedLanguage" class="selectInput">
+                <mat-option value="en_US">{{'LBL_ENGLISH' | translate}}</mat-option>
+                <mat-option value="ar" translate>{{'LBL_ARABIC' | translate}}</mat-option>
+            </mat-select>
+            <div *ngIf="isShownlanguageError">
+                <small translate class="required">LBL_PLSE_SELECT_LANGUAGE</small>
+            </div>
+        </div>
+        <div class="rightColumn">
+            <mat-select id="selectedAmtFormat" panelClass="dropDownOption" disableOptionCentering name="selectedAmtFormat" [(ngModel)]="selectedAmountFormat" class="selectInput">
+                <mat-option value="###,###,###.##">###,###,###.##</mat-option>
+                <mat-option value="##,##,###.##">##,##,###.##</mat-option>
+                <mat-option value="###.###.###,##">###.###.###,##</mat-option>
+                <mat-option value="##.##.###,##">##.##.###,##</mat-option>
+            </mat-select>
+            <div *ngIf="isShownamountError">
+                <small translate class="required">LBL_PLSE_SELECT_AMOUNTFORMAT</small>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="fxCntr mt-top">
+        <div class="leftColumn textColor" translate>LBL_DATE_FORMAT</div>
+        <div class="rightColumn textColor" translate>LBL_TIME_ZONE</div>
+    </div>
+    <div class="fxCntr">
+        <div class="leftColumn">
+            <mat-select id="selectedDateFormat" panelClass="dropDownOption" disableOptionCentering name="selectedDateFormat" [(ngModel)]="selectedDateFormat" class="selectInput">
+                <mat-option value="dd/MM/yyyy">DD/MM/YYYY</mat-option>
+                <mat-option value="dd-MM-yyyy">DD-MM-YYYY</mat-option>
+                <mat-option value="MM/dd/yyyy">MM/DD/YYYY</mat-option>
+                <mat-option value="MM-dd-yyyy">MM-DD-YYYY</mat-option>
+                <mat-option value="dd MMM,yyyy">DD MMM, YYYY</mat-option>
+            </mat-select>
+            <div *ngIf="isShowndateformatError">
+                <small translate class="required">LBL_PLSE_SELECT_DATE_FORMAT</small>
+            </div>
+        </div>
+        <div class="rightColumn">
+            <mat-select id="selectedTimeZone" panelClass="dropDownOption" disableOptionCentering name="selectedTimeZone" [(ngModel)]="selectedTimeZone" class="selectInput">
+                <mat-option value="38">{{'LBL_KINGDOM_OF_SAUDI_ARABIA' | translate}}</mat-option>
+                // <mat-option value="ksa">{{'LBL_KINGDOM_OF_SAUDI_ARABIA' | translate}}</mat-option>
+            </mat-select>
+            <div *ngIf="isShowntimezoneError">
+                <small translate class="required">LBL_PLSE_SELECT_TIMEZONE</small>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="row">
+        <div class="column">
+            <div class="leftColumn textColor" translate>LBL_LANGUAGE</div>
+            <div class="leftColumn">
+                <mat-select id="selectedLang" panelClass="dropDownOption" disableOptionCentering name="selectedLang" [(ngModel)]="selectedLanguage" class="selectInput">
+                    <mat-option value="en_US">{{'LBL_ENGLISH' | translate}}</mat-option>
+                    <mat-option value="ar" translate>{{'LBL_ARABIC' | translate}}</mat-option>
+                </mat-select>
+                <div *ngIf="isShownlanguageError">
+                    <small translate class="required">LBL_PLSE_SELECT_LANGUAGE</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="textColor" translate>LBL_AMOUNT_FORMAT</div>
+            <div>
+                <mat-select id="selectedAmtFormat" panelClass="dropDownOption" disableOptionCentering name="selectedAmtFormat" [(ngModel)]="selectedAmountFormat" class="selectInput">
+                    <mat-option value="###,###,###.##">###,###,###.##</mat-option>
+                    <mat-option value="##,##,###.##">##,##,###.##</mat-option>
+                    <mat-option value="###.###.###,##">###.###.###,##</mat-option>
+                    <mat-option value="##.##.###,##">##.##.###,##</mat-option>
+                </mat-select>
+                <div *ngIf="isShownamountError">
+                    <small translate class="required">LBL_PLSE_SELECT_AMOUNTFORMAT</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="leftColumn textColor" translate>LBL_DATE_FORMAT</div>
+            <div class="leftColumn">
+                <mat-select id="selectedDateFormat" panelClass="dropDownOption" disableOptionCentering name="selectedDateFormat" [(ngModel)]="selectedDateFormat" class="selectInput">
+                    <mat-option value="dd/MM/yyyy">DD/MM/YYYY</mat-option>
+                    <mat-option value="dd-MM-yyyy">DD-MM-YYYY</mat-option>
+                    <mat-option value="MM/dd/yyyy">MM/DD/YYYY</mat-option>
+                    <mat-option value="MM-dd-yyyy">MM-DD-YYYY</mat-option>
+                    <mat-option value="dd MMM,yyyy">DD MMM, YYYY</mat-option>
+                </mat-select>
+                <div *ngIf="isShowndateformatError">
+                    <small translate class="required">LBL_PLSE_SELECT_DATE_FORMAT</small>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="textColor" translate>LBL_TIME_ZONE</div>
+            <div>
+                <mat-select id="selectedTimeZone" panelClass="dropDownOption" disableOptionCentering name="selectedTimeZone" [(ngModel)]="selectedTimeZone" class="selectInput">
+                    <mat-option value="38">{{'LBL_KINGDOM_OF_SAUDI_ARABIA' | translate}}</mat-option>
+                </mat-select>
+                <div *ngIf="isShowntimezoneError">
+                    <small translate class="required">LBL_PLSE_SELECT_TIMEZONE</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="btnCntr">
+    <!-- <button class="button-secondary resetBtn" (click)="onClickResetDefault()" translate>LBL_RESET_TO_DEFAULT</button>
+    <button class="button-primary" (click)="onClickSave()" translate>LBL_SAVE</button> -->
+    <app-tertiary-button buttonValue="LBL_RESET_TO_DEFAULT" (click)="onClickResetDefault()"></app-tertiary-button>
+    <app-primary-button buttonValue="LBL_SAVE" (click)="onClickSave()"></app-primary-button>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

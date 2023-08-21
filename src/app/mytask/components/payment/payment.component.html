@@ -1,0 +1,18 @@
+<div class="worksapceBase">
+    <div class="content-header" translate>LBL_PAYMENTS</div>
+
+    <div class="tabCntr">
+        <ul>
+            <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_SINGLE_TRANSFER_PAYMENT_INQ"><a  routerLink="single-payments" [class.active]="rootScopeData.activeTabName === 'singlepayments'"><span
+                        translate>LBL_SINGLE_TRANSFER</span>
+                    ({{paymentTransactionTotalCount}})</a></li>
+            <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_FILE_TRANSFER_PAYMENT_INQ"><a routerLink="file-payment"
+                    [class.active]="rootScopeData.activeTabName === 'filepayments'"><span
+                        translate>LBL_FILE_TRANSFER</span>
+                    ({{filePaymentsTotalCount}})</a></li>
+        </ul>
+    </div>
+    <div class="tabDataCntr">
+        <router-outlet></router-outlet>
+    </div>
+</div>

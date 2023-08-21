@@ -1,0 +1,29 @@
+{
+    "data": {
+        "refNo": "TBC2207021533397",
+        "accNo": "10107654360011",
+        "cardType": "Master Card",
+        "Status": "inactive",
+        "merchantName": "765",
+        "sequenceNo": "13123424",
+        "cardNo": "1233567890",
+        "epayDate": "20/08/2023",
+        "amount": "2345",
+        "currency": "SAR",
+        "mobileNo": "123443221",
+        "claimType": "claim-1",
+        "claimDesc": "swqdwd",
+        "rrn": "cec",
+        "refundType": "full",
+        "refundAmt": "234",
+        "productCode": "CORESVS",
+        "subProductCode": "EPYMCR",
+        "functionCode": "EPYMRFNC",
+        "nickname": "Dameer",
+        "fullname": "Dameer Ahsan",
+        "merchantId": "765"
+    },
+    "headerValue": {
+        "moduleId": "EPYMCRDET"
+    }
+}

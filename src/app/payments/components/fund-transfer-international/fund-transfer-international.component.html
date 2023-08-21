@@ -1,0 +1,78 @@
+<div *ngIf="!showReceiptForm">
+    <div class="detailsDataCntr"> 
+    <div class="bodyConatiners">
+
+        <div class="mtop_20">
+            <app-debit-lookup id="paymentDebitLookup" *ngIf="debitAccountDetailsObj" (onAccountSelect)="afterFromAccountSelection($event)" [debitAccDetails]="debitAccountDetailsObj" [clear]="DebitClearFlag" [shownsearch]="shownSearchFlag" [tableId]="'paymentDebit'" [setWidth]="setColmWidth"></app-debit-lookup>
+        </div> 
+
+        <div class="mtop_20" *ngIf="showBeneData">
+            <app-debit-lookup id="paymentBeneLookup" *ngIf="beneAccountDetailsObj" (onAccountSelect)="afterToAccountSelection($event)" [debitAccDetails]="beneAccountDetailsObj" [clear]="BeneClearFlag" [shownsearch]="shownSearchFlag" [tableId]="'paymentBene'" [setWidth]="setColmWidth"></app-debit-lookup>
+        </div>
+
+        <div class="mtop_20"  *ngIf="norecordflag">
+            <div class="mainContainer"  >
+                <div class="subContainer">
+                    <div translate class="subTitles">{{beneTitleForEmpty}}</div>
+                    <div class="oneTimeFlex">
+                            <!-- <app-secondary-button *ngIf="!showDetails" class="onetimepayment" buttonValue="One Time Payment" (click)="showOneTimePayment()"></app-secondary-button> -->
+                    </div>
+                    <div *ngIf="norecordflag">
+                        <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="norecordflag" class="btnGroup  mtop_20 cancelButton">
+            <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()"></app-tertiary-button>  
+        </div>
+
+        <div class="subconatiner mtop_20" *ngIf="showDetails">
+            <app-amount-details [showCharges]=false (paymentDetailsEmit)="paymentDetailsReceived($event)" (currencyDetailsEmit)="currencyDetailsReceived($event)" [paymentDetailsObj]="paymentAmtObj" [currencyArrayDataSource]="currencyArray" [showAmtDetInitiateScreen]="showAmtDetInitiateScreen" (disableProceed)="getStatus($event)" [respStatus]="exchangeStatus" [isHideTimer]="isHideTimer"></app-amount-details>
+        </div>
+        <div class="subconatiner mtop_20" *ngIf="showDetails">
+            <app-execution-details [ccy]="exeCCY" [feeCharge]="feeCharge" [vatCharge]="vatCharge" (executionDataObj)="getExecutionDetails($event)" [dateError]="exeDateError" [debCcy]="debitCcy" exeType='notWithIn' [debAmt]="debAmt" [initialState]="showAmtDetInitiateScreen" [businessDates]="businessDates"></app-execution-details>
+        </div>
+        <div class="mtop_20" *ngIf="showDetails">
+            <app-additional-details-payments (purposeCode)="getPurposeCode($event)" (relationshipCode)="getRelationShipCode($event)" (additionalDetailsEmit)="additionalDetailsReceived($event)" [additionalDetailsErrorObj]="additionalDetailsErrorObj" [relationshipArrayDataSource]="relationshipArray" [purposeOfTransferArrayDataSource]="purposeOfTransferArray" [showAddDetInitiateScreen]="showAddDetInitiateScreen" [maxDate]="maxDate" [minDate]="minDate" [showAdditionalDetails]="showInstruction" [rootScopeObject]="rootScopeData.internationalCloneTransactionObject"></app-additional-details-payments >
+        </div>
+
+        <div class="mtop_20" *ngIf="showAuthorization">
+            <app-authorization (authEmit)="autherizationDetailsReceived($event)" [authListDataSource]="authListArray" [authError]="authError"></app-authorization>
+        </div>
+
+        <div class="mtop_20" *ngIf="showAuthentication">
+            <app-authentication (authenticationType)="getAuthType($event)" (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError" [initParam]="initReqParam"></app-authentication>
+        </div>
+        <div *ngIf="showBeneData && !showDetails" class="btnGroup  mtop_20 cancelButton">
+            <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()"></app-tertiary-button>  
+        </div>
+        <div class="btnGroup mtop_20" *ngIf="showDetails && initiateScreen">
+            <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()"></app-tertiary-button>
+            <!-- <app-secondary-button buttonValue="LBL_ADD_MORE_TRANSACTION"></app-secondary-button> -->
+           <div *ngIf="!insufficientError"><app-primary-button buttonValue="LBL_PROCEED" (click)="submit()" [disablBtn]="disable"></app-primary-button></div>
+            
+        </div>
+
+        <div *ngIf="!initiateScreen">
+            <div class="footer">
+                <span class="termsAndContion" translate>LBL_TERMS</span>
+                <a href="{{ url }}" target="_blank"><span class="terms" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>
+            </div>            
+            <div class="btnGroup mtop_20">
+                <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()"></app-tertiary-button>
+                <app-secondary-button buttonValue="LBL_MODIFY" (click)="modify()"></app-secondary-button>
+                <!-- <app-primary-button buttonValue="LBL_SUBMIT" (click)="onSubmitReceipt()"></app-primary-button>             -->
+                <!-- <div><button type="button" class="button-secondary" translate>LBL_CLEAR</button></div>
+                <div><button type="button" class="button-print-secondary" (click)="modify()" translate>LBL_MODIFY</button></div>
+                <div><button type="button" class="button-primary" (click)="onSubmitReceipt()" translate>LBL_PROCEED</button></div> -->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div>
+    <app-receipt [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" (onInitAgainClick)="initGenerateStatement()" *ngIf="showReceiptForm" (DownloadReceiptClick)="downloadPdf($event)" [rejectMsg]="rejectMsg"></app-receipt>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> 

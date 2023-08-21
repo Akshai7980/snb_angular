@@ -1,0 +1,71 @@
+<div *ngIf="!hideAll">
+    <div class="detailsDataCntr">
+<div [ngClass]="!this.rootScopeData.changeAddBeneficiaryHeading ? 'beneficiaryDetails':'beneficiaryReviewDetails'">
+    <div  class="subTitles" translate>LBL_BENEFICIARY_DETAILS</div>
+    <div class="rowInnerCntr" *ngIf="!isProceed">
+        <div class="field">
+            <div class="label" translate>LBL_ACC_IBAN_NO<span class="required">*</span></div>
+            <div class="information overlapPosition">
+                <span class="overlapInput" translate>LBL_SA</span>
+                <input class="overlapInputData ibanNo" type="text" [(ngModel)]="accNumber" maxlength="22" (blur)="validateAccountNumber()" (ngModelChange)="onPasteEvent($event)"/>
+            </div>
+            <div class="errorMsg" *ngIf="showAccountNumberInvalid" translate>{{accErrMsg}}</div>
+            <div class="errorMsg" *ngIf="showAccountNumberInvalidError" translate>LBL_ACC_NO_ERR_MSG</div>
+            <div class="errorMsg" *ngIf="showAccNumNCBError" translate>LBL_AACOUNT_NUMBER_IS_NCB</div>
+            <div class="errorMsg" *ngIf="showbeneCreationInValid" translate>LBL_BENE_ACC_NUM_VALIDATION_ERROR</div>
+            <div class="errorMsg" *ngIf="accNumInvalid" translate>LBL_PLEASE_ENTER_ACC_NUMBER</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_BENEFICIARY_SHORT_NAME<span class="required">*</span></div>
+            <div class="information"><input type="text" [(ngModel)]="shortName" maxlength="80" placeholder="{{'LBL_ENTER_SHORT_NAME' | translate }}" (blur)="onEnterShortName()"></div>
+            <div class="errorMsg" *ngIf="showShortNameInvalid" translate>LBL_PLEASE_ENTER_SHORT_NAME</div>
+            <div class="errorMsg" *ngIf="shortNameDuplicateFlag" translate>LBL_ERROR_MESSAGE_ADD_BENEFICIARY_NICK_NAME_ALREADY_EXIST</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_BENEFICIARY_FULL_NAME<span class="required">*</span></div>
+            <div class="information"><input type="text" [(ngModel)]="fullName" maxlength="70" (keypress)="allowAlphabetsAndSpaceOnly($event)" placeholder="{{'LBL_ENTER_FULL_NAME' | translate }}" (blur)="onEnterFullName()"></div>
+            <div class="errorMsg" *ngIf="showFullNameInvalid" translate>LBL_PLEASE_ENTER_FULL_NAME</div>
+        </div>
+        <div class="field" *ngIf="showBankName">
+            <div class="label" translate>LBL_BANK</div>
+            <div class="information data" *ngIf="bankName">{{bankName}}</div>
+            <div class="information data" *ngIf="!bankName">--</div>
+        </div>
+    </div>
+
+    <div class="rowInnerCntr" *ngIf="isProceed">
+        <div class="field">
+            <div class="label" translate>LBL_ACC_IBAN_NO</div>
+            <div class="information data">SA{{accNumber}}</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_BENEFICIARY_SHORT_NAME</div>
+            <div class="information data">{{shortName}}</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_BENEFICIARY_FULL_NAME</div>
+            <div class="information data">{{fullName}}</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_BANK</div>
+            <div class="information data" *ngIf="bankName">{{bankName}}</div>
+            <div class="information data" *ngIf="!bankName">--</div>
+        </div>
+    </div>
+    
+</div>
+<div class="btnCntr" *ngIf="isProceedBtnShow"><app-primary-button *ngIf="!isProceed"  (click)="validateBeneShortName()" buttonValue="LBL_PROCEED"></app-primary-button></div>
+<div *ngIf="isProceed" class="afterProceed">
+    <app-authentication *ngIf="this.rootScopeData.callBackOTPEntitlement.beneRegistrationOTPToken === 'Y'" class="arrange" (onTwoAuthClick)="onSecondFactorValue($event)" [isShowOtpTokenToggle]="false" (getOtpClick)="getOtpValue($event)" [otpError]="isOtpValid" [initParam]="initReqParam"></app-authentication>
+    <div class="footer">
+        <span class="termsAndContion" translate>LBL_TERMS</span><a href="{{ url }}" target="_blank"><span class="terms" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a> 
+    </div>
+    <div class="actionGroup">
+        <app-tertiary-button class="tertiaryButton" buttonValue="LBL_CANCEL" (click)="onClickCancel()"></app-tertiary-button>
+        <!-- <app-primary-button buttonValue="LBL_SUBMIT" (click)="submit()"></app-primary-button> -->
+    </div>
+</div>
+</div>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRegistration()" [saveReceiptObject]="saveReceiptObject" [rejectMsg]="rejectMsg" [receiptDetails]="receiptData" *ngIf="hideAll" (DownloadReceiptClick)="downloadPdf($event)" [pageName]='pageCall' (cancelCallBck)="getCancelBtnClick()"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

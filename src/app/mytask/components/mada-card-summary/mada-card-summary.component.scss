@@ -1,0 +1,13 @@
+.casaTable{
+    table-layout: fixed;
+    .mat-header-cell{cursor: pointer;}
+    .mat-cell{line-height:40px;cursor: pointer;}
+    .mat-cell > div{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+    .mat-column-action{width: 70px;padding: 0;}
+    .mat-column-refNo{width:18%}
+    .mat-column-atmCardNumber{width:18%}
+    .mat-column-cardName{width:13%}
+    .mat-column-serviceType{width:15%}
+    .mat-column-statusDesc{width:12%}
+    .mat-column-cardDate{width:12%}
+}

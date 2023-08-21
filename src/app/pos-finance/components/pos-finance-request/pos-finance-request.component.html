@@ -1,0 +1,62 @@
+<div class="outerContainer">
+  <div class="title" translate>LBL_POS_FINANCE_REQUEST</div>
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_SELECT_ACC</div>
+    <app-search (childEvent)="triggerSearchFilter($event)"></app-search>
+    <div *ngIf="!norecordflag">
+      <table mat-table [dataSource]="dataSourceToPass" class="casaTable">
+        <!-- OD_ACC_NO Column -->
+        <ng-container matColumnDef="OD_ACC_NO">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_ACC_NUMBER</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.OD_ACC_NO ? element.OD_ACC_NO : "--" }}
+          </td>
+        </ng-container>
+
+        <!-- ALIAS_NAME Column -->
+        <ng-container matColumnDef="ALIAS_NAME">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_NICKNAME</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.ALIAS_NAME ? element.ALIAS_NAME : "--" }}
+          </td>
+        </ng-container>
+
+        <!-- LIAS_NAME Column -->
+        <ng-container matColumnDef="LIAS_NAME">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_FULL_NAME</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.LIAS_NAME ? element.LIAS_NAME : "--" }}
+          </td>
+        </ng-container>
+
+        <!-- STATUS Column -->
+        <ng-container matColumnDef="STATUS">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_STATUS</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.STATUS ? element.STATUS : "--" }}
+          </td>
+        </ng-container>
+        <!-- CURR_AVAIL_BAL_AMOUNT_NEW Column -->
+        <ng-container matColumnDef="CURR_AVAIL_BAL_AMOUNT_NEW">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_BALANCE</th>
+          <td mat-cell *matCellDef="let element" class="balanceData">
+            {{
+            (element.CURR_AVAIL_BAL_AMOUNT_NEW
+            ? (element.CURR_AVAIL_BAL_AMOUNT_NEW
+            | currencyFormat : element.OD_CCY_CODE)
+            : "--") +
+            " " +
+            element.OD_CCY_CODE
+            }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="selected(row)"></tr>
+      </table>
+    </div>
+    <div *ngIf="norecordflag">
+      <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+    </div>
+  </div>
+</div>

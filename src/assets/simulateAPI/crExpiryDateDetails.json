@@ -1,0 +1,54 @@
+
+{
+    "headerValue": {
+      "moduleId": "GET_CR_DATE_BY_CR_NO"
+    },
+    "data": 
+      {
+          "CrInformation": {
+          "cr": 1128186121,
+          "name": "مؤسسة عين واحد الامنية",
+          "crNationalNo": 7025430682,
+          "crLocationID": 1128,
+          "crLocation": "عنيزه",
+          "creationDate": 14430110,
+          "expiredDate": 14440110,
+          "isMain": true,
+          "busType": "مؤســـسة فـــردية",
+          "busTypeId": 101,
+          "activities": "تركيب وصيانة الأجهزة الأمنية",
+          "capital": 5000,
+          "address": "2718 عنيزة 56241-7076 1",
+          "poBOX": "",
+          "zipCode": "",
+          "phoneNumber": 163633047,
+          "fax": "",
+          "status": "active",
+          "partiesInformation": {
+            "parties": [
+              {
+                "name": "محمد عبدالعزيز بن محمد الخشيبان",
+                "birthDate": 19871015,
+                "identityId": 1073200634,
+                "identityType": "nid",
+                "relationId": 24,
+                "relationName": "مدير",
+                "nationalityId": "SA",
+                "nationalityName": "سعودي"
+              },
+              {
+                "name": "عذاري عليان بن عبدالله العليان",
+                "birthDate": 19881103,
+                "identityId": 1082729680,
+                "identityType": "nid",
+                "relationId": 1,
+                "relationName": "مالك المؤسسة",
+                "nationalityId": "SA",
+                "nationalityName": "سعودي"
+              }
+            ]
+          }
+        }
+      }
+  }
+  

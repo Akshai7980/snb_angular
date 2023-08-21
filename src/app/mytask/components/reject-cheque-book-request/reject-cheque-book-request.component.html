@@ -1,0 +1,63 @@
+<div *ngIf="!receiptForm">
+<div class="detailsTitleContainer">
+    <div>
+    <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+    <div class="mainTitle" translate>LBL_REJECT_CHEQUEBOOK_REQ</div>
+    </div>
+</div>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <div class="detailsContainer">
+            <div class="titleContainer">
+                <div class="titleContainerLeft">{{'LBL_CHEQUE_BOOK_REQUEST' | translate}} {{'LBL_LOWERCASE_TO' |
+                    translate}} {{'LBL_ACC_SHORTFORM' | translate}} <span
+                        *ngIf="details">{{details.ACCOUNT_NAME}}</span>,
+                    <span *ngIf="details">{{details.DEBIT_ACCOUNT_NO}}</span>
+                </div>
+            </div>
+            <div class="subTitleContainer">
+                <div class="subTitleContainerLeft">{{'LBL_TRANSACTION_REF_NUM' | translate}}<span *ngIf="details">
+                        {{details.INPUT_REFERENCE_NO}}</span></div>
+            </div>
+            <div class="statusContainerLeft">
+                <button class="status-green-button" *ngIf="details"
+                    [class.status-red-button]="(details.OD_STATUS === 'RN') || (details.OD_STATUS === 'RS') || (details.OD_STATUS === 'RE') || (details.OD_STATUS === 'RO') || (details.OD_STATUS === 'RH')">{{details.OD_STATUS_DESCRIPTION}}</button>
+            </div>
+            <div class="dataContainer">
+                <span class="header" translate>LBL_FROM</span>
+                <div class="fxContainer mt-top">
+                    <div class="column1">
+                        <label class="label" translate>LBL_ACTION_BY</label>
+                        <div class="dataInfo" *ngIf="details">{{details.ACCOUNT_NAME}}</div>
+                    </div>
+                    <div class="column2">
+                        <label class="label" translate>LBL_NICKNAME</label>
+                        <div class="dataInfo" *ngIf="details">{{details.ACCOUNT_NICKNAME}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="rejectReasonContainer">
+                <div class="rejecthead" translate>LBL_RJCT_RSN
+                    <!-- <span class="required">*</span> -->
+                </div>
+                <div>
+                    <div class="rejecttextarea">
+                        <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="textArea_Click()"></textarea>
+                        <div class="errorMsg" *ngIf="isrejectreasonValid" translate>LBL_ERROR_MESSAGE_RJCT_RSN
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section>
+    <div class="btnContainer">
+        <!-- <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button> -->
+        <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+    </div>
+</section>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

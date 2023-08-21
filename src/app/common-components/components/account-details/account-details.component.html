@@ -1,0 +1,70 @@
+<div class="AccountDetails"  *ngIf="!rootScopeData.changeAddBeneficiaryReviewMode">
+    <div  class="subTitles" translate>LBL_ACCOUNT_DETAILS</div>
+    <div class="rowInnerCntr">
+        <div class="field">
+            <div class="label" translate>LBL_ACC_OR_IBAN_NO<span class="required">*</span></div>
+            <div class="information"><input type="text" [(ngModel)]="accNumber" maxlength="35" (blur)="OnEnterAccountNumber($event)" placeholder="{{'LBL_ENTER_IBAN_ACC_NUMBER' | translate}}" [disabled]="!isSwiftCodeValidate"></div>
+            <div class="errorMsg" *ngIf="validationFlag" translate>{{accErrMsg}}</div>
+            <div class="errorMsg" *ngIf="showBebeCreationInvalid" translate>LBL_BENE_ACC_NUM_VALIDATION_ERROR</div>
+            <div class="errorMsg" *ngIf="accNumInvalid" translate>LBL_ACC_NO_ERR_MSG</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_SWIFT_BIC_CODE<span *ngIf="ibanValid === 'Y'" class="required">*</span></div>
+            <div class="information"><input type="text" [(ngModel)]="SwiftCode" (blur)="onEnterSwiftCode($event)" [disabled]="bicCodeResValidate"></div>
+            <div class="errorMsg" *ngIf="swiftCodeValidationFlag" translate>LBL_PLEASE_ENTER_SWIFT_CODE</div>
+            <!-- <div class="errorMsg" *ngIf="isSwiftCodeValidate" translate>LBL_PLEASE_ENTER_VALID_SWIFT_CODE</div> -->
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_BANK_ROUTE_CODE</div>
+            <div class="information"><input type="text" [(ngModel)]="bankRouteCode" maxlength="9" (blur)="onEnterRoutingCode($event)" [disabled]="bankRouteCodeValidate"></div>
+            <div class="errorMsg" *ngIf="routerCodeValidationFlag" translate>LBL_PLEASE_ENTER_ROUTE_CODE</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_BANK_NAME</div>
+            <div class="information"><input type="text" readonly [(ngModel)]="bankName"></div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_BANK_CITY</div>
+            <div class="information"><input type="text" readonly [(ngModel)]="bankCity"></div>
+        </div> 
+        <div class="field">
+            <div class="label" translate>LBL_BRANCH</div>
+            <div class="information"><input type="text" readonly [(ngModel)]="branchName"></div>
+        </div>  
+    </div>
+</div>
+<div class="AccountDetails"  *ngIf="rootScopeData.changeAddBeneficiaryReviewMode">
+    <div  class="subTitles" translate>LBL_BANK_DETAILS</div>
+    <div class="rowInnerCntr">
+        <div class="field">
+            <div class="label" translate>LBL_ACC_IBAN_NO</div>
+            <div class="information data" *ngIf="accNumber">{{accNumber}}</div>
+            <div class="information data" *ngIf="!accNumber">--</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_SWIFT_BIC_CODE</div>
+            <div class="information data" *ngIf="SwiftCode">{{SwiftCode}}</div>
+            <div class="information data" *ngIf="!SwiftCode">--</div>
+        </div> 
+        <div class="field">
+            <div class="label" translate>LBL_BANK_ROUTE_CODE</div>
+            <div class="information data" *ngIf="bankRouteCode">{{bankRouteCode}}</div>
+            <div class="information data" *ngIf="!bankRouteCode">--</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_BANK_NAME</div>
+            <div class="information data" *ngIf="accountData.bankName">{{accountData.bankName}}</div>
+            <div class="information data" *ngIf="!accountData.bankName">--</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_BANK_CITY</div>
+            <div class="information data" *ngIf="accountData.bankCity">{{accountData.bankCity}}</div>
+            <div class="information data" *ngIf="!accountData.bankCity">--</div>
+        </div> 
+        <div class="field">
+            <div class="label" translate>LBL_BRANCH</div>
+            <div class="information data" *ngIf="accountData.branchName">{{accountData.branchName}}</div>
+            <div class="information data" *ngIf="!accountData.branchName">--</div>
+        </div> 
+    </div>
+</div>

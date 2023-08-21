@@ -1,0 +1,75 @@
+<div class="mLeft_45 mainContainer" *ngIf="!hideAll">
+    <div class="flexRow">
+        <div translate class="title" *ngIf="!isProceed && !isModify">LBL_QUICK_TRANSFER_CONFIGURATION</div>
+        <div translate class="title" *ngIf="!isProceed && isModify">LBL_CONFIGURATION_INQUIRY</div>
+        <div translate class="title" *ngIf="isProceed">LBL_REVIEW</div>
+        <!-- <app-daily-limit class="dailyLimit" *ngIf="selectedDebitObj"></app-daily-limit> -->
+    </div>
+    <div>
+        <div translate class="title" *ngIf="selectedQuickTransferTo && !isProceed">LBL_ACCOUNT_DETAILS</div>
+        <app-debit-lookup *ngIf="debitDataObj" [debitAccDetails]="debitDataObj" class="arrange"
+        (onAccountSelect)="getDatas($event,'debitTo')" [shownsearch]="!selectedDebitObj" [tableId]="'quickTransferConfig'"></app-debit-lookup>
+        <app-debit-lookup *ngIf="modifyDebitObject" [debitAccDetails]="modifyDebitObject" class="arrange"
+        (onAccountSelect)="modifyRecordSelected($event)" [shownsearch]="false" [tableId]="'quickTransferModify'"></app-debit-lookup>
+    </div>
+        <app-proxy-identifier *ngIf="selectedDebitObj && !isProceed && !isModify" (onPayToSelect)="getDatas($event,'proxyIdentifier')" [debitAccDetails]="selectedDebitObj" (showDataForProxy)="onlyViewRegistrationData($event)"></app-proxy-identifier>
+        <div class="subContainer" *ngIf="isProceed && !selectedModifyProxy">
+          <div class="subTitles" translate>LBL_PROXY_IDENTIFIER</div>
+          <div id="manageAlertsDefaultCntr">
+            <div class="toggleButtonContainer">
+              <p class="col-space1 subTitleFont" translate>LBL_ACTION</p>
+              <p class="subTitleFont" translate>LBL_MOBILE_NUMBER</p>
+            </div>
+            <!-- <div class="toggleButtonContainer">
+              <mat-slide-toggle
+                class="col-space1"
+                [checked]="selectedQuickTransferTo.mobile"
+                [disabled]="true"
+              ></mat-slide-toggle>
+              <p *ngIf="selectedQuickTransferTo.mobile">{{ selectedQuickTransferTo.mobile }}</p>
+            </div> -->
+            <div class="toggleButtonContainer">
+              <mat-slide-toggle
+                class="col-space1"
+                [checked]="viewRegistrationData.mobileFlag"
+                [disabled]="true"
+              ></mat-slide-toggle>
+              <p *ngIf="viewRegistrationData.mobile">{{ viewRegistrationData.mobile }}</p>
+            </div>
+            <p class="toggleSubtitlePaddingLeft subTitleFont" translate>LBL_EMAIL</p>
+            <div class="toggleButtonContainer">
+              <mat-slide-toggle
+                class="col-space1"
+                [checked]="viewRegistrationData.emailFlag"
+                [disabled]="true"
+              ></mat-slide-toggle>
+              <p *ngIf="viewRegistrationData.email">{{ viewRegistrationData.email }}</p>
+            </div>
+            <p class="toggleSubtitlePaddingLeft subTitleFont" translate>
+              LBL_NATIONAL_ID
+            </p>
+            <div class="toggleButtonContainer">
+              <mat-slide-toggle
+                class="col-space1"
+                [checked]="viewRegistrationData.nationalIDFlag"
+                [disabled]="true"
+              ></mat-slide-toggle>
+              <p *ngIf="viewRegistrationData.nationalID">{{ viewRegistrationData.nationalID }}</p>
+            </div>
+          </div>
+        </div>
+        <app-deregistration-proxy-identifier *ngIf="selectedModifyProxy && isModify" (onPayToSelect)="setDeRegistrationData($event)" (cancelProxy)="modifyRecordSelected($event)"></app-deregistration-proxy-identifier>
+    <app-authorization *ngIf="isProceed  && !resetRemain && showAuthorization" [authListDataSource]="authOptions" [authError]="errorCode" (authEmit)="getDatas($event,'authorization')"></app-authorization>
+    <app-authentication *ngIf="isProceed  && !resetRemain && showAuthentication" (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError" [initParam]="initReqParam" (authenticationType)="getAuthType($event)"></app-authentication>
+    <div class="actionGroup" *ngIf="!isModify">
+        <app-tertiary-button *ngIf="selectedDebitObj"buttonValue="LBL_CANCEL" class="tertiaryBtn" (click)="reset()"></app-tertiary-button>
+        <!-- <app-primary-button *ngIf="selectedDebitObj && selectedQuickTransferTo && !isProceed && !resetRemain" buttonValue="Proceed" (click)="proceedNext()" routerPath="./"></app-primary-button> -->
+        <!-- <app-primary-button *ngIf="isProceed && !resetRemain" buttonValue="LBL_SUBMIT" (click)="submit()" routerPath="./"></app-primary-button> -->
+    </div>
+    <div class="actionGroup" *ngIf="isModify">
+        <app-tertiary-button buttonValue="Cancel" *ngIf="isProceed && !resetRemain" class="tertiaryBtn" (click)="modifyRecordSelected('iconClick')"></app-tertiary-button>
+        <!-- <app-primary-button *ngIf="isProceed && !resetRemain" buttonValue="LBL_SUBMIT" (click)="submit()" routerPath="./"></app-primary-button> -->
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>
+<app-receipt [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" (onInitAgainClick)="initQuickTransferConfig()"  (DownloadReceiptClick)="downloadPdf($event)" *ngIf="hideAll" [rejectMsg]="rejectMsg"></app-receipt>

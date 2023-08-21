@@ -1,0 +1,94 @@
+<div *ngIf="!receiptForm">
+  <div class="detailsTitleContainer">
+    <div>
+      <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+      <div class="mainTitle" translate>LBL_REJECT_SADAD_PAYMENT</div>
+    </div>
+  </div>
+  <div class="container" *ngIf="sadadDetails">
+    <div class="subTitles">
+      <span *ngIf="sadadDetails.txnType">{{sadadDetails.txnType}}</span>
+      <span *ngIf="!sadadDetails.txnType">--</span>
+    </div>
+    <div class="refNO">
+      {{'LBL_TRANSACTION_REF_NUM' | translate }} <b><span
+          *ngIf="sadadDetails.referenceNo">{{sadadDetails.referenceNo}}</span><span
+          *ngIf="!sadadDetails.referenceNo">--</span></b>
+    </div>
+    <div class="refNO">
+      {{'LBL_AMOUNT' | translate }} <b><span
+          *ngIf="sadadDetails.paymentAmount && sadadDetails.paymentCcy">{{sadadDetails.paymentAmount |
+          currencyFormat:sadadDetails.paymentCcy}} {{sadadDetails.paymentCcy}}</span><span
+          *ngIf="!sadadDetails.paymentAmount && ! sadadDetails.paymentCcy">--</span></b>
+    </div>
+    <div class="title">
+      <button class="status-green-button" translate
+        [class.status-red-button]="sadadDetails.odStatusCode === 'RN' ||sadadDetails.odStatusCode === 'RS' ||sadadDetails.odStatusCode === 'RE' ||sadadDetails.odStatusCode === 'RO' ||sadadDetails.odStatusCode === 'RH'">
+        {{sadadDetails.odStatus}}
+      </button>
+    </div>
+    <div class="subContainer">
+      <div class="subTitles mt-btm" translate>LBL_DEBIT_FROM</div>
+      <div class="information">
+        <span *ngIf="sadadDetails.debitAccName">{{sadadDetails.debitAccName}}</span>
+        <span *ngIf="!sadadDetails.debitAccName">--</span>,
+        <span *ngIf="sadadDetails.debitAccNo">{{sadadDetails.debitAccNo}}</span>
+        <span *ngIf="!sadadDetails.debitAccNo">--</span>
+      </div>
+      <div class="information mt-btm">
+        {{'LBL_BANK' | translate}} :
+        <span *ngIf="sadadDetails.debitBank">{{sadadDetails.debitBank}}</span>
+        <span *ngIf="!sadadDetails.debitBank">--</span>
+      </div>
+      <div class="subTitles" translate>LBL_PAY_TO</div>
+      <table mat-table [dataSource]="sadadBillerDetails" class="casaTable" id="creditData">
+        <ng-container matColumnDef="nickName">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_NICKNAME</th>
+          <td mat-cell *matCellDef="let element">{{element.billerNickName}}</td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_NAME</th>
+          <td mat-cell *matCellDef="let element">{{element.billerName}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="subscriberId">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_SUBSCRIBER_ID</th>
+          <td mat-cell *matCellDef="let element">{{element.subscriberID}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="dueDate">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_DUE_DATE</th>
+          <td mat-cell *matCellDef="let element">{{element.dueDate | dateFormat}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_AMOUNT</th>
+          <td mat-cell *matCellDef="let element">{{element.amount | currencyFormat:paymentCCY}} {{paymentCCY}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+    <div class="rejectReasonContainer">
+      <div class="rejecthead" translate>LBL_RJCT_RSN
+        <!-- <span class="required">*</span> -->
+      </div>
+      <div>
+        <div class="rejecttextarea">
+          <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="textArea_Click()"></textarea>
+          <div class="errorMsg" *ngIf="isrejectreasonValid" translate>LBL_ERROR_MESSAGE_RJCT_RSN
+          </div>
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="btnContainer">
+        <!-- <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button> -->
+        <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+      </div>
+    </section>
+  </div>
+  </div>
+  <app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)" [rejectMsg]="rejectMsg">
+  </app-receipt>
+  <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

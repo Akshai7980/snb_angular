@@ -1,0 +1,108 @@
+body {
+    font-family: 'Helvetica Neue',sans-serif;
+}
+
+.left-content-Menulist{
+width: calc(16.5% - 40px);
+padding: 20px;
+padding-top: 10px;
+// border-right: 1px solid #e8e8e8;
+background-color: var(--primary-widget-bg-color);
+background-size: cover;
+font-family: 'HelveticaNeue', arial, sans-serif;
+font-size: 16px;
+text-decoration: none solid rgb(93, 93, 93);
+text-transform: capitalize;
+float: left;
+border-radius: 10px;
+}
+
+.worksapceBase{
+    margin-top: 0px;
+}
+
+ul{
+padding-left: 0px;
+}
+li{
+    margin-bottom: 10px;
+}
+
+ul li {
+    height: 28px;
+    overflow: hidden;
+    transition: all .25s;
+    cursor: pointer;
+}
+li,ul label.title,ul,a {
+    width: 138px;
+    height: 28px;
+    border-radius: 7px;
+    background-size: cover;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    font-size: 12px;
+    color: var(--secondary-font-color);
+    text-decoration: none solid rgb(255, 255, 255);
+    text-transform: capitalize;
+    display: block;
+   
+}
+
+.right-content{
+background-color: var(--primary-widget-bg-color);
+background-size: cover;
+font-family: 'HelveticaNeueMed', arial, sans-serif;
+font-size: 16px;
+color: var(--tableData-header-color);
+text-decoration: none solid rgb(93, 93, 93);
+text-transform: capitalize;
+border-left: 1px solid var(--widget-border-color);
+ float: left;
+ width: 80%;
+ border-top-right-radius:10px;
+ border-bottom-right-radius:10px
+}
+
+.contentSection{
+    display: flex;
+}
+li a{
+    padding-left: 15px;
+    padding-top: 3px;
+}
+
+li a.active {
+    border:1px solid var(--primary-hover-color) !important;
+    color: var(--promotions-fontColor) ;
+    border-radius: 7px;
+    background-color: var(--primary-hover-color);
+}
+
+.sideMenuActive{
+    border:1px solid var(--primary-hover-color) !important;
+    color: var(--primary-widget-bg-color) ;
+    border-radius: 7px;
+    background-color: var(--primary-hover-color);
+}
+.ellipsis{
+    display: block;
+    width: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.transNone{text-transform: none;}
+// #Payments:checked+li >label,
+// #ServiceRequest:checked+li >label,
+// #Beneficiaries:checked+li  >label,
+// #BillPayments:checked+li  >label,
+// #SadadBillPayments:checked+li >label{
+//     border:1px solid var(--primary-hover-color) !important;
+//     color: var(--primary-widget-bg-color) ;
+//     border-radius: 7px;
+//     background-color: var(--primary-hover-color);
+// }
+
+
+
+

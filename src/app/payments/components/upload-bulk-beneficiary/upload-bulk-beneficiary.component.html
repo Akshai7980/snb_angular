@@ -1,0 +1,14 @@
+<div class="mainContainer">
+  <app-file-details *ngIf="isUpload" (proceedBtn)="showReviewfn($event)">
+  </app-file-details>
+  <app-review-beneficiary-upload *ngIf="showReview" (cancelBtn)="backTofileDetails($event)"
+    (submitBtn)="showReceiptfn($event)" [uploadDetailsData]="uploadDetailsData" [otpErrorFromParent]="otpError">
+  </app-review-beneficiary-upload>
+  <app-receipt [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" (onInitAgainClick)="initiateAnotherRequest()"  (DownloadReceiptClick)="downloadPdf($event)" *ngIf="showReceipt">
+  </app-receipt>
+  <div class="footerText" *ngIf="!isUpload && showReview" translate>
+    LBL_TERMS
+    <a href="{{ url }}" target="_blank"><span class="termsContainer" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

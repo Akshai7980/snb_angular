@@ -1,0 +1,32 @@
+{
+    "data": [
+        {
+            "siRefNo": "BT20221101003182",
+            "paymtType": "International Fund Transfer",
+            "siStatus": "Active",
+            "sicurrency": "SAR",
+            "siAmount": "1111", 
+            "channel": "CBX",
+            "firstPymtDate": "01/12/2022",
+            "lastPymtDate": "02/12/2022",
+            "nextPymtDate": "01/12/2022",
+            "frequency": "1",
+            "noOfExecutionsPending": "3",
+            "noOfExecutions": "27",
+            "noOfpaymnts": "27",
+            "siDebitAccNo": "100899773730",
+            "legNo": "100899773730",
+            "purposeDesc":"test",
+            "relationshipCodeDesc": "fdafdsa",
+            "beneAccNo": "sdf32132",
+            "payevery":"M",
+            "purposeCode" : "purpose",
+            "categoryCode" : "I",
+            "relationshipCode" : "XYZ",
+            "subPurposeCode" : "081"
+        }
+    ],
+    "headerValue": {
+        "moduleId": "STDINSDTLS"
+    }
+}

@@ -1,0 +1,218 @@
+<div>
+  <div class="mTop_18">
+    <div class="actionsConatiner">
+      <div class="leftPannel">
+        <div class="searchCntnrLeft" >
+          <app-search
+            [showAdvanceSearch]="true"
+            (searchParams)="advancedSearchApply($event)"
+            (childEvent)="triggerSearchFilter($event)"
+            [bulkUploadSummaryObject]="
+              this.rootScopeData.myTaskBulkUploadSummaryObject
+            "
+          ></app-search>
+        </div>
+      </div>
+      <div>
+        <div>
+          <app-refresh (onRefresh)="refreshSummary()"></app-refresh>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!noRecordFlag" id="bulkInprogressDefaultCntr">
+    <table mat-table [dataSource]="dataSourceToPass" class="casaTable">
+      <ng-container matColumnDef="transactionid">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          (click)="sortColumn('beneReferenceNo')"
+        >
+          <div class="position_rel" translate>
+            LBL_Transaction_Id
+            <span
+              class="sortIcons"
+              *ngIf="currentColumn && currentColumn !== 'beneReferenceNo'"
+            >
+              <img src="assets/images/sortDown.svg" class="img-style" />
+              <img src="assets/images/sortDown.svg" class="sortUp" />
+            </span>
+            <span
+              class="sortIcons"
+              *ngIf="currentColumn && currentColumn === 'beneReferenceNo'"
+            >
+              <img
+                src="assets/images/sortDown.svg"
+                *ngIf="sortDirection && sortDirection === 'desc'"
+                class="img-style"
+              />
+              <img
+                src="assets/images/sortDown.svg"
+                *ngIf="sortDirection && sortDirection === 'asc'"
+                class="sortUpAscending"
+              />
+            </span>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.beneReferenceNo }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="filename">
+        <th
+          mat-header-cell
+          class="fileName"
+          (click)="sortColumn('beneFileName')"
+          *matHeaderCellDef
+          translate
+        >
+          <div class="position_rel" translate>
+            LBL_FILE_NAME
+            <span
+              class="sortIcons"
+              *ngIf="currentColumn && currentColumn !== 'beneFileName'"
+            >
+              <img src="assets/images/sortDown.svg" class="img-style" />
+              <img src="assets/images/sortDown.svg" class="sortUp" />
+            </span>
+            <span
+              class="sortIcons"
+              *ngIf="currentColumn && currentColumn === 'beneFileName'"
+            >
+              <img
+                src="assets/images/sortDown.svg"
+                *ngIf="sortDirection && sortDirection === 'desc'"
+                class="img-style"
+              />
+              <img
+                src="assets/images/sortDown.svg"
+                *ngIf="sortDirection && sortDirection === 'asc'"
+                class="sortUpAscending"
+              />
+            </span>
+          </div>
+        </th>
+        <td
+          mat-cell
+          class="fileName"
+          *matCellDef="let element"
+          [matTooltip]="element.beneFileName"
+        >
+          {{ element.beneFileName }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="initiateddate">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          (click)="sortColumn('beneFileUploadDate')"
+          translate
+        >
+          <div class="position_rel" translate>
+            LBL_INITIATED_DATE
+            <span
+              class="sortIcons"
+              *ngIf="currentColumn && currentColumn !== 'beneFileUploadDate'"
+            >
+              <img src="assets/images/sortDown.svg" class="img-style" />
+              <img src="assets/images/sortDown.svg" class="sortUp" />
+            </span>
+            <span
+              class="sortIcons"
+              *ngIf="currentColumn && currentColumn === 'beneFileUploadDate'"
+            >
+              <img
+                src="assets/images/sortDown.svg"
+                *ngIf="sortDirection && sortDirection === 'desc'"
+                class="img-style"
+              />
+              <img
+                src="assets/images/sortDown.svg"
+                *ngIf="sortDirection && sortDirection === 'asc'"
+                class="sortUpAscending"
+              />
+            </span>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.beneFileUploadDate | dateFormat }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          (click)="sortColumn('beneFileStatus')"
+          translate
+        >
+          <div class="position_rel" translate>
+            LBL_STATUS
+            <span
+              class="sortIcons"
+              *ngIf="currentColumn && currentColumn !== 'beneFileStatus'"
+            >
+              <img src="assets/images/sortDown.svg" class="img-style" />
+              <img src="assets/images/sortDown.svg" class="sortUp" />
+            </span>
+            <span
+              class="sortIcons"
+              *ngIf="currentColumn && currentColumn === 'beneFileStatus'"
+            >
+              <img
+                src="assets/images/sortDown.svg"
+                *ngIf="sortDirection && sortDirection === 'desc'"
+                class="img-style"
+              />
+              <img
+                src="assets/images/sortDown.svg"
+                *ngIf="sortDirection && sortDirection === 'asc'"
+                class="sortUpAscending"
+              />
+            </span>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.beneFileStatus }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_ACTION</th>
+        <td mat-cell *matCellDef="let element">
+          <div
+            class="acceptIcon"
+            (click)="authorizeBulkPage($event, element)"
+          ></div>
+          <div
+            class="rejectIcon"
+            (click)="rejectBulkPage($event, element)"
+          ></div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        (click)="goToDetailsScreen(row)"
+      ></tr>
+    </table>
+  </div>
+
+  <app-pagination
+    #paginator
+    *ngIf="!noRecordFlag"
+    [dataSourceLength]="dataSourceLength"
+    [currentRecord]="'BulkfileTransfer'"
+    [totalRecords]="totalRecords"
+    (onPaginationChange)="paginationChangeClick($event)"
+    [flagForRefreshPage]="refreshClickedFlag"
+  ></app-pagination>
+</div>
+<div *ngIf="noRecordFlag">
+  <app-no-record-found
+    [noRecordFoundInfo]="noRecordFoundInfoObj"
+  ></app-no-record-found>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

@@ -1,0 +1,20 @@
+{
+  "data": {
+    "refNo": "TBC2207021533397",
+    "cardNo": "10107654360011",
+    "cardType": "Master Card",
+    "cardStatus": "inactive",
+    "balance": "765",
+    "currency": "SAR",
+    "cardName": "Dameer Ahsan",
+    "reason": "Damaged",
+    "comments": "DTHDT",
+    "productCode": "CORESVS",
+    "subProductCode": "CARDSTP",
+    "functionCode": "CRDSTPFNC"
+  },
+
+  "headerValue": {
+    "moduleId": "CARDSTPDETAILS"
+  }
+}

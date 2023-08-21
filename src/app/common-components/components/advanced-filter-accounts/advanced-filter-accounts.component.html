@@ -1,0 +1,75 @@
+<div class="filter-search-popup" *ngIf="showAdvancedSearchPopup" (click)="stopAdvancedSearchClose($event)">
+    <div translate class="header">LBL_FILTER 
+        <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+    </div>
+    <div class="flexCntr">
+        <div class="toggleCntr">
+            <div translate id="leftToggle" class="toggle" [class.active]="leftToggle" (click)="leftToggleCntl()">LBL_BY_DATE</div>
+            <div translate id="rightToggle" class="toggle" [class.active]="rightToggle" (click)="rightToggleCntl()">LBL_BY_PERIOD</div>
+        </div>
+        <div class="searchwithin">
+            <div translate class="fieldLabel">LBL_SEARCH_WITHIN</div>
+            <mat-select panelClass="dropDownOption" class="selectInput" [(value)]="searchwithin" disableOptionCentering>
+                <mat-option value="all">{{'LBL_ALL' | translate}}</mat-option>
+                <mat-option value="Dr">{{'LBL_DEBIT' | translate}}</mat-option>
+                <mat-option value="Cr">{{'LBL_CREDIT' | translate}}</mat-option>
+            </mat-select>
+        </div> 
+
+        <div class="fromto" *ngIf="leftToggle">
+            <div class="datefrom">
+                <div translate class="fieldLabel" id="proctm">LBL_DATE_FROM</div>
+                <div class="shortDatePicker mt-top"><app-date-picker [clearFlag]="clearFlag" [showDateErrorMessage]="showDateErrorMessage" (dateValue)="getFromDate($event)" [maxDate]="maxDate"  [minDate]="minDate" [newDate]="fromDateValue"></app-date-picker></div>
+            </div>
+            <div class="dateto">
+                <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+                <div class="shortDatePicker mt-top"><app-date-picker [clearFlag]="clearFlag" [showDateErrorMessage]="showDateErrorMessage"  (dateValue)="getToDate($event)" [maxDate]="maxDate" [minDate]="fromDateValue" [newDate]="toDateValue"></app-date-picker></div>
+            </div>
+        </div>
+        <div class="period" *ngIf="rightToggle && !leftToggle">
+            <div translate class="fieldLabel">LBL_PERIOD</div>
+            <mat-select panelClass="dropDownOption" class="selectInput" [(value)]="period" disableOptionCentering>
+                <mat-option value="currentDay">{{'LBL_CURRENT_DAY' | translate}}</mat-option>
+                <mat-option value="currentMonth">{{'LBL_CURRENT_MONTH' | translate}}</mat-option>
+                <mat-option value="previousDay">{{'LBL_PREVIOUS_DAY' | translate}}</mat-option>
+                <mat-option value="previousMonth">{{'LBL_PREVIOUS_MONTH' | translate}}</mat-option>
+                <mat-option value="last7Days">{{'LBL_LAST_7_DAYS' | translate}}</mat-option>
+                <mat-option value="last2Weeks">{{'LBL_LAST_2_WEEKS' | translate}}</mat-option>
+                <mat-option value="last3Months">{{'LBL_LAST_3_MONTHS' | translate}}</mat-option>
+                <mat-option value="last6Months">{{'LBL_LAST_6_MONTHS' | translate}}</mat-option>
+            </mat-select>
+        </div>
+        <div class="dateorder">
+            <div class="fieldLabel" translate>LBL_TRANSACTION_TYPE</div>
+            <mat-select panelClass="dropDownOption" class="selectInput" [(value)]="transactType" disableOptionCentering>
+                <mat-option *ngFor="let transacttype of transactTypeData" value="{{transacttype.keyvalue}}">{{transacttype.keydescription}}</mat-option>
+            </mat-select>
+        </div>
+        <div >  
+            <div class="fromto">
+                <div class="datefrom">
+                    <div translate class="fieldLabel" id="proctm">LBL_AMOUNT_FROM</div>
+                    <input type="text" [(ngModel)]="fromAmnt" placeholder="{{ccyCode}} 0.00" class="txt-fld mt-top inputAmount" (keypress)="omitSplCharacters($event)" (blur)="onfromCurrencyConvert($event)">                
+                </div>
+                <div class="dateto">
+                    <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+                    <input type="text" [(ngModel)]="toAmnt" placeholder="{{ccyCode}} 0.00" class="txt-fld mt-top added inputAmount" (keypress)="omitSplCharacters($event)" (blur)="ontoCurrencyConvert($event)">                
+                </div>
+
+            </div>         
+            <div class="errorMsg" *ngIf="amtErr" translate>{{amtErr}}</div>
+            <div class="errorMsg" *ngIf="entrAmtErr" translate>{{entrAmtErr}}</div>
+        </div>
+        
+    </div>
+    <div class="submt">
+        <div>
+            <!-- <button class="clr" (click)="onClickClear()" translate>LBL_CLEAR</button> -->
+            <app-tertiary-button buttonValue="LBL_CLEAR" (click)="onClickClear()"></app-tertiary-button>
+        </div>
+        <div>
+            <!-- <button class="apply" (click)="onClickApply()" translate>LBL_APPLY</button> -->
+            <app-primary-button (click)="onClickApply()" buttonValue="LBL_APPLY"></app-primary-button>
+        </div>
+    </div>
+</div>

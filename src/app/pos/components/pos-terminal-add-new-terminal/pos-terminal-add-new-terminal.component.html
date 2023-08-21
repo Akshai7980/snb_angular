@@ -1,0 +1,124 @@
+<div class="outerContainer" *ngIf="rootScopeData.showNewTerminal">
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_NEW_TERMINAL</div>
+    <div class="paddingLftRight">
+      <div class="toggleCntr">
+        <div
+          translate
+          id="leftToggle"
+          class="toggle active"
+          (click)="leftToggleCntl()"
+        >
+          LBL_PHYSICAL_TERMINAL
+        </div>
+        <div
+          translate
+          id="rightToggle"
+          class="toggle"
+          (click)="rightToggleCntl()"
+        >
+          LBL_SOFT_TERMINAL
+        </div>
+      </div>
+      <div class="displayFlx">
+        <div class="marginTop20 width30 container">
+          <p translate class="fieldTitles">LBL_SCHEMES</p>
+          <mat-checkbox class="checkboxMarginLft">Mada card</mat-checkbox><br />
+          <mat-checkbox class="marginTop20 checkboxMarginLft"
+            >Credit card</mat-checkbox
+          >
+          <div translate class="fieldTitles marginTop40">
+            LBL_NO_OF_TERMINALS<span class="required">*</span>
+          </div>
+          <div class="mtop_10" *ngIf="leftToggle">
+            <mat-select
+              panelClass="dropDownOption"
+              disableOptionCentering
+              class="matSelectInput mt-top"
+              placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+              name="fileType"
+            >
+              <mat-option
+                *ngFor="let type of numberOfTerminals"
+                [value]="type"
+                >{{ type.value }}</mat-option
+              >
+            </mat-select>
+          </div>
+        </div>
+        <div class="physicalTerminalDetails marginTop20">
+          <tr class="displayFlxContainer">
+            <td class="fieldTitles width30">Mada Percentage</td>
+            <td class="width70">Fees as per terms and conditions</td>
+          </tr>
+          <tr class="displayFlxContainer">
+            <td class="fieldTitles width30">Mada Cap</td>
+            <td class="width70">160 SAR</td>
+          </tr>
+          <tr class="displayFlxContainer">
+            <td class="fieldTitles width30">Credit Card Percentage</td>
+            <td class="width70">25%</td>
+          </tr>
+          <tr class="displayFlxContainer">
+            <td class="fieldTitles width30">Terminal Type</td>
+            <td class="width70">GPRS</td>
+          </tr>
+          <tr class="displayFlxContainer">
+            <td class="fieldTitles width30">GCC</td>
+            <td class="width70">15%</td>
+          </tr>
+          <small
+            >*Note: In case there is more than one location, please open a new
+            request for each location determining number of termminals in each
+            location</small
+          >
+        </div>
+      </div>
+      <div *ngIf="rightToggle">
+        <p class="subTitles marginTop40">Terminal Data 1</p>
+        <div class="terminalDataContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_USER_ID <span class="errorMsg">*</span>
+            </div>
+            <input class="selectInput" type="text" />
+          </div>
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_DATE_OF_BIRTH <span class="errorMsg">*</span>
+            </div>
+            <input class="selectInput" type="text" />
+          </div>
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_MOBILE <span class="errorMsg">*</span>
+            </div>
+            <input
+              class="selectInput"
+              (keypress)="allowNumbersOnly($event)"
+              type="text"
+            />
+          </div>
+          <div class="marginTop20">
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_EMAIL <span class="errorMsg">*</span>
+            </div>
+            <input class="selectInput" type="text" />
+          </div>
+        </div>
+        <div class="buttonContainer">
+          <app-secondary-button
+            buttonValue="+ Add another Terminal"
+          ></app-secondary-button>
+          <app-tertiary-button buttonValue="Back"></app-tertiary-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actionGroup">
+    <app-tertiary-button buttonValue="LBL_CANCEL" class="tertiaryBtn" (click)="backToMerchant()">
+    </app-tertiary-button>
+    <app-primary-button buttonValue="LBL_PROCEED" (click)="proceed()">
+    </app-primary-button>
+  </div>
+</div>

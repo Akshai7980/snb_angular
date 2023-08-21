@@ -1,0 +1,23 @@
+{
+  "data": [
+    {
+      "refNo": "TBC2208301819244",
+      "accNo": "123131",
+          "productCode":"CORESVS",
+      "subproductCode":"POSFIN",
+      "functionCode":"PFINFNC",
+      "crNo": "1010756546",
+      "requestId": "102487701094",
+     "financeAmt":"5,00,000.00",
+         "currency":"SAR",
+         "status":"RA",
+         "statusDesc":"Ready for authorization"
+     
+    }
+  ],
+  "headerValue": {
+   
+    "moduleId": "POSFININQ",
+    "totalCount": "148"
+  }
+}

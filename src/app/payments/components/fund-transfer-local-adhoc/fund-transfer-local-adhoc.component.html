@@ -1,0 +1,39 @@
+<div class="subconatiner mtop_20">
+    <div translate class="subTitles">LBL_TO</div>
+    <div translate class="subTitles_mtop21">LBL_ONE_TIME_PAYMENT</div>
+
+    <div class="rowInnerCntr" >
+        <div class="field">
+            <div translate class="label">LBL_ACC_IBAN_NO<span class="required">*</span></div>
+            <div class="mtop_10">
+                <div class="information">
+					<input type="text" [(ngModel)]="adhocObj.adhocIbanNo" placeholder="{{'LBL_ENTER_IBAN' | translate}}" (keypress)="omit_special_char($event)" (blur)="ibanNoOnBlur()" maxlength="100" autocomplete="off">
+                    <div *ngIf="adhocObj.adhocIbanNoError">
+                        <small translate class="required">{{adhocObj.adhocIbanNoError}}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <div translate class="label">LBL_BENEFICIARY_FULL_NAME<span class="required">*</span></div>
+            <div class="mtop_10">
+                <div class="information">
+                    <input type="text" [(ngModel)]="adhocObj.adhocFullName" placeholder="{{'LBL_PLEASE_ENTER_FULL_NAME' | translate}}" (keypress)="omit_special_char($event)" (blur)="nameOnBlur()" maxlength="70" autocomplete="off">
+                    <div *ngIf="adhocObj.adhocFullNameError">
+                        <small translate class="required">{{adhocObj.adhocFullNameError}}</small>
+                    </div>
+                </div>    
+            </div>
+        </div>
+
+        <div class="field" *ngIf="showBank">
+            <div class="label" translate>LBL_BANK_NAME</div>
+            <div *ngIf="adhocObj.adhocBankName" class="information data">{{adhocObj.adhocBankName}}</div>
+            <div *ngIf="!adhocObj.adhocBankName" class="information data">--</div>
+        </div>
+    </div>
+    <div class="flexEnd">
+        <app-tertiary-button class="backButton" buttonValue="LBL_BACK" (click)="back()"></app-tertiary-button>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+{
+    "headerValue": {
+        "moduleId": "IPSREGPROXYIBAN",
+        "simulate": "N"
+    },
+    "data": {
+        "res_ErrorMessage": "Sucess",
+        "res_ErrorCode": 0,
+        "ProxyList": [
+            {
+                "lastName": "",
+                "accountReference": "SA9310000005100005059209",
+                "accountName": "",
+                "displayName": "AFFAN JABER ATIYYAH SALA(أفنان جابر بن عطيه سلامي)",
+                "aliasType1": "12",
+                "accountType": "1",
+                "aliasType2": "",
+                "isBlocked": "",
+                "businessName": "SHEIK",
+                "accountCurrency": "SAR",
+                "aliasReference1": "pown@gmail.com",
+                "aliasReference2": "",
+                "creationDate": "20230223",
+                "firstName": "",
+                "aliasId": "8578",
+                "eventStatus": "",
+                "registrationId": "706bd288-d23e-4779-bb3a-d3640cf86c81",
+                "activationDate": "",
+                "status": "4",
+                "secondName": ""
+            },
+            {
+                "lastName": "",
+                "accountReference": "SA9310000005100005059209",
+                "accountName": "",
+                "displayName": "AFFAN JABER ATIYYAH SALA(أفنان جابر بن عطيه سلامي)",
+                "aliasType1": "11",
+                "accountType": "1",
+                "aliasType2": "",
+                "isBlocked": "",
+                "businessName": "SHEIK",
+                "accountCurrency": "SAR",
+                "aliasReference1": "0552065162",
+                "aliasReference2": "",
+                "creationDate": "20230223",
+                "firstName": "",
+                "aliasId": "8574",
+                "eventStatus": "",
+                "registrationId": "3e7b1fe5-12cd-4f95-80a2-33666dca183d",
+                "activationDate": "",
+                "status": "4",
+                "secondName": ""
+            }
+        ]
+    }
+}

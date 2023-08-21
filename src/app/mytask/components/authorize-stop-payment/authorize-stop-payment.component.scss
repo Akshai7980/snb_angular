@@ -1,0 +1,39 @@
+.detailsTitleContainer {
+  margin: -15px 0px -27px 30px;
+}
+
+.backArrow {
+  top: 40px;
+  left: -20px;
+}
+
+.container {
+  padding: 16px 0 14px 18px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  margin: 5px 20px 0px 30px;
+}
+.btnContainer {
+  float: right;
+  margin-top: 25px;
+  padding-right: 30px;
+}
+.headerTitle {
+  margin-bottom: 23px;
+}
+.textColor {
+  color: var(--secondary-btn-print-text-color);
+}
+
+.authContainer {
+  margin: 5px 20px 0px 30px;
+}
+
+.backButton {
+  margin-right: 15px;
+  width: 100px !important;
+}

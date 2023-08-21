@@ -1,0 +1,92 @@
+<div class="detailsContainer">
+  <div class="titleContainer">
+    <div class="titleContainerLeft">
+      <span
+        >{{ "LBL_ADDITIONAL_ACCOUNT_REQUEST" | translate }}
+        {{ "LBL_FROM" | translate }}
+        {{
+          this.rootScopeData.pendingActivitiesServiceRequestObject.makerId
+            ? this.rootScopeData.pendingActivitiesServiceRequestObject
+                .makerId
+            : "--"
+        }},
+        {{
+          this.rootScopeData.pendingActivitiesServiceRequestObject.linkAccount
+            ? this.rootScopeData.pendingActivitiesServiceRequestObject
+                .linkAccount
+            : "--"
+        }}</span
+      >
+    </div>
+  </div>
+  <div class="subTitleContainer">
+    <div class="subTitleContainerLeft">
+      {{ "LBL_REF_NUMBER" | translate }}
+      <span>
+        {{
+          this.rootScopeData.pendingActivitiesServiceRequestObject.refNo
+            ? this.rootScopeData.pendingActivitiesServiceRequestObject.refNo
+            : " --"
+        }}</span
+      >
+    </div>
+  </div>
+  <div class="statusContainerLeft">
+    <button class="status-red-button">
+      {{
+        this.rootScopeData.pendingActivitiesServiceRequestObject.status
+          ? this.rootScopeData.pendingActivitiesServiceRequestObject.status
+          : " --"
+      }}
+    </button>
+  </div>
+  <div class="dataContainer">
+    <span class="header" translate>LBL_REQUEST_DETAILS</span>
+    <div class="fxContainer mt-top">
+      <div class="column1">
+        <label class="label" translate>LBL_CURRENCY</label>
+        <div class="dataInfo">
+          {{
+            this.rootScopeData.pendingActivitiesServiceRequestObject.currency
+              ? this.rootScopeData.pendingActivitiesServiceRequestObject
+                  .currency
+              : "--"
+          }}
+        </div>
+      </div>
+      <div class="column2">
+        <label class="label" translate>LBL_LINK_ACCOUNT</label>
+        <div class="dataInfo">
+          {{
+            this.rootScopeData.pendingActivitiesServiceRequestObject.linkAccount
+              ? this.rootScopeData.pendingActivitiesServiceRequestObject
+                  .linkAccount
+              : "--"
+          }}
+        </div>
+      </div>
+      <div class="column3">
+        <label class="label" translate>LBL_REASON</label>
+        <div class="dataInfo">
+          {{
+            this.rootScopeData.pendingActivitiesServiceRequestObject.reason
+              ? this.rootScopeData.pendingActivitiesServiceRequestObject.reason
+              : "--"
+          }}
+        </div>
+      </div>
+    </div>
+    <div class="column4">
+      <label class="label" translate>LBL_DATE</label>
+      <div class="dataInfo">
+        {{
+          this.rootScopeData.pendingActivitiesServiceRequestObject.valueDate
+            ? (this.rootScopeData.pendingActivitiesServiceRequestObject
+                .valueDate | dateFormat)
+            : "--"
+        }}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> -->

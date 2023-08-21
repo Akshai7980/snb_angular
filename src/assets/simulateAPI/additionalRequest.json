@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "refNo": "TBC2207021533397",
+      "currency": null,
+      "reason": null,
+      "linkAccount": "100000003152",
+      "currencyDesc": null,
+      "reasonDesc": null,
+      "productCode": "CORESVS",
+      "subProductCode": "ACCINT",
+      "functionCode": "ACCSUB",
+      "requestType": "Additional Account Opening",
+      "valueDate": "09/06/2022",
+      "status": "RA",
+      "statusDesc": "Ready for Authorization",
+      "inputVersionNo": "7",
+      "customerName": "SNB86",
+      "customerId": "1002086",
+      "requestFor": null,
+      "makerId": "202005003160",
+      "rejectReason": "Authorization Time Exceeded"
+    }
+  ],
+  "headerValue": {
+    "moduleId": "ADDACCDETAILS",
+    "totalCount": "5"
+  }
+}

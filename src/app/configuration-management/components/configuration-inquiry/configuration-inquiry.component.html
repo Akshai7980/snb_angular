@@ -1,0 +1,172 @@
+<div class="mLeft_45 mainContainer" *ngIf="!hideAll">
+  <div class="flexRow">
+    <div translate class="title" *ngIf="!isProceed">
+      LBL_CONFIGURATION_INQUIRY
+    </div>
+  </div>
+  <div class="subContainer" id="configurationInquiry">
+    <div class="row" id="logoPrint">
+      <div><img class="logo" src="{{logo}}"> </div>
+      <!-- <div><span class="logotext" translate>LBL_ECORP</span></div> -->
+      <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+  </div>
+    <div class="titleIcons">
+      <div class="gridline01">
+        <div class="accountIcon"></div>
+        <div translate>LBL_ACCOUNTS</div>
+      </div>
+      <div class="gridline02">
+        <div class="summarytools" *ngIf="!norecordflag">
+          <app-summary-tools [printSection]="printSection" [isshownPrint]="false"  [moduleId]="'IPSREGSUM'" [isshowndownloadablePrint]="true">
+          </app-summary-tools>
+        </div>
+      </div>
+    </div>
+    <div class="actionsConatiner mtop_20">
+      <div class="leftPannel">
+        <div class="searchCntnrLeft" *ngIf="!norecordflag">
+          <app-search [showAdvanceSearch]="false" (childEvent)="triggerSearchFilter($event)"></app-search>
+        </div>
+    </div>
+    </div>
+
+    <table mat-table [dataSource]="dataSourceToPass" class="casaTable" id="configTable" *ngIf="!norecordflag">      
+
+      <ng-container matColumnDef="accountNumber">
+        <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('ACC_NO')">
+          LBL_INQUIRY_ACCOUNT_NUMBER
+         <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'ACC_NO'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'ACC_NO'">
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element" [matTooltip]="element.PROXY_1_VALUE+','+element.PROXY_2_VALUE+','+element.PROXY_3_VALUE">
+          <span>{{ element.ACC_NO }}</span>
+          <span *ngIf="element.PROXY_1_VALUE">,{{ element.PROXY_1_VALUE }}</span>
+          <span *ngIf="element.PROXY_2_VALUE">,{{ element.PROXY_2_VALUE }}</span>
+          <span *ngIf="element.PROXY_3_VALUE">,{{ element.PROXY_3_VALUE }}</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="refNumber">
+        <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('REF_NO')">
+          LBL_REF_NUMBER
+         <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'REF_NO'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'REF_NO'">
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.REF_NO }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cif">
+        <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('CIF_NO')">
+          LBL_CIF_NUMBER
+         <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'CIF_NO'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'CIF_NO'">
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.CIF_NO }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('IPS_MAKER_DATE')">
+          LBL_DATE
+         <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'IPS_MAKER_DATE'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'IPS_MAKER_DATE'">
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.IPS_MAKER_DATE }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('OD_STATUS_DESC')">
+          LBL_STATUS
+         <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'OD_STATUS_DESC'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'OD_STATUS_DESC'">
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.OD_STATUS_DESC }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="rejectreason">
+        <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('OD_REJECT_REASON')">
+          LBL_RJCT_RSN
+         <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'OD_REJECT_REASON'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'OD_REJECT_REASON'">
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <span *ngIf="element.OD_REJECT_REASON">{{ element.OD_REJECT_REASON }}</span>
+          <span *ngIf="!element.OD_REJECT_REASON">--</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="position_rel" translate>LBL_INQUIRY_ACTION</div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <app-more-action [moreActionList]="actionsList" [hideViewDetails]="true" (click)="stopRowClick($event)"
+            (onMenuClick)="modifyRegistration($event, element)"></app-more-action>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayColumns" (click)="modifyRegistration('viewDetailsRow',row)"></tr>
+    </table>
+    <app-pagination class="paginator" #paginator [dataSourceLength]="dataSourceLength" [currentRecord]="'AccountsConfiguration'"
+    [totalRecords]="totalRecords" (onPaginationChange)="paginationChangeClick($event)" *ngIf="!norecordflag">
+    </app-pagination>
+    <div *ngIf="norecordflag">
+      <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+    </div>
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

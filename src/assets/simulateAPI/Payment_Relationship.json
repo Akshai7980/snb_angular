@@ -1,0 +1,11 @@
+{
+    "headerValue": {
+      "moduleId": "RELATIONSHIP"
+    },
+    "data": [
+      {
+        "REL_CODE": "TR",
+        "REL_CODE_DESC": "TEST"
+      }
+    ]
+  }

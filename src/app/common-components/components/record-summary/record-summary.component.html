@@ -1,0 +1,98 @@
+<div class="wrapper">
+  <div class="mask"></div>
+
+  <mat-expansion-panel #expansionPanel>
+    <mat-expansion-panel-header
+      (click)="expandPanel(expansionPanel, $event)"
+      class="disable_ripple arrowColor"
+    >
+      <mat-panel-title>
+        <div class="subTitles" translate>LBL_RECORD_SUMMARY</div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+      <div class="gridline02" *ngIf="moduleId && isShowSummaryTool">
+        <div class="summarytools">
+          <app-summary-tools
+            [printSection]="printSection"
+            [moduleId]="moduleId"
+            [refNo]="refNo" [beneSubprd]="subprdt" [isshowndownloadablePrint]="isShownDocPrint" [isshownPrint]="shownPrint" [pageCall]="pageCall"
+          ></app-summary-tools> 
+        </div>
+      </div>
+   
+    
+    <div class="border" id="recordSummaryPrintSection">
+      <div class="row" id="logoPrint">
+        <div><img class="logo" src="{{ logo }}" /></div>
+        <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+      </div>
+      <div *ngIf="!noRecordFlag">
+        <table
+          mat-table
+          [dataSource]="recordSummaryDataSource"
+          class="mat-elevation-z0"
+          matSort
+        >
+          <ng-container
+            *ngFor="let record of data"
+            [matColumnDef]="record.columnKey"
+          >
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              translate
+              (click)="sortColumn(record.columnKey)"
+            >
+              {{ record.columnLabel }}
+              <span *ngIf="currentColumn && currentColumn !== record.columnKey">
+                <img src="assets/images/sortDown.svg" class="img-style" />
+                <img src="assets/images/sortDown.svg" class="sortUp" />
+              </span>
+              <span *ngIf="currentColumn && currentColumn === record.columnKey">
+                <img
+                  src="assets/images/sortDown.svg"
+                  *ngIf="sortOrder && sortOrder === 'desc'"
+                  class="img-style"
+                />
+                <img
+                  src="assets/images/sortDown.svg"
+                  *ngIf="sortOrder && sortOrder === 'asc'"
+                  class="sortUpAscending"
+                />
+              </span>
+            </th>
+
+            <td
+              mat-cell
+              *matCellDef="let element"
+              class="benecolumn"
+              [matTooltip]="record.cellData(element)"
+            >
+              <div class="ellipsis">
+                <span>{{ record.cellData(element) }}</span>
+              </div>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+      <app-pagination
+        #paginator
+        class="actionHide"
+        *ngIf="recordSummaryObject.data && recordSummaryObject.data.length"
+        [dataSourceLength]="recordSummaryObject.data.length"
+        [totalRecords]="totalRecords"
+        (onPaginationChange)="paginationChangeClick($event)"
+        [currentRecord]="'RecordSummary'" [pagesizeFlag]="true"
+      ></app-pagination>
+    </div>
+
+    <div *ngIf="noRecordFlag">
+      <app-no-record-found
+        [noRecordFoundInfo]="noRecordFoundInfoObj"
+      ></app-no-record-found>
+    </div>
+  </mat-expansion-panel> 
+  <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>
+</div>

@@ -1,0 +1,36 @@
+{
+    "dataValue": {
+        "hdr_Tran_ID": "TRACK_SWIFT_GPT",
+        "res_ErrorMessage": "Success",
+        "TrackSwiftGPIPaymentResponse": {
+            "success": {
+                "channelDescEN": "AlAhlieCorp",
+                "channel": "420",
+                "creditValueDate": "20221122",
+                "beneficiaryAccountId": "1008856655",
+                "lastActionDate": "20221121",
+                "beneficiaryAddress": ",teeeee,eeeee",
+                "lastActionTime": "122622",
+                "beneficiaryBankBIC": "CITIUS30XXX",
+                "accountId": "5100000124510",
+                "exchangeRate": "0.2651",
+                "paymentStatusDescEN": "No Tracker Update Received...",
+                "beneficiaryName": "Test",
+                "beneficiaryBankName": "CITI BANK",
+                "transUTIReference": "NCBK82422325AKPF",
+                "transactionAmount": "10.61",
+                "chargeAmount": "SAR50",
+                "orderDate": "20221121",
+                "correspondBankBIC": "BOFAUS30",
+                "correspondBankName": "BANGKOK BANK PUBLIC CO. LTD.,",
+                "paymentStatus": "107",
+                "channelDescAR": "الأهلي إي كورب"
+            }
+        },
+        "res_TransactionRefNo": "45678",
+        "res_ErrorCode": "0"
+    },
+    "headerValue": {
+        "moduleId": "SWIFTDETAILS"
+    }
+}

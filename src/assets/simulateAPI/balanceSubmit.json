@@ -1,0 +1,12 @@
+{
+    "headerValue": {
+      "moduleId": "BALANSUBMIT"
+    },
+    "dataValue": {
+      "REFERENCE_NUM": "TBS2209130005749",
+      "STATUS": "Failure",
+      "ERROR_CODE": "",
+      "ERROR_DES": "",
+      "OD_STATUS_DESC" :"Test Error msg description"
+    }
+  }

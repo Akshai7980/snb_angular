@@ -1,0 +1,46 @@
+{
+    "data": {
+        "success": {
+            "count": 4,
+            "userDocumentsList": {
+                "userDocument": [
+                    {
+                        "name": "ecorp96_user03_20220212_170259420",
+                        "documentId": 1062,
+                        "createdAt": "2022-06-12-17:02:59.000",
+                        "ready": false,
+                        "status": "GENERAL_EXCEPTION",
+                        "count": 0
+                    },
+                    {
+                        "name": "ecorp96_user03_20220412_170457897",
+                        "documentId": 1064,
+                        "createdAt": "2022-06-12-17:04:57.000",
+                        "ready": false,
+                        "status": "GENERAL_EXCEPTION",
+                        "count": 0
+                    },
+                    {
+                        "name": "ecorp96_user03_20220512_170504408",
+                        "documentId": 1065,
+                        "createdAt": "2022-06-12-17:05:04.000",
+                        "ready": false,
+                        "status": "GENERAL_EXCEPTION",
+                        "count": 0
+                    },
+                    {
+                        "name": "ecorp96_user03_20223525_183528390",
+                        "documentId": 1052,
+                        "createdAt": "2022-05-25-18:35:28.000",
+                        "ready": false,
+                        "status": "GENERAL_EXCEPTION",
+                        "count": 0
+                    }
+                ]
+            }
+        }
+    },
+    "headerValue": {
+        "moduleId": "POSTRNSCTIN"
+    }
+}

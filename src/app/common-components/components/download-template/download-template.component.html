@@ -1,0 +1,4 @@
+<div class="downloadSct" (click)="downloadStatement()" *ngIf="downloadSection">
+<div class="downloadIcon" ></div>
+<div class="downloadText" translate>LBL_DOWNLOAD_TEMPLATE</div></div>
+<app-ajax-loader-small [hidden]="isLoadingCompelete" class="icons"></app-ajax-loader-small>

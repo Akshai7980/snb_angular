@@ -1,0 +1,38 @@
+{
+    "data": [
+        {
+            "activateMonth": [
+                {
+                    "month": "01",
+                    "monthDes": "january"
+                },
+                {
+                    "month": "02",
+                    "monthDes": "february"
+                },
+                {
+                    "month": "03",
+                    "monthDes": "march"
+                },
+                {
+                    "month": "04",
+                    "monthDes": "april"
+                },
+                {
+                    "month": "05",
+                    "monthDes": "may"
+                }
+            ],
+            "activateYear": [
+                {
+                    "year": "2025",
+                    "yearDes": "two thousand twenty five"
+                },
+                {
+                    "year": "2026",
+                    "yearDes": "two thousand twenty six"
+                }
+            ]
+        }
+    ]
+}

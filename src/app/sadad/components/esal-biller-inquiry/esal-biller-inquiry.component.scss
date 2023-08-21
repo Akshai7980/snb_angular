@@ -1,0 +1,33 @@
+.casaTable {
+    width: 100%;
+    background-color: var(--primary-widget-bg-color);
+}
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+    border: none !important;
+}
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+    padding-left: 5px;
+}
+.actionIcon {
+    background: url(../../../../assets/images/delete.svg) no-repeat center;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.refreshCntr {
+    position: relative;
+    app-refresh {
+        position: absolute;       
+        right: 0;
+    }
+    app-search{
+        position: absolute;
+        left : 73px;
+    }
+}
+
+
+

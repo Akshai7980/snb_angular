@@ -1,0 +1,77 @@
+.outerContainer {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.title {
+  width: 215px;
+  height: 30px;
+  padding: 0px 0px 0px 5px;
+  background-size: cover;
+  font-size: 18px;
+  color: var(--tableData-header-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+
+.accountDetails {
+  padding: 15px 15px 50px 15px;
+  margin-top: 15px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+}
+
+.subTitles {
+  margin: 20px 0px 15px 11px;
+}
+
+.commericialContainer {
+  margin-left: 12px;
+}
+
+.selectInput {
+  // margin-bottom: 10px;
+  min-width: 300px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  cursor: auto;
+  background-color: var(--primary-widget-bg-color);
+}
+
+.flex {
+  display: flex;
+}
+
+.actionGroup {
+  float: right;
+  margin-right: 23px;
+}
+
+.merchnatContainer {
+  margin-bottom: 30px;
+}
+
+.btnContainer {
+  float: right;
+  margin-top: 25px;
+}
+
+.matSelectInput {
+  margin-bottom: 10px;
+  width: 300px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  cursor: auto;
+  background-color: var(--primary-widget-bg-color);
+}

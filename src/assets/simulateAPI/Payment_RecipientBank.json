@@ -1,0 +1,262 @@
+{
+    "headerValue": {
+        "moduleId": "DFTBANKLOOKUP",
+        "simulate": "N",
+        "export": null,
+        "exportType": null,
+        "_dinsess": "c95010fa-c434-46e0-a2f6-d480bbeb457b",
+        "languageId": null
+    },
+    "data": [
+        {
+            "bankName": "AL INMA BANK",
+            "country": "SA",
+            "city": null,
+            "branchName": "AL ANOUD TOURKING FAHD ROAD",
+            "swiftCode": "INMASARIXXX",
+            "bankCode": "35187",
+            "address_1": "AL ANOUD TOURKING FAHD ROAD",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "AL RAJHI BANK",
+            "country": "SA",
+            "city": null,
+            "branchName": "AKARIA 3OLAYA MAIN STREET",
+            "swiftCode": "BSFR",
+            "bankCode": "48884",
+            "address_1": "AKARIA 3OLAYA MAIN STREET",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "ALAWWAL BANK",
+            "country": "SA",
+            "city": null,
+            "branchName": "HEAD OFFICE BUILDINGDHABAB STREET",
+            "swiftCode": "AAALSARIXXX",
+            "bankCode": "9",
+            "address_1": "HEAD OFFICE BUILDINGDHABAB STREET",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "ARAB NATIONAL BANK",
+            "country": "SA",
+            "city": null,
+            "branchName": "KING FAISAL STREET NORTH MURABATEMP ADDR2",
+            "swiftCode": "ARNBSARIXXX",
+            "bankCode": "60215",
+            "address_1": "KING FAISAL STREET NORTH MURABATEMP ADDR2",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "BANK AL BILAD",
+            "country": "SA",
+            "city": null,
+            "branchName": "BANK AL BILADSALAHUDDIN ROAD",
+            "swiftCode": "ALBISARIXXX",
+            "bankCode": "1417",
+            "address_1": "BANK AL BILADSALAHUDDIN ROAD",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "BANK AL JAZIRA",
+            "country": "SA",
+            "city": null,
+            "branchName": "KHALID BIN WALEED STREETTEMP ADDR2",
+            "swiftCode": "BJAZSAJEXXX",
+            "bankCode": "8403",
+            "address_1": "KHALID BIN WALEED STREETTEMP ADDR2",
+            "address_2": "JEDDAH"
+        },
+        {
+            "bankName": "BANKMUSCAT",
+            "country": "SA",
+            "city": null,
+            "branchName": "BURJ ALIDARIBLDG NO737",
+            "swiftCode": "BMUSSARIXXX",
+            "bankCode": "73271",
+            "address_1": "BURJ ALIDARIBLDG NO737",
+            "address_2": "KING FAHAD ROADRIYADH"
+        },
+        {
+            "bankName": "BANQUE SAUDI FRANSI",
+            "country": "SA",
+            "city": null,
+            "branchName": "AL MATHER STREETTEMP ADDR2",
+            "swiftCode": "BSFRSARIXXX",
+            "bankCode": "14524",
+            "address_1": "AL MATHER STREETTEMP ADDR2",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "BNP PARIBAS SAUDI ARABIA",
+            "country": "SA",
+            "city": null,
+            "branchName": "AL FAISALIAH TOWERKING FAHD ROAD",
+            "swiftCode": "BNPASARIXXX",
+            "bankCode": "10220",
+            "address_1": "AL FAISALIAH TOWERKING FAHD ROAD",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "DEUTSCHE BANK AG RIYADH BRANCH",
+            "country": "SA",
+            "city": null,
+            "branchName": "FAISALIA TOWERTEMP ADDR2",
+            "swiftCode": "DEUTSARIXXX",
+            "bankCode": "24303",
+            "address_1": "FAISALIA TOWERTEMP ADDR2",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "EMIRATES NBD PJSC",
+            "country": "SA",
+            "city": null,
+            "branchName": "AL MAS CENTERKING FAHAD HIGHWAY JUNCTION OF",
+            "swiftCode": "EBILSARIXXX",
+            "bankCode": "140042",
+            "address_1": "AL MAS CENTERKING FAHAD HIGHWAY JUNCTION OF",
+            "address_2": "THALIAA STREET OLAYARIYADH"
+        },
+        {
+            "bankName": "EMIRATES NBD PJSC",
+            "country": "SA",
+            "city": null,
+            "branchName": "AL MAS CENTERKING FAHAD HIGHWAY JUNCTION OF",
+            "swiftCode": "EBILSARIXXX",
+            "bankCode": "64609",
+            "address_1": "AL MAS CENTERKING FAHAD HIGHWAY JUNCTION OF",
+            "address_2": "THALIAA STREET OLAYARIYADH"
+        },
+        {
+            "bankName": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA RIYADH BRA",
+            "country": "SA",
+            "city": null,
+            "branchName": "AL FAISALIAH OFFICEFLOOR 8",
+            "swiftCode": "ICBKSARIXXX",
+            "bankCode": "95050",
+            "address_1": "AL FAISALIAH OFFICEFLOOR 8",
+            "address_2": "T08A KING FAHAD HIGHWAYRIYADH"
+        },
+        {
+            "bankName": "JPMORGAN CHASE BANK NA RIYADH",
+            "country": "SA",
+            "city": null,
+            "branchName": "AL FAISALIAH TOWERFLOOR 8 AREA C",
+            "swiftCode": "CHASSARIXXX",
+            "bankCode": "51764",
+            "address_1": "AL FAISALIAH TOWERFLOOR 8 AREA C",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "NATIONAL BANK OF BAHRAIN",
+            "country": "SA",
+            "city": null,
+            "branchName": "AL AMAAR BLDG834",
+            "swiftCode": "NBOBSARIXXX",
+            "bankCode": "79672",
+            "address_1": "AL AMAAR BLDG834",
+            "address_2": "KING FAHAD HIGHWAYRIYADH"
+        },
+        {
+            "bankName": "NATIONAL BANK OF KUWAIT",
+            "country": "SA",
+            "city": null,
+            "branchName": "RED SEA PLAZAALANDALUS 15385",
+            "swiftCode": "NBOKSAJEXXX",
+            "bankCode": "79677",
+            "address_1": "RED SEA PLAZAALANDALUS 15385",
+            "address_2": "JEDDAH"
+        },
+        {
+            "bankName": "NATIONAL BANK OF PAKISTAN",
+            "country": "SA",
+            "city": null,
+            "branchName": "AL GUTHMI BUILDINGKING FAHAD ROAD 857",
+            "swiftCode": "NBPASARIXXX",
+            "bankCode": "42014",
+            "address_1": "AL GUTHMI BUILDINGKING FAHAD ROAD 857",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "NATIONAL COMMERCIAL BANK THE",
+            "country": "SA",
+            "city": null,
+            "branchName": "NCB HEAD OFFICE BUILDINGKING ABDUL AZIZ STREET",
+            "swiftCode": "NCBKSAJEXXX",
+            "bankCode": "42068",
+            "address_1": "NCB HEAD OFFICE BUILDINGKING ABDUL AZIZ STREET",
+            "address_2": "JEDDAH"
+        },
+        {
+            "bankName": "RIYAD BANK",
+            "country": "SA",
+            "city": null,
+            "branchName": "KING ABDUL AZIZ STREET OLD AIRPORTROAD",
+            "swiftCode": "RIBLSARIXXX",
+            "bankCode": "92811",
+            "address_1": "KING ABDUL AZIZ STREET OLD AIRPORTROAD",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "SAMBA FINANCIAL GROUP",
+            "country": "SA",
+            "city": null,
+            "branchName": "OLD AIRPORT ROADTEMP ADDR2",
+            "swiftCode": "SAMBSARIXXX",
+            "bankCode": "93065",
+            "address_1": "OLD AIRPORT ROADTEMP ADDR2",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "SAUDI ARABIAN MONETARY AUTHORITY",
+            "country": "SA",
+            "city": null,
+            "branchName": "MATHER ROADTEMP ADDR2",
+            "swiftCode": "SAMASARIXXX",
+            "bankCode": "000150",
+            "address_1": "MATHER ROADTEMP ADDR2",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "SAUDI ARABIAN MONETARY AUTHORITY",
+            "country": "SA",
+            "city": null,
+            "branchName": "MATHER ROADTEMP ADDR2",
+            "swiftCode": "SAMASARIXXX",
+            "bankCode": "50004",
+            "address_1": "MATHER ROADTEMP ADDR2",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "SAUDI BRITISH BANK THE",
+            "country": "SA",
+            "city": null,
+            "branchName": "AL AMIR ABDUL AZIZIBN MOSSAAD IBN JALAWI STREET",
+            "swiftCode": "SABBSARIXXX",
+            "bankCode": "49856",
+            "address_1": "AL AMIR ABDUL AZIZIBN MOSSAAD IBN JALAWI STREET",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "SAUDI INVESTMENT BANK THE",
+            "country": "SA",
+            "city": null,
+            "branchName": "AL MATHER ROADTEMP ADDR2",
+            "swiftCode": "SIBCSARIXXX",
+            "bankCode": "51764",
+            "address_1": "AL MATHER ROADTEMP ADDR2",
+            "address_2": "RIYADH"
+        },
+        {
+            "bankName": "STATE BANK OF INDIA",
+            "country": "SA",
+            "city": null,
+            "branchName": "AL ANDALUF PLAZASIPPEEN STREET",
+            "swiftCode": "SBINSAJEXXX",
+            "bankCode": "51764",
+            "address_1": "AL ANDALUF PLAZASIPPEEN STREET",
+            "address_2": "JEDDAH"
+        }
+    ]
+}

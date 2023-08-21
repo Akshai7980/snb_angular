@@ -1,0 +1,180 @@
+<div class="mainContainer" id="etLgDetails">
+  <div translate class="mainTitle">LBL_LETTER_OF_GUARANTEE_SUMMARY</div>
+  <div class="summaryOuterConainer">
+    <div class="summaryConainer">
+      <div class="fileDetails">
+        <div>
+          <div class="subTitles">
+            {{ "LBL_LETTER_GUARANTEE" | translate }}
+            {{ "LBL_ACC_TO" | translate }}
+            {{ lgSummary?.fullName ? lgSummary.fullName : "--" }}
+            {{ lgSummary?.nickNameAR ? lgSummary?.nickNameAR : "--" }}
+            <app-summary-tools
+              [printSection]="printSection"
+              [moduleId]="moduleId"
+            ></app-summary-tools>
+          </div>
+        </div>
+
+        <div class="refNO">
+          {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+          {{ lgSummary?.refNo ? lgSummary.refNo : "--" }}
+        </div>
+        <div class="title">
+          <div>
+            {{ "LBL_AMOUNT" | translate }}
+            <span class="fntbold"> {{ lgDetails?.amount ? (lgDetails.amount | currencyFormat: lgDetails?.lgCurrency) + " " + lgDetails?.lgCurrency : "--" }} </span>
+            {{ "LBL_ON" | translate }}
+            {{ lgSummary?.valueDate ? (lgSummary.valueDate | dateFormat) : "--" }}
+          </div>
+
+          <!-- <div class="pad_l_10">
+            <button class="status-green-button" translate>Approved</button> -->
+            <!-- [class.status-red-button]="fileDetails.status === 'Rejected'" -->
+
+            <div class="pad_l_10">
+              <button class="status-green-button" translate [class.status-red-button]="
+              lgSummary?.status === 'RN' ||
+              lgSummary?.status === 'RS' ||
+              lgSummary?.status === 'RE' ||
+              lgSummary?.status === 'RO' ||
+              lgSummary?.status === 'RH'
+                ">
+                {{
+                  lgSummary?.statusDesc
+                ? lgSummary.statusDesc
+                : "--"
+                }}
+              </button>
+            </div>
+
+          <!-- </div> -->
+        </div>
+      </div>
+
+      <div class="subContainer">
+        <div class="subTitles" translate>LBL_LG_ISSUE_DETAILS</div>
+        <div class="rowInnerCntr">
+          <div class="field">
+            <div class="label" translate>LBL_LANGUAGE_TO_BE_PRINTED</div>
+            <div class="information"> {{ lgDetails?.language ? lgDetails.language : "--" }} </div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_TYPE</div>
+            <div class="information">{{ lgDetails?.lgType ? lgDetails.lgType : "--" }}</div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_BRANCH</div>
+            <div class="information">{{ lgDetails?.LgBranch ? lgDetails.LgBranch : "--" }}</div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_AMOUNT</div>
+            <div class="information">{{ lgDetails?.amount ? (lgDetails.amount | currencyFormat:lgDetails?.lgCurrency) + " " + ((lgDetails?.amount && lgDetails?.lgCurrency) ? lgDetails.lgCurrency : "") : "--" }}</div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_AMOUNT_IN_ENGLISH</div>
+            <div class="information"> {{ lgDetails?.amount_Eng ? lgDetails.amount_Eng : "--" }} </div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_AMOUNT_IN_ARABIC</div>
+            <div class="information"> {{ lgDetails?.amount_AR ? lgDetails.amount_AR : "--" }} </div>
+          </div>
+
+          <div class="field">
+            <div class="label" translate>LBL_REPRESENTING</div>
+            <div class="information">{{ lgDetails?.representing ? lgDetails.representing : "--" }}</div>
+          </div>
+
+          <div class="field">
+            <div class="label" translate>LBL_REF_NUMBER</div>
+            <div class="information">{{ lgDetails?.reference_number ? lgDetails.reference_number : "--" }}</div>
+          </div>
+
+          <div class="field">
+            <div class="label" translate>LBL_EXPIRY_DATE</div>
+            <div class="information">{{ lgDetails?.expiryDate ? (lgDetails.expiryDate | dateFormat) : "--" }}</div>
+          </div>
+
+          <div class="field">
+            <div class="label" translate>LBL_PROJECT_NAME_AND_PURPOSE</div>
+            <div class="information">{{ lgDetails?.project_name_nd_purpose ? lgDetails.project_name_nd_purpose : "--" }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subContainer">
+        <div class="subTitles" translate>LBL_APPLICANT_DETAILS</div>
+        <div class="rowInnerCntr">
+          <div class="field">
+            <div class="label" translate>LBL_APPLICANTS_NAME</div>
+            <div class="information">{{ lgDetails?.applicantName ? lgDetails.applicantName : "--" }}</div>
+          </div>
+
+          <div class="field">
+            <div class="label" translate>LBL_COMMISSION_ACCOUNT</div>
+            <div class="information">{{ lgDetails?.commissionAccount ? lgDetails.commissionAccount : "--" }}</div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_MARGIN_ACCOUNT</div>
+            <div class="information">{{ lgDetails?.marginAccount ? lgDetails.marginAccount : "--" }}</div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_ADDRESS1</div>
+            <div class="information">{{ lgDetails?.address1 ? lgDetails.address1 : "--" }}</div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_ADDRESS2</div>
+            <div class="information"> {{ lgDetails?.address2 ? lgDetails.address2 : "--" }} </div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_ADDRESS3</div>
+            <div class="information"> {{ lgDetails?.address3 ? lgDetails.address3 : "--" }} </div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_EMAIL_ID</div>
+            <div class="information"> {{ lgDetails?.email ? lgDetails.email : "--" }} </div>
+          </div>
+
+          <div class="field">
+            <div class="label" translate>LBL_MOBILE</div>
+            <div class="information"> {{ lgDetails?.mobile ? lgDetails.mobile : "--" }} </div>
+          </div>
+
+          <div class="field">
+            <div class="label" translate>LBL_PHONE</div>
+            <div class="information"> {{ lgDetails?.phone ? lgDetails.phone : "--" }} </div>
+          </div>
+
+          <div class="field">
+            <div class="label" translate>LBL_FAX_NO</div>
+            <div class="information"> {{ lgDetails?.fax ? lgDetails.fax : "--" }} </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+  </div>
+
+  <div class="container">
+    <app-history [historyData]="workFlowHistoryParams"></app-history>
+  </div>
+
+  <div class="btnGroup mtop_20">
+    <app-tertiary-button buttonValue="LBL_BACK" (click)="onBack()">
+    </app-tertiary-button>
+    <app-secondary-button
+      buttonValue="LBL_REJECT"
+      (click)="rejectLg()"
+    ></app-secondary-button>
+    <app-secondary-button
+      buttonValue="LBL_AUTHORIZE"
+      (click)="authorizeLg()"
+    >
+    </app-secondary-button>
+  </div>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

@@ -1,0 +1,73 @@
+{
+  "dataValue": {
+    "CardDetails": {
+      "creditLimit": 1400,
+      "balance": 0,
+      "authorized": 0,
+      "creditOnline": 0,
+      "available": 1400,
+      "holderName": "نية للتأميننيمأتلل ةين mmmm",
+      "paymentType": 2,
+      "paymentTypeDescription": "FULL",
+      "dueAmount": 0,
+      "accountId": 62511680000102,
+      "statementDate": 20220915,
+      "cardId": "esK3tY8ZmCSozawzO3T8pL7bGXqhzru4ucACtI8CMjgmEQP2+WZ30Qup/69qh4m6",
+      "dueDate": 20220905,
+      "address": {
+        "city": 0,
+        "postalCode": 0,
+        "country": "AS"
+      },
+      "statusCode": 30,
+      "statusDescription": "Pending Activation",
+      "authorizationFlag": 1,
+      "authorizationFlagDescription": "decline no pick up",
+      "balanceOnHand": 0,
+      "missPaymentType": 0,
+      "id": 1010061695,
+      "dateOfBirth": 14060118,
+      "active": "D",
+      "increaseDate": 20211019,
+      "changeDate": 20220427,
+      "productType": "CORPORATE CARD",
+      "totalCreditLimit": 1400,
+      "memoBalance": 0,
+      "availableLimit": 1500,
+      "totalLoanAmount": 0,
+      "earlySettlementAmount": 0,
+      "tokenReferenceId": 9750005349,
+      "schedule": {
+        "paymentType": "F",
+        "debitType": "Y",
+        "cycle": 15
+      },
+      "membershipNumber": 7254041732,
+      "statementBalance": 0,
+      "remainingCashLimit": 375.06,
+      "accountBlockCode": {
+        "userBlockCode": "D",
+        "userBlockCodeDate": 20211123,
+        "systemBlockCode": "M",
+        "systemBlockCodeDate": 20920316
+      },
+      "accountCashLimit": 375.06,
+      "behaviorScore": "Active",
+      "accountCashUsedAmount": 0,
+      "idExpiryDate": 20200204,
+      "phoneNumber": 128889999,
+      "mobileNumber1": 96622222222,
+      "mobileNumber2": 96622222222,
+      "accountStatus": 11,
+      "accountStatusDescription": "D - CUSTOMER DEAD",
+      "cardType": "P",
+      "cardLevelLimit": 1400,
+      "expiryDate": 20251031,
+      "samaStatus": "Active",
+      "isCashback": false
+    }
+  },
+  "headerValue": {
+    "moduleId": "CRECRDDETAILS"
+  }
+}

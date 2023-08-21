@@ -1,0 +1,78 @@
+.mtop_20 {
+  margin-top: 20px;
+}
+
+// .bodyConatiners {
+//   position: relative;
+//   margin-top: 100px;
+// }
+
+.btnGroup {
+  float: right;
+  display: flex;
+  margin-top: 30px;
+}
+
+.footer {
+  padding-top: 40px;
+  margin-left: -29px;
+  float: left;
+  .termsAndContion {
+    padding-left: 33px;
+    color: var(--tableData-header-color);
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+  }
+  .terms {
+    margin-left: 2px;
+    color: var(--short-profile-txt-color);
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  a{
+    text-decoration: none;
+  }
+}
+
+.cancelButton {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25px;
+}
+
+.selectInput {
+  width: 300px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--input-text-color);
+  cursor: pointer;
+}
+
+.rowInnerCntr {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0px;
+  padding-top: -7px;
+  .field {
+    width: 33.33%;
+    padding-bottom: 20px;
+    .label {
+      font-family: "HelveticaNeueMed", arial, sans-serif;
+      color: var(--table-header-color);
+      font-size: 14px;
+      padding-top: 28px;
+    }
+    .information {
+      padding-top: 10px;
+      color: var(--tableData-header-color);
+
+      &.data {
+        padding-top: 20px;
+      }
+    }
+  }
+}

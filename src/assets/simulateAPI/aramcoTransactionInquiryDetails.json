@@ -1,0 +1,58 @@
+{
+  "data": {
+      "referenceNo": "TBC2207131228588",
+      "paymentType": "CREDIT",
+      "remitterId": "443322AE",
+      "txnType": "ARAMCO Payment",
+      "functionCode": "ARTXN",
+      "productCode": "PAYMNT",
+      "subProdCode": "ARAMCOPAY",
+      "odStatus": "Rejected by Approver",
+      "unitId": "IGTBSA",
+      "odStatusCode": "AO",
+      "odVersionNo": 2,
+      "createdDate": "13/07/2022",
+      "odMakerDate": "13/07/2022",
+      "valueDate": "13/07/2022",
+      "paymentAmount": 2300,
+      "debitAccNo": "500500165111",
+      "narration": "TEST",
+      "customerReference": "TEST",
+      "debitCcy": "SAR",
+      "debitBank": "Saudi National Bank",
+      "frozenAmount": "0",
+      "overDraftLimit": "0",
+      "holdAmount": "",
+      "invoiceTxns": [
+          {
+              "invoiceAmount": "3390",
+              "currency": "SAR",
+              "invoiceNo": "6383457920",
+              "invoiceDate": "09/01/2014",
+              "invoiceStatus": "Ready for Authorization",
+              "invoiceAmtInAccCCy": "50000",
+              "invoiceDueDate": "09/01/2014",
+              "equivalentCurrency" : "SAR"  
+          },
+          {
+            "invoiceAmount": "3390",
+            "currency": "SAR",
+            "invoiceNo": "6383457920",
+            "invoiceDate": "09/01/2014",
+            "invoiceStatus": "Ready for Authorization",
+            "invoiceAmtInAccCCy": "50000",
+            "invoiceDueDate": "09/01/2014",
+            "equivalentCurrency" : "SAR"
+        }
+      ],
+      "rejectReason":"Testing Rejected Reason"
+  },
+  "headerValue": {
+      "moduleId": "ARMCOPAYDET",
+      "simulate": "N",
+      "export": null,
+      "totalCount": null,
+      "exportType": null,
+      "_dinsess": "282e9462-64c0-42de-85a7-353d6fb58cf9"
+  }
+}

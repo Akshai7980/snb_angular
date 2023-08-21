@@ -1,0 +1,12 @@
+{
+    "headerValue": {
+    "moduleId": "BALACCSVALID",
+    "simulate": "N"
+     },
+     "dataValue": [
+        {
+            "OD_STATUS_DESC":"Balance Certificate document cannot be issued as the logged-in user does not have access to all accounts related to the selected CIF",
+             "ERROR_CODE":"ERR001"
+             }       
+            ]
+    }

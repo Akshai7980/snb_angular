@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "violatorId": "70283123",
+      "transactionId": "T12121221",
+      "biller": "KENR",
+      "service": "Electricity",
+      "debitAcc": "9811212121",
+      "violationId": "30291812332",
+      "beneficiaryName": "Dameer Ahsan",
+      "status": "Rejected",
+      "ccy": "BHD",
+      "payAmt": "200.097"
+    }
+  ],
+  "headerValue": {
+    "moduleId": "SADRECSUMY"
+  }
+}

@@ -1,0 +1,128 @@
+{
+    "data": [
+        {
+            "refNo": "TBC2208301819244",
+            "cardNo": "529415122342290",
+            "accNo":"3300000000000100",
+            "cardName": "Dameer Ahsan",
+            "cardType": "Mada Card",
+            "cardDate": "30/12/2022",
+            "serviceType": "Change withdrawal limit",
+            "statusDesc": "approved",
+            "status": "RA",
+            "cifNo": "00122"
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "cardNo": "529415122342290",
+            "accNo":"3300000000000100",
+            "cardName": "Dameer Ahsan",
+            "cardType": "Mada Card",
+            "cardDate": "30/12/2022",
+            "serviceType": "Change card limit",
+            "statusDesc": "approved",
+            "status": "RA",
+            "cifNo": ""
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "cardNo": "529415122342290",
+            "accNo":"3300000000000100",
+            "cardName": "Dameer Ahsan",
+            "cardType": "Credit Card",
+            "cardDate": "30/12/2022",
+            "serviceType": "Re-issue card",
+            "statusDesc": "approved",
+            "status": "RA",
+            "cifNo": ""
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "cardNo": "529415122342290",
+            "accNo":"3300000000000100",
+            "cardName": "Dameer Ahsan",
+            "cardType": "Mada Card",
+            "cardDate": "30/12/2022",
+            "serviceType": "Change withdrawal limit",
+            "statusDesc": "approved",
+            "status": "RA",
+            "cifNo": ""
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "cardNo": "529415122342290",
+            "accNo":"3300000000000100",
+            "cardName": "Dameer Ahsan",
+            "cardType": "Mada Card",
+            "cardDate": "30/12/2022",
+            "serviceType": "Change withdrawal limit",
+            "statusDesc": "approved",
+            "status": "RA",
+            "cifNo": ""
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "cardNo": "529415122342290",
+            "accNo":"3300000000000100",
+            "cardName": "Dameer Ahsan",
+            "cardType": "Credit Card",
+            "cardDate": "30/12/2022",
+            "serviceType": "Change withdrawal limit",
+            "statusDesc": "approved",
+            "status": "RA",
+            "cifNo": ""
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "cardNo": "529415122342290",
+            "accNo":"3300000000000100",
+            "cardName": "Dameer Ahsan",
+            "cardType": "Mada Card",
+            "cardDate": "30/12/2022",
+            "serviceType": "Change withdrawal limit",
+            "statusDesc": "approved",
+            "status": "RA",
+            "cifNo": ""
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "cardNo": "529415122342290",
+            "accNo":"3300000000000100",
+            "cardName": "Dameer Ahsan",
+            "cardType": "Mada Card",
+            "cardDate": "30/12/2022",
+            "serviceType": "Change withdrawal limit",
+            "statusDesc": "approved",
+            "status": "RA",
+            "cifNo": ""
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "cardNo": "529415122342290",
+            "accNo":"3300000000000100",
+            "cardName": "Dameer Ahsan",
+            "cardType": "Mada Card",
+            "cardDate": "30/12/2022",
+            "serviceType": "Change withdrawal limit",
+            "statusDesc": "approved",
+            "status": "RA",
+            "cifNo": ""
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "cardNo": "529415122342290",
+            "accNo":"3300000000000100",
+            "cardName": "Dameer Ahsan",
+            "cardType": "Mada Card",
+            "cardDate": "30/12/2022",
+            "serviceType": "PoS purchase limit",
+            "statusDesc": "approved",
+            "status": "RA",
+            "cifNo": ""
+        }
+    ],
+    "headerValue": {
+        "moduleId": "CARDINQ",
+        "totalCount": "10"
+    }
+}

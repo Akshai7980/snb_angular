@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "branchCode": "001",
+      "branchNameEn": "MAKKAH AL MOKARAMAH MAIN",
+      "branchNameAr": "مكة المكرمة الرئيسى"
+    },
+    {
+      "branchCode": "433",
+      "branchNameEn": "DHAHRAN AL JANOUB",
+      "branchNameAr": "ظهران الجنوب"
+    },
+    {
+      "branchCode": "004",
+      "branchNameEn": "AL JUBAIL",
+      "branchNameAr": "الجبيل"
+    },
+    {
+      "branchCode": "107",
+      "branchNameEn": "BAB MAKKAH",
+      "branchNameAr": "باب مكة"
+    }
+  ],
+  "headerValue": {
+    "moduleId": "GETLGBRANCH",
+    "simulate": "N",
+    "_dinsess": "9c6e5df8-4cc9-4862-9209-c3c19b588149"
+  }
+}

@@ -1,0 +1,173 @@
+<div>
+  <div class="subContainer">
+    <div class="payrollInquiryListContainer">
+      <div id="payrollInquiryRecords">
+        <div class="border">
+          <div>
+            <span class="subTitles" translate>LBL_PAYROLL_INQUIRY</span>
+            <app-summary-tools
+              [moduleId]="moduleId"
+              *ngIf="
+                !noRecordFlag &&
+                payrollInquiryListDataSource.filteredData?.length > 0
+              "
+            ></app-summary-tools>
+
+            <div class="mTop_18" *ngIf="!noRecordFlag">
+              <div class="actionsConatiner">
+                <div class="leftPannel">
+                  <div class="advSearch">
+                    <app-search
+                      [showAdvanceSearch]="false"
+                      (childEvent)="triggerSearchFilter($event)"
+                    >
+                    </app-search>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" id="logoPrint">
+              <div><img class="logo" src="{{ logo }}" /></div>
+              <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+            </div>
+          </div>
+        </div>
+        <table
+          mat-table
+          *ngIf="
+            !noRecordFlag &&
+            payrollInquiryListDataSource.filteredData?.length > 0
+          "
+          id="payrollInquiryList"
+          [dataSource]="payrollInquiryListDataSource"
+          matSort
+          class="casaTable"
+        >
+          <ng-container matColumnDef="transactionRefNo">
+            <th
+              class="nickName"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+              translate
+            >
+              <div class="position_rel" translate>LBL_Transaction_Id</div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <div class="ellipsis">
+                {{
+                  element?.transactionRefNo ? element.transactionRefNo : "--"
+                }}
+              </div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fromAccountId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+              <div class="position_rel" translate>LBL_ACCOUNT</div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <div class="ellipsis">
+                {{ element?.fromAccountId ? element.fromAccountId : "--" }}
+              </div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="totalRecords">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+              <div class="position_rel" translate>LBL_RECORDS</div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <div class="ellipsis">
+                {{ element?.totalRecords ? element.totalRecords : "--" }}
+              </div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="valueDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+              <div class="position_rel" translate>LBL_VALUE_DATE</div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <div class="ellipsis">
+                {{
+                  element?.valueDate ? (element.valueDate | dateFormat) : "--"
+                }}
+              </div>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="totalAmount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+              <div class="position_rel" translate>LBL_AMOUNT</div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <div class="ellipsis">
+                {{
+                  element?.totalAmount
+                    ? (element.totalAmount | currencyFormat : "SAR") +
+                      " " +
+                      "SAR"
+                    : "--"
+                }}
+              </div>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="fileName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+              <div class="position_rel" translate>LBL_FILE</div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <div class="ellipsis">
+                {{ element?.fileName ? element.fileName : "--" }}
+              </div>
+            </td>
+            <td mat-cell *matCellDef="let element"></td>
+          </ng-container>
+          <ng-container matColumnDef="fileType">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+              <div class="position_rel" translate>LBL_TYPE</div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <div class="ellipsis">
+                {{ element?.fileType ? element.fileType : "--" }}
+              </div>
+            </td>
+            <td mat-cell *matCellDef="let element"></td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            (click)="showDetails(row)"
+          ></tr>
+        </table>
+        <div
+          *ngIf="
+            noRecordFlag ||
+            payrollInquiryListDataSource.filteredData?.length <= 0
+          "
+        >
+          <app-no-record-found
+            [noRecordFoundInfo]="noRecordFoundObject"
+          ></app-no-record-found>
+        </div>
+
+        <div
+          [hidden]="
+            payrollInquiryListDataSource.filteredData?.length <= 0 ||
+            noRecordFlag
+          "
+        >
+          <app-pagination
+            #paginator
+            [dataSourceLength]="dataSourceLength"
+            [currentRecord]="'recordSummary'"
+            [totalRecords]="totalRecords"
+          ></app-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

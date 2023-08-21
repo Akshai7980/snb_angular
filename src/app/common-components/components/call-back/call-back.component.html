@@ -1,0 +1,30 @@
+<div class="callBackConatiner">
+    <div  class="title" translate>LBL_CALL_BACK</div>
+    <div id="defaultMsg" class="subContainer" *ngIf="showOngoingCallCase">
+        <div class="onGoing" translate>LBL_ONGOING_CALL</div>
+        <div class="message" *ngIf="pageName && (pageName ==='beneficiary' || pageName ==='sadadBiller' || pageName === 'additionalAccount' || pageName === 'reissueCard' || pageName === 'activateCard' || pageName === 'newMadaCard')"><span>{{'LBL_ACTIVATION_PHONE_NO' | translate}} </span> <div class="mobNum">{{callNumber}}</div> </div>
+        <div class="message" *ngIf="!pageName"><span> {{'LBL_ACTIVATION_PHONE_NO' | translate}} </span> <div class="mobNum">{{callNumber}}</div></div>
+        <div class="message" *ngIf="pageName &&  pageName === 'changePassword'"> <span>{{'LBL_IVR_CALL_INITIATED' | translate}} </span> <div class="mobNum">{{callNumber}}</div></div>
+    </div>
+    <div id="errorMsg" class="subContainer" *ngIf="showErrorCase">  
+        <div class="failed"><img src="./assets/images/redFailed.svg" alt="failIcon"><span class="iconText" translate>LBL_FAILED</span></div>
+        <div class="message" translate>LBL_FAILED_MESSAGE</div>
+    </div>
+    <div id="successMsg" class="subContainer" *ngIf="showSuccessCase">
+        <div class="success"><img src="./assets/images/greenTick.svg" alt="successIcon"><span class="iconText" translate>LBL_SUCCESS</span></div>
+        <div class="message" *ngIf="pageName !== 'additionalAccount' && pageName !== 'reissueCard' && pageName !== 'activateCard' && pageName !== 'newMadaCard'" translate>LBL_SUCCESS_MESSAGE</div>
+        <div class="message" *ngIf="pageName === 'additionalAccount'" translate>LBL_ADDTIONAL_ACC_ACTIVATED_SUCCESS_MESSAGE</div>
+        <div class="message" *ngIf="pageName === 'activateCard'" translate>LBL_ACTIVATED_CARD_SUCCESS_MESSAGE</div>
+        <div class="message" *ngIf="pageName === 'reissueCard'" translate>LBL_REISSUE_CARD_ACTIVATED_SUCCESS_MESSAGE</div>
+        <div class="message" *ngIf="pageName === 'newMadaCard'" translate>LBL_NEW_MADA_CARD_ACTIVATED_SUCCESS_MESSAGE</div>
+    </div>
+    <div id="successMsg" class="subContainer" *ngIf="showInquicryCase">
+        <div class="onGoing" translate>LBL_ENQUIRE_AGAIN</div>
+        <div class="message" translate>LBL_FAILED_MESSAGE</div>
+    </div>
+    <div id="btnContainer" class="buttons" *ngIf="!showSuccessCase">
+        <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancelCallback()"></app-tertiary-button>
+        <app-secondary-button (click)="callAgain(btnLabel)" buttonValue="{{btnLabel}}" [disablBtn]="disabled"></app-secondary-button>
+    </div>
+</div>
+<app-ajax-loader-medium [hidden]="isLoadingCompelete"></app-ajax-loader-medium>

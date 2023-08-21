@@ -1,0 +1,12 @@
+{
+    "dataValue": {
+      "INPUT_REFERENCE_NO": "TBC2301041606339",
+      "OD_STATUS": "RA",
+      "STATUS": "SUCCESS",
+      "OD_STATUS_DESC": "Success",
+      "expirydate":"07/01 14:03"
+    },
+    "headerValue": {
+      "moduleId": "MGPULTSUBMIT"
+    }
+  }

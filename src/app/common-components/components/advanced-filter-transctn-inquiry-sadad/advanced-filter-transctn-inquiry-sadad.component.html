@@ -1,0 +1,127 @@
+<div class="filter-search-popup" *ngIf="showAdvancedSearchPopup" (click)="stopAdvancedSearchClose($event)">
+    <div translate class="header">LBL_FILTER
+        <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+    </div>
+     
+    <div class="flexCntr">
+        <div class="invoiceNo">
+            <div class="fieldLabel" translate>LBL_BILLER</div>
+            <input type="text" [(ngModel)]="searchwithin" name="searchwithin"  class="txt-fld mt-top">
+        </div>
+        <div class="invoiceNo">
+            <div class="fieldLabel" translate>LBL_SERVICE_TYPE</div>
+            <input type="text" [(ngModel)]="subProduct" name="subProduct"  class="txt-fld mt-top">
+        </div>
+        <div class="">
+            <div class="fieldLabel" translate>LBL_REF_NUMBER</div>
+            <input type="text" [(ngModel)]="refNum" name="refno"  class="txt-fld mt-top">
+        </div>
+
+        <div class="fromto">
+            <div class="datefrom">
+                <div translate class="fieldLabel" id="proctm">LBL_FROM_AMOUNT</div>
+                <div class="shortInput mt-top"><input type="text" placeholder="0.00" [(ngModel)]="amount" (keypress)="numericOnly($event)" (blur)="filterAmtValidation()"></div>
+            </div>
+            <div class="dateto">
+                <div translate class="fieldLabel" id="proctm">LBL_TO_AMOUNT</div>
+                <div class="shortInput mt-top"><input type="text" placeholder="0.00" [(ngModel)]="to" (keypress)="numericOnly($event)" (blur)="filterAmtValidation()"></div>
+                <small *ngIf="isShownAmountValidation" translate class="required">LBL_TO_AMOUNT_SHOULD_BE_GREATER_THAN_FROM_AMOUNT</small>
+            </div>              
+        </div>
+        <div class="fromto" >
+            <div class="datefrom">
+                <div translate class="fieldLabel" id="proctmf">LBL_FROM_DATE</div>
+                <div class="shortDatePicker mt-top"><app-date-picker [clearFlag]="clearFlag" [showDateErrorMessage]="showDateErrorMessage" (dateValue)="getFromDate($event)" [maxDate]="maxDate" [minDate]="minDate" [newDate]="fromDateValue"></app-date-picker></div>
+            </div>
+            <div class="dateto">
+                <div translate class="fieldLabel" id="proctm">LBL_TO_DATE</div>
+                <div class="shortDatePicker mt-top"><app-date-picker [clearFlag]="clearFlag" [showDateErrorMessage]="showDateErrorMessage"  (dateValue)="getToDate($event)" [maxDate]="maxDate" [minDate]="fromDateValue" [newDate]="toDateValue"></app-date-picker></div>
+            </div>
+        </div>
+        
+
+        <div>
+            
+    
+            <!-- <div class="searchwithin"> 
+                <div translate class="fieldLabel">LBL_SEARCH_WITHIN</div>
+                <mat-select panelClass="mediumDropDownOption" class="selectInput" [(value)]="searchwithin" disableOptionCentering>
+                    <mat-option value="Biller">{{'LBL_BILLER' | translate}}</mat-option>
+                    <mat-option value="Service Type">{{'LBL_SERVICE_TYPE' | translate}}</mat-option>
+                    <mat-option value="Value Date">{{'LBL_VALUE_DATE' | translate}}</mat-option>
+                    <mat-option value="Amount">{{'LBL_AMOUNT' | translate}}</mat-option>
+                </mat-select>
+            </div> -->
+            <!-- <div class="box" *ngIf="searchwithin==='Biller'"> 
+                <div class="box"> 
+                <div translate class="fieldLabel">LBL_BILLER_NAME</div>
+                <mat-select panelClass="mediumDropDownOption" class="selectInput" [(value)]="billerName" disableOptionCentering>
+                    <mat-option value="{{biller}}" *ngFor="let biller of billers">{{biller}}</mat-option>           
+                </mat-select>
+                </div>
+            </div>  -->
+            <div  class="box" *ngIf="searchwithin==='Service Type'"> 
+                <div translate class="fieldLabel">LBL_SERVICE_TYPE</div>
+                <mat-select panelClass="mediumDropDownOption" class="selectInput" [(value)]="serviceName" disableOptionCentering>
+                    <mat-option value="{{srvType}}" *ngFor="let srvType of serviceTypes">{{srvType}}</mat-option>           
+                </mat-select>
+            </div>
+            <div class="flexCntr" *ngIf="searchwithin==='Value Date'">
+                 <div class="box"> 
+                     <div translate class="fieldLabel">LBL_FROM_DATE</div>
+                     <div class="shortDatePicker mtop_5"><app-date-picker [clearFlag]="clearFlag" (dateValue)="getDate($event,'frm')" [newDate]="frmDate"></app-date-picker></div>
+                 </div> 
+                 <div class="box"> 
+                  <div translate class="fieldLabel">LBL_TO</div>
+                  <div class="shortDatePicker mtop_5"><app-date-picker [clearFlag]="clearFlag" (dateValue)="getDate($event,'to')" [newDate]="toDate"></app-date-picker></div>
+                 </div> 
+            </div> 
+            <div class="flexCntr dateContainer" *ngIf="searchwithin==='Amount'">
+                 <div class="box"> 
+                     <div translate class="fieldLabel">LBL_AMT_TO</div>
+                     <div class="mtop_5">
+                         <input type="text" [(ngModel)]="frmAmt" class="txt-fld" (keypress)="numberOnly($event)">
+                     </div>
+                 </div> 
+                 <div class="box"> 
+                    <div translate class="fieldLabel">LBL_TO</div>
+                    <div class=" mtop_5">
+                         <input type="text" [(ngModel)]="toAmt" class="txt-fld" (keypress)="numberOnly($event)">
+                    </div>
+                 </div>
+            </div>
+            
+            
+        </div>
+        <div>
+            <!-- <div class="searchwithin box"> 
+                <div translate class="fieldLabel">LBL_RESULTS_PER_PAGE</div>
+                <mat-select panelClass="mediumDropDownOption" class="selectInput" [(value)]="itemsPerPage" disableOptionCentering>
+                    <mat-option value="100">100</mat-option>           
+                    <mat-option value="50">50</mat-option>           
+                    <mat-option value="25">25</mat-option>           
+                </mat-select>
+            </div>  -->
+            <!-- <div class="box" *ngIf="searchwithin==='Value Date'"> 
+                <div translate class="fieldLabel">LBL_DATE_ORDER</div>
+                <mat-select panelClass="mediumDropDownOption" class="selectInput" [(value)]="orderType" disableOptionCentering>
+                    <mat-option value="asc">{{'LBL_ASCENDING' | translate}}</mat-option>           
+                    <mat-option value="des">{{'LBL_DESCENDING' | translate}}</mat-option>           
+                </mat-select>
+            </div>  -->
+            
+        </div>
+        
+        
+    </div>
+    <div class="submt">
+        <div>
+            <!-- <button class="clr" (click)="onClickClear()" translate>LBL_CLEAR</button> -->
+            <app-tertiary-button buttonValue="LBL_CLEAR" (click)="onClickClear()"></app-tertiary-button>
+        </div>
+        <div>
+            <!-- <button class="apply" (click)="onClickApply()" translate>LBL_APPLY</button> -->
+            <app-primary-button (click)="onClickApply()" buttonValue="LBL_APPLY"></app-primary-button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+.mainContainer {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 25px 0px 0px;
+
+  .title {
+    padding: 0px 0px 0px 5px;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    margin: 0px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+  }
+}
+
+.main-container {
+  position: relative;
+  padding: 20px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-family: Helvetica;
+  font-size: 16px;
+  color: var(--tableData-header-color);
+  text-decoration: none solid rgb(93, 93, 93);
+  margin-top: 20px;
+
+  .sub-title {
+    font-size: 15px;
+    color: var(--tableData-header-color);
+    margin: 0px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    margin-bottom: 20px;
+  }
+
+  .input-label {
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+    color: var(--table-header-color);
+  }
+}
+
+.templateName {
+  padding: 0px 0px 25px 10px;
+}
+
+.fileName {
+  margin-top: 20px;
+}
+
+.fileDetailsContainer {
+  padding: 0px 0px 25px 10px;
+}
+
+.fileDetailsSubContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actionGroup {
+  float: right;
+  display: flex;
+  align-self: flex-end;
+  justify-content: flex-end;
+  margin-top: 30px;
+
+}
+
+.fileNameDownload {
+  margin-left: -25px;
+}
+
+.flex {
+  display: flex;
+}
+
+.spinner {
+  width: 20px;
+  margin-left: 23px;
+
+}
+
+.spinnerSummaryRecord {
+  width: 20px;
+}
+.fileDownload {
+  color: var(--input-text-color);
+  font-size: 14px;
+  font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+.label-content {
+  color: var(--input-text-color);
+  font-size: 14px;
+  font-family:  'HelveticaNeueMed', arial, sans-serif;
+}
+.input-records {
+  font-size: 14px;
+  font-family:'HelveticaNeueMed', arial, sans-serif;
+}
+.recordSummaryPosition{
+  position: relative;
+}
+.spinnerPosition{
+  position: absolute;
+  top: 15px;
+  left: 20%;
+
+}

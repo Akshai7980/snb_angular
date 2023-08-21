@@ -1,0 +1,46 @@
+.title {
+    width: 215px;
+    height: 30px;
+    padding: 0px 0px 0px 30px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+
+.subContainer {
+    padding: 20px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    margin: 5px 20px 0px 30px;
+}
+
+.buttons{
+    float: right;
+    margin: 19px 30px 0 0 ;
+}
+
+.afterproceed{
+    margin: 5px 20px 0px 30px;
+}
+
+.footer{
+    margin: 36px 30px 0 46px;
+    .termsAndConditions{
+        color: var(--tableData-header-color);
+        font-size: 14px;
+        font-family: 'HelveticaNeue', arial, sans-serif;
+
+        a{
+            color: var(--short-profile-txt-color);
+            text-decoration: none;
+        }
+    }
+    .finalProceed{
+        float: right;
+    }
+}

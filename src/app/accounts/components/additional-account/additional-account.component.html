@@ -1,0 +1,12 @@
+<div *ngIf="!showReceipt">
+  <app-additional-account-form *ngIf="isUpload" (accountEmitData)="getAccountDataEmit($event)">
+  </app-additional-account-form>
+  <app-additional-account-review *ngIf="showReviewSection" [additionalAccountDetails]="additionalAccountData"
+    (cancelBtn)="backToform($event)" (getClickEmit)="getClickEmit($event)" [otpError]="otpError">
+  </app-additional-account-review>
+</div>
+
+<app-receipt *ngIf="showReceipt" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject"  [hideButton]="true" [ChannelId]='ChannelId' (DownloadReceiptClick)="downloadPdf($event)">
+</app-receipt>
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

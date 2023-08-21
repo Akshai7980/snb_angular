@@ -1,0 +1,95 @@
+{
+  "headerValue": {
+    "moduleId": "MYSTOPPMNTONBINQ",
+    "simulate": "N",
+    "sortColumn": "makerDate",
+    "sortOrder": "asc",
+    "totalCount": "234"
+  },
+  "data": [
+    {
+      "referenceNo": "TBS2209130005734",
+      "type": "Bulk File Upload ",
+      "format": "CSV",
+      "status": "Rejected",
+      "totalAmt": "5300.078",
+      "fee": "10",
+      "action": "",
+      "ccy": "SAR",
+      "makerDate": "30/08/2022",
+      "level": "file"
+    },
+    {
+      "referenceNo": "TBS2209130005749",
+      "type": "Bulk File Upload ",
+      "format": "TXT",
+      "status": "Pending",
+      "totalAmt": "5300.078",
+      "fee": "10",
+      "action": "",
+      "ccy": "SAR",
+      "makerDate": "30/08/2022",
+      "level": "txn"
+    },
+    {
+      "referenceNo": "TBS2209130005749",
+      "type": "Bulk File Upload ",
+      "format": "CSV",
+      "status": "test",
+      "totalAmt": "5300.078",
+      "fee": "10",
+      "action": "",
+      "ccy": "SAR",
+      "makerDate": "30/08/2022",
+      "level": "file"
+    },
+    {
+      "referenceNo": "TBS2209130005749",
+      "type": "Bulk File Upload ",
+      "format": "CSV",
+      "status": "Ready for Authorization",
+      "totalAmt": "5300.078",
+      "fee": "10",
+      "action": "",
+      "ccy": "SAR",
+      "makerDate": "30/08/2022",
+      "level": "file"
+    },
+    {
+      "referenceNo": "TBS2209130005749",
+      "type": "Bulk File Upload ",
+      "format": "CSV",
+      "status": "Ready for Authorization",
+      "totalAmt": "5300.078",
+      "fee": "10",
+      "action": "",
+      "ccy": "SAR",
+      "makerDate": "30/08/2022",
+      "level": "file"
+    },
+    {
+      "referenceNo": "TBS2209130005749",
+      "type": "Bulk File Upload ",
+      "format": "CSV",
+      "status": "Ready for Authorization",
+      "totalAmt": "5300.078",
+      "fee": "10",
+      "action": "",
+      "ccy": "SAR",
+      "makerDate": "30/08/2022",
+      "level": "file"
+    },
+    {
+      "referenceNo": "TBS2209130005749",
+      "type": "Bulk File Upload ",
+      "format": "CSV",
+      "status": "Ready for Authorization",
+      "totalAmt": "5300.078",
+      "fee": "10",
+      "action": "",
+      "ccy": "SAR",
+      "makerDate": "30/08/2022",
+      "level": "file"
+    }
+  ]
+}

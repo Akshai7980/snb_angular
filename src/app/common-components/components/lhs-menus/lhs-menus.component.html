@@ -1,0 +1,39 @@
+<div id="lhsMenuCntr" class="container">
+    <nav class="menu">
+        <ul>
+            <li class="menuLevel1" *ngFor="let menuLevel1 of arr">
+                <a *ngIf="!menuLevel1.level2Menu" class="{{menuLevel1.itemId}}" [class.active]="rootScopeData.currentUrl.indexOf(rootScopeData.urlMapping[menuLevel1.itemId])!=-1" (click)="menuClick(menuLevel1.itemId,'level1', rootScopeData.urlMapping[menuLevel1.itemId])">
+                    <span class="icon icon-{{menuLevel1.itemId}}"></span><span class="label">{{menuLevel1.dispKey | translate}}</span>
+                </a>
+                <a *ngIf="menuLevel1.level2Menu" [class.active]="rootScopeData.currentUrl.indexOf(rootScopeData.urlMapping[menuLevel1.itemId])!=-1" class="{{menuLevel1.itemId}}" (click)="expandCollapseSubMenus(menuLevel1.itemId)">
+                    <span class="icon icon-{{menuLevel1.itemId}}"></span><span class="label">{{menuLevel1.dispKey | translate}}</span>
+                </a>
+                <ul id="{{menuLevel1.itemId}}" class="level2Cntr hide">
+                    <li class="menuLevel2" *ngFor="let menuLevel2 of menuLevel1.level2Menu">
+                        <a class="{{menuLevel2.itemId}}" *ngIf="menuLevel2.itemType != 'SUB_MENU'" [class.active]="rootScopeData.currentUrl.indexOf(rootScopeData.urlMapping[menuLevel2.itemId])!=-1" (click)="menuClick(menuLevel2.itemId,'level2', rootScopeData.urlMapping[menuLevel2.itemId])">
+                            <span class="icon"></span><span class="label">{{menuLevel2.dispKey | translate}}</span>
+                        </a>
+                        <a class="applyFor" [class.active]="rootScopeData.currentUrl.indexOf(rootScopeData.urlMapping[menuLevel2.itemId])!=-1" *ngIf="menuLevel2.itemType == 'SUB_MENU'" (click)="expandCollapseSubMenus(menuLevel2.itemId)">
+                            <span class="icon-next_active {{menuLevel2.itemId}}"></span><span class="label">{{menuLevel2.dispKey | translate}}</span>
+                        </a>
+                        <ul id="{{menuLevel2.itemId}}" class="level3Cntr hide" *ngIf="menuLevel2.itemType == 'SUB_MENU'">
+                            <li class="menuLevel3" *ngFor="let menuLevel3 of menuLevel2.subMenu">
+                                <a [class.active]="rootScopeData.currentUrl.indexOf(rootScopeData.urlMapping[menuLevel3.itemId])!=-1" class="{{menuLevel3.itemId}}" (click)="menuClick(menuLevel3.itemId,'level3', rootScopeData.urlMapping[menuLevel3.itemId])">
+                                    <span class="icon"></span><span class="label">{{menuLevel3.dispKey | translate}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+
+<div class="header-panel">
+    <div class="header-panel-left headerPanelWidth">
+        <div class="paymentStatus" translate>LBL_PAYMENT_STATUS</div>
+    </div>
+</div>
+    <div class="Container">
+        <div class="rowInnerCnt">
+            <div class="fieldCntr">
+              <div class="labelCntr" translate>Ongoing</div>
+              <div class="informationCntr">
+                {{paymentStatusDetails.paymentStatusDescEN}}
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="subContainer">
+        <div class="rowInnerCntr">
+          <div class="field">
+            <div class="label" translate>LBL_PAYMENT_STATUS</div>
+            <div class="information">
+                <div class="information" *ngIf="paymentStatusDetails.paymentStatus; else emptystatus">
+                  {{ paymentStatusDetails.paymentStatus }}</div>
+                <ng-template #emptystatus>--</ng-template>
+              </div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_ORDER_DATE</div>
+            <div class="information">
+                <div class="information" *ngIf="paymentStatusDetails.orderDate; else emptyorder">
+                  {{ paymentStatusDetails.orderDate }}</div>
+                <ng-template #emptyorder>--</ng-template>
+              </div>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_CREDIT_VALUE_DATE</div>
+            <div class="information">
+                <div class="information" *ngIf="paymentStatusDetails.creditValueDate; else emptydate">
+                  {{ paymentStatusDetails.creditValueDate }}</div>
+                <ng-template #emptydate>--</ng-template>
+              </div>
+          </div>
+        </div>
+   </div>
+<!-- <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> -->
+
+

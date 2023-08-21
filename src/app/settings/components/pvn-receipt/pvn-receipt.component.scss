@@ -1,0 +1,95 @@
+.receiptConatiner{
+    width: 71.5%;
+    margin: auto;
+}
+.receiptSubconatiner{
+    margin-top: 8px;
+    border-radius: 6px;
+    background-color: var(--primary-widget-bg-color);
+    border: 1px solid var(--widget-border-color);
+    padding: 22px 0px 6px  0px;
+}
+.receiptIcon{
+    width: 40px;
+    height: 40px;
+}
+
+.titleContainer{
+    text-align: center;
+
+    .paymentStatus{
+        margin-top: 5px;
+        color: var(--short-profile-txt-color);
+        font-size: 16px;
+        font-family: "HelveticaNeueMed", arial, sans-serif;
+    }
+    .approval, .referenceNo{
+        color: var(--tableData-header-color);
+        margin-top: 5px;
+    }
+    .referenceNo{
+        font-family: "HelveticaNeueMed", arial, sans-serif;
+    }
+}
+.subTitles {
+    padding-bottom: 10px;
+}
+.row{
+    padding: 15px 20px 0 24px;
+    // margin: 0 0 12px;
+    border-bottom: 1px solid var(--widget-border-color);
+    &:last-child {
+        border: 0 none;
+    }
+}
+table{
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: var(--primary-widget-bg-color);
+}
+.information{
+    color: var(--tableData-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    padding-top: 10px;
+    word-break: break-word;
+    padding-right: 20px;
+}
+.dataNotProvided{
+    font-style: italic;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    color: var(--tableData-header-color);
+    margin-top: 10px;
+}
+
+.buttonContainer{
+    padding-top: 30px;
+    display: flex;
+    float: right;
+}
+.rowInnerCntr {
+    display: flex;
+    flex-wrap: wrap;
+    .field {
+        width: 33.33%;
+        padding-bottom: 20px;
+    }
+}
+
+.label{
+    color: #a2a2a2;
+    font-size: 14px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    word-break: break-word;
+    padding-right: 20px;
+}
+
+
+@media screen{
+    #logoPrint{display: none;}
+    .divFooter {
+        display: none;
+    }
+}
+.logo{height:60px;margin-top:10px;display:block;width:60px;padding-bottom: 10px;}
+
+  

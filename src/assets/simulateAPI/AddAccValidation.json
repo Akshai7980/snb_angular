@@ -1,0 +1,12 @@
+{
+    "headerValue": {
+        "moduleId": "ADDACCCVALIDATION",
+        "simulate": "N",
+        "_dinsess": "0fd2d004-014a-44c9-8b1f-a22dbf08c1c1"
+    },
+    "dataValue": {
+     "res_ErrorMessage":"Your request cannot process",
+     "res_ErrorCode":"99956"
+    },
+    "footerValue": {}
+}

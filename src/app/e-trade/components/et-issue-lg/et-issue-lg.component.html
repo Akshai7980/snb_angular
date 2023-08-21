@@ -1,0 +1,109 @@
+<div class="mainContainer" *ngIf="!submitSuccessful">
+  <div translate *ngIf="!showReview" class="mainTitle">
+    LBL_ISSUE_LETTER_OF_GUARANTEE
+  </div>
+  <div class="flexRow">
+    <div translate *ngIf="showReview" class="mainTitle">LBL_REVIEW</div>
+    <app-daily-limit
+      class="dailyLimit"
+      *ngIf="showReview && isDailyLimitActive && rootScopeData.dailyLimit"
+    ></app-daily-limit>
+  </div>
+
+  <div>
+    <app-debit-lookup
+      id="fromDebitLookup"
+      *ngIf="fromAccountsObject"
+      (onAccountSelect)="onFromAccountSelection($event)"
+      [debitAccDetails]="fromAccountsObject"
+      [shownsearch]="true"
+      [tableId]="'fromAccounts'"
+    ></app-debit-lookup>
+  </div>
+
+  <div *ngIf="showToAccounts" class="mtop_20">
+    <app-debit-lookup
+      id="toDebitLookup"
+      (onAccountSelect)="onToAccountSelection($event)"
+      [debitAccDetails]="toAccountsObject"
+      [shownsearch]="true"
+      [tableId]="'toAccounts'"
+    ></app-debit-lookup>
+  </div>
+  <div *ngIf="showDetails">
+    <app-et-lg-issue-details
+      [isReview]="showReview"
+      [isUpdate]="false"
+      [types]="types"
+      [branches]="branches"
+      [currencies]="currencies"
+      [errorsObject]="issueDetailsErrors"
+      [issueDetails]="issueDetails"
+      (details)="setIssueDetails($event)"
+    ></app-et-lg-issue-details>
+  </div>
+  <div *ngIf="showDetails">
+    <app-et-applicant-details
+      [isReview]="showReview"
+      [isUpdate]="false"
+      [applicantName]="selectedFromAccount.OD_ACC_NAME"
+      [commissionAccounts]="commissionAccounts"
+      [marginAccounts]="marginAccounts"
+      [errorsObject]="applicantDetailsErrors"
+      (applicantDetails)="setApplicantDetails($event)"
+    ></app-et-applicant-details>
+  </div>
+  <div *ngIf="showReview && showAuthorization">
+    <app-authorization
+      [authListDataSource]="authorsList"
+      (authEmit)="setAuthorizationData($event)"
+    ></app-authorization>
+  </div>
+  <div *ngIf="showReview">
+    <app-authentication
+      (onTwoAuthClick)="onSecondFactorValue($event)"
+      (getOtpClick)="getOtpValue($event)"
+      [otpError]="otpError"
+      (authenticationType)="getAuthType($event)"
+      [initParam]="initReqParam"
+    ></app-authentication>
+  </div>
+  <div class="btnGroup mtop_20" *ngIf="!showReview">
+    <app-tertiary-button
+      *ngIf="showToAccounts"
+      buttonValue="LBL_CANCEL"
+      (click)="cancelLgIssue()"
+    >
+    </app-tertiary-button>
+    <app-primary-button
+      *ngIf="showDetails"
+      buttonValue="LBL_PROCEED"
+      (click)="proceedToReview()"
+    ></app-primary-button>
+  </div>
+  <div class="footer-container" *ngIf="showReview">
+    <div class="footerText" translate>
+      LBL_TERMS
+      <a href="{{ url }}" target="_blank"
+        ><span class="termsContainer" translate
+          >LBL_THE_TERMS_AND_CONDITIONS</span
+        ></a
+      >
+    </div>
+    <div class="actionGroup">
+      <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancelLgIssue()">
+      </app-tertiary-button>
+      <!-- <app-primary-button
+        buttonValue="LBL_SUBMIT"
+        (click)="submitIssueLg()"
+      ></app-primary-button> -->
+    </div>
+  </div>
+</div>
+<app-receipt
+  *ngIf="submitSuccessful"
+  [receiptDetails]="receiptData"
+  (onInitAgainClick)="reload()"
+>
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

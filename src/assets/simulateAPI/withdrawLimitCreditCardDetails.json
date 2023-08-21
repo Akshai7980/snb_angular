@@ -1,0 +1,20 @@
+{
+  "data": {
+    "refNo": "TBC2207021533397",
+    "cardNo": "10107654360011",
+    "cardType": "Master Card",
+    "currency": "SAR",
+    "cardLmt": "500.00",
+    "cardStatus": "active",
+    "balance": "554",
+    "newLmt": "7687",
+    "currentLmt": "7665",
+    "productCode": "CORESVS",
+    "subProductCode": "CRDWITHCH",
+    "functionCode": "WTHLTFNC"
+  },
+
+  "headerValue": {
+    "moduleId": "CRDWTHDRWDETAILS"
+  }
+}

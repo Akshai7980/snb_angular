@@ -1,0 +1,401 @@
+<div class="outerContainer">
+  <div class="subTitles" translate>LBL_GENERATE_STATEMENT</div>
+  <div class="merchantDetails">
+    <div class="subTitles" translate>LBL_MERCHANT_DETAILS</div>
+    <!-- Account -->
+    <div class="">
+      <div class="tableContainer">
+        <div class="accountDetails">
+          <div class="subTitles" translate>LBL_ACCOUNT</div>
+          <table>
+            <tr class="tableHeader">
+              <th translate>LBL_ACC_NUMBER</th>
+              <th translate>LBL_NICK_NAME</th>
+              <th translate>LBL_FULL_NAME</th>
+              <th translate>LBL_STATUS</th>
+              <th translate>LBL_BALANCE</th>
+            </tr>
+            <ng-container *ngIf="merchantDetail.account.length === 1">
+              <tr class="tableRowContainer">
+                <td>
+                  {{
+                    merchantDetail.account[0]?.OD_ACC_NO
+                      ? merchantDetail.account[0].OD_ACC_NO
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  {{
+                    merchantDetail.account[0]?.LIAS_NAME
+                      ? merchantDetail.account[0].LIAS_NAME
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  {{
+                    merchantDetail.account[0]?.ALIAS_NAME
+                      ? merchantDetail.account[0].ALIAS_NAME
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  {{
+                    merchantDetail.account[0]?.STATUS
+                      ? merchantDetail.account[0].STATUS
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  {{
+                    merchantDetail.account[0]?.CURR_AVAIL_BAL_AMOUNT_NEW &&
+                    merchantDetail.account[0]?.OD_CCY_CODE
+                      ? (merchantDetail.account[0]?.CURR_AVAIL_BAL_AMOUNT_NEW
+                          | currencyFormat
+                            : merchantDetail.account[0]?.OD_CCY_CODE) +
+                        " " +
+                        merchantDetail.account[0]?.OD_CCY_CODE
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  <div class="downArrowAcc" (click)="clearAllFields()"></div>
+                </td>
+              </tr>
+            </ng-container>
+          </table>
+
+          <div
+            class="viewAccContainer"
+            *ngIf="merchantDetail.account.length > 1"
+          >
+            <span class="dataBackgroundColor" translate>
+              LBL_MULTIPLE_ACCOUNT_SELECTED
+            </span>
+            <div class="downArrow" (click)="clearAllFields()"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Account end -->
+      <!-- merchant -->
+      <div class="tableContainer">
+        <div class="accountDetails">
+          <table>
+            <tr class="tableHeader">
+              <th translate>LBL_MERCHANT_NAME</th>
+              <th translate>LBL_MERCHANT_NAME_ARABIC</th>
+              <th translate>LBL_MERCHANT_NUMBER</th>
+              <th translate>LBL_STATUS</th>
+              <th translate>LBL_SHOP_NAME</th>
+            </tr>
+            <ng-container *ngIf="merchantDetail.merchant.length === 1">
+              <tr class="tableRowContainer">
+                <td>
+                  {{
+                    merchantDetail.merchant[0]?.merchantNameInEnglish
+                      ? merchantDetail.merchant[0].merchantNameInEnglish
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  {{
+                    merchantDetail.merchant[0]?.merchantNameInArabic
+                      ? merchantDetail.merchant[0].merchantNameInArabic
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  {{
+                    merchantDetail.merchant[0]?.merchantAccountNumber
+                      ? merchantDetail.merchant[0].merchantAccountNumber
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  {{
+                    merchantDetail.merchant[0]?.status
+                      ? merchantDetail.merchant[0].status
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  {{
+                    merchantDetail.merchant[0]?.shopEnglishName
+                      ? merchantDetail.merchant[0].shopEnglishName
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  <div class="downArrowAcc" (click)="clearAllFields()"></div>
+                </td>
+              </tr>
+            </ng-container>
+          </table>
+
+          <div
+            class="viewAccContainer"
+            *ngIf="merchantDetail.merchant.length > 1"
+          >
+            <span class="dataBackgroundColor" translate>
+              LBL_MULTIPLE_ACCOUNT_SELECTED
+            </span>
+            <div class="downArrow" (click)="clearAllFields()"></div>
+          </div>
+        </div>
+      </div>
+      <!-- MERCHANT END -->
+      <!-- TERMINAL -->
+      <div class="tableContainer">
+        <div class="accountDetails">
+          <table>
+            <tr class="tableHeader">
+              <th translate>LBL_TERMINAL_ID</th>
+              <th translate>LBL_TERMINAL_TYPE</th>
+              <th translate>LBL_STATUS</th>
+              <th translate>LBL_SHOP_NAME</th>
+            </tr>
+            <ng-container *ngIf="merchantDetail.terminal.length === 1">
+              <tr class="tableRowContainer">
+                <td>
+                  {{
+                    merchantDetail.terminal[0]?.retailerId
+                      ? merchantDetail.terminal[0].retailerId
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  {{
+                    merchantDetail.terminal[0]?.retailerName
+                      ? merchantDetail.terminal[0].retailerName
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  {{
+                    merchantDetail.terminal[0]?.status
+                      ? merchantDetail.terminal[0].status
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  {{
+                    merchantDetail.terminal[0]?.retailerAddress
+                      ? merchantDetail.terminal[0].retailerAddress
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  <div class="downArrowAcc" (click)="clearAllFields()"></div>
+                </td>
+              </tr>
+            </ng-container>
+          </table>
+
+          <div
+            class="viewAccContainer"
+            *ngIf="merchantDetail.terminal.length > 1"
+          >
+            <span class="dataBackgroundColor" translate>
+              LBL_MULTIPLE_ACCOUNT_SELECTED
+            </span>
+            <div class="downArrow" (click)="clearAllFields()"></div>
+          </div>
+        </div>
+      </div>
+      <!-- terminal end  -->
+    </div>
+  </div>
+</div>
+
+<!-- statement accountDetails -->
+<div class="outerContainer">
+  <div class="merchantDetails">
+    <div class="subTitles" translate>LBL_STATEMENT_DETAILS</div>
+    <div class="flexContainer">
+      <div class="cardContainer">
+        <div class="fieldLabel" translate>LBL_CARD_TYPE</div>
+
+        <mat-select
+          panelClass="dropDownOption"
+          disableOptionCentering
+          class="selectInput mt-top"
+          placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+          [(ngModel)]="cardValue"
+          name="fileType"
+        >
+          <mat-option
+            *ngFor="let type of cardType"
+            value="{{ type.cardType }}"
+            >{{ type.cardType }}</mat-option
+          >
+        </mat-select>
+      </div>
+      <div class="periodContainer">
+        <div class="fieldLabel" translate>LBL_PERIOD</div>
+        <mat-select
+          panelClass="dropDownOption"
+          disableOptionCentering
+          class="selectInput mt-top"
+          placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+          (selectionChange)="showDateValue($event.value)"
+          [(ngModel)]="periodValue"
+          name="fileType"
+        >
+          <mat-option *ngFor="let type of periods" value="{{ type.period }}">{{
+            type.period
+          }}</mat-option>
+        </mat-select>
+      </div>
+      <div class="fromTo" *ngIf="showDate">
+        <div class="datefrom">
+          <div translate class="fieldLabel" id="proctm">LBL_DATE_FROM</div>
+          <div class="shortDatePicker mt-top">
+            <app-date-picker
+              [clearFlag]="clearFlag"
+              class="dateErrorMsg"
+              [showDateErrorMessage]="showDateErrorMessage"
+              (dateValue)="getFromDate($event)"
+              [maxDate]="maxDate"
+              [minDate]="minDate"
+            ></app-date-picker>
+          </div>
+        </div>
+        <div class="dateTo">
+          <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+          <div class="shortDatePicker mt-top">
+            <app-date-picker
+              class="dateErrorMsg"
+              [clearFlag]="clearFlag"
+              [showDateErrorMessage]="showDateErrorMessage"
+              (dateValue)="getToDate($event)"
+              [maxDate]="maxDate"
+              [minDate]="fromDateValue"
+            ></app-date-picker>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flexContainer">
+      <div class="cardContainer">
+        <div class="fieldLabel" translate>LBL_SETTLED</div>
+        <mat-select
+          panelClass="dropDownOption"
+          disableOptionCentering
+          class="selectInput mt-top"
+          placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+          [(ngModel)]="settledData"
+          name="fileType"
+        >
+          <mat-option *ngFor="let type of settled" value="{{ type.settled }}">{{
+            type.settled
+          }}</mat-option>
+        </mat-select>
+      </div>
+      <div class="cardContainer">
+        <div class="fieldLabel" translate>LBL_DATE_SORT</div>
+        <mat-select
+          panelClass="dropDownOption"
+          disableOptionCentering
+          class="selectInput mt-top"
+          placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+          [(ngModel)]="dateSortData"
+          name="fileType"
+        >
+          <mat-option
+            *ngFor="let type of dateSort"
+            value="{{ type.sortedDate }}"
+            >{{ type.sortedDate }}</mat-option
+          >
+        </mat-select>
+      </div>
+      <div class="cardContainer">
+        <div class="fieldLabel" translate>LBL_AMOUNT</div>
+        <input
+          class="amountDetails"
+          (keypress)="allowNumbersOnly($event)"
+          [(ngModel)]="amountData"
+          type="text"
+          placeholder="SAR"
+        />
+      </div>
+      <div class="cardContainer">
+        <div class="toTitle" translate>LBL_TO</div>
+        <input
+          class="toDetails"
+          (keypress)="allowNumbersOnly($event)"
+          (focusout)="checkAmount()"
+          [(ngModel)]="amountToData"
+          type="text"
+          placeholder="SAR"
+        />
+        <div class="errorMsg m-l" translate *ngIf="showAmtError">
+          LBL_PLEASE_ENTER_VALID_AMOUNT
+        </div>
+      </div>
+    </div>
+    <div class="flexContainer">
+      <div class="cardContainer">
+        <div class="fieldLabel" translate>LBL_SEQUENCE</div>
+        <input
+          class="sequenceDetails"
+          [(ngModel)]="sequenceData"
+          type="text"
+          placeholder=""
+        />
+      </div>
+      <div class="cardContainer">
+        <div class="fieldLabel" translate>LBL_AUTHORIZATION_NUMBER</div>
+        <input
+          class="sequenceDetails"
+          (keypress)="allowNumbersOnly($event)"
+          [(ngModel)]="authNumberData"
+          type="text"
+          placeholder=""
+        />
+      </div>
+      <div class="exportDetails">
+        <div class="fieldLabel" translate>
+          LBL_EXPORT_AS <span class="errorMsg">*</span>
+        </div>
+        <mat-select
+          panelClass="dropDownOption"
+          disableOptionCentering
+          class="selectInput mt-top"
+          placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+          [(ngModel)]="cardTypeData"
+          name="fileType"
+        >
+          <mat-option
+            *ngFor="let type of exportType"
+            value="{{ type.export }}"
+            >{{ type.export }}</mat-option
+          >
+        </mat-select>
+      </div>
+    </div>
+  </div>
+  <div class="actionGroup">
+    <app-tertiary-button
+      *ngIf="
+        authNumberData ||
+        amountToData ||
+        amountData ||
+        dateSortData ||
+        settledData ||
+        periodValue ||
+        cardValue ||
+        cardTypeData
+      "
+      buttonValue="LBL_CANCEL"
+      (click)="clearAllFields()"
+      class="tertiaryBtn"
+    >
+    </app-tertiary-button>
+    <app-primary-button
+      *ngIf="cardTypeData"
+      buttonValue="LBL_SUBMIT"
+      (click)="submitfn()"
+    >
+    </app-primary-button>
+  </div>
+</div>

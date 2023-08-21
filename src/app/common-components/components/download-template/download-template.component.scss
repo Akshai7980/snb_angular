@@ -1,0 +1,22 @@
+
+.downloadText {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: rgb(0,106,82);
+  margin-left:10px;
+}
+.downloadIcon {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 1%;
+  background-image: url(../../../../assets/images/ico-downloadTemp.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;   
+  margin-right: 5px;
+  height: 24px;
+  width: 24px;cursor: pointer;
+}
+.downloadSct{display: flex;flex-direction: row;cursor: pointer;}

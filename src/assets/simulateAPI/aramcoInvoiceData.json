@@ -1,0 +1,42 @@
+{
+  "headerValue": {
+    "moduleId": "ARCOREMINV",
+    "simulate": "N"
+  },
+  "data": [
+    {
+      "customerId": 400408,
+      "rawStatus": 0,
+      "number": 7300003020,
+      "date": "05/12/0021",
+      "amount": "-26123.00",
+      "dueDate": "05/12/0021",
+      "corpFileStatusCode": "OK",
+      "corpFileStatusDetail": "OK",
+      "sequenceNumber": 0,
+      "acknowledgementNumber": 0,
+      "statusCode": 0,
+      "statusDetail": "Open",
+      "equivalentAmount": "6966.14",
+      "equivalentCurrency": "SAR",
+      "invoiceCurrency":"USD"
+    },
+    {
+      "customerId": 400408,
+      "rawStatus": 0,
+      "number": 7300003021,
+      "date": "05/12/0021",
+      "amount": "26129.0",
+      "dueDate": "05/12/0021",
+      "corpFileStatusCode": "OK",
+      "corpFileStatusDetail": "OK",
+      "sequenceNumber": 0,
+      "acknowledgementNumber": 0,
+      "statusCode": 0,
+      "statusDetail": "Open",
+      "equivalentAmount": "-6967.0",
+      "equivalentCurrency": "USD",
+      "invoiceCurrency":"SAR"
+    }
+  ]
+}

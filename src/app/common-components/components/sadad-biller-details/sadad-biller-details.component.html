@@ -1,0 +1,44 @@
+<div class="detailsContainer" id="sadadBillerDetailsPrintSection">
+    <div class="row" id="logoPrint">
+        <div><img class="logo" src="{{logo}}"> </div>
+        <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+    </div>
+<div class="titleContainer">
+   <div class="titleContainerLeft">
+     <span *ngIf="sadadBillerDetailsData && sadadBillerDetailsData.billerName">{{sadadBillerDetailsData.billerName}}</span><span *ngIf="!sadadBillerDetailsData || !sadadBillerDetailsData.billerName">--</span>,
+     <span *ngIf="sadadBillerDetailsData && sadadBillerDetailsData.billerGroupName"> {{sadadBillerDetailsData.billerGroupName}}</span><span *ngIf="!sadadBillerDetailsData || !sadadBillerDetailsData.billerGroupName">--</span>
+   </div>
+</div>
+<div class="subTitleContainer">
+    <div class="subTitleContainerLeft">{{'LBL_TRANSACTION_REF_NUM' | translate}} <span *ngIf="refNum">{{refNum}}</span> <span *ngIf="!refNum">--</span></div>
+</div>
+<div class="dataContainer">
+    <span class="header" translate>LBL_BILLER_DETAILS</span>
+    <div class="fxContainer mt-top">
+        <div class="column1">
+            <label class="label" translate>LBL_CUSTOMER_ID</label>
+            <div class="dataInfo" *ngIf="sadadBillerDetailsData && sadadBillerDetailsData.CustomerId">{{sadadBillerDetailsData.CustomerId}}</div>
+            <div class="dataInfo" *ngIf="!sadadBillerDetailsData || !sadadBillerDetailsData.CustomerId">--</div>
+        </div>
+        <div class="column2">
+            <label class="label" translate>LBL_SUBSCRIBER_ID</label>
+            <div class="dataInfo" *ngIf="sadadBillerDetailsData && sadadBillerDetailsData.subscriberId">{{sadadBillerDetailsData.subscriberId}}</div>
+            <div class="dataInfo" *ngIf="!sadadBillerDetailsData || !sadadBillerDetailsData.subscriberId">--</div>
+        </div>
+        <div class="column3">
+            <label class="label" translate>LBL_SHORT_NAME</label>
+            <div class="dataInfo" *ngIf="nickname">{{nickname}}</div>
+            <div class="dataInfo" *ngIf="!nickname">--</div>
+        </div>
+    </div>
+    <div class="fxContainer">
+        <div class="column1">
+            <label class="label" translate>LBL_STATUS</label>
+            <div class="dataInfo" *ngIf="sadadBillerDetailsData && sadadBillerDetailsData.status">{{sadadBillerDetailsData.status}}</div>
+            <div class="dataInfo" *ngIf="!sadadBillerDetailsData || !sadadBillerDetailsData.status">--</div>
+        </div>
+    </div>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>
+

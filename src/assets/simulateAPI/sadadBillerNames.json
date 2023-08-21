@@ -1,0 +1,37 @@
+{
+    "headerValue": {
+        "moduleId": "SADADBILLERS",
+        "simulate": "N"
+    
+     },
+      "data": [
+                {
+                 "billerId" : "8",
+                 "billerCode" : "TD",
+                 "billerType" : "SADAD",
+                 "shortName" : "STC",
+                 "billerName" : "GROUP_TELCO",
+                 "billerGroups" : "1",
+                 "billerGroupName": "Testing Group Name"
+                 },
+                 {
+                 "billerId" : "7",
+                 "billerCode" : "STC-SAWA",
+                 "billerType" : "SADAD",
+                 "shortName" : "STC",
+                 "billerName" : "GROUP_TELCO",
+                 "billerGroups" : "1",
+                 "billerGroupName": "New For Group"
+               },
+                 {
+                 "billerId" : "6",
+                 "billerCode" : "STC",
+                 "billerType" : "SADAD",
+                 "shortName" : "STC",
+                 "billerName" : "GROUP_TELCO_STC",
+                 "billerGroups" : "1",
+                 "billerGroupName": "New For Group"
+               }
+                            
+           ]
+        }

@@ -1,0 +1,101 @@
+<div class="mainContainer" *ngIf="!showReceipt">
+    <div translate class="title" *ngIf="!showSoftToken && !review">LBL_TOKEN_INQUIRY</div>
+    <div translate class="title" *ngIf="showSoftToken && !review">LBL_ACTIVATE_SOFT_TOKEN</div>
+    <div translate class="title" *ngIf="review">LBL_REVIEW</div>
+    <div class="subContainer">
+        <div class="subTitles" translate *ngIf="!showSoftToken && !review">LBL_TOKEN_DETAILS</div>
+        <div class="subTitles" translate *ngIf="showSoftToken || review">LBL_TOKEN_ACTIVATION</div>
+        <table class="casaTable" mat-table [dataSource]="dataSourceToPass" *ngIf="!showSoftToken">
+            <ng-container matColumnDef="accNumber">
+                <th mat-header-cell *matHeaderCellDef translate>LBL_ACC_NUMBER</th>
+                <td mat-cell *matCellDef="let element">{{token.accNumber}}</td>
+            </ng-container>
+            <ng-container matColumnDef="fullName">
+                <th mat-header-cell *matHeaderCellDef translate>LBL_FULL_NAME</th>
+                <td mat-cell *matCellDef="let element">{{token.fullName}}</td>
+            </ng-container>
+            <ng-container matColumnDef="serialNumber">
+                <th mat-header-cell *matHeaderCellDef translate>LBL_SERIAL_NUMBER</th>
+                <td mat-cell *matCellDef="let element">{{token.serialNumber}}</td>
+            </ng-container>
+            <ng-container matColumnDef="activationCode">
+                <th mat-header-cell *matHeaderCellDef translate>LBL_ACTIVATION_CODE</th>
+                <td mat-cell *matCellDef="let element">{{token.activationCode}}</td>
+            </ng-container>
+            <ng-container matColumnDef="activeToken">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element">
+                    <div class="activate" (click)="activeSoftToken()" translate>LBL_ACTIVATE_TOKEN</div>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <div class="detailsContainer" *ngIf="showSoftToken && !review">
+            <div class="row">
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_SERIAL_NUMBER</div>
+                    <div class="mtop_10 dataContainer">{{token.serialNumber}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_ACTIVATION_CODE</div>
+                    <div class="mtop_10 dataContainer">{{token.activationCode}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_SCAN_QR</div>
+                    <img src="assets/images/QRscan.svg">
+                </div>
+                <div class="rgcode">
+                    <div translate class="geneStaTitles">LBL_REGISTRATION_CODE<span class="required">*</span></div>
+                    <input type="text" class="inpField" [(ngModel)]="regcode" (blur)="validate($event)" placeholder="{{'LBL_REGISTRATION_CODE' | translate }}">
+                    <div *ngIf="regCodeErr">
+                        <small translate class="required">{{regCodeErr}}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="regInfo" translate>
+                <span class="img"></span>LBL_REG_CODE_MSG
+            </div>
+        </div>
+        <div class="detailsContainer" *ngIf="review">
+            <div class="row">
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_SERIAL_NUMBER</div>
+                    <div class="mtop_10 dataContainer">{{token.serialNumber}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_ACTIVATION_CODE</div>
+                    <div class="mtop_10 dataContainer">{{token.activationCode}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_REGISTRATION_CODE</div>
+                    <div class="mtop_10 dataContainer">{{regcode}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mtop_20" *ngIf="review">
+        <app-authentication (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)"
+            [otpError]="otpError" [initParam]="initReqParam"></app-authentication>
+    </div>
+    <div>
+        <div class="footer" *ngIf="review">
+            <span class="termsAndContion" translate>LBL_TERMS</span>
+            <a href="{{ url }}" target="_blank"><span class="terms" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>
+        </div>
+    
+    <div class="btnGroup" *ngIf="showSoftToken" translate>
+        <div><button type="button" *ngIf="showSoftToken || review" class="button-secondary" (click)="onClickCancel()"
+                translate>LBL_CANCEL</button>
+        </div>
+        <div><button type="button" *ngIf="showSoftToken && !review" class="button-primary" (click)="onClickSubmit()"
+                translate>LBL_SUBMIT</button>
+        </div>
+        <div><button type="button" *ngIf="review" class="button-primary" (click)="onClickFinalSubmit()"
+                translate>LBL_SUBMIT</button>
+        </div>
+    </div>
+    </div>
+</div>
+<app-receipt [hideButton]="true" [receiptDetails]="receiptData" *ngIf="showReceipt" (cancelCallBck)="getCancelBtnClick()"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

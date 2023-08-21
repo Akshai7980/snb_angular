@@ -1,0 +1,78 @@
+.subTitles{
+    font-size: 16px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    color: var(--tableData-header-color);
+}
+.subContainer {
+    padding: 20px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: #ffffff;
+    background-size: cover;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+    color: #5d5d5d;
+    margin-top: 20px;
+}
+.geneStaTitles {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+}
+input[type=text]{
+    width: 294px;
+    height: 40px;
+    padding: 0px 8px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 4px;
+    background-size: cover;
+    font-family: "HelveticaNeue";
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    background-color: var(--primary-widget-bg-color);
+}
+.selectInput{
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: #656565;
+    cursor: pointer;
+}
+.detailsContainer{
+    margin-top: 21px;
+    padding: 0px 0px 0px 10px;
+}
+.row {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+}
+.column {
+    margin-bottom: 20px;
+    height: 80px;
+}
+.addBottomBorder{
+    padding-bottom: 13px;
+    border-bottom: 1px solid var(--widget-border-color);
+    margin-bottom: 26px;
+}
+.fieldContainer{
+    height: 80px;
+}
+.btnGroup{
+   float: right; 
+   margin-top: 30px;
+}
+.details{
+    // font-family: "HelveticaNeue";
+    font-family: "HelveticaNeueLight", arial, sans-serif;
+    font-size: 14px;
+    // color: var(--tableData-header-color);
+}
+.alter{
+    height: auto;
+}

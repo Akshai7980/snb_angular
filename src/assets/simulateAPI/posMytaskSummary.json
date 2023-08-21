@@ -1,0 +1,125 @@
+{
+  "data": [
+    {
+      "refNo": "TBC2208301819244",
+      "productCode": "CORESVS",
+      "subproductCode": "POSMRD",
+      "functionCode": "POSMRDFNC",
+      "versionNo": "1",
+      "moblieNo": "1234567890",
+      "requestType": "Merchant Finance Dispute",
+      "status": "RA",
+      "statusDesc": "Ready for Authorization",
+      "posDate": "20/09/2022",
+      "AccNo": "123456789"
+    },
+    {
+      "refNo": "TBC2208301819244",
+      "productCode": "CORESVS",
+      "subproductCode": "POSMRD",
+      "functionCode": "POSMRDFNC",
+      "versionNo": "1",
+      "moblieNo": "1234567890",
+      "requestType": "Fee Debit Inquiry",
+      "status": "RA",
+      "statusDesc": "Ready for Authorization",
+      "posDate": "20/09/2022",
+      "AccNo": "123456789"
+    },
+    {
+      "refNo": "TBC2208301819244",
+      "productCode": "CORESVS",
+      "subproductCode": "POSMRD",
+      "functionCode": "POSMRDFNC",
+      "versionNo": "1",
+      "moblieNo": "1234567890",
+      "requestType": "Refund Request",
+      "status": "RA",
+      "statusDesc": "Ready for Authorization",
+      "posDate": "20/09/2022",
+      "AccNo": "123456789"
+    },
+    {
+      "refNo": "TBC2208301819244",
+      "productCode": "CORESVS",
+      "subproductCode": "POSMRD",
+      "functionCode": "POSMRDFNC",
+      "versionNo": "1",
+      "moblieNo": "1234567890",
+      "requestType": "Merchant Dispute",
+      "status": "RA",
+      "statusDesc": "Ready for Authorization",
+      "posDate": "20/09/2022",
+      "AccNo": "123456789"
+    },
+    {
+      "refNo": "TBC2208301819244",
+      "productCode": "CORESVS",
+      "subproductCode": "POSMRD",
+      "functionCode": "POSMRDFNC",
+      "versionNo": "1",
+      "moblieNo": "1234567890",
+      "requestType": "Merchant Finance Dispute",
+      "status": "RA",
+      "statusDesc": "Ready for Authorization",
+      "posDate": "20/09/2022",
+      "AccNo": "123456789"
+    },
+    {
+      "refNo": "TBC2208301819244",
+      "productCode": "CORESVS",
+      "subproductCode": "POSMRD",
+      "functionCode": "POSMRDFNC",
+      "versionNo": "1",
+      "moblieNo": "1234567890",
+      "requestType": "Merchant Finance Dispute",
+      "status": "RA",
+      "statusDesc": "Ready for Authorization",
+      "posDate": "20/09/2022",
+      "AccNo": "123456789"
+    },
+    {
+      "refNo": "TBC2208301819244",
+      "productCode": "CORESVS",
+      "subproductCode": "POSMRD",
+      "functionCode": "POSMRDFNC",
+      "versionNo": "1",
+      "moblieNo": "1234567890",
+      "requestType": "Merchant Finance Dispute",
+      "status": "RA",
+      "statusDesc": "Ready for Authorization",
+      "posDate": "20/09/2022",
+      "AccNo": "123456789"
+    },
+    {
+      "refNo": "TBC2208301819244",
+      "productCode": "CORESVS",
+      "subproductCode": "POSMRD",
+      "functionCode": "POSMRDFNC",
+      "versionNo": "1",
+      "moblieNo": "1234567890",
+      "requestType": "Merchant Finance Dispute",
+      "status": "RA",
+      "statusDesc": "Ready for Authorization",
+      "posDate": "20/09/2022",
+      "AccNo": "123456789"
+    },
+    {
+      "refNo": "TBC2208301819244",
+      "productCode": "CORESVS",
+      "subproductCode": "POSMRD",
+      "functionCode": "POSMRDFNC",
+      "versionNo": "1",
+      "moblieNo": "1234567890",
+      "requestType": "Merchant Finance Dispute",
+      "status": "RA",
+      "statusDesc": "Ready for Authorization",
+      "posDate": "20/09/2022",
+      "AccNo": "123456789"
+    }
+  ],
+  "headerValue": {
+    "moduleId": "MYTASKPOSSUMY",
+    "totalCount": "148"
+  }
+}

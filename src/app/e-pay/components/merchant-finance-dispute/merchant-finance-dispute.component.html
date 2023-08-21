@@ -1,0 +1,191 @@
+<div *ngIf="title !=='receipt'">
+  
+  <div class="outerContainer">
+    <div class="subTitles" *ngIf="title === 'review'" translate>LBL_REVIEW</div>
+    <div class="subTitles" *ngIf="title !== 'review'" translate>LBL_MERCHNT_CLAIM</div>
+    <div class="merchantDetails">
+      <div class="subTitles" translate>LBL_MERCHANT_DETAILS</div>
+      <!-- Account -->
+      <div class="detailContainer">
+        <div class="outerContainer">
+          <div class="accountDetails">
+            <div class="subTitles" translate>LBL_ACCOUNT</div>
+            <table>
+              <tr class="tableHeader">
+                <th translate>LBL_ACC_NUMBER</th>
+                <th translate>LBL_NICK_NAME</th>
+                <th translate>LBL_FULL_NAME</th>
+                <th translate>LBL_STATUS</th>
+                <th translate>LBL_BALANCE</th>
+              </tr>
+              <ng-container>
+                <tr
+                  class="tableRowConatiner"
+                  *ngFor="
+                    let data of merchantClaimReqObj
+                  "
+                >
+                  <td>{{ data.accNo }}</td>
+                  <td>{{ data.nickname }}</td>
+                  <td>{{ data.fullname }}</td>
+                  <td>{{ data.Status }}</td>
+                  <td>{{ data.amount }}</td>
+                  <div
+                    class="downArrowAcc"
+                    (click)="cancelMerchantDetail()"
+                  ></div>
+                </tr>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+        <!-- Account end -->
+        <!-- merchant -->
+        <div class="outerContainer">
+          <div class="accountDetails">
+            <table>
+              <tr class="tableHeader">
+                <th translate>LBL_MERCHANT_NAME</th>
+                <th translate>LBL_MERCHANT_ID</th>
+              </tr>
+              <ng-container>
+                <tr
+                  class="tableRowConatiner"
+                  *ngFor="
+                    let data of merchantClaimReqObj
+                  "
+                >
+                  <td>{{ data.merchantName }}</td>
+                  <td> <span *ngIf="data?.merchantId">{{ data.merchantId }}</span> <span *ngIf="!data?.merchantId">--</span> </td>
+                  <div
+                    class="downArrowAcc"
+                    (click)="cancelMerchantDetail()"
+                  ></div>
+                </tr>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+        <!-- MERCHANT END -->
+        
+      </div>
+    </div>
+  </div>
+  
+  <!-- transaction details -->
+  <div class="outerContainer">
+    <div class="merchantDetails">
+      <div class="subTitles" translate>LBL_TRANSACTION_DETAILS</div>
+      <div class="detailContainer">
+        <div class="outerContainer">
+          <table>
+            <tr class="tableHeader">
+              <th translate>LBL_REF_NUMBER</th>
+              <th translate>LBL_SEQUENCE</th>
+              <th translate>LBL_CARD_TYPE</th>
+              <th translate>LBL_CARD_NO</th>
+              <th translate>LBL_DATE</th>
+              <th translate>LBL_AMOUNT_SAR</th>
+            </tr>
+            <ng-container>
+              <tr
+                class="tableRowConatiner"
+                *ngFor="let data of merchantClaimReqObj"
+              >
+                <td><span *ngIf="data.refNo">{{ data.refNo }}</span> <span *ngIf="!data.refNo"></span></td>
+                <td><span *ngIf="data.sequenceNo">{{ data.sequenceNo }}</span><span *ngIf="!data.sequenceNo"></span></td>
+                <td><span *ngIf="data.cardType">{{ data.cardType }}</span><span *ngIf="!data.cardType"></span></td>
+                <td><span *ngIf="data.cardNo">{{ data.cardNo }}</span><span *ngIf="!data.cardNo">--</span></td>
+                <td><span *ngIf="data.epayDate">{{ data.epayDate }}</span><span *ngIf="!data.epayDate">--</span></td>
+                <td><span *ngIf="data.amount">{{ data.amount }}</span><span *ngIf="!data.amount">--</span></td>
+              </tr>
+            </ng-container>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- transaction details  end-->
+  <!-- Claim Detail -->
+  <div class="outerContainer">
+    <div class="merchantDetails">
+      <div class="subTitles" translate>LBL_CLAIM_DETAILS</div>
+      <div class="detailContainer">
+        <div class="outerContainer">
+          <div class="accountDetails flexContainer">
+            
+            <div>
+              <div class="geneStaTitles fieldTitles" translate>
+                LBL_MOBILE_NUMBER <span class="errorMsg">*</span>
+              </div>
+              <input *ngIf="title !== 'review'"
+                class="selectInput"
+                (keypress)="allowNumbersOnly($event)"
+                [(ngModel)]="mobileNumber"
+                type="text"
+              />
+              <div *ngIf="title === 'review'" class="information">{{mobileNumber}}</div>
+            </div>
+            <div>
+              <div class="geneStaTitles fieldTitles" translate>
+                LBL_CLAIM_TYPE <span class="errorMsg">*</span>
+              </div>
+              <mat-select *ngIf="title !== 'review'"
+                panelClass="dropDownOption"
+                disableOptionCentering
+                class="matSelectInput mt-top"
+                placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+                name="fileType"
+                [(ngModel)]="financialType"
+              >
+                <mat-option
+                  *ngFor="let type of claimTypeDropdown"
+                  [value]="type.amountType"
+                  >{{ type.amountType }}</mat-option
+                >
+              </mat-select>
+              <div *ngIf="title === 'review'" class="information">{{financialType}}</div>
+            </div>
+          </div>
+          <div class="mtop_10">
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_CLAIM_DESCRIPTION <span class="errorMsg">*</span>
+            </div>
+            <textarea *ngIf="title !== 'review'" class="textArea" [(ngModel)]="description"></textarea>
+            <div *ngIf="title === 'review'" class="information">{{description}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-authorization *ngIf="title === 'review' && flexiAuth === 'true'" [authListDataSource]="authOptions" (authEmit)="getData($event)">
+    </app-authorization>
+
+    <app-authentication *ngIf="title === 'review'" (onTwoAuthClick)="onSecondFactorValue($event)"
+        (getOtpClick)="getOtpValue($event)" [otpError]="otpError" [initParam]="initParam"></app-authentication>
+
+        <!-- <app-receipt *ngIf="title === 'receipt'" [receiptDetails]="receiptObject" (onInitAgainClick)="initAnotherPayment()" (DownloadReceiptClick)="downloadPdf()"></app-receipt>         -->
+
+    <div class="btnGroup mtop_20">
+      <app-tertiary-button
+        (click)="cancelButton($event)"
+        buttonValue="LBL_CANCEL"
+        *ngIf="description || financialType || mobileNumber"
+      >
+      </app-tertiary-button>
+      <app-primary-button *ngIf="title !== 'review'"
+        (click)="proceedButton($event)"        
+        buttonValue="LBL_PROCEED"
+      >
+      </app-primary-button>
+      <app-primary-button buttonValue="{{'LBL_SUBMIT' | translate}}" *ngIf="title === 'review'" (click)="onSubmit()">
+        </app-primary-button>
+    </div>
+  </div>
+</div>
+
+
+  <app-receipt *ngIf="title === 'receipt'" [receiptDetails]="receiptObject" [saveReceiptObject]="saveReceiptObject"
+    (onInitAgainClick)="makeAnotherTransaction()" (DownloadReceiptClick)="downloadPdf()"></app-receipt>
+  <app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>
+  

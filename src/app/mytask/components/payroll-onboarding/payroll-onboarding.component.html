@@ -1,0 +1,117 @@
+<div class="worksapceBase">
+<div translate class="title">LBL_ONBOARDING</div>
+<div class="mainContainer">
+  <div class="header">
+    <div class="searchCntnrLeft">
+      <app-search   (childEvent)="triggerSearchFilter($event)"></app-search>
+    </div>
+    <div>
+      <app-refresh class="refreshIcon" (onRefresh)="refreshSummary()"></app-refresh>
+    </div>
+   
+    
+  </div>
+</div>
+
+<div id="serviceRequestDefaultCntr">
+  <table mat-table class="casaTable" *ngIf="!noRecordFlag" [dataSource]="dataSource">
+    <ng-container matColumnDef="referenceNo">
+      <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('referenceNo')">
+        LBL_REF_NUMBER
+        <span class="sortIcons" *ngIf="currentColumn && currentColumn !== 'referenceNo'">
+          <img src="assets/images/sortDown.svg" class="img-style" />
+          <img src="assets/images/sortDown.svg" class="sortUp" />
+        </span>
+        <span class="sortIcons" *ngIf="currentColumn && currentColumn === 'referenceNo'">
+          <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'desc'" class="img-style" />
+          <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'asc'"
+            class="sortUpAscending" />
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.referenceNo ? element.referenceNo : "--" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="setupFee">
+      <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('setupFee')">
+        LBL_SETUP_FEE
+        <span class="sortIcons" *ngIf="currentColumn && currentColumn !== 'setupFee'">
+          <img src="assets/images/sortDown.svg" class="img-style" />
+          <img src="assets/images/sortDown.svg" class="sortUp" />
+        </span>
+        <span class="sortIcons" *ngIf="currentColumn && currentColumn === 'setupFee'">
+          <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'desc'" class="img-style" />
+          <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'asc'"
+            class="sortUpAscending" />
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.setupFee | currencyFormat: element.ccy }} {{ element.ccy }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accNo">
+      <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('accNo')">
+        LBL_CHARGE_ACC
+        <span class="sortIcons" *ngIf="currentColumn && currentColumn !== 'accNo'">
+          <img src="assets/images/sortDown.svg" class="img-style" />
+          <img src="assets/images/sortDown.svg" class="sortUp" />
+        </span>
+        <span class="sortIcons" *ngIf="currentColumn && currentColumn === 'accNo'">
+          <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'desc'" class="img-style" />
+          <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'asc'"
+            class="sortUpAscending" />
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.accNo ? element.accNo : "--" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="statusDesc">
+      <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('statusDesc')">
+        LBL_STATUS
+        <span class="sortIcons" *ngIf="currentColumn && currentColumn !== 'statusDesc'">
+          <img src="assets/images/sortDown.svg" class="img-style" />
+          <img src="assets/images/sortDown.svg" class="sortUp" />
+        </span>
+        <span class="sortIcons" *ngIf="currentColumn && currentColumn === 'statusDesc'">
+          <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'desc'" class="img-style" />
+          <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'asc'"
+            class="sortUpAscending" />
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.statusDesc ? element.statusDesc : "--" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef class="position_rel" translate>
+        LBL_ACTION
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <section>
+          <div class="btnContainer">
+            <div class="acceptIcon" (click)="goToAuthorize($event, element)"></div>
+            <div class="rejectIconMargin rejectIcon" (click)="goToReject($event, element)"></div>
+          </div>
+        </section>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="goToDetailsScreen(row)"></tr>
+  </table>
+
+  <div *ngIf="noRecordFlag">
+    <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+  </div>
+
+  <app-pagination #paginator *ngIf="onBoardingData && !noRecordFlag" [dataSourceLength]="onBoardingData.length"
+    [totalRecords]="totalRecords" (onPaginationChange)="paginationChangeClick($event)"
+    [currentRecord]="'MyTasksPayrollOnBoarding'" [flagForRefreshPage]="refreshClickedFlag"></app-pagination>
+</div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

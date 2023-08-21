@@ -1,0 +1,84 @@
+<div *ngIf="!hideAll">
+    <div class="detailsDataCntr">
+    <div  [ngClass]="!this.rootScopeData.changeAddBeneficiaryHeading ? 'beneficiaryDetails':'beneficiaryReviewDetails'">
+        <div  class="subTitles" translate>LBL_COUNTRY_AND_CURRENCY</div>
+            <div class="rowInnerCntr"  *ngIf="!rootScopeData.changeAddBeneficiaryReviewMode">
+                <div class="field">
+                    <div class="label" translate>LBL_ACC_COUNTRY</div>
+                    <!-- <div class="information">
+                        <mat-select panelClass="dropDownOption" class="selectInput" placeholder="Choose an option"  [(ngModel)]="accountCountry" (selectionChange)="onCountrySelect()"  disableOptionCentering>
+                            <mat-option *ngFor="let country of country" value="{{country.countryName}}">{{country.countryName}}</mat-option>
+                        </mat-select>
+                    </div> -->
+                    <div class="information">
+                        <input
+                          type="text"
+                          matInput
+                          [(ngModel)]="accountCountry"
+                          placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}"                          
+                          [matAutocomplete]="benficiaryAccount"
+                          (input)="searchCountry($event)"
+                          (blur)="resetCountryInput($event)"
+                          (focus)="country = localCountryList"
+                          #accountCountryRef="ngModel"
+                          #accountCountryInputRef
+                          class="selectInput"
+                          required
+                          >
+                        <span class="dropdownIcon sprite" (click)="accountCountryInputRef.focus()"></span>
+                        <mat-autocomplete #benficiaryAccount="matAutocomplete" disableOptionCentering>
+                          <mat-option *ngFor="let country of country"
+                          [value]="country?.countryName" (click)="onCountrySelect()">
+                            {{country.countryName}}
+                          </mat-option>
+                        </mat-autocomplete>
+                      </div>
+                      <div class="errorMsg" *ngIf="accountCountryRef?.touched && accountCountryRef?.invalid" translate>
+                        LBL_PLS_SELECT_COUNTRY
+                      </div>
+                </div>
+                <div class="field" *ngIf="showOtherInformation">
+                    <div class="label" translate>LBL_CURRENCY</div>
+                    <div class="information">
+                        <mat-select panelClass="dropDownOption" class="selectInput" placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}" [(value)]="currency" [(ngModel)]="ccy" (selectionChange)="onCurrencySelect()" disableOptionCentering>
+                            <mat-option *ngFor="let currency of currencyDataFromAPI" value="{{currency}}">{{currency}}</mat-option>
+                        </mat-select>
+                    </div>
+                    <div class="errorMsg" *ngIf="currencyValidationFlag" translate>LBL_PLEASE_SELECT_CURRENCY</div>
+                </div>
+            </div>
+            <div class="rowInnerCntr" *ngIf="rootScopeData.changeAddBeneficiaryReviewMode">
+                <div class="field">
+                    <div class="label" translate>LBL_ACC_COUNTRY</div>
+                    <div class="information data" *ngIf="accountCountry">{{accountCountry}}</div>
+                    <div class="information data" *ngIf="!accountCountry">--</div>
+                </div>
+                <div class="field">
+                    <div class="label" translate>LBL_CURRENCY</div>
+                    <div class="information data" *ngIf="currency">{{currency}}</div>
+                    <div class="information data" *ngIf="!currency">--</div>
+                </div>
+            </div> 
+    </div>
+    <div *ngIf="showOtherInformation">
+        <app-account-details [accNumInvalid]="accNumInvalid" [showBebeCreationInvalid]="showbeneCreationInValid" [accErrMsg]="accErrMsgs" [accountData]="accountDataToPass" [clearFlag]="setAccountdetailsClearFlag" [validationFlag]="accountNumberValidationFlag" [swiftCodeValidationFlag]="swiftCodeValidationFlag" [routerCodeValidationFlag]="routerCodeValidationFlag" [isSwiftCodeValidate]="isSwiftCodeValidate" (accountNumber)="onAccountNumberEnter($event)" (routingCode)="onRoutingCodeEnter($event)" (swiftCode)="onSwiftCodeEnter($event)" [bicCodeResValidate]="enableValidateSwiftCode" [ibanValid]="iBanorNot" [bankRouteCodeValidate]="bankRouteCodeValidate"></app-account-details>
+        <app-beneficiary-details [fullNameValidationFlag]="fullNameValidationFlag" [shortNameValidationFlag]="shortNameValidationFlag" [countryValidationFlag]="countryValidationFlag" [cityValidationFlag]="cityValidationFlag" [addressValidationFlag]="addressValidationFlag" [stateValidationFlag]="stateValidationFlag" [shortNameDuplicateFlag]="shortNameDuplicateFlag"  [country]="country" (inputFieldValues)="getEnteredValues($event)" ></app-beneficiary-details>
+        <div class="actionGroupNext">
+            <app-tertiary-button *ngIf="!rootScopeData.changeAddBeneficiaryReviewMode" buttonValue="LBL_CANCEL" (click)="onClickCancel()"></app-tertiary-button>
+            <app-primary-button *ngIf="!rootScopeData.changeAddBeneficiaryReviewMode" buttonValue="LBL_PROCEED" (click)="validateBeneShortName()"></app-primary-button>
+        </div>
+    </div>
+    <div class="afterProceed" *ngIf="rootScopeData.changeAddBeneficiaryReviewMode">
+        <app-authentication *ngIf="rootScopeData.callBackOTPEntitlement.beneRegistrationOTPToken === 'Y'"  class="arrangeAuthentication" (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [isShowOtpTokenToggle]="false" [otpError]="isOtpValid" [initParam]="initReqParam"></app-authentication>
+        <div class="footer">
+            <span class="termsAndContion" translate>LBL_TERMS</span><a href="{{ url }}" target="_blank"><span class="terms" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a> 
+        </div>
+        <div class="actionGroupSubmit">
+            <app-tertiary-button  buttonValue="LBL_CANCEL" (click)="onClickCancel()" ></app-tertiary-button>
+            <!-- <app-primary-button  buttonValue="LBL_SUBMIT" (click)="submit()"></app-primary-button> -->
+        </div>
+    </div>
+</div>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRegistration()" [receiptDetails]="receiptData" [rejectMsg]="rejectMsg" [saveReceiptObject]="saveReceiptObject"  *ngIf="hideAll" (DownloadReceiptClick)="downloadPdf($event)" [pageName]='pageCall' (cancelCallBck)="getCancelBtnClick()"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

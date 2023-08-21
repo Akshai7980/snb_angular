@@ -1,0 +1,54 @@
+<div class="outerContainer">
+  <div class="mainTitle" translate>LBL_BENEFICIARY_UPLOAD</div>
+  <div class="beneficiaryDetails">
+    <div class="subTitles" translate>LBL_UPLOAD_DETAILS</div>
+    <div class="rowInnerCntr">
+      <div class="field">
+        <div class="label" translate>
+          LBL_TEMPLATE_NAME<span class="required">*</span>
+        </div>
+        <div class="information">
+          <mat-select panelClass="dropDownOption" disableOptionCentering class="selectInput" [(ngModel)]="templateName"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}" name="templateName">
+            <mat-option *ngFor="let item of templeteNamesList" value="{{ item.templateName }}"
+              (click)="onSelectedTemplateName($event, item)">{{ item.templateName }}
+            </mat-option>
+          </mat-select>
+        </div>
+      </div>
+      <div class="templateContainer" *ngIf="showNextSection">
+        <span class="templateGuideLineContainer" (click)="openDialog()">
+          <img src="assets/images/ico-view-template.svg" alt="" />
+          <span translate>LBL_TEMPLATE_GUIDELINE</span>
+        </span>
+        <span>
+          <app-download-template [downloadTemplateData]="downloadTemplateData">
+          </app-download-template>
+        </span>
+      </div>
+    </div>
+    <div class="uploadContainer pR">
+      <div class="upload-file">
+        <app-file-upload *ngIf="showNextSection" [uploadInput]="uploadInput" (titleCreated)="onFileAdded($event)">
+        </app-file-upload>
+      </div>
+    </div>
+    <div class="validSec">
+      <small class="errorMsg mr10" translate *ngIf="fileTypeValidationErrorMessage">LBL_SUPPORTED_FILE_CSV</small>
+      <small class="errorMsg mr10" translate *ngIf="
+          !fileTypeValidationErrorMessage && fileNameValidationErrorMessage
+        ">LBL_INVALID_FILE_NAME</small>
+      <small class="errorMsg" translate *ngIf="
+          !fileTypeValidationErrorMessage &&
+          !fileNameValidationErrorMessage &&
+          fileSizeValidationErrorMessage
+        ">LBL_SUPPORTED_FILE_SIZE</small>
+    </div>
+  </div>
+  <div class="actionGroup">
+    <app-tertiary-button buttonValue="LBL_CANCEL" *ngIf="showNextSection" (click)="resetAll()" class="tertiaryBtn">
+    </app-tertiary-button>
+    <app-primary-button *ngIf="proceedBtnShow" buttonValue="LBL_PROCEED" (click)="proceedFn()" translate></app-primary-button>
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

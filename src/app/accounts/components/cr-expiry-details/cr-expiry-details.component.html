@@ -1,0 +1,35 @@
+<div class="outerContainer">
+    <div class="accountDetails">
+        <section class="summaryOuterConainer">
+            <div class="summaryConainer mainContainer">
+                <div class="subTitles">
+                    {{ rootScopeData.pendingActivitiesServiceRequestObject.requestType }},
+                    {{ rootScopeData.pendingActivitiesServiceRequestObject.accountNumber ? rootScopeData.pendingActivitiesServiceRequestObject.accountNumber : "--" }}
+                </div>
+                <div class="refNO">
+                    {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+                    {{ rootScopeData.pendingActivitiesServiceRequestObject.requestRefNo }}
+                </div>
+            </div>
+        </section>
+        <div class="detailContainer">
+            <div class="flexContainer">
+                <div>
+                    <div translate class="label">LBL_CR_NUMBER</div>
+                    <span class="data" *ngIf="crExpiryDetails && crExpiryDetails.CRNO">{{crExpiryDetails.CRNO}}</span>
+                    <span class="data" *ngIf="!(crExpiryDetails && crExpiryDetails.CRNO)">--</span>
+                </div>
+                <div>
+                    <div translate class="label">LBL_CIF_NAME</div>
+                    <span class="data" *ngIf="crExpiryDetails && crExpiryDetails.CFNAME">{{crExpiryDetails.CFNAME}}</span>
+                    <span class="data" *ngIf="!(crExpiryDetails && crExpiryDetails.CFNAME)">--</span>
+                </div>
+                <div>
+                    <div translate class="label">LBL_EXPIRY_DATE</div>
+                    <span class="data" *ngIf="crExpiryDetails && crExpiryDetails.EXPIRYDATE">{{crExpiryDetails.EXPIRYDATE}}</span>
+                    <span class="data" *ngIf="!(crExpiryDetails && crExpiryDetails.EXPIRYDATE)">--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

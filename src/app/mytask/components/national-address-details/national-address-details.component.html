@@ -1,0 +1,102 @@
+<div class="outerContainer">
+    <div class="mainTitle" translate>National Address Details</div>
+    <div class="accountDetails" >
+        <section class="summaryOuterConainer">
+            <div class="summaryConainer mainContainer">
+                <div class="subTitles">
+                    {{ nationalDetails.requestType }},
+                    {{ nationalDetails.crNum ? nationalDetails.crNum : "--" }}
+                </div>
+                <div class="refNO">
+                    {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+                    {{ nationalDetails.refNo }}
+                </div>
+            </div>
+        </section>
+        
+        <div class="detailContainer" >
+            <div class="flexContainer" >
+                <div>
+                    <div class="label" translate>Request Type</div>
+                    <span class="data">{{nationalDetails.requestType}}</span>
+                </div>
+                <div>
+                    <div translate class="label">LBL_CIF</div>
+                    <span class="data">{{nationalDetails.cifNo}}</span>
+                </div>
+                <div>
+                    <div translate class="label">CIF Name</div>cifName
+                    <span class="data">{{nationalDetails.cifName}}</span>
+                </div>
+            </div>
+            <!-- National Address Details -->
+            <div class="flexContainer" *ngIf = "nationalDetails.subProductCode == 'UPNATAD'">
+                <div>
+                    <div translate class="label">LBL_BUILDING_NUMBER</div>
+                    <span class="data">{{natAddressDet.basicNumber}}</span>
+                </div>
+                <div>
+                    <div translate class="label">LBL_STREET_NAME</div>
+                    <span class="data">{{natAddressDet.street}}</span>
+                </div>
+                <div>
+                    <div translate class="label">LBL_DISTRICT_NAME</div>
+                    <span class="data">{{natAddressDet.district}}</span>
+                </div>
+            </div>
+            <div class="flexContainer" *ngIf = "nationalDetails.subProductCode == 'UPNATAD'">
+                <div>
+                    <div translate class="label">LBL_CITY</div>
+                    <span class="data">{{natAddressDet.cityNameEnglish}}</span>
+                </div>
+                <div>
+                    <div translate class="label">LBL_ZIP_CODE</div>
+                    <span class="data">{{natAddressDet.postCode}}</span>
+                </div>
+                <div>
+                    <div translate class="label">LBL_COUNTRY</div>
+                    <span class="data">{{natAddressDet.countryOfBirth}}</span>
+                </div>
+            </div>
+            <!-- CR Expiry Details -->
+            <div class="flexContainer" *ngIf = "nationalDetails.subProductCode == 'UPDCREX'">
+                <div>
+                    <div translate class="label">LBL_CR_NUMBER</div>
+                    <span class="data">{{nationalDetails.crNum}}</span>
+                </div>
+                <div>
+                    <div translate class="label">LBL_EXPIRY_DATE</div>
+                    <span class="data">{{nationalDetails.expiryDate}}</span>
+                </div>
+            </div> 
+        </div>
+    </div>
+    
+   
+    
+</div>
+
+ <!-- WORKFLOW -->
+ <div class="outerContainer">
+    <div class="accountDetails" >
+        <section class="summaryOuterConainer">
+            <div class="summaryConainer">
+                <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+            </div>
+        </section>
+    </div>
+</div>
+    <!-- HISTORY -->
+<div class="outerContainer">
+    <div class="accountDetails" >
+ <section class="summaryOuterConainer">
+    <div class="summaryConainer">
+    <app-history [historyData]="workFlowHistoryParams"></app-history>
+    </div>
+</section>
+</div>
+
+<div class="btnContainer">
+    <app-tertiary-button buttonValue="LBL_BACK" (click)="back()"></app-tertiary-button>
+  </div>
+</div>

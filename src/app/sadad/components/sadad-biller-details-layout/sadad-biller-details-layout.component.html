@@ -1,0 +1,22 @@
+<div id="sadadBillerDetailsPrintSection">
+    <div class="detailsDataCntr">  
+    <div class="detailsTitleContainer">
+        <div class="mainTitle" translate>LBL_SADAD_BILLER_DETAILS</div>
+        <div *ngIf="printEnabled">
+            <app-summary-tools id="printCheque" [printSection]="printSection" [saveReceiptObject]="saveReceiptObject"  [enabledProperty]="true" [isshownPrint]="shownPrint" [isshowndetailsPrint]="isshowndetailsPrint" (onDetailsPagePrintemit)="selectDetailsPagePrint()" (onPDFdownloadChange)="downloadPdf('save')"></app-summary-tools>
+        </div>        
+    </div>
+    <section class="summaryOuterConainer">    
+        <div class="summaryConainer">
+            <app-sadad-biller-details (onEnabledProp)="onDetailsget($event)"></app-sadad-biller-details> 
+          </div>
+    </section>
+    <section>
+        <div class="btnContainer">
+            <!-- <button class="button-secondary backButton" routerLink="/sadad/billsInquiry/sadadBillerInquiry" translate>LBL_BACK</button> -->
+            <app-tertiary-button buttonValue="LBL_BACK" (click)="onClickBack()"></app-tertiary-button>
+         </div>
+    </section>
+    </div>
+</div>
+    

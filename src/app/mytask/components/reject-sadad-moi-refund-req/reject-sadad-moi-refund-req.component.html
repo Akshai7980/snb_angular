@@ -1,0 +1,78 @@
+<div *ngIf="!receiptForm">
+    <div class="detailsTitleContainer">
+        <div>
+            <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+            <div class="mainTitle" translate>LBL_REJECT_SADAD_MOI_REFUND_REQUEST</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="subTitles">{{'LBL_SADAD_MOI_REFUND_REQUEST' | translate}}</div>
+        <div class="refNO">
+            {{'LBL_TRANSACTION_REF_NUM' | translate }} <b><span
+                    *ngIf="sadadMoiRefundReqDetails && sadadMoiRefundReqDetails.referenceNo">{{sadadMoiRefundReqDetails.referenceNo}}</span><span
+                    *ngIf="!sadadMoiRefundReqDetails || !sadadMoiRefundReqDetails.referenceNo">--</span></b>
+        </div>
+        <div class="refNO">
+            {{'LBL_AMOUNT' | translate }} <b><span
+                    *ngIf="sadadMoiRefundReqDetails && sadadMoiRefundReqDetails.paymentAmount && sadadMoiRefundReqDetails.paymentCcy">{{sadadMoiRefundReqDetails.paymentAmount
+                    | currencyFormat:sadadMoiRefundReqDetails.paymentCcy}} {{sadadMoiRefundReqDetails.paymentCcy}}</span><span
+                    *ngIf="!sadadMoiRefundReqDetails ||( !sadadMoiRefundReqDetails.paymentAmount && ! sadadMoiRefundReqDetails.paymentCcy)">--</span></b>
+        </div>
+        <div class="title" *ngIf="sadadMoiRefundReqDetails && sadadMoiRefundReqDetails.odStatusCode">
+            <button class="status-green-button" translate
+                [class.status-red-button]="sadadMoiRefundReqDetails.odStatusCode === 'RN' ||sadadMoiRefundReqDetails.odStatusCode === 'RS' ||sadadMoiRefundReqDetails.odStatusCode === 'RE' ||sadadMoiRefundReqDetails.odStatusCode === 'RO' ||sadadMoiRefundReqDetails.odStatusCode === 'RH'">
+                {{sadadMoiRefundReqDetails.odStatus}}
+            </button>
+        </div>
+        <div class="subContainer">
+            <div class="fxContainer mt-top">
+                <div class="column1">
+                    <label class="label" translate>LBL_BILLER_NAME</label>
+                    <div class="dataInfo" *ngIf="sadadMoiRefundReqDetails && sadadMoiRefundReqDetails.billerName">
+                        {{sadadMoiRefundReqDetails.billerName}}</div>
+                    <div class="dataInfo" *ngIf="!sadadMoiRefundReqDetails || !sadadMoiRefundReqDetails.billerName">--</div>
+                </div>
+                <div class="column2">
+                    <label class="label" translate>LBL_SERVICE_TYPE</label>
+                    <div class="dataInfo" *ngIf="sadadMoiRefundReqDetails && sadadMoiRefundReqDetails.serviceType">
+                        {{sadadMoiRefundReqDetails.serviceType}}</div>
+                    <div class="dataInfo" *ngIf="!sadadMoiRefundReqDetails || !sadadMoiRefundReqDetails.serviceType">--</div>
+                </div>
+                <div class="column3">
+                    <label class="label" translate>LBL_VALUE_DATE</label>
+                    <div class="dataInfo" *ngIf="sadadMoiRefundReqDetails && sadadMoiRefundReqDetails.valueDate">
+                        {{sadadMoiRefundReqDetails.valueDate | dateFormat}}</div>
+                    <div class="dataInfo" *ngIf="!sadadMoiRefundReqDetails || !sadadMoiRefundReqDetails.valueDate">--</div>
+                </div>
+            </div>
+            <div class="flexCntr">
+                <div class="column" *ngFor="let dynamicValues of sadadMoiRefundReqDynamicValues">
+                    <label class="label">{{dynamicValues.englishName}}</label>
+                    <div class="dataInfo" *ngIf="dynamicValues.value">{{dynamicValues.value}}</div>
+                    <div class="dataInfo" *ngIf="!dynamicValues.value">--</div>
+                </div>
+            </div>
+        </div>
+        <div class="rejectReasonContainer">
+            <div class="rejecthead" translate>LBL_RJCT_RSN
+                <!-- <span class="required">*</span> -->
+            </div>
+            <div>
+                <div class="rejecttextarea">
+                    <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="textArea_Click()"></textarea>
+                    <div class="errorMsg" *ngIf="isrejectreasonValid" translate>LBL_ERROR_MESSAGE_RJCT_RSN
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section>
+            <div class="btnContainer">
+                <!-- <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button> -->
+                <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+            </div>
+        </section>
+    </div>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)"  [rejectMsg]="rejectMsg">
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

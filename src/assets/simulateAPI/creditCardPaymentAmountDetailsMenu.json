@@ -1,0 +1,25 @@
+{
+    "data": {
+        "creditCard": [
+            {
+                "payOption": "Minimum Due",
+                "key": "MD"
+            },
+            {
+                "payOption": "Full Outstanding",
+                "key": "FO"
+            },
+            {
+                "payOption": "Specific Amount",
+                "key": "SA"
+            },
+            {
+                "payOption": "Statement Due",
+                "key": "SD"
+            }
+        ]
+    },
+    "headerValue": {
+        "moduleId": "CRDCDFETCH"
+    }
+}

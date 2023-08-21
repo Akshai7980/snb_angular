@@ -1,0 +1,368 @@
+<div *ngIf="!isReview">
+  <div class="merchantDetails">
+    <div class="subTitles" translate>LBL_LG_ISSUE_DETAILS</div>
+    <div class="outerContainer">
+      <div class="mtop_10 accountDetails flexContainer">
+        <div>
+          <div class="geneStaTitles fieldTitles" translate>
+            LBL_LANGUAGE_TO_BE_PRINTED <span class="required">*</span>
+          </div>
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="matSelectInput mt-top"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="language"
+            [(ngModel)]="issueDetails.language"
+            (selectionChange)="languageChanged($event)"
+          >
+            <mat-option
+              *ngFor="let language of ['English', 'Arabic']"
+              [value]="language"
+              >{{ language }}</mat-option
+            >
+          </mat-select>
+          <div class="errorMsg" translate>
+            {{ errorsObject.languageError }}
+          </div>
+        </div>
+        <div>
+          <div class="geneStaTitles fieldTitles" translate>
+            LBL_TYPE <span class="required">*</span>
+          </div>
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="matSelectInput mt-top"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="type"
+            (selectionChange)="typeChanged($event)"
+          >
+            <mat-option *ngFor="let type of types" [value]="type">{{
+              rootScopeData.userInfo.mLanguage === "en_US"
+                ? type.descEng
+                : type.descAr
+            }}</mat-option>
+          </mat-select>
+          <div class="errorMsg" translate>
+            {{ errorsObject.typeError }}
+          </div>
+        </div>
+        <div>
+          <div class="geneStaTitles fieldTitles" translate>
+            LBL_BRANCH <span class="required">*</span>
+          </div>
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="matSelectInput mt-top"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="type"
+            (selectionChange)="branchChanged($event)"
+          >
+            <mat-option *ngFor="let branch of branches" [value]="branch">{{
+              rootScopeData.userInfo.mLanguage === "en_US"
+                ? branch.branchNameEn
+                : branch.branchNameAr
+            }}</mat-option>
+          </mat-select>
+          <div class="errorMsg" translate>
+            {{ errorsObject.branchError }}
+          </div>
+        </div>
+      </div>
+      <div class="mtop_10 accountDetails flexContainer">
+        <div class="amountContainer">
+          <div class="geneStaTitles fieldTitles" translate>
+            LBL_AMOUNT <span class="required">*</span>
+          </div>
+          <div class="amountFlexContainer">
+            <input
+              class="amountInput"
+              [(ngModel)]="issueDetails.amount"
+              (keypress)="allowNumbersOnly($event)"
+              (blur)="formatAmount()"
+            />
+            <mat-select
+              panelClass="dropDownOption"
+              disableOptionCentering
+              class="amountMatSelectInput mt-top"
+              name="currency"
+              [(value)]="issueDetails.ccy"
+              (selectionChange)="currencyChanged($event)"
+            >
+              <mat-option
+                *ngFor="let currency of currencies"
+                [value]="currency"
+                >{{ currency.currency }}</mat-option
+              >
+            </mat-select>
+          </div>
+          <div class="errorMsg" translate>
+            {{ errorsObject.amountError }}
+          </div>
+        </div>
+        <div>
+          <div class="geneStaTitles fieldTitles" translate>
+            LBL_AMOUNT_IN_ENGLISH
+          </div>
+          <!-- <p class="selectInputBorderNone">
+            {{ issueDetails.amountInEnglish }}
+          </p> -->
+          <p class="selectInputBorderNone">
+            {{ issueDetails.amountInEnglish }} {{ issueDetails.ccy.currencyNameEng }}
+          </p>
+        </div>
+        <div>
+          <div class="geneStaTitles fieldTitles" translate>
+            LBL_AMOUNT_IN_ARABIC
+          </div>
+          <p class="selectInputBorderNone">
+            {{ issueDetails.amountInArabic }} {{ issueDetails.ccy.acuurencyNameAR }}
+          </p>
+        </div>
+      </div>
+      <div class="mtop_10 accountDetails flexContainer">
+        <div>
+          <div class="geneStaTitles fieldTitles" translate>
+            LBL_REPRESENTING
+          </div>
+          <input
+            class="selectInput"
+            type="text"
+            [(ngModel)]="issueDetails.representing"
+            (blur)="inputChanged()"
+            (keypress)="allowNumbersOnly($event)"
+          />
+        </div>
+
+        <div>
+          <div class="geneStaTitles fieldTitles" translate>LBL_REF_NUMBER</div>
+          <input
+            class="selectInput"
+            type="text"
+            [(ngModel)]="issueDetails.refNumber"
+            (blur)="inputChanged()"
+          />
+        </div>
+
+        <div>
+          <div class="geneStaTitles fieldTitles" translate>
+            LBL_EXPIRY_DATE<span class="required">*</span>
+          </div>
+          <div class="mtop_10">
+            <app-date-picker
+              (dateValue)="getExpiryDate($event)"
+              [minDate]="minDate"
+            ></app-date-picker>
+            <div class="errorMsg" translate>
+              {{ errorsObject.expiryError }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mtop_10 accountDetails">
+        <div>
+          <div class="geneStaTitles fieldTitles" translate>
+            LBL_PROJECT_NAME_AND_PURPOSE
+          </div>
+          <textarea
+            class="comment mtop_10"
+            [(ngModel)]="issueDetails.projectNameAndPurpose"
+            (blur)="inputChanged()"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isReview">
+  <div class="merchantDetails">
+    <div class="subTitles" translate>LBL_LG_ISSUE_DETAILS</div>
+    <div class="detailContainer">
+      <div class="outerContainer">
+        <div *ngIf="isUpdate" class="mtop_10 accountDetails flexContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_LG_REFERENCE_NUMBER
+            </div>
+            <p class="selectInputBorderNone">
+              {{
+                this.rootScopeData.selectedInquiryForStopPayment.lg &&
+                this.rootScopeData.selectedInquiryForStopPayment.lg.lgNumber
+                  ? this.rootScopeData.selectedInquiryForStopPayment.lg.lgNumber
+                  : ""
+              }}
+            </p>
+          </div>
+        </div>
+        <div class="mtop_10 accountDetails flexContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_LANGUAGE_TO_BE_PRINTED
+            </div>
+            <p class="selectInputBorderNone">{{ issueDetails.language }}</p>
+          </div>
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_TYPE</div>
+            <p class="selectInputBorderNone">
+              {{ issueDetails.type.descEng }}
+            </p>
+          </div>
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_BRANCH</div>
+            <p class="selectInputBorderNone">
+              {{ issueDetails.branch.branchNameEn }}
+            </p>
+          </div>
+        </div>
+        <div class="mtop_10 accountDetails flexContainer">
+          <div class="amountContainer">
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_AMOUNT <span class="required" *ngIf="isUpdate">*</span>
+            </div>
+            <p *ngIf="!isUpdate" class="selectInputBorderNone">
+              {{
+                issueDetails.amount | currencyFormat : issueDetails.ccy.currency
+              }}
+              {{ issueDetails.ccy.currencyNameEng }}
+            </p>
+            <div *ngIf="isUpdate" class="amountFlexContainer">
+              <input
+                class="amountInput"
+                [(ngModel)]="issueDetails.amount"
+                (keypress)="allowNumbersOnly($event)"
+                (blur)="formatAmount()"
+              />
+              <mat-select
+                panelClass="dropDownOption"
+                disableOptionCentering
+                class="amountMatSelectInput mt-top"
+                name="currency"
+                [(value)]="issueDetails.ccy"
+                (selectionChange)="currencyChanged($event)"
+              >
+                <mat-option
+                  *ngFor="let currency of currencies"
+                  [value]="currency"
+                  >{{ currency.currency }}</mat-option
+                >
+              </mat-select>
+            </div>
+            <div *ngIf="isUpdate" class="errorMsg" translate>
+              {{ errorsObject.amountError }}
+            </div>
+          </div>
+
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_AMOUNT_IN_ENGLISH
+            </div>
+            <!-- <p class="selectInputBorderNone">
+              {{ issueDetails.amountInEnglish }}
+            </p> -->
+            <p class="selectInputBorderNone">
+              {{ issueDetails.amountInEnglish }} {{ issueDetails.ccy.currencyNameEng }}
+            </p>
+          </div>
+
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_AMOUNT_IN_ARABIC
+            </div>
+            <!-- <p class="selectInputBorderNone">
+              {{ issueDetails.amountInArabic }}
+            </p> -->
+            <p class="selectInputBorderNone">
+              {{ issueDetails.amountInArabic }} {{ issueDetails.ccy.acuurencyNameAR }}
+            </p>
+          </div>
+        </div>
+        <div class="mtop_10 accountDetails flexContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_REPRESENTING
+            </div>
+            <p
+              [ngClass]="
+                issueDetails.representing
+                  ? 'selectInputBorderNone'
+                  : 'noDataContent'
+              "
+              translate
+            >
+              {{
+                issueDetails.representing
+                  ? issueDetails.representing
+                  : "LBL_NOT_PROVIDED"
+              }}
+            </p>
+          </div>
+
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_REF_NUMBER
+            </div>
+            <p
+              [ngClass]="
+                issueDetails.refNumber
+                  ? 'selectInputBorderNone'
+                  : 'noDataContent'
+              "
+              translate
+            >
+              {{
+                issueDetails.refNumber
+                  ? issueDetails.refNumber
+                  : "LBL_NOT_PROVIDED"
+              }}
+            </p>
+          </div>
+
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_EXPIRY_DATE <span class="required" *ngIf="isUpdate">*</span>
+            </div>
+            <p *ngIf="!isUpdate" class="selectInputBorderNone" translate>
+              {{ issueDetails.expiry | dateFormat }}
+            </p>
+            <div *ngIf="isUpdate" class="mtop_10">
+              <app-date-picker
+                (dateValue)="getExpiryDate($event)"
+                [minDate]="minDate"
+                [newDate]="issueDetails.expiry"
+              ></app-date-picker>
+              <div class="errorMsg" translate>
+                {{ errorsObject.expiryError }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mtop_10 accountDetails flexContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_PROJECT_NAME_AND_PURPOSE
+            </div>
+            <p
+              [ngClass]="
+                issueDetails.projectNameAndPurpose
+                  ? 'selectInputBorderNone'
+                  : 'noDataContent'
+              "
+              translate
+            >
+              {{
+                issueDetails.projectNameAndPurpose
+                  ? issueDetails.projectNameAndPurpose
+                  : "LBL_NOT_PROVIDED"
+              }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

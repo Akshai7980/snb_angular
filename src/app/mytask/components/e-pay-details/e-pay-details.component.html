@@ -1,0 +1,273 @@
+<div class="fileDetails">
+    <div class="title bold">
+        {{ requestSummaryDetails.summary.requestType ? requestSummaryDetails.summary.requestType : '--' }}
+        {{ "LBL_FOR" | translate }}
+        {{ requestSummaryDetails.details.comName ? requestSummaryDetails.details.comName :
+        requestSummaryDetails.details.merchantName ? requestSummaryDetails.details.merchantName : '--' }}, {{
+        requestSummaryDetails.details.accNo ? requestSummaryDetails.details.accNo : '--' }}
+    </div>
+    <div class="title">
+        {{ "LBL_REF_NUMBER" | translate }}
+        {{ requestSummaryDetails.details.refNo ? requestSummaryDetails.details.refNo : '--' }}
+    </div>
+    <div class="title">
+        {{ "LBL_ON" | translate }}
+        {{ requestSummaryDetails.details.epyDate ? (requestSummaryDetails.details.epyDate | dateFormat) :
+        requestSummaryDetails.details.epayDate ? (requestSummaryDetails.details.epayDate | dateFormat) :
+        requestSummaryDetails.details.curDate ? (requestSummaryDetails.details.curDate | dateFormat) : '--' }}
+        <div class="pad_l_10">
+            <button class="status-green-button" translate [class.status-red-button]="
+            requestSummaryDetails.summary.status === 'RN' ||
+            requestSummaryDetails.summary.status === 'RS' ||
+            requestSummaryDetails.summary.status === 'RE' ||
+            requestSummaryDetails.summary.status === 'RO' ||
+            requestSummaryDetails.summary.status === 'RH'
+          " translate>
+                {{ requestSummaryDetails.summary.statusDesc ? requestSummaryDetails.summary.statusDesc : '--' }}
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="cardDetailsContainer" *ngIf="pageName !== 'authorize' && pageName !== 'reject'">
+    <div class="subContainer">
+        <div class="subTitles"
+            *ngIf="requestSummaryDetails.summary.subproductCode === 'EPYMC' || requestSummaryDetails.summary.subproductCode === 'EPYMCR' || requestSummaryDetails.summary.subproductCode === 'EPYMCD'"
+            translate>LBL_REQUEST_DETAILS</div>
+        <div class="subTitles" *ngIf="requestSummaryDetails.summary.subproductCode === 'APEPYSTMT'" translate>
+            LBL_MERCHANT_DETAILS</div>
+        <div class="rowInnerCntr"
+            *ngIf="requestSummaryDetails.summary.subproductCode === 'EPYMC' || requestSummaryDetails.summary.subproductCode === 'EPYMCD'">
+            <div class="field">
+                <div class="label" translate>LBL_MOBILE_NUMBER</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.mobileNo ? requestSummaryDetails.details.mobileNo : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_CLAIM_TYPE</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.claimType ? requestSummaryDetails.details.claimType : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_CLAIM_DESCRIPTION</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.claimDesc ? requestSummaryDetails.details.claimDesc : '--' }}
+                </div>
+            </div>
+            <div class="field" *ngIf="requestSummaryDetails.summary.subproductCode === 'EPYMCD'">
+                <div class="label" translate>LBL_UPLOAD_FILE</div>
+                <div class="information">
+                    <app-uploaded-file-download
+                        [fileUploadedDetails]="fileUploadedDetails"></app-uploaded-file-download>
+                </div>
+            </div>
+            <div class="field" *ngIf="requestSummaryDetails.summary.subproductCode === 'EPYMCD'">
+                <div class="label" translate>LBL_TOTAL_RECAORDS</div>
+                <div class="information">
+                    {{
+                    rootScopeData.totalRecrdsCount
+                    ? rootScopeData.totalRecrdsCount
+                    : "--"
+                    }}
+                </div>
+            </div>
+        </div>
+        <div class="rowInnerCntr" *ngIf="requestSummaryDetails.summary.subproductCode === 'EPYMCR'">
+            <div class="field">
+                <div class="label" translate>LBL_MOBILE_NUMBER</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.mobileNo ? requestSummaryDetails.details.mobileNo : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_RRN</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.rrn ? requestSummaryDetails.details.rrn : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_REFUND_TYPE</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.refundType ? requestSummaryDetails.details.refundType : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_REFUND_AMOUNT</div>
+                <div class="information">
+                    {{ (requestSummaryDetails.details.refundAmt && requestSummaryDetails.details.currency) ?
+                    (requestSummaryDetails.details.refundAmt | currencyFormat :
+                    requestSummaryDetails.details.currency) + ' ' + requestSummaryDetails.details.currency : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_CLAIM_DESCRIPTION</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.claimDesc ? requestSummaryDetails.details.claimDesc : '--' }}
+                </div>
+            </div>
+        </div>
+        <div class="rowInnerCntr" *ngIf="requestSummaryDetails.summary.subproductCode === 'APEPYSTMT'">
+            <div class="field">
+                <div class="label" translate>LBL_COM_REG_NAME_ARB</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.arbname ? requestSummaryDetails.details.arbname : '--' }}
+                </div>
+            </div>
+        </div>
+        <div class="rowInnerCntr" *ngIf="requestSummaryDetails.summary.subproductCode === 'APEPYSTMT'">
+            <div class="field">
+                <div class="label" translate>LBL_COM_REG_NAME_ENG</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.comName ? requestSummaryDetails.details.comName : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_PHONE</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.phoneNo ? requestSummaryDetails.details.phoneNo : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_CITY</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.city ? requestSummaryDetails.details.city : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_ADDRESS</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.address ? requestSummaryDetails.details.address : '--' }}
+                </div>
+            </div>
+        </div>
+        <div class="rowInnerCntr" *ngIf="requestSummaryDetails.summary.subproductCode === 'APEPYSTMT'">
+            <div class="field">
+                <div class="label" translate>LBL_DELEGATE_PERSON_FIRST_NAME</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.deFtName ? requestSummaryDetails.details.deFtName : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_DELEGATE_PERSON_LAST_NAME</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.deLtName ? requestSummaryDetails.details.deLtName : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>{{'LBL_DLG' | translate}} {{'LBL_MOBILE_NUMBER' | translate}}</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.demoblieNo ? requestSummaryDetails.details.demoblieNo : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_EMAIL</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.email ? requestSummaryDetails.details.email : '--' }}
+                </div>
+            </div>
+        </div>
+        <div class="rowInnerCntr" *ngIf="requestSummaryDetails.summary.subproductCode === 'APEPYSTMT'">
+            <div class="field">
+                <div class="label" translate>{{'LBL_TEC_CNT' | translate}} {{'LBL_FNAME' | translate}}</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.tecFtName ? requestSummaryDetails.details.tecFtName : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>{{'LBL_TEC_CNT' | translate}} {{'LBL_LNAME' | translate}}</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.tecLtName ? requestSummaryDetails.details.tecLtName : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>{{'LBL_TEC_CNT' | translate}} {{'LBL_MOBILE_NUMBER' | translate}}</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.tecMobileNo ? requestSummaryDetails.details.tecMobileNo : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>{{'LBL_TEC_CNT' | translate}} {{'LBL_EMAIL' | translate}}</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.tecemail ? requestSummaryDetails.details.tecemail : '--' }}
+                </div>
+            </div>
+        </div>
+        <div class="border_bottom" *ngIf="requestSummaryDetails.summary.subproductCode === 'APEPYSTMT'"></div>
+        <div class="rowInnerCntr" *ngIf="requestSummaryDetails.summary.subproductCode === 'APEPYSTMT'">
+            <div class="field">
+                <div class="label" translate>LBL_WEB_URL</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.websiteUrl ? requestSummaryDetails.details.websiteUrl : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_PAYMENT_TYPE</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.pytType ? requestSummaryDetails.details.pytType : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_PMT_SRV_PROVD</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.pytService ? requestSummaryDetails.details.pytService : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_SCHEMA</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.schema ? requestSummaryDetails.details.schema : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_GATEWAY</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.gateWay ? requestSummaryDetails.details.gateWay : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_COMMENTS</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.comments ? requestSummaryDetails.details.comments : '--' }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="subContainer" *ngIf="requestSummaryDetails.summary.subproductCode === 'APEPYSTMT'">
+        <div class="subTitles" translate>
+            LBL_FEE_DETAILS</div>
+        <div class="rowInnerCntr">
+            <div class="field">
+                <div class="label" translate>LBL_SET_UP_FEE</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.gateWay ? requestSummaryDetails.details.gateWay : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_MONTHLY_FEE</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.gateWay ? requestSummaryDetails.details.gateWay : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_MADA_PERC</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.gateWay ? requestSummaryDetails.details.gateWay : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_CRD_CARD_PERC</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.gateWay ? requestSummaryDetails.details.gateWay : '--' }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_CRD_CARD_FIX_FEE</div>
+                <div class="information">
+                    {{ requestSummaryDetails.details.gateWay ? requestSummaryDetails.details.gateWay : '--' }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

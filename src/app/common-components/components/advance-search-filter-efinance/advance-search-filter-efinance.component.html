@@ -1,0 +1,72 @@
+<div
+  class="filter-search-popup"
+  *ngIf="showAdvancedSearchPopup"
+  (click)="stopAdvancedSearchClose($event)"
+>
+  <div translate class="header">LBL_FILTER
+    <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+  </div>
+
+  <div class="flexCntr">
+    <div class="fieldCntr">
+      <div class="fieldLabel" translate>LBL_FACILITY_ID</div>
+      <input type="text" [(ngModel)]="facilityID" class="txt-fld mt-top" />
+    </div>
+    <div class="fieldCntr">
+      <div class="fieldLabel" translate>LBL_PRODUCT_NAME</div>
+      <input type="text" [(ngModel)]="productName" class="txt-fld mt-top" />
+    </div>
+  </div>
+  <div class="flexCntr">
+    <div class="fieldCntr">
+      <div class="fromto">
+        <div class="datefrom">
+          <div translate class="fieldLabel" id="proctm">
+            LBL_FACILITY_LIMIT_FROM
+          </div>
+          <div class="shortInput mt-top">
+            <input type="text" (keypress)="allowNumbersOnly($event)" [(ngModel)]="fromLimit" />
+          </div>
+        </div>
+        <div class="dateto">
+          <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+          <div class="shortInput mt-top">
+            <input type="text" (keypress)="allowNumbersOnly($event)" [(ngModel)]="toLimit" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fieldCntr">
+      <div class="fromto">
+        <div class="datefrom">
+          <div translate class="fieldLabel" id="proctm">
+            LBL_AVAILABLE_LIMIT_FROM
+          </div>
+          <div class="shortInput mt-top">
+            <input type="text" (keypress)="allowNumbersOnly($event)" [(ngModel)]="availableLimitFrom" />
+          </div>
+        </div>
+        <div class="dateto">
+          <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+          <div class="shortInput mt-top">
+            <input type="text" (keypress)="allowNumbersOnly($event)" [(ngModel)]="availableLimitTo" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="submt">
+    <div>
+      <!-- <button class="clr" (click)="onClickClear()" translate>LBL_CLEAR</button> -->
+      <app-tertiary-button buttonValue="LBL_CLEAR" (click)="onClickClear()"></app-tertiary-button>
+    </div>
+    <div>
+      <!-- <button class="apply" (click)="onClickApply()" translate>
+        LBL_APPLY
+      </button> -->
+      <app-primary-button (click)="onClickApply()" buttonValue="LBL_APPLY"></app-primary-button>
+    </div>
+  </div>
+</div>

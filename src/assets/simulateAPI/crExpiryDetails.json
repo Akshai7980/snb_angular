@@ -1,0 +1,21 @@
+{
+    "data":[ 
+        {
+            "crNo": "1089345",
+            "cifNo": "1100010",
+            "cfName": "AIRTEL MOBILE",
+            "expiryDate": "23/09/25",
+            "expiryFlag":"Y"
+        },
+        {
+            "crNo": "1089346",
+            "cifNo": "1100011",
+            "cfName": "Jio MOBILE",
+            "expiryDate": "24/09/25",
+            "expiryFlag":"N"   
+        }
+    ],
+    "headerValue": {
+        "moduleId": "CRDETAILS"
+    }
+}

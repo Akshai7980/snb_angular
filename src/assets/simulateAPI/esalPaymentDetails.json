@@ -1,0 +1,43 @@
+{
+    "data": {
+      "referenceNo": "TBC2209222349036",
+      "txnType": "ESAL Payment",
+      "functionCode": "ESALTXN",
+      "subProdCode": "ESALPAY",
+      "debitAccNo": "500500165111",
+      "debitAccName": null,
+      "debitBank": "Saudi National Bank",
+      "debitCcy": "SAR",
+      "inputDebitAmount": 440,
+      "paymentDetails": null,
+      "paymentAmount": 440,
+      "customerReference": null,
+      "odMakerDate": "22/09/2022",
+      "createdDate": "22/09/2022",
+      "valueDate": "22/09/2022",
+      "odStatus": "Ready for Authorization",
+      "odStatusCode": "RA",
+      "odVersionNo": 1,
+      "productCode": "PAYMNT",
+      "unitId": "IGTBSA",
+      "paymentCcy": "SAR",
+      "selectedBillers": [
+        {
+          "billerName": "AlRiyad Press Est",
+          "billerNickName": "test60",
+          "BILLERGROUPNAME": "Media",
+          "paymentType": "Post Paid",
+          "billerStatus": "AO",
+          "dueDate": "22/09/2022",
+          "subscriberID": "67543468",
+          "amount": 440
+        }
+      ],
+      "rejectReason":"Testing Rejected Reason"
+
+    },
+    "headerValue": {
+      "moduleId": "ESALPAYDETAIL",
+      "simulate": "N"
+    }
+  }

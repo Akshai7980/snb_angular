@@ -1,0 +1,113 @@
+{
+    "data": [
+        {
+            "serviceCode": "001",
+            "serviceName": "ExtendVisitorVisa ExtendVisitorVisa ExtendVisitorVisa",
+            "allowRefund": "true",
+            "allowOverPay": "false",
+            "allowUnderPay": "false",
+            "allowAdvancePay": "false",
+            "allowCCPay": "false",
+            "allowCCReversal": "false",
+            "allowCCRefund": "false",
+            "serviceNameinArabic": null,
+            "voiceTag": null
+        },
+        {
+            "serviceCode": "002",
+            "serviceName": "Issue New Iqama",
+            "allowRefund": "true",
+            "allowOverPay": "false",
+            "allowUnderPay": "false",
+            "allowAdvancePay": "false",
+            "allowCCPay": "false",
+            "allowCCReversal": "false",
+            "allowCCRefund": "false",
+            "serviceNameinArabic": null,
+            "voiceTag": null
+        },
+        {
+            "serviceCode": "003",
+            "serviceName": "Renew Iqama",
+            "allowRefund": "false",
+            "allowOverPay": "true",
+            "allowUnderPay": "16-05-22",
+            "allowAdvancePay": "false",
+            "allowCCPay": "false",
+            "allowCCReversal": "false",
+            "allowCCRefund": "false",
+            "serviceNameinArabic": null,
+            "voiceTag": null
+        },
+        {
+            "serviceCode": "004",
+            "serviceName": "Issue Exit Re-entry visa (single)",
+            "allowRefund": "false",
+            "allowOverPay": "true",
+            "allowUnderPay": "16-05-22",
+            "allowAdvancePay": "false",
+            "allowCCPay": "false",
+            "allowCCReversal": "false",
+            "allowCCRefund": "false",
+            "serviceNameinArabic": null,
+            "voiceTag": null
+        },
+        {
+            "serviceCode": "005",
+            "serviceName": "Issue Exit Re-entry visa (multiple)",
+            "allowRefund": "false",
+            "allowOverPay": "true",
+            "allowUnderPay": "16-05-22",
+            "allowAdvancePay": "false",
+            "allowCCPay": "false",
+            "allowCCReversal": "false",
+            "allowCCRefund": "false",
+            "serviceNameinArabic": null,
+            "voiceTag": null
+        },
+        {
+            "serviceCode": "006",
+            "serviceName": "Visa Cancellation",
+            "allowRefund": "false",
+            "allowOverPay": "true",
+            "allowUnderPay": "16-05-22",
+            "allowAdvancePay": "false",
+            "allowCCPay": "false",
+            "allowCCReversal": "false",
+            "allowCCRefund": "false",
+            "serviceNameinArabic": null,
+            "voiceTag": null
+        },
+        {
+            "serviceCode": "007",
+            "serviceName": "Transfer of Services",
+            "allowRefund": "false",
+            "allowOverPay": "true",
+            "allowUnderPay": "16-05-22",
+            "allowAdvancePay": "false",
+            "allowCCPay": "false",
+            "allowCCReversal": "false",
+            "allowCCRefund": "false",
+            "serviceNameinArabic": null,
+            "voiceTag": null
+        },
+        {
+            "serviceCode": "008",
+            "serviceName": "Replace Iqama",
+            "allowRefund": "false",
+            "allowOverPay": "true",
+            "allowUnderPay": "16-05-22",
+            "allowAdvancePay": "false",
+            "allowCCPay": "false",
+            "allowCCReversal": "false",
+            "allowCCRefund": "false",
+            "serviceNameinArabic": null,
+            "voiceTag": null
+        }
+    ],
+    "headerValue": {
+        "moduleId": "SADADSERVTYPE",
+        "simulate": "N",
+        "_dinsess": "9c6e5df8-4cc9-4862-9209-c3c19b588149"
+    }
+}

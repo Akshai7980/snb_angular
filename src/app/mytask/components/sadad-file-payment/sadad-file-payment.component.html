@@ -1,0 +1,200 @@
+
+<div>
+    <div class="mTop_18">
+      <div class="actionsConatiner">
+          <div class="leftPannel">
+              <div class="searchCntnrLeft">
+                  <app-search [showAdvanceSearch]="true" (searchParams)="advancedSearchApply($event)" (childEvent)="triggerSearchFilter($event)"></app-search>
+              </div>
+          </div>
+          <div>
+              <div>
+                  <app-refresh (onRefresh)="refreshSummary()"></app-refresh>
+              </div>
+          </div>
+      </div>   
+  </div>
+    <div *ngIf="!norecordflag" id="filetransferDefaultCntr">
+  <table  mat-table [dataSource]="dataSourceToPass" class="casaTable" *ngIf="responseHeader !== undefined">
+  
+    <ng-container matColumnDef="odDRefNo">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('odDRefNo')" translate>LBL_TRANSACTION_ID
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'odDRefNo'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'odDRefNo'">
+          <img src="assets/images/sortDown.svg" *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style">
+          <img src="assets/images/sortDown.svg" *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'" class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.odDRefNo" [title]="element.odDRefNo">{{element.odDRefNo}}</div>
+        <div *ngIf="!element.odDRefNo">--</div>
+      </td>
+    </ng-container>
+  <ng-container matColumnDef="accNo">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('accNo')" translate>LBL_ACCOUNT
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'accNo'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'accNo'">
+          <img src="assets/images/sortDown.svg"
+            *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style">
+          <img src="assets/images/sortDown.svg"
+            *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+            class="sortUpAscending">
+        </span></th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.accNo" [title]="element.accNo">{{element.accNo}}</div>
+        <div *ngIf="!element.accNo">--</div>
+       </td>
+    </ng-container>
+  
+  
+  
+    <ng-container matColumnDef="odNoOfTrans">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('odNoOfTrans')" translate>LBL_RECORDS
+        
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'odNoOfTrans'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'odNoOfTrans'">
+          <img src="assets/images/sortDown.svg"
+            *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style">
+          <img src="assets/images/sortDown.svg"
+            *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+            class="sortUpAscending">
+        </span>
+
+      </th>
+      <td mat-cell *matCellDef="let element"> 
+      <div *ngIf="element.odNoOfTrans" [title]="element.odNoOfTrans">{{element.odNoOfTrans}}</div>
+      <div *ngIf="!element.odNoOfTrans">--</div>  
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="odMakerDate">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('odMakerDate')" translate>LBL_VALUE_DATE        
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'odMakerDate'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'odMakerDate'">
+          <img src="assets/images/sortDown.svg"
+            *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style">
+          <img src="assets/images/sortDown.svg"
+            *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+            class="sortUpAscending">
+        </span>
+
+      </th>
+      <td mat-cell *matCellDef="let element"> 
+        <div *ngIf="element.odMakerDate" > {{element.odMakerDate | dateFormat}} </div>
+        <div *ngIf="!element.odMakerDate">--</div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="odStatus">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('odStatus')" translate>LBL_STATUS
+        
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'odStatus'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'odStatus'">
+          <img src="assets/images/sortDown.svg"
+            *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style">
+          <img src="assets/images/sortDown.svg"
+            *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+            class="sortUpAscending">
+        </span>
+
+      </th>
+      <td mat-cell *matCellDef="let element"> 
+      <div *ngIf="element.odStatus" [title]="element.odStatus">{{element.odStatus}}</div>
+      <div *ngIf="!element.odStatus">--</div>
+      </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="uploadType">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('uploadType')" translate>LBL_UPLOADED_TYPE
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'uploadType'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'uploadType'">
+          <img src="assets/images/sortDown.svg"
+            *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style">
+          <img src="assets/images/sortDown.svg"
+            *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+            class="sortUpAscending">
+        </span></th>
+      <td mat-cell *matCellDef="let element"> 
+       <div *ngIf="element.uploadType" [title]="element.uploadType"> {{element.uploadType}} </div>
+      <div *ngIf="!element.uploadType">--</div>
+      </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="odFileName">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('odFileName')" translate>LBL_FILE
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'odFileName'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'odFileName'">
+          <img src="assets/images/sortDown.svg"
+            *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style">
+          <img src="assets/images/sortDown.svg"
+            *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+            class="sortUpAscending">
+        </span></th>
+      <td class="" mat-cell *matCellDef="let element"> 
+        <div *ngIf="element.odFileName" class="ellipsis" [title]="element.odFileName">{{element.odFileName}} </div>
+      <div *ngIf="!element.odFileName">--</div>
+      </td>
+    </ng-container>
+   
+    <ng-container matColumnDef="odFileAmount">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('odFileAmount')" translate>LBL_AMOUNT        
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'odFileAmount'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'odFileAmount'">
+          <img src="assets/images/sortDown.svg"
+            *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style">
+          <img src="assets/images/sortDown.svg"
+            *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+            class="sortUpAscending">
+        </span>
+
+      </th>
+      <td mat-cell *matCellDef="let element"> 
+        <div *ngIf="element.odFileAmount">{{element.odFileAmount  | currencyFormat: element.odTxnCy}}
+          {{ element.odTxnCy }}
+        </div>
+        <div *ngIf="!element.odFileAmount">--</div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef><div class="position_rel" translate>LBL_ACTION</div></th>
+      <td mat-cell *matCellDef="let element"> 
+        <div class="acceptIcon" (click)="onApproveClick($event,element)"></div>
+        <div class="rejectIcon" (click)="onRejectClick($event,element)"></div></td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="goToDetailsPage(row)"></tr>
+  </table>
+  </div>
+  <div *ngIf="norecordflag">
+  <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+  </div>
+  <app-pagination #paginator [dataSourceLength]="dataSourceLength" [currentRecord]="'FileTransfer'" [totalRecords]="totalRecords"  (onPaginationChange)="paginationChangeClick($event)" [flagForRefreshPage]="refreshClickedFlag" ></app-pagination>
+    </div>  
+  <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>
+  
+  

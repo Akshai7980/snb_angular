@@ -1,0 +1,141 @@
+<div id="singleTransferInquiryPrinSection" *ngIf="hideAll">
+    <div class="detailsTitleContainer">
+        <div class="mainTitle" translate>LBL_REVIEW</div>
+        <div class="container">
+            <div class="subTitles">
+                {{ transferSummary?.pymtType }} {{ "LBL_ACC_TO" | translate }}
+                {{ transferSummary.beneficiaryName ? transferSummary.beneficiaryName : "--" }},
+                {{ transferSummary.benefAcNo ? transferSummary.benefAcNo : "--" }}
+            </div>
+            <div class="refNO">
+                {{ "LBL_TRANSACTION_REF_NUM" | translate }} {{ transferSummary.siRefNo }}
+            </div>
+            <div class="title">
+                <div translate>
+                    LBL_AMOUNT
+                    <span>
+                        {{
+                        transferSummary.siAmt
+                        | currencyFormat: transferSummary.siCurrency
+                        }}
+                        {{ transferSummary.siCurrency }}</span>
+                </div>
+            </div>
+            <div class="subContainer">
+                <div class="subTitles" translate>LBL_TRANSFER_DETAILS</div>
+                <div class="rowInnerCntr">
+                    <div class="field">
+                        <div class="label" translate>LBL_DETAIL_CREDIT_TO</div>
+                        <div class="information">
+                            {{
+                            transferSummary.beneficiaryName && transferSummary.beneficiaryName.trim() !== ""
+                            ? transferSummary.beneficiaryName
+                            : "--"
+                            }}
+                            , {{ transferSummary.benefAcNo ? transferSummary.benefAcNo : "--" }}
+                        </div>
+                        <div class="information data">
+                            Bank : {{ transferDetails?.creditBank }},
+                            {{ transferDetails?.creditCountry }}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_DEBIT_FROM</div>
+                        <div class="information">
+                            {{
+                            debitDetails?.res_Account_Name &&
+                            debitDetails?.res_Account_Name.trim() !== ""
+                            ? debitDetails?.res_Account_Name
+                            : "--"
+                            }},
+                            {{ debitDetails?.res_Acc_No }}
+                        </div>
+                        <div class="information data">
+                            Balance :
+                            <span *ngIf="debitDetails?.debitAvailableBalance; else emptyBalance">
+                                {{
+                                    debitDetails?.res_AvailableBalance
+                                | currencyFormat: debitDetails?.res_Currency
+                                }}
+                                {{ debitDetails?.res_Currency }}</span>
+                            <ng-template #emptyBalance>--</ng-template>
+                        </div>
+                    </div>
+                    <div class="field" *ngIf="transferSummary.paymentMode !== 'BKSIFT'">
+                        <div class="label" translate>LBL_PURPOSE</div>
+                        <div class="information">
+                            <span *ngIf="transferDetails?.purposeDesc; else emptyPurpose">
+                                {{ transferDetails?.purposeDesc }}</span>
+                            <ng-template #emptyPurpose>--</ng-template>
+                        </div>
+                    </div>
+                    <div class="field" *ngIf="transferSummary.paymentMode !== 'BKSIFT'">
+                        <div class="label" translate>LBL_RELATIONSHIP</div>
+                        <div class="information" *ngIf="transferDetails?.relationshipCodeDesc; else emptyrelationship">{{ transferDetails?.relationshipCodeDesc}}</div>
+                        <ng-template #emptyrelationship>--</ng-template>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_FREQUENCY</div>
+                        <div class="information" *ngIf="transferDetails.payevery; else emptyFrequency">
+                            <div *ngIf="transferDetails.payevery === 'M'">Monthly</div>
+                            <div *ngIf="transferDetails.payevery === 'D'">Daily</div>
+                            <div *ngIf="transferDetails.payevery === 'W'">Weekly</div>
+                            <div *ngIf="transferDetails.payevery === 'Y'">Yearly</div>
+                        </div>
+                        <ng-template #emptyFrequency>--</ng-template>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_EXECUTION_DETAILS</div>
+                        <div class="information"  *ngIf="transferDetails?.noOfExecutions;">{{transferDetails?.noOfExecutions}}</div>
+                    </div>
+
+                    <div class="field">
+                        <div class="label" translate>LBL_PAYMENT_START_DATE</div>
+                        <div class="information" *ngIf="transferDetails.firstPymtDate; else emptyfirstPymtDate">
+                            {{transferDetails.firstPymtDate}}</div>
+                        <ng-template #emptyfirstPymtDate>--</ng-template>
+                    </div>
+        
+                    <div class="field">
+                        <div class="label" translate>LBL_PAYMENT_ENDS_ON_WITH</div>
+                        <div class="information" *ngIf="transferDetails.lastPymtDate; else emptylastPymtDate">
+                            {{transferDetails.lastPymtDate}}</div>
+                        <ng-template #emptylastPymtDate>--</ng-template>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="margin-top: 20px;">
+            <div class="reasonContainer">
+                <div class="field">
+                    <div class="label" translate>LBL_CNCL_RSN</div>
+                    <div class="information">
+                        <textarea type="text" disabled>{{ cancelReason }}</textarea>
+                    </div>
+                    <!-- <div class="information"> {{ cancelReason }} </div> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="authContainer" *ngIf="showAuthorization">
+                <app-authorization class="debit" *ngIf="isProceed  && !resetRemain" [authListDataSource]="authOptions" [authError]="errorCode" (authEmit)="getAuthorizationData($event)"></app-authorization>
+        </div>
+
+        <div class="authContainer">
+                <app-authentication class="debit"  *ngIf="isProceed  && !resetRemain"  (authenticationType)="getAuthType($event)" (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)"></app-authentication>
+        </div>
+
+    </div>
+    <section>
+        <div class="btnContainer">
+            <app-tertiary-button buttonValue="LBL_CANCEL" (click)="back()"></app-tertiary-button>
+            <!-- <app-primary-button buttonValue="LBL_SUBMIT" (click)="callCancelTransaction()" routerPath="./"></app-primary-button> -->
+        </div>
+    </section>
+</div>
+
+<app-receipt [receiptDetails]="receiptData" (onInitAgainClick)="initiateAnotherRequest()" *ngIf="!hideAll" [saveReceiptObject]="saveReceiptObject" [rejectMsg]="rejectMsg"></app-receipt>
+

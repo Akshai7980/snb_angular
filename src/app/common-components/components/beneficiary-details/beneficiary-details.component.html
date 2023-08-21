@@ -1,0 +1,116 @@
+<div class="AccountDetails">
+    <div  class="subTitles" translate>LBL_BENEFICIARY_DETAILS</div>
+    <div class="rowInnerCntr"  *ngIf="!rootScopeData.changeAddBeneficiaryReviewMode">
+        <div class="field">
+            <div class="label" translate>LBL_BENEFICIARY_FULL_NAME<span class="required">*</span></div>
+            <div class="information"><input type="text" placeholder="{{'LBL_ENTER_FULL_NAME' | translate}}" maxlength="70" (keypress)="allowAlphabetsAndSpaceOnly($event)" [(ngModel)]="fullName" (blur)="onBlurInputField('fullName')"></div>
+            <div class="errorMsg" *ngIf="fullNameValidationFlag" translate>LBL_PLEASE_ENTER_FULL_NAME</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_BENEFICIARY_SHORT_NAME<span class="required">*</span></div>
+            <div class="information"><input type="text" maxlength="80" placeholder="{{'LBL_ENTER_SHORT_NAME' | translate}}" [(ngModel)]="shortName" (blur)="onBlurInputField('shortName')"></div>
+            <div class="errorMsg" *ngIf="shortNameValidationFlag" translate>LBL_PLEASE_ENTER_SHORT_NAME</div>
+            <div class="errorMsg" *ngIf="shortNameDuplicateFlag" translate>LBL_ERROR_MESSAGE_ADD_BENEFICIARY_NICK_NAME_ALREADY_EXIST</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_COUNTRY<span class="required">*</span></div>
+            <!-- <div class="information">
+                <mat-select panelClass="dropDownOption" class="selectInput" [(value)]="accountCountry" disableOptionCentering>
+                    <mat-option *ngFor="let country of country" value="{{country.countryName}}">{{country.countryName}}</mat-option>
+                </mat-select>
+            </div> -->
+            <div class="information">
+                <input
+                  type="text"
+                  matInput
+                  [(ngModel)]="accountCountry"
+                  placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}"                          
+                  [matAutocomplete]="benficiaryAccount"
+                  (input)="searchCountry($event)"
+                  (blur)="resetCountryInput($event)"
+                  (focus)="country = localCountryList"
+                  #accountCountryRef="ngModel"
+                  #accountCountryInputRef
+                  class="selectInput"
+                  required
+                  >
+                <span class="dropdownIcon sprite" (click)="accountCountryInputRef.focus()"></span>
+                <mat-autocomplete #benficiaryAccount="matAutocomplete" disableOptionCentering>
+                  <mat-option *ngFor="let country of country"
+                  [value]="country?.countryName" (click)="onCountrySelect()">
+                    {{country.countryName}}
+                  </mat-option>
+                </mat-autocomplete>
+              </div>
+              <div class="errorMsg" *ngIf="countryValidationFlag" translate>LBL_PLS_SELECT_COUNTRY</div>
+              <div class="errorMsg" *ngIf="accountCountryRef?.touched && accountCountryRef?.invalid" translate>
+                LBL_PLS_SELECT_COUNTRY
+              </div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_CITY<span class="required">*</span></div>
+            <div class="information"><input type="text" maxlength="35" [(ngModel)]="city" (blur)="onBlurInputField('city')"></div>
+            <div class="errorMsg" *ngIf="cityValidationFlag" translate>LBL_PLEASE_ENTER_CITY</div>
+        </div> 
+        <div class="field">
+            <div class="label" translate>LBL_STATE<span class="required">*</span></div>
+            <div class="information"><input type="text" [(ngModel)]="state" (blur)="onBlurInputField('state')"></div>
+            <div class="errorMsg" *ngIf="stateValidationFlag" translate>LBL_PLEASE_ENTER_STATE</div>
+        </div> 
+        <div class="field">
+            <div class="label" translate>LBL_ADDRESS<span class="required">*</span></div>
+            <div class="information"><input type="text" maxlength="35" [(ngModel)]="address" (blur)="onBlurInputField('address')"></div>
+            <div class="errorMsg" *ngIf="addressValidationFlag" translate>LBL_PLEASE_ENTER_ADDRESS</div>
+        </div> 
+        <div class="field">
+            <div class="label" translate>LBL_POSTAL_CODE</div>
+            <div class="information"><input type="text" [(ngModel)]="postalCode" (blur)="onBlurInputField('postalCode')" (keypress)="checkNumberValidate($event)"></div>
+        </div> 
+        <div class="field">
+            <div class="label" translate>LBL_PHONE</div>
+            <div class="information"><input type="text" [(ngModel)]="phone" (blur)="onBlurInputField('phone')" (keypress)="checkPhoneNumberValidate($event)"></div>
+        </div> 
+    </div>
+    <div class="rowInnerCntr"  *ngIf="rootScopeData.changeAddBeneficiaryReviewMode">
+        <div class="field">
+            <div class="label" translate>LBL_BENEFICIARY_FULL_NAME</div>
+            <div class="information" *ngIf="fullName">{{fullName}}</div>
+            <div class="information" *ngIf="!fullName">--</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_BENEFICIARY_SHORT_NAME</div>
+            <div class="information" *ngIf="shortName">{{shortName}}</div>
+            <div class="information" *ngIf="!shortName">--</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_COUNTRY</div>
+            <div class="information" *ngIf="accountCountry">{{accountCountry}}</div>
+            <div class="information" *ngIf="!accountCountry">--</div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_CITY</div>
+            <div class="information" *ngIf="city">{{city}}</div>
+            <div class="information" *ngIf="!city">--</div>
+        </div> 
+        <div class="field">
+            <div class="label" translate>LBL_STATE</div>
+            <div class="information" *ngIf="state">{{state}}</div>
+            <div class="information" *ngIf="!state">--</div>
+        </div> 
+        <div class="field">
+            <div class="label" translate>LBL_ADDRESS</div>
+            <div class="information" *ngIf="address">{{address}}</div>
+            <div class="information" *ngIf="!address">--</div>
+        </div> 
+        <div class="field">
+            <div class="label" translate>LBL_POSTAL_CODE</div>
+            <div class="information" *ngIf="postalCode">{{postalCode}}</div>
+            <div class="information" *ngIf="!postalCode">--</div>
+        </div> 
+        <div class="field">
+            <div class="label" translate>LBL_PHONE</div>
+            <div class="information" *ngIf="phone">{{phone}}</div>
+            <div class="information" *ngIf="!phone">--</div>
+        </div> 
+    </div>
+</div>

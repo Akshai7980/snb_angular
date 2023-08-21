@@ -1,0 +1,44 @@
+.subTitle{
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    font-size: 16px;
+}
+.childContainer{
+    padding-top: 25px;
+    padding-left: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    .field {
+        width: 330px;
+        .label{
+            font-family: 'HelveticaNeueMed', arial, sans-serif;
+            font-size: 14px;
+            color: var(--table-header-color);
+        }
+        .information{
+            color: var(--tableData-header-color);
+            padding-top: 10px;
+            &.data{
+                padding-top: 10px;
+            }
+        }
+        &.sname{
+            margin-left: 24px;
+        }
+    }
+}
+
+
+
+input[type=text]{
+    width: 280px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    background-size: cover;
+    font-size: 14px;
+    font-family: 'HelveticaNeue', arial, sans-serif;
+    background-color: var(--primary-widget-bg-color);
+}
+
+

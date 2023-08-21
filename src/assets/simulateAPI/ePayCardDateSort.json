@@ -1,0 +1,17 @@
+{
+    "headerValue": {
+        "moduleId": "EPYCRDDTE"
+    },
+    "data": [
+        {
+            "sortDate": [
+                {
+                    "sortedDate": "Ascending"
+                },
+                {
+                    "sortedDate": "Descending "
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+.mtop_20 {
+  margin-top: 20px;
+}
+
+.btnGroup {
+  float: right;
+  display: flex;
+}
+
+.mainContainer {
+  margin: 0px 20px 0px 20px;
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-btn-bg-color);
+}

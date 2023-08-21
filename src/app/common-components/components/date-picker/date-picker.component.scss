@@ -1,0 +1,19 @@
+.datePickerInput{
+    width: 300px;
+    height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    background-color: var(--primary-widget-bg-color);
+}
+.container{
+    position: relative;
+    width: 300px;
+}
+.datePicker{
+    position: absolute;
+    top: 0;
+    right: 0 !important;
+}

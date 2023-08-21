@@ -1,0 +1,286 @@
+.payrollInquiryListContainer {
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+}
+
+table {
+    width: 100%;
+    background-color: var(--primary-widget-bg-color);
+    // border: 1px solid var(--widget-border-color);
+}
+
+td.mat-cell {
+    color: var(--tableData-header-color);
+    border-bottom-style: none;
+    padding: 15px;
+}
+
+th.mat-header-cell {
+    position: relative;
+    border-bottom-style: none;
+    height: 40px;
+    padding: 15px;
+    right: 10px;
+    background-size: cover;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+    color: var(--table-header-color);
+    text-decoration: none solid rgb(162, 162, 162);
+}
+
+th.mat-header-cell {
+    font-size: 15px;
+}
+
+th.mat-header-cell:first-of-type {
+    padding: 0px 15px 0px 15px !important;
+}
+
+td.mat-cell:first-of-type {
+    padding: 15px;
+}
+
+tr.mat-row {
+    padding: 15px;
+}
+
+th.mat-header-cell:last-of-type {
+    padding-right: 15px;
+}
+
+::ng-deep .mat-row:nth-child(4n-3) {
+    background-color: unset !important;
+}
+
+.casaTable {
+    width: 100%;
+}
+
+.mTop_18 {
+    position: relative;
+    padding-top: 18px;
+}
+
+.rightPanel {
+    position: relative;
+    float: right;
+}
+
+.dslk_flex {
+    display: flex;
+}
+
+.outerContainer {
+    position: relative;
+    padding-left: 15px;
+    right: 15px;
+    margin-right: 5px;
+}
+
+.title {
+    width: 215px;
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+
+@media print {
+    #logoPrint {
+        display: block;
+    }
+
+    div.divFooter {
+        position: fixed;
+        bottom: 0;
+        font-family: 'HelveticaNeueMed' !important;
+        margin-left: 35%;
+    }
+
+    .subTitleConatiner .listInactive,
+    .actionsConatiner {
+        display: none;
+    }
+
+    .subTitleConatiner .listActive {
+        border-bottom: none !important;
+    }
+}
+
+@media screen {
+    #logoPrint {
+        display: none;
+    }
+
+    .divFooter {
+        display: none;
+    }
+}
+
+.logo {
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 48%;
+    width: 60px;
+    vertical-align: middle;
+    padding-bottom: 10px;
+}
+
+::ng-deep .mat-tooltip {
+    width: 186px;
+    min-height: 20px;
+    padding: 5px;
+    background-color: #d18686;
+    background-size: cover;
+    font-family: 'HelveticaNeue', Arial, sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+    line-height: 16px;
+    z-index: 1;
+    position: absolute;
+    top: 5px;
+    left: -4px;
+    border-radius: 4px;
+}
+
+::ng-deep .mat-tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 50%;
+    transform: rotate(180deg);
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #d18686 transparent transparent transparent;
+}
+
+::ng-deep .mat-tooltip {
+    display: inline;
+    position: relative;
+
+}
+
+.img-style {
+    padding-right: 0px !important;
+}
+
+.sortUp {
+    right: 18px;
+}
+
+.btnView {
+    border: unset !important;
+    background: transparent !important;
+    cursor: pointer;
+}
+
+.up-drp-column {
+    transform: rotate(180deg);
+    vertical-align: middle;
+}
+
+.drp-column {
+    margin-bottom: 0px;
+    vertical-align: middle;
+}
+
+.subInfoData {
+    position: relative;
+    border-top: 1px solid #e2e2e2;
+    background-color: var(--primary-widget-bg-color);
+    height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: unset;
+    left: 10px;
+    text-align: left;
+
+    .title {
+        color: #a2a2a2;
+        font-size: 14px;
+        line-height: 40px;
+    }
+}
+
+.refNumber-collapsedPanel {
+    margin-left: 25px !important;
+    // width: 70%;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+}
+
+.casaTable .mat-row {
+    cursor: default;
+}
+
+.mat-row.example-detail-row:hover {
+    background-color: unset;
+    cursor: pointer;
+}
+
+tr.example-detail-row {
+    height: 0 !important;
+
+    td {
+        padding: 0 !important;
+        height: 0 !important;
+    }
+}
+
+.mat-expansion-panel {
+    box-shadow: none;
+    background: inherit;
+}
+
+.mat-button-focus-overlay {
+    background: none !important;
+}
+
+.drp-width {
+    width: 6px;
+}
+
+.mat-expansion-panel-header {
+    padding: 0px;
+    margin-bottom: 10px;
+}
+
+.ellipsis {
+    position: relative;
+    right: 10px;
+}
+
+.credit {
+    color: var(--primary-selected-color);
+}
+
+.debit {
+    color: var(--mandatory-mark-color);
+}
+
+.data_adjust {
+    position: relative;
+    padding: 0px;
+    left: 6px;
+}
+
+.narrationBox {
+    margin-left: 14% !important;
+}
+
+.uniqTransSeqNum {
+    margin-left: 42% !important;
+    width: 120%;
+}

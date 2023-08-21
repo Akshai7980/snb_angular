@@ -1,0 +1,91 @@
+.detailsContainer{height:auto;display: flow-root;}
+.titleContainer {
+    margin-top: 16px;
+    font-size: 16px;
+    color: var(--tableData-header-color);
+    font-family: 'HelveticaNeueMed';
+}
+.titleContainerText {
+    margin-top:10px;
+    margin-left: 18px;
+    width: 50%
+}
+.fxContainer {
+    margin-left: 18px;
+    display: flex;
+}
+.column1,
+.column2,
+.column3 {
+    width: 33%
+}
+
+.label {
+    width: 107px;
+    height: 30px;
+    font-size: 14px;
+    color: var(--table-header-color);
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+
+.dataInfo {
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+    color: var(--input-text-color);
+    margin: 8px 0px;
+}
+.subHeadingText {
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-left: 18px;
+    color: var(--table-header-color);
+    font-family: 'HelveticaNeueMed';
+}
+
+.subText {
+    margin-left: 18px;
+    font-family: "HelveticaNeue", arial, sans-serif;;
+    font-size: 14px;
+    color: var(--input-text-color);
+}
+.backgroundContainer {
+    background-color: var(--summary-row-bg-color);
+    border-radius: 10px;
+    padding: 10px 5px;
+    margin-left: 18px;
+    margin-right: 30px;
+    margin-top: 16px;
+}
+.bankDetailsContainerText {
+    margin-top: 20px;
+    margin-left: 18px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    font-family: 'HelveticaNeueMed';
+}
+.subTitleContainer{font-size: 14px;color: var(--tableData-header-color);font-family: 'HelveticaNeue', arial, sans-serif;}
+.subTitleContainerLeft{margin-left: 18px;margin-top:8px;width:50%;font-size: 14px;font-family: 'HelveticaNeue', arial, sans-serif;}
+.statusContainerLeft{margin-left: 18px;width:50%;margin-top: 20px;}
+.rejectReasonContainer{margin-left:20px;margin-top:33px;}
+.rejecthead{font-family: 'HelveticaNeueMed'!important;color: var(--table-header-color);font-size: 14px;}
+.rejecttextarea{margin-top: 10px !important;}
+textarea{width: 300px;height: 80px;border: 1px solid var(--input-border-color);resize: none;border-radius: 5px;outline: none;color: var(--default-text-color);background-color: var(--primary-widget-bg-color);}
+.btnContainer{float: right;margin-top: 25px;padding-right: 30px;}
+.detailsTitleContainer{margin:-15px 0px -27px 30px;}
+.backArrow{top:40px;left:-20px;}
+.summaryOuterConainer {
+    .summaryConainer {
+        border-radius: 10px;
+        background: var(--primary-widget-bg-color);
+        border: 1px solid var(--widget-border-color);
+        margin-right:30px;
+        margin-top: 20px;
+        margin-left: 30px;
+        padding-bottom: 15px !important;
+    }
+}
+.button-primary:hover{
+    background-color: var(--primary-btn-hover-color);
+    border-color:  var(--primary-btn-hover-color);
+  }

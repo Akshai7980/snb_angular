@@ -1,0 +1,141 @@
+<div class="detailsTitleContainer">
+  <div class="mainTitle" translate>LBL_ADDITIONAL_ACCOUNT_DETAILS</div>
+</div>
+<section class="summaryOuterConainer">
+  <div class="summaryConainer">
+    <div class="detailsContainer">
+      <div class="titleContainer">
+        <div class="titleContainerLeft">
+          <span>{{ "LBL_ADDITIONAL_ACCOUNT_REQUEST" | translate }}
+            {{ "LBL_FROM" | translate }}
+            {{
+            this.rootScopeData.pendingActivitiesAdditionalRequestObject
+            .customerName
+            ? this.rootScopeData.pendingActivitiesAdditionalRequestObject
+            .customerName
+            : "--"
+            }},
+            {{
+            this.rootScopeData.pendingActivitiesAdditionalRequestObject
+            .linkAccount
+            ? this.rootScopeData.pendingActivitiesAdditionalRequestObject
+            .linkAccount
+            : "--"
+            }}</span>
+        </div>
+      </div>
+      <div class="subTitleContainer">
+        <div class="subTitleContainerLeft">
+          {{ "LBL_REF_NUMBER" | translate }}
+          <span>
+            {{
+            this.rootScopeData.pendingActivitiesAdditionalRequestObject.refNo
+            ? this.rootScopeData.pendingActivitiesAdditionalRequestObject
+            .refNo
+            : " --"
+            }}</span>
+        </div>
+      </div>
+      <div class="statusContainerLeft">
+        <button class="status-red-button">
+          {{
+          this.rootScopeData.pendingActivitiesAdditionalRequestObject.statusDesc
+          ? this.rootScopeData.pendingActivitiesAdditionalRequestObject
+          .statusDesc
+          : " --"
+          }}
+        </button>
+      </div>
+      <div class="dataContainer">
+        <span class="header" translate>LBL_REQUEST_DETAILS</span>
+        <div class="fxContainer mt-top">
+          <div class="column1">
+            <label class="label" translate>LBL_CURRENCY</label>
+            <div class="dataInfo">
+              {{
+              this.rootScopeData.pendingActivitiesAdditionalRequestObject
+              .currency
+              ? this.rootScopeData.pendingActivitiesAdditionalRequestObject
+              .currency
+              : "--"
+              }}
+            </div>
+          </div>
+          <div class="column2">
+            <label class="label" translate>LBL_LINK_ACCOUNT</label>
+            <div class="dataInfo">
+              {{
+              this.rootScopeData.pendingActivitiesAdditionalRequestObject
+              .linkAccount
+              ? this.rootScopeData.pendingActivitiesAdditionalRequestObject
+              .linkAccount
+              : "--"
+              }}
+            </div>
+          </div>
+          <div class="column3">
+            <label class="label" translate>LBL_REASON</label>
+            <div class="dataInfo">
+              {{
+              this.rootScopeData.pendingActivitiesAdditionalRequestObject
+              .reason
+              ? this.rootScopeData.pendingActivitiesAdditionalRequestObject
+              .reason
+              : "--"
+              }}
+            </div>
+          </div>
+        </div>
+        <div class="fxContainer">
+          <div class="column4">
+            <label class="label" translate>LBL_DATE</label>
+            <div class="dataInfo">
+              {{
+              this.rootScopeData.pendingActivitiesAdditionalRequestObject
+              .valueDate
+              ? (this.rootScopeData.pendingActivitiesAdditionalRequestObject
+              .valueDate | dateFormat)
+              : "--"
+              }}
+            </div>
+          </div>
+
+          <div class="column5" *ngIf="
+              this.rootScopeData.pendingActivitiesAdditionalRequestObject
+                .status === 'RH'
+            ">
+            <label class="label" translate>LBL_RJCT_RSN</label>
+            <div class="dataInfo">
+              {{
+              this.rootScopeData.pendingActivitiesAdditionalRequestObject
+              .rejectReason
+              ? this.rootScopeData.pendingActivitiesAdditionalRequestObject
+              .rejectReason
+              : "--"
+              }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> -->
+  </div>
+</section>
+<section class="summaryOuterConainer">
+  <div class="summaryConainer">
+    <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+  </div>
+</section>
+<section class="summaryOuterConainer">
+  <div class="summaryConainer">
+    <app-history [historyData]="workFlowHistoryParams"></app-history>
+  </div>
+</section>
+<section>
+  <div class="btnContainer">
+    <!-- <button class="button-secondary backButton" routerLink="/accounts/service-request/additionalrequest" translate>
+      LBL_BACK
+    </button> -->
+    <app-tertiary-button buttonValue="LBL_BACK" (click)="onBackArrowClick()"></app-tertiary-button>
+  </div>
+</section>

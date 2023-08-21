@@ -1,0 +1,9 @@
+<div class="container" (click)="picker.open()">
+    <input matInput [matDatepickerFilter]="myFilter" [(ngModel)]="newDate" class="datePickerInput" [matDatepicker]="picker" [max]="maxDate" [min]="minDate"  readonly
+        (dateChange)="valueDate()" (click)="checkLang()">
+    <div class="datePicker">
+        <mat-datepicker-toggle matSuffix [for]="picker" (click)="checkLang()"></mat-datepicker-toggle>
+        <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
+        </div>
+    <div class="errorMsg" *ngIf="showDateErrorMessage" translate>LBL_PLEASE_ENTER_DATE</div>
+</div>

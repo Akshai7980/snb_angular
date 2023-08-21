@@ -1,0 +1,322 @@
+.outerContainer {
+    margin-left: 15px;
+    margin-right: 30px;
+}
+
+.subTitles {
+    margin-bottom: 15px;
+}
+
+.merchantDetails {
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+}
+
+.tableHeader {
+    color: var(--secondary-font-color);
+    background-size: cover;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+}
+
+.emailContainer {
+    color: var(--secondary-font-color);
+    background-size: cover;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+  
+.tableRowConatiner {
+    background-color: var(--summary-hover-color);
+    font-size: 14px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+
+    td {
+        height: 45px;
+    }
+}
+
+.downArrowAcc {
+    position: relative;
+    background: url('../../../../assets/images/iconDownGreen.svg') no-repeat center;
+    width: 25px;
+    height: 45px;
+    cursor: pointer;
+    transform: rotate(180deg);
+    transition: 1s transform;
+    margin-top: 6px;
+    float: right;
+    right: 5px;
+}
+
+th,
+td {
+    text-align: left;
+    padding-left: 5px;
+}
+
+td:first-of-type {
+    border-top-left-radius: 10px 10px;
+    border-bottom-left-radius: 10px 10px;
+}
+
+td:last-of-type {
+    border-top-right-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+}
+
+.flexContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.selectInput {
+    margin-bottom: 10px;
+    min-width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    cursor: auto;
+    background-color: var(--primary-widget-bg-color);
+}
+
+.matSelectInput {
+    margin-bottom: 10px;
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    cursor: auto;
+    background-color: var(--primary-widget-bg-color);
+}
+
+.selectInputBorderNone {
+    margin-bottom: 10px;
+    min-width: 300px;
+    line-height: 40px;
+    padding: 0px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    cursor: auto;
+    background-color: var(--primary-widget-bg-color);
+}
+
+.textArea {
+    min-width: 280px;
+    height: 80px;
+    padding: 8px;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #5d5d5d;
+}
+
+.btnGroup {
+    float: right;
+    display: flex;
+}
+
+.mtop_20 {
+    margin-top: 20px;
+}
+
+.subTitles {
+    margin-bottom: 15px;
+}
+
+.claimDetails {
+    background-color: var(--primary-widget-bg-color);
+    padding: 15px 15px 50px 15px;
+    margin-top: 15px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+}
+
+.hoverSelected {
+    background-color: var(--short-profile-txt-color);
+    color: var(--promotions-fontColor);
+}
+
+.baseSelected:hover {
+    background-color: var(--toggle-hover-bg-color)
+}
+
+.mat-button-toggle-group-appearance-standard .mat-button-toggle+.mat-button-toggle {
+    border-left: solid 1px var(--widget-border-color);
+}
+
+.mat-button-toggle-group-appearance-standard {
+    border: solid 1px var(--widget-border-color);
+}
+
+.baseSelected {
+    background-color: var(--toggle-base-color);
+    color: var(--tableData-header-color);
+}
+
+.row {
+    margin-top: 20px;
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+}
+
+.column {
+    margin-bottom: 20px;
+    height: 80px;
+}
+
+.geneStaTitles {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+}
+
+.inpField {
+    position: relative;
+
+    .inputFields {
+        display: block;
+        width: 287px !important;
+        height: 40px;
+        padding: 0px 8px;
+        margin-top: 10px;
+        border: 1px solid var(--widget-border-color);
+        border-radius: 4px;
+        color: var(--tableData-header-color);
+        background-color: var(--primary-widget-bg-color);
+    }
+
+    .inputFields1 {
+        display: block;
+        width: 250px !important;
+        height: 40px;
+        padding: 0px 50px 0 8px;
+        margin-top: 10px;
+        border: 1px solid var(--widget-border-color);
+        border-radius: 4px;
+        color: var(--tableData-header-color);
+        background-color: var(--primary-widget-bg-color);
+    }
+}
+
+
+input[type=text] {
+    width: 294px;
+    height: 40px;
+    padding: 0px 8px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 4px;
+    background-size: cover;
+    font-family: 'HelveticaNeue', arial, sans-serif;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    background-color: var(--primary-widget-bg-color);
+}
+
+.selectInput {
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: #656565;
+    cursor: pointer;
+}
+
+.required {
+    margin-left: 3px;
+}
+
+.textareaInput {
+    margin-top: 10px !important;
+
+    textarea {
+        background-color: var(--primary-widget-bg-color);
+        color: var(--default-text-color);
+        width: 300px;
+        height: 80px;
+        border: 1px solid var(--widget-border-color);
+        resize: none;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    .errorMsg {
+        padding-bottom: 15px;
+    }
+}
+
+.actionGroup {
+    float: right;
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-top: 30px;
+    margin-right: 18px;
+}
+
+.currency {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+}
+
+.subTitle {
+    position: relative;
+    font-size: 14px;
+    left: 10px;
+}
+
+.pad_b_40 {
+    padding-bottom: 40px;
+}
+
+.footer {
+    margin: 36px 30px 0 46px;
+
+    .termsAndConditions {
+        position: absolute;
+        color: var(--tableData-header-color);
+        font-size: 14px;
+        font-family: 'HelveticaNeue', arial, sans-serif;
+
+        a {
+            color: var(--short-profile-txt-color);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+
+    .finalProceed {
+        position: relative;
+        float: right;
+        bottom: 10px;
+        left: 5px;
+    }
+}

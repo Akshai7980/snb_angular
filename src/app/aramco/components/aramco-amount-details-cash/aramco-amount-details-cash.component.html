@@ -1,0 +1,56 @@
+<div class="mainContainer">
+    <div class="subContainer">
+        <div translate class="subTitles">LBL_AMOUNT_DETAILS</div>
+        <div class="fieldSets" *ngIf="!readOnly">
+            <div class="transferAmounrt">
+                <div translate class="geneStaTitles">LBL_TRANSFER_AMOUNT<span class="required">*</span></div>
+                <div class="amtContainer">
+                    <input type="text" [value]="this.amount" (keypress)="numberOnly($event)" (blur)="amountOnBlur($event)" autocomplete="off"
+                    placeholder="{{'LBL_ENTER_AMOUNT' | translate}}">
+                </div>
+                <div class="currencyContainer">
+                    <!-- <mat-select class="selectInput" panelClass="currencyDropdown" disableOptionCentering
+                        [(ngModel)]="amountObj.currencyCode" [(value)]="amountObj.currencyCode">
+                        <mat-option *ngFor="let currency of currencyFormat" [value]="currency" (click)="setData()">
+                            {{ currency }}</mat-option>
+                    </mat-select> -->
+                    <div class="currencyText">{{currencyCode}}</div>
+                </div>
+            </div>
+            <div class="fee_Div" *ngIf="amountObj.transferAmt!=''">
+                <div translate class="geneStaTitles">LBL_FEE</div>
+                <div class="plainText">{{amountObj.fee}}</div>
+            </div>
+            <div class="feeTemplate" *ngIf="amountObj.transferAmt!=''">
+                <div translate class="geneStaTitles">LBL_VAT</div>
+                <div class="plainText">{{amountObj.vat}}</div>
+            </div>
+
+                <small *ngIf=" errorMessage !== '' " translate class="required"> {{ errorMessage }} </small>
+                <small class="required" translate *ngIf="insufAmtErrMsg && errorMessage===''">{{insufAmtErrMsg}} </small>
+
+        </div>
+        <div *ngIf="readOnly">
+            <div class="row">
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_TRANSFER_AMOUNT</div>
+                    <div class="plainText" *ngIf="amount===''">{{amountObj.transferAmt | currencyFormat:amountObj.currencyCode}} {{amountObj.currencyCode}}</div>
+                    <div class="plainText"*ngIf="amount!==''">{{amount | currencyFormat:amountObj.currencyCode}} {{amountObj.currencyCode}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_FEE</div>
+                    <div class="plainText">{{amountObj.fee}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_VAT</div>
+                    <div class="plainText">{{amountObj.vat}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_DEBIT_AMT</div>
+                    <div class="plainText">{{debitAmount | currencyFormat:amountObj.currencyCode}} {{amountObj.currencyCode}}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+.casaTable{
+    table-layout: fixed;
+    .mat-header-cell{cursor: pointer;}
+    .mat-cell{line-height:40px;cursor: pointer;}
+    .mat-cell > div{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+    .mat-column-action{width: 70px;}
+    .mat-column-odDRefNo{width:17%}
+    .mat-column-odFileAmount{width:14%}
+    .mat-column-odStatus{width:7%}
+    .mat-column-totalCount{width:9%}
+    .mat-column-uploadType{width:12%}
+    .mat-column-odStatus{width:7%}
+    .mat-column-odFileName{width:7%}
+    .mat-column-accNo{width:7%}
+}
+
+.position_rel {
+    position: relative;
+    min-width: max-content;
+    display: inline;
+}
+td div.ellipsis{width: 80%;}
+.mat-row:hover .EditIcon {
+    display: inline-block;
+}
+td.mat-cell:first-of-type {
+    padding-left: 4px;    
+}
+th.mat-header-cell:first-of-type{
+    padding-left: 4px;
+}
+
+.searchCntnrLeft {
+    margin-left: 3px;
+}
+span{
+    width: 16px;
+}
+
+.actionsConatiner {
+    display: flex;
+    justify-content: space-between;
+
+    .leftPannel {
+        display: flex;
+        min-width: 40%;
+        justify-content: space-between;
+    }
+}

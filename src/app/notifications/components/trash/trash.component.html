@@ -1,0 +1,17 @@
+<div class="worksapceBase">
+    <div class="content-header" translate>LBL_TRASH</div>
+    
+    <div class="tabCntr">
+        <ul>
+            <li><a routerLink="trash-mailboxs" class="active" translate >LBL_MAIL_BOX <span *ngIf="rootScopeData.trashSummaryCount && rootScopeData.trashSummaryCount > 0">({{rootScopeData.trashSummaryCount}})</span></a></li>
+            <!-- <li><a routerLink="sent" [class.active]="rootScopeData.activeTabName == 'sent'" translate>Sent (0)</a></li>  
+            <li><a routerLink="drafts" *ngIf="false" [class.active]="rootScopeData.activeTabName == 'drafts'" translate>Drafts (0)</a></li>       -->
+        </ul>
+    </div>
+    <div class="tabDataCntr">
+        <router-outlet></router-outlet>
+    </div>
+
+    
+    </div>
+    

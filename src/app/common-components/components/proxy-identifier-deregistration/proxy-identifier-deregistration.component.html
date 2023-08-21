@@ -1,0 +1,19 @@
+<div class="mainContainer">
+    <div class="subContainer">
+        <div class="subTitles" translate>LBL_PROXY_IDENTIFIER</div>
+        <div id="manageAlertsDefaultCntr">
+            <div class="toggleButtonContainer">
+                <p class="col-space1 subTitleFont" translate>LBL_ACTION</p>
+            </div>
+            <div class="toggleButtonContainer">
+                <mat-slide-toggle class="col-space1" [checked]="false" [disabled]="true">
+                </mat-slide-toggle>
+                <p class="deregFont" translate>LBL_DEREGISTER_ACCOUNT</p>
+            </div>
+            <p class="deregFont" translate>LBL_REASON</p>
+            <div class="toggleButtonContainer">
+                <input type="text" [(ngModel)]="deRegReason" readonly>
+            </div>
+        </div>
+    </div>
+</div>

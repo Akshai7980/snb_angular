@@ -1,0 +1,22 @@
+{
+    "headerValue": {
+      "moduleId": "SADADFEESINQ",
+      "simulate": "N"
+    },
+    "data": {
+          "statusCode": 0,
+          "statusDesc": "Success",
+          "feeReferenceId": 94781,
+          "sadadReferenceId": 3000271366,
+          "billerID": 94,
+          "beneficiaryName": "ﺧﺎﻟد ﺳﺎﻟم ﺳﻟﻣﺎن اﻟﺷﻣري",
+          "previousFeeAmount": 2200,
+          "dueAmount": 100,
+          "feeDetails": {
+           "fee": {
+              "type": "Registration Fees",
+              "amount": 1000
+          }
+        }
+    }
+  }

@@ -1,0 +1,145 @@
+<div class="parentDiv">
+    <div class="mainTitle">
+        <div class="backIcon backArrow" routerLink="/cards/cardsInquiry"></div>
+        <span translate>LBL_CARD_SUMMARY</span>
+    </div>
+    <div class="summaryTools">
+        <app-summary-tools [printSection]="printSection" [moduleId]="'CRECRDDETAILS'" [isshowndownloadablePrint]="true" [isshownPrint]="false"></app-summary-tools>
+    </div>
+    <div class="row" id="logoPrint">
+        <div><img class="logo" src="{{ logo }}" /></div>
+        <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+    </div>
+
+    <div>
+        <div>
+            <div class="container">
+                <div>
+                    <div class="title">
+                        {{"LBL_CREDIT_CARD_NUMBER" | translate}}
+                        {{summaryDetails.maskedCardId ? summaryDetails.maskedCardId : '--'}}
+                        <!-- credit card number -->
+                    </div>
+                    <div class="title">
+                        {{"LBL_UTILIZED_LIMIT" | translate}}
+                        <!-- 25,500.00 SAR, -->--
+                        <!-- Show amount from an api -->
+                        {{"LBL_APPROVED" | translate}}
+                        <!-- Show status from an api -->
+                        <!-- 24,500 SAR -->--
+                        <!-- Show amount from an api -->
+                    </div>
+                    <div class="title">
+                        {{"LBL_BILLED_AMOUNT" | translate}}
+                        <!-- <b>&nbsp;5,255.00 SAR&nbsp;</b> Show amount from an api -->
+                        <b>&nbsp;--&nbsp;</b>
+                        {{"LBL_DUE_ON" | translate}}
+                        {{summaryDetails.dueDate ? summaryDetails.dueDate : '--'}}
+                        <!-- Show date from an api -->
+                        <div class="link_label">
+                            <a (click)="showCardDetails()" *ngIf="isShowCardDetails === 'true'">{{"LBL_HIDE_DETAILS" |
+                                translate}}</a>
+                            <a (click)="showCardDetails()" *ngIf="isShowCardDetails !== 'true'">{{"LBL_MORE_DETAILS" |
+                                translate}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div [@detailExpand]="isShowCardDetails === 'true'" class="cardDetailsContainer">
+                    <div class="subContainer">
+                        <div class="subTitles" translate>LBL_CARD_DETAILS</div>
+                        <div class="rowInnerCntr">
+                            <div class="row-credit-card-details">
+                                <div class="field">
+                                    <img class="credit_card_img" [src]="cardImage?.front">
+                                    <div class="cardNumber">
+                                        <span class="number">{{summaryDetails.maskedCardId ? summaryDetails.maskedCardId : '--'}}</span>
+                                    </div>
+                                    <div class="validThru">
+                                        <span>{{summaryDetails.expiryDate ? summaryDetails.expiryDate : '--'}}</span>
+                                    </div>
+                                    <div class="name">
+                                        <span>{{summaryDetails.holderName ? summaryDetails.holderName : '--'}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right_align">
+                                <div class="cus_col">
+                                    <div class="field">
+                                        <div class="label" translate>LBL_MIN_DUE</div>
+                                        <div class="information bold">{{(summaryDetails.dueAmount && cardDetails.currency) ? (summaryDetails.dueAmount | currencyFormat: cardDetails.currency) + ' ' + cardDetails.currency : '--'}}</div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="label" translate>LBL_LAST_PAYMENT_DATE</div>
+                                        <div class="information bold">{{summaryDetails.statementDate ? summaryDetails.statementDate : '--'}}</div>
+                                    </div>
+                                </div>
+                                <div class="cus_col">
+                                    <div class="field">
+                                        <div class="label" translate>LBL_CREDIT_LIMIT</div>
+                                        <div class="information bold">{{(summaryDetails.creditLimit && cardDetails.currency) ? (summaryDetails.creditLimit | currencyFormat: cardDetails.currency) + ' ' + cardDetails.currency : '--'}}</div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="label" translate>LBL_DUE_DATE</div>
+                                        <div class="information bold">{{summaryDetails.dueDate ? summaryDetails.dueDate : '--'}}</div>
+                                    </div>
+                                </div>
+                                <div class="cus_col">
+                                    <div class="field">
+                                        <div class="label" translate>LBL_STATEMENT_BALANCE</div>
+                                        <div class="information bold">{{(summaryDetails.statementBalance && cardDetails.currency) ? (summaryDetails.statementBalance | currencyFormat: cardDetails.currency) + ' ' + cardDetails.currency : '--'}}</div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="label" translate>LBL_OUTSTANDING_BALANCE</div>
+                                        <div class="information bold">{{(summaryDetails.balanceOnHand && cardDetails.currency) ? (summaryDetails.balanceOnHand | currencyFormat: cardDetails.currency) + ' ' + cardDetails.currency : '--'}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cus_col_3">
+                                <div class="row-credit-card-details l_3px">
+                                    <div class="field">
+                                        <div class="label" translate>LBL_AVAILABLE_CASH_ADVANCE</div>
+                                        <div class="information bold">{{(summaryDetails.remainingCashLimit && cardDetails.currency) ? (summaryDetails.remainingCashLimit | currencyFormat: cardDetails.currency) + ' ' + cardDetails.currency : '--'}}</div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="label" translate>LBL_AVAILABLE_CREDIT</div>
+                                        <div class="information bold">{{(summaryDetails.availableLimit && cardDetails.currency) ? (summaryDetails.availableLimit | currencyFormat: cardDetails.currency) + ' ' + cardDetails.currency : '--'}}</div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="label" translate>LBL_LAST_STATEMENT_DATE</div>
+                                        <div class="information bold">{{summaryDetails.statementDate ? summaryDetails.statementDate : '--'}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mtop_10 subTitleConatiner">
+                    <ul class="titleList">
+                        <li class="animate" (click)="activeTab = 'recentTransactions'"
+                            [ngClass]="activeTab==='recentTransactions' ? 'listActive':'listInactive'"><a
+                                translate>LBL_RECENT_TRANSACTION</a></li>
+                        <li class="animate" (click)="activeTab = 'statements'"
+                            [ngClass]="activeTab==='statements' ? 'listActive':'listInactive'"><a
+                                translate>LBL_STATEMENTS</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <app-credit-card-recent-transactions *ngIf="activeTab === 'recentTransactions'">
+                    </app-credit-card-recent-transactions>
+                    <app-credit-card-statements *ngIf="activeTab === 'statements'"></app-credit-card-statements>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btnGroup mtop_20">
+        <div>
+            <!-- <button type="button" class="button-secondary" routerLink="/cards/cardsInquiry" translate>
+                LBL_BACK
+            </button> -->
+            <app-tertiary-button buttonValue="LBL_BACK" (click)="onClickBack()"></app-tertiary-button>
+        </div>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

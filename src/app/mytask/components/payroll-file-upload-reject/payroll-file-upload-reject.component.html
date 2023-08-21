@@ -1,0 +1,156 @@
+<div *ngIf="!receiptForm">
+  <div class="detailsTitleContainer">
+    <div>
+      <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+      <div class="mainTitle" translate>LBL_PAYROLL_FILE_UPLOAD</div>
+    </div>
+  </div>
+  <div class="container" *ngIf="selectedElementData">
+    <div class="subTitles">
+      <span *ngIf="selectedElementData.upload_type">{{selectedElementData.upload_type}}</span>
+      <span *ngIf="!selectedElementData.upload_type">--</span>
+    </div>
+    <div class="refNO">
+      {{'LBL_TRANSACTION_REF_NUM' | translate }} <b><span
+          *ngIf="selectedElementData.d_ref_no">{{selectedElementData.d_ref_no}}</span><span
+          *ngIf="!selectedElementData.d_ref_no">--</span></b>
+    </div>
+    <div class="refNO">
+      {{'LBL_AMOUNT' | translate }} <b><span
+          *ngIf="selectedElementData?.file_amount && selectedElementData?.currency">{{selectedElementData?.file_amount |
+          currencyFormat:selectedElementData?.currency}} {{selectedElementData?.currency}}</span><span
+          *ngIf="!selectedElementData?.file_amount && ! selectedElementData?.currency">--</span></b>
+    </div>
+    <div class="title">
+      <button class="status-green-button" translate
+        [class.status-red-button]="selectedElementData.txn_status === 'RN' ||selectedElementData.txn_status === 'RS' ||selectedElementData.txn_status === 'RE' ||selectedElementData.txn_status === 'RO' ||selectedElementData.txn_status === 'RH'">
+        {{selectedElementData.status}}
+      </button>
+    </div>
+    <div *ngIf="selectedElementData.fileFormat == 'CSV' || selectedElementData.fileFormat == 'csv'">
+      <app-debit-lookup *ngIf="showDebitData" [debitAccDetails]="debitDataObj"></app-debit-lookup>
+    </div>
+
+
+    <div>
+      <div class="beneficiaryDetails">
+        <div class="sub">
+          <div>
+            <div class="subTitles" translate>LBL_FILE_DETAILS</div>
+          </div>
+        </div>
+
+        <div class="rowInnerCntr">
+          <div class="field">
+            <div class="label" translate>LBL_DEPO_TYPE</div>
+            <p class="label-content">{{ selectedElementData.upload_type }}</p>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_FORMAT</div>
+            <p class="label-content">
+              {{ selectedElementData.fileFormat }}
+            </p>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_UPLOAD_FILE</div>
+            <p class="label-content">{{ selectedElementData.file_name }}</p>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_TOTAL_AMOUNT</div>
+            <p class="label-content">
+              {{ selectedElementData?.file_amount ? (selectedElementData.file_amount|currencyFormat:selectedElementData?.currency) : "--" }} {{  selectedElementData?.currency ? selectedElementData?.currency : " " }}
+            </p>
+          </div>
+          <div class="field">
+            <!-- <div class="label" translate>LBL_TOTAL_AMOUNT</div>
+            <p class="label-content">
+              {{ selectedElementData?.file_amount ? (selectedElementData.file_amount|currencyFormat:selectedElementData?.currency) : "--" }} {{  selectedElementData?.currency ? selectedElementData?.currency : " " }}
+            </p> -->
+            <div class="label" translate>LBL_VALUE_DATE</div>
+            <p class="label-content" *ngIf="!showDatePicker">{{ selectedElementData?.value_date ? selectedElementData.value_date : "--" }}</p>
+            <p class="label-content" *ngIf="showDatePicker">
+            <app-date-picker [showDateErrorMessage]="showDateErrorMessage" (dateValue)="getDate($event)"
+            [filterArray]="validDates"
+            [startDate]="startDate"
+            [minDate]="startDate">
+            </app-date-picker></p>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="subContainer"
+        *ngIf="selectedElementData.fileFormat === 'CSV' || selectedElementData.fileFormat === 'csv'">
+        <div class="subTitles mt-btm" translate>LBL_DEBIT_FROM</div>
+        <div class="information">
+          <span *ngIf="selectedElementData?.debitAccName">{{selectedElementData.debitAccName}}</span>
+          <span *ngIf="!selectedElementData?.debitAccName">--</span>,
+          <span *ngIf="selectedElementData?.debitAccNo">{{selectedElementData.debitAccNo}}</span>
+          <span *ngIf="!selectedElementData?.debitAccNo">--</span>
+        </div>
+        <div class="information mt-btm">
+          {{'LBL_BANK' | translate}} :
+          <span *ngIf="selectedElementData?.debitBank">{{selectedElementData.debitBank}}</span>
+          <span *ngIf="!selectedElementData?.debitBank">--</span>
+        </div> -->
+        <!-- <div class="subTitles" translate>LBL_PAY_TO</div> -->
+
+      <!-- </div> -->
+
+      <div class="recordSummaryConatiner">
+        <app-record-summary
+        *ngIf="showRecSumm"
+        (sortColumnEmit)="onSortColumn($event)"
+        [moduleId]="moduleId"
+        [sortOptions]="sortOptions"
+        [recordSummaryObject]="recordSummaryObject" [pageCall]="pageName"
+      ></app-record-summary>
+      </div>
+      <div class="recordSummaryConatiner">
+        <app-duplicate-records
+      [duplicateList]="duplicateRecordList" [duplicateDetailsList]="dupDetailsList" (sortColumnEmitDup)="onSortColumnDup($event)"
+      [totalrecords]="totalrecords"
+      *ngIf="duplicateRecordList.length > 0" (callDuplicateRecordEmit)="fetchDuplicateFileDetails()"
+    ></app-duplicate-records>
+
+      <div class="footer-container" *ngIf="duplicateRecordList">
+        <div class="footerText" translate *ngIf="duplicateRecordList.length > 0">
+          <img src="assets/images/Icon.svg" alt="" /> 
+
+          <span class="termsContainer" translate>
+            LBL_DUPLICATE_TRANSACTION_FOOTER_TXT
+          </span>
+        </div>
+        <div class="footerText" translate *ngIf="duplicateRecordList.length === 0">
+          <img src="assets/images/Icon.svg" alt="" /> 
+
+          <span class="termsContainer" translate>
+            LBL_NO_POSSIBLE_DUPLICATE_FOOTER_TXT
+          </span>
+        </div>
+      </div>
+      </div>
+      <div class="rejectReasonContainer">
+        <div class="rejecthead" translate>LBL_RJCT_RSN
+          <!-- <span class="required">*</span> -->
+        </div>
+        <div>
+          <div class="rejecttextarea">
+            <textarea [(ngModel)]="rejectReasonText" maxlength="200" (keyup)="textArea_Click()"></textarea>
+            <!-- <div class="errorMsg" *ngIf="isrejectreasonValid" translate> LBL_ERROR_MESSAGE_RJCT_RSN
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <section>
+        <div class="btnContainer">
+          <!-- <button class="button-secondary" routerLink="/mytask/payment/single-payments" translate>LBL_CANCEL</button>
+          <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button> -->
+          <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()"></app-tertiary-button>
+          <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRequest()"(DownloadReceiptClick)="downloadPdf($event)" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" [rejectMsg]="rejectMsg">
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

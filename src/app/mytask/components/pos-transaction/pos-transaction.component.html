@@ -1,0 +1,103 @@
+<div class="mTop_18">
+  <div class="searchContainer">
+    <app-search (childEvent)="triggerSearchFilter($event)"></app-search>
+    <app-refresh *ngIf="!noRecordFlag" (onRefresh)="refreshSummary()"></app-refresh>
+  </div>
+  <div id="bulkInprogressDefaultCntr">
+    <table mat-table [dataSource]="dataSourceToPass" class="casaTable">
+      <ng-container matColumnDef="transactionId">
+        <th mat-header-cell *matHeaderCellDef class="position_rel col-reqtype" (click)="sortColumn('transactionId')"
+          translate>
+          LBL_Transaction_Id
+          <span class="sortIcons" *ngIf="
+                currentColumn !== undefined && currentColumn !== 'transactionId'
+              ">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span class="sortIcons" *ngIf="currentColumn && currentColumn === 'transactionId'">
+            <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element?.refNo ? element.refNo : '--' }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="AccNo">
+        <th mat-header-cell *matHeaderCellDef class="position_rel col-reqtype" (click)="sortColumn('AccNo')" translate>
+          LBL_ACC_NUMBER
+          <span class="sortIcons" *ngIf="currentColumn && currentColumn !== 'AccNo'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span class="sortIcons" *ngIf="currentColumn && currentColumn === 'AccNo'">
+            <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element?.AccNo ? element.AccNo : '--' }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="requestType">
+        <th mat-header-cell class="position_rel col-reqtype" *matHeaderCellDef (click)="sortColumn('requestType')"
+          translate>
+          LBL_REQUEST_TYPE
+
+          <span class="sortIcons" *ngIf="currentColumn && currentColumn !== 'requestType'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span class="sortIcons" *ngIf="currentColumn && currentColumn === 'requestType'">
+            <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element?.requestType ? element.requestType : '--' }}</td>
+      </ng-container>
+      <ng-container matColumnDef="initiationDate">
+        <th mat-header-cell class="position_rel col-reqtype" *matHeaderCellDef (click)="sortColumn('initiationDate')"
+          translate>
+          LBL_Order_Date
+
+          <span class="sortIcons" *ngIf="currentColumn && currentColumn !== 'initiationDate'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span class="sortIcons" *ngIf="currentColumn && currentColumn === 'initiationDate'">
+            <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element?.posDate ? (element.posDate | dateFormat) : '--' }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_ACTION</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="acceptIcon" (click)="authorizeScreen()"></div>
+          <div class="rejectIcon" (click)="rejectScreen()"></div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="goToDetailsScreen(row)"></tr>
+    </table>
+  </div>
+  <app-pagination #paginator *ngIf="!noRecordFlag" [dataSourceLength]="dataSourceLength"
+    [currentRecord]="'transactionId'" [totalRecords]="totalRecords"
+    (onPaginationChange)="paginationChangeClick($event)"></app-pagination>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>
+
+<div *ngIf="noRecordFlag">
+  <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+</div>

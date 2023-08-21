@@ -1,0 +1,18 @@
+{
+    "headerValue": {
+      "moduleId": "PMNTSGETFLDDATA"
+    },
+    "data": 
+      {
+        "entitledSubPdt": [
+          {
+            "subPdtCode": "SADPAYUP",
+            "subPdtDesc": "SADAD Bulk Payment "
+          },
+          {
+            "subPdtCode": "SADMOIUP",
+            "subPdtDesc": "SADAD MOI Bulk Payment"
+          }
+        ]
+      }
+  }  

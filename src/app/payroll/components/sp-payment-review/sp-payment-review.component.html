@@ -1,0 +1,46 @@
+<div *ngIf="!isSubmitSuccessful">
+  <div class="titleConatiner">
+    <div translate class="mainTitle">LBL_REVIEW</div>
+  </div>
+  <div>
+    <section>
+      <app-sp-account-details></app-sp-account-details>
+    </section>
+    <app-sp-upload-details *ngIf="selectedStopPaymentType === 'file'"></app-sp-upload-details>
+    <section class="summaryOuterConainer">
+      <div class="summaryContainerForEditableRecordSummary">
+        <app-editable-record-summary *ngIf="selectedStopPaymentType === 'record'" [recordSummaryReview]="true">
+        </app-editable-record-summary>
+      </div>
+    </section>
+    <div class="authorizationContainer" >
+      <app-authorization *ngIf="showAuthorization" (authEmit)="setAuthorizationDetails($event)" [authListDataSource]="authorsList"
+        [authError]="noAuthorError"></app-authorization>
+    </div>
+    <div class="authenticationContainer">
+      <app-authentication (onTwoAuthClick)="setSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)"
+        [otpError]="otpError"></app-authentication>
+    </div>
+
+  </div>
+  <div class="footerText"  translate>
+    LBL_TERMS
+    <a href="{{ url }}" target="_blank"><span class="termsContainer" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>
+  </div>
+  <div class="btnGroup mtop_20">
+    <div>
+      <button type="button" class="button-secondary" (click)="cancelStopPaymentRequest()" translate>
+        LBL_CANCEL
+      </button>
+    </div>
+    <!-- <div>
+      <button type="button" class="button-primary" (click)="submitStopPaymentRequest()" translate>
+        LBL_SUBMIT
+      </button>
+    </div> -->
+  </div>
+</div>
+<app-receipt (onInitAgainClick)="cancelStopPaymentRequest()" [receiptDetails]="receiptObject"  [saveReceiptObject]="saveReceiptObject"
+  *ngIf="isSubmitSuccessful" (DownloadReceiptClick)="downloadPdf($event)">
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

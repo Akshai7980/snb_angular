@@ -1,0 +1,57 @@
+.authentication {
+padding: 20px;
+border: 1px solid var(--card-border-color);
+border-radius: 10px;
+background-color: var(--primary-widget-bg-color);
+background-size: cover;
+font-family: Helvetica Neue;
+font-size: 16px;
+color: var(--tableData-header-color);
+}
+.otpContainer{
+margin: 20px;
+}
+.otpFont{font-family: "HelveticaNeueMed", arial, sans-serif;}
+.genericTitles {
+color: var(--table-header-color);
+font-family: "HelveticaNeueMed", arial, sans-serif;
+font-size: 14px;
+}
+.selectInput {
+width: 300px;
+line-height: 40px;
+padding: 0px 0px 0px 10px;
+border: 1px solid var(--input-border-color);
+border-radius: 5px;
+font-size: 14px;
+color: var(--input-text-color);
+cursor: default;
+letter-spacing:0.3em;
+outline: none;
+}
+.contentText {
+    font-family: "HelveticaNeue",arial,sans-serif;
+    font-size: 14px;
+    color:var(--tableData-header-color);
+    margin-bottom: 20px;
+}
+a{
+padding-left: 22px;
+color:var(--secondary-btn-print-text-color);
+font-family:"HelveticaNeueMed", arial, sans-serif;
+font-size: 13px;
+cursor: pointer;
+text-decoration: underline;
+}
+
+a:hover{
+color:var(--primary-hover-color);
+cursor: pointer;
+padding-left: 22px;
+}
+.otpmsg{
+color:var(--secondary-btn-print-text-color);
+font-family:"HelveticaNeueMed", arial, sans-serif;
+font-size: 13px;
+padding-left: 20px;
+}

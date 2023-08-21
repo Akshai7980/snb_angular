@@ -1,0 +1,13 @@
+<div class="dailyLimitContainer">
+    <div  translate class="textTitle">LBL_DAILY_LIMIT</div>
+    <div class="fieldTitles">
+        <span *ngIf="dailyLimitObj.availPayLimit == '0'">0.00</span>
+        {{dailyLimitObj.availPayLimit | currencyFormat:dailyLimitObj.baseCcy}}/{{dailyLimitObj.maxIndTxnLimit | currencyFormat:dailyLimitObj.baseCcy }} {{dailyLimitObj.baseCcy}}</div>
+    <div class="progressBar">       
+        <mat-progress-bar
+        class="insideProgressBar"
+        mode="determinate"
+        [value]="(dailyLimitObj.availPayLimit*0.001)">
+        </mat-progress-bar>
+    </div>
+</div>

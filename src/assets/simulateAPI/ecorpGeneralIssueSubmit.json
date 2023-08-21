@@ -1,0 +1,13 @@
+{
+  "dataValue": {
+      "INPUT_REFERENCE_NO": "TBC2302082100539",
+    
+      "OD_STATUS": "RA",
+      "STATUS": "SUCCESS",
+  
+      "OD_STATUS_DESC": "Success"
+  },
+  "headerValue": {
+      "moduleId": "GENERALCOMPLIENTREQUEST"
+  }
+}

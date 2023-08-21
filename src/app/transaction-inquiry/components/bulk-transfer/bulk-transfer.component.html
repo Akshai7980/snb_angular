@@ -1,0 +1,190 @@
+<div class="mTop_18" >
+  <div class="actionsConatiner">
+    <div class="leftPannel">
+      <div class="searchCntnrLeft">
+        <app-search class="actionHide" (blurApiEmit)="callSearchApi($event)" [showAdvanceSearch]="true" (searchParams)="advancedSearchApply($event)"
+          (childEvent)="searchTransfers($event)"></app-search>
+      </div>
+    </div>
+    <div>
+      <div>
+        <app-refresh (onRefresh)="refreshSummary()"></app-refresh>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <table mat-table *ngIf="!noRecordFlag && responseHeader" id="fileTransferTransactionInquiry" [dataSource]="fileTransfersDataSource"
+     class="casaTable">
+    <ng-container matColumnDef="transactionId">
+      <th class="nickName" mat-header-cell *matHeaderCellDef  (click)="sortColumn('odDRefNo')" translate>LBL_Transaction_Id
+        <!-- <div class="position_rel" translate>LBL_Transaction_Id</div> -->
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'odDRefNo'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'odDRefNo'">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+              class="img-style">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="ellipsis">{{ element?.odDRefNo ? element.odDRefNo : '--' }}</div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accountNumber">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('accNo')" translate>LBL_ACCOUNT
+        <!-- <div class="position_rel" translate>LBL_ACCOUNT</div> -->
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'accNo'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'accNo'">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+              class="img-style">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="ellipsis">{{ element?.accNo ? element.accNo : "--" }}</div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="records">
+      <th mat-header-cell *matHeaderCellDef  (click)="sortColumn('odNoOfTrans')" translate>LBL_RECORDS
+        <!-- <div class="position_rel" translate>LBL_RECORDS</div> -->
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'odNoOfTrans'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'odNoOfTrans'">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+              class="img-style">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="ellipsis">{{ element?.odNoOfTrans ? element.odNoOfTrans : '--' }}</div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="valueDate">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('valueDate')" translate>LBL_VALUE_DATE
+        <!-- <div class="position_rel" translate>LBL_VALUE_DATE</div> -->
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'valueDate'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'valueDate'">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+              class="img-style">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="ellipsis">
+          {{ element?.valueDate ? (element.valueDate | dateFormat) : '--' }}
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('odFileAmount')" translate>LBL_AMOUNT
+        <!-- <div class="position_rel" translate>LBL_AMOUNT</div> -->
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'odFileAmount'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'odFileAmount'">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+              class="img-style">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="ellipsis">
+          {{ element?.odFileAmount ? (element.odFileAmount | currencyFormat: element?.odTxnCy) + " " + (element?.odTxnCy ?
+          element.odTxnCy : "") : '--' }}
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="fileName">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('odFileName')" translate>LBL_FILE
+        <!-- <div class="position_rel" translate>LBL_FILE</div> -->
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'odFileName'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'odFileName'">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+              class="img-style">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="ellipsis">{{ element?.odFileName ? element.odFileName : "--" }}</div>
+      </td>
+      <td mat-cell *matCellDef="let element"></td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('odStatus')" translate>LBL_SUBMISSION_STATUS
+        <!-- <div class="position_rel" translate>LBL_SUBMISSION_STATUS</div> -->
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'odStatus'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'odStatus'">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+              class="img-style">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="ellipsis">{{ element?.odStatus ? element.odStatus : '--' }}</div>
+      </td>
+      <td mat-cell *matCellDef="let element"></td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef class="actionHide" translate>
+        LBL_ACTION
+      </th>
+      <td mat-cell *matCellDef="let element; let i = index" class="dropDownContainer actionHide">
+        <div>
+          <app-more-action [currentRecord]="element" [routepath]="bulkTransferDetailsRoute" (click)="selectedRecord($event, element)"></app-more-action>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="isSelected(row)"></tr>
+  </table>
+
+  <app-pagination [class.hide]="noRecordFlag" class="actionHide" #paginator [dataSourceLength]="dataSourceLength" [currentRecord]="'FileTransfer'" [totalRecords]="pageCount"  (onPaginationChange)="paginationChangeClick($event)" [flagForRefreshPage]="refreshClickedFlag" ></app-pagination> 
+</div>
+
+<div *ngIf="noRecordFlag">
+  <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

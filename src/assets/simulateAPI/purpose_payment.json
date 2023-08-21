@@ -1,0 +1,2991 @@
+{
+    "headerValue": {
+      "moduleId": "PMNTSGETFLDDATA",
+      "simulate": null,
+      "export": null,
+      "exportType": null,
+      "_dinsess": "525f9d0e-d8a6-460d-bd0a-1c54f96d6d01",
+      "languageId": null,
+      "sortColumn": null,
+      "sortOrder": null,
+      "sortDirection": null
+    },
+    "data": [
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PC",
+            "purposeDesc": "Travel Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "160",
+                "subPurposeDesc": "Personal fees"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PI",
+            "purposeDesc": "Assets Purchase",
+            "subPurpose": [
+              {
+                "subPurposeCode": "144",
+                "subPurposeDesc": "Real Estate"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PK",
+            "purposeDesc": "Purchases",
+            "subPurpose": [
+              {
+                "subPurposeCode": "154",
+                "subPurposeDesc": "Payment of personal proprty expense"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PY",
+            "purposeDesc": "Real Estate",
+            "subPurpose": [
+              {
+                "subPurposeCode": "151",
+                "subPurposeDesc": "Rent residential units"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BH",
+            "purposeDesc": "Real Estate",
+            "subPurpose": [
+              {
+                "subPurposeCode": "126",
+                "subPurposeDesc": "Buying a property"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PA",
+            "purposeDesc": "Transfer to Family and Friends",
+            "subPurpose": [
+              {
+                "subPurposeCode": "136",
+                "subPurposeDesc": "Advance payment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CR",
+            "purposeDesc": "Repayment Of Loans",
+            "subPurpose": [
+              {
+                "subPurposeCode": "056",
+                "subPurposeDesc": "Loan Early Settlement"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BB",
+            "purposeDesc": "Buying Goods",
+            "subPurpose": [
+              {
+                "subPurposeCode": "009",
+                "subPurposeDesc": "Partial Payment of Raw Materials"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BR",
+            "purposeDesc": "Repayment of Loans",
+            "subPurpose": [
+              {
+                "subPurposeCode": "030",
+                "subPurposeDesc": "Payment of Financing Premium/Loan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BD",
+            "purposeDesc": "Allowances and Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "021",
+                "subPurposeDesc": "Certified Allowance-Communications"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BC",
+            "purposeDesc": "Operating Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "014",
+                "subPurposeDesc": "Insurance"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CO",
+            "purposeDesc": "Operating Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "035",
+                "subPurposeDesc": "Rentals"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BR",
+            "purposeDesc": "Repayment of Loans",
+            "subPurpose": [
+              {
+                "subPurposeCode": "92 ",
+                "subPurposeDesc": "Payment of customer's credit card"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "081",
+                "subPurposeDesc": "Recovery"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CA",
+            "purposeDesc": "Allowances And Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "047",
+                "subPurposeDesc": "Certified Allowance-Housing"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PA",
+            "purposeDesc": "Transfer to Family and Friends",
+            "subPurpose": [
+              {
+                "subPurposeCode": "134",
+                "subPurposeDesc": "Personal fees"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BF",
+            "purposeDesc": "Claims",
+            "subPurpose": [
+              {
+                "subPurposeCode": "107",
+                "subPurposeDesc": "confiscation indemnification"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "D",
+        "categoryDesc": "Deposits to other parties",
+        "purpose": [
+          {
+            "purposeCode": "DA",
+            "purposeDesc": "Deposit to government agencies",
+            "subPurpose": [
+              {
+                "subPurposeCode": "101",
+                "subPurposeDesc": "VAT"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PB",
+            "purposeDesc": "Payment of Financing Products",
+            "subPurpose": [
+              {
+                "subPurposeCode": "163",
+                "subPurposeDesc": "Repayment financing  other customer"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BG",
+            "purposeDesc": "Assets Purchase",
+            "subPurpose": [
+              {
+                "subPurposeCode": "118",
+                "subPurposeDesc": "Transport vehicle"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "R",
+        "categoryDesc": "Remitance to Other Entities",
+        "purpose": [
+          {
+            "purposeCode": "RC",
+            "purposeDesc": "Transfer To Government Agencies",
+            "subPurpose": [
+              {
+                "subPurposeCode": "128",
+                "subPurposeDesc": "VAT"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PG",
+            "purposeDesc": "Transfer to House Laborer",
+            "subPurpose": [
+              {
+                "subPurposeCode": "142",
+                "subPurposeDesc": "Advance payment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CA",
+            "purposeDesc": "Allowances And Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "045",
+                "subPurposeDesc": "End Of Year Bonus"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PK",
+            "purposeDesc": "Purchases",
+            "subPurpose": [
+              {
+                "subPurposeCode": "152",
+                "subPurposeDesc": "Personal goods"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "FP",
+            "purposeDesc": "Financing products Repayment",
+            "subPurpose": [
+              {
+                "subPurposeCode": "RL ",
+                "subPurposeDesc": "Repayment of financing loan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PI",
+            "purposeDesc": "Assets Purchase",
+            "subPurpose": [
+              {
+                "subPurposeCode": "146",
+                "subPurposeDesc": "Gold and minerals"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "082",
+                "subPurposeDesc": "FX (Transfer Only)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BG",
+            "purposeDesc": "Assets Purchase",
+            "subPurpose": [
+              {
+                "subPurposeCode": "119",
+                "subPurposeDesc": "Machinery and equipment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PB",
+            "purposeDesc": "Payment of Financing Products",
+            "subPurpose": [
+              {
+                "subPurposeCode": "162",
+                "subPurposeDesc": "Other customer Repayment financing"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "FP",
+            "purposeDesc": "Financing products Repayment",
+            "subPurpose": [
+              {
+                "subPurposeCode": "OP ",
+                "subPurposeDesc": "Other customers Repayment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CS",
+            "purposeDesc": "Salaries",
+            "subPurpose": [
+              {
+                "subPurposeCode": "041",
+                "subPurposeDesc": "Monthly Salary"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BR",
+            "purposeDesc": "Repayment of Loans",
+            "subPurpose": [
+              {
+                "subPurposeCode": "032",
+                "subPurposeDesc": "Early (For New Finance From NCB)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "066",
+                "subPurposeDesc": "Bonds (Sukuk)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "NG",
+            "purposeDesc": "Orphanage Donation",
+            "subPurpose": [
+              {
+                "subPurposeCode": "AS ",
+                "subPurposeDesc": "Educational expenses"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "457",
+                "subPurposeDesc": "Real Estate Investment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BA",
+            "purposeDesc": "Salaries",
+            "subPurpose": [
+              {
+                "subPurposeCode": "LO ",
+                "subPurposeDesc": "loan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "D",
+        "categoryDesc": "Deposits to other parties",
+        "purpose": [
+          {
+            "purposeCode": "DB",
+            "purposeDesc": "Hajj and Umrah expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "104",
+                "subPurposeDesc": "Feed expense account"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "094",
+                "subPurposeDesc": "Currency trading"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PI",
+            "purposeDesc": "Assets Purchase",
+            "subPurpose": [
+              {
+                "subPurposeCode": "148",
+                "subPurposeDesc": "Copyright and authoring"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CO",
+            "purposeDesc": "Operating Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "036",
+                "subPurposeDesc": "Service (Utility) Bills"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "060",
+                "subPurposeDesc": "Locked Stock"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BH",
+            "purposeDesc": "Real Estate",
+            "subPurpose": [
+              {
+                "subPurposeCode": "127",
+                "subPurposeDesc": "Rent residential units"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "D",
+        "categoryDesc": "Deposits to other parties",
+        "purpose": [
+          {
+            "purposeCode": "DA",
+            "purposeDesc": "Deposit to government agencies",
+            "subPurpose": [
+              {
+                "subPurposeCode": "103",
+                "subPurposeDesc": "Zakah"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CF",
+            "purposeDesc": "Adahi Value",
+            "subPurpose": [
+              {
+                "subPurposeCode": "096",
+                "subPurposeDesc": "Hady"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CF",
+            "purposeDesc": "Adahi Value",
+            "subPurpose": [
+              {
+                "subPurposeCode": "097",
+                "subPurposeDesc": "Udhiya"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "059",
+                "subPurposeDesc": "Public Shares"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BR",
+            "purposeDesc": "Repayment of Loans",
+            "subPurpose": [
+              {
+                "subPurposeCode": "033",
+                "subPurposeDesc": "Early(For Finance From Other Bank)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BD",
+            "purposeDesc": "Allowances and Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "019",
+                "subPurposeDesc": "Certified Allowance-Housing"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PW",
+            "purposeDesc": "Deposit to House Laborer",
+            "subPurpose": [
+              {
+                "subPurposeCode": "002",
+                "subPurposeDesc": "Salary/ Advance Payment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BG",
+            "purposeDesc": "Assets Purchase",
+            "subPurpose": [
+              {
+                "subPurposeCode": "123",
+                "subPurposeDesc": "Trade mark Patents"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CA",
+            "purposeDesc": "Allowances And Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "046",
+                "subPurposeDesc": "Overtime And Annual Leave"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PB",
+            "purposeDesc": "Payment of Financing Products",
+            "subPurpose": [
+              {
+                "subPurposeCode": "91 ",
+                "subPurposeDesc": "Payment for Loans"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CA",
+            "purposeDesc": "Allowances And Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "053",
+                "subPurposeDesc": "Certified Allowance-Infection"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CR",
+            "purposeDesc": "Repayment Of Loans",
+            "subPurpose": [
+              {
+                "subPurposeCode": "057",
+                "subPurposeDesc": "Early Settle for Finance from NCB"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CR",
+            "purposeDesc": "Repayment Of Loans",
+            "subPurpose": [
+              {
+                "subPurposeCode": "055",
+                "subPurposeDesc": "Payment Of A Financing Premium/Loan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CO",
+            "purposeDesc": "Operating Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "034",
+                "subPurposeDesc": "Advertising"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "R",
+        "categoryDesc": "Remitance to Other Entities",
+        "purpose": [
+          {
+            "purposeCode": "RB",
+            "purposeDesc": "Hajj And Umrah Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "086",
+                "subPurposeDesc": "Fund Account In Another Bank"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "R",
+        "categoryDesc": "Remitance to Other Entities",
+        "purpose": [
+          {
+            "purposeCode": "RC",
+            "purposeDesc": "Transfer To Government Agencies",
+            "subPurpose": [
+              {
+                "subPurposeCode": "091",
+                "subPurposeDesc": "Zakat"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BE",
+            "purposeDesc": "Dividend distribution",
+            "subPurpose": [
+              {
+                "subPurposeCode": "028",
+                "subPurposeDesc": "Semi-Annual Dividend"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CR",
+            "purposeDesc": "Repayment Of Loans",
+            "subPurpose": [
+              {
+                "subPurposeCode": "058",
+                "subPurposeDesc": "Early Settle/Finance from Non NCB"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CF",
+            "purposeDesc": "Adahi Value",
+            "subPurpose": [
+              {
+                "subPurposeCode": "098",
+                "subPurposeDesc": "Fidya"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BK",
+            "purposeDesc": "Business Estate",
+            "subPurpose": [
+              {
+                "subPurposeCode": "BG ",
+                "subPurposeDesc": "Cash transfer"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BF",
+            "purposeDesc": "Claims",
+            "subPurpose": [
+              {
+                "subPurposeCode": "106",
+                "subPurposeDesc": "Damage indemnification"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BS",
+            "purposeDesc": "financing products Repayment",
+            "subPurpose": [
+              {
+                "subPurposeCode": "110",
+                "subPurposeDesc": "Other customer credit cardRepayment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BF",
+            "purposeDesc": "Claims",
+            "subPurpose": [
+              {
+                "subPurposeCode": "108",
+                "subPurposeDesc": "Refund of  rejected comercial trans"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BG",
+            "purposeDesc": "Assets Purchase",
+            "subPurpose": [
+              {
+                "subPurposeCode": "117",
+                "subPurposeDesc": "property"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PZ",
+            "purposeDesc": "Deposit to Family and Friends",
+            "subPurpose": [
+              {
+                "subPurposeCode": "132",
+                "subPurposeDesc": "Advance payment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "R",
+        "categoryDesc": "Remitance to Other Entities",
+        "purpose": [
+          {
+            "purposeCode": "RB",
+            "purposeDesc": "Hajj And Umrah Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "084",
+                "subPurposeDesc": "Living Expenses"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PG",
+            "purposeDesc": "Transfer to House Laborer",
+            "subPurpose": [
+              {
+                "subPurposeCode": "141",
+                "subPurposeDesc": "Salary"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BC",
+            "purposeDesc": "Operating Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "012",
+                "subPurposeDesc": "Service/Utility Bills"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BD",
+            "purposeDesc": "Allowances and Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "018",
+                "subPurposeDesc": "Overtime And Annual Leave"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BD",
+            "purposeDesc": "Allowances and Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "016",
+                "subPurposeDesc": "End Of Service Bonus"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CO",
+            "purposeDesc": "Operating Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "040",
+                "subPurposeDesc": "Consulting"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PA",
+            "purposeDesc": "Transfer to Family and Friends",
+            "subPurpose": [
+              {
+                "subPurposeCode": "137",
+                "subPurposeDesc": "A gift"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PI",
+            "purposeDesc": "Assets Purchase",
+            "subPurpose": [
+              {
+                "subPurposeCode": "147",
+                "subPurposeDesc": "Ownership rights"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BC",
+            "purposeDesc": "Operating Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "013",
+                "subPurposeDesc": "Operational Maintenance"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BD",
+            "purposeDesc": "Allowances and Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "020",
+                "subPurposeDesc": "Certified Allowance-Transportation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BS",
+            "purposeDesc": "financing products Repayment",
+            "subPurpose": [
+              {
+                "subPurposeCode": "115",
+                "subPurposeDesc": "Insurance"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PY",
+            "purposeDesc": "Real Estate",
+            "subPurpose": [
+              {
+                "subPurposeCode": "149",
+                "subPurposeDesc": "Selling a property"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "061",
+                "subPurposeDesc": "Real Estate Building"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BC",
+            "purposeDesc": "Operating Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "011",
+                "subPurposeDesc": "Rentals"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BG",
+            "purposeDesc": "Assets Purchase",
+            "subPurpose": [
+              {
+                "subPurposeCode": "122",
+                "subPurposeDesc": "Copyright and Composition"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CA",
+            "purposeDesc": "Allowances And Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "054",
+                "subPurposeDesc": "Certified Allowance-Treatment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BD",
+            "purposeDesc": "Allowances and Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "024",
+                "subPurposeDesc": "Certified Allowance-Risk"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "072",
+                "subPurposeDesc": "Locked Stock"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BR",
+            "purposeDesc": "Repayment of Loans",
+            "subPurpose": [
+              {
+                "subPurposeCode": "93 ",
+                "subPurposeDesc": "Other client's Credit card payment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "073",
+                "subPurposeDesc": "Real Estate Building"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BD",
+            "purposeDesc": "Allowances and Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "025",
+                "subPurposeDesc": "Certified Allowance-Infection"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CS",
+            "purposeDesc": "Salaries",
+            "subPurpose": [
+              {
+                "subPurposeCode": "043",
+                "subPurposeDesc": "Advanced Monthly Salary"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "R",
+        "categoryDesc": "Remitance to Other Entities",
+        "purpose": [
+          {
+            "purposeCode": "RB",
+            "purposeDesc": "Hajj And Umrah Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "088",
+                "subPurposeDesc": "Fund Expense Account"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PC",
+            "purposeDesc": "Travel Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "158",
+                "subPurposeDesc": "Tourism Offices"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "079",
+                "subPurposeDesc": "Refund"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "671",
+                "subPurposeDesc": "stocks"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BB",
+            "purposeDesc": "Buying Goods",
+            "subPurpose": [
+              {
+                "subPurposeCode": "007",
+                "subPurposeDesc": "Partial Payment of Finished Goods"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "069",
+                "subPurposeDesc": "Recovery"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BS",
+            "purposeDesc": "financing products Repayment",
+            "subPurpose": [
+              {
+                "subPurposeCode": "114",
+                "subPurposeDesc": "Repayment financing  other customer"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "FP",
+            "purposeDesc": "Financing products Repayment",
+            "subPurpose": [
+              {
+                "subPurposeCode": "OC ",
+                "subPurposeDesc": "Other customer Repayment financing"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BB",
+            "purposeDesc": "Buying Goods",
+            "subPurpose": [
+              {
+                "subPurposeCode": "006",
+                "subPurposeDesc": "Full payment of Finished Goods"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "074",
+                "subPurposeDesc": "Real Estate Land"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BB",
+            "purposeDesc": "Buying Goods",
+            "subPurpose": [
+              {
+                "subPurposeCode": "008",
+                "subPurposeDesc": "Full Payment of Raw materials"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CA",
+            "purposeDesc": "Allowances And Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "052",
+                "subPurposeDesc": "Certified Allowance-Risk"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "R",
+        "categoryDesc": "Remitance to Other Entities",
+        "purpose": [
+          {
+            "purposeCode": "RC",
+            "purposeDesc": "Transfer To Government Agencies",
+            "subPurpose": [
+              {
+                "subPurposeCode": "129",
+                "subPurposeDesc": "Tax"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PY",
+            "purposeDesc": "Real Estate",
+            "subPurpose": [
+              {
+                "subPurposeCode": "150",
+                "subPurposeDesc": "Buying a property"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "FP",
+            "purposeDesc": "Financing products Repayment",
+            "subPurpose": [
+              {
+                "subPurposeCode": "OR ",
+                "subPurposeDesc": "Other customer credit card repaymen"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BC",
+            "purposeDesc": "Operating Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "010",
+                "subPurposeDesc": "Advertising"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CO",
+            "purposeDesc": "Operating Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "038",
+                "subPurposeDesc": "Premiums"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "063",
+                "subPurposeDesc": "Long Term Deposit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "FP",
+            "purposeDesc": "Financing products Repayment",
+            "subPurpose": [
+              {
+                "subPurposeCode": "OS ",
+                "subPurposeDesc": "Repayment financing other customer"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PA",
+            "purposeDesc": "Transfer to Family and Friends",
+            "subPurpose": [
+              {
+                "subPurposeCode": "138",
+                "subPurposeDesc": "Support"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "071",
+                "subPurposeDesc": "Public Shares"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PC",
+            "purposeDesc": "Travel Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "159",
+                "subPurposeDesc": "Schooling fees"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CO",
+            "purposeDesc": "Operating Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "039",
+                "subPurposeDesc": "Insurance"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "R",
+        "categoryDesc": "Remitance to Other Entities",
+        "purpose": [
+          {
+            "purposeCode": "RB",
+            "purposeDesc": "Hajj And Umrah Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "087",
+                "subPurposeDesc": "Return of excess Hajj expenses"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BD",
+            "purposeDesc": "Allowances and Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "105",
+                "subPurposeDesc": "Incentives"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "092",
+                "subPurposeDesc": "Currency Trading"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "093",
+                "subPurposeDesc": "Precious metals"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PB",
+            "purposeDesc": "Payment of Financing Products",
+            "subPurpose": [
+              {
+                "subPurposeCode": "90 ",
+                "subPurposeDesc": "Other client's Credit card payment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "070",
+                "subPurposeDesc": "FX (Transfer Only)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BA",
+            "purposeDesc": "Salaries",
+            "subPurpose": [
+              {
+                "subPurposeCode": "005",
+                "subPurposeDesc": "Advanced Monthly Salary"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PI",
+            "purposeDesc": "Assets Purchase",
+            "subPurpose": [
+              {
+                "subPurposeCode": "143",
+                "subPurposeDesc": "Lands"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "945",
+                "subPurposeDesc": "Depositary"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "077",
+                "subPurposeDesc": "Participation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PK",
+            "purposeDesc": "Purchases",
+            "subPurpose": [
+              {
+                "subPurposeCode": "153",
+                "subPurposeDesc": "Purchase personal items"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BD",
+            "purposeDesc": "Allowances and Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "023",
+                "subPurposeDesc": "Certified Allowance-Mandate"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BE",
+            "purposeDesc": "Dividend distribution",
+            "subPurpose": [
+              {
+                "subPurposeCode": "029",
+                "subPurposeDesc": "Quarterly Dividend"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BA",
+            "purposeDesc": "Salaries",
+            "subPurpose": [
+              {
+                "subPurposeCode": "003",
+                "subPurposeDesc": "Monthly Salary"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CA",
+            "purposeDesc": "Allowances And Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "050",
+                "subPurposeDesc": "Certified Allowance-Education"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "D",
+        "categoryDesc": "Deposits to other parties",
+        "purpose": [
+          {
+            "purposeCode": "DA",
+            "purposeDesc": "Deposit to government agencies",
+            "subPurpose": [
+              {
+                "subPurposeCode": "102",
+                "subPurposeDesc": "Governmental fees"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CF",
+            "purposeDesc": "Adahi Value",
+            "subPurpose": [
+              {
+                "subPurposeCode": "100",
+                "subPurposeDesc": "Aqiqa"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PC",
+            "purposeDesc": "Travel Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "156",
+                "subPurposeDesc": "Flight"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BS",
+            "purposeDesc": "financing products Repayment",
+            "subPurpose": [
+              {
+                "subPurposeCode": "111",
+                "subPurposeDesc": "Repayment of a financing"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BC",
+            "purposeDesc": "Operating Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "015",
+                "subPurposeDesc": "Consultancy"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "K",
+        "categoryDesc": "Pravesh Personal",
+        "purpose": [
+          {
+            "purposeCode": "KB",
+            "purposeDesc": "REMMITANCES",
+            "subPurpose": [
+              {
+                "subPurposeCode": "181",
+                "subPurposeDesc": "QUICKPAY"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PG",
+            "purposeDesc": "Transfer to House Laborer",
+            "subPurpose": [
+              {
+                "subPurposeCode": "001",
+                "subPurposeDesc": "Salary/ Advance Payment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BB",
+            "purposeDesc": "Buying Goods",
+            "subPurpose": [
+              {
+                "subPurposeCode": "124",
+                "subPurposeDesc": "Purchase of Livestock"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BH",
+            "purposeDesc": "Real Estate",
+            "subPurpose": [
+              {
+                "subPurposeCode": "125",
+                "subPurposeDesc": "Selling a property"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PA",
+            "purposeDesc": "Transfer to Family and Friends",
+            "subPurpose": [
+              {
+                "subPurposeCode": "135",
+                "subPurposeDesc": "legacy"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "067",
+                "subPurposeDesc": "Refund"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "078",
+                "subPurposeDesc": "Bonds (Sukuk)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "075",
+                "subPurposeDesc": "Long Term Deposit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "R",
+        "categoryDesc": "Remitance to Other Entities",
+        "purpose": [
+          {
+            "purposeCode": "RB",
+            "purposeDesc": "Hajj And Umrah Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "085",
+                "subPurposeDesc": "Transportation Expenses"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "064",
+                "subPurposeDesc": "Short Term Deposit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "976",
+                "subPurposeDesc": "stocks"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PB",
+            "purposeDesc": "Payment of Financing Products",
+            "subPurpose": [
+              {
+                "subPurposeCode": "161",
+                "subPurposeDesc": "Repayment of a financing"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BE",
+            "purposeDesc": "Dividend distribution",
+            "subPurpose": [
+              {
+                "subPurposeCode": "027",
+                "subPurposeDesc": "Annual Dividend"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PA",
+            "purposeDesc": "Transfer to Family and Friends",
+            "subPurpose": [
+              {
+                "subPurposeCode": "139",
+                "subPurposeDesc": "Support"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BG",
+            "purposeDesc": "Assets Purchase",
+            "subPurpose": [
+              {
+                "subPurposeCode": "120",
+                "subPurposeDesc": "Gold and minerals"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PC",
+            "purposeDesc": "Travel Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "155",
+                "subPurposeDesc": "Hotels"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CA",
+            "purposeDesc": "Allowances And Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "044",
+                "subPurposeDesc": "End Of Service Bonus"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CO",
+            "purposeDesc": "Operating Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "037",
+                "subPurposeDesc": "Operational Maintenance"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "349",
+                "subPurposeDesc": "Real Estate Investment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CS",
+            "purposeDesc": "Salaries",
+            "subPurpose": [
+              {
+                "subPurposeCode": "042",
+                "subPurposeDesc": "Advance (Personal Borrowing)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PA",
+            "purposeDesc": "Transfer to Family and Friends",
+            "subPurpose": [
+              {
+                "subPurposeCode": "140",
+                "subPurposeDesc": "donation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PZ",
+            "purposeDesc": "Deposit to Family and Friends",
+            "subPurpose": [
+              {
+                "subPurposeCode": "133",
+                "subPurposeDesc": "A gift"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PZ",
+            "purposeDesc": "Deposit to Family and Friends",
+            "subPurpose": [
+              {
+                "subPurposeCode": "130",
+                "subPurposeDesc": "Personal fees"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BA",
+            "purposeDesc": "Salaries",
+            "subPurpose": [
+              {
+                "subPurposeCode": "004",
+                "subPurposeDesc": "Advance Payment(Personal Borrowing)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "068",
+                "subPurposeDesc": "Dividend"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PB",
+            "purposeDesc": "Payment of Financing Products",
+            "subPurpose": [
+              {
+                "subPurposeCode": "89 ",
+                "subPurposeDesc": "Payment of customer's credit card"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PZ",
+            "purposeDesc": "Deposit to Family and Friends",
+            "subPurpose": [
+              {
+                "subPurposeCode": "BB ",
+                "subPurposeDesc": "test"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BS",
+            "purposeDesc": "financing products Repayment",
+            "subPurpose": [
+              {
+                "subPurposeCode": "109",
+                "subPurposeDesc": "Credit card Repayment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "095",
+                "subPurposeDesc": "Precious metals"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CF",
+            "purposeDesc": "Adahi Value",
+            "subPurpose": [
+              {
+                "subPurposeCode": "099",
+                "subPurposeDesc": "Sadaqa"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "FP",
+            "purposeDesc": "Financing products Repayment",
+            "subPurpose": [
+              {
+                "subPurposeCode": "CR ",
+                "subPurposeDesc": "Credit Card Repayment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "679",
+                "subPurposeDesc": "Depositary"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CA",
+            "purposeDesc": "Allowances And Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "049",
+                "subPurposeDesc": "Certified Allowance-Communications"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "080",
+                "subPurposeDesc": "Dividend"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PZ",
+            "purposeDesc": "Deposit to Family and Friends",
+            "subPurpose": [
+              {
+                "subPurposeCode": "131",
+                "subPurposeDesc": "legacy"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PI",
+            "purposeDesc": "Assets Purchase",
+            "subPurpose": [
+              {
+                "subPurposeCode": "145",
+                "subPurposeDesc": "Transport vehicle"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "065",
+                "subPurposeDesc": "Participation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IC",
+            "purposeDesc": "International Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "076",
+                "subPurposeDesc": "Short Term Deposit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BD",
+            "purposeDesc": "Allowances and Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "026",
+                "subPurposeDesc": "Certified Allowance-Treatment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BD",
+            "purposeDesc": "Allowances and Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "022",
+                "subPurposeDesc": "Certified Allowance-Education"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "PC",
+            "purposeDesc": "Travel Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "157",
+                "subPurposeDesc": "Car rental"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CA",
+            "purposeDesc": "Allowances And Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "051",
+                "subPurposeDesc": "Certified Allowance-Mandate"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BG",
+            "purposeDesc": "Assets Purchase",
+            "subPurpose": [
+              {
+                "subPurposeCode": "121",
+                "subPurposeDesc": "Ownership rights"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BR",
+            "purposeDesc": "Repayment of Loans",
+            "subPurpose": [
+              {
+                "subPurposeCode": "031",
+                "subPurposeDesc": "Early Loan Settlement"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "I",
+        "categoryDesc": "Investment",
+        "purpose": [
+          {
+            "purposeCode": "IB",
+            "purposeDesc": "Internal Investments",
+            "subPurpose": [
+              {
+                "subPurposeCode": "062",
+                "subPurposeDesc": "Real Estate Land"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "R",
+        "categoryDesc": "Remitance to Other Entities",
+        "purpose": [
+          {
+            "purposeCode": "RB",
+            "purposeDesc": "Hajj And Umrah Expenses",
+            "subPurpose": [
+              {
+                "subPurposeCode": "083",
+                "subPurposeDesc": "Rent House Expenses"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "P",
+        "categoryDesc": "Personal",
+        "purpose": [
+          {
+            "purposeCode": "FP",
+            "purposeDesc": "Financing products Repayment",
+            "subPurpose": [
+              {
+                "subPurposeCode": "RO ",
+                "subPurposeDesc": "Repayment of a financing"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BS",
+            "purposeDesc": "financing products Repayment",
+            "subPurpose": [
+              {
+                "subPurposeCode": "113",
+                "subPurposeDesc": "Repayment of financing loan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "R",
+        "categoryDesc": "Remitance to Other Entities",
+        "purpose": [
+          {
+            "purposeCode": "RC",
+            "purposeDesc": "Transfer To Government Agencies",
+            "subPurpose": [
+              {
+                "subPurposeCode": "090",
+                "subPurposeDesc": "Governmental Fees"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "C",
+        "categoryDesc": "Charities",
+        "purpose": [
+          {
+            "purposeCode": "CA",
+            "purposeDesc": "Allowances And Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "048",
+                "subPurposeDesc": "Certified Allowance-Transportation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "R",
+        "categoryDesc": "Remitance to Other Entities",
+        "purpose": [
+          {
+            "purposeCode": "RC",
+            "purposeDesc": "Transfer To Government Agencies",
+            "subPurpose": [
+              {
+                "subPurposeCode": "089",
+                "subPurposeDesc": "VAT"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BG",
+            "purposeDesc": "Assets Purchase",
+            "subPurpose": [
+              {
+                "subPurposeCode": "116",
+                "subPurposeDesc": "Lands"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BS",
+            "purposeDesc": "financing products Repayment",
+            "subPurpose": [
+              {
+                "subPurposeCode": "112",
+                "subPurposeDesc": "Other customer Repayment financing"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "categoryCode": "B",
+        "categoryDesc": "Business",
+        "purpose": [
+          {
+            "purposeCode": "BD",
+            "purposeDesc": "Allowances and Rewards",
+            "subPurpose": [
+              {
+                "subPurposeCode": "017",
+                "subPurposeDesc": "End Of Year Bonus"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

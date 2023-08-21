@@ -1,0 +1,33 @@
+<div class="detailsTitleContainer">
+    <div class="mainTitle" translate>LBL_INSTANT_TRANSFER_REGISTER</div>
+</div>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-instant-transfer-registration-details></app-instant-transfer-registration-details>
+      </div>
+</section>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-proxy-identifier-registration></app-proxy-identifier-registration>
+      </div>
+</section>
+<section class="summaryOuterConainer">    
+    <div class="summaryConainer">
+        <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+      </div>
+</section>
+<section class="summaryOuterConainer">    
+    <div class="summaryConainer">
+        <app-history [historyData]="workFlowHistoryParams"></app-history>
+      </div>
+</section>
+<section>
+    <div class="btnContainer">
+        <!-- <button class="button-secondary backButton" routerLink="/mytask/instantTransferManagement" translate>LBL_BACK</button>
+        <button class="button-print-secondary" (click)="onClickReject()" translate>LBL_REJECT</button>
+        <button class="button-print-secondary" (click)="onClickAuthorize()" translate>LBL_AUTHORIZE</button> -->
+        <app-tertiary-button buttonValue="LBL_BACK" (click)="back()"></app-tertiary-button>
+        <app-secondary-button buttonValue="LBL_REJECT" (click)="onClickReject()"></app-secondary-button>
+        <app-secondary-button buttonValue="LBL_AUTHORIZE" (click)="onClickAuthorize()"></app-secondary-button>
+     </div>
+</section>

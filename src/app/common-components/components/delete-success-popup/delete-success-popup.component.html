@@ -1,0 +1,9 @@
+<div class="row tick-icon" mat-dialog-title>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span translate>LBL_CONFIRMATION</span><img
+    src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close></div>
+<div mat-dialog-content translate>LBL_DELETED_SUCCESSFULLY</div>
+<div [class.hide]="emptyTrashFlag">
+<div mat-dialog-content class="reftext">{{'LBL_REF_NO' | translate}}: &nbsp;{{refNumber}}</div>
+</div>
+<div mat-dialog-actions>
+<button mat-dialog-close class="yes-btn" (click)="onClickOk()" translate>LBL_OK</button>
+</div>

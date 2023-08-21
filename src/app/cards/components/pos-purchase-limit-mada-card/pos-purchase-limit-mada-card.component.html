@@ -1,0 +1,92 @@
+<div class="outerContainer" *ngIf="title !== 'receipt'">
+    <div class="title" translate *ngIf="title !== 'review'">LBL_POS_PURCHASE_LIMIT</div>
+    <div class="title" translate *ngIf="title === 'review'">LBL_REVIEW</div>
+    <app-debit-lookup [debitAccDetails]="debitAccObj"></app-debit-lookup>
+
+    <div class="madaCardDetails marginLeft_0 pR">
+        <div class="sub">
+            <div>
+                <div class="subTitles" translate>LBL_AMOUNT_DETAILS</div>
+            </div>
+        </div>
+
+        <div class="rowInnerCntr col3">
+            <div class="field">
+				<div class="label" translate>
+					LBL_CURRENT_LIMIT
+				</div>
+                <div class="amountLimit mt15">{{ amountLimit | currencyFormat:currencyCode }} {{currencyCode}}</div>
+                </div>
+            <div class="field">
+				<div class="label" translate>
+					LBL_NEW_LIMIT
+				</div>
+				<div *ngIf="title !== 'review'" class="information">
+					<mat-select panelClass="dropDownOption" disableOptionCentering class="selectInput"
+						placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}" name="newLimit"
+						[(ngModel)]="newLimit">
+						<mat-option class="option" *ngFor="let newLimit of newAmountLimit" [value]="newLimit.limit"
+							(click)="onSelectednewLimit()">{{ newLimit.limit | currencyFormat:newLimit.currency }} {{ newLimit.currency }}</mat-option>
+                            <mat-option value="Custom" translate>Custom</mat-option>
+					</mat-select>
+				</div>
+                
+				<div *ngIf="title === 'review' && (newLimit !== 'Custom')" class="information">{{ newLimit | currencyFormat: currencyCode }} {{ currencyCode }}</div>
+                <div *ngIf="title === 'review' && (newLimit === 'Custom')" class="information" >{{ customAmount | currencyFormat: currencyCode }} {{ currencyCode }}</div>
+				<span class="errorMsg" translate *ngIf="selectReasonError">LBL_ENTER_AMOUNT</span>
+			</div>
+
+            <!-- <div class="field">
+                <div *ngIf="title !== 'review' && (newLimit === 'Custom')" class="information">
+                    <div class="label" translate>
+                        LBL_CUSTOM_AMOUNT
+                    </div>
+					<input class="amount" (keypress)="allowNumbersOnly($event)" [(ngModel)]="customAmount"
+                        type="text" placeholder={{currencyCode}} /> 
+                        
+                        <div class="errorMsg" translate *ngIf="selectCustomAmountError">LBL_PROVIDE_VALID_AMOUNT</div>
+				</div>
+            </div> -->
+
+            <div class="field" *ngIf="title !== 'review' && (newLimit === 'Custom')">
+                <div class="label mB10" translate>
+                    LBL_CUSTOM_AMOUNT 
+                </div>
+                <!-- <p *ngIf="title === 'review'" class="information" translate>{{(newLimit ? (newLimit | currencyFormat: creditCardLimit.currentCreditLimit.currencyCode) : '--') + ' ' + (creditCardLimit.currentCreditLimit.currencyCode)}}</p> -->
+                <div class="information limit" >
+                    <input class="limitText amount" type="text" placeholder="{{'LBL_CUSTOM_AMOUNT' | translate}}"
+                        [(ngModel)]="customAmount" (keypress)="allowNumbersOnly($event)" />
+                    <span class="currency" translate> {{ currencyCode }}  </span>
+                </div>
+                <small *ngIf="selectCustomAmountError" translate class="errorMsg">LBL_PROVIDE_VALID_AMOUNT</small>
+            </div>
+
+            <p translate>LBL_POS_LIMIT</p>
+        </div>
+
+    </div>
+
+    <app-authorization *ngIf="title === 'review' && isSelfAuth" [authListDataSource]="authOptions" (authEmit)="getData($event)">
+    </app-authorization>
+
+    <app-authentication *ngIf="title === 'review'" (onTwoAuthClick)="onSecondFactorValue($event)"
+        (getOtpClick)="getOtpValue($event)" [otpError]="otpError" [initParam]="initParam"></app-authentication>
+</div>
+
+<app-receipt *ngIf="title === 'receipt'" (onInitAgainClick)="initAnotherPayment()" (DownloadReceiptClick)="downloadPdf()" [receiptDetails]="receiptObject"></app-receipt>
+
+<div class="footer" *ngIf="title !== 'receipt'">
+    <div *ngIf="title === 'review'" class="termsAndConditions" translate>
+        LBL_TERMS <a (click)="openTermsAndCondition()" translate>LBL_THE_TERMS_AND_CONDITIONS</a>
+    </div>
+    <div class="finalProceed">
+        <app-tertiary-button buttonValue="{{'LBL_CANCEL' | translate}}" routerLink="/cards/cardsInquiry/MADA">
+        </app-tertiary-button>
+        <app-primary-button buttonValue="{{'LBL_PROCEED' | translate}}" *ngIf="title !== 'review'"
+            (click)="toProceed()"></app-primary-button>
+        <!-- <app-primary-button buttonValue="{{'LBL_SUBMIT' | translate}}" *ngIf="title === 'review'" (click)="onSubmit()">
+        </app-primary-button> -->
+    </div>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

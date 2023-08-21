@@ -1,0 +1,131 @@
+.mainContainer {
+    color: var(--primary-fontColor);
+}
+
+// .portfolioLogo {
+//     background: url(../../../../assets/images/portfolioLogo.png) no-repeat center;
+//     width: 36px;
+//     height: 36px;
+//     display: inline-block;
+//     background-size: contain;
+
+// }
+
+.icon-portfolio_active{
+    &::before{
+        cursor: pointer;
+        font-size: 20px;
+        color: var(--secondary-fonticon-color);
+        display: inline-block;
+        margin-right: 7px;
+    }
+}
+
+.titleConatiner {
+    display: flex;
+    justify-content: space-between;
+    padding:10px 10px 37px 18px;
+
+    .title {
+        font-size: 16px;
+        padding: 0px 0px 5px 0px;
+        font-family:'HelveticaNeueMed', arial, sans-serif;
+    }
+
+    .accountsInfo {
+        font-size: 14px;
+    }
+}
+
+.hideVisibility {
+    visibility: hidden;
+}
+
+.portfolioStatusbarContainer {
+     margin-left: 20px;
+     margin-right: 16px;
+
+    .progressBar {
+            background-color: var(--primary-unselected-color);
+            width: 100%;
+            height: 6px;
+            display: flex;
+            align-items: center;
+            border-radius:5px ;
+        }
+
+        .insideProgressBar {
+            background-color: var(--primary-selected-color);
+            width: 0; 
+            height: 100%;
+             border-radius: 5px;
+        }
+    }
+
+
+.subTitles {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.subTitles{
+    display: flex;
+    justify-content: space-between;
+    .ccy-positive{
+        span{
+            font-size: 0.8571428571428571em;
+        }
+    }
+}
+
+
+// .nextLogo {
+//     background: url(../../../../assets/images/icoNextArrow.svg) no-repeat center;
+//     width: 40px;
+//     height: 40px;
+//     background-size: contain;
+//     float: right;
+//     cursor: pointer;
+//     margin-top: -11px;
+// }
+
+.icon-next_active{
+    &::before{
+        cursor: pointer;
+        font-size: 16px;
+        color: var(--secondary-fonticon-color);
+        margin-right: 6px;
+        background-size: contain;
+        float: right;
+        cursor: pointer;
+        font-weight: 600;
+    }
+}
+
+.portfolioAmount {
+    font-size: 14px;
+    
+    font-family:'HelveticaNeueMed', arial, sans-serif;
+}
+
+.assetsLiabilities {
+    font-size: 14px;
+    padding: 4px 17px 0px 18px;
+}
+
+.portFolioBar{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 0px 40px 0px 19px;
+}
+.progresscontainer{
+    width: 90%;
+    display: inline-block;
+    margin-left:0px;
+}
+.routercontainer{
+    width: 10%;
+    display: inline-block;
+}

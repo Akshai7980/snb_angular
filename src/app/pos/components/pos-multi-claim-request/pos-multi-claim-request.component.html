@@ -1,0 +1,9 @@
+<app-pos-multi-claim-request-account-detail
+  *ngIf="this.rootScopeData.showtransaction"
+  (showGenerateStatementPage)="showEmitData($event)"
+></app-pos-multi-claim-request-account-detail>
+
+<app-pos-multi-claim-request-merchant-detail
+  *ngIf="this.rootScopeData.showMerchantDetail"
+  (goToInitialPage)="showItialPage($event)"
+></app-pos-multi-claim-request-merchant-detail>

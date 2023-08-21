@@ -1,0 +1,104 @@
+[
+  {
+    "data": {
+      "refNo": "TBC2207021533397",
+      "cardNo": "10107654360011",
+      "expiryDate": "23/09/25",
+      "cardName": "Dameer Ahsan",
+      "currentLmt": "10000",
+      "newLmt": "20000",
+      "ccy": "SAR",
+      "status": "active",
+      "productCode": "CORESVS",
+      "subProductCode": "MADPOSLIM",
+      "functionCode": "POSLMFNC"
+    },
+    "headerValue": {
+      "moduleId": "MADAPOSLMTDETAIL"
+    }
+  },
+  {
+    "data": {
+      "refNo": "TBC2207021533397",
+      "cardNo": "10107654360011",
+      "expiryDate": "23/09/2025",
+      "reason": "Damaged",
+      "cardName": "Dameer Ahsan",
+      "status": "inactive",
+      "comments": "DTHDT",
+      "productCode": "CORESVS",
+      "subProductCode": "MADSTOP",
+      "functionCode": "MADSTPFC"
+    },
+    "headerValue": {
+      "moduleId": "STPMADADETAIL"
+    }
+  },
+  {
+    "data": {
+      "refNo": "TBC2207021533397",
+      "cardName": "Dameer Ahsan",
+      "cardNo": "529415987652290",
+      "status": "active",
+      "expiryDate": "20/09/2022",
+      "issueDate": "25/09/2019",
+      "productCode": "CORESVS",
+      "subProductCode": "MADREISS",
+      "functionCode": "MADREISFNC"
+    },
+    "headerValue": {
+      "moduleId": "REISSUEMADADETAIL"
+    }
+  },
+  {
+    "data": {
+      "refNo": "TBC2207021533397",
+      "cardName": "Dameer Ahsan",
+      "cardNo": "529415987652290",
+      "accNo": "SA 1010 0100 1000 0000125",
+      "expiryDate": "31/01/2025",
+      "accName": "Ashan",
+      "balance": "87687",
+      "currency": "SAR",
+      "status": "active",
+      "productCode": "CORESVS",
+      "subProductCode": "LINKADDI",
+      "secondaryAccount": [
+        {
+          "accNo": "SA 1010 0100 1000 0000125",
+          "accName": "Ashan",
+          "balance": "87687",
+          "currency": "SAR",
+          "status": "active"
+        },
+        {
+          "accNo": "SA 1010 0100 1000 0000125",
+          "accName": "Damro",
+          "balance": "87689",
+          "currency": "SAR",
+          "status": "inactive"
+        }
+      ],
+      "functionCode": "LKADDFNC"
+    },
+    "headerValue": {
+      "moduleId": "LINKADDACCDETAILS"
+    }
+  },
+  {
+    "data": {
+      "refNo": "TBC2207021533397",
+      "accNo": "SA1010010010000000123",
+      "accName": "Dameer Ahsan",
+      "status": "active",
+      "balance": "35345",
+      "currency": "SAR",
+      "productCode": "CORESVS",
+      "subProductCode": "MADAREQ",
+      "functionCode": "CRDREQFC"
+    },
+    "headerValue": {
+      "moduleId": "NEWCARDDETAILS"
+    }
+  }
+]

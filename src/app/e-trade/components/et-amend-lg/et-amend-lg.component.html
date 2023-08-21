@@ -1,0 +1,163 @@
+<div *ngIf="!submitSuccessful">
+  <div class="outerContainer">
+    <div class="subTitles" translate>LBL_ISSUE_LETTER_OF_GUARANTEE</div>
+    <div class="merchantDetails">
+      <div class="subTitles" translate>LBL_ACCOUNT_DETAILS</div>
+
+      <div>
+        <div class="outerContainer">
+          <div class="accountDetails">
+            <div class="subTitles" translate>LBL_FROM</div>
+            <table>
+              <tr class="tableHeader">
+                <th translate>LBL_ACC_NUMBER</th>
+                <th translate>LBL_NICK_NAME</th>
+                <th translate>LBL_FULL_NAME</th>
+                <th translate>LBL_STATUS</th>
+                <th translate>LBL_BALANCE</th>
+                <th translate></th>
+              </tr>
+              <ng-container>
+                <tr class="tableRowConatiner" *ngFor="let data of fromAccount">
+                  <td>{{ data.OD_ACC_NO }}</td>
+                  <td>{{ data.ALIAS_NAME }}</td>
+                  <td>{{ data.LIAS_NAME }}</td>
+                  <td>{{ data.STATUS }}</td>
+                  <td>
+                    {{
+                      data.CURR_AVAIL_BAL_AMT
+                        | currencyFormat : data.OD_CCY_CODE
+                    }}
+                    {{ data.OD_CCY_CODE }}
+                  </td>
+                  <td><div class="downArrowAcc"></div></td>
+                </tr>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+
+        <div class="outerContainer">
+          <div class="accountDetails">
+            <div class="subTitles" translate>LBL_TO</div>
+            <table>
+              <tr class="tableHeader">
+                <th translate>LBL_NICKNAME_IN_ENGLISH</th>
+                <th translate>LBL_NICKNAME_IN_ARABIC</th>
+                <th translate></th>
+              </tr>
+              <ng-container>
+                <tr class="tableRowConatiner" *ngFor="let data of toAccount">
+                  <td>
+                    {{
+                      rootScopeData.selectedInquiryForStopPayment.lg
+                        .beneficiaryNameEng
+                        ? rootScopeData.selectedInquiryForStopPayment.lg
+                            .beneficiaryNameEng
+                        : "--"
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      rootScopeData.selectedInquiryForStopPayment.lg
+                        .beneficiaryNameAr
+                        ? rootScopeData.selectedInquiryForStopPayment.lg
+                            .beneficiaryNameAr
+                        : "--"
+                    }}
+                  </td>
+                  <td><div class="downArrowAcc"></div></td>
+                </tr>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="outerContainer">
+    <app-et-lg-issue-details
+      [isReview]="true"
+      [isUpdate]="isUpdate"
+      [currencies]="currencies"
+      [errorsObject]="issueDetailsErrors"
+      [issueDetails]="issueDetails"
+      (details)="setIssueDetails($event)"
+    ></app-et-lg-issue-details>
+  </div>
+  <div class="outerContainer">
+    <app-et-applicant-details
+      [isReview]="true"
+      [isUpdate]="isUpdate"
+      [applicantDetail]="applicantDetails"
+      [applicantName]="
+        rootScopeData.selectedInquiryForStopPayment.toAccount &&
+        rootScopeData.selectedInquiryForStopPayment.toAccount
+          .applicantNameAddressEng1
+          ? rootScopeData.selectedInquiryForStopPayment.toAccount
+              .applicantNameAddressEng1
+          : ''
+      "
+      [commissionAccounts]="commissionAccounts"
+      [marginAccounts]="marginAccounts"
+      [errorsObject]="applicantDetailsErrors"
+      (applicantDetails)="setApplicantDetails($event)"
+    ></app-et-applicant-details>
+  </div>
+
+  <div class="outerContainer">
+    <app-authorization
+      *ngIf="!isUpdate && showAuthorization"
+      [authListDataSource]="authorsList"
+      (authEmit)="setAuthorizationDetails($event)"
+    >
+    </app-authorization>
+  </div>
+
+  <div class="outerContainer">
+    <app-authentication
+      *ngIf="!isUpdate"
+      (onTwoAuthClick)="onSecondFactorValue($event)"
+      (getOtpClick)="getOtpValue($event)"
+      [otpError]="otpError"
+      (authenticationType)="getAuthType($event)"
+    ></app-authentication>
+  </div>
+
+  <div class="btnContainer" *ngIf="isUpdate">
+    <app-tertiary-button
+      buttonValue="LBL_CANCEL"
+      translate
+      (click)="cancelAmendment()"
+    >
+    </app-tertiary-button>
+    <app-primary-button buttonValue="LBL_UPDATE" translate (click)="onUpdate()">
+    </app-primary-button>
+  </div>
+
+  <div class="footer-container outerContainer" *ngIf="!isUpdate">
+    <div class="footerText" translate>
+      LBL_TERMS
+      <a href="{{ url }}" target="_blank"
+        ><span class="termsContainer" translate
+          >LBL_THE_TERMS_AND_CONDITIONS</span
+        ></a
+      >
+    </div>
+    <div class="actionGroup">
+      <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancelAmendment()">
+      </app-tertiary-button>
+      <!-- <app-primary-button
+        buttonValue="LBL_SUBMIT"
+        (click)="submitAmendment()"
+      ></app-primary-button> -->
+    </div>
+  </div>
+</div>
+<app-receipt
+  *ngIf="submitSuccessful"
+  [receiptDetails]="receiptData"
+  (onInitAgainClick)="cancelAmendment()"
+>
+</app-receipt>

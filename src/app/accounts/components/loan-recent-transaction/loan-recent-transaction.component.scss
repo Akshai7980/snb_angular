@@ -1,0 +1,162 @@
+// th.mat-header-cell {
+//     font-size: 14px;
+//     color: var(--table-header-color);
+//     border-bottom-style: none;
+//     font-family: "HelveticaNeuemed", arial, sans-serif;
+//     text-align: left;
+// }
+// tr.mat-header-row{height:40px;}
+// td {
+//     height:40px;
+//     font-family: "HelveticaNeuemed", arial, sans-serif;
+//     font-size: 14px;
+//     color: #5d5d5d;
+//     text-align: left;
+//     padding-left:3px;
+// }
+// td:first-child {border-radius: 10px 0 0 10px;}
+// td:last-child{border-radius: 0 10px 10px 0;}
+// th.mat-header-cell:first-of-type {
+//     padding-left: 5px !important;
+// }
+// .mainTable:hover {
+//     background-color: var(--summary-hover-color) !important;
+// }
+// .mainTable:nth-child(odd){background-color: var(--summary-row-bg-color);}
+// .mainTable:nth-child(even){background-color: var(--secondary-btn-txt-color);}
+// .sortUp {
+//     transform: rotate(180deg) !important;
+//     position: relative;
+//     right: 33px;
+// }
+.img-style {
+    padding-right: 15px;
+    vertical-align: middle;
+}
+
+// .mainTableStr {
+//     margin-top: 20px;
+// }
+// .mainTableStr:nth-child(odd) {
+//     cursor: pointer;
+// }
+.transactionCntr {
+    .ng-toolPanel {
+        display: flex;
+        margin-top: 20px;
+        justify-content: space-between;
+
+        .leftSide {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+.dslk_flex {
+    display: flex;
+}
+
+td:first-child {
+    padding-left: 7px;
+}
+
+td:last-child,
+th.mat-header-cell:last-of-type {
+    width: 160px;
+    padding-right: 25px;
+}
+
+.casaTable {
+    width: 100%;
+    background-color: var(--primary-widget-bg-color);
+}
+
+.position_rel {
+    position: relative;
+}
+
+.mat-row:hover .EditIcon {
+    display: inline-block;
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+    border: none !important;
+}
+
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type,
+th.mat-header-cell:first-of-type {
+    padding-left: 5px;
+}
+
+.unsetfloat {
+    text-align: unset !important;
+}
+
+app-search {
+    position: absolute;
+}
+
+.red span {
+    color: var(--mandatory-mark-color) !important;
+}
+
+.green span {
+    color: var(--primary-selected-color) !important;
+}
+
+.casaTable {
+    width: 100%;
+    table-layout: fixed;
+    background-color: var(--primary-widget-bg-color);
+
+    // .mat-column-res_Val_Dt {
+    //     width: 13.63% !important;
+    // }
+    // .mat-column-res_Credit {
+    //     width: 12.66% !important;
+    // }
+    // .mat-column-hide_res_Credit  {
+    //     width: 12.66% !important;
+    // }
+    // .mat-column-res_LoanRefNo {
+    //     width: 12.75% !important;
+    // }
+    // .mat-column-res_LoanTypeDesc {
+    //     width: 20% !important;
+    //     text-overflow: ellipsis;
+    // }
+    // .mat-column-res_Balance {
+    //     width: 10.75% !important;
+    // }
+    // .mat-column-hide_res_Balance {
+    //     width: 12.75% !important;
+    // }
+    .mat-cell div,
+    .mat-cell span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+    }
+
+    .mat-row:nth-child(4n-3) {
+        // background-color: #fafafa !important;
+        background-color: var(--summary-row-bg-color);
+    }
+
+    th.mat-header-cell {
+        font-family: "HelveticaNeueMed", arial, sans-serif !important;
+        font-size: 14px !important;
+        color: var(--table-header-color) !important;
+    }
+
+    td.mat-cell {
+        font-family: "HelveticaNeueMed", arial, sans-serif !important;
+        font-size: 14px !important;
+        color: var(--tableData-header-color) !important;
+    }
+}

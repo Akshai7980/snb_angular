@@ -1,0 +1,34 @@
+.buttonTertiary {
+  min-width: 100px;
+  height: 40px;
+  padding: 5px 16px 5px 12px;
+  border: 1px solid var(--button-tertiary-bg-color);
+  border-radius: 100px;
+  background-color: var(--button-tertiary-bg-color);
+  background-size: cover;
+  font-family: 'HelveticaNeue', arial, sans-serif;
+  font-size: 14px;
+  color: var(--announcement-fontColor);
+  text-align: center; 
+  cursor: pointer;
+}
+button {
+  border: none;
+}
+button:hover {
+  background-color: var(--button-secondory-hover);
+}
+.icon{
+  width: 18px;
+  height: 18px;
+  float: left;
+}
+.headerContainer{
+  margin-right: 8px;
+  overflow: hidden;
+}
+// .valueContainer{
+//   position: relative;
+//   top: -3px;
+//   left: 3px;
+// }

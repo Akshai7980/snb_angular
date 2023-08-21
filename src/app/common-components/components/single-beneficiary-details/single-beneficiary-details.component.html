@@ -1,0 +1,77 @@
+<div class="detailsContainer">
+
+    <div class="titleContainer">
+        <div class="titleContainerText">
+            <span *ngIf="parentValues && parentValues.beneId">{{parentValues.beneId}}</span>
+            <span *ngIf="!parentValues || !parentValues.beneId">--</span>,
+            <span *ngIf="parentValues && parentValues.beneNme"> {{parentValues.beneNme}}</span>
+            <span *ngIf="!parentValues || !parentValues.beneNme">--</span>
+        </div>
+        <div class="titleContainerText">
+            <span *ngIf="subProduct">{{subProduct}}</span>
+            <span *ngIf="!subProduct">--</span>
+        </div>
+    </div>
+    <div class="backgroundContainer">
+
+  
+    <div class="bankDetailsContainer">
+        <div class="bankDetailsContainerText">{{'LBL_ACC_NUMBER' | translate}}
+            <span *ngIf="childValues && childValues.accountNo"> : {{childValues.accountNo}}</span>
+            <span *ngIf="!childValues || !childValues.accountNo"> : --</span>
+        </div>
+        <div>
+            <div class="subHeadingText">{{'LBL_BANK' | translate}}</div>
+            <div class="subText">
+                <span *ngIf="childValues && childValues.bankName">{{childValues.bankName}}</span>
+                <span *ngIf="!childValues || !childValues.bankName">--</span>,
+                <span *ngIf="childValues && childValues.beneCnty">{{childValues.beneCnty}}</span>
+                <span *ngIf="!childValues || !childValues.beneCnty">--</span>
+            </div>
+            <div class="subText">{{'LBL_SWIFT_CODE' | translate}} : <span *ngIf="parentValues && parentValues.swiftAddr">{{parentValues.swiftAddr}}</span><span *ngIf="!parentValues || !parentValues.swiftAddr">--</span>, 
+                {{'LBL_BRANCH' | translate}}: <span *ngIf="childValues && childValues.branchName">{{childValues.branchName}}</span><span *ngIf="!childValues || !childValues.branchName">--</span></div>
+        </div>
+    </div>
+    <div class="contactDetailsContainer" *ngIf="singleBeneficiaryDetailsData.showContactDetailsFlag">
+        <div class="bankDetailsContainerText contactText" translate>LBL_CONTACT_DETAILS</div>
+        <div class="fxContainer mt-top">
+            <div class="column1">
+                <label class="label" translate>LBL_COUNTRY</label>
+                <div class="dataInfo" *ngIf="parentValues && parentValues.beneCountry">{{parentValues.beneCountry}}</div>
+                <div class="dataInfo" *ngIf="!parentValues || !parentValues.beneCountry">--</div>
+            </div>
+            <div class="column2">
+                <label class="label" translate>LBL_CITY</label>
+                <div class="dataInfo" *ngIf="parentValues && parentValues.beneCity">{{parentValues.beneCity}}</div>
+                <div class="dataInfo" *ngIf="!parentValues || !parentValues.beneCity">--</div>
+            </div>
+            <div class="column3">
+                <label class="label" translate>LBL_STATE</label>
+                <div class="dataInfo" *ngIf="parentValues && parentValues.addLine3">{{parentValues.addLine3}}</div>
+                <div class="dataInfo" *ngIf="!parentValues || !parentValues.addLine3">--</div>
+            </div>
+        </div>
+        <div class="fxContainer mt-top">
+
+            <div class="column1">
+                <label class="label" translate>LBL_ADDRESS</label>
+                <div class="dataInfo" *ngIf="parentValues && parentValues.addLine1">{{parentValues.addLine1}}</div>
+                <div class="dataInfo" *ngIf="!parentValues || !parentValues.addLine1">--</div>
+            </div>
+        
+
+        <div class="column2">
+            <label class="label" translate>LBL_POSTAL_CODE</label>
+            <div class="dataInfo" *ngIf="parentValues && parentValues.mailAdd">{{parentValues.mailAdd}}</div>
+            <div class="dataInfo" *ngIf="!parentValues || !parentValues.mailAdd">--</div>
+        </div>
+        <div class="column3">
+            <label class="label" translate>LBL_PHONE</label>
+            <div class="dataInfo" *ngIf="parentValues && parentValues.pneNo">{{parentValues.pneNo}}</div>
+            <div class="dataInfo" *ngIf="!parentValues || !parentValues.pneNo">--</div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

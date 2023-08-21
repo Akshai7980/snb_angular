@@ -1,0 +1,122 @@
+<div>
+  <h3 translate>LBL_HEADER_TEMPLATE_PREVIEW</h3>
+  <ng-container *ngFor="let templateData of fileDetails">
+    <div class="flex">
+      <div class="cheque-upload">
+        <p translate class="name">LBL_NAME</p>
+        <p>{{ templateData.TEMPLATENAME }}</p>
+      </div>
+      <div class="flex">
+        <p translate class="date">LBL_DATE_FORMAT</p>
+        <p>{{ templateData.DATEFORMAT }}</p>
+      </div>
+    </div>
+    <div class="flex">
+      <div class="file">
+        <p translate class="file-type">LBL_FILE_TYPE</p>
+        <p>{{ templateData.FILETYPE }}</p>
+      </div>
+      <div class="flex">
+        <p translate class="file-type">LBL_FIELD_SEPERATOR</p>
+        <p>{{ templateData.FIELDSEPARATOR }}</p>
+      </div>
+    </div>
+  </ng-container>
+
+  <h3 translate class="flex">
+    LBL_FIELD_DETAILS
+    <img class="download-img" src="assets/images/download.svg" alt="" (click)="downloadFieldDetail()" />
+    <app-ajax-loader-small [hidden]="isLoadingCompelete" class="icons"></app-ajax-loader-small>
+  </h3>
+
+  <div class="tableAlignment">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- FIELDNAME Column -->
+      <ng-container matColumnDef="FIELDNAME">
+        <th mat-header-cell *matHeaderCellDef (click)="sortColumn('FIELDNAME')" translate>
+          LBL_FIELD_NAME
+          <span *ngIf="currentColumn && currentColumn !== 'FIELDNAME'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="currentColumn && currentColumn === 'FIELDNAME'">
+            <img src="assets/images/sortDown.svg" *ngIf="sortOrder && sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg" *ngIf="sortOrder && sortOrder === 'asc'" class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element" class="benecolumn">
+          <div class="ellipsis">
+            <span *ngIf="element.FIELDNAME">{{ element.FIELDNAME }}</span><span *ngIf="!element.FIELDNAME">--</span>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- MANDATORY/OPTIONAL Column -->
+      <ng-container matColumnDef="MANDATORY/OPTIONAL">
+        <th mat-header-cell *matHeaderCellDef (click)="sortColumn('MANDATORY')" translate>
+          LBL_MANDATORY/OPTIONAL
+          <span *ngIf="currentColumn && currentColumn !== 'MANDATORY'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="currentColumn && currentColumn === 'MANDATORY'">
+            <img src="assets/images/sortDown.svg" *ngIf="sortOrder && sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg" *ngIf="sortOrder && sortOrder === 'asc'" class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element" class="benecolumn">
+          <div class="ellipsis">
+            <span *ngIf="element.MANDATORY">{{ element.MANDATORY }}</span><span *ngIf="!element.MANDATORY">--</span>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Input Parameters Column -->
+      <ng-container matColumnDef="Input Parameters">
+        <th mat-header-cell *matHeaderCellDef (click)="sortColumn('DATATYPE')" translate>
+          LBL_INPUT_PARAMETERS
+          <span *ngIf="currentColumn && currentColumn !== 'DATATYPE'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="currentColumn && currentColumn === 'DATATYPE'">
+            <img src="assets/images/sortDown.svg" *ngIf="sortOrder && sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg" *ngIf="sortOrder && sortOrder === 'asc'" class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element" class="benecolumn">
+          <div class="ellipsis">
+            <span *ngIf="element.DATATYPE">{{ element.DATATYPE }} </span><span *ngIf="!element.DATATYPE">--</span>
+          </div>
+        </td>
+      </ng-container>
+
+      <!--Description Column -->
+      <ng-container matColumnDef="Description">
+        <th mat-header-cell *matHeaderCellDef (click)="sortColumn('FLDDESC')" translate>
+          LBL_DESCRIPTION
+          <span *ngIf="currentColumn && currentColumn !== 'FLDDESC'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="currentColumn && currentColumn === 'FLDDESC'">
+            <img src="assets/images/sortDown.svg" *ngIf="sortOrder && sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg" *ngIf="sortOrder && sortOrder === 'asc'" class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element" class="benecolumn" [matTooltip]="element.FLDDESC">
+          <div class="ellipsis">
+            <span *ngIf="element.FLDDESC"> {{ element.FLDDESC }} </span><span *ngIf="!element.FLDDESC">--</span>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+
+  <app-primary-button class="floatRight" mat-dialog-close buttonValue="OK">
+  </app-primary-button>
+</div>
+<app-ajax-loader [hidden]="templateGuidelineLoading"></app-ajax-loader>

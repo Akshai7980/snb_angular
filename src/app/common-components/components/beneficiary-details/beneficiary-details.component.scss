@@ -1,0 +1,62 @@
+.rowInnerCntr {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 11px;
+    padding-top: 14px;
+    .field {
+        width: 33.33%;
+        padding-bottom: 35px;
+        .label{
+            font-family: 'HelveticaNeueMed', arial, sans-serif;
+            color: var(--table-header-color);
+            font-size: 14px;
+        }
+        .information{
+            padding-top: 10px;
+            color: var(--tableData-header-color);
+            &.data{
+                padding-top: 20px;
+            }
+        }
+    }
+    
+}
+.AccountDetails{
+    padding: 20px 0 0 18px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    margin: 22px 20px 0px 30px;
+}
+.selectInput{
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: #656565;
+    cursor: pointer;
+}
+.mat-option {
+    padding: 5px;
+    line-height: 40px !important;
+    font-family: 'HelveticaNeue', Arial, sans-serif;
+    color: var(--tableData-header-color);
+    font-size: 14px;
+}
+input[type=text]{
+    width: 294px;
+    height: 40px;
+    padding: 0px 8px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 4px;
+    background-size: cover;
+    font-family: 'HelveticaNeue';
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    background-color: var(--primary-widget-bg-color);
+}

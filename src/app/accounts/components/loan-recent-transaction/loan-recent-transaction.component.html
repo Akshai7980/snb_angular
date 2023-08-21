@@ -1,0 +1,201 @@
+<div class="transactionCntr">
+  <div class="ng-toolPanel">
+    <div class="leftSide">
+      <div>
+        <app-search (searchParams)="advancedSearchApply($event)" [showAdvanceSearch]="true"
+          (childEvent)="triggerSearchFilter($event)"></app-search>
+      </div>
+    </div>
+    <div class="rightSide dslk_flex">
+      <div>
+        <app-export-statements [moduleId]="'LOANSTMNT'" [reqAccNumber]="loanAccNum" [selectRange]="advSearchPeriod"
+          [rangeFromDate]="advSearchFromDate" [rangeToDate]="advSearchToDate"></app-export-statements>
+      </div>
+      <div><app-refresh (onRefresh)="refreshSummary()"></app-refresh></div>
+    </div>
+  </div>
+</div>
+<div class="table" id="loanRecentTransactionCntr">
+  <table *ngIf="!norecordflag" class="casaTable" id="loanRecentTransactionDefault" mat-table matSort
+    [dataSource]="dataSourceToPass">
+    <ng-container matColumnDef="res_Val_Dt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+        <div class="position_rel" translate>LBL_DATE</div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="element.res_Val_Dt">{{
+          element.res_Val_Dt | date : rootScopeData.userInfo.mDateFormat
+          }}</span>
+        <span *ngIf="!element.res_Val_Dt">--</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="res_LoanTypeDesc">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+        <div class="position_rel" translate>LBL_TYPE</div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="element.res_LoanTypeDesc">
+          {{ element.res_LoanTypeDesc }}
+        </span>
+        <span *ngIf="!element.res_LoanTypeDesc">--</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="res_LoanRefNo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+        <div class="position_rel" translate>LBL_REFERENCE</div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="element.res_LoanRefNo">{{ element.res_LoanRefNo }} </span>
+        <span *ngIf="!element.res_LoanRefNo">--</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="res_Narrative">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+        <div class="position_rel" translate>LBL_NARRATIVE</div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="element.res_Narrative">
+          {{ element.res_Narrative }}
+        </span>
+        <span *ngIf="!element.res_Narrative">--</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="res_Credit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+        <div class="position_rel" translate>LBL_CREDIT</div>
+      </th>
+      <!-- <td mat-cell *matCellDef="let element"> 
+            <span *ngIf="element.res_Credit && element.res_Txn_CCY && !rootScopeData.userInfo.maskingFlag">{{element.res_Credit | currencyFormat:element.res_Txn_CCY}} </span>
+            <span *ngIf="(!element.res_Credit || !element.res_Txn_CCY) && !rootScopeData.userInfo.maskingFlag">--</span>
+            <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}}</span> 
+          </td> -->
+
+      <td mat-cell *matCellDef="let element" class="txt-align red" [class.green]="element.res_Flag === 'CR'">
+        <span *ngIf="
+            element.res_Credit &&
+            element.res_Txn_CCY &&
+            !rootScopeData.userInfo.maskingFlag
+          ">{{
+          element.res_Credit | amountUnformatPipe : element.res_Txn_CCY
+          }}</span>
+        <span *ngIf="rootScopeData.userInfo.maskingFlag">{{
+          "LBL_HIDDEN" | translate
+          }}</span>
+        <span *ngIf="
+            (!element.res_Credit || !element.res_Txn_CCY) &&
+            !rootScopeData.userInfo.maskingFlag
+          ">--</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="hide_res_Credit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate [style.display]="'none'">
+        <div class="position_rel" translate>LBL_CREDIT</div>
+      </th>
+      <td mat-cell *matCellDef="let element" [style.display]="'none'">
+        <span *ngIf="element.res_Credit">
+          {{
+          element.res_Credit | amountUnformatPipe : element.res_Txn_CCY
+          }}</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="res_Debit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+        <div class="position_rel" translate>LBL_DEBIT</div>
+      </th>
+      <!-- <td mat-cell *matCellDef="let element"> 
+            <span *ngIf="element.res_Credit && element.res_Txn_CCY && !rootScopeData.userInfo.maskingFlag">{{element.res_Credit | currencyFormat:element.res_Txn_CCY}} </span>
+            <span *ngIf="(!element.res_Credit || !element.res_Txn_CCY) && !rootScopeData.userInfo.maskingFlag">--</span>
+            <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}}</span> 
+          </td> -->
+
+      <td mat-cell *matCellDef="let element" class="txt-align red" [class.green]="element.res_Flag === 'CR'">
+        <span *ngIf="
+            element.res_Debit &&
+            element.res_Txn_CCY &&
+            !rootScopeData.userInfo.maskingFlag
+          ">{{
+          element.res_Debit | amountUnformatPipe : element.res_Txn_CCY
+          }}</span>
+        <span *ngIf="rootScopeData.userInfo.maskingFlag">{{
+          "LBL_HIDDEN" | translate
+          }}</span>
+        <span *ngIf="
+            (!element.res_Debit || !element.res_Txn_CCY) &&
+            !rootScopeData.userInfo.maskingFlag
+          ">--</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="hide_res_Debit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate [style.display]="'none'">
+        <div class="position_rel" translate>LBL_DEBIT</div>
+      </th>
+      <td mat-cell *matCellDef="let element" [style.display]="'none'">
+        <span *ngIf="element.res_Debit">
+          {{
+          element.res_Debit | amountUnformatPipe : element.res_Txn_CCY
+          }}</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="res_Balance">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+        <div class="position_rel" translate>LBL_BALANCE</div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div [ngStyle]="{ 'text-align': 'left' }">
+          <span *ngIf="
+              element.res_Balance &&
+              element.res_Txn_CCY &&
+              !rootScopeData.userInfo.maskingFlag
+            ">
+            {{
+            element.res_Balance | currencyFormat : element.res_Txn_CCY
+            }}</span>
+          <span *ngIf="
+              (!element.res_Balance || !element.res_Txn_CCY) &&
+              !rootScopeData.userInfo.maskingFlag
+            ">--</span>
+          <span *ngIf="rootScopeData.userInfo.maskingFlag">{{
+            "LBL_HIDDEN" | translate
+            }}</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="hide_res_Balance">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate [style.display]="'none'">
+        <div class="position_rel" translate>LBL_BALANCE</div>
+      </th>
+      <td mat-cell *matCellDef="let element" [style.display]="'none'">
+        <div *ngIf="element.res_Balance" [ngStyle]="{ 'text-align': 'left' }">
+          <span *ngIf="element.res_Balance && !rootScopeData.userInfo.maskingFlag">
+            {{ element.res_Balance | amountUnformatPipe : element.res_Txn_CCY }}
+          </span>
+          <span *ngIf="!element.res_Balance && !rootScopeData.userInfo.maskingFlag">--</span>
+          <span *ngIf="rootScopeData.userInfo.maskingFlag">{{
+            "LBL_HIDDEN" | translate
+            }}</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <div *ngIf="norecordflag">
+    <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+  </div>
+</div>
+<div *ngIf="!norecordflag">
+  <app-pagination #paginator class="actionHide" [dataSourceLength]="dataSourceLength"
+    [currentRecord]="'RecentTransaction'" [totalRecords]="totalRecords"
+    (onPaginationChange)="paginationChangeClick($event)"></app-pagination>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

@@ -1,0 +1,37 @@
+<div class="mainContainer" *ngIf="!hideAll">
+    <div translate class="title">LBL_NID_EXPIRY_DATE</div>
+    <div class="subContainer">
+        <div class="subTitles" translate>LBL_ID_DETAILS</div>
+        <div class="detailsContainer">
+            <div class="row">
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_ID_NUMBER</div>
+                    <div class="mtop_10 dataContainer" *ngIf="detailsObj && detailsObj.NATIONAL_ID">{{detailsObj.NATIONAL_ID}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_EXPIRY_DATE</div>
+                    <div class="mtop_10 dataContainer" *ngIf="detailsObj && detailsObj.EXPIRY_DATE">{{detailsObj.EXPIRY_DATE}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_DATE_OF_BIRTH<span class="required">*</span></div>
+                    <div class="mtop_10">
+                        <app-date-picker [maxDate]="maxDate" [showDateErrorMessage]="dateErr" [clearFlag]="clearFlag" (dateValue)="getDate($event)"></app-date-picker>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <small class="required" *ngIf="isShownErrorMsg">{{errorMsg}}</small>
+    </div>
+    <div class="mtop_20" translate>
+    LBL_AGREE_UPDATE_NID
+        <div class="btnGroup" translate>
+            <!-- <div><button type="button"  class="button-secondary" (click)="onClickCancel()" translate>LBL_CLEAR</button></div> -->
+            <app-tertiary-button buttonValue="LBL_CANCEL" class="M-r10" (click)="onClickCancel()"></app-tertiary-button>
+            <div><button type="button" [disabled]="(rootScopeData && rootScopeData.userInfo && (rootScopeData.userInfo.natIdExpiryAlert == 'N')) ? true : false" class="button-primary" (click)="onClickProceed()" translate>LBL_UPDATE</button></div>
+            <!-- <div [disabled]="(rootScopeData && rootScopeData.userInfo && (rootScopeData.userInfo.natIdExpiryAlert == 'N')) ? true : false">
+            <app-primary-button buttonValue="LBL_UPDATE"  (click)="onClickProceed()"></app-primary-button> -->
+        <!-- </div> -->
+        </div>
+    </div>
+</div>
+<app-receipt [hideButton]="true" [receiptDetails]="receiptData" (DownloadReceiptClick)="downloadPdf()" *ngIf="hideAll"></app-receipt>

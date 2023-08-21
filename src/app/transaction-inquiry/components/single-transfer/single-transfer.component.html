@@ -1,0 +1,219 @@
+<div class="mTop_18">
+  <div class="actionsConatiner">
+    <div class="leftPannel">
+      <!-- <div>
+        <app-selection class="actionHide" *ngIf="!noRecordFlag" [moreActionList]="contextMenuList"
+          (onMenuClick)="triggerDropdownFilter($event)"></app-selection>
+      </div> -->
+      <div class="searchCntnrLeft">
+        <app-search class="actionHide" (blurApiEmit)="callSearchApi($event)"  (searchParams)="advancedSearchApply($event)" [showAdvanceSearch]="true"
+          (childEvent)="triggerSearchFilter($event)"></app-search>
+      </div>
+    </div>
+    <div>
+      <div>
+        <app-refresh class="actionHide" (onRefresh)="refreshSummary()"></app-refresh>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <table mat-table *ngIf="!noRecordFlag && responseHeader" id="singleTransferInquirytable" [dataSource]="dataSourceToPass"
+    class="casaTable">
+    <ng-container matColumnDef="TO">
+      <th mat-header-cell *matHeaderCellDef class="benecolumn" (click)="sortColumn('benefAccNo')" translate>LBL_TO
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'benefAccNo'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'benefAccNo'">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+              class="img-style">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element" class="benecolumn">
+        <div class="ellipsis">
+          <span *ngIf="element.benefAccNo">{{element.benefAccNo}}</span><span *ngIf="!element.benefAccNo">--</span>,
+          <span *ngIf="element.benefName">{{element.benefName}}</span><span *ngIf="!element.benefName">--</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="FROM">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('debitAccNo')" translate>LBL_FROM
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'debitAccNo'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'debitAccNo'">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+              class="img-style">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="ellipsis">
+          <span *ngIf="element.debitAccNo">{{ element.debitAccNo }}</span><span *ngIf="!element.debitAccNo">--</span>,
+          <span *ngIf="element.createdBy">{{ element.createdBy }}</span><span *ngIf="!element.createdBy">--</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="PAYMENT_TYPE">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('transactionType')" translate>LBL_PAYMENT_TYPE       
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'transactionType'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'transactionType'">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+              class="img-style">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="ellipsis">
+          <span *ngIf="element.transactionType">{{
+            element.transactionType
+            }}</span>
+          <span *ngIf="!element.transactionType">--</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="referenceNo">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('referenceNo')" translate>LBL_REF_NUMBER     
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'referenceNo'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'referenceNo'">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+              class="img-style">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="ellipsis">
+          <span *ngIf="element.referenceNo">{{element.referenceNo}}</span>
+          <span *ngIf="!element.referenceNo">--</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="VALUE_DATE">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('valueDate')" translate>LBL_VALUE_DATE
+       
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'valueDate'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'valueDate'">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+              class="img-style">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="ellipsis">
+          <span *ngIf="element.valueDate">{{
+            element.valueDate | dateFormat
+            }}</span>
+          <span *ngIf="!element.valueDate">--</span>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="STATUS">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('odStatus')" translate>LBL_STATUS       
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'odStatus'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'odStatus'">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+              class="img-style">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="ellipsis">
+          <span *ngIf="element.odStatus">{{ element.odStatus }}</span>
+          <span *ngIf="!element.odStatus">--</span>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="AMT">
+      <th mat-header-cell *matHeaderCellDef (click)="sortColumn('paymentAmt')" translate>LBL_AMOUNT        
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'paymentAmt'">
+          <img src="assets/images/sortDown.svg" class="img-style">
+          <img src="assets/images/sortDown.svg" class="sortUp">
+        </span>
+        <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'paymentAmt'">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+              class="img-style">
+          <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending">
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="ellipsis">
+          <span *ngIf="element.paymentAmt && element.debitCurrency">{{ element.paymentAmt | currencyFormat:
+            element.debitCurrency }}
+            {{ element.debitCurrency }}</span>
+          <span *ngIf="!(element.paymentAmt && element.debitCurrency)">--</span>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="ACTION">
+      <th mat-header-cell *matHeaderCellDef class="actionHide" translate>
+        LBL_ACTION
+      </th>
+      <td mat-cell *matCellDef="let element; let i = index"
+        class="dropDownContainer actionHide">
+        <div>
+          <app-more-action 
+            [currentRecord]="element"
+            [moreActionList]="contextMenuList"
+            [routepath]="transactionInquirySingleTransferDetailsRoute" 
+            (onMenuClick)="menuClick($event, element)" 
+            (click)="selectedRecord($event, element)"
+            (onviewDetailsClick)="redirectToDetails(element)"
+            >
+          </app-more-action>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="redirectToDetails(row)"></tr>
+  </table>
+  <app-pagination #paginator [class.hide]="noRecordFlag" class="mTop_35 actionHide" [dataSourceLength]="dataSourceLength"
+    [currentRecord]="'Accounts'" [totalRecords]="pageCount" (onPaginationChange)="paginationChangeClick($event)"
+    [flagForRefreshPage]="refreshClickedFlag">
+  </app-pagination>
+</div>
+<div *ngIf="noRecordFlag">
+  <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

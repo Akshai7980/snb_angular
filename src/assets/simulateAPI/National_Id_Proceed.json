@@ -1,0 +1,13 @@
+{
+  "dataValue": {
+      "STATUS": "SUCCESS",
+      "ERROR_DES": "",
+      "idExpiryDate": "04-08-1447",
+      "REFERENCE_NUM": "TBC2212271607451",
+      "ERROR_CODE": null
+  },
+  "headerValue": {
+      "moduleId": "NATIDEXPPROCEED"
+  }
+}
+  

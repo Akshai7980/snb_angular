@@ -1,0 +1,65 @@
+<div class="filter-search-popup" *ngIf="showAdvancedSearchPopup" (click)="stopAdvancedSearchClose($event)">
+    <div translate class="header">LBL_FILTER
+        <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+    </div>
+    <div class="flex">
+       <div class="processTime">
+        <div class="fieldLabel" translate>LBL_TRANSACTION_TYPE</div>
+
+        <mat-select panelClass="dropDownOption" disableOptionCentering class="selectInput mt-top"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}" name="fileType">
+            <mat-option *ngFor="let type of transaction" [value]="type">{{ type.viewValue}}</mat-option>
+        </mat-select>
+       </div>
+       
+        <div class="fromto">
+                    
+            <div class="datefrom">
+                <div translate class="fieldLabel" id="proctm">LBL_DATE_FROM</div>
+                <div class="shortDatePicker mt-top">
+                    <app-date-picker [clearFlag]="clearFlag" class="dateErrorMsg"
+                        [showDateErrorMessage]="showDateErrorMessage" (dateValue)="getFromDate($event)"
+                        [maxDate]="maxDate" [minDate]="minDate" ></app-date-picker>
+                </div>
+            </div>
+            <div class="dateto">
+                <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+                <div class="shortDatePicker mt-top">
+                    <app-date-picker class="dateErrorMsg" [clearFlag]="clearFlag"
+                        [showDateErrorMessage]="showDateErrorMessage" (dateValue)="getToDate($event)"
+                        [maxDate]="maxDate" [minDate]="fromDateValue" ></app-date-picker>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex">
+        <div class="status">
+            <div class="fieldLabel" translate>LBL_STATUS</div>
+
+            <mat-select panelClass="dropDownOption" disableOptionCentering class="selectInput mt-top"
+                placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}" name="fileType">
+                <mat-option *ngFor="let type of status" [value]="type">{{ type.viewValue}}</mat-option>
+            </mat-select>
+        </div>
+        
+
+        <div class="flex">
+        
+            <div class="amountContainer">
+                <div class="fieldLabel" translate>LBL_AMOUNT</div>
+                <input class="amountDetails mt-top" type="text" placeholder="AED">
+            </div>
+            <div class="amountTo">
+                <div class="fieldLabel" translate>LBL_TO</div>
+                <input class="toDetails mt-top" type="text" placeholder="AED">
+            </div>
+        </div>
+    </div>
+    <div class="actionGroup" >
+        <app-tertiary-button buttonValue="LBL_CANCEL"  class="tertiaryBtn">
+        </app-tertiary-button>
+        <app-primary-button  buttonValue="LBL_APPLY"
+        >
+        </app-primary-button>
+    </div>
+</div>

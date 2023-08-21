@@ -1,0 +1,52 @@
+<div>
+    <div>
+<table *ngIf="!norecordflag" mat-table [dataSource]="dataSourceToPass" class="casaTable">
+
+    <ng-container matColumnDef="nickName">
+      <th mat-header-cell *matHeaderCellDef><div class="position_rel" translate>LBL_NICKNAME<span class="iconSort"></span></div> </th>
+      <td mat-cell *matCellDef="let element; let i = index" (click)="$event.stopPropagation()"> <div class="dslk_flex" (click)="curerentSelection !== i ? isSelectedRow(element) : null"><div class="position_rel"><input type="text"  [(ngModel)]="element.NICK_NAME" [disabled]="curerentSelection !== i" [ngClass]="curerentSelection === i ? 'nickNameInput' : 'nickNameInputNotselected'"><div *ngIf="curerentSelection === i"  (click)="closeNickName(i)" class="cancelIcon"></div></div><div class="EditIcon" (click)="nickNameEditClick(i)"></div></div></td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef translate><div class="position_rel" translate>LBL_FULL_NAME<span class="iconSort"></span></div> </th>
+      <td mat-cell *matCellDef="let element"> {{element.FULL_NAME}} </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="accNumber">
+      <th mat-header-cell *matHeaderCellDef translate><div class="position_rel" translate> LBL_ACC_NUMBER<span class="iconSort"></span></div></th>
+      <td mat-cell *matCellDef="let element"> {{element.OD_ACC_NO}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef translate><div class="position_rel" translate>LBL_STATUS<span class="iconSort"></span></div></th>
+      <td mat-cell *matCellDef="let element"> {{element.STATUS}} </td>
+    </ng-container>
+    <ng-container matColumnDef="accBalance">
+      <th mat-header-cell *matHeaderCellDef translate><div class="position_rel" translate> LBL_ACT_BALANCE<span class="iconSort"></span></div></th>
+      <td mat-cell *matCellDef="let element"> {{element.EQU_AMT}} {{element.OD_CCY_CODE}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="equivalentAmt">
+      <th mat-header-cell *matHeaderCellDef translate><div class="position_rel" translate>LBL_EQUIVALENT<span class="iconSort"></span></div></th>
+      <td mat-cell *matCellDef="let element"> {{element.EQU_AMT}} {{element.OD_CCY_CODE}} </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef translate>LBL_ACTION</th>
+      <td mat-cell *matCellDef="let element"> <div class="actionIcon"></div> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="isSelected(row)"></tr>
+  </table>
+</div>
+<div *ngIf="norecordflag">
+  <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+</div>
+<mat-paginator *ngIf="!norecordflag" [length]="dataLength"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page" #paginator>
+</mat-paginator>
+</div>  
+  

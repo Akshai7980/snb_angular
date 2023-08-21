@@ -1,0 +1,10 @@
+<app-pos-transactions-account-detail
+  *ngIf="this.rootScopeData.showtransaction"
+  (showGenerateStatementPage)="showEmitData($event)"
+>
+</app-pos-transactions-account-detail>
+<app-pos-transactions-merchant-detail
+  *ngIf="this.rootScopeData.showMerchantDetail"
+  (goToInitialPage)="showItialPage($event)"
+>
+</app-pos-transactions-merchant-detail>

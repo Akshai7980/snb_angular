@@ -1,0 +1,43 @@
+{
+    "approverDetails": {
+      "initiator": {
+        "initiateDate": "13/05/2022",
+        "initiateTime": "09:16:15",
+        "txnType": "Transfer Within Bank",
+        "referenceNo": "TBC2205131145373",
+        "makerName": "VIVEK  MANOHARAN"
+      },
+      "pendingAuthorizer": [
+        {
+          "displayMsg": null,
+          "pendingRole": "I",
+          "pendingCount": 1,
+          "strParseRuleId": "4860",
+          "strCurrentRole": "Y",
+          "strRoleDesc": "Verifier"
+        }
+      ],
+      "authorizer": [
+        {
+          "displayMsg": null,
+          "authName": "sheik  checker",
+          "authDate": "2022-07-13 19:10:05",
+          "authUserRole": "Auth Group B"
+        },
+        {
+          "displayMsg": null,
+          "authName": "sheik  checker",
+          "authDate": "2022-07-13 19:10:05",
+          "authUserRole": "Auth Group B"
+        }
+      ]
+    },
+    "headerValue": {
+      "moduleId": "GETWRKFLW",
+      "simulate": "N",
+      "export": null,
+      "exportType": null,
+      "_dinsess": "0c474383-c95b-41c6-992b-d1facb90bba1",
+      "languageId": null
+    }
+  }

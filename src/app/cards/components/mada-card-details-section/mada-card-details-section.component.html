@@ -1,0 +1,48 @@
+<div class="summaryOuterContainer">
+    <div class="container">
+      <!-- <div class="subTitles">
+        {{ selectedTransfer.uploadType?selectedTransfer.uploadType : "--" }} {{ "LBL_FROM" | translate }}
+        {{ selectedTransfer.makerName ? selectedTransfer.makerName : "--" }},
+        {{ selectedTransfer.accNo ? selectedTransfer.accNo : "--" }}
+      </div>
+      <div class="refNO">
+        {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+        {{ selectedTransfer.odDRefNo?selectedTransfer.odDRefNo : "--" }}
+      </div> -->
+      
+      <div class="subContainer">
+        <div class="subTitles" translate>LBL_CARD_DETAILS</div>
+        <div class="dflex">
+          <div class="cardImg">
+            <img src="../../../../assets/images/snb_credit_card.png.png" />
+            <div class="maskCnt">{{selectedTransfer.cardNumber | maskCardNumber}}</div>
+          </div>
+          <div class="rowInnerCntr" >
+            
+            
+            <div class="field">
+              <div class="label" translate>LBL_EXPIRY_DATE</div>
+              <div class="information">
+                {{ selectedTransfer.odMakerDate?selectedTransfer.odMakerDate :"--" }}
+              </div>
+            </div>
+            <div class="field">
+              <div class="label" translate>LBL_ISSUE_DATE</div>
+              <div class="information">
+                {{ selectedTransfer.odMakerDate? (selectedTransfer.odMakerDate | dateFormat) :"--" }}
+              </div>
+            </div>
+            <div class="field">
+              <div class="label" translate>LBL_OFFLINE_TRANSACTION</div>
+              <div class="information">{{ selectedTransfer.offlineTrans?selectedTransfer.offlineTrans:"--" }}</div>
+            </div>
+            <div class="field">
+              <div class="label" translate>LBL_POS_TRANSACTION_LIMIT</div>
+              <div class="information">{{ selectedTransfer.odFileAmount? (selectedTransfer.odFileAmount | currencyFormat: selectedTransfer.odTxnCy) :"--" }} {{selectedTransfer.odTxnCy}}</div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>

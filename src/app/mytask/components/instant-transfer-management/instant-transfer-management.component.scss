@@ -1,0 +1,18 @@
+.topspacing {
+    margin-top: 30px;
+}
+.col-ref{width:30%}
+.col-reqtype{width:25%}
+.col-sub{width:20%}
+th.mat-header-cell{
+    cursor: pointer;
+}
+.casaTable{
+    table-layout: fixed;
+    background-color: var(--primary-widget-bg-color);
+    .mat-column-accNumber{width: 20.31%;}
+    .mat-column-refNumber{width:21.81%;}
+    .mat-column-mobileNo{width:19.06%}
+    .mat-column-nationalId{width:15.60%}
+    .mat-column-email{width: 13.51%;}
+}

@@ -1,0 +1,215 @@
+.outerContainer {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.merchantDetails {
+  padding: 15px 15px 50px 15px;
+  margin-top: 15px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+}
+
+.subTitles {
+  margin-bottom: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tableHeader {
+  color: var(--secondary-font-color);
+  background-size: cover;
+  font-family: "HelveticaNeue", arial, sans-serif;
+  font-size: 14px;
+}
+
+.tableRowContainer {
+  background-color: var(--summary-hover-color);
+  font-size: 14px;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  cursor: pointer;
+}
+
+.downArrowAcc {
+  background: url(../../../../assets/images/iconDownGreen.svg) no-repeat center;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  cursor: pointer;
+  transform: rotate(180deg);
+  transition: 1s transform;
+}
+
+.viewAccContainer {
+  background-color: var(--summary-hover-color);
+  width: 93%;
+  height: 45px;
+  padding: 5px 0px 5px 66px;
+  border-radius: 10px !important;
+
+  color: var(--tableData-header-color);
+  font-size: 14px;
+  font-style: italic;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dataBackgroundColor {
+  color: var(--secondary-font-color);
+  align-items: center;
+  display: flex;
+}
+
+.downArrow {
+  background: url(../../../../assets/images/iconDownGreen.svg) no-repeat center;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  cursor: pointer;
+  transform: rotate(180deg);
+  transition: 1s transform;
+  margin-right: 6px;
+  margin-top: 8px;
+}
+
+th,
+td {
+  padding: 11px;
+  text-align: left;
+}
+.tableContainer {
+  margin: 0px 18px 0px 18px;
+}
+
+.cardContainer {
+  padding-top: 10px;
+  color: var(--tableData-header-color);
+  margin-left: 28px;
+
+  &.data {
+    padding-top: 20px;
+  }
+}
+
+.periodContainer {
+  padding-top: 10px;
+  color: var(--tableData-header-color);
+  margin-left: 28px;
+
+  &.data {
+    padding-top: 20px;
+  }
+}
+
+.selectInput {
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  width: 300px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--input-text-color);
+  cursor: pointer;
+}
+
+.toTitle {
+  margin-left: 6px;
+  color: var(--table-header-color);
+  font-family: "HelveticaNeueMed", Arial, sans-serif;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.flexContainer {
+  display: flex;
+}
+
+.fromTo {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 28px;
+}
+
+.dateTo {
+  margin-left: 34px;
+}
+
+.fieldLabel {
+  color: var(--table-header-color);
+  font-family: "HelveticaNeueMed", Arial, sans-serif;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.mt-top {
+  margin-top: 10px;
+}
+
+.amountDetails {
+  width: 123px !important;
+  height: 40px;
+  padding: 0px 8px;
+  margin-top: 10px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 4px;
+  color: var(--tableData-header-color);
+  background-color: var(--primary-widget-bg-color);
+}
+
+.toDetails {
+  width: 123px !important;
+  height: 40px;
+  padding: 0px 8px;
+  margin-top: 10px;
+  margin-left: 6px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 4px;
+  color: var(--tableData-header-color);
+  background-color: var(--primary-widget-bg-color);
+}
+
+.sequenceDetails {
+  width: 293px;
+  height: 40px;
+  padding: 0px 8px;
+  margin-top: 10px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 4px;
+  color: var(--tableData-header-color);
+  background-color: var(--primary-widget-bg-color);
+}
+
+.exportDetails {
+  margin: 10px 0px 0px 33px;
+}
+
+::placeholder {
+  text-align: right;
+}
+
+.actionGroup {
+  float: right;
+  margin-top: 30px;
+}
+
+td:first-of-type {
+  border-top-left-radius: 10px 10px;
+  border-bottom-left-radius: 10px 10px;
+}
+
+td:last-of-type {
+  border-top-right-radius: 10px 10px;
+  border-bottom-right-radius: 10px 10px;
+  text-align: right;
+}
+.m-l {
+  margin-left: 7px;
+}

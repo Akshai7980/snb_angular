@@ -1,0 +1,26 @@
+{
+    "data": {
+        "billerID": "090",
+        "statusDesc": "Success",
+        "sadadReferenceId": "30002713686",
+        "dueAmount": "5900",
+        "beneficiaryName": "KBERJREIHRE",
+        "feeDetails": {
+            "fee": {
+                "amount": "100.00",
+                "type": "Registration Fees"
+            }
+        },
+        "feeReferenceId": "947830",
+        "previousFeeAmount": "30000",
+        "statusCode": "0"
+    },
+    "headerValue": {
+        "moduleId": "SADADREFFEESINQ",
+        "simulate": "N",
+        "export": null,
+        "totalCount": null,
+        "exportType": null,
+        "_dinsess": "fc04350f-4eb8-49b9-95b9-aded41af85a0"
+    }
+}

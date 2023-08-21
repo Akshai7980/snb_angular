@@ -1,0 +1,581 @@
+<div *ngIf="!receiptForm">
+    <div class="detailsTitleContainer">
+      <div>
+        <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+        <div class="mainTitle" translate>LBL_REVIEW</div>
+      </div>
+    </div>
+    <div class="" >
+      
+      <!-- <section class="summaryOuterContainer" *ngIf="selectedTransfer">
+        <div>
+          <div class="">
+            <div class="subTitles">
+                {{ "LBL_CHANGE_WITHDRAWAL_LIMI_FOR_CARD" | translate }},                    
+                {{ selectedTransfer.madaCardNumber ? selectedTransfer.madaCardNumber : "--" }}
+              </div>
+              <div class="refNO">
+                {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+                {{ selectedTransfer.txnId?selectedTransfer.txnId : "--" }}
+              </div>
+              <div class="title">
+                <div>                     
+                  {{ "LBL_ON" | translate }}
+                  <span *ngIf="selectedTransfer.date">{{ selectedTransfer.date | dateFormat }}</span>
+                  <span *ngIf="!selectedTransfer.date">--</span>
+                </div>
+              </div>
+            <div class="subContainer">
+              <div class="subTitles" translate>LBL_CARD_DETAILS</div>
+              <div class="rowInnerCntr">
+                <div class="field">
+                    <div class="label" translate>LBL_NAME_ON_CARD</div>
+                    <div class="information">
+                      {{ selectedTransfer.name?selectedTransfer.name:"--" }}
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="label" translate>LBL_TOTAL_AVAILABLE_CREDIT</div>
+                    <div class="information">
+                      {{
+                        selectedTransfer.totalCredit
+                          | currencyFormat: selectedTransfer.odTxnCy
+                      }}
+                      {{ selectedTransfer.odTxnCy }}
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="label" translate>LBL_CHANGES</div>
+                    <div class="information">
+                      {{ selectedTransfer.changes?selectedTransfer.changes:"--" }}
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="label" translate>LBL_CURRENT_LIMIT</div>
+                    <div class="information">{{
+                      selectedTransfer.currentLimit
+                        | currencyFormat: selectedTransfer.odTxnCy
+                    }}
+                    {{ selectedTransfer.odTxnCy }}</div>
+                  </div>
+                  <div class="field">
+                    <div class="label" translate>LBL_NEW_LIMIT</div>
+                    <div class="information">
+                      {{
+                        selectedTransfer.newLimit
+                          | currencyFormat: selectedTransfer.odTxnCy
+                      }}
+                      {{ selectedTransfer.odTxnCy }}</div>
+                  </div>
+              </div>
+            </div>
+            <div class="rejectReasonContainer">
+                <div class="rejecthead" translate>
+                  LBL_RJCT_RSN
+                  <span class="required">*</span>
+                </div>
+                <div>
+                  <div class="rejecttextarea">
+                    <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="rejectReasonType()"
+                      (keypress)="space($event)"></textarea>
+                    <div class="errorMsg" *ngIf="isrejectreasonValid" translate>
+                      LBL_ERROR_MESSAGE_RJCT_RSN
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </section> -->
+  
+      <section class="summaryOuterContainer" *ngIf="selectedTransfer.row.subproductCode === 'MADSTOP' ">
+        <div>
+          <div class="container">
+            <div class="subTitles">
+              {{ selectedTransfer.row.serviceType }}
+              {{ "LBL_FOR_CARD" | translate }},
+              {{ selectedTransfer?.res.data.cardNo ? selectedTransfer?.res.data.cardNo : "--" }}
+            </div>
+            <div class="refNO">
+              {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+              {{ selectedTransfer?.res.data.refNo?selectedTransfer.res.data.refNo : "--" }}
+            </div>
+            <div class="title">
+              <div>                     
+                {{ "LBL_ON" | translate }}
+                <span *ngIf="selectedTransfer.res.data.cardDate">{{ selectedTransfer?.res.data.cardDate | dateFormat }}</span>
+                <span *ngIf="!selectedTransfer.res.data.cardDate">--</span>
+              </div>
+            </div>
+            <div class="subContainer madadetailSubContainer">
+              <div class="subTitles" translate>LBL_CARD_DETAILS</div>
+              <div class="rowInnerCntr">
+                <div class="field">
+                  <div class="label" translate>LBL_NAME_ON_CARD</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res.data.cardName?selectedTransfer?.res.data.cardName:"--" }}
+                  </div>
+                </div>
+                <!-- <div class="field">
+                  <div class="label" translate>LBL_CARD_TYPE</div>
+                  <div class="information">
+                    {{
+                      selectedTransfer?.res.data.cardType? selectedTransfer?.res.data.cardType : '--' 
+                    }}                          
+                  </div>
+                </div> -->
+                <div class="field">
+                  <div class="label" translate>LBL_STATUS</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res?.data.status?selectedTransfer?.res?.data.status:"--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_EXPIRY_DATE</div>
+                  <div class="information">{{
+                    selectedTransfer?.res.data.expiryDate ? (selectedTransfer?.res.data.expiryDate | dateFormat) : '--'
+                      
+                  }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_REASON_TO_STOP</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res.data.reason ? selectedTransfer?.res.data.reason : '--' }}
+                    </div>
+                </div>
+  
+                <div class="field">
+                  <div class="label" translate>LBL_COMMENTS</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res.data.comments ? selectedTransfer?.res.data.comments : '--' }}
+                    </div>
+                </div>
+  
+              </div>
+            </div>
+
+            <div class="rejectReasonContainer">
+              <div class="rejecthead" translate>
+                LBL_RJCT_RSN
+                <span class="required">*</span>
+              </div>
+              <div>
+                <div class="rejecttextarea">
+                  <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="rejectReasonType()"
+                    (keypress)="space($event)"></textarea>
+                  <div class="errorMsg" *ngIf="isrejectreasonValid" translate>
+                    LBL_ERROR_MESSAGE_RJCT_RSN
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+  
+  
+      <section class="summaryOuterContainer" *ngIf="selectedTransfer.row.subproductCode === 'MADPOSLIM' ">
+        <div>
+          <div class="container">
+            <div class="subTitles">
+              {{ selectedTransfer.row.serviceType }}
+              {{ "LBL_FOR_CARD" | translate }},
+              {{ selectedTransfer?.res.data.cardNo ? selectedTransfer?.res.data.cardNo : "--" }}
+            </div>
+            <div class="refNO">
+              {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+              {{ selectedTransfer?.res.data.refNo?selectedTransfer.res.data.refNo : "--" }}
+            </div>
+            <div class="title">
+              <div>                     
+                {{ "LBL_ON" | translate }}
+                <span *ngIf="selectedTransfer.res.data.cardDate">{{ selectedTransfer?.res.data.cardDate | dateFormat }}</span>
+                <span *ngIf="!selectedTransfer.res.data.cardDate">--</span>
+              </div>
+            </div>
+            <div class="subContainer madadetailSubContainer">
+              <div class="subTitles" translate>LBL_CARD_DETAILS</div>
+              <div class="rowInnerCntr">
+                
+                <div class="field">
+                  <div class="label" translate>LBL_NAME_ON_CARD</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res.data.cardName?selectedTransfer?.res.data.cardName:"--" }}
+                  </div>
+                </div>
+                <!-- <div class="field">
+                  <div class="label" translate>LBL_CARD_TYPE</div>
+                  <div class="information">
+                    {{
+                      selectedTransfer?.res.data.cardType? selectedTransfer?.res.data.cardType : '--' 
+                    }}                          
+                  </div>
+                </div> -->
+                <div class="field">
+                  <div class="label" translate>LBL_STATUS</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res?.data.status?selectedTransfer?.res?.data.status:"--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_EXPIRY_DATE</div>
+                  <div class="information">{{
+                    selectedTransfer?.res.data.expiryDate ? (selectedTransfer?.res.data.expiryDate | dateFormat) : '--'
+                      
+                  }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_CURRENT_LIMIT</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res.data.currentLmt ? (selectedTransfer?.res.data.currentLmt | currencyFormat: selectedTransfer?.res.data.ccy) : '--' }}
+                    {{ selectedTransfer?.res.data.ccy }}
+                    </div>
+                </div>
+  
+                <div class="field">
+                  <div class="label" translate>LBL_NEW_LIMIT</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res.data.newLmt ? (selectedTransfer?.res.data.newLmt | currencyFormat: selectedTransfer?.res.data.ccy) : '--' }}
+                    {{ selectedTransfer?.res.data.ccy }}
+                    </div>
+                </div>
+  
+              </div>
+            </div>
+
+            <div class="rejectReasonContainer">
+              <div class="rejecthead" translate>
+                LBL_RJCT_RSN
+                <span class="required">*</span>
+              </div>
+              <div>
+                <div class="rejecttextarea">
+                  <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="rejectReasonType()"
+                    (keypress)="space($event)"></textarea>
+                  <div class="errorMsg" *ngIf="isrejectreasonValid" translate>
+                    LBL_ERROR_MESSAGE_RJCT_RSN
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+  
+      <section class="summaryOuterContainer" *ngIf="selectedTransfer.row.subproductCode === 'LINKADDI' ">
+        <div>
+          <div class="container">
+            <div class="subTitles">
+              {{ selectedTransfer.row.serviceType }}
+              {{ "LBL_FOR_CARD" | translate }},
+              {{ selectedTransfer?.res.data.cardNo ? selectedTransfer?.res.data.cardNo : "--" }}
+            </div>
+            <div class="refNO">
+              {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+              {{ selectedTransfer?.res.data.refNo?selectedTransfer.res.data.refNo : "--" }}
+            </div>
+            <div class="title">
+              <div>                     
+                {{ "LBL_ON" | translate }}
+                <span *ngIf="selectedTransfer.res.data.cardDate">{{ selectedTransfer?.res.data.cardDate | dateFormat }}</span>
+                <span *ngIf="!selectedTransfer.res.data.cardDate">--</span>
+              </div>
+            </div>
+            <div class="subContainer madadetailSubContainer">
+              <div class="subTitles" translate>LBL_MADA_CARD</div>
+              <div class="rowInnerCntr">
+                <div class="field">
+                  <div class="label" translate>LBL_NAME_ON_CARD</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res.data.cardName?selectedTransfer?.res.data.cardName:"--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_STATUS</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res?.data.status?selectedTransfer?.res?.data.status:"--" }}
+                  </div>
+                </div>
+                
+                <div class="field">
+                  <div class="label" translate>LBL_EXPIRY_DATE</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res.data.expiryDate ? selectedTransfer?.res.data.expiryDate  : '--' }}
+                    </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="subContainer madadetailSubContainer">
+              <div class="subTitles" translate>LBL_PRIMARY_ACC</div>
+              <div class="rowInnerCntr"><div class="field">
+                  <div class="label" translate>LBL_NAME_ON_CARD</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res.data.accNo?selectedTransfer?.res.data.accNo:"--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_NAME_ON_CARD</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res.data.accName?selectedTransfer?.res.data.accName:"--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_STATUS</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res?.data.status?selectedTransfer?.res?.data.status:"--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_BALANCE</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res?.data.balance?selectedTransfer?.res?.data.balance:"--" }}
+                  </div>
+                </div>
+                <!-- <div class="field">
+                  <div class="label" translate>LBL_EXPIRY_DATE</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res.data.expiryDate ? selectedTransfer?.res.data.expiryDate | dateFormat : '--' }}
+                    </div>
+                </div> -->
+              </div>
+            </div>
+  
+            <div class="subContainer madadetailSubContainer" *ngIf="selectedTransfer?.res?.data?.secondaryAccount?.length > 0">
+              <div class="subTitles" translate>LBL_SECONDARY_ACC</div>
+              <div class="rowInnerCntr" *ngFor="let secondaryAccObj of selectedTransfer?.res?.data.secondaryAccount">
+                <div class="field">
+                  <div class="label" translate>LBL_Account_Number</div>
+                  <div class="information">
+                    {{ secondaryAccObj?.accNo?secondaryAccObj?.accNo:"--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_NAME_ON_CARD</div>
+                  <div class="information">
+                    {{ secondaryAccObj?.accName?secondaryAccObj?.accName:"--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_STATUS</div>
+                  <div class="information">
+                    {{ secondaryAccObj.status ? secondaryAccObj.status : "--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_BALANCE</div>
+                  <div class="information">
+                    {{ secondaryAccObj?.balance?secondaryAccObj?.balance:"--" }}
+                  </div>
+                </div>             
+              </div>
+            </div>
+
+            <div class="rejectReasonContainer">
+              <div class="rejecthead" translate>
+                LBL_RJCT_RSN
+                <span class="required">*</span>
+              </div>
+              <div>
+                <div class="rejecttextarea">
+                  <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="rejectReasonType()"
+                    (keypress)="space($event)"></textarea>
+                  <div class="errorMsg" *ngIf="isrejectreasonValid" translate>
+                    LBL_ERROR_MESSAGE_RJCT_RSN
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </section>
+      <section class="summaryOuterContainer" *ngIf="selectedTransfer.row.subproductCode === 'MADREISS' ">
+        <div>
+          <div class="container">
+            <div class="subTitles">
+              {{ selectedTransfer.row.serviceType }}
+              {{ "LBL_FOR_CARD" | translate }},
+              {{ selectedTransfer?.res.data.cardNo ? selectedTransfer?.res.data.cardNo : "--" }}
+            </div>
+            <div class="refNO">
+              {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+              {{ selectedTransfer?.res.data.refNo?selectedTransfer.res.data.refNo : "--" }}
+            </div>
+            <div class="title">
+              <div>                     
+                {{ "LBL_ON" | translate }}
+                <span *ngIf="selectedTransfer.res.data.cardDate">{{ selectedTransfer?.res.data.cardDate }}</span>
+                <span *ngIf="!selectedTransfer.res.data.cardDate">--</span>
+              </div>
+            </div>
+            <div class="subContainer madadetailSubContainer">
+              <div class="subTitles" translate>LBL_CARD_DETAILS</div>
+              <div class="rowInnerCntr">
+                <div class="field">
+                  <div class="label" translate>LBL_NAME_ON_CARD</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res.data.cardName?selectedTransfer?.res.data.cardName:"--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_ISSUE_DATE</div>
+                  <div class="information">
+                    {{
+                      selectedTransfer?.res.data.issueDate? selectedTransfer?.res.data.issueDate : '--' 
+                    }}                          
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_STATUS</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res?.data.status?selectedTransfer?.res?.data.status:"--" }}
+                  </div>
+                </div>
+                <!-- <div class="field">
+                  <div class="label" translate>LBL_BALANCE</div>
+                  <div class="information">{{
+                    selectedTransfer?.res.data.balance ? (selectedTransfer?.res.data.balance) : '--'
+                      
+                  }}
+                  </div>
+                </div> -->
+                <div class="field">
+                  <div class="label" translate>LBL_EXPIRY_DATE</div>
+                  <div class="information">
+                    <span *ngIf="selectedTransfer?.res.data.expiryDate">
+                    {{selectedTransfer?.res.data.expiryDate | dateFormat}}
+                  </span><span *ngIf="!selectedTransfer?.res.data.expiryDate">--</span>
+                    </div>
+                </div>
+  
+                
+              </div>
+            </div>
+
+            <div class="rejectReasonContainer">
+              <div class="rejecthead" translate>
+                LBL_RJCT_RSN
+                <span class="required">*</span>
+              </div>
+              <div>
+                <div class="rejecttextarea">
+                  <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="rejectReasonType()"
+                    (keypress)="space($event)"></textarea>
+                  <div class="errorMsg" *ngIf="isrejectreasonValid" translate>
+                    LBL_ERROR_MESSAGE_RJCT_RSN
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+  
+  
+      <section class="summaryOuterContainer" *ngIf="selectedTransfer.row.subproductCode === 'MADAREQ' ">
+        <div>
+          <div class="container">
+            <div class="subTitles">
+              {{ selectedTransfer.row.serviceType }}
+              {{ "LBL_FOR_CARD" | translate }},
+              {{ selectedTransfer?.res.data.atmCardNumber ? selectedTransfer?.res.data.madaCardNumber : "--" }}
+            </div>
+            <div class="refNO">
+              {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+              {{ selectedTransfer?.res.data.refNo?selectedTransfer.res.data.refNo : "--" }}
+            </div>
+            <div class="title">
+              <div>                     
+                {{ "LBL_ON" | translate }}
+                <span *ngIf="selectedTransfer.res.data.cardDate">{{ selectedTransfer?.res.data.cardDate | dateFormat }}</span>
+                <span *ngIf="!selectedTransfer.res.data.cardDate">--</span>
+              </div>
+            </div>
+            <div class="subContainer madadetailSubContainer">
+              <div class="subTitles" translate>LBL_CARD_DETAILS</div>
+              <div class="rowInnerCntr">
+                <div class="field">
+                  <div class="label" translate>LBL_NAME_ON_CARD</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res.data.cardName?selectedTransfer?.res.data.cardName:"--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_TOTAL_AVAILABLE_CREDIT</div>
+                  <div class="information">
+                    {{
+                      selectedTransfer?.res.data.currentLmt | currencyFormat: selectedTransfer?.res.ccy
+                    }}
+                    {{ selectedTransfer?.res.data.ccy }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_CHANGES</div>
+                  <div class="information">
+                    {{ selectedTransfer?.res?.data.changes?selectedTransfer?.res?.data.changes:"--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_CURRENT_LIMIT</div>
+                  <div class="information">{{
+                    selectedTransfer?.res.data.currentLmt
+                      | currencyFormat: selectedTransfer?.res.data.ccy
+                  }}
+                  {{ selectedTransfer?.res.data.ccy }}</div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_NEW_LIMIT</div>
+                  <div class="information">
+                    {{
+                      selectedTransfer?.res.data.newLmt
+                        | currencyFormat: selectedTransfer?.res.data.ccy
+                    }}
+                    {{ selectedTransfer?.res.data.ccy }}</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rejectReasonContainer">
+              <div class="rejecthead" translate>
+                LBL_RJCT_RSN
+                <span class="required">*</span>
+              </div>
+              <div>
+                <div class="rejecttextarea">
+                  <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="rejectReasonType()"
+                    (keypress)="space($event)"></textarea>
+                  <div class="errorMsg" *ngIf="isrejectreasonValid" translate>
+                    LBL_ERROR_MESSAGE_RJCT_RSN
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- <section class="summaryOuterConainer showAuthorization" *ngIf=" showAuthorization">
+      <div class="summaryConainer authContainer">
+        <app-authorization [authListDataSource]="authOptions" (authEmit)="getDisplayStatus($event)"></app-authorization>
+      </div>
+    </section> -->
+    
+    <section>
+      <div class="btnContainer">
+        <app-tertiary-button buttonValue="LBL_CANCEL" routerLink="/mytask/cards/madaCardMyTask"></app-tertiary-button>		
+		     <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+        <!-- <button class="button-secondary" routerLink="/mytask/cards/madaCardMyTask" translate>LBL_CANCEL</button>
+        <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button> -->
+      </div>
+    </section>
+  </div>
+  <app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" *ngIf="receiptForm">
+  </app-receipt>
+  <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

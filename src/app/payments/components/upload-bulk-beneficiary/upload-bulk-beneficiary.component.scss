@@ -1,0 +1,19 @@
+.mLeft_45 {
+  margin-left: 30px;
+}
+
+.footerText {
+  margin: 40px 0px 0px 33px;
+  display: inline-block;
+  font-family: "HelveticaNeue", arial, sans-serif;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+
+  .termsContainer {
+    color: var(--secondary-btn-print-border-color);
+  }
+}
+
+a {
+  text-decoration: none;
+}

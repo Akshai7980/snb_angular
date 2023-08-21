@@ -1,0 +1,291 @@
+<div *ngIf="!showReceipt">
+  <div class="outerContainer">
+    <div class="subTitles" translate>LBL_REVIEW</div>
+    <div class="merchantDetails">
+      <div class="subTitles" translate>LBL_MERCHANT_DETAILS</div>
+      <!-- Account -->
+      <div class="detailContainer">
+        <div class="outerContainer">
+          <div class="accountDetails">
+            <div class="subTitles" translate>LBL_ACCOUNT</div>
+            <table>
+              <tr class="tableHeader">
+                <th translate>LBL_ACC_NUMBER</th>
+                <th translate>LBL_NICK_NAME</th>
+                <th translate>LBL_FULL_NAME</th>
+                <th translate>LBL_STATUS</th>
+                <th translate>LBL_BALANCE</th>
+              </tr>
+              <ng-container>
+                <tr
+                  class="tableRowConatiner"
+                  *ngFor="
+                    let data of this.rootScopeData
+                      .posMultiClaimRequestMerchantDetail.account
+                  "
+                >
+                  <td>{{ data.OD_ACC_NO ? data.OD_ACC_NO : "--" }}</td>
+                  <td>{{ data.ALIAS_NAME ? data.ALIAS_NAME : "--" }}</td>
+                  <td>{{ data.OD_ACC_NAME ? data.OD_ACC_NAME : "--" }}</td>
+                  <td>{{ data.STATUS ? data.STATUS : "--" }}</td>
+                  <td>
+                    {{
+                      data?.CURR_AVAIL_BAL_AMT && data?.OD_CCY_CODE
+                        ? (data?.CURR_AVAIL_BAL_AMT
+                            | currencyFormat : data.OD_CCY_CODE) +
+                          " " +
+                          data.OD_CCY_CODE
+                        : "--"
+                    }}
+                  </td>
+                  <div
+                    class="downArrowAcc"
+                    (click)="returnToAccount($event)"
+                  ></div>
+                </tr>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+        <!-- Account end -->
+        <!-- merchant -->
+        <div class="outerContainer">
+          <div class="accountDetails">
+            <table>
+              <tr class="tableHeader">
+                <th translate>LBL_MERCHANT_NAME</th>
+                <th translate>LBL_MERCHANT_NAME_ARABIC</th>
+                <th translate>LBL_MERCHANT_NUMBER</th>
+                <th translate>LBL_STATUS</th>
+                <th translate>LBL_SHOP_NAME</th>
+              </tr>
+              <ng-container>
+                <tr
+                  class="tableRowConatiner"
+                  *ngFor="
+                    let data of this.rootScopeData
+                      .posMultiClaimRequestMerchantDetail.merchant
+                  "
+                >
+                  <td>
+                    {{
+                      data.merchantNameInEnglish
+                        ? data.merchantNameInEnglish
+                        : "--"
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      data.merchantNameInArabic
+                        ? data.merchantNameInArabic
+                        : "--"
+                    }}
+                  </td>
+                  <td>
+                    {{ data.merchantNumber ? data.merchantNumber : "--" }}
+                  </td>
+                  <td>{{ data.status ? data.status : "--" }}</td>
+                  <td>
+                    {{ data.shopEnglishName ? data.shopEnglishName : "--" }}
+                  </td>
+                  <div
+                    class="downArrowAcc"
+                    (click)="returnToAccount($event)"
+                  ></div>
+                </tr>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+        <!-- MERCHANT END -->
+        <!-- TERMINAL -->
+        <div class="outerContainer">
+          <div class="accountDetails">
+            <table>
+              <tr class="tableHeader">
+                <th translate>LBL_TERMINAL_ID</th>
+                <th translate>LBL_TERMINAL_TYPE</th>
+                <th translate>LBL_STATUS</th>
+                <th translate>LBL_SHOP_NAME</th>
+              </tr>
+              <ng-container>
+                <tr
+                  class="tableRowConatiner"
+                  *ngFor="
+                    let data of this.rootScopeData
+                      .posMultiClaimRequestMerchantDetail.terminal
+                  "
+                >
+                  <td>{{ data.retailerId ? data.retailerId : "--" }}</td>
+                  <td>{{ data.retailerName ? data.retailerName : "--" }}</td>
+                  <td>{{ data.status ? data.status : "--" }}</td>
+                  <td>
+                    {{ data.retailerAddress ? data.retailerAddress : "--" }}
+                  </td>
+                  <div
+                    class="downArrowAcc"
+                    (click)="returnToAccount($event)"
+                  ></div>
+                </tr>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+        <!-- terminal end  -->
+      </div>
+    </div>
+  </div>
+
+  <div class="outerContainer">
+    <div class="merchantDetails">
+      <div class="subTitles" translate>LBL_REQUEST_DETAILS</div>
+      <div class="detailContainer">
+        <div class="subHeading" translate>
+          {{
+            this.rootScopeData.posTransactionRefundRequestDetail.merchantFinace
+              ? "LBL_MERCHANT_FINANCE_DISPUTE"
+              : "LBL_REFUND_REQUEST"
+          }}
+        </div>
+        <div class="outerContainer">
+          <div class="accountDetails flexContainer">
+            <div>
+              <div class="geneStaTitles fieldTitles" translate>LBL_EMAIL</div>
+              <p class="selectInputBorderNone">
+                {{ this.rootScopeData.posTransactionRefundRequestDetail.email }}
+              </p>
+            </div>
+            <div>
+              <div class="geneStaTitles fieldTitles" translate>
+                LBL_MOBILE_NUMBER
+              </div>
+              <p class="selectInputBorderNone">
+                {{
+                  this.rootScopeData.posTransactionRefundRequestDetail.mobile
+                }}
+              </p>
+            </div>
+            <div>
+              <div class="geneStaTitles fieldTitles" translate>
+                LBL_FINANCIAL_CLAIM_TYPE
+              </div>
+              <p class="selectInputBorderNone">
+                {{
+                  this.rootScopeData.posTransactionRefundRequestDetail
+                    .financialType.financialClaim
+                }}
+              </p>
+            </div>
+          </div>
+          <div class="flex">
+            <div>
+              <div class="geneStaTitles fieldTitles" translate>
+                LBL_CLAIM_DESCRIPTION
+              </div>
+              <p class="selectInputBorderNone">
+                {{
+                  this.rootScopeData.posTransactionRefundRequestDetail
+                    .description
+                    ? this.rootScopeData.posTransactionRefundRequestDetail
+                        .description
+                    : "--"
+                }}
+              </p>
+            </div>
+
+            <div class="description">
+              <div class="geneStaTitles fieldTitles" translate>
+                LBL_COMMENTS
+              </div>
+              <p class="selectInputBorderNone">
+                {{
+                  this.rootScopeData.posTransactionRefundRequestDetail.comment
+                    ? this.rootScopeData.posTransactionRefundRequestDetail
+                        .comment
+                    : "--"
+                }}
+              </p>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div>
+              <!-- <div class="geneStaTitles fieldTitles" translate>LBL_UPLOAD</div>
+              <div class="fileNameDownload">
+                <app-uploaded-file-download class="fileDownload" [fileUploadedDetails]="fileUploadedDetails">
+                </app-uploaded-file-download>
+              </div> -->
+
+              <div class="fileNameDownloadContainer">
+                <p class="input-label" translate>LBL_UPLOAD</p>
+                <div class="fileNameDownload">
+                  <app-uploaded-file-download
+                    class="fileDownload"
+                    [fileUploadedDetails]="fileUploadedDetails"
+                  >
+                  </app-uploaded-file-download>
+                </div>
+              </div>
+            </div>
+
+            <div class="records">
+              <div class="geneStaTitles fieldTitles" translate>
+                LBL_TOTAL_RECAORDS
+              </div>
+              <p class="selectInputBorderNone">{{ totalRecords }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section *ngIf="shwRec">
+      <app-record-summary
+        (sortColumnEmit)="onSortColumn($event)"
+        [moduleId]="moduleId"
+        [sortOptions]="sortOptions"
+        [recordSummaryObject]="recordSummaryObject"
+        [refNo]="''"
+        [subprdt]="''"
+        [pageCall]="pageName"
+      ></app-record-summary>
+    </section>
+
+    <app-authorization></app-authorization>
+    <app-authentication
+      (onTwoAuthClick)="setSecondFactorValue($event)"
+      (getOtpClick)="getOtpValue($event)"
+      [otpError]="otpError"
+    ></app-authentication>
+
+    <div class="footer-container">
+      <div class="footerText" translate>
+        LBL_TERMS
+        <a href="{{ url }}" target="_blank"
+          ><span class="termsContainer" translate
+            >LBL_THE_TERMS_AND_CONDITIONS</span
+          ></a
+        >
+      </div>
+
+      <div class="actionGroup">
+        <app-tertiary-button
+          buttonValue="LBL_CANCEL"
+          (click)="returnToTransaction($event)"
+          class="tertiaryBtn"
+        >
+        </app-tertiary-button>
+        <!-- <app-primary-button
+            buttonValue="LBL_SUBMIT"
+            (click)="submit()"
+          ></app-primary-button> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showReceipt">
+  <app-receipt
+    [receiptDetails]="receiptData"
+    (onInitAgainClick)="initiateAnotherRequest()"
+  >
+  </app-receipt>
+</div>

@@ -1,0 +1,25 @@
+.detailsTitleContainer{margin:-15px 0px -27px 30px;}
+.summaryOuterConainer {
+    .summaryConainer {
+        border-radius: 10px;
+        background: var(--primary-widget-bg-color);
+        border: 1px solid var(--widget-border-color);
+        margin-right:30px;
+        margin-top: 20px;
+        margin-left: 30px;
+        padding-bottom: 15px !important;
+    }
+}
+button:hover{background-color:#e8e8e8}
+.btnContainer{float: right;margin-top: 25px;padding-right: 30px;}
+.button-print-secondary{height: 40px !important;}
+.backButton{margin-right: 15px;width: 100px !important;}
+@media print{
+    #printCheque{display: none;}
+}
+
+app-summary-tools{
+    position: relative !important;
+    right: 45px !important;
+    top: 6px !important;
+}

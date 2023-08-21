@@ -1,0 +1,95 @@
+.mainContainer {
+    margin: 0px 25px 50px 25px;
+}
+.subContainer {
+    padding: 20px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: #ffffff;
+    background-size: cover;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+    color: #5d5d5d;
+    margin-top: 20px;
+}
+.subTitles{
+    font-size: 16px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    color: var(--tableData-header-color);
+}
+.row {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+}
+.column {
+    margin-bottom: 20px;
+    height: 80px;
+}
+input[type=text]{
+    width: 294px;
+    height: 40px;
+    padding: 0px 8px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 4px;
+    background-size: cover;
+    font-family: "HelveticaNeue";
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    background-color: var(--primary-widget-bg-color);
+}
+.selectInput{
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: #656565;
+    cursor: pointer;
+}
+.fromto {
+    display: flex;
+}
+.dateto {
+    margin-left: 20px;
+}
+.geneStaTitles {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+}
+#proctm{
+    margin-bottom: 10px;
+}
+.btnGroup{
+    float: right; 
+    margin-top: 30px;
+ }
+.inpField{
+    position: relative; 
+    .amountDetails { 
+        display: block; 
+        width: 92px !important;
+        height: 40px;
+        padding: 0px 8px;
+        margin-top: 10px;
+        border: 1px solid var(--widget-border-color);
+        border-radius: 4px;
+        color: var(--tableData-header-color);
+        background-color: var(--primary-widget-bg-color);
+        padding-right: 43px;
+    }
+    .currencydata { 
+        position: absolute; 
+        display: block; 
+        font-family: "HelveticaNeue";
+        font-size: 14px;
+        color: var(--tableData-header-color);
+        z-index: 9;
+        top: 10px;
+        right: 13px; 
+      }
+}
+.showStmtDetails{background-color: #fff; border-radius: 10px; border: 1px solid var(--widget-border-color)}

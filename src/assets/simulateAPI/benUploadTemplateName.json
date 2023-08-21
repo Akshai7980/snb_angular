@@ -1,0 +1,27 @@
+{
+  "headerValue": {
+    "moduleId": "PMNTSGETFLDDATA",
+    "simulate": "N",
+    "export": null,
+    "exportType": null,
+    "_dinsess": "cf92a830-055f-4637-bb38-fdb92052faa9",
+    "languageId": null
+  },
+  "data": 
+    {
+      "templateDetails": [
+        {
+          "templateId": "BASKETPAY",
+          "templateName": "Basket Payment - UNITED ARAB EMIRATES",
+          "unitId": "IGTBAE",
+          "debitType": "M"
+        },
+        {
+          "templateId": "BASKETPAYAE",
+          "templateName": "Basket Payment - UNITED ARAB EMIRATES",
+          "unitId": "IGTBAE",
+          "debitType": "M"
+        }
+      ]
+    }
+}

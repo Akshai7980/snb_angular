@@ -1,0 +1,27 @@
+<div class="mainContainer">
+    <div class="subContainer">
+        <div translate class="subTitles">LBL_AMOUNT_DETAILS</div>
+        <div>
+            <div class="row">
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_TRANSFER_AMOUNT</div>
+                    <div class="plainText" *ngIf="amount===''">{{amountObj.transferAmt | currencyFormat:amountObj.currencyCode}} {{amountObj.currencyCode}}</div>
+                    <div class="plainText"*ngIf="amount!==''">{{amount | currencyFormat:amountObj.currencyCode}} {{amountObj.currencyCode}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_FEE</div>
+                    <div class="plainText">{{amountObj.fee}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_VAT</div>
+                    <div class="plainText">{{amountObj.vat}}</div>
+                </div>
+                <div class="column" *ngIf="readOnly">
+                    <div translate class="geneStaTitles">LBL_DEBIT_AMT</div>
+                    <div class="plainText">{{debitAmount | currencyFormat:amountObj.currencyCode}} {{amountObj.currencyCode}}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+
+<div class="header-panel">
+    <div class="header-panel-left headerPanelWidth">
+        <div class="workFlowHeader" translate>LBL_WORKFLOW</div>
+    </div>
+    <div class="header-panel-right headerPanelWidth">
+        <div class="accordion" [ngClass]="{'accordionDown':!isWorkFlowExpand,'accordionUp':isWorkFlowExpand}"
+            (click)="onClickExpand($event)"></div>
+    </div>
+</div>
+<div id="workFlowexpandCollapseElement" class="animate expandCollpase" [ngClass]="{'collapse':!isWorkFlowExpand}" [ngStyle]="{'height' : norecordflag ? '190px' : ''}">
+    <div id="workFlowDefaultCntr" *ngIf="!norecordflag">
+        <table id="workFlowDefault" class="mat-table cdk-table tableInfo casaTable" (contentChanged)="getTableHeight()">
+            <tr>
+                <th class="mat-header-cell cdk-header-cell chequesTitles cdk-column-nickName mat-column-nickName" *ngFor="let workFlowHeader of displayedColumns" translate>{{workFlowHeader.key}}</th>
+            </tr>
+            <tr *ngFor="let authData of authorizerData" class="mat-row cdk-row">
+                <td class="mat-cell cdk-cell tableInfoFonts cdk-column-nickName mat-column-nickName">{{authData.authUserRole}}</td>
+                <td class="mat-cell cdk-cell tableInfoFonts cdk-column-nickName mat-column-nickName">{{authData.authName}}</td>
+                <td class="mat-cell cdk-cell tableInfoFonts cdk-column-nickName mat-column-nickName">{{authData.authDate}}</td>
+            </tr>
+            <tr *ngFor="let pendAuthData of pendingAuthorizerData" class="mat-row cdk-row">
+                <td class="mat-cell cdk-cell tableInfoFonts cdk-column-nickName mat-column-nickName">{{pendAuthData.strRoleDesc}}</td>
+                <td class="mat-cell cdk-cell tableInfoFonts cdk-column-nickName mat-column-nickName">--</td>
+                <td class="mat-cell cdk-cell tableInfoFonts cdk-column-nickName mat-column-nickName">--</td>
+            </tr> 
+        </table>
+    </div>
+    <div *ngIf="norecordflag">
+        <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>
+

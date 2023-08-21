@@ -1,0 +1,67 @@
+<div class="mainContainer" *ngIf="!showReceipt">
+    <div class="mainTitle" *ngIf="!review" translate>LBL_EPAY_TRANSACTION</div>
+    <div class="mainTitle" *ngIf="review" translate>LBL_REVIEW</div>
+    <div class="detailsDataCntr">
+        <div class="bodyConatiners">
+            <app-debit-lookup *ngIf="debitAccountDetailsObj" (onAccountSelect)="afterFromAccountSelection($event)" [debitAccDetails]="debitAccountDetailsObj" [clear]="clearFlag" [shownsearch]="searchShownFlag" [tableId]="'ePayAccount'"></app-debit-lookup>
+            <div class="mtop_20">
+                <app-debit-lookup *ngIf="showMerchantDetails && merchantDetailsObj" (onAccountSelect)="afterMerchantAccountSelection($event)" [debitAccDetails]="merchantDetailsObj" [clear]="merchantClearFlag" [shownsearch]="searchShownFlag" [tableId]="'ePayMerchant'"></app-debit-lookup>
+            </div>
+            <!-- <app-transaction-lookup *ngIf="showTransactiion" (hideTransaction)="getTransactionDetails($event,'clear')" [transData]="transactionData" (displayDetals)="getTransactionDetails($event,'details')" (grandTotal)="getTransactionDetails($event,'total')" (refresh)="getTransactionDetails($event,'refresh')"></app-transaction-lookup> -->
+            <app-transaction-lookup *ngIf="showTransactiion"></app-transaction-lookup>
+            <div *ngIf="showClaimDetais">
+                <div class="subContainer">
+                    <div class="subTitles" translate>LBL_CLAIM_DETAILS</div>
+                    <div class="row" *ngIf="!review">
+                        <div class="column">
+                            <div translate class="geneStaTitles">LBL_CLAIM_TYPE<span class="required">*</span></div>
+                            <div class="mtop_10">
+                                <mat-select panelClass="dropDownOption" class="selectInput"
+                                    placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}" [(ngModel)]="claimDetails.claimType" (selectionChange)="onSltChange($event)"
+                                    disableOptionCentering>
+                                    <mat-option *ngFor="let type of claimsTypes" value="{{type}}">{{type}}</mat-option>
+                                </mat-select>
+                                <div *ngIf="claimTypeErr">
+                                    <small translate class="required">LBL_CLAIMTYPE_ERR</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div translate class="geneStaTitles">LBL_DESCRIPTION</div>
+                            <div class="mtop_10">
+                                <textarea id="narration" [(ngModel)]="claimDetails.desc" class="comment"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="review">
+                        <div class="column alter">
+                            <div translate class="geneStaTitles">LBL_CLAIM_TYPE</div>
+                            <div class="mtop_10 details">{{claimDetails.claimType}}</div>
+                        </div>
+                        <div class="column alter">
+                            <div translate class="geneStaTitles">LBL_DESCRIPTION</div>
+                            <div class="mtop_10 details">{{claimDetails.desc}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mtop_20" *ngIf="showAuthorization">
+                <app-authorization (authEmit)="autherizationDetailsReceived($event)" [authListDataSource]="authListArray" [authError]="authError"></app-authorization>
+            </div>
+            <div class="mtop_20" *ngIf="showAuthentication">
+                <app-authentication (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError" [initParam]="initReqParam"></app-authentication>
+            </div>
+        </div>
+        <div class="btnGroup">
+            <app-tertiary-button  buttonValue="LBL_CANCEL" *ngIf="showClaimDetais" (click)="onClickCancel()" ></app-tertiary-button>
+            <app-primary-button  buttonValue="LBL_PROCEED" *ngIf="showClaimDetais && !review" (click)="proceedNext()"></app-primary-button>
+            <app-primary-button  buttonValue="LBL_SUBMIT" *ngIf="showClaimDetais && review" (click)="submit()"></app-primary-button>
+            
+        </div>
+        <div class="btnGroup" *ngIf="!showTransactiion && showMerchantDetails">
+            <app-tertiary-button  buttonValue="LBL_CANCEL" (click)="cancel()" ></app-tertiary-button>
+        </div>
+    </div>
+</div>
+<app-receipt [receiptDetails]="receiptData" (onInitAgainClick)="initTransactions()" *ngIf="showReceipt" (DownloadReceiptClick)="downloadPdf()"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

@@ -1,0 +1,67 @@
+.mtop_20{
+    margin-top: 20px;
+}
+
+.btnGroup {
+    float: right;
+    display: flex;
+    margin-top: 30px;
+}
+
+.beneficiaryDetails{
+    // padding: 22px 20px 0 0;
+    padding: 78px 0 0 17px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 12px;
+    color: #5d5d5d;
+    margin: 5px 20px 0px 30px;
+    font-family: "HelveticaNeue";
+}
+.footer{
+    padding-top: 40px;
+    margin-left: -29px;
+    float: left;
+    .termsAndContion{
+        padding-left: 33px;
+        color: var(--tableData-header-color);;
+        font-family: 'HelveticaNeue', arial, sans-serif;
+        font-size: 14px;
+    }
+    .terms{
+        margin-left: 2px;
+        color: var(--short-profile-txt-color);
+        font-family: 'HelveticaNeue', arial, sans-serif;
+        font-size: 14px;
+        text-decoration: none;
+    }
+    a{
+        text-decoration: none;
+    }
+}
+
+.subContainer{
+    border-radius: 6px;
+    background-color: var(--primary-widget-bg-color);
+    padding: 19px 20px 31px 20px ;
+    border: 1px solid var(--widget-border-color);
+    // margin-left: 15px;
+}
+.button-primary {
+    min-width: 100px;
+    height: 40px;
+    padding: 5px 20px;
+    border-radius: 100px;
+    background-color: var(--short-profile-txt-color);
+    color: var(--promotions-fontColor);
+    margin-left: 15px;
+    background-size: cover;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+    text-decoration: none solid rgb(66, 85, 99);
+    text-align: center;
+    transition: all .4s;
+    cursor: pointer;
+  }

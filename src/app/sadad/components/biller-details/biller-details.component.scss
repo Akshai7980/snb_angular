@@ -1,0 +1,102 @@
+.rowInnerCntr {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 11px;
+    padding-top: 14px;
+
+    .field {
+        width: 33.33%;
+        padding-bottom: 20px;
+
+        .label {
+            font-family: 'HelveticaNeueMed', arial, sans-serif;
+            color: var(--table-header-color);
+            font-size: 14px;
+        }
+
+        .information {
+            padding-top: 10px;
+            color: var(--tableData-header-color);
+
+            &.data {
+                padding-top: 20px;
+            }
+        }
+    }
+
+}
+
+.beneficiaryDetails {
+    padding: 15px;
+    // padding: 83px 0 0 18px;
+    margin-top: 15px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    // margin: 5px 20px 0px 30px;
+}
+
+input[type=text] {
+    width: 280px;
+    height: 40px;
+    padding: 0px 8px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 4px;
+    background-size: cover;
+    font-family: 'HelveticaNeue';
+    font-size: 14px;
+    color: var(--tableData-header-color);
+}
+
+
+.selectInput {
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--input-text-color);
+    cursor: pointer;
+}
+
+.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+    background: none;
+}
+
+.mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled):hover {
+    background-color:
+        var(--summary-hover-color) !important;
+}
+
+.mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled) {
+    background: none;
+}
+
+.mat-option {
+    border-left: 1px solid var(--widget-border-color);
+    border-right: 1px solid var(--widget-border-color);
+    border-bottom: 1px solid var(--widget-border-color);
+    line-height: 40px !important;
+    padding:
+        5px;
+    font-family: 'HelveticaNeue', arial, sans-serif
+}
+
+.mat-option:hover {
+    background-color: var(--summary-hover-color);
+}
+
+.mat-option.mat-active {
+    background: none;
+}
+
+.dropDownOption {
+    width: 308px
+}
+.mat-option.mat-active {
+    color: var(--tableData-header-color);
+}

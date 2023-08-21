@@ -1,0 +1,176 @@
+<div class="subconatiner mtop_20" *ngIf="showAddDetInitiateScreen">
+    <div translate class="subTitles">LBL_ADDITIONAL_DETAILS</div>
+    <div class="mtop_17 mbot_4 innerContainer">
+        <div class="pbot_20">
+            <div translate class="geneStaTitles">LBL_PURPOSE<span class="required">*</span></div>
+            <div class="mtop_10">
+                <div class="selectInput inputHeight setDropdownFont" translate cdkOverlayOrigin #trigger="cdkOverlayOrigin"
+                    (click)="showMenuList($event)">
+                    {{seletedPurpose}}
+                    <div class="dropdownIcon sprite leftIcon"></div>
+                </div>
+
+                <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger"
+                    [cdkConnectedOverlayOpen]="isOpen" (overlayOutsideClick)="isOpen = false">
+                    <div class="action-popup">
+                        <div class="main-category" *ngFor="let category of purposeOfTransferArrayDataSource">
+                            <div class="container" (click)="onClickMainCatExpand(category?.categoryCode,category?.expand)">
+                                <div class="category">{{category.categoryDesc}}</div>
+                                <div class="accordion"
+                                    [ngClass]="{'accordionUp':!category?.expand,'accordionDown':category?.expand}">
+                                </div>
+                            </div>
+                            <div class="main-purpose expandCollpase" [ngClass]="{'collapse':!category?.expand}">
+                                <div *ngFor="let purpose of category.purpose"> 
+                                    <div class="container" (click)="onClickSubCatExpand(category?.categoryCode, purpose?.purposeCode, purpose?.expand)">
+                                        <div class="purpose " >{{purpose.purposeDesc}}</div>
+                                        <div class="accordion"
+                                            [ngClass]="{'accordionUp':!purpose?.expand,'accordionDown':purpose?.expand}">
+                                        </div>
+                                    </div>
+                                    <div class="main-Subpurpose">
+                                        <div class="sub-purpose setDropdownFont expandCollpase"
+                                            *ngFor="let subpurpose of purpose.subPurpose"
+                                            [ngClass]="purpose && purpose.expand ? 'sub-purpose-border':'collapse sub-purpose'"
+                                            (click)="getPurpose(category,purpose,subpurpose)">
+                                            {{subpurpose.subPurposeDesc}}
+                                        </div>
+                                        <!-- [ngClass]="{'collapse ' :!purpose?.expand}" -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <!-- <mat-select class="selectInput" panelClass="dropDownOption" [(value)]="additionalDetailsObj.purpose" disableOptionCentering (selectionChange)="purposeChanged($event)" placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}">                                
+                    <mat-option value="{{purpose.purposeCodeDesc}}" *ngFor="let purpose of purposeOfTransferArrayDataSource">
+                        {{purpose.purposeCodeDesc}}
+                    </mat-option>
+                </mat-select> -->
+                <div *ngIf="additionalDetailsErrorObj.purposeError">
+                    <small translate class="required">{{additionalDetailsErrorObj.purposeError}}</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="pbot_20">
+            <div translate class="geneStaTitles">LBL_RELATIONSHIP<span class="required">*</span></div>
+            <div class="mtop_10">
+                <mat-select class="selectInput setDropdownFont" panelClass="dropDownOption"
+                    [(value)]="additionalDetailsObj.relationship" disableOptionCentering
+                    [disabled]="this.rootScopeData?.localSITransactionObject?.amend === 'Y' || 
+                    this.rootScopeData.internationalSITransactionObject.amend === 'Y' || this.rootScopeData.withinBankSITransactionObject.amend === 'Y'" 
+                    (selectionChange)="relationshipChanged()"
+                    placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}">
+                    <mat-option value="{{relationship.REL_CODE_DESC}}" class="setDropdownFont"
+                        *ngFor="let relationship of relationshipArrayDataSource">
+                       <span class="setDropdownFont">{{relationship.REL_CODE_DESC}}</span> 
+                    </mat-option>
+                </mat-select>
+                <div *ngIf="additionalDetailsErrorObj.relationshipError">
+                    <small translate class="required">{{additionalDetailsErrorObj.relationshipError}}</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="pbot_20"> -->
+            <!-- <app-date-picker (dateValue)="tovalue($event)"></app-date-picker> -->
+            <!-- <div translate class="geneStaTitles">LBL_VALUE_DATE<span class="required">*</span></div> -->
+            <!-- <div class="mtop_10">
+                <div class="container" (click)="picker.open()">
+                    <input matInput [(ngModel)]="vDate" class="datePickerInput" [matDatepicker]="picker" [max]="maxDate" [min]="minDate" readonly 
+                    (dateChange)="tovalue()">
+                    <div class="datePicker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </div>
+                    <div *ngIf="additionalDetailsErrorObj.valueDateError">
+                        <small class="required" translate>{{additionalDetailsErrorObj.valueDateError}}</small>
+                    </div>
+                </div>
+            </div> -->
+        <!-- </div> -->
+
+        <div class="pbot_20" *ngIf="!showNarrationDetails">
+            <div translate class="geneStaTitles">LBL_NARRATION</div>
+            <div class="mtop_10">
+                <textarea [disabled]="amendDisabled" id="narration" [(ngModel)]="additionalDetailsObj.narration" class="comment"
+                    maxlength="24"  (blur)="narrationOnBlur($event)"></textarea>
+            </div>
+        </div>
+
+        
+        <div class="pbot_20" *ngIf="showAdditionalDetails === 'Y'">
+            <div translate class="geneStaTitles">LBL_INSTRUCTIONS1</div>
+            <div class="mtop_10">
+                <textarea [disabled]="amendDisabled" id="instructions1" [(ngModel)]="additionalDetailsObj.intructions1" class="comment"
+                   maxlength="30" (blur)="instructions1OnBlur($event)"></textarea>
+            </div>
+        </div>
+
+        <div class="pbot_20" *ngIf="showAdditionalDetails === 'Y'">
+            <div translate class="geneStaTitles">LBL_INSTRUCTIONS2</div>
+            <div class="mtop_10">
+                <textarea [disabled]="amendDisabled" id="instructions2" [(ngModel)]="additionalDetailsObj.instructions2" class="comment"
+                    maxlength="30" (blur)="instructions2OnBlur($event)"></textarea>
+            </div>
+        </div>
+        <div class="pbot_20">
+            <!-- <div translate class="geneStaTitles">LBL_INSTRUCTIONS2</div> -->
+            <div class="mtop_10">
+                <!-- <textarea id="instructions2" [(ngModel)]="additionalDetailsObj.instructions2" class="comment"
+                    (blur)="instructions2OnBlur($event)"></textarea> -->
+            </div>
+        </div>
+        
+        
+    </div>
+
+</div>
+
+<div class="subconatiner mtop_20" *ngIf="!showAddDetInitiateScreen">
+    <div translate class="subTitles">LBL_ADDITIONAL_DETAILS</div>
+    <div class="mtop_17 mbot_4 innerContainer">
+        <div class="flexWidth">
+            <div translate class="geneStaTitles">LBL_PURPOSE</div>
+            <div class="mtop_10">
+                <div>{{additionalDetailsObj.subPurpose}}</div>
+            </div>
+        </div>
+
+        <div class="flexWidth">
+            <div translate class="geneStaTitles">LBL_RELATIONSHIP</div>
+            <div class="mtop_10">
+                <div>{{additionalDetailsObj.relationship}}</div>
+            </div>
+        </div>
+
+        <!-- <div class="flexWidth">
+            <div translate class="geneStaTitles">LBL_VALUE_DATE<span class="required">*</span></div>
+            <div class="mtop_10">
+                <div>{{additionalDetailsObj.valueDate}}</div>
+            </div>
+        </div>   -->
+
+        <div class="flexWidth" *ngIf="!showNarrationDetails">
+            <div translate class="geneStaTitles">LBL_NARRATION</div>
+            <div class="mtop_10">
+                <div>{{additionalDetailsObj.narration ? additionalDetailsObj.narration : 'Not Provided' }}</div>
+            </div>
+        </div>
+
+        <div class="flexWidth" *ngIf="showAdditionalDetails === 'Y'">
+            <div translate class="geneStaTitles">LBL_INSTRUCTIONS1</div>
+            <div class="mtop_10">
+                <div>{{additionalDetailsObj.intructions1 ? additionalDetailsObj.intructions1 : 'Not Provided' }}</div>
+            </div>
+        </div>
+
+        <div class="flexWidth" style="margin-right: 35%;margin-top: 20px;" *ngIf="showAdditionalDetails === 'Y'">
+            <div translate class="geneStaTitles">LBL_INSTRUCTIONS2</div>
+            <div class="mtop_10">
+                <div>{{additionalDetailsObj.instructions2 ? additionalDetailsObj.instructions2 : 'Not Provided' }}</div>
+            </div>
+        </div>
+    </div>
+</div>

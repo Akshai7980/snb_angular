@@ -1,0 +1,33 @@
+{
+    "data": {
+        "odDRefNo": "TBC2208301819244",
+        "fileStatusCd": "PNRFV",
+        "fileStatus": "Verification Failed",
+        "snbCount": "1",
+        "snbAmt": "12",
+        "snbCcy": "SAR",
+        "bankRec": null,
+        "bankAmt": 80,
+        "bankCcy": "SAR",
+        "bseFee": null,
+        "bseCcy": null,
+        "crdRec": "2",
+        "crdAmt": "34",
+        "crdCcy": "SAR",
+        "vatFee": "33",
+        "vatCcy": "SAR",
+        "totalCount": "148",
+        "odFileAmount": 200,
+        "odTxnCy": null,
+        "fee": null,
+        "feeCcy": "SAR",
+        "duplicateFlag": "Y",
+        "status":"Verification",
+        "accNo":"098765434567",
+        "valueDate":"31/01/2023",
+        "rejectReason":"Incorrect number of delimited items found in record : expected 7 items"
+    },
+    "headerValue": {
+        "moduleId": "PAYFILEDETAILS"
+    }
+}

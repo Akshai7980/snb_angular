@@ -1,0 +1,85 @@
+.subTitle{
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    font-size: 16px;
+}
+.childContainer{
+    margin: 30px 0 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    
+    .billerGroup {
+        padding-bottom: 20px;
+    }
+}
+
+.info{
+     height: 30px;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    font-size: 14px;
+    // color: #a2a2a2;
+    color: var(--table-header-color);
+
+}
+
+.box{
+    // width: 300px;
+    width: 280px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: #656565;
+    cursor: pointer;
+    margin-right: 40px;
+}
+
+input[type=text]{
+    // width: 300px;
+    width: 280px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    background-size: cover;
+    font-size: 14px;
+    background-color: var(--primary-widget-bg-color);
+    // margin-right: 40px; //Input alignment
+}
+
+.margin_Class{
+    margin-right: 40px; //Input alignment
+}
+
+.billercontent{
+    width: 300px;
+    font-size: 14px;
+    margin-right: 40px;
+}
+
+.billercontent1{
+    width: 300px;
+    font-size: 14px;
+
+}
+.mat-option.mat-active {
+    color: var(--tableData-header-color);
+}
+.dropdownIcon{
+    position: absolute;
+    right: 0;
+    background-position: -153px -346px;
+    width: 20px;
+    height: 16px;
+    margin: 7px 10px;
+    float: right;
+  }
+  .autosugges .information{
+    position: relative; 
+    color: var(--tableData-header-color);
+    &.data{
+        padding-top: 20px;
+    }
+  }
+.childContainer > .billerGroup{margin-right: 20px;}

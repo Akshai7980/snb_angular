@@ -1,0 +1,320 @@
+<div class="summaryOuterConainer" id="etLgDetails">
+  <div class="summaryConainer">
+    <div class="fileDetails">
+      <div>
+        <div class="subTitles">
+          {{ "LBL_LETTER_GUARANTEE" | translate }}
+          {{ "LBL_LOWERCASE_TO" | translate }}
+          {{
+            rootScopeData.selectedInquiryForStopPayment.toAccount
+              .beneficiaryNameAddressEng1
+          }}
+          <app-summary-tools
+            [printSection]="printSection"
+            [moduleId]="moduleId"
+          ></app-summary-tools>
+        </div>
+      </div>
+
+      <div class="refNO">
+        {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+        {{
+          rootScopeData.selectedInquiryForStopPayment.toAccount.refNo
+            ? rootScopeData.selectedInquiryForStopPayment.toAccount.refNo
+            : "--"
+        }}
+      </div>
+      <div class="title">
+        <div>
+          {{ "LBL_AMOUNT" | translate }}
+          <span>
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount.lgAmount
+                | currencyFormat
+                  : rootScopeData.selectedInquiryForStopPayment.toAccount
+                      .commissionDebitCurrency
+            }}
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .commissionDebitCurrency
+            }}</span
+          >
+          {{ "LBL_ON" | translate }}
+          {{
+            rootScopeData.selectedInquiryForStopPayment.toAccount.valueDate
+              ? rootScopeData.selectedInquiryForStopPayment.toAccount.valueDate
+              : "--"
+          }}
+        </div>
+
+        <div class="pad_l_10">
+          <button
+            class="status-green-button"
+            translate
+            [class.status-red-button]="
+              rootScopeData.selectedInquiryForStopPayment.lg.status ===
+              'Rejected'
+            "
+          >
+            {{ rootScopeData.selectedInquiryForStopPayment.lg.status }}
+          </button>
+          <!-- -->
+        </div>
+      </div>
+    </div>
+
+    <div class="subContainer">
+      <div class="subTitles" translate>LBL_LG_ISSUE_DETAILS</div>
+      <div class="rowInnerCntr">
+        <div class="field">
+          <div class="label" translate>LBL_LANGUAGE_TO_BE_PRINTED</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .textLanguage === "E"
+                ? "English"
+                : "Arabic"
+            }}
+          </div>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_TYPE</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount.productType
+            }}
+          </div>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_BRANCH</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .deliveryBranch
+            }}
+          </div>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_AMOUNT</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount.lgAmount
+                | currencyFormat
+                  : rootScopeData.selectedInquiryForStopPayment.toAccount
+                      .commissionDebitCurrency
+            }}
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .commissionDebitCurrency
+            }}
+          </div>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_AMOUNT_IN_ENGLISH</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount.lgAmount
+                | currencyFormat
+                  : rootScopeData.selectedInquiryForStopPayment.toAccount
+                      .commissionDebitCurrency
+            }}
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .commissionDebitCurrency
+            }}
+          </div>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_AMOUNT_IN_ARABIC</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount.lgAmount
+                | currencyFormat
+                  : rootScopeData.selectedInquiryForStopPayment.toAccount
+                      .commissionDebitCurrency
+            }}
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .commissionDebitCurrency
+            }}
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label" translate>LBL_REPRESENTING</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .contractPercentage
+                ? rootScopeData.selectedInquiryForStopPayment.toAccount
+                    .contractPercentage
+                : "--"
+            }}
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label" translate>LBL_REF_NUMBER</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount.refNo
+                ? rootScopeData.selectedInquiryForStopPayment.toAccount.refNo
+                : "--"
+            }}
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label" translate>LBL_EXPIRY_DATE</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .expiryDateGregorian
+            }}
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label" translate>LBL_PROJECT_NAME_AND_PURPOSE</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .purposeLGEng1
+                ? rootScopeData.selectedInquiryForStopPayment.toAccount
+                    .purposeLGEng1
+                : "--"
+            }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subContainer">
+      <div class="subTitles" translate>LBL_APPLICANT_DETAILS</div>
+      <div class="rowInnerCntr">
+        <div class="field">
+          <div class="label" translate>LBL_APPLICANTS_NAME</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .applicantNameAddressEng1
+            }}
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label" translate>LBL_COMMISSION_ACCOUNT</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .commissionDebitAccount
+            }}
+          </div>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_MARGIN_ACCOUNT</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .marginDebitAccount
+            }}
+          </div>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_ADDRESS1</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .applicantNameAddressEng2
+                ? rootScopeData.selectedInquiryForStopPayment.toAccount
+                    .applicantNameAddressEng2
+                : "--"
+            }}
+          </div>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_ADDRESS2</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .applicantNameAddressEng3
+                ? rootScopeData.selectedInquiryForStopPayment.toAccount
+                    .applicantNameAddressEng3
+                : "--"
+            }}
+          </div>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_ADDRESS3</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .applicantNameAddressEng4
+                ? rootScopeData.selectedInquiryForStopPayment.toAccount
+                    .applicantNameAddressEng4
+                : "--"
+            }}
+          </div>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_EMAIL_ID</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount
+                .applicantNameAddressEng5
+                ? rootScopeData.selectedInquiryForStopPayment.toAccount
+                    .applicantNameAddressEng5
+                : "--"
+            }}
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label" translate>LBL_MOBILE</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount.mobile
+                ? rootScopeData.selectedInquiryForStopPayment.toAccount.mobile
+                : "--"
+            }}
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label" translate>LBL_PHONE</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount.mobile
+                ? rootScopeData.selectedInquiryForStopPayment.toAccount.mobile
+                : "--"
+            }}
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label" translate>LBL_FAX_NO</div>
+          <div class="information">
+            {{
+              rootScopeData.selectedInquiryForStopPayment.toAccount.mobile
+                ? rootScopeData.selectedInquiryForStopPayment.toAccount.mobile
+                : "--"
+            }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+</div>
+
+<div class="container">
+  <app-history [historyData]="workFlowHistoryParams"></app-history>
+</div>
+
+<div class="btnGroup mtop_20">
+  <app-tertiary-button buttonValue="LBL_BACK" (click)="onBack()">
+  </app-tertiary-button>
+</div>

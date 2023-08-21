@@ -1,0 +1,31 @@
+{
+    "dataValue": {
+        "atm": [
+            {
+                "total": "0",
+                "expires": "2024-12-31T00:00:00.000+03:00",
+                "statusDescription": "",
+                "transfer": "0",
+                "primaryAcctNo": "1400000021908",
+                "tCheck": "0",
+                "purchase": "0",
+                "typeDescription": "",
+                "pan": "pKAti1cqluokSP5arqH5DeoxYjNoV0BoMvF4IQgw11cUZROiU/vI+kbf/i8PaQpP",
+                "type": "MS",
+                "status": "0",
+                "shortCIF": "001211",
+                "maskedpan": "5294155570270039",
+                "EntlSubProduct": [
+                    "MADREISS",
+                    "MADSTOP",
+                    "LINKADDI",
+                    "MADPOSLIM"
+                ]
+            }
+        ]
+    },
+    "headerValue": {
+        "moduleId": "MADCRDSUMMY",
+        "totalCount": 1
+    }
+}

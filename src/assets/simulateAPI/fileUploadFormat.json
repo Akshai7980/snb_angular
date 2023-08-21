@@ -1,0 +1,22 @@
+{
+    "headerValue": {
+        "moduleId": "PMNTSGETFLDDATA",
+        "_dinsess": "b1752a6b-52f9-4b22-be80-e731a44c6cff"
+    },
+    "data": {
+        "format": [
+            {
+                "type": "csv",
+                "typeDesc": "CSV File",
+                "templateId": "TMP121222",
+                "maxSize": "10mb"
+            },
+            {
+                "type": "txt",
+                "typeDesc": "Text File",
+                "templateId": "TMP121222",
+                "maxSize": "10mb"
+            }
+        ]
+    }
+}

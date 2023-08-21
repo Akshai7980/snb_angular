@@ -1,0 +1,28 @@
+<div class="worksapceBase">
+    <div class="mainTitle" translate>LBL_NOTIFICATION</div>
+    <div class="contentSection">
+        <div class="left-content-Menulist">
+            <ul> 
+                <!-- <input type="radio" name="menu" id="Notifications" checked>
+                <li><label for="Notifications" class="title" (click)="selectMenu_click('Notifications')" translate>LBL_NOTIFICATION</label></li>
+                <input type="radio" name="menu" id="Mailbox">
+                <li><label for="Mailbox" class="title" (click)="selectMenu_click('Mailbox')" translate>LBL_MAILBOX</label></li>
+                <input type="radio" name="menu" id="Trash">
+                <li><label for="Trash" class="title" (click)="selectMenu_click('Trash')" translate>LBL_TRASH</label></li> -->
+
+                <li *ngIf="rootScopeData.userEntitlements.tabs.NOTIFICATIONS_PARENT"><a routerLink="/notifications/notification/alerts" [class.active]="rootScopeData.paymentActiveTabName === 'notifications'"><span class="title" translate>LBL_NOTIFICATION</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MAILBOX_PARENT"><a routerLink="/notifications/mailbox/inbox" [class.active]="rootScopeData.paymentActiveTabName === 'mailbox'"><span class="title" translate>LBL_MAILBOX</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.TRASH_PARENT"><a routerLink="/notifications/trash/trash-mailboxs" [class.active]="rootScopeData.paymentActiveTabName === 'trash'"><span class="title" translate>LBL_TRASH</span></a></li>
+              
+            </ul>
+        </div>
+        <div class="right-content">
+            <router-outlet></router-outlet>
+        </div>
+
+        
+    </div>
+    <div class="trash-btn-shown" *ngIf="rootScopeData.paymentActiveTabName === 'trash' && enablePropertty">
+        <app-primary-button  id="deleteButton" [buttonValue]="'LBL_DELETE'" (onPrimarybtnemitClick)="deleteTrashCall()"></app-primary-button>
+    </div>
+</div>

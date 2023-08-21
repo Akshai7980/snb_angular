@@ -1,0 +1,9 @@
+{
+    "data": {
+    "status":"S",
+    "statusDesc":"Failure",
+    "failueReason":""},
+    "headerValue": {
+        "moduleId": "OTPVALIDATION"       
+    }
+}

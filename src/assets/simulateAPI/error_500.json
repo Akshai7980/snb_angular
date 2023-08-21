@@ -1,0 +1,6 @@
+{
+    "timestamp": "2022-07-16T13:49:38.638+00:00",
+    "message": "Exception while fetching the chequeBookRequestDetail ",
+    "details": "uri=/CashCloudServices/chequeBookRequestDetail",
+    "status": 500
+}

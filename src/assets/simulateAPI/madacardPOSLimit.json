@@ -1,0 +1,21 @@
+{
+    "data": [
+        {
+            "newLimit": [
+                {
+                    "limit": "10,000.00",
+                    "currency": "SAR",
+                    "currencyDesc": "saudi"
+                },
+                {
+                    "limit": "20,000.00",
+                    "currency": "SAR",
+                    "currencyDesc": "saudi"
+                }
+            ]
+        }
+    ],
+    "headerValue": {
+        "moduleId": "MADACARDLMT"
+    }
+}

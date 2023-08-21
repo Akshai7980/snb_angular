@@ -1,0 +1,241 @@
+
+.dslk_flex{
+    display: flex;
+}
+.tableInfo{
+    width: 100%;
+}
+.selectInput{
+width: 300px;
+line-height: 40px;
+padding: 0px 0px 0px 10px;
+border: 1px solid var(--widget-border-color);
+border-radius: 5px;
+font-size: 14px;
+color: var(--input-text-color);
+cursor: pointer;
+}
+.chequeBookDetailsContainer{
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 24px);
+    color: var(--default-text-color);
+    column-gap: 30px;
+}
+.chargeDtlsContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 440px;
+    div div{
+        line-height: 24px;
+    }
+}
+.mtop_19{
+    margin-top: 19px;
+}
+.mtop_21{
+    margin-top: 21px;
+}
+.mtop_20{
+    margin-top: 20px;
+}
+.mtop_17{
+    margin-top: 17px;
+}
+.mbot_4{
+    margin-bottom: 4px;
+}
+.mtop_13{
+    margin-top: 13px;
+}
+.mtop_21{
+    margin-top: 21px;
+}
+.downArrow{
+    background: url(/assets/images/iconDownGreen.svg) no-repeat center ;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    cursor: pointer;
+    transition: 1s transform;
+}
+td.mat-cell:last-of-type{
+    width: 0px !important;
+}
+.arrowRotate{
+    transform: rotate(180deg);
+    margin-top: 12px;
+}
+.btnGroup{
+    float: right;
+    display: flex;
+}
+
+.receiptConatiner{
+    width: 800px;
+    margin: 11px auto auto;
+}
+.receiptSubconatiner{
+border-radius: 6px;
+background-color: var(--primary-widget-bg-color);
+border: 1px solid var(--widget-border-color);
+padding: 22px 0px 21px  0px;
+}
+.shieldIcon{
+    width: 40px;
+    height: 40px;
+}
+.textalign_center{
+    text-align: center;
+}
+.fromContainer{
+    margin: 19px 0px 0px 35px;
+    .fromsubConatiner{
+        div div{
+            line-height: 24px;
+        }
+        flex: 1 1 auto;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        div{
+            flex: 0 0 33%;
+        }
+    }
+}
+.collectionNote{
+    font-size: 12px;
+    color: var(--primary-fontColor);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+
+}
+.chequeBookContainer{
+    margin: 19px 0px 0px 35px;
+.chequeBookSubConatiner{
+    div div{
+        line-height: 24px;
+    }
+    flex: 1 1 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    div{
+        flex: 0 0 33%;
+    }
+}
+}
+.finish{
+    width: 100px;
+
+}
+.mtop_24{
+    margin-top: 24px;
+}
+.mtop_12{
+    margin-top: 12px;
+}
+.mtop_4{
+    margin-top: 4px;
+}
+
+
+.infoFontSize{
+    font-size: 14px;
+    color: #687782;
+    font-family: "HelveticaNeueLight", arial, sans-serif;
+}
+
+.seperator{
+    border-top: 1px solid var(--widget-border-color) ;
+}
+.tableInfoFonts{
+    color: var(--tableData-header-color);
+    font-size: 14px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+.mat-row:nth-child(odd){
+    background-color: var(--summary-row-bg-color);
+}
+.mat-row:hover{
+background-color: var(--summary-hover-color);
+cursor: pointer;
+}
+td.mat-cell:first-of-type{
+    border-radius: 10px 0px 0px 10px;
+}
+td.mat-cell:last-of-type{
+    border-radius: 0px 10px 10px 0px;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    border: none;
+}
+
+.informationIcon{
+    background: url(/assets/images/information.svg) no-repeat center ;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+}
+
+.mat-option{
+border-left: 1px solid var(--widget-border-color);
+border-right: 1px solid var(--widget-border-color);
+border-bottom: 1px solid var(--widget-border-color);
+line-height: 40px !important;
+padding: 5px;
+color:var(--default-text-color)
+}
+.mat-option:hover{
+    background-color: var(--summary-hover-color);
+}
+.mat-option.mat-active {
+    background: none;
+}
+.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+   background: none; 
+}
+
+.mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled):hover {
+    background-color: var(--summary-hover-color) !important;
+}
+.mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled) {
+    background: none;
+}
+.mtop_5{
+    margin-top: 5px;
+}
+button .backIcon{
+    cursor: pointer;
+}
+.field {
+    .label{
+        font-family: 'HelveticaNeueMed', arial, sans-serif;
+        color: var(--table-header-color);
+        font-size: 14px;
+    }
+    .information{
+        padding-top: 10px;
+        color: var(--tableData-header-color);
+        &.data{
+            padding-top: 20px;
+        }
+    }
+}
+.chequesTitles{
+    color: var(--default-text-color);
+}
+
+.information {
+    position: relative;
+    .dropdownIcon {
+      position: absolute;
+      right: 0px;
+      background-position: -153px -346px;
+      width: 20px;
+      height: 16px;
+      margin: 7px 10px;
+      float: right;
+    }
+  } 

@@ -1,0 +1,103 @@
+<div class="outerContainer">
+  <div translate class="title">LBL_STOP_PAYMENT</div>
+
+  <div>
+    <div class="mtop_20" *ngIf="fromAccountsObject">
+      <app-debit-lookup
+        (onAccountSelect)="onFromAccountSelection($event)"
+        [debitAccDetails]="fromAccountsObject"
+        [clear]="clearFlag"
+        [shownsearch]="true"
+        [tableId]="'stopPaymentAccounts'"
+      ></app-debit-lookup>
+    </div>
+    <div class="mtop_20 accountsContainer" *ngIf="fromAccount">
+      <div class="flexContainer">
+        <div translate class="subTitles">LBL_SEARCH</div>
+      </div>
+
+      <div class="container">
+        <div class="rightContent">
+          <div translate class="fieldTitles">
+            LBL_FROM_DATE<span class="required">*</span>
+          </div>
+          <app-date-picker
+            (dateValue)="fromValue($event)"
+            [minDate]="minStartDate"
+            [maxDate]="maxStartDate"
+            [showDateErrorMessage]="startDateError"
+            [newDate]="startDate"
+          ></app-date-picker>
+        </div>
+
+        <div class="leftContent">
+          <div class="feilds">
+            <div translate class="fieldTitles">
+              LBL_TO_DATE<span class="required">*</span>
+            </div>
+            <app-date-picker
+              (dateValue)="toValue($event)"
+              [minDate]="minEndDate"
+              [maxDate]="maxEndDate"
+              [showDateErrorMessage]="endDateError"
+              [newDate]="endDate"
+            ></app-date-picker>
+          </div>
+
+          <div class="feilds">
+            <div translate class="fieldTitles">LBL_TYPE</div>
+            <mat-select
+              *ngIf="!isVendorPayment"
+              panelClass="dropDownOption"
+              disableOptionCentering
+              class="selectInput"
+              placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+              name="type"
+              [(ngModel)]="uploadType"
+            >
+              <mat-option
+                *ngFor="let type of uploadTypes"
+                value="{{ type }}"
+                (click)="onUploadTypeSelection(type)"
+                >{{ type }}
+              </mat-option>
+            </mat-select>
+            <div *ngIf="isVendorPayment" class="mtop_10 dataContent">
+              {{ uploadType }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btnGroup">
+        <div>
+          <!-- <button
+            type="button"
+            class="button-secondary"
+            translate
+            (click)="clearSearch()"
+          >
+            LBL_CLEAR
+          </button> -->
+          <app-tertiary-button buttonValue="LBL_CLEAR" (click)="clearSearch()"></app-tertiary-button>
+        </div>
+        <div>
+          <!-- <button
+            type="button"
+            class="button-primary"
+            (click)="searchStopPaymentTransactions()"
+            translate
+          >
+            LBL_SEARCH
+          </button> -->
+          <app-primary-button buttonValue="LBL_SEARCH" (click)="searchStopPaymentTransactions()"></app-primary-button>
+        </div>
+      </div>
+    </div>
+    <div class="mtop_20" *ngIf="showTransactions">
+      <app-sp-inquiry-summary
+        [payrollInquiryList]="transactions"
+      ></app-sp-inquiry-summary>
+    </div>
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

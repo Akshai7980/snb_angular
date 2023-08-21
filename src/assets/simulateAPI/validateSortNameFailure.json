@@ -1,0 +1,38 @@
+{
+    "data": {
+        "PARENT_VALUES": {
+            "BENE_ID": "Farhana"
+        },
+        "CHILD_VALUES": {
+            "BENE_ID": "Farhana",
+            "PRODUCT": "PAYMNT",
+            "SUB_PRODUCT": "BKSIBT",
+            "ACCOUNT_NO": "700010021001",
+            "CURRENCY": "BHD",
+            "BRANCH_NAME": "ADDAX TOWERSEEF DISTRICT",
+            "BRANCH_CODE": null,
+            "BANKNAME": "ITHMAAR BANK BSC",
+            "CITY": null,
+            "COUNTRY": "UNITED ARAB EMIRATES",
+            "CITYCODE": null,
+            "COUNTRYCODE": "TZ",
+            "ADD_FLD1": "ADDR1 0000755188",
+            "BANK_CODE": null,
+            "CLEAR_CODE_DETAILS": null,
+            "CLEAR_CODE": null,
+            "USER_OPTION": null,
+            "CUT_OFF": null,
+            "UNIT_ID": null,
+            "UNIT_DESC": null,
+            "CIF_FLAG": "N",
+            "CIF_VALUES": "36096001",
+            "ACCT_CURRENCY1": "BHD"
+        },
+        "HOST_RESP": [
+            "FAILURE"
+        ]
+    },
+    "headerValue": {
+        "moduleId": "VALIDATEBENE"
+    }
+}

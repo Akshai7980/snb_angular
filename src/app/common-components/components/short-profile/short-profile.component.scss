@@ -1,0 +1,49 @@
+.logo{height:30px;margin-top:10px;margin-left:15px;width:40px;}
+.logotext{font-size:18px;font-family:"C-Helvetica Neue-18", Arial !important;color:var(--short-profile-txt-color);
+}
+.col1{max-width:40%;float:left;height:20px}.col-selector{margin:15px;margin-top:15px;}
+.col2{max-width:80%;float:left;}.row{max-width:100%;display:flex;max-height:50px;}
+.username{
+    display: flex;
+    word-break:break-word;
+    font-size:12px;
+    margin-left:10px;
+    color:var(--short-profile-txt-color);
+    padding-top:7px;
+    line-height:12px;
+    font-family:'HelveticaNeueMed', arial, sans-serif;
+    
+    span{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    }
+    
+   
+}
+.logindatelable{
+    font-family:'HelveticaNeueMed', arial, sans-serif;
+    font-size:10px;margin-left:10px;color:var(--short-profile-txt-color);}
+    .logindate{
+        font-family:'HelveticaNeueMed', arial, sans-serif;
+        font-size:9px;padding:2px;color:var(--short-profile-txt-color);}
+.profile-pic-icon{
+    // background: url("../../../../assets/images/blank-profile-picture.png") no-repeat;
+    width:40px;
+    height:40px;
+    background-size: cover;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: 15px;
+    border: 1px solid var(--widget-border-color);
+    position: relative;
+    .profilepic{
+        width:36px;
+        height: 36px;
+        object-fit: contain;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

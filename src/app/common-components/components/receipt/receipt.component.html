@@ -1,0 +1,90 @@
+<div class="receiptConatiner">
+    <div translate class="mainTitle">LBL_RECEIPT</div>
+    <div class="row" id="logoPrint">
+        <div><img class="logo" src="{{logo}}"> </div>
+        <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+      </div>
+    <div class="receiptSubconatiner" id="receiptConatiner">
+        <div class="titleContainer">
+            <div><img class="receiptIcon" src="./assets/images/iconShield.png" alt="success" *ngIf="!rejectMsg"></div>
+            <div><img class="receiptIcon" src="./assets/images/redFailed.svg" alt="rejected" *ngIf="rejectMsg"></div>
+            <div *ngIf="receiptDetails.msg1" class="paymentStatus" translate>{{receiptDetails.msg1}}</div>
+            <div *ngIf="receiptDetails.msg2" class="approval" translate>{{receiptDetails.msg2}}</div>
+            <div *ngIf="receiptDetails.rejectReason!=='' && receiptDetails.rejectReason !== undefined" class="rejectReason"><span class="referenceNo" translate>LBL_RJCT_RSN</span>: {{receiptDetails.rejectReason}}</div>            
+            <div *ngIf="receiptDetails.referenceNumber" class="referenceNo"><span translate>LBL_RECEIPT_REF</span><span> {{receiptDetails.referenceNumber}}</span></div>
+            <div *ngIf="receiptDetails.journalId!=='' && receiptDetails.journalId !== undefined" ><span class="referenceNo" translate>LBL_JOURNAL_ID</span>: {{receiptDetails.journalId}}</div>
+            <div *ngIf="receiptDetails.UTIReference!=='' && receiptDetails.UTIReference !== undefined && receiptDetails.UTIReference !== null"><span class="referenceNo" translate>LBL_UTI_REFERENCE_NUMBER</span>: {{receiptDetails.UTIReference}}</div>
+        </div>
+        <div class="row" *ngFor="let group of receiptDetails.receiptDetails">
+            <div translate class="subTitles">{{group.title}}</div>
+            <table *ngIf="group.isTable=='true'" class="mat-table cdk-table ng-star-inserted">
+                <tr class="mat-header-row cdk-header-row ng-star-inserted">
+                    <th class="mat-header-cell cdk-header-cell label cdk-column-actionby mat-column-actionby ng-star-inserted" *ngFor="let field of group.fieldDetails" translate>{{field.dispKey}}</th>
+                </tr>
+                <tr class="mat-row cdk-row" *ngFor="let dataField of group.data">
+                    <td class="mat-cell cdk-cell information cdk-column-actionby mat-column-actionby ng-star-inserted" *ngFor="let field of group.fieldDetails">{{dataField[field.dataKey] ? dataField[field.dataKey] : '--'}} <span *ngIf="dataField[field.dataKeySupport]">{{dataField[field.dataKeySupport]}}</span></td>
+                </tr>
+            </table>
+            <!-- <table *ngIf="group.isTable=='true'" mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="actionby">
+                  <th mat-header-cell *matHeaderCellDef class="label" translate>LBL_ACTION_BY</th>
+                  <td mat-cell *matCellDef="let element" class=" information">{{element.actionby}} </td>
+                </ng-container>
+                <ng-container matColumnDef="accountnumber">
+                  <th mat-header-cell *matHeaderCellDef class="label" translate>LBL_ACC_NUMBER</th>
+                  <td mat-cell *matCellDef="let element" class=" information"> {{element.accountnumber}} </td>
+                </ng-container>
+                <ng-container matColumnDef="shortname">
+                  <th mat-header-cell *matHeaderCellDef class="label" translate>LBL_SHORT_NAME</th>
+                  <td mat-cell *matCellDef="let element" class="information"> {{element.shortname}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table> -->
+            <div *ngIf="group.isTable=='false' && group.type !== 'viewPin'" class="rowInnerCntr">
+                <div class="field" *ngFor="let field of group.fieldDetails">
+                    <div class="label" translate>{{field.dispKey}}</div>
+                    <div class=" information " translate>{{field.dataKey}}</div>
+                </div>
+            </div>
+            <div *ngIf="group.isTable=='false' && group.type === 'viewPin'" class="rowInnerCntr">
+                <div class="field">
+                    <div class="label" translate>LBL_CARD_PIN</div>
+                    <div class="information" translate><span class="increase_font_size">* * * *</span><a class="viewPinLink" *ngIf="showViewPin" translate (click)="openViewPinDialog()">LBL_VIEW_PIN</a></div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="receiptDetails.showCallBackComponent"><app-call-back [callBackParams]="callBackComponentParams" [beneSummary]="beneSummary" [authorizeParams]="authorizeParams" [pageName]="pageName" [ChannelId]="ChannelId" (onSuccessEmit)="onCallbackSuccess()" (clickCancelCallBck)="getCanelBtnClick()"></app-call-back></div>
+        <!-- <div class="row">
+            <div class="rowInnerCntr">
+                <div class="field">
+                    <div class="label" translate>LBL_DEBIT_AMT</div>
+                    <div class=" information ">3,000.00 SAR</div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="row">
+            <div  class="subTitles" translate>LBL_AUTHORIZATION</div>
+            <div class="rowInnerCntr">
+                <div class="field">
+                    <div class="label" translate>LBL_Next_Approver</div>
+                    <div class="information">Suriya</div>
+                </div>
+                <div class="field">
+                    <div class="label" translate>LBL_ADD_NEXT_APROVER</div>
+                    <div class="dataNotProvided"  translate>LBL_NOT_PROVIDED</div>
+                </div>
+            </div>
+            
+        </div> -->
+    </div>
+    <!-- <div *ngIf="receiptDetails.showCallBackComponent"><app-call-back></app-call-back></div> -->
+    <div class="buttonContainer">
+        <!-- <app-tertiary-button iconPath="{{receiptDetails.printButton.buttonIcon}}" buttonValue="{{receiptDetails.printButton.buttonLabel}}" (ontertiaryBtnClick)="onPrintEventTrigger('receiptConatiner')" ></app-tertiary-button> -->
+        <app-secondary-button iconPath="{{receiptDetails.printButton.buttonIcon}}" buttonValue="{{receiptDetails.printButton.buttonLabel}}" (onsecondaryClick)="onPrintEventTrigger('receiptConatiner')" ></app-secondary-button>
+        <app-secondary-button (click)="toPdf()" iconPath="{{receiptDetails.saveButton.buttonIcon}}" buttonValue="{{receiptDetails.saveButton.buttonLabel}}"></app-secondary-button>
+        <app-secondary-button *ngIf="!hideButton" (click)="initAgain()" buttonValue="{{receiptDetails.initiateButton.buttonLabel}}"></app-secondary-button>
+        <app-primary-button *ngIf="finishButtonActive" routerLink="{{receiptDetails.finishButton.buttonPath}}" buttonValue="{{receiptDetails.finishButton.buttonLabel}}" [disablBtn]="disableBtn"></app-primary-button>
+        <app-primary-button *ngIf="downloadButtonActive" (click)="downloadButton()"  buttonValue="{{receiptDetails.DownloadButton.buttonLabel}}"></app-primary-button>
+    </div>
+</div>

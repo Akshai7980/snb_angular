@@ -1,0 +1,154 @@
+<div class="outerContainer">
+  <div class="accountDetails">
+    <div class="title" translate>LBL_NEW_MERCHANT</div>
+    <div class="subTitles" translate>LBL_MERCHANT_DETAILS</div>
+    <div class="flex merchnatContainer">
+      <div class="commericialContainer">
+        <div translate>
+          LBL_COM_REG_NAME_ARB <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" [(ngModel)]="commercialNameInArabic" />
+      </div>
+      <div class="commericialContainer">
+        <div translate>
+          LBL_TERMINAL_ADDRESS_ARABIC <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" [(ngModel)]="terminalAddArabic" />
+
+      </div>
+      <div class="commericialContainer">
+        <div translate>
+          LBL_SHOP_NAME_AS_IT_WILL_APPEAR_ON_THE_RECEIPT_ARABIC
+          <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" [(ngModel)]="shopNameArabic"/>
+
+      </div>
+    </div>
+    <div class="flex merchnatContainer">
+      <div class="commericialContainer">
+        <div translate>
+          LBL_COM_REG_NAME_ENG <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" [(ngModel)]="commercialNameInEng"/>
+
+      </div>
+      <div class="commericialContainer">
+        <div translate>
+          LBL_TERMINAL_ADDRESS <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" [(ngModel)]="termianlAdd"/>
+
+      </div>
+      <div class="commericialContainer">
+        <div translate>
+          LBL_SHOP_NAME_AS_IT_WILL_APPEAR_ON_THE_RECEIPT
+          <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" [(ngModel)]="shopNameEng"/>
+
+      </div>
+    </div>
+    <div class="flex merchnatContainer">
+      <div class="commericialContainer">
+        <div translate>
+          LBL_TERMINAL_CITY_NAME_OR_NEAREST_CITY <span class="errorMsg">*</span>
+        </div>
+
+        <mat-select
+          panelClass="dropDownOption"
+          disableOptionCentering
+          class="matSelectInput mt-top"
+          placeholder="{{ 'LBL_SELECT_CITY' | translate }}"
+          name="fileType"
+          [(value)]="terminalCity"
+        >
+          <mat-option *ngFor="let type of shopName" [value]="type">{{
+            type.value
+          }}</mat-option>
+        </mat-select>
+
+      </div>
+      <div class="commericialContainer">
+        <div translate>LBL_PHONE <span class="errorMsg">*</span></div>
+        <input
+          type="text"
+          (keypress)="allowNumbersOnly($event)"
+          class="selectInput"
+          [(ngModel)]="phone"
+        />
+
+      </div>
+      <div class="commericialContainer">
+        <div translate>
+          LBL_COMPANY_EMAIL_1_(TO_RECEIVE_FINANCIAL_DISPUTE)
+          <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" [(ngModel)]="companyEmail"/>
+
+      </div>
+    </div>
+    <div class="flex merchnatContainer">
+      <div class="commericialContainer">
+        <div translate>
+          LBL_DELEGATE_PERSON_FIRST_NAME <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" [(ngModel)]="personFirststname"/>
+
+      </div>
+      <div class="commericialContainer">
+        <div translate>
+          LBL_DELEGATE_PERSON_LAST_NAME <span class="errorMsg">*</span>
+        </div>
+        <input type="text" class="selectInput" [(ngModel)]="personLastName"/>
+
+      </div>
+      <div class="commericialContainer">
+        <div translate>
+          LBL_MOBILE_NUMBER_1_(DELEGATE_PERSON_IN_LOCATION)
+          <span class="errorMsg">*</span>
+        </div>
+        <input
+          type="text"
+          (keypress)="allowNumbersOnly($event)"
+          class="selectInput"
+          [(ngModel)]="mobilNo1"
+        />
+
+      </div>
+    </div>
+    <div class="flex">
+      <div class="commericialContainer">
+        <div translate>
+          LBL_MOBILE_NUMBER_2_(DELEGATE_PERSON_IN_LOCATION)
+          <span class="errorMsg">*</span>
+        </div>
+        <input
+          type="text"
+          (keypress)="allowNumbersOnly($event)"
+          class="selectInput"
+          [(ngModel)]="mobileNo2"
+        />
+
+      </div>
+      <div class="commericialContainer">
+        <div translate>LBL_COMMENTS</div>
+        <input type="text" class="selectInput" [(ngModel)]="comments"/>
+
+      </div>
+    </div>
+    <div class="actionGroup">
+      <app-tertiary-button buttonValue="LBL_BACK" (click)="backToMerchant()" class="tertiaryBtn">
+      </app-tertiary-button>
+    </div>
+  </div>
+  <div class="btnContainer">
+    <app-tertiary-button buttonValue="LBL_CANCEL" (click)="backToMerchant()" translate>
+    </app-tertiary-button>
+    <app-primary-button buttonValue="LBL_ADD" translate  (click)="add()" *ngIf="commercialNameInArabic && terminalAddArabic && shopNameArabic && commercialNameInEng && termianlAdd && shopNameEng && terminalCity && phone && companyEmail && personFirststname && personLastName && mobilNo1 && mobileNo2 " ></app-primary-button>
+  </div>
+  <app-terminal-management-add
+    *ngIf="showTerminalAdd" 
+    
+  ></app-terminal-management-add>
+</div>

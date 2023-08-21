@@ -1,0 +1,26 @@
+{
+  "data": {
+    "FIRST_NAME": "Ø¯ÙØªØ± Ø´ÙŠÙƒØ§Øª Ø¢ÙØ§Ù‚ Ø§Ù„Ø£Ù‡Ù„ÙŠ Ø§Ù„ØªÙ†ÙÙŠØ°ÙŠ Ø¯ÙØªØ± Ø´ÙŠÙƒØ§Øª Ø¢ÙØ§Ù‚ Ø§Ù„Ø£Ù‡Ù„ÙŠ Ø§Ù„ØªÙ†ÙÙŠØ°ÙŠ Ø¯ÙØªØ± Ø´ÙŠÙƒØ§Øª Ø¢ÙØ§Ù‚ Ø§Ù„Ø£Ù‡Ù„ÙŠ Ø§Ù„ØªÙ†ÙÙŠØ°",
+    "EMAIL_ID": "imh@gmail.com",
+    "MOBILE_NO": "9023800",
+    "ADDRESS_LINE1": "9754",
+    "ADDRESS_LINE2": "street",
+    "OD_RES_AREA_UL": "00051",
+    "OD_COUNTRY_UL": "SAUDI ARABIA",
+    "OD_PROVINCE_UL": "FinancialDistrict",
+    "OD_CITY_UL": "9754",
+    "OFF_PH": null,
+    "POB": "chennai",
+    "ZIP_CODE": "0000000",
+    "OD_ROLE_DESC": "Maker",
+    "OD_MAKER_NAME": "TODAY01",
+    "EXPIRY_DATE": "13-12-23",
+    "OD_AUTH_NAME": "SHIVAMMKR",
+    "NATIONAL_ID": "null",
+    "ETRADEID": "Userr123",
+    "CIF": ""
+  },
+  "headerValue": {
+    "moduleId": "USERPROFILE"
+  }
+}

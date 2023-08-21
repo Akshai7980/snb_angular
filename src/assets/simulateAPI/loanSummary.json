@@ -1,0 +1,109 @@
+{
+    "DATA": {
+        "TOTAL_COUNT": 6,
+        "ALL_RECORDS": [
+            {
+                "UNIT_ID": "",
+                "REQ_COUNTRY_CODE": "",
+                "LOAN_TYPE_CD": "",
+                "REQ_COUNTRY_DESC": "",
+                "LOAN_APPROVED_LIMIT": "1200000",
+                "LOAN_CCY": "BHD",
+                "LOAN_OD_ACC_NO": "360960010107",
+                "loan_Trans_Reference": "",
+                "LOAN_OS": "1200000",
+                "TOTAL_COUNT": 1,
+                "LOAN_TYPE": "MUR",
+                "CIF_NO": "",
+                "LOAN_OS_AMT": "420000",
+                "LOAN_APPROVED_LIMIT_AMT": ""
+            },
+            {
+                "UNIT_ID": "",
+                "REQ_COUNTRY_CODE": "",
+                "LOAN_TYPE_CD": "",
+                "REQ_COUNTRY_DESC": "",
+                "LOAN_APPROVED_LIMIT": "1200000",
+                "LOAN_CCY": "BHD",
+                "LOAN_OD_ACC_NO": "360960010107",
+                "loan_Trans_Reference": "",
+                "LOAN_OS": "1200000",
+                "TOTAL_COUNT": 1,
+                "LOAN_TYPE": "MUR",
+                "CIF_NO": "",
+                "LOAN_OS_AMT": "420000",
+                "LOAN_APPROVED_LIMIT_AMT": ""
+            },
+            {
+                "UNIT_ID": "",
+                "REQ_COUNTRY_CODE": "",
+                "LOAN_TYPE_CD": "",
+                "REQ_COUNTRY_DESC": "",
+                "LOAN_APPROVED_LIMIT": "1200000",
+                "LOAN_CCY": "BHD",
+                "LOAN_OD_ACC_NO": "360960010107",
+                "loan_Trans_Reference": "",
+                "LOAN_OS": "1200000",
+                "TOTAL_COUNT": 1,
+                "LOAN_TYPE": "MUR",
+                "CIF_NO": "",
+                "LOAN_OS_AMT": "420000",
+                "LOAN_APPROVED_LIMIT_AMT": ""
+            },
+            {
+                "UNIT_ID": "",
+                "REQ_COUNTRY_CODE": "",
+                "LOAN_TYPE_CD": "",
+                "REQ_COUNTRY_DESC": "",
+                "LOAN_APPROVED_LIMIT": "1200000",
+                "LOAN_CCY": "BHD",
+                "LOAN_OD_ACC_NO": "360960010107",
+                "loan_Trans_Reference": "",
+                "LOAN_OS": "1200000",
+                "TOTAL_COUNT": 1,
+                "LOAN_TYPE": "MUR",
+                "CIF_NO": "",
+                "LOAN_OS_AMT": "420000",
+                "LOAN_APPROVED_LIMIT_AMT": ""
+            },
+            {
+                "UNIT_ID": "",
+                "REQ_COUNTRY_CODE": "",
+                "LOAN_TYPE_CD": "",
+                "REQ_COUNTRY_DESC": "",
+                "LOAN_APPROVED_LIMIT": "1200000",
+                "LOAN_CCY": "BHD",
+                "LOAN_OD_ACC_NO": "360960010107",
+                "loan_Trans_Reference": "",
+                "LOAN_OS": "1200000",
+                "TOTAL_COUNT": 1,
+                "LOAN_TYPE": "MUR",
+                "CIF_NO": "",
+                "LOAN_OS_AMT": "420000",
+                "LOAN_APPROVED_LIMIT_AMT": ""
+            },
+            {
+                "UNIT_ID": "",
+                "REQ_COUNTRY_CODE": "",
+                "LOAN_TYPE_CD": "",
+                "REQ_COUNTRY_DESC": "",
+                "LOAN_APPROVED_LIMIT": "1200000",
+                "LOAN_CCY": "BHD",
+                "LOAN_OD_ACC_NO": "360960010107",
+                "loan_Trans_Reference": "",
+                "LOAN_OS": "1200000",
+                "TOTAL_COUNT": 1,
+                "LOAN_TYPE": "MUR",
+                "CIF_NO": "",
+                "LOAN_OS_AMT": "420000",
+                "LOAN_APPROVED_LIMIT_AMT": ""
+            }
+        ]
+    },
+    "HEADER_VALUE": {
+        "sortColumn": "LOAN_OD_ACC_NO",
+        "sortOrder": "desc",
+        "MODULE_ID": "LOANSUM",
+        "TXN_PROCESS_DATE_TIME": ""
+    }
+}

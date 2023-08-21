@@ -1,0 +1,32 @@
+.viewMT103Cntr{
+  .sub-container {border-radius: 10px;background: var(--primary-widget-bg-color);border: 1px solid var(--widget-border-color);min-height: 50%;margin-left: 25px;padding: 22px;}
+}
+.topTittleCntr {margin-left: 13px;}
+.backArrow{top:5px}
+.titleIcons{display: flex;font-family: 'HelveticaNeueMed', arial, sans-serif;div:last-child{    margin:-2px 6px;}}
+.titleIcons{ display: grid;}
+.gridline01{ display: flex;
+}
+.gridline02{margin-top: -10px !important;
+}
+
+@media print{
+    #logoPrint{display: block;}
+    .logo{margin: auto;}
+    div.divFooter {
+        position: fixed;
+        bottom: 0;
+        font-family: 'HelveticaNeueMed' !important;
+        margin-left:35%;
+    }
+}
+@media screen{
+    #logoPrint{display: none;}
+    .divFooter {
+        display: none;
+      }
+}
+.logo{height:60px;margin-top:10px;margin-left:48%;width:60px;vertical-align: middle;padding-bottom: 10px;}
+
+
+ 

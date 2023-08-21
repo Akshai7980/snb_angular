@@ -1,0 +1,16 @@
+{
+  "dataValue":{  
+        "city": 408,
+        "postCode": "26513",
+        "street": "King Khaled Street",
+        "district": "Mushrifah",
+        "basicNumber": 3644,
+        "cityNameEnglish": "AT TAIF",
+        "countryOfBirth": "SA"
+       
+      },
+          
+    "headerValue": {
+      "moduleId": "NATADDDETAILS"
+    }
+} 

@@ -1,0 +1,10 @@
+{
+  "data": {
+    "customerId": "ABC999488",
+    "customerName": "ABC Shipping Corporation",
+    "branch": "614- Riyadh"
+  },
+  "headerValue": {
+    "moduleId": "CMPYINFETRDREG"
+  }
+}

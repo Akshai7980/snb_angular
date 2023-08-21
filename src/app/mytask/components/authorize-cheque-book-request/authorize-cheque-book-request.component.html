@@ -1,0 +1,70 @@
+<div *ngIf="!receiptForm">
+<div class="detailsTitleContainer">
+    <div>
+    <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+    <div class="mainTitle" translate>LBL_AUTHORIZE_CHEQUEBOOK_REQ</div>
+    </div>
+</div>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <div class="detailsContainer">
+            <div class="titleContainer">
+                <div class="titleContainerLeft">{{'LBL_CHEQUE_BOOK_REQUEST' | translate}} {{'LBL_LOWERCASE_TO' | translate}} {{'LBL_ACC_SHORTFORM' | translate}} <span *ngIf="details">{{details.ACCOUNT_NAME}}</span>,
+                    <span *ngIf="details">{{details.DEBIT_ACCOUNT_NO}}</span></div>
+            </div>
+            <div class="subTitleContainer">
+                <div class="subTitleContainerLeft">{{'LBL_TRANSACTION_REF_NUM' | translate}}<span *ngIf="details"> {{details.INPUT_REFERENCE_NO}}</span></div>
+            </div>
+            <div class="statusContainerLeft">
+                <button class="status-green-button" *ngIf="details" [class.status-red-button]="(details.OD_STATUS === 'RN') || (details.OD_STATUS === 'RS') || (details.OD_STATUS === 'RE') || (details.OD_STATUS === 'RO') || (details.OD_STATUS === 'RH')">{{details.OD_STATUS_DESCRIPTION}}</button>
+            </div>
+            <div class="dataContainer">
+                <span class="header" translate>LBL_FROM</span>
+                <div class="fxContainer mt-top">
+                    <div class="column1">
+                        <label class="label" translate>LBL_ACTION_BY</label>
+                        <div class="dataInfo" *ngIf="details">{{details.ACCOUNT_NAME}}</div>
+                    </div>
+                    <div class="column2">
+                        <label class="label" translate>LBL_NICKNAME</label>
+                        <div class="dataInfo" *ngIf="details">{{details.ACCOUNT_NICKNAME}}</div>
+                    </div>
+                </div>
+                <span class="header" translate>LBL_CHEQUE_BOOK_DETAILS</span>
+                <div class="fxContainer mt-top">
+                    <div class="column1">
+                        <label class="label" translate>LBL_NO_OF_BOOKS</label>
+                        <div class="dataInfo" *ngIf="details">{{details.NO_BK}}</div>
+                    </div>
+                    <div class="column2">
+                        <label class="label" translate>LBL_CHEQUE_BOOK_TYPE</label>
+                        <div class="dataInfo" *ngIf="details">{{details.CUST_CHEQUE_TYPE}}</div>
+                    </div>
+                    <div class="column3">
+                        <label class="label" translate>LBL_DELIVERY</label>
+                        <div class="dataInfo" *ngIf="details">{{details.CHE_DEL}} : {{details.COL}}</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+      </div>
+</section>
+<section class="summaryOuterConainer" *ngIf=" showAuthorization">
+    <div class="summaryConainer authContainer">
+      <app-authorization [authListDataSource]="authOptions" (authEmit)="getDisplayStatus($event)"></app-authorization>
+    </div>
+</section>
+<section>
+    <div class="btnContainer">
+        <!-- <button class="button-secondary" routerLink="/mytask/serviceRequest" translate>LBL_CANCEL</button>
+        <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button> -->
+        <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()"></app-tertiary-button>
+        <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+     </div>
+</section>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>
+
+

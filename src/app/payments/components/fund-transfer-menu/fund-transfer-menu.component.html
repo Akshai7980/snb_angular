@@ -1,0 +1,19 @@
+<div class="mainContainer" >
+    <div class="flexRow">
+        <div class="title" *ngIf="rootScopeData.changeHeading"><span class="toggleLable" translate>{{rootScopeData.changeHeading | translate}}</span></div>
+        <app-daily-limit class="dailyLimit" *ngIf="this.rootScopeData.dailyLimit"></app-daily-limit>
+      </div>
+    <div *ngIf="!rootScopeData.hideTabs" >
+        <div class="subContainer">
+            <div class="paymentToggels">
+                <div *ngFor="let transType of transTypeObj" class="toggle" (click)="transTypeRoute(transType.subPdtCode)" [class.active]="rootScopeData.paymentActiveTabName == transType.subPdtCode"><span class="toggleLable" translate>{{transType.lbl}}</span></div>
+            </div>            
+        </div>
+    </div>
+    <div *ngIf="rootScopeData.hideTabs && rootScopeData.changeHeading" class="paymentName">
+        <span translate>LBL_{{rootScopeData.paymentActiveTabName}}</span>
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

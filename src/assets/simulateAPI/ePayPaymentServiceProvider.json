@@ -1,0 +1,17 @@
+{
+    "headerValue": {
+        "moduleId": "PYTSRVPRVD"
+    },
+    "data": [
+        {
+            "payService": [
+                {
+                    "paymentService": "Moyasar"
+                },
+                {
+                    "paymentService": "Payfort"
+                }
+            ]
+        }
+    ]
+}

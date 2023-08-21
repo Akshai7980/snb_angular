@@ -1,0 +1,10 @@
+<app-service-inquiry-layout
+  (getServiceInquiryEmit)="getServiceInquiryData($event)"
+  *ngIf="!serviceInquiryEmit.canProceed"
+></app-service-inquiry-layout>
+
+<app-service-inquiry-request-summary
+  (getServiceInquiryEmit)="getServiceInquiryData($event)"
+  [serviceDetails]="serviceDetails"
+  *ngIf="serviceInquiryEmit.canProceed"
+></app-service-inquiry-request-summary>

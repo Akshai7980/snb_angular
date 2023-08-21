@@ -1,0 +1,26 @@
+.close-icon {
+    float: right;
+    margin-right: -3%;
+    cursor: pointer;
+}
+.mat-dialog-content {
+    border-top: none;
+    border-bottom: none;
+    margin-top: 5%;
+    margin-left: -7%;
+    font-family: 'HelveticaNeue', arial, sans-serif;
+    font-size: 14px;
+    color: var(--default-text-color);
+}
+
+.mat-dialog-actions {
+    float: right !important;
+    margin-top: 18%;
+}
+
+.mat-dialog-title{
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    font-size: 16px;
+    color: var(--default-text-color);
+}
+

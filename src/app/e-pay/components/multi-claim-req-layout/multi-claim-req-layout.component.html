@@ -1,0 +1,34 @@
+<div *ngIf="pageType !== 'receipt'">
+  <div class="title" *ngIf="pageType !== 'review'" translate>LBL_MULTI_CLAIM_REQUEST</div>
+  <div class="title" *ngIf="pageType === 'review'" translate>LBL_REVIEW</div>
+  <app-multi-claim-merchant-details #merchantDetailsComp
+    (merchantDetailsEmit)="getMerchantDetails($event)"></app-multi-claim-merchant-details>
+  <app-multi-claim-claim-details (proceedEmit)="proceedNext($event)" (cancelEmit)="toCancel()"
+    *ngIf="merchantDetails?.selectedAccount && merchantDetails?.selectedMerchant"></app-multi-claim-claim-details>
+  <div class="outerContainer"
+    *ngIf="merchantDetails && merchantDetails.selectedAccount && merchantDetails?.selectedMerchant">
+    <app-record-summary *ngIf="pageType === 'review' && showRecSumm" (sortColumnEmit)="onSortColumn($event)"
+      [moduleId]="recordSummaryModuleId" [sortOptions]="sortOptions" [recordSummaryObject]="recordSummaryObject"
+      [pageCall]="true"></app-record-summary>
+
+    <app-authorization *ngIf="flexAuthResp.flexiAuth === 'true' && pageType === 'review'"
+      [authListDataSource]="authOptions" (authEmit)="getAuthorizationEmit($event)"></app-authorization>
+
+    <app-authentication *ngIf="pageType === 'review'" (onTwoAuthClick)="onSecondFactorValue($event)"
+      (getOtpClick)="getOtpValue($event)" [otpError]="otpError"></app-authentication>
+  </div>
+
+  <div class="termsAndConditions" translate *ngIf="pageType === 'review'">
+    LBL_TERMS
+    <a href="{{ url }}" target="_blank"><span class="termsContainer" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>
+  </div>
+
+  <div class="actionGroup" *ngIf="pageType === 'review'">
+    <app-tertiary-button buttonValue="LBL_CANCEL" class="tertiaryBtn" (click)="toCancel()"></app-tertiary-button>
+  </div>
+</div>
+
+<app-receipt *ngIf="pageType === 'receipt'" [receiptDetails]="receiptObject" [saveReceiptObject]="saveReceiptObject"
+  (onInitAgainClick)="makeAnotherPayment()" (DownloadReceiptClick)="downloadPdf()"></app-receipt>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

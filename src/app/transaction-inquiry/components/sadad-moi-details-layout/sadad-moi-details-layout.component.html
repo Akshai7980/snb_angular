@@ -1,0 +1,30 @@
+<div class="detailsTitleContainer">
+    <div class="mainTitle" translate>LBL_SADAD_MOI_DETAILS</div>
+</div>
+<div class="detailsDataCntr">
+    <section class="summaryOuterConainer">
+        <div class="summaryConainer">
+            <app-sadad-moi-details></app-sadad-moi-details>
+          </div>
+    </section>
+    <section class="summaryOuterConainer">
+        <div class="summaryConainer">
+            <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+          </div>
+    </section>
+    <section class="summaryOuterConainer">
+        <div class="summaryConainer">
+            <app-history [historyData]="workFlowHistoryParams"></app-history>
+          </div>
+    </section>
+    <section>
+        <div class="btnContainer">
+            <!-- <button class="button-secondary backButton" routerLink="/transactionInquiry/sadadTransfer" translate>LBL_BACK</button> -->
+            <app-tertiary-button buttonValue="LBL_BACK" (click)="onClickBack()"></app-tertiary-button>
+         </div>
+    </section>
+</div>
+
+
+
+

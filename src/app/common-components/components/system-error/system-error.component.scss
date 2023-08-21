@@ -1,0 +1,18 @@
+#toast {
+    width: 500px;
+    padding: 10px 20px;
+    display: flex;
+    margin: auto;
+    background: var(--summary-hover-color);
+    color: var(--tableData-header-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid var(--widget-border-color);
+    justify-content: space-between;
+    z-index: 9;
+    margin-top: 1px;
+}
+.close {cursor: pointer; font-family: verdana; color: var(--tableData-header-color);}

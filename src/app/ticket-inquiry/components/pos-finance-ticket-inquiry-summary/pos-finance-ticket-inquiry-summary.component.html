@@ -1,0 +1,259 @@
+<div class="parentDiv" id="posFinanceTicketInquirySummaryPrintSection">
+    <div class="row" id="logoPrint">
+        <div><img class="logo" src="{{logo}}"> </div>
+        <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+    </div>
+    <div class="mainTitle cusTitle">
+        <div class="backIcon backArrow" routerLink="/ticketInquiry/inquiry"></div>
+        <span translate>LBL_TICKET_INQUIRY_SUMMARY</span>
+    </div>
+    <div class="summarytools">
+        <app-summary-tools [printSection]="printSection" [moduleId]="''"></app-summary-tools>
+    </div>
+    <div class="container">
+        <div class="fileDetails">
+            <div class="title bold">
+                {{"LBL_POS_FINANCE" | translate}} {{"LBL_FROM" | translate}} {{posFinanceTicketInquirySummaryDetails.name ? posFinanceTicketInquirySummaryDetails.name : '--'}}, {{posFinanceTicketInquirySummaryDetails.accNo ? posFinanceTicketInquirySummaryDetails.accNo : '--'}}
+            </div>
+            <div class="title">
+                {{"LBL_TRANSACTION_REF_NUM" | translate}}:
+                &nbsp;{{posFinanceTicketInquirySummaryDetails.refNo ? posFinanceTicketInquirySummaryDetails.refNo : '--'}}
+            </div>
+            <div class="title">
+                {{"LBL_ON" | translate}}
+                {{posFinanceTicketInquirySummaryDetails.date ? posFinanceTicketInquirySummaryDetails.date : '--'}}
+                <div class="pad_l_60">
+                    <button class="status-red-button statusButton" translate>
+                        {{posFinanceTicketInquirySummaryDetails.status}}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cardDetailsContainer" *ngIf="serviceType === 'Payroll'">
+            <div class="subContainer">
+                <div class="subTitles" translate>LBL_REQUEST_DETAILS</div>
+                <div class="rowInnerCntr">
+                    <div class="field">
+                        <div class="label" translate>LBL_COMPLAINT_TYPE</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.complaintType ? posFinanceTicketInquirySummaryDetails.complaintType : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_SOURCE</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.source ? posFinanceTicketInquirySummaryDetails.source : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_CIF</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.cif ? posFinanceTicketInquirySummaryDetails.cif : '--'}}
+                        </div>
+                    </div>
+                    <div class="field fileName">
+                        <div class="label" translate>LBL_FILE_NAME</div>
+                        <div class="information ellipse">
+                            {{posFinanceTicketInquirySummaryDetails.fileName ? posFinanceTicketInquirySummaryDetails.fileName : '--'}}
+                        </div>
+                        <div class="downloadIcon">
+                            <app-uploaded-file-download *ngIf="posFinanceTicketInquirySummaryDetails.fileName"
+                            [fileUploadedDetails]="fileUploadedDetails">
+                            </app-uploaded-file-download>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_AMOUNT</div>
+                        <div class="information" *ngIf="posFinanceTicketInquirySummaryDetails.amount">
+                            {{posFinanceTicketInquirySummaryDetails.amount | currencyFormat: posFinanceTicketInquirySummaryDetails.currency}} {{posFinanceTicketInquirySummaryDetails.currency ? posFinanceTicketInquirySummaryDetails.currency : '--'}}
+                        </div>
+                        <div class="information" *ngIf="!posFinanceTicketInquirySummaryDetails.amount">
+                            --
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_MOBILE_NUMBER</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.mobileNo ? posFinanceTicketInquirySummaryDetails.mobileNo : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_CLAIM_DESCRIPTION</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.claimDesc ? posFinanceTicketInquirySummaryDetails.claimDesc : 'LBL_NOT_PROVIDED' | translate}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cardDetailsContainer" *ngIf="serviceType === 'Transfer'">
+            <div class="subContainer">
+                <div class="subTitles" translate>LBL_REQUEST_DETAILS</div>
+                <div class="rowInnerCntr">
+                    <div class="field">
+                        <div class="label" translate>LBL_COMPLAINT_TYPE</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.complaintType ? posFinanceTicketInquirySummaryDetails.complaintType : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_SOURCE</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.source ? posFinanceTicketInquirySummaryDetails.source : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_CIF</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.cif ? posFinanceTicketInquirySummaryDetails.cif : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_TRANSFER_DIRECTION</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.transferDirection ? posFinanceTicketInquirySummaryDetails.transferDirection : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_TRANSFER_NUMBER</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.transferNo ? posFinanceTicketInquirySummaryDetails.transferNo : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_AMOUNT</div>
+                        <div class="information" *ngIf="posFinanceTicketInquirySummaryDetails.amount">
+                            {{posFinanceTicketInquirySummaryDetails.amount | currencyFormat: posFinanceTicketInquirySummaryDetails.currency}} {{posFinanceTicketInquirySummaryDetails.currency ? posFinanceTicketInquirySummaryDetails.currency : '--'}}
+                        </div>
+                        <div class="information" *ngIf="!posFinanceTicketInquirySummaryDetails.amount">
+                            --
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_MOBILE_NUMBER</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.mobileNo ? posFinanceTicketInquirySummaryDetails.mobileNo : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_CLAIM_DESCRIPTION</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.claimDesc ? posFinanceTicketInquirySummaryDetails.claimDesc : 'LBL_NOT_PROVIDED' | translate}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_DATE</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.date ? posFinanceTicketInquirySummaryDetails.date : '--'}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cardDetailsContainer" *ngIf="serviceType === 'Transfer Dispute'">
+            <div class="subContainer">
+                <div class="subTitles" translate>LBL_REQUEST_DETAILS</div>
+                <div class="rowInnerCntr">
+                    <div class="field">
+                        <div class="label" translate>LBL_SERVICE_TYPE</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.serviceType ? posFinanceTicketInquirySummaryDetails.serviceType : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_SOURCE</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.source ? posFinanceTicketInquirySummaryDetails.source : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_CIF</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.cif ? posFinanceTicketInquirySummaryDetails.cif : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_CALLER_NAME</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.callerName ? posFinanceTicketInquirySummaryDetails.callerName : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_USER_ID</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.userId ? posFinanceTicketInquirySummaryDetails.userId : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_REGION</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.region ? posFinanceTicketInquirySummaryDetails.region : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_CNT_TELE_NO</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.teleNo ? posFinanceTicketInquirySummaryDetails.teleNo : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_ABSTRACT</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.abstract ? posFinanceTicketInquirySummaryDetails.abstract : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_MOBILE_NUMBER</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.mobileNo ? posFinanceTicketInquirySummaryDetails.mobileNo : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_REASON</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.reason ? posFinanceTicketInquirySummaryDetails.reason : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_STATUS</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.reqStatus ? posFinanceTicketInquirySummaryDetails.reqStatus : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_DATE</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.date ? posFinanceTicketInquirySummaryDetails.date : '--'}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_CLOSURE_DATE</div>
+                        <div class="information">
+                            {{posFinanceTicketInquirySummaryDetails.closureDate ? posFinanceTicketInquirySummaryDetails.closureDate : '--'}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="summaryOuterConainer">
+        <div class="summaryConainer">
+            <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+        </div>
+    </section>
+    <section class="summaryOuterConainer">
+        <div class="summaryConainer">
+            <app-history [historyData]="workFlowHistoryParams"></app-history>
+        </div>
+    </section>
+
+    <div class="btnGroup mtop_20">
+        <div class="btnContainer">
+            <app-tertiary-button buttonValue="LBL_BACK" routerLink="/ticketInquiry/inquiry"></app-tertiary-button>
+        </div>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

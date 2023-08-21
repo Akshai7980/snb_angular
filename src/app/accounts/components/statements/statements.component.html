@@ -1,0 +1,15 @@
+<div *ngIf="statementcount > 0" class="statementHeader">
+    {{'LBL_TOTAL' | translate}} {{statementcount}} {{'LBL_STMNTS_FOUND' | translate}}
+</div>
+<div *ngIf="statementcount === 0" class="statementHeader">
+    {{'LBL_NO_STATEMENT_FOUND' | translate}}
+</div>
+<table>
+    <tr *ngFor="let stmtData of statementsData">
+        <td>
+            <span class="statementDescription">{{stmtData.res_InvoiceDate |dateFormat}}</span>
+            <img src="assets/images/downloadIcon.svg" class="downloadIcon" (click)="download_Click(stmtData)">
+        </td>
+    </tr>
+</table>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

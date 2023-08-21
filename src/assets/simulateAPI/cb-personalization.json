@@ -1,0 +1,25 @@
+{
+    "headerValue": {
+      "moduleId": "CHQPRESONALIZATION",
+      "simulate": "N"
+    },
+    "data": {
+      "quantity": "01",
+      "pickupBranchCode": "2002",
+      "address2": "Test HKMC",
+      "city": "dist",
+      "address1": "",
+      "postalCode": "0001789977",
+      "languageCode": "01",
+      "maxConsumptionLevel": "00",
+      "accountId": "05100003411902",
+      "chequeProperties": "",
+      "autoReorderFlag": "N",
+      "name2": "",
+      "chequeBookTypeCode": "7025",
+      "name1": "Mr SAM HUSSEIN NASSER SALEH AL LAWDHAEAI",
+      "email": "",
+      "res_ErrorCode" :"00000"
+    },
+    "footerValue": {}
+  }

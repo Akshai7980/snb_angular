@@ -1,0 +1,164 @@
+<div class="outerContainer">
+  <div class="subTitles" translate>LBL_REVIEW</div>
+  <div class="merchantDetails">
+    <div class="subTitles" translate>LBL_MERCHANT_DETAILS</div>
+    <!-- Account -->
+    <div class="detailContainer">
+      <div class="outerContainer">
+        <div>
+          <div class="subTitles" translate>LBL_ACCOUNT</div>
+          <table>
+            <tr class="tableHeader">
+              <th translate>LBL_ACC_NUMBER</th>
+              <th translate>LBL_NICK_NAME</th>
+              <th translate>LBL_FULL_NAME</th>
+              <th translate>LBL_STATUS</th>
+              <th translate>LBL_BALANCE</th>
+            </tr>
+            <ng-container>
+              <tr class="tableRowConatiner">
+                <td>SA1010 0100 1000 0000123</td>
+                <td>Dameer</td>
+                <td>Dameer Ahsan</td>
+                <td>Active</td>
+                <td>1,235.00 SAR</td>
+                <div class="downArrowAcc"></div>
+              </tr>
+            </ng-container>
+          </table>
+        </div>
+      </div>
+      <!-- Account end -->
+      <!-- merchant -->
+      <div class="outerContainer">
+        <div>
+          <table>
+            <tr class="tableHeader">
+              <th translate>LBL_MERCHANT_NAME</th>
+              <th translate>LBL_MERCHANT_NAME_ARABIC</th>
+              <th translate>LBL_MERCHANT_NUMBER</th>
+
+              <th translate>LBL_SHOP_NAME</th>
+            </tr>
+            <ng-container>
+              <tr class="tableRowConatiner">
+                <td>Adhara Alam</td>
+                <td>علم أذار</td>
+                <td>1010 0100 1000 0000 0123</td>
+
+                <td>Zamzam Water</td>
+                <div class="downArrowAcc"></div>
+              </tr>
+            </ng-container>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="outerContainer">
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_TERMINAL_DETAIL</div>
+    <div class="title" translate>LBL_SOFT_TERMINAL</div>
+
+    <div class="displayFlx">
+      <div class="marginTop20 width30">
+        <p translate class="fieldTitles">LBL_SCHEMES</p>
+        <mat-checkbox class="checkboxMarginLft">Mada card</mat-checkbox><br />
+        <mat-checkbox class="marginTop20 checkboxMarginLft"
+          >Credit card</mat-checkbox
+        >
+        <div translate class="fieldTitles marginTop40">
+          LBL_NO_OF_TERMINALS<span class="required">*</span>
+        </div>
+        <div class="mtop_10">
+          <p>1</p>
+        </div>
+      </div>
+
+      <div class="physicalTerminalDetails marginTop20">
+        <tr class="displayFlxContainer">
+          <td class="width30">Mada Percentage</td>
+          <td class="width70">Fees as per terms and conditions</td>
+        </tr>
+        <tr class="displayFlxContainer">
+          <td class="width30">Mada Cap</td>
+          <td class="width70">160 SAR</td>
+        </tr>
+        <tr class="displayFlxContainer">
+          <td class="width30">Credit Card Percentage</td>
+          <td class="width70">25%</td>
+        </tr>
+        <tr class="displayFlxContainer">
+          <td class="width30">Terminal Type</td>
+          <td class="width70">GPRS</td>
+        </tr>
+        <tr class="displayFlxContainer">
+          <td class="width30">GCC</td>
+          <td class="width70">15%</td>
+        </tr>
+        <small
+          >*Note: In case there is more than one location, please open a new
+          request for each location determining number of termminals in each
+          location</small
+        >
+      </div>
+    </div>
+    <div>
+      <p class="subTitles marginTop40">Terminal Data 1</p>
+      <div class="terminalDataContainer">
+        <div>
+          <div class="geneStaTitles fieldTitles" translate>
+            LBL_USER_ID <span class="errorMsg">*</span>
+          </div>
+          <p>user001</p>
+        </div>
+        <div>
+          <div class="geneStaTitles fieldTitles" translate>
+            LBL_DATE_OF_BIRTH <span class="errorMsg">*</span>
+          </div>
+          <p>24/06/1987</p>
+        </div>
+        <div>
+          <div class="geneStaTitles fieldTitles" translate>
+            LBL_MOBILE <span class="errorMsg">*</span>
+          </div>
+          <p>+966 00966 1 2411681</p>
+        </div>
+        <div class="marginTop20">
+          <div class="geneStaTitles fieldTitles" translate>
+            LBL_EMAIL <span class="errorMsg">*</span>
+          </div>
+          <p>dameer@zamzam.info</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-authorization></app-authorization>
+  <app-authentication></app-authentication>
+  <div class="footerText" translate>
+    LBL_TERMS
+    <a href="{{ url }}" target="_blank"
+      ><span class="termsContainer" translate
+        >LBL_THE_TERMS_AND_CONDITIONS</span
+      ></a
+    >
+  </div>
+  <div class="btnGroup mtop_20">
+    <div>
+      <app-tertiary-button buttonValue="LBL_CANCEL" class="tertiaryBtn">
+      </app-tertiary-button>
+    </div>
+    <div class="modify">
+      <!-- <button type="button" class="button-print-secondary" translate>
+        LBL_MODIFY
+      </button> -->
+
+      <app-secondary-button buttonValue="LBL_MODIFY"></app-secondary-button>
+    </div>
+    <div>
+      <app-primary-button buttonValue="LBL_SUBMIT" class="buttonPrimary">
+      </app-primary-button>
+    </div>
+  </div>
+</div>

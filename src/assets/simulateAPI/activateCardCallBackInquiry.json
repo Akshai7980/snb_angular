@@ -1,0 +1,22 @@
+{
+    "hdr_Tran_ID": "INQUIRE_CALLBACK",
+    "res_ErrorMessage": "Sucess",
+    "res_CoreRefno": "4567",
+    "res_ErrorCode": "0",
+    "InquireCallbackResponse": {
+        "success": {
+            "cif": "72253209",
+            "recordStatus": "PROCESSED",
+            "queuedTime": "26-06-2022 15:22:57",
+            "service": "RESETPWD",
+            "channel": "ECORP",
+            "mobile": "+9660565946094",
+            "connectedTime": "26-06-2022 15:23:10",
+            "language": "01",
+            "uniqueId": "100001880",
+            "transactionId": "2d181477-a8ec-4482-a53b-b3fcb34b0e3e",
+            "closedTime": "26-06-2022 15:23:32",
+            "processedTime": "26-06-2022 15:22:57"
+        }
+    }
+}

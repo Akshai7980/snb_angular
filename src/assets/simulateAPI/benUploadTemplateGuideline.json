@@ -1,0 +1,274 @@
+{
+  "headerValue": {
+    "moduleId": "PMNTSGETFLDDATA",
+    "simulate": "N",
+    "export": null,
+    "exportType": null,
+    "_dinsess": "7ff69328-6f63-4e15-b8c6-9b42365eadd5",
+    "languageId": null,
+    "sortColumn": "violatorId",
+    "sortOrder": "asc"
+  },
+  "data": {
+    "fileDetails": {
+      "TEMPLATENAME": "All Template",
+      "DATEFORMAT": "DD-MM-YYYY",
+      "FILETYPE": "Excel[.xsl]",
+      "FIELDSEPARATOR": "~"
+    },
+    "fieldList": [
+      {
+        "FIELDNAME": "Transaction Type Code",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 1,
+        "FIELDLENGTH": 3,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Product Code: Account to Account Transfer:-  BT  Domestic Transfer :- LBT  International Fund Transfer :- TT  Managers Cheque :- MC  "
+      },
+      {
+        "FIELDNAME": "Payment Serial Number",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 2,
+        "FIELDLENGTH": 80,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Payment Serial Number"
+      },
+      {
+        "FIELDNAME": "Debit Account No.",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 3,
+        "FIELDLENGTH": 23,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Debit Account No."
+      },
+      {
+        "FIELDNAME": "Value Date",
+        "DATATYPE": "DATE",
+        "MANDATORY": "N",
+        "SEQUENCE": 4,
+        "FIELDLENGTH": 11,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Transaction Date as per the format specified on top. Cannot be back-dated. Only today and forward dated value is acceptable."
+      },
+      {
+        "FIELDNAME": "Payment Amount",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 5,
+        "FIELDLENGTH": 15,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Payment Amount"
+      },
+      {
+        "FIELDNAME": "Transaction Currency",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 6,
+        "FIELDLENGTH": 3,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Transaction Currency"
+      },
+      {
+        "FIELDNAME": "Beneficiary Bank Code / SWIFT Code",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 7,
+        "FIELDLENGTH": 11,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Valid Swift Code."
+      },
+      {
+        "FIELDNAME": "Beneficiary Account No.",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 8,
+        "FIELDLENGTH": 34,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Beneficiary Account No."
+      },
+      {
+        "FIELDNAME": "Beneficiary Name",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 9,
+        "FIELDLENGTH": 150,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Beneficiary Name"
+      },
+      {
+        "FIELDNAME": "Beneficiary Addr. Line 1",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 10,
+        "FIELDLENGTH": 35,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Beneficiary Addr. Line 1"
+      },
+      {
+        "FIELDNAME": "Beneficiary Addr. Line 2",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 11,
+        "FIELDLENGTH": 35,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Beneficiary Addr. Line 2"
+      },
+      {
+        "FIELDNAME": "Beneficiary Addr. Line 3",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 12,
+        "FIELDLENGTH": 35,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Beneficiary Addr. Line 3"
+      },
+      {
+        "FIELDNAME": "Purpose Code",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 13,
+        "FIELDLENGTH": 10,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Purpose Code"
+      },
+      {
+        "FIELDNAME": "Purpose Of Payment",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 14,
+        "FIELDLENGTH": 140,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Purpose Of Payment / Secondary Information"
+      },
+      {
+        "FIELDNAME": "Customer Reference No",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 15,
+        "FIELDLENGTH": 16,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Customer Reference Number, Any alphanumeric reference number to tag the uniqueness of the payments record. If this is repeated in future file uploads, the service will consider the payment as duplicate and will not accept the upload."
+      },
+      {
+        "FIELDNAME": "Charge Type",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "Y",
+        "SEQUENCE": 16,
+        "FIELDLENGTH": 3,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Correspondent bank charges to be borne by. In this column please mention: OUR: If all charges are to be borne by you i.e.; FBN bank charges if any OR BEN: If all charges are to be borne by the beneficiary OR SHA: If FBN charges are to be borne by you and correspondent bank charges by the beneficiary"
+      },
+      {
+        "FIELDNAME": "Charge Account No",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 17,
+        "FIELDLENGTH": 12,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Charge Account No"
+      },
+      {
+        "FIELDNAME": "Payment Type",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 18,
+        "FIELDLENGTH": 25,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Payment Type"
+      },
+      {
+        "FIELDNAME": "Deal Rate",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 19,
+        "FIELDLENGTH": 18,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Treasury Deal Rate as against deal number. Mandatory if deal number is selected."
+      },
+      {
+        "FIELDNAME": "Deal Reference No",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 20,
+        "FIELDLENGTH": 12,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Deal Reference No. If deal number is selected then, deal rate and deal date becomes mandatory."
+      },
+      {
+        "FIELDNAME": "Dealer Name",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 21,
+        "FIELDLENGTH": 35,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Dealer Name"
+      },
+      {
+        "FIELDNAME": "Deal Date",
+        "DATATYPE": "DATE",
+        "MANDATORY": "N",
+        "SEQUENCE": 22,
+        "FIELDLENGTH": 11,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Treasury Deal booked on Date. Mandatory if deal number is selected."
+      },
+      {
+        "FIELDNAME": "BranchCode",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 23,
+        "FIELDLENGTH": 20,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "BranchCode"
+      },
+      {
+        "FIELDNAME": "Mobile Wallet",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 24,
+        "FIELDLENGTH": 30,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Mobile Wallet"
+      },
+      {
+        "FIELDNAME": "Service Provider",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 25,
+        "FIELDLENGTH": 10,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Service Provider"
+      },
+      {
+        "FIELDNAME": "Beneficiary Mobile No",
+        "DATATYPE": "NUM",
+        "MANDATORY": "N",
+        "SEQUENCE": 26,
+        "FIELDLENGTH": 255,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Beneficiary Mobile No"
+      },
+      {
+        "FIELDNAME": "Beneficiary E-mail Id",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 27,
+        "FIELDLENGTH": 250,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Beneficiary E-mail Id"
+      },
+      {
+        "FIELDNAME": "Sacco Fosa Id",
+        "DATATYPE": "CHAR",
+        "MANDATORY": "N",
+        "SEQUENCE": 28,
+        "FIELDLENGTH": 50,
+        "DEFAULTVALUE": null,
+        "FLDDESC": "Sacco Fosa Id"
+      }
+    ]
+  }
+}

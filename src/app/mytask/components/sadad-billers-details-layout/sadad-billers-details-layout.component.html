@@ -1,0 +1,18 @@
+<div class="detailsTitleContainer">
+    <div class="mainTitle" translate>LBL_SADAD_BILLER_DETAILS</div>
+</div>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-sadad-biller-details></app-sadad-biller-details>
+      </div>
+</section>
+<section>
+    <div class="btnContainer">
+        <!-- <button class="button-secondary backButton" routerLink="/mytask/sadad-billers" translate>LBL_BACK</button>
+        <button class="button-print-secondary" (click)="onClickReject()" translate>LBL_REJECT</button>
+        <button class="button-print-secondary" (click)="onClickAuthorize()" translate>LBL_AUTHORIZE</button> -->
+        <app-tertiary-button buttonValue="LBL_BACK" (click)="back()"></app-tertiary-button>
+        <app-secondary-button buttonValue="LBL_REJECT" (click)="onClickReject()"></app-secondary-button>
+        <app-secondary-button buttonValue="LBL_AUTHORIZE" (click)="onClickAuthorize()"></app-secondary-button>
+     </div>
+</section>

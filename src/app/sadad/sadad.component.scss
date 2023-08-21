@@ -1,0 +1,26 @@
+.title {
+    width: 215px;
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    color: #5d5d5d;
+    margin: 5px 0px 0px 17px;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+.subContainer {
+    padding: 20px;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    background-color: #ffffff;
+    background-size: cover;
+    font-size: 16px;
+    color: #5d5d5d;
+    margin: 5px 20px 0px 30px;
+}
+.flexRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 25px 0px 20px;
+}

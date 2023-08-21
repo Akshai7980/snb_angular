@@ -1,0 +1,46 @@
+<div class="detailsTitleContainer">
+    <div class="mainTitle" translate>LBL_DELETE_ESAL_BILLER</div>
+</div>
+<div class="detailsDataCntr">  
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <div class="detailsContainer">
+            <div class="titleContainer">
+                <div class="titleContainerLeft">
+                    <span *ngIf="details && details.payerFullName">{{details.payerFullName}} </span><span
+                        *ngIf="!details || !details.payerFullName">--</span>
+                </div>
+            </div>
+            <!-- <div class="subTitleContainer">
+    <div class="subTitleContainerLeft">{{'LBL_TRANSACTION_REF_NUM' | translate}} <span *ngIf="details && details.refNum">{{details.refNum}}</span> <span *ngIf="!details || !details.refNum">--</span></div>
+</div> -->
+            <div class="dataContainer">
+                <span class="header" translate>LBL_BILLER_DETAILS</span>
+                <div class="fxContainer mt-top">
+                    <div class="column1">
+                        <label class="label" translate>LBL_PAYER_ID</label>
+                        <div class="dataInfo" *ngIf="details && details.payerId">{{details.payerId}}</div>
+                        <div class="dataInfo" *ngIf="!details || !details.payerId">--</div>
+                    </div>
+                    <div class="column2">
+                        <label class="label" translate>LBL_PAYER_SHORT_NAME</label>
+                        <div class="dataInfo" *ngIf="details && details.payerShortName">{{details.payerShortName}}</div>
+                        <div class="dataInfo" *ngIf="!details || !details.payerShortName">--</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="btnContainer">
+        <!-- <button class="button-secondary backButton" routerLink="/sadad/billsInquiry/esalBillerInquiry"
+            translate>LBL_BACK</button>
+        <button class="button-primary backButton" (click)="deleteEsalBiller()" translate>LBL_DELETE</button> -->
+
+        <app-tertiary-button buttonValue="LBL_BACK" (click)="onClickBack()"></app-tertiary-button>
+        <app-primary-button buttonValue="LBL_DELETE" (click)="deleteEsalBiller()"></app-primary-button>
+    </div>
+</section>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

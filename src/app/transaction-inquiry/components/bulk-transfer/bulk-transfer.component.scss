@@ -1,0 +1,122 @@
+.mTop_18{
+    margin-top: 18px;
+}
+.actionsConatiner {
+    display: flex;
+    justify-content: space-between;
+
+    .leftPannel {
+        display: flex;
+        min-width: 40%;
+        justify-content: space-between;
+    }
+}
+
+.searchCntnrLeft {
+    float: left;
+    // margin-left: 15px;
+}
+.casaTable {
+    width: 100%;
+    table-layout: fixed;
+    background-color: var(--primary-widget-bg-color);
+}
+.position_rel {
+    position: relative;
+}
+.mat-row:hover .EditIcon{
+    display: inline-block;
+}
+.mat-row:hover {
+    .edit{
+        .EditIcon{
+            display: none;
+        }
+    }
+}
+.editNickNameCntr {display: none;}
+.edit{
+    .editNickNameCntr {display: block;}
+    .nickNameLabel {display: none;}
+}
+
+.casaTable {
+    width: 100%;
+    table-layout: fixed;
+    background-color: var(--primary-widget-bg-color);
+    .mat-column-transactionId {
+        width: 12.56% !important;
+        padding-right: 8px;
+    }
+    .mat-column-accountNumber {
+        width: 8% !important;
+        padding-right: 8px;
+    }
+    .mat-column-records {
+        width: 9% !important;
+    } 
+    .mat-column-valueDate {
+        width: 8% !important;
+    }
+    .mat-column-amount  {
+        width: 8.66% !important;
+        padding-right: 10px;
+    }
+    .mat-column-fileName {
+        width: 10.75% !important;
+    }
+    .mat-column-status {
+        width: 10.75% !important;
+    }
+    .mat-column-action {
+        width: 2% !important;
+    }
+}
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+    border: none !important;
+}
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+    padding-left: 5px;
+}
+.actionIcon {
+    background: url(/assets/images/icoaction.svg) no-repeat center;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.mat-sort-header-arrow {
+    transform: none;
+    opacity: 0;
+}
+.dropDownContainer {
+    position: relative;
+    .dropDownContent {
+        position: absolute;
+        top: 0;
+        right: 75px;
+        list-style: none;  
+        line-height: 30px!important;
+        text-align: start !important;
+        li {
+            width: 150px;
+            height: 30px;
+            padding: 0px 0px 0px 5px;
+            border: 1px solid #e8e8e8;
+            background-color: #ffffff;
+            font-family: "HelveticaNeue",arial,sans-serif;
+            font-size: 12px;
+            color: #006a52;
+            text-decoration: none solid rgb(0, 106, 82);
+            transition: all .3s;
+        }
+        li:hover{
+            background-color:var(--dashboard-announcement-bg)
+        }
+    }
+}
+
+
+

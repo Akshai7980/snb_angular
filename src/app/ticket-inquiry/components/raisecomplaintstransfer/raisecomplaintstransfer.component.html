@@ -1,0 +1,43 @@
+<div class="mLeft_45 mainContainer"*ngIf="!showReceipt">
+    <!-- <div class="flexRow"> -->
+      <div translate class="title" *ngIf="!review">LBL_RAISE_COMPLAINT</div>
+    <!-- </div> -->
+    <div class="mainTitle" *ngIf="review" translate>LBL_REVIEW</div>
+  
+  <div class="subContainer marginLeft_0">
+    <div class="payment_refund_toggle" *ngIf="!complaintsObj">
+      <mat-button-toggle-group>
+        <mat-button-toggle  *ngFor = "let item of enititlementTabs" disableRipple="true" 
+        [ngClass]="isChecked == item.functionCode ? 'hoverSelected':'baseSelected'" (click)="displayContent(item.functionCode)">
+        <span *ngIf="item.functionCode === 'PAYFNC'" translate>LBL_PAYROLL</span>
+        <span *ngIf="item.functionCode === 'TRFFNC'" translate>LBL_TRANSFER</span>
+      </mat-button-toggle>
+        <!-- <mat-button-toggle disableRipple="true" #togglebtn1 (click)="displayContent('trns')"
+          >{{transfer | translate}}</mat-button-toggle>
+        <mat-button-toggle disableRipple="true" #togglebtn2 (click)="displayContent('payroll')"
+          [ngClass]="isChecked == 'payroll'?'hoverSelected':'baseSelected'">{{payroll | translate}}</mat-button-toggle> -->
+      </mat-button-toggle-group>
+    </div>
+  </div>
+  <div class="mtop_20">
+    <app-debit-lookup id="paymentDebitLookup" *ngIf="debitAccountDetailsObj"
+      (onAccountSelect)="afterFromAccountSelection($event)" [debitAccDetails]="debitAccountDetailsObj"
+      [clear]="DebitClearFlag" [shownsearch]="shownSearchFlag" [tableId]="'paymentDebit'"></app-debit-lookup>
+  </div>
+  <!-- <div class="container" *ngIf="comptype && isTransferCompliant"> -->
+    <app-complaintstype *ngIf="compliantType && isTransferCompliant" (isProceed)="getProceedDetails($event)" (restClicked)="getCancel($event)" [transferdirection]="transferData"></app-complaintstype>
+  <!-- </div> -->
+  <!-- <div class="containerSize"  *ngIf="comptype && isPayrollCompliant"> -->
+          <app-raisecomplaintspayroll *ngIf="compliantType && isPayrollCompliant" (restClickedFun)="getCancelClick($event)" (isProccedValue)="getProceedDetailValue($event)"></app-raisecomplaintspayroll>
+  <!-- </div> -->
+
+
+  <div class="actionGroup" *ngIf="complaintsObj">
+    <app-tertiary-button  (click)="onClickCancel()" buttonValue="LBL_CANCEL" class="tertiaryBtn"></app-tertiary-button>
+
+    <app-primary-button (click)="prceedNext()" buttonValue="LBL_SUBMIT">
+    </app-primary-button>
+
+  </div>
+</div>
+<app-receipt [receiptDetails]="receiptData" *ngIf="showReceipt" (onInitAgainClick)="initGenerateStatement()"></app-receipt>

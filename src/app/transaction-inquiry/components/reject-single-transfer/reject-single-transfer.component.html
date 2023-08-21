@@ -1,0 +1,25 @@
+<div *ngIf="!hideAll">
+    <div class="ttileConatiner">
+        <div class="backIcon"></div>
+        <div class="mainTitle" translate>LBL_REJECT_PAYMENT</div>
+    </div>
+    
+    <div class="container">
+        <div class="subTitles">Within Bank Transfer {{'LBL_ACC_TO' | translate}}  Ahmed, 93656650839756657685</div>
+            <div class="title">{{'LBL_TRANSACTION_REF_NUM' | translate}} 5452106032021030</div>
+        <div class="title">
+            <div  translate>LBL_AMOUNT <span>1,000.00 SAR</span> on 20/04/2022</div>
+            <button class="status-green-button" translate>LBL_PENDING_APPROVAL</button>
+        </div>
+        <div class="rowInnerCntr">
+            <div class="field">
+                <div class="label" translate>LBL_RJCT_RSN</div>
+                <div class="information"><input type="text"></div>
+            </div>
+        </div>
+    </div>
+    <div class="submitButton">
+    <app-primary-button  buttonValue="LBL_SUBMIT" (click)="submit()"></app-primary-button>
+    </div>
+</div>
+<app-receipt [receiptDetails]="receiptData" *ngIf="hideAll" ></app-receipt>

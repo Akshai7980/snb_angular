@@ -1,0 +1,260 @@
+<div class="wrapper" id="editable-record">
+  <mat-expansion-panel #expansionPanel [expanded]="isShowSummaryTool">
+    <mat-expansion-panel-header
+      (click)="expandPanel(expansionPanel, $event)"
+      class="disable_ripple arrowColor"
+      *ngIf="!recordSummaryReview"
+    >
+      <mat-panel-title>
+        <div class="subTitles" translate>LBL_RECORD_SUMMARY</div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="subTitles pad_top_20" translate *ngIf="recordSummaryReview">
+      LBL_RECORDS_TO_STOP
+    </div>
+    <div
+      class="gridline02"
+      *ngIf="
+        isShowSummaryTool && recordSummaryDataToPass.filteredData.length > 0
+      "
+    >
+      <div class="summarytools" *ngIf="!noRecordFlag && isShowSummaryTool">
+        <app-summary-tools
+          [moduleId]="moduleId"
+          [isEnabledPropertyPrint]="true"
+        ></app-summary-tools>
+      </div>
+    </div>
+    <div class="border">
+      <div *ngIf="!noRecordFlag">
+        <div
+          class="actionsConatiner"
+          *ngIf="!noRecordFlag && !recordSummaryReview"
+        >
+          <div class="leftPannel">
+            <div class="searchCntnrLeft">
+              <app-search
+                [showAdvanceSearch]="false"
+                (childEvent)="triggerSearchFilter($event)"
+              ></app-search>
+            </div>
+          </div>
+        </div>
+        <table
+          id="beneficiaryInquiryContainer"
+          class="casaTable"
+          mat-table
+          [dataSource]="recordSummaryDataToPass"
+          matSort
+          *ngIf="recordSummaryDataToPass.filteredData.length > 0"
+        >
+          <ng-container matColumnDef="checkbox" *ngIf="!recordSummaryReview">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="checkData editable-record-checkbox"
+            >
+              <mat-checkbox
+                class="checkBoxPrimary"
+                [(ngModel)]="selectedAll"
+                (change)="triggerCheckAll()"
+                [disabled]="recordSummaryDataToPass.filteredData.length <= 0"
+              >
+              </mat-checkbox>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element; let i = index"
+              class="checkData"
+            >
+              <mat-checkbox
+                class="checkBoxPrimary"
+                [(ngModel)]="element.selected"
+                (change)="triggerCheckIfAllSelected(element, element.selected)"
+              >
+              </mat-checkbox>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="recordNo">
+            <th mat-header-cell *matHeaderCellDef class="recordHeader">
+              <div class="position_rel" translate>LBL_RECORD</div>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+              class="recordHeader"
+              [matTooltip]="element.recordNo"
+            >
+              <div *ngIf="element.recordNo">{{ element.recordNo }}</div>
+              <div *ngIf="!element.recordNo">--</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="beneficiaryBankId">
+            <th mat-header-cell *matHeaderCellDef>
+              <div class="position_rel" translate>LBL_BANK</div>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+              [matTooltip]="element.beneficiaryBankId"
+            >
+              <div *ngIf="element.beneficiaryBankId">
+                {{ element.beneficiaryBankId }}
+              </div>
+              <div *ngIf="!element.beneficiaryBankId">--</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fromAccountId">
+            <th mat-header-cell *matHeaderCellDef>
+              <div class="position_rel" translate>LBL_Account_Number</div>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+              [matTooltip]="element.fromAccountId"
+            >
+              <div *ngIf="element.fromAccountId">
+                {{ element.fromAccountId }}
+              </div>
+              <div *ngIf="!element.fromAccountId">--</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="beneficiaryName">
+            <th mat-header-cell *matHeaderCellDef>
+              <div class="position_rel" translate>LBL_FULL_NAME</div>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+              [matTooltip]="element.beneficiaryName"
+            >
+              <div *ngIf="element.beneficiaryName">
+                {{ element.beneficiaryName }}
+              </div>
+              <div *ngIf="!element.beneficiaryName">--</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef>
+              <div class="position_rel" translate>LBL_AMOUNT</div>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+              [matTooltip]="
+                element.amount
+                  ? (element.amount | currencyFormat : 'SAR') + ' ' + 'SAR'
+                  : ''
+              "
+            >
+              <div *ngIf="element.amount">
+                {{ element.amount | currencyFormat : "SAR" }} SAR
+              </div>
+              <div *ngIf="!element.amount">--</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="uti">
+            <th mat-header-cell *matHeaderCellDef>
+              <div class="position_rel" translate>LBL_UTI</div>
+            </th>
+            <td mat-cell *matCellDef="let element" [matTooltip]="element.uti">
+              <div *ngIf="element.uti">{{ element.uti }}</div>
+              <div *ngIf="!element.uti">--</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="childRef">
+            <th mat-header-cell *matHeaderCellDef>
+              <div class="position_rel" translate>LBL_CHILD_REFERENCE</div>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+              [matTooltip]="element.transactionReference"
+            >
+              <div *ngIf="element.transactionReference">
+                {{ element.transactionReference }}
+              </div>
+              <div *ngIf="!element.transactionReference">--</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="transactionReference">
+            <th mat-header-cell *matHeaderCellDef>
+              <div class="position_rel" translate>LBL_REFERENCE_ID</div>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+              [matTooltip]="element.transactionReference"
+            >
+              <div *ngIf="element.transactionReference">
+                {{ element.transactionReference }}
+              </div>
+              <div *ngIf="!element.transactionReference">--</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>
+              <div class="position_rel" translate>LBL_STATUS</div>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+              [matTooltip]="element.status"
+            >
+              <div *ngIf="element.status">{{ element.status }}</div>
+              <div *ngIf="!element.status">--</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="remove" *ngIf="recordSummaryReview">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td
+              mat-cell
+              *matCellDef="let element; let i = index"
+              (click)="triggerCheckIfAllSelected(element, false)"
+            >
+              <img
+                class="Icon_minus-circle-fill"
+                src="assets/images/Icon_minus-circle-fill.svg"
+                alt=""
+              />
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayColumns"></tr>
+        </table>
+      </div>
+      <div
+        *ngIf="!recordSummaryReview"
+        [hidden]="
+          recordSummaryDataToPass.filteredData.length <= 0 || noRecordFlag
+        "
+      >
+        <app-pagination
+          #paginator
+          [dataSourceLength]="dataSourceLength"
+          [currentRecord]="'recordSummary'"
+          [totalRecords]="dataSourceLength"
+        ></app-pagination>
+      </div>
+    </div>
+
+    <div
+      *ngIf="noRecordFlag || recordSummaryDataToPass.filteredData.length <= 0"
+    >
+      <app-no-record-found
+        [noRecordFoundInfo]="noRecordFoundInfoObj"
+      ></app-no-record-found>
+    </div>
+  </mat-expansion-panel>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

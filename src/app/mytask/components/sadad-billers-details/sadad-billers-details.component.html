@@ -1,0 +1,33 @@
+<div class="detailsContainer">
+
+    <div class="titleContainer">
+        <div class="titleContainerText">
+            <span *ngIf="sadadGalleryDetails && sadadGalleryDetails.billerName">{{sadadGalleryDetails.billerName}}</span>
+            <span *ngIf="!sadadGalleryDetails || !sadadGalleryDetails.billerName">--</span>,
+            <span *ngIf="sadadGalleryDetails && sadadGalleryDetails.billerGroupName"> {{sadadGalleryDetails.billerGroupName}}</span>
+            <span *ngIf="!sadadGalleryDetails || !sadadGalleryDetails.billerGroupName">--</span>
+        </div>       
+    </div>
+    <div class="backgroundContainer">
+        <div class="bankDetailsContainer">
+            <div class="bankDetailsContainerText">{{'LBL_CUSTOMER_ID' | translate}}
+                <span *ngIf="sadadGalleryDetails && sadadGalleryDetails.CustomerId"> : {{sadadGalleryDetails.CustomerId}}</span>
+                <span *ngIf="!sadadGalleryDetails || !sadadGalleryDetails.CustomerId"> : --</span>
+            </div>
+            <div>
+                <div class="subHeadingText">{{'LBL_SHORT_NAME' | translate}}</div>
+                <div class="subText">
+                    <span *ngIf="sadadGalleryDetails && sadadGalleryDetails.shortName">{{sadadGalleryDetails.shortName}}</span>
+                    <span *ngIf="!sadadGalleryDetails || !sadadGalleryDetails.shortName">--</span>
+                </div>
+                <div class="subText">{{'LBL_STATUS' | translate}} : <span
+                        *ngIf="sadadGalleryDetails && sadadGalleryDetails.status">{{sadadGalleryDetails.status}}</span><span
+                        *ngIf="!sadadGalleryDetails || !sadadGalleryDetails.status">--</span>,
+                    {{'LBL_BILLER_GRP_ID' | translate}}:
+                    <span *ngIf="sadadGalleryDetails && sadadGalleryDetails.billerGroupId">{{sadadGalleryDetails.billerGroupId}}</span>
+                    <span *ngIf="!sadadGalleryDetails || !sadadGalleryDetails.billerGroupId">--</span>
+            </div>
+        </div>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

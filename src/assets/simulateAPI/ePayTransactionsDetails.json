@@ -1,0 +1,59 @@
+{
+    "dataValue": {
+        "totalNumberOfResults": "5",
+        "currentNumberOfResults": "5",
+        "ecommerceTransactionsList": {
+            "ecommerceTransactions": [
+                {
+                    "feesAmount": "0",
+                    "transactionReference": "123123097692",
+                    "orderId": "",
+                    "cardType": "P1",
+                    "transactionIdentifier": "",
+                    "transactionDate": "20210820",
+                    "transactionTime": "21245",
+                    "purchaseIdentifier": "",
+                    "vatAmount": "0",
+                    "merchantName": "N/A",
+                    "transactionType": "PURCHASE",
+                    "authorizationNumber": "0",
+                    "merchantId": "NCBS2I22",
+                    "cardTypeDescription": "SAMA",
+                    "reconciliationId": "0",
+                    "settlementAmount": "0",
+                    "acquirerReference": "",
+                    "cardNumber": "l7QoEFDXjG3GGd4SI6CW51ebP3kb0mHyCdlbriYm1v82UGf5Xj8YQs234O6T5WME",
+                    "maskedpan": "529415******2477"
+                },
+                {
+                    "feesAmount": "0",
+                    "transactionReference": "123123097699",
+                    "orderId": "",
+                    "cardType": "P1",
+                    "transactionIdentifier": "",
+                    "transactionDate": "20210820",
+                    "transactionTime": "21245",
+                    "purchaseIdentifier": "",
+                    "vatAmount": "0",
+                    "merchantName": "N/A",
+                    "transactionType": "PURCHASE",
+                    "authorizationNumber": "0",
+                    "merchantId": "NCBS2I22",
+                    "cardTypeDescription": "KAMA",
+                    "reconciliationId": "0",
+                    "settlementAmount": "0",
+                    "acquirerReference": "",
+                    "cardNumber": "l7QoEFDXjG3GGd4SI6CW51ebP3kb0mHyCdlbriYm1v82UGf5Xj8YQs234O6T5WME",
+                    "maskedpan": "529415******2499"
+                }
+            ]
+        },
+        "currentPageNumber": "1",
+        "pageSize": "50",
+        "totalNumberOfPages": "1",
+        "offlineReportName": ""
+    },
+    "headerValue": {
+        "moduleId": "EPYTRNSCTIN"
+    }
+}

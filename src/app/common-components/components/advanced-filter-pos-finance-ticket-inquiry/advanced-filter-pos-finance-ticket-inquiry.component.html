@@ -1,0 +1,56 @@
+<div class="filter-search-popup" *ngIf="showAdvancedSearchPopup" (click)="stopAdvancedSearchClose($event)">
+    <div translate class="header">LBL_FILTER
+        <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+    </div>
+    
+    
+    <div class="flexCntr">
+        <div class="fieldCntr">
+            <div class="fieldLabel" translate>LBL_SERVICE_TYPE</div>
+            <mat-select panelClass="dropDownOption advdownWidth_300" class="selectInput" [(value)]="serviceType" disableOptionCentering>
+                <mat-option value="all">{{'LBL_ALL' | translate}}</mat-option>
+                <mat-option value="payroll">{{'LBL_PAYROLL' | translate}}</mat-option>
+                <mat-option value="transfer">{{'LBL_TRANSFER' | translate}}</mat-option>
+                <mat-option value="transferDispute">{{'LBL_TRANSFER_DISPUTE' | translate}}</mat-option>
+            </mat-select>
+        </div>
+        <div class="fieldCntr">
+            <div class="fieldLabel" translate>LBL_REQUEST_STATUS</div>
+            <mat-select panelClass="dropDownOption advdownWidth_300" class="selectInput" [(value)]="reqStatus" disableOptionCentering>
+                <mat-option value="all">{{'LBL_ALL' | translate}}</mat-option>
+                <mat-option value="open">{{'LBL_OPEN' | translate}}</mat-option>
+                <mat-option value="closed">{{'LBL_CLOSED' | translate}}</mat-option>
+            </mat-select>
+        </div>
+    </div>
+    <div class="flexCntr">
+        <div class="fieldCntr">
+            <div class="fromto">           
+                <div class="datefrom">
+                    <div class="fieldLabel" id="proctm">{{'LBL_CREATION_DATE' | translate}} {{'LBL_FROM' | translate}}</div>
+                    <div class="shortDatePicker mt-top">
+                      <app-date-picker [clearFlag]="clearFlag" [showDateErrorMessage]="showDateErrorMessage" (dateValue)="getFromDate($event)" [newDate]="fromDateValue"></app-date-picker>
+                    </div>
+                </div>
+                <div class="dateto">
+                    <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+                    <div class="shortDatePicker mt-top">
+                      <app-date-picker [clearFlag]="clearFlag" [showDateErrorMessage]="showDateErrorMessage" (dateValue)="getToDate($event)" [minDate]="fromDateValue" [newDate]="toDateValue"></app-date-picker>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <div class="submt">
+      <div>
+        <!-- <button class="clr" (click)="onClickClear()" translate>LBL_CLEAR</button> -->
+        <app-tertiary-button buttonValue="LBL_CLEAR" (click)="onClickClear()"></app-tertiary-button>
+    </div>
+      <div>
+        <!-- <button class="apply" (click)="onClickApply()" translate>LBL_APPLY</button> -->
+        <app-primary-button (click)="onClickApply()" buttonValue="LBL_APPLY"></app-primary-button>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,56 @@
+<div class="mainCntr">
+    <div class="topTittle">
+        <h3 translate>LBL_TASK</h3>
+        <a translate routerLink="/mytask" class="viewAllPayment">LBL_VIEW_ALL</a>
+    </div>
+    <div class="subCntr" *ngIf="!norecordflag" >
+        <div class="paymentSection" routerLink="/mytask/payment/single-payments" *ngIf="paymentsCount != undefined && paymentsCount != '0' && paymentsCount != ''">
+        <!-- <div class="paymentSection" routerLink="/mytask" *ngIf="paymentsCount != undefined && paymentsCount != '0' && paymentsCount != ''"> -->
+            <div class="leftSide">
+                <span class="icon-transfer_active"></span>
+                <span translate>LBL_TRANSFERS</span>
+            </div>
+            <div class="rightSide">
+                <button class="count">{{paymentsCount}}</button>
+                <span class="icon-next_active"></span>
+            </div>
+        </div>
+        <div class="paymentSection" routerLink="/mytask/serviceRequest" *ngIf="serviceRequestCount != undefined && serviceRequestCount != '0' && serviceRequestCount != ''">
+            <div class="leftSide">
+                <span class="icon-service_request_active"></span>
+                <span translate>LBL_SERVICE_REQUEST</span>
+            </div>
+            <div class="rightSide">
+                <button class="count">{{serviceRequestCount}}</button>
+                <span class="icon-next_active"></span>
+            </div>
+        </div>
+        <div class="paymentSection" routerLink="/mytask/beneficiary/singlefile" *ngIf="beneficiariesCount != undefined && beneficiariesCount != '0' && beneficiariesCount != ''">
+        <!-- <div class="paymentSection" routerLink="/mytask/beneficiary/singlefile" *ngIf="beneficiariesCount != undefined && beneficiariesCount != '0' && beneficiariesCount != ''"> -->
+            <div class="leftSide">
+                <span class="icon-benificiaries_active"></span>
+                <span translate>LBL_BENEFICIARIES</span>
+            </div>
+            <div class="rightSide">
+                <button class="count">{{beneficiariesCount}}</button>
+                <span class="icon-next_active"></span>
+            </div>
+        </div>
+        <div class="paymentSection" *ngIf="filePaymentsCount != undefined && filePaymentsCount != '0' && filePaymentsCount != ''">
+        <!-- <div class="paymentSection" routerLink="/mytask/payment/file-payment" *ngIf="filePaymentsCount != undefined && filePaymentsCount != '0' && filePaymentsCount != ''"> -->
+            <div class="leftSide">
+                <span class="BillPayments"></span>
+                <span translate>LBL_FILE_PAYMENTS</span>
+            </div>
+            <div class="rightSide">
+                <button class="count">{{filePaymentsCount}}</button>
+                <span class="icon-next_active"></span>
+            </div>
+        </div>
+       
+    </div>
+    <div *ngIf="norecordflag" class="norecordflag">
+        <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+    </div>
+</div>
+<app-ajax-loader-medium [hidden]="isLoadingCompelete"></app-ajax-loader-medium>

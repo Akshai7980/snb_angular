@@ -1,0 +1,68 @@
+.viewBalFont {
+    font-family: 'HelveticaNeueMed';
+}
+
+.img-style {
+    padding-right: 1px;
+    vertical-align: middle;
+}
+
+.nickNameWidth {
+    width: 120px;
+}
+
+.sortUp {
+    transform: rotate(180deg) !important;
+    position: relative;
+    right: 19px;
+    cursor: pointer;
+}
+
+.sortUpAscending {
+    transform: rotate(180deg) !important;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+#accexpandCollapseElement {
+    height: auto;
+}
+
+//Hide/show Css
+.w-150px {
+    min-width: 150px !important;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+// .ml-10 {
+//     margin-right: 10px;
+// }
+
+// .eye-mask-on-svg {
+//     background: url(../../../../assets/images/eye-mask-on.svg) no-repeat center;
+//     background-size: 20px;
+//     width: 20px;
+//     height: 20px;
+// }
+
+.dashboardTable {
+    width: 100%;
+    table-layout: fixed;
+    background-color: var(--primary-widget-bg-color);
+    .mat-column-HIDE_CONTAINER{
+        width: 7.56% !important;
+    }
+    .mat-column-CURR_AVAIL_BAL_AMOUNT_NEW{
+        width: 15.56% !important;
+    }
+}
+.pageHide{
+    height:auto;
+}
+.pageShow{
+    height:0;
+}

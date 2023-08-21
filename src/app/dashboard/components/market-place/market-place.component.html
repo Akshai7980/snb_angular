@@ -1,0 +1,33 @@
+<div class="mainConatiner">
+    <div class="titleContainer">
+        <div class="title" translate>LBL_MARKETPLACE</div>
+        <!-- <div><a class="viewAll" translate>LBL_VIEW_ALL</a></div> -->
+    </div>
+    <div class="marketPlaceInfo" [@slideInOut]="carouselValue">
+        <!-- <div class="pointSale">
+            <img *ngIf="marketPlaceIcon == 'SLIDE_1'" src="assets/images/marketPlace_slide_1.png">
+            <img *ngIf="marketPlaceIcon == 'SLIDE_2'" src="assets/images/marketPlace_slide_2.jpeg">
+            <img *ngIf="marketPlaceIcon == 'SLIDE_3'" src="assets/images/marketPlace_silde_3.png">
+        </div> -->
+        <div class="pointSale temp" *ngIf="marketPlaceURLType ==='Ex'">            
+            <a href="{{marketPlaceURL}}" target="_blank"><img [src]="marketPlaceIcon"></a>
+        </div>
+        <div class="pointSale temp" *ngIf="marketPlaceURLType ==='In'">     
+            <!-- <div (click)="rootScopeData.urlMapping[marketPlaceInternalURL]"></div>        -->          
+            <div (click)="reloadCurrentRoute(rootScopeData.urlMapping[marketPlaceInternalURL])"><img class="imgCursor" [src]="marketPlaceIcon"></div>
+        </div>
+        <!-- <div class="dailyMarketPlace">
+            <div class="subtitle">{{marketPlaceTitle}}</div>
+            <div class="marketPlaceData">{{marketPlaceMessage}}</div>
+        </div> -->
+    </div>
+    <div class="carouselBtnIndicators" *ngIf="hidecarouselBtns">
+        <div class="carouselLoopGrp">
+        <div class="" *ngFor="let button of marketPlaceData; let i = index ">
+             <button type="button" class="carouselIndicators" (click)="carouselbtn(i)" [ngClass]="carouselValue == i ? 'carouselbg' : ''" ></button>
+        </div>
+        </div>
+        <div class="nexticon" (click)="marketPlaceInterval()"></div>
+    </div>
+</div>
+<app-ajax-loader-medium [hidden]="isLoadingCompelete"></app-ajax-loader-medium>

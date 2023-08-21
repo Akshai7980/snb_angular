@@ -1,0 +1,118 @@
+.mainTitle {
+  margin: -26px 0px 0px 33px;
+}
+
+.footerText {
+  margin: 40px 0px 0px 33px;
+  display: inline-block;
+  font-family: "HelveticaNeue", arial, sans-serif;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+
+  .termsContainer {
+    color: var(--secondary-btn-print-border-color);
+  }
+}
+
+.btnContainer {
+  float: right;
+  margin-top: 25px;
+  padding-right: 30px;
+}
+
+.recordHeader {
+  width: 60px;
+}
+
+.gridline02 {
+  margin-left: 80%;
+}
+
+.container {
+  padding: 16px 0 14px 18px;
+  border-radius: 10px;
+  background-size: cover;
+  font-size: 14px;
+  margin: 5px 20px 0px 30px;
+  border: 1px solid var(--widget-border-color);
+  background-color: var(--primary-widget-bg-color);
+  color: var(--tableData-header-color);
+}
+
+table {
+  width: 100%;
+}
+
+td.mat-cell {
+  color: var(--tableData-header-color);
+  border-bottom-style: none;
+  padding: 0px 0px 0px 5px;
+}
+.recordDetails {
+  margin-left: 5px;
+}
+td.mat-cell:first-of-type {
+  border-top-left-radius: 10px 10px;
+  border-bottom-left-radius: 10px 10px;
+}
+td.mat-cell:last-of-type {
+  border-top-right-radius: 10px 10px;
+  border-bottom-right-radius: 10px 10px;
+}
+.tableAlignment {
+  margin: 0px 15px 0px 15px !important;
+}
+td.mat-cell:first-of-type {
+  padding-left: 0px !important;
+}
+th.mat-header-cell:first-of-type {
+  padding-left: 0px !important;
+}
+th.mat-header-cell {
+  border-bottom-style: none;
+  // width: 200px;
+  border-radius: 10px;
+  height: 40px;
+  padding: 0px 0px 0px 5px;
+  background-size: cover;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+  color: var(--table-header-color);
+  text-decoration: none solid rgb(162, 162, 162);
+}
+.subTitles {
+  display: flex;
+  margin: 20px 0px 0px 14px;
+}
+
+.summaryOuterConainer {
+  .summaryConainer {
+    border-radius: 10px;
+    background: var(--primary-widget-bg-color);
+    border: 1px solid var(--widget-border-color);
+    margin-right: 30px;
+    margin-top: 20px;
+    margin-left: 30px;
+    padding-bottom: 15px !important;
+  }
+}
+
+.backButton {
+  margin-right: 15px;
+  width: 100px !important;
+}
+tr.mat-row {
+  font-family: "HelveticaNeueMed", arial, sans-serif !important;
+  color: var(--tableData-header-color) !important;
+}
+.mat-row:nth-child(odd) {
+  background-color: var(--summary-row-bg-color) !important;
+  cursor: default;
+}
+.mat-row:nth-child(even) {
+  background-color: var(--secondary-btn-txt-color) !important;
+  cursor: default;
+}
+.mat-row:hover {
+  background-color: var(--summary-hover-color) !important;
+}

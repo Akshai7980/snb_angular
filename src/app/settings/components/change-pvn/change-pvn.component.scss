@@ -1,0 +1,89 @@
+.mainContainer {
+    margin: 0px 25px 50px 25px;
+}
+.subTitles{
+    font-size: 16px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    color: var(--tableData-header-color);
+}
+.subContainer {
+    padding: 20px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: #ffffff;
+    background-size: cover;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+}
+.geneStaTitles {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+}
+input[type=text]{
+    height: 40px;
+    padding: 0px 8px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 4px;
+    background-size: cover;
+    font-family: "HelveticaNeue";
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    background-color: var(--primary-widget-bg-color);
+}
+.shortText{
+    width: 134px;
+}
+.flx{
+    display: flex;
+    height: 53px;
+}
+.fieldConatiner{
+    height: 73px;
+}
+.mleft_16{
+    margin-left: 16px;
+}
+.mtop_20{
+    margin-top: 20px;
+}
+.mtop_5{
+    margin-top: 5px;
+}
+.inpField{
+    width: 300px;
+}
+.noteContainer{
+    margin-top: 35px;
+}
+.mainNote{
+    font-size: 14px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    line-height: 24px;
+    color: var(--tableData-header-color);
+}
+.subNote{
+    font-size: 14px;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    line-height: 24px;
+    color: var(--tableData-header-color);
+}
+.footer{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+ 
+}
+.footerText {
+    margin-top: 30px;
+    margin-left: 17px;
+    display: inline-block;
+    font-family: "HelveticaNeue",arial,sans-serif;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+}
+.btn{
+    margin-top: 20px;
+}
+.successMsg{color: var(--primary-selected-color);font-size: 10px;}

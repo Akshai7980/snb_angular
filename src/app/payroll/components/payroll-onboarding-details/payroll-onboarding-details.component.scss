@@ -1,0 +1,88 @@
+#payOnboarding {
+	.beneficiaryDetails {
+		background-color: var(--primary-widget-bg-color);
+		padding: 15px;
+		margin-top: 15px;
+		border: 1px solid var(--bene-border-color);
+		border-radius: 10px;
+		background-size: cover;
+		font-size: 14px;
+		color: var(--tableData-header-color);
+	}
+	
+	.rowInnerCntr {
+		display: flex;
+		flex-wrap: wrap;
+		padding-left: 11px;
+		padding-top: 14px;
+	
+		.field {
+			width: 360px;
+			padding-bottom: 20px;
+	
+			&.field-bottom {
+				padding-bottom: 5px;
+			}
+	
+			.label {
+				font-family: "HelveticaNeueMed", arial, sans-serif;
+				color: var(--table-header-color);
+				font-size: 14px;
+			}
+	
+			.information {
+				padding-top: 10px;
+				color: var(--tableData-header-color);
+	
+				&.data {
+					padding-top: 20px;
+				}
+			}
+		}
+	}
+	
+	.textNote {
+		color: var(--table-data-color) !important;
+	}
+	
+	.actionGroup {
+		float: right;
+		display: flex;
+		align-self: flex-end;
+		justify-content: flex-end;
+		margin-top: 30px;
+		margin-right: 18px;
+	}
+	
+	input[type="text"] {
+		width: 295px;
+		height: 40px;
+		padding: 0px 8px;
+		border: 1px solid var(--widget-border-color);
+		border-radius: 4px;
+		background-size: cover;
+		font-family: "HelveticaNeue";
+		font-size: 14px;
+		color: var(--tableData-header-color);
+	}
+	
+	.selectInput {
+		font-family: "HelveticaNeueMed", arial, sans-serif;
+		width: 300px !important;
+		line-height: 40px;
+		padding: 0px 0px 0px 10px;
+		border: 1px solid var(--input-border-color);
+		border-radius: 5px;
+		font-size: 14px;
+		color: var(--input-text-color);
+		cursor: pointer;
+	}
+	
+	.dropDownOption {
+		position: relative;
+		width: 181px !important;
+		top: 29px;
+		right: -5px;
+		box-shadow: none !important;
+	}
+}

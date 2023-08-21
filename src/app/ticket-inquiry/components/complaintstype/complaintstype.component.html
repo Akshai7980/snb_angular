@@ -1,0 +1,125 @@
+ <div class="autoContainer">
+  <!-- <div class="flexRow"> -->
+      <div translate class="title">LBL_COMPLAINT_TYPE</div>
+    <!-- </div> -->
+
+      <div class="subContainer marginLeft_0">
+         <div class="payment_refund_toggle" *ngIf="!isReadOly">
+            <mat-button-toggle-group >
+            <mat-button-toggle disableRipple="true" #togglebtn1 (click)="displayContent('recfund')"
+            [ngClass]="isChecked == 'recfund'?'hoverSelected':'baseSelected'">{{NonReceiptofFund | translate}}</mat-button-toggle>
+            <mat-button-toggle disableRipple="true" #togglebtn2 (click)="displayContent('incorrectamt')"
+            [ngClass]="isChecked == 'incorrectamt'?'hoverSelected':'baseSelected'">{{ReceivedIncorrectAmount| translate}}</mat-button-toggle>
+            </mat-button-toggle-group>
+         </div>
+         <div class="mtop_20" *ngIf="isReadOly">
+            <div *ngIf="isChecked==='recfund'" translate>LBL_NON_RECEIPT_FUND</div>
+            <div *ngIf="isChecked!=='recfund'" translate>LBL_RECEIVED_INCORRECT_AMT</div>
+         </div>
+      </div>
+  <div class="detailsContainer" *ngIf="!isReadOly">
+    <div class="fieldContainer">
+      <div class="row">
+        <div class="column">
+          <div translate class="geneStaTitles">LBL_MOBILE_NUMBER<span class="required">*</span></div>
+          <div class="mtop_10">            
+            <input type="text" maxlength="15" class="inpField" [(ngModel)]="compTypeObj.mobNum" (blur)="validate($event,'mobNum')" (keypress)="numberOnly($event)" autocomplete="off">
+              <div *ngIf="errObj && errObj.mobErr">
+                <small translate class="required">{{errObj.mobErr}}</small>
+              </div>
+           </div>
+        </div>
+        <div class="column">
+            <div translate class="geneStaTitles">LBL_TRANSFER_DIRECTION<span class="required">*</span></div>
+            <div class="mtop_10">            
+                <mat-select panelClass="dropDownOption" class="selectInput" [(ngModel)]="compTypeObj.direction" (selectionChange)="validate($event,'direction')"  disableOptionCentering>
+                    <mat-option *ngFor="let item of transferdirection" [value]="item.transferDirection">{{item.transferDirection}}</mat-option>
+                </mat-select>
+                <div *ngIf="errObj && errObj.directErr">
+                  <small translate class="required">{{errObj.directErr}}</small>
+                </div>
+             </div>
+        </div>
+        <div class="column">
+          <div translate class="geneStaTitles">LBL_DATE_OF_TRANSFER<span class="required">*</span></div>
+          <div class="mtop_10">
+              <app-date-picker [maxDate]="maxDate" (dateValue)="getDate($event)"></app-date-picker>
+          </div>
+          <div *ngIf="errObj && errObj.dateErr">
+            <small translate class="required">{{errObj.dateErr}}</small>
+          </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="fieldContainer">
+      <div class="row">
+        <div class="column">
+            <div translate class="geneStaTitles">LBL_AMOUNT<span class="required">*</span></div>
+            <div class="mtop_10">            
+              <input type="text" class="inpField"  [(ngModel)]="compTypeObj.amount" (blur)="validate($event,'amount')" (keypress)="numberOnly($event)" autocomplete="off">
+                <div *ngIf="errObj && errObj.amountErr">
+                  <small translate class="required">{{errObj.amountErr}}</small>
+                </div>
+             </div>
+        </div>
+        <div class="column">
+          <div translate class="geneStaTitles">LBL_TRANSFER_REFERENCE_NUMBER<span class="required">*</span></div>
+          <div class="mtop_10">            
+            <input type="text" class="inpField" [(ngModel)]="compTypeObj.refnum" (blur)="validate($event,'refnum')" autocomplete="off">
+              <div *ngIf="errObj && errObj.refnumErr">
+                <small translate class="required">{{errObj.refnumErr}}</small>
+              </div>
+           </div>
+      </div>
+      <div class="column">
+        <div class="geneStaTitles" translate>LBL_CLAIM_DESC</div>
+        <!-- <div class="mtop_10">   -->
+        <textarea  id="" [(ngModel)]="compTypeObj.claimdesc" class="comment mtop_10"></textarea>
+        <!-- </div> -->
+      </div>
+    </div>
+
+    </div>
+</div>
+<div class="detailsContainer" *ngIf="isReadOly">
+  <div class="row">
+    <div class="column alter">
+      <div translate class="geneStaTitles">LBL_MOBILE_NUMBER</div>
+      <div class="mtop_10 details">{{compTypeObj.mobNum}}</div>
+    </div>
+    <div class="column alter">
+      <div translate class="geneStaTitles">LBL_TRANSFER_DIRECTION</div>
+      <div class="mtop_10 details">{{compTypeObj.direction}}</div>
+    </div>
+    <div class="column alter">
+      <div translate class="geneStaTitles">LBL_DATE_OF_TRANSFER</div>
+      <div class="mtop_10 details">{{compTypeObj.dot}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column alter">
+      <div translate class="geneStaTitles">LBL_AMOUNT</div>
+    <div class="mtop_10 details">{{compTypeObj.amount}}</div>
+    </div>
+    <div class="column alter">
+      <div translate class="geneStaTitles">LBL_TRANSFER_REFERENCE_NUMBER</div>
+    <div class="mtop_10 details">{{compTypeObj.refnum}}</div>
+    </div>
+    <div class="column alter">
+      <div translate class="geneStaTitles">LBL_CLAIM_DESC</div>
+      <div *ngIf="compTypeObj.claimdesc !==''" class="mtop_10 details">{{compTypeObj.claimdesc}}</div>
+      <div *ngIf="compTypeObj.claimdesc ===''" class="mtop_10 details">Not Provider</div>
+    </div>
+  </div>
+   
+</div>
+</div>
+<div class="btnGroup" *ngIf="!hideBtn">
+  <app-tertiary-button  (click)="reset()" buttonValue="LBL_CANCEL" ></app-tertiary-button>
+  <app-primary-button buttonValue="LBL_PROCEED" (click)="proceed()"></app-primary-button>
+</div>
+
+
+
+

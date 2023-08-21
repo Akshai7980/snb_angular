@@ -1,0 +1,57 @@
+<div class="outerContainer" *ngIf="title !== 'receipt'">
+    <div class="title" translate *ngIf="title !== 'review'">LBL_STOP_CARD</div>
+    <div class="title" translate *ngIf="title === 'review'">LBL_REVIEW</div>
+    <app-debit-lookup [debitAccDetails]="debitAccObj"></app-debit-lookup>
+
+    <div class="madaCardDetails marginLeft_0 pR">
+        <div class="sub">
+            <div>
+                <div class="subTitles" translate>LBL_ADDITIONAL_DETAILS</div>
+            </div>
+        </div>
+
+        <div class="rowInnerCntr">
+            <div class="field">
+				<div class="label" translate>
+					LBL_REASON_TO_STOP
+				</div>
+				<div *ngIf="title !== 'review'" class="information">
+					<mat-select panelClass="dropDownOption" disableOptionCentering class="selectInput"
+						placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}" name="reason"
+						[(ngModel)]="reason">
+						<mat-option class="option" *ngFor="let reason of reasons" [value]="reason.reasonDesc"
+							(click)="onSelectedReason()">{{ reason.reasonDesc }}</mat-option>
+					</mat-select>
+				</div>
+				<div *ngIf="title === 'review'" class="information">{{reason}}</div>
+				<span class="errorMsg" translate *ngIf="selectReasonError">LBL_PLEASE_SELECT_REASON</span>
+			</div>
+            
+        </div>
+
+    </div>
+
+    <app-authorization *ngIf="title === 'review' && isSelfAuth" [authListDataSource]="authOptions" (authEmit)="getData($event)">
+    </app-authorization>
+
+    <app-authentication *ngIf="title === 'review'" [initParam]="initParam" (onTwoAuthClick)="onSecondFactorValue($event)"
+        (getOtpClick)="getOtpValue($event)" [otpError]="otpError"></app-authentication>
+</div>
+
+<app-receipt *ngIf="title === 'receipt'" [receiptDetails]="receiptObject" (onInitAgainClick)="initAnotherPayment()" (DownloadReceiptClick)="downloadPdf()"></app-receipt>
+
+<div class="footer" *ngIf="title !== 'receipt'">
+    <div *ngIf="title === 'review'" class="termsAndConditions" translate>
+        LBL_TERMS <a (click)="openTermsAndCondition()" translate>LBL_THE_TERMS_AND_CONDITIONS</a>
+    </div>
+    <div class="finalProceed btnGroup">
+        <app-tertiary-button buttonValue="{{'LBL_CANCEL' | translate}}" routerLink="/cards/cardsInquiry/MADA">
+        </app-tertiary-button>
+        <app-primary-button buttonValue="{{'LBL_PROCEED' | translate}}" *ngIf="title !== 'review'"
+            (click)="toProceed()"></app-primary-button>
+        <!-- <app-primary-button buttonValue="{{'LBL_SUBMIT' | translate}}" *ngIf="title === 'review'" (click)="onSubmit()">
+        </app-primary-button> -->
+    </div>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

@@ -1,0 +1,31 @@
+{
+    "data": {
+        "language": "ENGLISH",
+        "lgType": "B280480",
+        "LgBranch": "MAKKAH AL MOKARAMAH",
+        "lgCurrency": "SAR",
+        "amount": "1000",
+        "amount_Eng": "THOUSAND",
+        "amount_AR": "",
+        "representing": "",
+        "reference_number": "R123456",
+        "expiryDate": "04/04/2022",
+        "project_name_nd_purpose": "Qiddiya Project, Entertainment",
+        "commissionAccount": "AAAAAA",
+        "marginAccount": "BBBBB",
+        "applicantName": "Dameer Ahsan",
+        "address1": "AAAAAAAAAAA",
+        "address2": "BBBBBBBBBBB",
+        "address3": "CCCCCCCCCCC",
+        "email": "Dameerahsan@gmail.com",
+        "mobile": "+966 01-2163999",
+        "phone": "+966 01-2163999",
+        "fax": "",
+        "currency": "SAR"
+    },
+    "headerValue": {
+        "moduleId": "LGDETAIL",
+        "simulate": "N",
+        "_dinsess": "b1dce474-842c-4fe0-a3be-ba8b184faddb"
+    }
+}

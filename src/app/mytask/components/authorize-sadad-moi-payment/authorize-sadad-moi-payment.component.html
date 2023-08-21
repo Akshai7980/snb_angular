@@ -1,0 +1,75 @@
+<div *ngIf="!receiptForm">
+    <div class="detailsTitleContainer">
+      <div>
+        <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+        <div class="mainTitle" translate>LBL_AUTHORIZE_SADAD_MOI_PAYMENT</div>
+      </div>
+    </div>
+    <div class="container">
+        <div class="subTitles">{{'LBL_SADAD_MOI_BILL_PAYMENT' | translate}}</div>
+        <div class="refNO">
+            {{'LBL_TRANSACTION_REF_NUM' | translate }} <b><span
+                    *ngIf="sadadMoiDetails && sadadMoiDetails.referenceNo">{{sadadMoiDetails.referenceNo}}</span><span
+                    *ngIf="!sadadMoiDetails || !sadadMoiDetails.referenceNo">--</span></b>
+        </div>
+        <div class="refNO">
+            {{'LBL_AMOUNT' | translate }} <b><span
+                    *ngIf="sadadMoiDetails && sadadMoiDetails.paymentAmount && sadadMoiDetails.paymentCcy">{{sadadMoiDetails.paymentAmount
+                    | currencyFormat:sadadMoiDetails.paymentCcy}} {{sadadMoiDetails.paymentCcy}}</span><span
+                    *ngIf="!sadadMoiDetails ||( !sadadMoiDetails.paymentAmount && ! sadadMoiDetails.paymentCcy)">--</span></b>
+        </div>
+        <div class="title" *ngIf="sadadMoiDetails && sadadMoiDetails.odStatusCode">
+            <button class="status-green-button" translate
+                [class.status-red-button]="sadadMoiDetails.odStatusCode === 'RN' ||sadadMoiDetails.odStatusCode === 'RS' ||sadadMoiDetails.odStatusCode === 'RE' ||sadadMoiDetails.odStatusCode === 'RO' ||sadadMoiDetails.odStatusCode === 'RH'">
+                {{sadadMoiDetails.odStatus}}
+            </button>
+        </div>
+        <div class="subContainer">
+            <div class="fxContainer mt-top">
+                <div class="column1">
+                    <label class="label" translate>LBL_BILLER_NAME</label>
+                    <div class="dataInfo" *ngIf="sadadMoiDetails && sadadMoiDetails.billerName">{{sadadMoiDetails.billerName}}</div>
+                    <div class="dataInfo" *ngIf="!sadadMoiDetails || !sadadMoiDetails.billerName">--</div>
+                </div>
+                <div class="column2">
+                    <label class="label" translate>LBL_DEBIT_ACCOUNT_NUMBER</label>
+                    <div class="dataInfo" *ngIf="sadadMoiDetails && sadadMoiDetails.debitAccNo">{{sadadMoiDetails.debitAccNo}}</div>
+                    <div class="dataInfo" *ngIf="!sadadMoiDetails || !sadadMoiDetails.debitAccNo">--</div>
+                </div>
+                <div class="column3">
+                    <label class="label" translate>LBL_SERVICE_TYPE</label>
+                    <div class="dataInfo" *ngIf="sadadMoiDetails && sadadMoiDetails.serviceType">{{sadadMoiDetails.serviceType}}</div>
+                    <div class="dataInfo" *ngIf="!sadadMoiDetails || !sadadMoiDetails.serviceType">--</div>
+                </div>
+            </div>
+            <div class="flexCntr">
+                <div class="column">
+                    <label class="label" translate>LBL_VALUE_DATE</label>
+                    <div class="dataInfo" *ngIf="sadadMoiDetails && sadadMoiDetails.valueDate">{{sadadMoiDetails.valueDate | dateFormat}}</div>
+                    <div class="dataInfo" *ngIf="!sadadMoiDetails || !sadadMoiDetails.valueDate">--</div>
+                </div>
+                <div class="column"  *ngFor="let dynamicValues of sadadMoiDynamicValues">
+                    <label class="label">{{dynamicValues.englishName}}</label>
+                    <div class="dataInfo" *ngIf="dynamicValues.value">{{dynamicValues.value}}</div>
+                    <div class="dataInfo" *ngIf="!dynamicValues.value">--</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+
+        <div *ngIf="showAuthorization" class="afterproceed">
+          <app-authorization [authListDataSource]="authOptions" (authEmit)="getDisplayStatus($event)"></app-authorization>      <!-- <app-authentication (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError"></app-authentication> -->
+          <!-- <app-authentication *ngIf="showAuthentication" (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError" (authenticationType)="getAuthType($event)"></app-authentication> -->
+        </div>
+    </section>
+    <div class="btnContainer">
+          <!-- <button class="button-secondary" routerLink="/mytask/payment/single-payments" translate>LBL_CANCEL</button>
+          <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button> -->
+          <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()"></app-tertiary-button>
+          <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+    </div>
+  </div>
+  <app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)" [rejectMsg]="rejectMsg">
+  </app-receipt>
+  <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

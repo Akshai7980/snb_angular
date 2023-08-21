@@ -1,0 +1,59 @@
+.mTop_18{
+    margin-top: 18px;
+}
+.actionsConatiner {
+    display: flex;
+    justify-content: space-between;
+    .leftPannel {
+        display: flex;
+        min-width: 40%;
+        justify-content: space-between;
+    }
+}
+.searchCntnrLeft {
+    float: left;
+    // margin-left: 15px;
+}
+.casaTable {
+    width: 100%;
+    table-layout: fixed;
+    background-color: var(--primary-widget-bg-color);
+    .mat-column-FROM{
+        // width: 30% !important;
+        width: 11.56% !important;
+        padding-right: 10px;
+    }
+
+    .mat-column-SIrefNo{width: 15.63% !important;padding-right: 5px;}
+    .mat-column-PAYMENT_TYPE{width: 12.63% !important;padding-right: 6px;}
+    .mat-column-AMT{width: 11% !important;}
+    .mat-column-STATUS{width: 8.56% !important;}
+    .mat-column-BENEFICIARY_ACCOUNT{width: 16.28% !important;padding-right: 10px;}
+    .mat-column-action {
+        width: 2% !important;
+    }
+}
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+    border: none !important;
+}
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+    padding-left: 5px;
+}
+.actionIcon {
+    background: url(/assets/images/icoaction.svg) no-repeat center;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.mat-sort-header-arrow {
+    transform: none;
+    opacity: 0;
+}
+
+
+
+
+

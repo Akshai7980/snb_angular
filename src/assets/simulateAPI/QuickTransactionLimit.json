@@ -1,0 +1,12 @@
+{
+    "data": {
+        "proxyLimit": "2500",
+        "sarieTransferLimit": "25000",
+        "quickTransferLimit": 200
+    },
+    "headerValue": {
+        "moduleId": "FETCHTXNLIMIT",
+        "simulate": "N",
+        "_dinsess": "082596cc-a9a6-48bb-b1bc-27b4737fe6a2"
+    }
+}

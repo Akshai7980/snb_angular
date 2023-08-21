@@ -1,0 +1,38 @@
+<div id="singlePaymentTransferDetails">
+  <div class="detailsTitleContainer">
+    <div class="mainTitle" translate>LBL_TRANSFER_SUMMARY</div>
+  </div>
+  <app-summary-tools [printSection]="printSection" [enabledProperty]="true" (onPDFdownloadChange)="toPdf()"
+    class="summaryContainer"></app-summary-tools>
+  <div id="singleTransferDetails">
+    <section class="summaryOuterConainer">
+      <app-single-transfer-detail class="transferContainer"></app-single-transfer-detail>
+    </section>
+    <section class="summaryOuterConainer">
+      <div class="summaryConainer">
+        <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+      </div>
+    </section>
+    <section class="summaryOuterConainer">
+      <div class="summaryConainer">
+        <app-history [historyData]="workFlowHistoryParams"></app-history>
+      </div>
+    </section>
+    <section>
+      <div class="btnContainer">
+        <!-- <button class="button-secondary backButton" routerLink="/mytask/payment/single-payments" translate>
+          LBL_BACK
+        </button> 
+        <button class="button-print-secondary" (click)="onClickReject()" translate>
+          LBL_REJECT
+        </button>
+        <button class="button-print-secondary" (click)="onClickAuthorize()" translate>
+          LBL_AUTHORIZE
+        </button> -->
+        <app-tertiary-button buttonValue="LBL_BACK" (click)="back()"></app-tertiary-button>
+        <app-secondary-button buttonValue="LBL_REJECT" (click)="onClickReject()"></app-secondary-button>
+        <app-secondary-button buttonValue="LBL_AUTHORIZE" (click)="onClickAuthorize()"></app-secondary-button>
+      </div>
+    </section>
+  </div>
+</div>

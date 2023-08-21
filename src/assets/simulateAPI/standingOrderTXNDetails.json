@@ -1,0 +1,18 @@
+{
+    "data": [{
+        "siTxnRefNo": "TBC1901075875774",
+        "debitAccount": "500500165111",
+        "siCurrency": "SAR",
+        "debitAmount": "1000",
+         "executionDate": "02-11-22",
+        "beneficiaryName": "Ajmer Petroleum Company",
+        "benefAcNo": "89002135170",
+        "status": "PAY_TYPE_CBFT",
+         "statusCode": "E"
+    }],
+    "headerValue": {
+        "moduleId": "SITXNSUM",
+         "sortColumn": "txnDate",
+         "sortOrder": "desc"
+    }
+}

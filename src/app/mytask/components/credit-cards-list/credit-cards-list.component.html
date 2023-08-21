@@ -1,0 +1,184 @@
+<div class="actionsConatiner">
+    <div class="leftPannel">
+        <div class="searchCntnrLeft">
+            <app-search (searchParams)="advancedSearchApply($event)" [showAdvanceSearch]="true"
+                (childEvent)="triggerSearchFilter($event)">
+            </app-search>
+        </div>
+    </div>
+    <div>
+        <app-refresh (onRefresh)="refreshCreditCardList()"></app-refresh>
+    </div>
+</div>
+
+<div class="tableContainer">
+    <table mat-table [dataSource]="creditCardListDataSource" class="casaTable" id="creditCardTable"
+        multiTemplateDataRows *ngIf="!noRecordFlag && creditCardListDataSource.filteredData?.length > 0">
+
+        <ng-container matColumnDef="refNo">
+            <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('refNo')">
+                LBL_TRANSACTION_ID
+                <span *ngIf="currentColumn && currentColumn !== 'refNo'">
+                    <img src="assets/images/sortDown.svg" class="img-style" />
+                    <img src="assets/images/sortDown.svg" class="sortUp" />
+                </span>
+                <span *ngIf="currentColumn && currentColumn === 'refNo'">
+                    <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'desc'"
+                        class="img-style" />
+                    <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'asc'"
+                        class="sortUpAscending" />
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let element" [matTooltip]="element.refNo">
+                <div class="ellipsis">
+                    <span *ngIf="element.refNo">{{ element.refNo }}</span><span *ngIf="!element.refNo">--</span>
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cardNo">
+            <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('cardNo')">
+                LBL_CREDIT_CARD_NUMBER
+                <span *ngIf="currentColumn && currentColumn !== 'cardNo'">
+                    <img src="assets/images/sortDown.svg" class="img-style" />
+                    <img src="assets/images/sortDown.svg" class="sortUp" />
+                </span>
+                <span *ngIf="currentColumn && currentColumn === 'cardNo'">
+                    <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'desc'"
+                        class="img-style" />
+                    <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'asc'"
+                        class="sortUpAscending" />
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let element"
+                [matTooltip]="element.subproductCode !== 'CRDLIMAD' ? (element.cardNo | maskCardNumber) : ('LBL_MULTIPLE_CARDS' | translate)">
+                <div class="ellipsis">
+                    <div *ngIf="element.subproductCode !== 'CRDLIMAD'">
+                        <span [ngClass]="element.type" *ngIf="element.cardNo">{{
+                            element.cardNo | maskCardNumber
+                            }}</span><span *ngIf="!element.cardNo">--</span>
+                    </div>
+                    <div *ngIf="element.subproductCode === 'CRDLIMAD'">
+                        <span translate>LBL_MULTIPLE_CARDS</span>
+                    </div>
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cardName">
+            <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('cardName')">
+                LBL_NAME
+                <span *ngIf="currentColumn && currentColumn !== 'cardName'">
+                    <img src="assets/images/sortDown.svg" class="img-style" />
+                    <img src="assets/images/sortDown.svg" class="sortUp" />
+                </span>
+                <span *ngIf="currentColumn && currentColumn === 'cardName'">
+                    <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'desc'"
+                        class="img-style" />
+                    <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'asc'"
+                        class="sortUpAscending" />
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let element"
+                [matTooltip]="element.subproductCode !== 'CRDLIMAD'? element.cardName : '--'">
+                <div class="ellipsis">
+                    <span [ngClass]="element.type" *ngIf="element.cardName && element.subproductCode !== 'CRDLIMAD'">{{
+                        element.cardName
+                        }}</span><span *ngIf="!element.cardName || element.subproductCode === 'CRDLIMAD'">--</span>
+
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="serviceType">
+            <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('serviceType')">
+                LBL_SERVICE_TYPE
+                <span *ngIf="currentColumn && currentColumn !== 'serviceType'">
+                    <img src="assets/images/sortDown.svg" class="img-style" />
+                    <img src="assets/images/sortDown.svg" class="sortUp" />
+                </span>
+                <span *ngIf="currentColumn && currentColumn === 'serviceType'">
+                    <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'desc'"
+                        class="img-style" />
+                    <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'asc'"
+                        class="sortUpAscending" />
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let element" [matTooltip]="element.serviceType">
+                <div class="ellipsis">
+                    <span [ngClass]="element.type" *ngIf="element.serviceType">{{
+                        element.serviceType
+                        }}</span><span *ngIf="!element.serviceType">--</span>
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('status')">
+                LBL_STATUS
+                <span *ngIf="currentColumn && currentColumn !== 'status'">
+                    <img src="assets/images/sortDown.svg" class="img-style" />
+                    <img src="assets/images/sortDown.svg" class="sortUp" />
+                </span>
+                <span *ngIf="currentColumn && currentColumn === 'status'">
+                    <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'desc'"
+                        class="img-style" />
+                    <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'asc'"
+                        class="sortUpAscending" />
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let element" [matTooltip]="element.status">
+                <div class="ellipsis">
+                    <span [ngClass]="element.type" *ngIf="element.status">{{ element.status
+                        }}</span><span *ngIf="!element.status">--</span>
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cardDate">
+            <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('cardDate')">
+                LBL_DATE
+                <span *ngIf="currentColumn && currentColumn !== 'cardDate'">
+                    <img src="assets/images/sortDown.svg" class="img-style" />
+                    <img src="assets/images/sortDown.svg" class="sortUp" />
+                </span>
+                <span *ngIf="currentColumn && currentColumn === 'cardDate'">
+                    <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'desc'"
+                        class="img-style" />
+                    <img src="assets/images/sortDown.svg" *ngIf="sortDirection && sortDirection === 'asc'"
+                        class="sortUpAscending" />
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let element" [matTooltip]="element.cardDate | dateFormat">
+                <div class="ellipsis">
+                    <span [ngClass]="element.type" *ngIf="element.cardDate">{{ element.cardDate | dateFormat
+                        }}</span><span *ngIf="!element.cardDate">--</span>
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+                LBL_ACTION
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <div class="acceptIcon" (click)="onClickAuthorize($event, element)"></div>
+                <div class="rejectIcon" (click)="onClickReject($event, element)"></div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showDetails(row, '/mytask/creditCardSummary')"></tr>
+    </table>
+</div>
+
+<div *ngIf="noRecordFlag || creditCardListDataSource.filteredData?.length <= 0">
+    <app-no-record-found [noRecordFoundInfo]="noRecordFoundObject"></app-no-record-found>
+</div>
+
+<div [hidden]="creditCardListDataSource.filteredData?.length <= 0 || noRecordFlag">
+    <app-pagination #paginator [dataSourceLength]="dataSourceLength" [currentRecord]="'recordSummary'"
+        [totalRecords]="totalRecords" (onPaginationChange)="paginationChangeClick($event)">
+    </app-pagination>
+</div>
+<app-ajax-loader-medium [hidden]="isLoadingComplete"></app-ajax-loader-medium>

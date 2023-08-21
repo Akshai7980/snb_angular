@@ -1,0 +1,16 @@
+<div>
+    <div class="row">
+        <div class="col1"><img class="logo" src="{{logo}}"> </div>
+        <div class="col2 col-selector"><span class="logotext" translate>LBL_ECORP</span></div>
+    </div>
+    <div class="row">
+        <div class="col1" class="profile-pic-icon"><img *ngIf="profile_pic" class="profilepic" src="{{profile_pic}}?{{rootScopeData.randomeNumber}}" onerror="this.src='./assets/images/blank-profile-picture.png'"></div>
+        <div class="col2">
+            <span class="username"><span>{{userId}} {{corpId}}</span></span>
+            <!-- <span class="toolTip">
+                <p>Corporate ID : CorpID username : {{userFirstName}} {{userLastName}}</p>
+            </span> -->
+            <span class="logindatelable" translate>LBL_LAST_LOGIN</span><span class="logindate" *ngIf="lastLoginDate"> {{lastLoginDate |dateFormat}} {{lastLoginTime}}</span>
+        </div>       
+    </div>
+</div>

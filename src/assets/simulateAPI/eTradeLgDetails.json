@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "commissionDebitAccount": "05100003411902",
+      "marginDebitAccount": "05100003411902",
+      "contractPercentage": "0.00",
+      "textLanguage": "E",
+      "lgAmount": "400.00",
+      "expiryDateGregorian": "220426",
+      "commissionDebitCurrency": "SAR",
+      "applicantNameAddressEng5": "hkmc@alahli.com",
+      "purposeLGEng1": "TEST",
+      "applicantNameAddressEng1": "SAM HUSSEIN NASSER SALEH AL LAWDHAE",
+      "applicantNameAddressEng2": "Test Address01",
+      "deliveryBranch": "004",
+      "productType": "215"
+    }
+  ],
+
+  "headerValue": {
+    "moduleId": "GETCUSTOMERLG",
+    "simulate": "N",
+    "_dinsess": "b1dce474-842c-4fe0-a3be-ba8b184faddb"
+  }
+}

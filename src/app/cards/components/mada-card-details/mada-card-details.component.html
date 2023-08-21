@@ -1,0 +1,156 @@
+<div class="madacardDetailsSection" id="madaCardDetailPagePrint">
+    <div class="detailsTitleContainer">  
+        <span class="backIcon backArrow" (click)="onBackArrowClick()"></span>      
+        <span class="mainTitle" translate> LBL_MADA_CARD </span> <span> | </span>
+        <span class="mainTitle" translate> {{  selectedTransfer?.subCardType }}</span>
+    </div>
+    <section class="summaryOuterConainer">    
+        <div class="sub-container">
+            <app-summary-tools id="printCheque" [printSection]="printSection" (onPDFdownloadChange)="toPdf('chequeBookDetailsPrintSection')"></app-summary-tools>
+            <div class="cardHeading">
+            <div class="subTitles">
+                <span class="fontNormal" translate>{{ "LBL_CARD_NO" }}</span> {{ selectedMadaCardData.cardNum ? selectedMadaCardData.cardNum : "--" }} 
+                </div>
+              <div class="title">
+                <div>
+                  {{ "LBL_NAME_ON_CARD" | translate }}
+                  <span *ngIf="selectedTransfer?.name"
+                    >{{
+                      selectedTransfer?.name
+                    }}
+                  </span>
+                  <span *ngIf="!selectedTransfer?.name">--</span>
+                </div>
+              </div>
+            </div>
+
+            <span class="hidelink" (click)="showhideDetail()" >
+                <span *ngIf="showMadaDetails === 'false'" translate>LBL_HIDE_DETAILS</span>
+                <span *ngIf="showMadaDetails === 'true'" translate>LBL_MORE_DETAILS</span>
+            </span>
+
+            <div class="showMadaCardDetails" [@detailExpand]="showMadaDetails === 'false'">
+              <div class="summaryOuterContainer">
+                <div class="container p0">
+                  <!-- <div class="subTitles">
+                    {{ selectedTransfer.uploadType?selectedTransfer.uploadType : "--" }} {{ "LBL_FROM" | translate }}
+                    {{ selectedTransfer.makerName ? selectedTransfer.makerName : "--" }},
+                    {{ selectedTransfer.accNo ? selectedTransfer.accNo : "--" }}
+                  </div>
+                  <div class="refNO">
+                    {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+                    {{ selectedTransfer.odDRefNo?selectedTransfer.odDRefNo : "--" }}
+                  </div> -->
+                  
+                  <div class="subContainer mR0">
+                    <div class="subTitles" translate>LBL_CARD_DETAILS</div>
+                    <div class="dflex">
+                      <div class="cardImg">
+                        <!-- <img src="../../../../assets/images/snb_credit_card.png.png" /> -->
+                        <img [src]="madaCardImg" />
+                        <div class="maskCnt test">{{selectedMadaCardData?.maskedpan}}</div>
+                        <div class="maskCnt expDate">{{selectedMadaCardData?.expiryDate }}</div>
+                        <div class="maskCnt cardName" *ngIf="selectedTransfer?.name">{{selectedTransfer?.name }}</div>
+                        <div class="maskCnt cardName" *ngIf="!selectedTransfer?.name">--</div>
+                      </div>
+                      <div class="rowInnerCntr" >
+                        
+                        
+                        <div class="field">
+                          <div class="label" translate>LBL_EXPIRY_DATE</div>
+                          <div class="information">
+                            {{ selectedMadaCardData.expiryDate?selectedMadaCardData.expiryDate :"--" }}
+                          </div>
+                        </div>
+                        <div class="field">
+                          <div class="label" translate>LBL_ISSUE_DATE</div>
+                          <div class="information">
+                            {{ selectedTransfer?.issuedDate? (selectedTransfer?.issuedDate) :"--" }}
+                            <!-- (selectedTransfer.issuedDate | dateFormat) :"--" }} -->
+                          </div>
+                        </div>
+                        <div class="field">
+                          <div class="label" translate>LBL_OFFLINE_TRANSACTION</div>
+                          <div class="information">{{ selectedTransfer?.offlineTrans?selectedTransfer?.lowerConsecutiveOfflineTransactionLimit:"--" }}</div>
+                        </div>
+                        <div class="field">
+                          <div class="label" translate>LBL_POS_TRANSACTION_LIMIT</div>
+                          <div class="information">{{ selectedTransfer?.posLimit? (selectedTransfer?.posLimit | currencyFormat: selectedTransfer?.odTxnCy) :"--" }} {{selectedTransfer?.odTxnCy}}</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- <app-mada-card-details-section [@detailExpand]="showMadaDetails === 'true'" [selectedTransfer]="selectedTransfer"></app-mada-card-details-section> -->
+
+            <!-- <app-debit-lookup *ngIf="debitDataObj" (onAccountSelect)="getDisplayStatus($event)" [debitAccDetails]="debitDataObj"
+       class="arrange removeBorder"
+      ></app-debit-lookup> -->
+
+      <div class="subTitles" translate=>LBL_CARDS_LINKED_ACC</div>
+
+      <div class="table" >
+        <table *ngIf="!noRecordFlag" class="casaTable linkAdditionalAccount" id="linkAdditionalAccount" mat-table matSort
+          [dataSource]="dataSourceToPassLinkAccount">
+          <ng-container matColumnDef="accountId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+              <div class="position_rel" translate>LBL_ACC_NUMBER</div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <span *ngIf="element.accountId">{{ element.accountId }}</span>
+              <span *ngIf="!element.accountId">--</span>
+            </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="nickname">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+              <div class="position_rel" translate>LBL_NICKNAME</div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <span *ngIf="element.nickname">
+                {{ element.nickname }}
+              </span>
+              <span *ngIf="!element.nickname">--</span>
+            </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+              <div class="position_rel" translate>LBL_ACCOUNT_TYPE</div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <span *ngIf="element.type">{{ element.type }} </span>
+              <span *ngIf="!element.type">--</span>
+            </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+              <div class="position_rel" translate>LBL_ACCOUNT_STATUS</div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <span *ngIf="element.status">
+                {{ element.status }}
+              </span>
+              <span *ngIf="!element.status">--</span>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+        <div *ngIf="noRecordFlag">
+          <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+        </div>
+      </div>
+
+
+          </div>
+    </section>
+    <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>
+</div>    

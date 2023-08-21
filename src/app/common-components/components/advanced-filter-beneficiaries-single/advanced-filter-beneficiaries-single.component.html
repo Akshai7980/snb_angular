@@ -1,0 +1,52 @@
+<div class="filter-search-popup" *ngIf="showAdvancedSearchPopup" (click)="stopAdvancedSearchClose($event)">
+    <div translate class="header">LBL_FILTER
+        <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+    </div>
+    
+    
+    <div class="flexCntr">
+        <div class="fieldCntr">
+            <div class="fieldLabel" translate>LBL_NAME</div>
+            <input type="text" [(ngModel)]="name" class="txt-fld mt-top">
+        </div>
+        <div class="fieldCntr">
+            <div class="fieldLabel" translate>LBL_BANK</div>
+            <input type="text" [(ngModel)]="bankName"  class="txt-fld mt-top">
+        </div>
+    </div>
+    <div class="flexCntr">
+        <div class="fieldCntr">
+            <div class="fromto">           
+                <div class="datefrom">
+                    <div translate class="fieldLabel" id="proctm">LBL_DATE_FROM</div>
+                    <div class="shortDatePicker mt-top"><app-date-picker [clearFlag]="clearFlag" class="dateErrorMsg" [showDateErrorMessage]="fromDateErrorMessage"
+                        (dateValue)="getFromDate($event)" [maxDate]="maxFromDate" [minDate]="minFromDate" [newDate]="dateFrom"></app-date-picker></div>
+                </div>
+                <div class="dateto">
+                    <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+                    <div class="shortDatePicker mt-top"><app-date-picker [clearFlag]="clearFlag" [showDateErrorMessage]="toDateErrorMessage"
+                        (dateValue)="getToDate($event)" [maxDate]="maxToDate" [minDate]="minToDate" [newDate]="dateTo"></app-date-picker></div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="fieldCntr">
+            <div class="fieldLabel" translate>LBL_PAYMENT_TYPE</div>
+            <mat-select panelClass="dropDownOption advdownWidth_300" [(value)]="paymentType" class="selectInput"  disableOptionCentering>
+                <mat-option value="withinsnb">{{'LBL_BKSIBT' | translate}}</mat-option>
+                <mat-option value="local">{{'LBL_LOCAL' | translate}}</mat-option>
+                <mat-option value="international">{{'LBL_TELTRF' | translate}}</mat-option>
+            </mat-select>
+        </div> -->
+    </div>
+
+    <div class="submt">
+        <div>
+            <!-- <button class="clr"  translate (click)="onClickClear()">LBL_CLEAR</button> -->
+            <app-tertiary-button buttonValue="LBL_CLEAR" (click)="onClickClear()"></app-tertiary-button>
+        </div>
+        <div>
+            <!-- <button class="apply" (click)="onClickApply()"  translate>LBL_APPLY</button> -->
+            <app-primary-button (click)="onClickApply()" buttonValue="LBL_APPLY"></app-primary-button>
+        </div>
+    </div>
+</div>

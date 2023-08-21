@@ -1,0 +1,55 @@
+<div class="receiptConatiner">
+    <div translate class="mainTitle">LBL_RECEIPT</div>
+    <div class="receiptSubconatiner">
+        <div class="titleContainer">
+            <div class="textalign_center"><img class="shieldIcon" src="/assets/images/iconShield.png"
+                    alt="success"></div>
+            <div class="textalign_center subTitles" translate>LBL_CONFIRMATION</div>
+            <div class="textalign_center infoFontSize" translate>LBL_CHEQUE_BOOK_APPROVED</div>
+        </div>
+        <div class="fromContainer ">
+            <div translate class="subTitles">LBL_FROM</div>
+            <div class="fromsubConatiner mtop_12">
+                <div>
+                    <div class="chequeTableTitles" translate>LBL_ACTION_BY</div>
+                    <div class="mtop_4 infoFontSize">Dameer Ashan</div>
+                </div>
+                <div>
+                    <div class="chequeTableTitles" translate>LBL_ACC_NUMBER</div>
+                    <div class="mtop_4 infoFontSize">SAR1234567890</div>
+                </div>
+                <div>
+                    <div class="chequeTableTitles" translate>LBL_NICKNAME</div>
+                    <div class="mtop_4 infoFontSize">Dameer Ashan</div>
+                </div>
+            </div>
+        </div>
+        <hr class="seperator">
+        <div class="chequeBookContainer">
+            <div translate class="subTitles">LBL_CHEQUE_BOOK_DETAILS</div>
+            <div class="chequeBookSubConatiner mtop_12">
+                <div>
+                    <div class="chequeTableTitles" translate>LBL_CHEQUE_BOOK_TYPE</div>
+                    <div class="mtop_4 infoFontSize">25</div>
+                </div>
+                <div>
+                    <div class="chequeTableTitles" translate>LBL_NO_OF_BOOKS</div>
+                    <div class="mtop_4 infoFontSize">1</div>
+                </div>
+                <div>
+                    <div class="chequeTableTitles" translate>LBL_COLLECTION_BRANCH</div>
+                    <div class="mtop_4 infoFontSize">By Mail : PO BOX 14 Bank Street BSC building Bahrain</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btnGroup mtop_24">
+        <button class="button-print-secondary receiptBtn">
+            <span class="printReceiptIcon" translate>LBL_PRINT_RECEIPT</span>
+        </button>
+        <button class="button-print-secondary receiptBtn">
+            <span class="saveReceiptIcon" translate>LBL_SAVE_RECEIPT</span>
+        </button>
+        <button type="button" class="button-primary finish" (click)="onClickFinish()" translate>LBL_FINISH</button>
+    </div>
+</div>

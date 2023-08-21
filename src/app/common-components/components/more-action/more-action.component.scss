@@ -1,0 +1,53 @@
+.more-icon{
+    background: url(../../../../assets/images/more-action.svg)no-repeat center center;
+    // display: inline-block;
+    width: 20px;
+    height: 19px;
+    cursor: pointer;
+    margin: auto;
+}
+.moreAction-popup{
+    width: auto;
+    height: auto;
+    overflow-y: auto;
+    max-height: 200px;
+    border: 1px solid var(--overlaypopup-margin);
+    border-radius: 3px;
+    background-color: var(--primary-widget-bg-color);
+    font-size: 1em;
+    color: #000;
+    text-decoration: none;
+    line-height: 18px;
+    // margin-left: 16px;
+    // margin-right: 15px;
+}
+ul,li{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    line-height: 30px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--widget-border-color) !important;
+}
+li:last-child { border-bottom: none !important;}
+li{
+    color:var(--short-profile-txt-color);
+    text-decoration: none;
+    padding: 0px 15px 0px 5px;
+    font-size: 12px;
+    transition: 0.3s;
+
+}
+li:hover{
+  background: var(--summary-hover-color);
+  display: block;
+}
+.card-head{font-size: 0.8571428571428571em;font-family: 'opensans-regular', arial, sans-serif !important;padding-right: 15px;cursor: pointer;  
+}
+.more-icon-container {
+    text-align: center;
+    padding-right: 9px;
+    position: relative;
+    top: 1px;
+}
+

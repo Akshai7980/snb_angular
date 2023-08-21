@@ -1,0 +1,44 @@
+<div  class="outerContainer" *ngIf="!showReceipt">
+    <div class="title" translate>LBL_AUTHORIZE_REQUEST</div>
+    <div class="accountDetails">
+        <div class="subTitles" translate> LBL_POSFINANCE_REQUEST
+            <span translate>{{'LBL_FROM' | translate}} <span>{{posFinanceRequestMytaskSummaryDetails.res.makerName}}, {{posFinanceRequestMytaskSummaryDetails.res.cifNo}}</span></span>
+        </div>
+        <div class="reference" >{{'LBL_REF_NUMBER' | translate}}: {{posFinanceRequestMytaskSummaryDetails.res.refNo}}</div>
+        <div class="amount">{{'LBL_FINANCE_AMOUNT' | translate}} <b>{{posFinanceRequestMytaskSummaryDetails.res.financeAmt | currencyFormat :posFinanceRequestMytaskSummaryDetails.res.financeAmt }} {{posFinanceRequestMytaskSummaryDetails.res.currency }}</b> {{'LBL_ON' | translate}}  {{posFinanceRequestMytaskSummaryDetails.res.valueDate}}</div>
+         
+    </div>
+    <app-authorization
+    (authEmit)="setAuthorizationDetails($event)"
+    [authListDataSource]="authorsList"></app-authorization>
+    
+<div class="footerText" translate>
+  LBL_TERMS
+    
+    <a href="{{ url }}" target="_blank"
+        ><span class="termsContainer" translate
+          >LBL_THE_TERMS_AND_CONDITIONS</span
+        ></a>
+    
+  </div>
+  <section>
+    <div class="btnContainer">
+      <button class="button-secondary" routerLink="/mytask/posFinance" translate>
+        LBL_CANCEL
+      </button>
+      <button class="button-primary" 
+        translate (click)="submit()">
+        LBL_SUBMIT
+      </button>
+    </div>
+  </section>
+</div>
+  <div *ngIf="showReceipt">
+    <app-receipt
+    (onInitAgainClick)="initiateAnotherRequest()"
+      [receiptDetails]="receiptData"
+      
+      
+    >
+    </app-receipt>
+  </div>

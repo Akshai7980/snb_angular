@@ -1,0 +1,12 @@
+{
+	"headerValue": {
+		"moduleId": "PAYROLLONSUBMIT"
+	},
+	"dataValue": {
+		"REFERENCE_NUM": "TBS2209130005749",
+		"STATUS": "SUCCESS",
+		"ERROR_CODE": "",
+		"ERROR_DES": "",
+		"OD_STATUS_DESC" : "Success"
+	}
+}

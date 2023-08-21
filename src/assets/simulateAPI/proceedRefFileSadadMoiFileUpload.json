@@ -1,0 +1,18 @@
+{
+    "data": 
+      {
+        "odDRefNo": "TBC2208301819244",
+        "odTxnCy": "BHD",
+        "odFileAmount": "200000.097",
+        "fileStatusCd": "PNAUTH",
+        "succAmt": "200000.097",
+        "failAmt": "0",
+        "noOfSuccessTxn": "1",
+        "noOfFaildTxn": "0",
+        "totalCount": "200" 
+      }
+    ,
+    "headerValue": {
+      "moduleId": "SADMOIFILEDETAILS"
+    }
+  }

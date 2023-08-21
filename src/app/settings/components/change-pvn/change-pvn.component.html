@@ -1,0 +1,78 @@
+<div class="mainContainer" *ngIf="!showReceipt">
+    <div class="mainTitle" translate>
+        LBL_CHANGE_PVN
+    </div>
+    <div class="subContainer">
+        <div class="subTitles" translate>LBL_PVN_DETAILS</div>
+        <div class="mtop_20"> 
+            <div translate class="geneStaTitles">{{'LBL_PVN' | translate}}/{{'LBL_TOKEN_CODE' | translate}}<span class="required">*</span></div>
+            <div class="mtop_5 flx">
+                <div>
+                    <input type="text" class="shortText" (blur)="validate($event,'oldPvn')" (keypress)="numbrers($event)"
+                        [(ngModel)]="oldPVN" autocomplete="off" placeholder="{{'LBL_PVN' | translate}}" maxlength="4">
+                    <div *ngIf="oldPvnErr">
+                        <small translate class="errorMsg">LBL_PVN_ERR_MSG</small>
+                    </div>
+                </div>
+                <div class="mleft_16">
+                    <input type="text" class="shortText" (blur)="validate($event,'token')" (keypress)="numbrers($event)"
+                        [(ngModel)]="tokenCode" autocomplete="off" placeholder="{{'LBL_TOKEN_CODE' | translate}}" maxlength="8">
+                    <div *ngIf="tokenCodeErr">
+                        <small translate class="errorMsg">LBL_TOKEN_ERR_MSG</small>
+                    </div>
+                </div>
+            </div>
+            <div class="mtop_10 fieldConatiner">
+                <div translate class="geneStaTitles">LBL_NEW_PVN<span class="required">*</span></div>
+                <div class="mtop_5">
+                    <input type="text" class="inpField" (blur)="validate($event,'newPvn')" (keypress)="numbrers($event)"
+                            [(ngModel)]="newPVN" autocomplete="off" placeholder="{{'LBL_ENTER_NEW_PVN' | translate}}" maxlength="4">
+                    <div *ngIf="newPvnErr">
+                            <small translate class="errorMsg">LBL_NEW_PVN_ERR_MSG</small>
+                    </div>
+                    <div *ngIf="samePvnErr">
+                            <small translate class="errorMsg">LBL_SME_PVN_ERR</small>
+                    </div>
+
+                </div>
+            </div>
+            <div class="mtop_20 fieldConatiner">
+                <div translate class="geneStaTitles">LBL_CONFIRM_PVN<span class="required">*</span></div>
+                <div class="mtop_5">
+                    <input type="text" class="inpField" (blur)="validate($event,'cPvn')" (keypress)="numbrers($event)"
+                    (keyup)="confirmPVNCheck()" [(ngModel)]="confPVN" autocomplete="off" placeholder="{{'LBK_RE_ENTER_PVN' | translate}}" maxlength="4">
+                    <div *ngIf="pvnMissMatchErr">
+                            <small translate class="errorMsg">LBL_PVN_MISS_MATCH_ERR</small>
+                    </div>
+                    <div *ngIf="pvnMatch && !failureMsg">
+                            <small translate class="successMsg">LBL_PVN_MATCH_MSG</small>
+                    </div>
+                    <div *ngIf="confPvnErr">
+                            <small translate class="errorMsg">LBL_RE_ENTR_PVN_ERR</small>
+                    </div>
+                    <div *ngIf="failureMsg">
+                        <small class="required">{{statuserror}}</small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="noteContainer">
+            <div class="mainNote" translate>LBL_PVN_RULES_HEADER</div>
+            <div class="subNote" translate>LBL_PVN_RULE_ONE</div>
+            <div class="subNote" translate>LBL_PVN_RULE_TWO</div>
+            <div class="subNote" translate>LBL_PVN_RULE_THREE</div>
+            <div class="subNote" translate>LBL_PVN_RULE_FR</div>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <div class="footerText" translate>LBL_PVN_PROCEED_MSG</div>
+        <div class="btn">
+            <app-primary-button  buttonValue="LBL_PROCEED" (click)="onProceed()">
+            </app-primary-button>
+        </div>
+    </div>
+</div>
+<app-pvn-receipt [receiptDetails]="receiptData" *ngIf="showReceipt"></app-pvn-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> 

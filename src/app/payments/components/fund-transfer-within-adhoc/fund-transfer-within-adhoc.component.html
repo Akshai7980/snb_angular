@@ -1,0 +1,34 @@
+<div class="subconatiner mtop_20">
+    <div translate class="subTitles">LBL_TO</div>
+    <div translate class="subTitles_mtop21">LBL_ONE_TIME_PAYMENT</div>
+    <div class="rowInnerCntr">
+        <div class="field">
+            <div translate class="label">LBL_ACC_NUMBER<span class="required">*</span></div>
+            <div class="mtop_10">
+                <div class="information">
+                    <input type="text" [(ngModel)]="adhocObj.adhocAccNo" (keypress)="numberOnly($event)" (blur)="accNoOnBlur()" maxlength="14" autocomplete="off">
+                    <div *ngIf="adhocObj.adhocAccNoError">
+                        <small translate class="required">{{adhocObj.adhocAccNoError}}</small>
+                    </div>
+                    <div *ngIf="!isAccountNumberValid">
+                        <small translate class="required">LBL_ACC_NO_ERR_MSG</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="field" *ngIf="adhocObj.adhocFullName">
+            <div class="label" translate>LBL_FULL_NAME</div>
+            <div class="information data">{{adhocObj.adhocFullName}}</div>
+        </div>
+
+        <div class="field" *ngIf="adhocObj.adhocCurrency">
+            <div class="label" translate>LBL_CURRENCY</div>
+            <div class="information data">{{adhocObj.adhocCurrency}}</div>
+        </div>
+    </div>
+   
+    <div class="flexEnd">
+        <app-tertiary-button class="backButton" buttonValue="LBL_BACK" (click)="back()"></app-tertiary-button>
+    </div>
+</div>

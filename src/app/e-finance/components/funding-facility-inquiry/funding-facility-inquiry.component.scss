@@ -1,0 +1,46 @@
+.mTop_18 {
+  margin-top: 18px;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 15px;
+}
+
+.casaTable {
+  table-layout: fixed;
+  background-color: var(--primary-widget-bg-color);
+  width: 100%;
+
+  .mat-column-facilityId {
+    width: 25%;
+  }
+  .mat-column-productName {
+    width: 20%;
+  }
+  .mat-column-facilityLimit {
+    width: 20%;
+  }
+  .mat-column-availableLimit {
+    width: 20%;
+  }
+  .mat-column-action {
+    width: 15%;
+  }
+}
+
+td.mat-cell:first-of-type {
+  padding-left: 24px;
+}
+
+th.mat-header-cell:last-of-type {
+  padding-right: 0px !important;
+}
+.flexContainer {
+  display: flex;
+}
+
+.searchMar {
+  margin-left: 15px;
+}

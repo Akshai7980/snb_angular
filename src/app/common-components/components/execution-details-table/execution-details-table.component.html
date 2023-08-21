@@ -1,0 +1,26 @@
+<div class="header-panel">
+    <div class="header-panel-left headerPanelWidth">
+        <div class="workFlowHeader" translate>LBL_EXECUTION_DETAILS</div>
+    </div>
+    <div class="header-panel-right headerPanelWidth">
+        <div class="accordion" [ngClass]="{'accordionUp':!executionDetailsExpand,'accordionDown':executionDetailsExpand}"
+            (click)="onClickExpand($event)"></div>
+    </div>
+</div>
+<div id="executionDetailsexpandCollapseElement" class="animate expandCollpase" [ngClass]="{'collapse':executionDetailsExpand}"
+    [ngStyle]="{'height': contentHeight+'px'}">
+    <div id="workFlowDefaultCntr" *ngIf="!norecordflag">
+        <table id="workFlowDefault" class="mat-table cdk-table tableInfo casaTable" (contentChanged)="getTableHeight()">
+            <tr>
+                <th class="mat-header-cell cdk-header-cell chequesTitles cdk-column-nickName mat-column-nickName" *ngFor="let workFlowHeader of accountDetailsToDisplay.fieldDetails" translate>{{workFlowHeader.headKey}}</th>
+            </tr>
+            <tr class="mat-row cdk-row" *ngFor="let rowData of accountDetailsToDisplay.data">
+                <td class="mat-cell cdk-cell tableInfoFonts cdk-column-nickName mat-column-nickName" *ngFor="let field of ExecutuionData.fieldDetails">{{rowData[field.data]}}</td>
+            </tr>
+        </table>
+    </div>
+    <div *ngIf="norecordflag">
+        <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+    </div>
+</div>
+<!-- <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> -->

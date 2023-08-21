@@ -1,0 +1,26 @@
+.buttonPrimary {
+  min-width: 100px;
+  height: 40px;
+  padding: 5px 20px;
+  border-radius: 100px;
+  background-color: var(--short-profile-txt-color);
+  color: var(--promotions-fontColor);
+  margin-left: 15px;
+  background-size: cover;
+  font-family: "HelveticaNeue", arial, sans-serif;
+  font-size: 14px;
+  text-decoration: none solid rgb(66, 85, 99);
+  text-align: center;
+  transition: all .4s;
+  cursor: pointer;
+}
+button {
+  border: none;
+}
+.buttonPrimary:hover{
+ background-color: var(--primary-btn-hover-color);
+}
+.btnDisable{
+  opacity: .5;
+  // cursor: not-allowed;
+}

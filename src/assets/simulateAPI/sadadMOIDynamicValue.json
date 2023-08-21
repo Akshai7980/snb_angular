@@ -1,0 +1,825 @@
+{
+      "data": [
+          {
+              "serviceCode": "002",
+              "parameters": [
+                  {
+                      "maximumLength": 10,
+                      "minimumLength": 10,
+                      "type": "Number",
+                      "required": "true",
+                      "englishName": "Border Number",
+                      "name": "BeneficiaryId",
+                      "order": 1,
+                      "code": null,
+                      "parameterNameInArabic": "??? ??????"
+                  },
+                  {
+                      "maximumLength": 10,
+                      "minimumLength": 10,
+                      "type": "Number",
+                      "required": "true",
+                      "englishName": "Employer ID",
+                      "name": "SponsorId",
+                      "order": 2,
+                      "code": null,
+                      "parameterNameInArabic": "???? ?????"
+                  },
+                  {
+                      "maximumLength": 3,
+                      "minimumLength": 1,
+                      "type": "Dropdown",
+                      "required": "true",
+                      "englishName": "Iqama Duration in Months",
+                      "name": "IqamaDuration",
+                      "order": 3,
+                      "code": null,
+                      "parameterNameInArabic": "??? ???? ???????",
+                      "DropdownValues": [
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "102",
+                              "typeValueNameLocal": "???? 102",
+                              "typeValueNameEnglish": "102 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "105",
+                              "typeValueNameLocal": "???? 105",
+                              "typeValueNameEnglish": "105 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "108",
+                              "typeValueNameLocal": "???? 108",
+                              "typeValueNameEnglish": "108 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "111",
+                              "typeValueNameLocal": "???? 111",
+                              "typeValueNameEnglish": "111 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "114",
+                              "typeValueNameLocal": "???? 114",
+                              "typeValueNameEnglish": "114 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "117",
+                              "typeValueNameLocal": "???? 117",
+                              "typeValueNameEnglish": "117 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "12",
+                              "typeValueNameLocal": "12 ????",
+                              "typeValueNameEnglish": "12 Months",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "120",
+                              "typeValueNameLocal": "???? 120",
+                              "typeValueNameEnglish": "120 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "123",
+                              "typeValueNameLocal": "???? 123",
+                              "typeValueNameEnglish": "123 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "126",
+                              "typeValueNameLocal": "???? 126",
+                              "typeValueNameEnglish": "126 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "129",
+                              "typeValueNameLocal": "???? 129",
+                              "typeValueNameEnglish": "129 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "132",
+                              "typeValueNameLocal": "???? 132",
+                              "typeValueNameEnglish": "132 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "135",
+                              "typeValueNameLocal": "???? 135",
+                              "typeValueNameEnglish": "135 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "138",
+                              "typeValueNameLocal": "???? 138",
+                              "typeValueNameEnglish": "138 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "141",
+                              "typeValueNameLocal": "???? 141",
+                              "typeValueNameEnglish": "141 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "144",
+                              "typeValueNameLocal": "???? 144",
+                              "typeValueNameEnglish": "144 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "147",
+                              "typeValueNameLocal": "???? 147",
+                              "typeValueNameEnglish": "147 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "15",
+                              "typeValueNameLocal": "15 ????",
+                              "typeValueNameEnglish": "15 Months",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "150",
+                              "typeValueNameLocal": "???? 150",
+                              "typeValueNameEnglish": "150 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "153",
+                              "typeValueNameLocal": "???? 153",
+                              "typeValueNameEnglish": "153 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "156",
+                              "typeValueNameLocal": "???? 156",
+                              "typeValueNameEnglish": "156 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "159",
+                              "typeValueNameLocal": "???? 159",
+                              "typeValueNameEnglish": "159 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "162",
+                              "typeValueNameLocal": "???? 162",
+                              "typeValueNameEnglish": "162 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "165",
+                              "typeValueNameLocal": "???? 165",
+                              "typeValueNameEnglish": "165 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "168",
+                              "typeValueNameLocal": "???? 168",
+                              "typeValueNameEnglish": "168 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "171",
+                              "typeValueNameLocal": "???? 171",
+                              "typeValueNameEnglish": "171 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "174",
+                              "typeValueNameLocal": "???? 174",
+                              "typeValueNameEnglish": "174 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "177",
+                              "typeValueNameLocal": "???? 177",
+                              "typeValueNameEnglish": "177 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "18",
+                              "typeValueNameLocal": "18 ????",
+                              "typeValueNameEnglish": "18 Months",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "180",
+                              "typeValueNameLocal": "???? 180",
+                              "typeValueNameEnglish": "180 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "183",
+                              "typeValueNameLocal": "???? 183",
+                              "typeValueNameEnglish": "183 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "186",
+                              "typeValueNameLocal": "???? 186",
+                              "typeValueNameEnglish": "186 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "189",
+                              "typeValueNameLocal": "???? 189",
+                              "typeValueNameEnglish": "189 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "192",
+                              "typeValueNameLocal": "???? 192",
+                              "typeValueNameEnglish": "192 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "195",
+                              "typeValueNameLocal": "???? 195",
+                              "typeValueNameEnglish": "195 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "198",
+                              "typeValueNameLocal": "???? 198",
+                              "typeValueNameEnglish": "198 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "201",
+                              "typeValueNameLocal": "???? 201",
+                              "typeValueNameEnglish": "201 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "204",
+                              "typeValueNameLocal": "???? 204",
+                              "typeValueNameEnglish": "204 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "207",
+                              "typeValueNameLocal": "???? 207",
+                              "typeValueNameEnglish": "207 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "21",
+                              "typeValueNameLocal": "21 ????",
+                              "typeValueNameEnglish": "21 Months",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "210",
+                              "typeValueNameLocal": "???? 210",
+                              "typeValueNameEnglish": "210 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "213",
+                              "typeValueNameLocal": "???? 213",
+                              "typeValueNameEnglish": "213 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "216",
+                              "typeValueNameLocal": "???? 216",
+                              "typeValueNameEnglish": "216 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "219",
+                              "typeValueNameLocal": "???? 219",
+                              "typeValueNameEnglish": "219 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "222",
+                              "typeValueNameLocal": "???? 222",
+                              "typeValueNameEnglish": "222 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "225",
+                              "typeValueNameLocal": "???? 225",
+                              "typeValueNameEnglish": "225 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "228",
+                              "typeValueNameLocal": "???? 228",
+                              "typeValueNameEnglish": "228 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "231",
+                              "typeValueNameLocal": "???? 231",
+                              "typeValueNameEnglish": "231 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "234",
+                              "typeValueNameLocal": "???? 234",
+                              "typeValueNameEnglish": "234 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "237",
+                              "typeValueNameLocal": "???? 237",
+                              "typeValueNameEnglish": "237 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "24",
+                              "typeValueNameLocal": "24 ????",
+                              "typeValueNameEnglish": "24 Months",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "240",
+                              "typeValueNameLocal": "???? 240",
+                              "typeValueNameEnglish": "240 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "243",
+                              "typeValueNameLocal": "???? 243",
+                              "typeValueNameEnglish": "243 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "246",
+                              "typeValueNameLocal": "???? 246",
+                              "typeValueNameEnglish": "246 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "249",
+                              "typeValueNameLocal": "???? 249",
+                              "typeValueNameEnglish": "249 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "252",
+                              "typeValueNameLocal": "???? 252",
+                              "typeValueNameEnglish": "252 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "255",
+                              "typeValueNameLocal": "???? 255",
+                              "typeValueNameEnglish": "255 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "258",
+                              "typeValueNameLocal": "???? 258",
+                              "typeValueNameEnglish": "258 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "261",
+                              "typeValueNameLocal": "???? 261",
+                              "typeValueNameEnglish": "261 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "264",
+                              "typeValueNameLocal": "???? 264",
+                              "typeValueNameEnglish": "264 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "267",
+                              "typeValueNameLocal": "???? 267",
+                              "typeValueNameEnglish": "267 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "27",
+                              "typeValueNameLocal": "???? 27",
+                              "typeValueNameEnglish": "27 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "270",
+                              "typeValueNameLocal": "???? 270",
+                              "typeValueNameEnglish": "270 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "273",
+                              "typeValueNameLocal": "???? 273",
+                              "typeValueNameEnglish": "273 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "276",
+                              "typeValueNameLocal": "???? 276",
+                              "typeValueNameEnglish": "276 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "279",
+                              "typeValueNameLocal": "???? 279",
+                              "typeValueNameEnglish": "279 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "282",
+                              "typeValueNameLocal": "???? 282",
+                              "typeValueNameEnglish": "282 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "285",
+                              "typeValueNameLocal": "???? 285",
+                              "typeValueNameEnglish": "285 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "288",
+                              "typeValueNameLocal": "???? 288",
+                              "typeValueNameEnglish": "288 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "291",
+                              "typeValueNameLocal": "???? 291",
+                              "typeValueNameEnglish": "291 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "294",
+                              "typeValueNameLocal": "???? 294",
+                              "typeValueNameEnglish": "294 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "297",
+                              "typeValueNameLocal": "???? 297",
+                              "typeValueNameEnglish": "297 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "3",
+                              "typeValueNameLocal": "3 ????",
+                              "typeValueNameEnglish": "3 Months",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "30",
+                              "typeValueNameLocal": "???? 30",
+                              "typeValueNameEnglish": "30 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "300",
+                              "typeValueNameLocal": "???? 300",
+                              "typeValueNameEnglish": "300 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "33",
+                              "typeValueNameLocal": "???? 33",
+                              "typeValueNameEnglish": "33 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "36",
+                              "typeValueNameLocal": "???? 36",
+                              "typeValueNameEnglish": "36 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "39",
+                              "typeValueNameLocal": "???? 39",
+                              "typeValueNameEnglish": "39 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "42",
+                              "typeValueNameLocal": "???? 42",
+                              "typeValueNameEnglish": "42 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "45",
+                              "typeValueNameLocal": "???? 45",
+                              "typeValueNameEnglish": "45 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "48",
+                              "typeValueNameLocal": "???? 48",
+                              "typeValueNameEnglish": "48 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "51",
+                              "typeValueNameLocal": "???? 51",
+                              "typeValueNameEnglish": "51 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "54",
+                              "typeValueNameLocal": "???? 54",
+                              "typeValueNameEnglish": "54 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "57",
+                              "typeValueNameLocal": "???? 57",
+                              "typeValueNameEnglish": "57 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "6",
+                              "typeValueNameLocal": "6 ????",
+                              "typeValueNameEnglish": "6 Months",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "60",
+                              "typeValueNameLocal": "???? 60",
+                              "typeValueNameEnglish": "60 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "63",
+                              "typeValueNameLocal": "???? 63",
+                              "typeValueNameEnglish": "63 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "66",
+                              "typeValueNameLocal": "???? 66",
+                              "typeValueNameEnglish": "66 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "69",
+                              "typeValueNameLocal": "???? 69",
+                              "typeValueNameEnglish": "69 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "72",
+                              "typeValueNameLocal": "???? 72",
+                              "typeValueNameEnglish": "72 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "75",
+                              "typeValueNameLocal": "???? 75",
+                              "typeValueNameEnglish": "75 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "78",
+                              "typeValueNameLocal": "???? 78",
+                              "typeValueNameEnglish": "78 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "81",
+                              "typeValueNameLocal": "???? 81",
+                              "typeValueNameEnglish": "81 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "84",
+                              "typeValueNameLocal": "???? 84",
+                              "typeValueNameEnglish": "84 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "87",
+                              "typeValueNameLocal": "???? 87",
+                              "typeValueNameEnglish": "87 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "9",
+                              "typeValueNameLocal": "9 ????",
+                              "typeValueNameEnglish": "9 Months",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "90",
+                              "typeValueNameLocal": "???? 90",
+                              "typeValueNameEnglish": "90 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "93",
+                              "typeValueNameLocal": "???? 93",
+                              "typeValueNameEnglish": "93 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "96",
+                              "typeValueNameLocal": "???? 96",
+                              "typeValueNameEnglish": "96 Month",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "IqamaDurations_Enum",
+                              "typeValue": "99",
+                              "typeValueNameLocal": "???? 99",
+                              "typeValueNameEnglish": "99 Month",
+                              "lastDateTime": 1659983400000
+                          }
+                      ]
+                  },
+                  {
+                      "maximumLength": 2,
+                      "minimumLength": 2,
+                      "type": "Dropdown",
+                      "required": "true",
+                      "englishName": "Job Category",
+                      "name": "JobCategory",
+                      "order": 4,
+                      "code": null,
+                      "parameterNameInArabic": "??? ??????",
+                      "DropdownValues": [
+                          {
+                              "typeCode": "JobCategory_Enum",
+                              "typeValue": "06",
+                              "typeValueNameLocal": "????? ??????",
+                              "typeValueNameEnglish": "Farming Labor",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "JobCategory_Enum",
+                              "typeValue": "20",
+                              "typeValueNameLocal": "???????",
+                              "typeValueNameEnglish": "Relatives (Family Visa)",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "JobCategory_Enum",
+                              "typeValue": "21",
+                              "typeValueNameLocal": "??????? ????????",
+                              "typeValueNameEnglish": "Housing Labor",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "JobCategory_Enum",
+                              "typeValue": "22",
+                              "typeValueNameLocal": "????? ?????",
+                              "typeValueNameEnglish": "Shepherd Labor",
+                              "lastDateTime": 1659983400000
+                          },
+                          {
+                              "typeCode": "JobCategory_Enum",
+                              "typeValue": "23",
+                              "typeValueNameLocal": "????",
+                              "typeValueNameEnglish": "Other",
+                              "lastDateTime": 1659983400000
+                          }
+                      ]
+                  },
+                  {
+                    "maximumLength": 10,
+                    "minimumLength": 10,
+                    "type": "Date",
+                    "required": "true",
+                    "englishName": "Start Date",
+                    "name": "ValueStartDate",
+                    "order": 1,
+                    "code": null,
+                    "parameterNameInArabic": "??? ??????"
+                },
+                {
+                  "maximumLength": 10,
+                  "minimumLength": 10,
+                  "type": "Date",
+                  "required": "true",
+                  "englishName": "End Date",
+                  "name": "ValueEndDate",
+                  "order": 1,
+                  "code": null,
+                  "parameterNameInArabic": "??? ??????"
+              }
+              ]
+          }
+      ],
+      "headerValue": {
+          "moduleId": "SADADPARAMETRS",
+          "simulate": "N",
+          "_dinsess": "235e4b85-cd56-456c-939d-b016031d9859",
+          "export": null,
+          "exportType": null,
+          "languageId": null,
+          "sortColumn": null,
+          "sortOrder": null,
+          "sortcolumn": null
+      }
+  }

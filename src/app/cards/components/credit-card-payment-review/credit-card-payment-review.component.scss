@@ -1,0 +1,57 @@
+.title {
+    width: 215px;
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+
+.subContainer {
+    border-radius: 6px;
+    background-color: var(--primary-widget-bg-color);
+    padding: 19px 20px 31px 20px;
+    border: 1px solid var(--widget-border-color);
+}
+
+.subTitles {
+    font-size: 16px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    color: var(--tableData-header-color);
+}
+
+.mainContainer {
+
+    .footerContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .footerText {
+            margin: 40px 0px 0px 33px;
+            display: inline-block;
+            font-family: "HelveticaNeue", arial, sans-serif;
+            font-size: 14px;
+            color: var(--tableData-header-color);
+
+            .termsContainer {
+                color: var(--secondary-btn-print-border-color);
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .btnGroup {
+        float: right;
+        display: flex;
+        margin-right: 20px;
+    }
+
+    .mtop_20 {
+        margin-top: 20px;
+    }
+}

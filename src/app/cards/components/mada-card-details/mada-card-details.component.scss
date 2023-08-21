@@ -1,0 +1,212 @@
+.madacardDetailsSection {
+    
+
+    .sub-container {
+        border-radius: 10px;
+        background: var(--primary-widget-bg-color);
+        border: 1px solid var(--widget-border-color);
+        min-height: 50%;
+        margin-top: 11px;
+        margin-left: 25px;
+        padding: 22px;
+        margin-right: 20px;
+
+        .accDetails {
+            line-height: 28px;
+            padding: 5px 5px 5px 0px;
+            font-family: "HelveticaNeueLight";
+            font-size: 16px;
+            color: var(--tableData-header-color);
+        }
+
+        .pencilIcon,
+        .closeIcon {
+            width: 18px;
+            height: 18px;
+            transform: translateY(3px);
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .nicknameField {
+            display: inline-block;
+            width: 230px;
+            height: 40px;
+            border: 1px solid #e2e2e2;
+            border-radius: 6px;
+            background-color:var(--primary-widget-bg-color);
+            font-size: 14px;
+            color: var(--primary-fontColor);
+            outline: none;
+            padding-left: 10px;
+            padding-right: 60px;
+        }
+
+        .tickIcon {
+            width: 44px;
+            height: 40px;
+            background: url(../../../../assets/images/icoTick.svg) no-repeat center center;
+            border: none;
+            border-radius: 6px;
+            border: 2px solid #006a52;
+            cursor: pointer;
+            margin-left: 16px;
+            transform: translateY(12px);
+        }
+
+        .amount {
+            width: 127px;
+            height: 29px;
+            padding: 5px;
+            font-family: "HelveticaNeueMed";
+            font-size: 16px;
+            color: var(--tableData-header-color);
+        }
+
+        .showDetails,
+        .hideDetails {
+            width: 100px;
+            line-height: 24px;
+            padding: 5px 0px;
+            font-family: "HelveticaNeueMed";
+            font-size: 12px;
+            color: var(--short-profile-txt-color);
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .inputField {
+            margin-bottom: 10px;
+            position: relative;
+            width: 300px;
+        }
+
+        .balance {
+            margin-top: 9px;
+            color: var(--tableData-header-color);
+        }
+
+        .accDetailsInfo {
+            height: auto;
+            background-color: var(--summary-row-bg-color);
+            border-radius: 10px;
+            padding: 15px;
+            margin-right: 30px;
+
+            .titleBar {
+                height: 27px;
+                background-size: cover;
+                font-family: "HelveticaNeueMed", arial, sans-serif;
+                font-size: 16px;
+                color: #5d5d5d;
+                margin-bottom: 15px;
+
+                h4 {
+                    width: 200px;
+                    height: 27px;
+                    background-size: cover;
+                    font-family: "HelveticaNeueMed", arial, sans-serif;
+                    font-size: 16px;
+                    color: var(--tableData-header-color);
+
+                }
+            }
+
+            .accInfo {
+                justify-content: space-between;
+                .label {
+                    width: 107px;
+                    height: 30px;
+                    font-size: 14px;
+                    color: var(--table-header-color);
+                    font-family: "HelveticaNeueMed", arial, sans-serif;
+                }
+
+                .dataInfo {
+                    height: 40px;
+                    font-family: "HelveticaNeueMed";
+                    font-size: 14px;
+                    color: var(--tableData-header-color);
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+}
+
+.button-secondary{float: right; margin-top: 30px;margin-right: 20px;}
+.button-secondary:hover {
+    background-color: #e8e8e8;
+}
+.backIcon{top:4px;left:0}.hidelink{color:#006a52; font-size: 12px;}
+
+.summaryOuterContainer {
+    .summaryContainer {
+      border-radius: 10px;
+      background: var(--primary-widget-bg-color);
+      border: 1px solid var(--widget-border-color);
+      margin: 20px 20px 0 30px;
+      padding-bottom: 15px !important;
+    }
+  }
+  
+  .btnContainer {
+    float: right;
+    margin-top: 25px;
+    padding-right: 21px;
+  }
+  .container{
+    padding:16px 0 14px 18px
+  }
+  .subContainer {
+    border-radius: 10px;
+    background: var(--summary-row-bg-color);
+    margin: 20px 30px 10px 0;
+    padding: 12px 0 15px 18px;
+  }
+  .title {
+    padding-top: 16px;
+    display: flex;
+    color: var(--default-text-color);
+  }
+  span {
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+  }
+  .cardImg img{max-width: 338px;}
+  .cardImg{position: relative;}
+  .maskCnt{position:absolute; top:105px; left:23px; background-color: #2d8a74; color:#fff;padding: 1px 10px;
+    min-width: 258px;text-align: center;}
+    .maskCnt.expDate{top: 130px;min-width: 63px;min-height: 20px;left: 160px;text-align: left;}.maskCnt.cardName{text-align: left;top: 157px;min-width: 200px;min-height: 20px;}
+  .rowInnerCntr {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 14px 0 0 20px;
+    .field {
+      width: 50%;
+      padding-bottom: 20px;
+      .label {
+        font-family: "HelveticaNeueMed", arial, sans-serif;
+        color: var(--table-header-color);
+        font-size: 14px;
+        padding-top: 10px;
+      }
+      .information {
+        padding-top: 10px;
+        color: var(--input-text-color);
+        font-size: 14px;
+        &.data {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+.summaryOuterContainer .removeBorder{border:none;padding-bottom: 0 !important;}
+.refNO{
+  color: var(--default-text-color);
+}
+.button-print-secondary:hover{
+  background-color: var(--toggle-hover-bg-color);
+}
+.fontNormal{font-weight: normal;}.dflex{display: flex;}
+.showMadaCardDetails{overflow: hidden;} .linkAdditionalAccount{width:100%}.p0{padding: 0;}.mR0{margin-right: 0;}

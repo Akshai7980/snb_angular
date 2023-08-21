@@ -1,0 +1,37 @@
+{
+    "DATA": {
+        "TOTAL_COUNT": 5,
+        "ALL_RECORDS": [
+            {
+                "mercahntName": "Adhara Alam",
+                "status":"Active",
+                "merchantId": "1011 0011 0099 9987 8971"
+            },
+            {
+                "mercahntName": "Adhara Alam",
+                "status":"Active",
+                "merchantId": "1011 0011 0099 9987 8972"
+            },
+            {
+                "mercahntName": "Adhara Alam",
+                "status":"Active",
+                "merchantId": "1011 0011 0099 9987 8973"
+            },
+            {
+                "mercahntName": "Adhara Alam",
+                "status":"Active",
+                "merchantId": "1011 0011 0099 9987 8974"
+            },
+            {
+                "mercahntName": "Adhara Alam",
+                "status":"Active",
+                "merchantId": "1011 0011 0099 9987 8975"
+            },
+            {
+                "mercahntName": "Adhara Alam",
+                "status":"Active",
+                "merchantId": "1011 0011 0099 9987 8976"
+            }
+        ]
+    }
+}

@@ -1,0 +1,159 @@
+<div>
+  <div class="mTop_18">
+    <div class="actionsConatiner">
+      <div class="leftPannel">
+        <div class="searchCntnrLeft">
+          <app-search (searchParams)="advancedSearchApply($event)" [showAdvanceSearch]="true"
+            (childEvent)="triggerSearchFilter($event)" >
+          </app-search>
+        </div>
+      </div>
+      <div>
+        <div>
+          <app-refresh (onRefresh)="refreshSummary()"></app-refresh>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!noRecordFlag" id="singletransferDefaultCntr">
+    <table mat-table [dataSource]="dataSourceToPass" class="casaTable" *ngIf="responseHeader !== undefined">
+      <ng-container matColumnDef="nickName">
+        <th mat-header-cell *matHeaderCellDef (click)="sortColumn('bene_ACC_NO')" translate>LBL_CREDIT_TO
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'bene_ACC_NO'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'bene_ACC_NO'">
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending" />
+          </span>
+
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="element.bene_ACC_NO && element.bene_ACC_NO.trim()">{{ element.bene_ACC_NO }}</div>
+          <div *ngIf="!element.bene_ACC_NO || !element.bene_ACC_NO.trim()">--</div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="transactionType">
+        <th mat-header-cell *matHeaderCellDef (click)="sortColumn('function_ID_DISPVAL')" translate>LBL_PAYMENT_TYPE
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'function_ID_DISPVAL'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'function_ID_DISPVAL'">
+            <img src="assets/images/sortDown.svg" *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'
+                " class="img-style" />
+            <img src="assets/images/sortDown.svg" *ngIf="
+                  responseHeader.sortOrder !== undefined &&
+                  responseHeader.sortOrder === 'asc'
+                " class="sortUpAscending" />
+          </span>
+
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="element.function_ID_DISPVAL">
+            {{ element.function_ID_DISPVAL }}
+          </div>
+          <div *ngIf="!element.function_ID_DISPVAL">--</div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef (click)="sortColumn('value_DATE')" translate>LBL_DATE
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'value_DATE'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'value_DATE'">
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending" />
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="element.value_DATE">{{ element.value_DATE | dateFormat }}</div>
+          <div *ngIf="!element.value_DATE">--</div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="referenceNo">
+        <th mat-header-cell *matHeaderCellDef (click)="sortColumn('ref_NO')" translate>
+          LBL_REFERENCE_NUMBER
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'ref_NO'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'ref_NO'">
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending" />
+          </span>
+
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="element.ref_NO">{{ element.ref_NO }}</div>
+          <div *ngIf="!element.ref_NO">--</div>
+        </td>
+      </ng-container>
+      <!-- <ng-container matColumnDef="accBalance">
+      <th mat-header-cell *matHeaderCellDef translate><div class="position_rel" translate> LBL_STATUS<span class="iconSort"></span></div></th>
+      <td mat-cell *matCellDef="let element"> {{element.odStatus}}</td>
+    </ng-container> -->
+      <ng-container matColumnDef="paymentAmt">
+        <th mat-header-cell *matHeaderCellDef (click)="sortColumn('payment_AMOUNT')" translate>LBL_AMOUNT
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'payment_AMOUNT'">
+            <img src="assets/images/sortDown.svg" class="img-style" />
+            <img src="assets/images/sortDown.svg" class="sortUp" />
+          </span>
+          <span *ngIf="responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'payment_AMOUNT'">
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'" class="img-style" />
+            <img src="assets/images/sortDown.svg"
+              *ngIf="responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+              class="sortUpAscending" />
+          </span>
+
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="element.payment_AMOUNT && element.payment_CURRENCY">
+            {{element.payment_AMOUNT | currencyFormat: element.payment_CURRENCY}}
+            {{ element.payment_CURRENCY }}
+          </div>
+          <div *ngIf="!element.payment_AMOUNT && !element.payment_CURRENCY">
+            --
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_ACTION</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="acceptIcon" (click)="onApproveClick($event, element)"></div>
+          <div class="rejectIcon" (click)="onRejectClick($event, element)"></div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="goToDetailsPage(row)"></tr>
+    </table>
+  </div>
+  <div *ngIf="noRecordFlag">
+    <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+  </div>
+  <app-pagination #paginator [dataSourceLength]="dataSourceLength" [currentRecord]="'SinglefileTransfer'" [flagForRefreshPage]="refreshClickedFlag"
+    [totalRecords]="totalRecords" (onPaginationChange)="paginationChangeClick($event)" *ngIf="!noRecordFlag">
+  </app-pagination>
+  <!-- <mat-paginator *ngIf="!noRecordFlag" [length]="dataLength"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page" #paginator>
+  </mat-paginator> -->
+</div>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

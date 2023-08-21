@@ -1,0 +1,77 @@
+{
+    "HEADER_VALUE": {
+        "MODULE_ID": "ACCTRANSLKP"
+    },
+    "DATA": {
+        "ALL_RECORDS": [
+            {
+                "FROM":"Ahsan",
+                "TO":"Dameer",
+                "FROM_ACC_NO":"360960010101",
+                "TO_ACC_NO":"360960010231",
+                "PAYMENT_TYPE": "Within Bank Transfer",
+                "STATUS": "Pending for Approval",
+                "AMT": "1672.00 SAR",
+                "VALUE_DATE": "10-JUN-20",
+                "BILLER":"Saudi Mobile Company",
+                "SERVICE_TYPE":"SADAD",
+                "CIF_NO":"700000003 Al Sabic"
+                
+            },
+            {
+                "FROM":"Ahsan",
+                "TO":"Dameer",
+                "FROM_ACC_NO":"360960010101",
+                "TO_ACC_NO":"360960010232",
+                "PAYMENT_TYPE": "Within Bank Transfer",
+                "STATUS": "Pending for Approval",
+                "AMT": "1673.00 SAR",
+                "VALUE_DATE": "10-JUN-20",
+                "BILLER":"Saudi Electricity Company",
+                "SERVICE_TYPE":"SADAD MOI",
+                "CIF_NO":"700000004 Al Sabic GROUP"
+            },
+            {
+                "FROM":"Ahsan",
+                "TO":"Dameer",
+                "FROM_ACC_NO":"360960010101",
+                "TO_ACC_NO":"360960010233",
+                "PAYMENT_TYPE": "Within Bank Transfer",
+                "STATUS": "Pending for Approval",
+                "AMT": "1671.00 SAR",
+                "VALUE_DATE": "10-JUN-20",
+                "BILLER":"Saudi Mobile Company",
+                "SERVICE_TYPE":"SADAD",
+                "CIF_NO":"700000005Al Sabic Pvt. Ltd."
+            },
+            {
+                "FROM":"Ahsan",
+                "TO":"Dameer",
+                "FROM_ACC_NO":"360960010101",
+                "TO_ACC_NO":"360960010234",
+                "PAYMENT_TYPE": "Within Bank Transfer",
+                "STATUS": "Pending for Approval",
+                "AMT": "1671.00 SAR",
+                "VALUE_DATE": "10-JUN-20",
+                "BILLER":"Saudi Electricity Company",
+                "SERVICE_TYPE":"SADAD",
+                "CIF_NO":"700000004 Al Sabic Pvt. Ltd."
+            },
+            {
+                "FROM":"Ahsan",
+                "TO":"Dameer",
+                "FROM_ACC_NO":"360960010101",
+                "TO_ACC_NO":"360960010235",
+                "PAYMENT_TYPE": "Within Bank Transfer",
+                "STATUS": "Pending for Approval",
+                "AMT": "1671.00 SAR",
+                "VALUE_DATE": "10-JUN-20",
+                "BILLER":"Saudi Mobile Company",
+                "SERVICE_TYPE":"SADAD MOI",
+                "CIF_NO":"700000003 Sabic Holding"
+            }
+            
+        ],
+        "TOTAL_COUNT": 5
+    }
+}

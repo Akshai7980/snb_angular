@@ -1,0 +1,11 @@
+{
+    "dataValue": {
+      "INPUT_REFERENCE_NO":"TBC2204111257175",
+      "OD_STATUS": "",
+      "OD_STATUS_DESC": "Success",
+      "TXN_STATUS": "RA"
+    },
+    "headerValue": {
+      "moduleId": "SADADBILLSBMT"
+    }
+  }

@@ -1,0 +1,50 @@
+
+<div class="header-panel">
+    <div class="header-panel-left headerPanelWidth">
+        <div class="historyHeader" translate>LBL_HISTORY</div>
+    </div>
+    <div class="header-panel-right headerPanelWidth">
+        <div class="accordion" [ngClass]="{'accordionDown':!isHistoryExpand,accordionUp:isHistoryExpand}"
+            (click)="onClickExpand($event)"></div>
+    </div>
+</div>
+<div id="historyexpandCollapseElement" class="animate expandCollpase" [ngClass]="{'collapse':!isHistoryExpand}" [ngStyle]="{'height' : norecordflag ? '190px' : ''}">
+    <div id="historyDefaultCntr" *ngIf="!norecordflag && dataSourceToPass">
+        <table id="historyDefault" mat-table [dataSource]="dataSourceToPass" class="dashboardTable"
+            (contentChanged)="getTableHeight()">
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef translate>LBL_STATUS</th>
+                <td mat-cell *matCellDef="let element">
+                    {{element.statusDesc}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef translate>LBL_ACTION</th>
+                <td mat-cell *matCellDef="let element">
+                    {{element.actionDesc}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="userName">
+                <th mat-header-cell *matHeaderCellDef translate>LBL_USER_ID</th>
+                <td mat-cell *matCellDef="let element">
+                    {{element.actionByUserName}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="date">
+                <th mat-header-cell class="fcenter" *matHeaderCellDef translate>LBL_DATE</th>
+                <td mat-cell *matCellDef="let element">
+                   {{element.actionDate}}
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+    </div>
+    <div *ngIf="norecordflag">
+        <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>
+
+

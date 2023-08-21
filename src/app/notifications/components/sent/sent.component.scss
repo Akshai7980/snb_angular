@@ -1,0 +1,22 @@
+.actionIcon{
+    background: url(../../../../assets/images/delete.svg) no-repeat center;
+    width: 24px;
+    height: 24px;
+    // display: inline-block;
+    margin: auto;
+}
+.replyIcon{
+    background: url(../../../../assets/images/backArrow.svg) no-repeat center;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+    padding-left: 5px;
+}
+
+th.mat-header-cell{
+    cursor: pointer;
+}
+
+    

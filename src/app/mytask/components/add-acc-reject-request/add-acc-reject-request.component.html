@@ -1,0 +1,43 @@
+<div *ngIf="!receiptForm">
+    <div class="detailsTitleContainer">
+        <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+        <div class="mainTitle" translate>LBL_REJECT_ADDITIONAL_ACCOUNT_SUMMARY</div>
+    </div>
+    <section class="summaryOuterConainer">
+        <div class="summaryConainer">
+            <app-additional-account-request></app-additional-account-request>
+            <div class="rejectReasonContainer">
+                <div class="rejecthead" translate>
+                    LBL_RJCT_RSN
+                    <span class="required">*</span>
+                </div>
+                <div>
+                    <div class="rejecttextarea">
+                        <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="textArea_Click()"
+                            (keypress)="space($event)"></textarea>
+                        <div class="errorMsg error" *ngIf="isrejectreasonValid" translate>
+                            LBL_ERROR_MESSAGE_RJCT_RSN
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="btnContainer">
+            <!-- <button class="button-secondary backButton" routerLink="/mytask/serviceRequest/additionalAccount" translate>
+                LBL_CANCEL
+            </button>
+            <button class="button-primary" translate (click)="submit()">
+                LBL_SUBMIT
+            </button> -->
+            <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()"></app-tertiary-button>
+            <app-primary-button buttonValue="LBL_SUBMIT" (click)="submit()"></app-primary-button>
+        </div>
+    </section>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)">
+</app-receipt>
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

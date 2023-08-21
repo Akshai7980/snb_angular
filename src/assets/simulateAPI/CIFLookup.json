@@ -1,0 +1,40 @@
+{
+    "headerValue": {
+        "moduleId": "CIFLKUP",
+        "simulate": "N"
+    },
+    "dataValue": [
+        {
+            "cifNo": "00122",
+            "unitId": "IGTBSA",
+            "gcif": "10000187",
+            "country": "SA",
+            "customerName": "test",
+            "countryName": "Saudi Arabia"
+        },
+        {
+            "cifNo": "23122",
+            "unitId": "IGTBSA",
+            "gcif": "10000187",
+            "country": "SA",
+            "customerName": "new name",
+            "countryName": "Saudi Arabia"
+        },
+        {
+            "cifNo": "12345",
+            "unitId": "IGTBSA",
+            "gcif": "10000187",
+            "country": "SA",
+            "customerName": "Name test",
+            "countryName": "Saudi Arabia"
+        },
+        {
+            "cifNo": "26982",
+            "unitId": "IGTBSA",
+            "gcif": "10000187",
+            "country": "SA",
+            "customerName": "testing name",
+            "countryName": "Saudi Arabia"
+        }
+    ]
+}

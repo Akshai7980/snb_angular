@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "currency": "ADP",
+      "currencyNameEng": "ANDORRAN PESETA",
+      "acuurencyNameAR": null
+    },
+    {
+      "currency": "AED",
+      "currencyNameEng": "UAE DIRHAMS",
+      "acuurencyNameAR": "درهم أماراتي"
+    },
+    {
+      "currency": "SAR",
+      "currencyNameEng": "SAUDI RIYAL",
+      "acuurencyNameAR": "ريال سعودي"
+    },
+    {
+      "currency": "USD",
+      "currencyNameEng": "US DOLLAR",
+      "acuurencyNameAR": "دولار أمريكي"
+    }
+  ],
+  "headerValue": {
+    "moduleId": "GETLGCURRENCY",
+    "simulate": "N",
+    "_dinsess": "9c6e5df8-4cc9-4862-9209-c3c19b588149"
+  }
+}

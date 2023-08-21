@@ -1,0 +1,40 @@
+<div id="TransferInquiryPrinSection">
+    <div class="detailsTitleContainer">
+      <div class="mainTitle" translate>LBL_TRANSFER_SUMMARY</div>
+      <div class="row" id="logoPrint">
+        <div><img class="logo" src="{{logo}}"> </div>
+        <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+      </div>
+      <app-summary-tools [enabledProperty] ="true" [isshownPDF] = "false" [printSection] ="'TransferInquiryPrinSection'"
+        ></app-summary-tools>
+        <!-- class="summaryContainer" -->
+      </div>
+      <div class="detailsDataCntr">
+        <section class="summaryOuterConainer" *ngIf="transfersummaryDetails">
+          <div>
+            <app-transfersummary-details [transfersummaryDetails]= "transfersummaryDetails" [currentRecord]="currentRecord"></app-transfersummary-details>
+          </div>
+        </section> 
+         <section class="summaryOuterConainer" *ngIf="transfersummaryDetails"> 
+          <div class="summaryConainer">
+            <app-transfersummary-payments-details [paymentStatusDetails]="transfersummaryDetails"></app-transfersummary-payments-details>
+          </div>
+        </section>
+        <section class="summaryOuterConainer" *ngIf="transfersummaryDetails">
+          <div class="summaryConainer" >
+            <app-transfersummary-tracker-details [trackerdetails]="transfersummaryDetails"></app-transfersummary-tracker-details>
+          </div>
+        </section>
+        <section>
+          <div class="btnContainer">
+            <app-tertiary-button
+              buttonValue="LBL_BACK"
+              (click)="back()"
+            ></app-tertiary-button>
+          </div>
+        </section>
+      </div>
+    
+  </div>
+  
+  <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

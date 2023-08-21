@@ -1,0 +1,101 @@
+<div class="autoContainer">
+<!-- <div class="flexRow"> -->
+    <div translate class="title">LBL_COMPLAINT_DETAILS</div>
+  <!-- </div> -->
+  <div class="mtop_20"*ngIf="isReadOly">
+    <div translate>LBL_HELD_AMOUNT_NOT_RELEASE</div>
+ </div>
+<div class="detailsContainer" *ngIf="!isReadOly">
+  <div class="fieldContainer">
+    <div class="row">
+      <div class="column">
+        <div translate class="geneStaTitles">LBL_MOBILE_NUMBER<span class="required">*</span></div>
+        <div class="mtop_10">            
+          <input type="text" maxlength="15" class="inpField" [(ngModel)]="compTypeObj.mobNum" (blur)="validate($event,'mobNum')" (keypress)="numberOnly($event)" autocomplete="off">
+            <div *ngIf="errObj && errObj.mobErr">
+              <small translate class="required">{{errObj.mobErr}}</small>
+            </div>
+         </div>
+      </div>
+      <div class="column">
+        <div translate class="geneStaTitles">LBL_HELD_AMOUNT<span class="required">*</span></div>
+        <div class="mtop_10">            
+          <input type="text" class="inpField"  [(ngModel)]="compTypeObj.heldamount" (blur)="validate($event,'amount')" (keypress)="numberOnly($event)" autocomplete="off">
+            <div *ngIf="errObj && errObj.amountErr">
+              <small translate class="required">{{errObj.amountErr}}</small>
+            </div>
+         </div>
+    </div>
+    <div class="column">
+        <div translate class="geneStaTitles">LBL_RENTENSION_DATE<span class="required">*</span></div>
+        <div class="mtop_10">
+            <app-date-picker [maxDate]="maxDate" [(ngModel)]="compTypeObj.retentionDate" (dateValue)="getDate($event)"></app-date-picker>
+        </div>
+        <div *ngIf="errObj && errObj.dateErr">
+          <small translate class="required">{{errObj.dateErr }}</small>
+        </div>
+    </div>
+    <div class="column">
+      <div translate class="geneStaTitles">LBL_FILE_NAME<span class="required">*</span></div>
+      <div class="mtop_10">            
+        <input type="text" class="inpField" [(ngModel)]="compTypeObj.filename" (blur)="validate($event,'filename')" autocomplete="off">
+          <div *ngIf="errObj && errObj.fileErr">
+            <small translate class="required">{{errObj.fileErr}}</small>
+          </div>
+       </div>
+    </div>
+
+    <div class="column">
+      <div class="geneStaTitles" translate>LBL_CLAIM_DESC</div>
+      <!-- <div class="mtop_10">   -->
+        <textarea  id="" [(ngModel)]="compTypeObj.claimdesc" class="comment mtop_10"></textarea>
+      <!-- </div> -->
+    </div>
+
+
+  </div>
+
+
+  </div>
+</div>
+<div class="detailsContainer" *ngIf="isReadOly">
+<div class="row">
+  <div class="column alter">
+    <div translate class="geneStaTitles">LBL_MOBILE_NUMBER</div>
+    <div class="mtop_10 details">{{compTypeObj.mobNum}}</div>
+  </div>
+  <div class="column alter">
+    <div translate class="geneStaTitles">LBL_HELD_AMOUNT</div>
+  <div class="mtop_10 details">{{compTypeObj.heldamount}}</div>
+  </div>
+  <div class="column alter">
+    <div translate class="geneStaTitles">LBL_RENTENSION_DATE</div>
+    <div class="mtop_10 details">{{compTypeObj.retentionDate}}</div>
+  </div>
+</div>
+<div class="row">
+    <div class="column alter">
+        <div translate class="geneStaTitles">LBL_FILE_NAME</div>
+      <div class="mtop_10 details">{{compTypeObj.filename}}</div>
+      </div>
+ 
+  <div class="column alter">
+    <div translate class="geneStaTitles">LBL_CLAIM_DESC</div>
+    <div *ngIf="compTypeObj.claimdesc !==''" class="mtop_10 details">{{compTypeObj.claimdesc}}</div>
+    <div *ngIf="compTypeObj.claimdesc ===''" class="mtop_10 details">Not Provider</div>
+  </div>
+</div>
+ 
+</div> 
+</div>
+
+
+<div class="btnGroup" *ngIf="!hideBtn">
+<app-tertiary-button  (click)="reset()" buttonValue="LBL_CANCEL" ></app-tertiary-button>
+<app-primary-button buttonValue="LBL_PROCEED" (click)="proceed()"></app-primary-button>
+</div>
+
+
+
+
+

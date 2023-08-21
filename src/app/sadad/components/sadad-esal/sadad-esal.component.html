@@ -1,0 +1,46 @@
+<div class="mLeft_45 mainContainer" *ngIf="!hideAll">
+  <div class="flexRow">
+    <div translate class="title">LBL_ESAL_PAYMENT</div>
+    <!-- <app-daily-limit class="dailyLimit" *ngIf="selectedDebitObj"></app-daily-limit> -->
+  </div>
+  <div class="detailsDataCntr">  
+  <div class="subContainer">
+    <div translate class="title" *ngIf="selectedESALTo">
+      LBL_ACCOUNT_DETAILS
+    </div>
+    <app-debit-lookup *ngIf="debitDataObj" [debitAccDetails]="debitDataObj" class="arrange"
+      (onAccountSelect)="onFromAccountSelection($event)" [shownsearch]="!selectedDebitObj" [tableId]="'esalPayment'">
+    </app-debit-lookup>
+  </div>
+  <app-sadad-esal-payment-to *ngIf="selectedDebitObj" (onAccountSelect)="proceedWithInvoices($event)"
+    (paymentToType)="onBeneficiaryTypeChange($event)" (resetAll)="resetInvoices($event)"
+    [creditTabs]="creditToEntitlementTabs" [selectedDebitObj]="selectedDebitObj"></app-sadad-esal-payment-to>
+  <div class="amountContainer" *ngIf="selectedESALTo">
+    <app-amount-details [showCharges]="false" [paymentDetailsObj]="paymentAmtObj" [showAmtDetInitiateScreen]="false"
+      [showCharges]="true"></app-amount-details>
+  </div>
+  <app-additional-details class="debit" *ngIf="selectedESALTo" [additionalDetailsObj]="additionalData"
+    (additionalObj)="getAdditionalDetails($event)" [displayReadOnly]="displayAdditionalDetailsForm">
+  </app-additional-details>
+  <app-authorization class="debit" *ngIf="isProceed && !resetRemain && showAuthorization" [authListDataSource]="authOptions"
+    [authError]="errorCode" (authEmit)="getAuthorsData($event)"></app-authorization>
+  <app-authentication class="debit" *ngIf="isProceed && !resetRemain && showAuthentication" (onTwoAuthClick)="onSecondFactorValue($event)"
+    (getOtpClick)="getOtpValue($event)" [otpError]="otpError" [initParam]="initReqParam" (authenticationType)="getAuthType($event)"></app-authentication>
+
+  <div class="footer" *ngIf="isProceed && !resetRemain">
+    <span class="termsAndContion" translate>LBL_TERMS</span><a href="{{ url }}" target="_blank"><span class="terms"
+      translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>
+  </div>
+
+  <div class="actionGroup">
+    <app-tertiary-button *ngIf="selectedDebitObj" buttonValue="LBL_CANCEL" class="tertiaryBtn" (click)="reset()">
+    </app-tertiary-button>
+    <app-primary-button *ngIf="selectedDebitObj && selectedESALTo && !isProceed && !resetRemain" buttonValue="LBL_PROCEED"
+      (click)="proceedNext()" routerPath="./"></app-primary-button>
+    <!-- <app-primary-button *ngIf="isProceed && !resetRemain" buttonValue="LBL_SUBMIT" (click)="submit()" routerPath="./">
+    </app-primary-button> -->
+  </div>
+</div>
+</div>
+<app-receipt [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" (onInitAgainClick)="initESALPayment()" *ngIf="hideAll" (DownloadReceiptClick)="downloadPdf($event)" [rejectMsg]="rejectMsg"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

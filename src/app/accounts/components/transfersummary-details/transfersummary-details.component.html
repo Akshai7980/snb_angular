@@ -1,0 +1,161 @@
+<div class="container">
+    <div class="subTitles">
+      <!-- {{ transfersummaryDetails.paymentTypeDesc }} {{ "LBL_ACC_TO" | translate }} -->
+      {{ transfersummaryDetails.beneficiaryName ? transfersummaryDetails.beneficiaryName : "--" }},
+      {{ transfersummaryDetails.beneficiaryAccountId ? transfersummaryDetails.beneficiaryAccountId : "--" }}
+    </div>
+    <div class="refNO">
+      {{ "LBL_TRANSACTION_REF_NUM" | translate }} {{ rootScopeData.accDetailsObject.res_Txn_Ref_No }}
+    </div>
+    <div class="title">
+      <div translate>
+        LBL_AMOUNT
+        <span>
+          {{
+            transfersummaryDetails.transactionAmount
+          }}
+          {{ transfersummaryDetails.payment_CURRENCY }}</span>
+        <!-- on{{ transfersummaryDetails.txnDate }} -->
+      </div>
+      <!-- <button class="status-green-button" translate [class.status-red-button]="
+      transfersummaryDetails.statusCode === 'RN' ||
+      transfersummaryDetails.statusCode === 'RS' ||
+      transfersummaryDetails.statusCode === 'RE' ||
+      transfersummaryDetails.statusCode === 'RO' ||
+      transfersummaryDetails.statusCode === 'RH'
+        ">
+        {{ transfersummaryDetails.statusDescription }}
+      </button> -->
+    </div>
+    <div class="subContainer">
+      <div class="subTitles" translate>LBL_TRANSFER_DETAILS</div>
+      <div class="rowInnerCntr">
+        <div class="field">
+          <div class="label" translate>LBL_DETAIL_CREDIT_TO</div>
+          <div class="information">
+            {{
+                transfersummaryDetails.beneficiaryName && transfersummaryDetails.beneficiaryName.trim() !== ""
+            ? transfersummaryDetails.beneficiaryName
+            : "--"
+            }}
+            , {{ transfersummaryDetails.beneficiaryAccountId ? transfersummaryDetails.beneficiaryAccountId : "--" }}
+          </div>
+          <div class="information data">
+            Bank : {{ transfersummaryDetails.beneficiaryBankName }}
+            <!-- ,{{ transfersummaryDetails.creditCountry }} -->
+          </div>
+          <!-- <div class="information data" *ngIf="showProxy">
+            Proxy Name : {{ proxyName }}
+          </div> -->
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_DEBIT_FROM</div>
+          <div class="information">
+            <!-- {{
+                transfersummaryDetails.res_Account_Name &&
+                transfersummaryDetails.res_Account_Name.trim() !== ""
+            ? transfersummaryDetails.res_Account_Name
+            : "--"
+            }}, -->
+            {{
+              rootScopeData.accDetailsObject.res_Account_Name &&
+              (rootScopeData.accDetailsObject.res_Account_Name).trim() !== ""
+            ? rootScopeData.accDetailsObject.res_Account_Name
+            : "--"
+            }},
+            {{ rootScopeData.accDetailsObject.res_Txn_Ref_No }}
+          </div>
+          <div class="information data">
+            Balance :
+            <!-- <span *ngIf="transfersummaryDetails.CURRENT_BAL_AMT; else emptyBalance">
+              {{
+                transfersummaryDetails.CURRENT_BAL_AMT
+              | currencyFormat: transfersummaryDetails.debitCurrency
+              }}
+              {{ transfersummaryDetails.res_Acc_CCY_Cd }}</span> -->
+              <span *ngIf="rootScopeData.accDetailsObject && rootScopeData.accDetailsObject.CURRENT_BAL_AMT; else emptyBalance">
+                {{
+                  rootScopeData.accDetailsObject.CURRENT_BAL_AMT
+                | currencyFormat: rootScopeData.accDetailsObject.res_CurrencyCode
+                }}
+                {{ rootScopeData.accDetailsObject.res_CurrencyCode }}
+              </span>
+            <ng-template #emptyBalance>--</ng-template>
+          </div>
+        </div>
+        <div class="field" *ngIf="transfersummaryDetails.subProductCode !== 'BKSIFT'">
+          <div class="label" translate>LBL_PURPOSE</div>
+          <div class="information">
+            <!-- Need to check with API team -->
+            <div class="information" *ngIf="transfersummaryDetails.secPurposeCodeDesc; else emptyPurpose">
+              {{ transfersummaryDetails.secPurposeCodeDesc }}</div>
+            <ng-template #emptyPurpose>--</ng-template>
+          </div>
+        </div>
+        <div class="field" *ngIf="transfersummaryDetails.subProductCode !== 'BKSIFT'">
+          <div class="label" translate>LBL_RELATIONSHIP</div>
+          <div class="information" *ngIf="transfersummaryDetails.relCodeDesc; else emptyRelation">{{transfersummaryDetails.relCodeDesc}}
+          </div>
+          <ng-template #emptyRelation>--</ng-template>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_FEE</div>
+          <div class="information" *ngIf="transfersummaryDetails.chargeAmount; else emptyFee">{{transfersummaryDetails.chargeAmount}}</div>
+          <ng-template #emptyFee>--</ng-template>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_VAT</div>
+          <!-- Need to check with API team -->
+          <div class="information" *ngIf="transfersummaryDetails.vatAmt; else emptyVAT">{{transfersummaryDetails.vatAmt}} SAR</div>
+          <ng-template #emptyVAT>--</ng-template>
+        </div>
+        <div class="field"
+          *ngIf="transfersummaryDetails && transfersummaryDetails.rejectReason && transfersummaryDetails.rejectReason !=='' && (transfersummaryDetails.statusCode ==='RH' || transfersummaryDetails.statusCode ==='RO')">
+          <div class="label" translate>LBL_REJECTED_REASON</div>
+          <div class="information">
+            {{ transfersummaryDetails.rejectReason }}
+          </div>
+        </div>
+        <div class="field">
+            <div class="label" translate>LBL_PAYMENT_PENDING</div>
+            <div class="information" *ngIf="transfersummaryDetails.paypending; else emptyVAT">{{transfersummaryDetails.paypending}}</div>
+            <ng-template #emptyPENDING>--</ng-template>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_CHANNEL_PAYMENT</div>
+            <div class="information" *ngIf="transfersummaryDetails.channelDescEN; else emptyCHANNEL">{{transfersummaryDetails.channelDescEN}}</div>
+            <ng-template #emptyCHANNEL>--</ng-template>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_BANK_CODE</div>
+            <div class="information" *ngIf="transfersummaryDetails.beneficiaryBankBIC; else emptyBANK">{{transfersummaryDetails.beneficiaryBankBIC}}</div>
+            <ng-template #emptyBANK>--</ng-template>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_DESC</div>
+            <!-- <div class="information" *ngIf="transfersummaryDetails.description; else emptyVAT">{{transfersummaryDetails.description}}</div> -->
+            <div class="information" *ngIf="currentRecord && currentRecord.res_Description; else emptyVAT">{{currentRecord.res_Description}}</div>
+            <ng-template #emptyDESC>--</ng-template>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_CON_RATE</div>
+            <div class="information" *ngIf="transfersummaryDetails.exchangeRate; else emptyRATE">{{transfersummaryDetails.exchangeRate}}</div>
+            <ng-template #emptyRATE>--</ng-template>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_TRANSACTION_DURATION</div>
+            <div class="information" *ngIf="transfersummaryDetails.transactionDuration; else emptyVAT">{{transfersummaryDetails.transactionDuration}}</div>
+            <ng-template #emptyTRANSACTION>--</ng-template>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_EXTRA_DESC</div>
+            <!-- <div class="information" *ngIf="transfersummaryDetails.extraDesc; else emptyVAT">{{transfersummaryDetails.extraDesc}}</div> -->
+            <div class="information" *ngIf="currentRecord && currentRecord.res_ExtraDesc; else emptyVAT">{{currentRecord.res_ExtraDesc}}</div>
+            <ng-template #emptyEXTRADESC>--</ng-template>
+          </div>
+      </div>
+    </div>
+    <div class="field1">
+        <p># The transaction actual rates might be updated on transaction execution</p>
+    </div>
+  </div>

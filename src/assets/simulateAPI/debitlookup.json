@@ -1,0 +1,79 @@
+{
+    "DATA": {
+        "TOTAL_COUNT": 1,
+        "ALL_RECORDS": [
+            {
+                "PAY_DUE_AMT": "1,235.00 SAR",
+                "CARD_ACC_NO": "SA1010 0100 1000 0000123",
+                "STAT": "Active",
+                "EMB_NAME": "Dameer",
+                "FULL_NAME":"Dameer Ahsan",
+                "NICK_NAME":"Saudi Mobily",
+                "NAME":"Saudi Mobily Company",
+                "SUBID":"8797686765454440",
+                "DUE_DATE":"30/12/2021",
+                "MINI_AMT":"400.00 SAR",
+                "DUE_AMT_SAR":"1,000.00",
+                "AVAIL_LIMIT":"40"
+            },
+            {
+                "PAY_DUE_AMT": "1,235.00 SAR",
+                "CARD_ACC_NO": "SA1010 0100 1000 0000123",
+                "STAT": "Active",
+                "EMB_NAME": "Dameer",
+                "FULL_NAME":"Dameer Ahsan",
+                "NICK_NAME":"Saudi Mobily",
+                "NAME":"Saudi Mobily Company",
+                "SUBID":"8797686765454440",
+                "DUE_DATE":"30/12/2021",
+                "MINI_AMT":"400.00 SAR",
+                "DUE_AMT_SAR":"1,000.00"
+            },
+            {
+                "PAY_DUE_AMT": "1,235.00 SAR",
+                "CARD_ACC_NO": "SA1010 0100 1000 0000123",
+                "STAT": "Active",
+                "EMB_NAME": "Dameer",
+                "FULL_NAME":"Dameer Ahsan",
+                "NICK_NAME":"Saudi Mobily",
+                "NAME":"Saudi Mobily Company",
+                "SUBID":"8797686765454440",
+                "DUE_DATE":"30/12/2021",
+                "MINI_AMT":"400.00 SAR",
+                "DUE_AMT_SAR":"1,000.00"
+            },
+            {
+                "PAY_DUE_AMT": "1,235.00 SAR",
+                "CARD_ACC_NO": "SA1010 0100 1000 0000123",
+                "STAT": "Active",
+                "EMB_NAME": "Dameer",
+                "FULL_NAME":"Dameer Ahsan",
+                "NICK_NAME":"Saudi Mobily",
+                "NAME":"Saudi Mobily Company",
+                "SUBID":"8797686765454440",
+                "DUE_DATE":"30/12/2021",
+                "MINI_AMT":"400.00 SAR",
+                "DUE_AMT_SAR":"1,000.00"
+            },
+            {
+                "PAY_DUE_AMT": "1,235.00 SAR",
+                "CARD_ACC_NO": "SA1010 0100 1000 0000123",
+                "STAT": "Active",
+                "EMB_NAME": "Dameer",
+                "FULL_NAME":"Dameer Ahsan",
+                "NICK_NAME":"Saudi Mobily",
+                "NAME":"Saudi Mobily Company",
+                "SUBID":"8797686765454440",
+                "DUE_DATE":"30/12/2021",
+                "MINI_AMT":"400.00 SAR",
+                "DUE_AMT_SAR":"1,000.00"
+            }
+        ]
+    },
+    "HEADER_VALUE": {
+        "sortColumn": "EMB_NAME",
+        "sortOrder": "desc",
+        "MODULE_ID": "CARDMODSUM",
+        "TXN_PROCESS_DATE_TIME": ""
+    }
+}

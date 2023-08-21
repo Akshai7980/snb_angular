@@ -1,0 +1,31 @@
+<div class="mainContainer">
+    <div class="subContainer">
+        <div class="subTitles" translate>LBL_PROXY_IDENTIFIER</div>
+        <div  id="manageAlertsDefaultCntr">
+            <div class="toggleButtonContainer">
+                <p class="col-space1 subTitleFont" translate>LBL_ACTION</p>
+                <p class="subTitleFont" translate>LBL_MOBILE_NUMBER</p>
+            </div>
+            <div class="toggleButtonContainer">
+                <mat-slide-toggle class="col-space1" [checked]="isMobileToggleChecked" [disabled]="true"></mat-slide-toggle>
+                <div>
+                    <input type="text" [(ngModel)]="mobileNumber" readonly>
+                </div>
+            </div>
+            <p class="toggleSubtitlePaddingLeft subTitleFont" translate>LBL_EMAIL</p>
+            <div class="toggleButtonContainer">
+                <mat-slide-toggle class="col-space1" [checked]="isEmailToggleChecked" [disabled]="true"></mat-slide-toggle>
+                <div>
+                    <input type="text" [(ngModel)]="emailId" readonly>
+                </div>
+            </div>
+            <p class="toggleSubtitlePaddingLeft subTitleFont" translate>LBL_NATIONAL_ID</p>
+            <div class="toggleButtonContainer">
+                <mat-slide-toggle class="col-space1" [checked]="isNationalIdToggleChecked" [disabled]="true"></mat-slide-toggle>
+                <div>
+                    <input type="text" [(ngModel)]="nationalId" readonly>
+                </div>
+            </div>
+    </div>
+</div>
+

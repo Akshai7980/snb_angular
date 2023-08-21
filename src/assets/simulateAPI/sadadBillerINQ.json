@@ -1,0 +1,32 @@
+{
+    "headerValue": {
+      "moduleId": "SADADREGBILLS",
+      "simulate": "N"
+    },
+    "data": {
+      "biller": 1,
+      "billerMemonic": "STC",
+      "billAcct": 3564329514,
+      "accountId": 2323232,
+      "billNo": 3564329514,
+      "billCategory": "GSN",
+      "billCategoryType": 3,
+      "amountDue": "107780",
+      "paid": "Yes",
+      "amountChk": "",
+      "cycle": 838714,
+      "exactPay": "No",
+      "serviceType": "GOVT",
+      "custType": "",
+      "billRefInfo": "",
+      "billStatus": "BillOverPd",
+      "balance": "107780",
+      "officeUse": "",
+      "paidDate": "",
+      "paidFrom": "",
+      "openDate": "",
+      "closeDate": "",
+      "dueDate": "07/09/2020",
+      "expiryDate": "07/09/2025"
+    }
+  }

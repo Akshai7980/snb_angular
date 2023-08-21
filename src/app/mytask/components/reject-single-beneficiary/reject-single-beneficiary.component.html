@@ -1,0 +1,127 @@
+<div *ngIf="!receiptForm">
+    <div class="detailsTitleContainer">
+        <div>
+        <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+        <div class="mainTitle" translate="">LBL_REJECT_SINGLE_BENEFICIARY</div>
+        </div>
+    </div>
+    <section class="summaryOuterConainer">
+        <div class="summaryConainer">
+            <div class="detailsContainer">
+                <div class="titleContainer">
+                    <div class="titleContainerText">
+                        <span *ngIf="details && details.parentValues.beneId">{{details.parentValues.beneId}}</span>
+                        <span *ngIf="!details || !details.parentValues.beneId">--</span>,
+                        <span *ngIf="details && details.parentValues.beneNme"> {{details.parentValues.beneNme}}</span>
+                        <span *ngIf="!details || !details.parentValues.beneNme">--</span>
+                    </div>
+                    <div class="titleContainerText">
+                        <span
+                            *ngIf="rootScopeData.pendingActivitiesSingleBeneficiaryObject.sub_product">{{rootScopeData.pendingActivitiesSingleBeneficiaryObject.sub_product}}</span>
+                        <span *ngIf="!rootScopeData.pendingActivitiesSingleBeneficiaryObject.sub_product">--</span>
+                    </div>
+                </div>
+                <div class="backgroundContainer">
+                    <div class="bankDetailsContainer">
+                        <div class="bankDetailsContainerText">{{'LBL_ACC_NUMBER' | translate}}
+                            <span *ngIf="details && details.childValues.accountNo"> :
+                                {{details.childValues.accountNo}}</span>
+                            <span *ngIf="!details || !details.childValues.accountNo"> : --</span>
+                        </div>
+                        <div>
+                            <div class="subHeadingText">{{'LBL_BANK' | translate}}</div>
+                            <div class="subText">
+                                <span
+                                    *ngIf="details && details.childValues.bankName">{{details.childValues.bankName}}</span>
+                                <span *ngIf="!details || !details.childValues.bankName">--</span>,
+                                <span
+                                    *ngIf="details && details.childValues.beneCnty">{{details.childValues.beneCnty}}</span>
+                                <span *ngIf="!details || !details.childValues.beneCnty">--</span>
+                            </div>
+                            <div class="subText">{{'LBL_SWIFT_CODE' | translate}} : <span
+                                    *ngIf="details && details.parentValues.swiftAddr">{{details.parentValues.swiftAddr}}</span><span
+                                    *ngIf="!details || !details.parentValues.swiftAddr">--</span>,
+                                {{'LBL_BRANCH' | translate}}: <span
+                                    *ngIf="details && details.childValues.branchName">{{details.childValues.branchName}}</span><span
+                                    *ngIf="!details || !details.childValues.branchName">--</span></div>
+                        </div>
+                    </div>
+                    <div class="contactDetailsContainer"
+                        *ngIf="rootScopeData.pendingActivitiesSingleBeneficiaryObject.showContactDetailsFlag">
+                        <div class="bankDetailsContainerText contactText" translate>LBL_CONTACT_DETAILS</div>
+                        <div class="fxContainer mt-top">
+                            <div class="column1">
+                                <label class="label" translate>LBL_COUNTRY</label>
+                                <div class="dataInfo" *ngIf="details && details.parentValues.beneCountry">
+                                    {{details.parentValues.beneCountry}}</div>
+                                <div class="dataInfo" *ngIf="!details || !details.parentValues.beneCountry">--</div>
+                            </div>
+                            <div class="column2">
+                                <label class="label" translate>LBL_CITY</label>
+                                <div class="dataInfo" *ngIf="details && details.parentValues.beneCity">
+                                    {{details.parentValues.beneCity}}
+                                </div>
+                                <div class="dataInfo" *ngIf="!details || !details.parentValues.beneCity">--</div>
+                            </div>
+                            <div class="column3">
+                                <label class="label" translate>LBL_STATE</label>
+                                <div class="dataInfo" *ngIf="details && details.parentValues.addLine3">
+                                    {{details.parentValues.addLine3}}
+                                </div>
+                                <div class="dataInfo" *ngIf="!details || !details.parentValues.addLine3">--</div>
+                            </div>
+                        </div>
+                        <div class="fxContainer mt-top">
+
+                            <div class="column1">
+                                <label class="label" translate>LBL_ADDRESS</label>
+                                <div class="dataInfo" *ngIf="details && details.parentValues.addLine1">
+                                    {{details.parentValues.addLine1}}
+                                </div>
+                                <div class="dataInfo" *ngIf="!details || !details.parentValues.addLine1">--</div>
+                            </div>
+
+
+                            <div class="column2">
+                                <label class="label" translate>LBL_POSTAL_CODE</label>
+                                <div class="dataInfo" *ngIf="details && details.parentValues.mailAdd">
+                                    {{details.parentValues.mailAdd}}
+                                </div>
+                                <div class="dataInfo" *ngIf="!details || !details.parentValues.mailAdd">--</div>
+                            </div>
+                            <div class="column3">
+                                <label class="label" translate>LBL_PHONE</label>
+                                <div class="dataInfo" *ngIf="details && details.parentValues.pneNo">
+                                    {{details.parentValues.pneNo}}</div>
+                                <div class="dataInfo" *ngIf="!details || !details.parentValues.pneNo">--</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="rejectReasonContainer">
+                    <div class="rejecthead" translate>LBL_RJCT_RSN
+                        <!-- <span class="required">*</span> -->
+                    </div>
+                    <div>
+                        <div class="rejecttextarea">
+                            <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="textArea_Click()"></textarea>
+                            <div class="errorMsg" *ngIf="isrejectreasonValid" translate>LBL_ERROR_MESSAGE_RJCT_RSN
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+    <section>
+        <div class="btnContainer">
+            <!-- <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button> -->
+            <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+        </div>
+    </section>
+    </div>
+    <app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)"></app-receipt>
+    <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

@@ -1,0 +1,12 @@
+{
+    "dataValue": {
+        "isAccountValid": "Yes",
+        "errorCode": "0",
+        "errorDesc": "",
+        "effectiveDays":"0",
+        "cutOffTime":"1500"
+    },
+    "headerValue": {
+        "moduleId": "PAYACCVALD"
+    }
+}

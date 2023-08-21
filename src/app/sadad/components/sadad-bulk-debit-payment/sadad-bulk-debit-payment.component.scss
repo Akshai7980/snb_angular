@@ -1,0 +1,199 @@
+
+  .title {
+    width: 215px;
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    color: #5d5d5d;
+    margin: 0px;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+  }
+  .mLeft_45 {
+    margin-left: 30px;
+  }
+  .subContainer {
+    // width: 94%;
+    border-radius: 6px;
+    background-color: var(--primary-widget-bg-color);
+    border: 1px solid var(--widget-border-color);
+    // padding: 19px 0 31px 0;
+    margin-bottom: 20px;
+    &.billerTop {
+      margin-top: 1rem;
+    }
+  }
+  .payment_refund_toggle{
+    padding: 0px 20px 0 20px;
+    &.payment-top{
+      padding: 20px;
+    }
+  
+  }
+  mat-button-toggle-group {
+    width: 408px;
+    height: 40px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 1px;
+  }
+  mat-button-toggle {
+    font-size: 14px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    width: 204px;
+    transition: all .3s;
+  }
+  .baseSelected {
+    background-color: var(--toggle-base-color);
+    color: var(--tableData-header-color);
+  }
+  .mTop_18 {
+    margin-top: 20px;
+  }
+  .hoverSelected {
+    border: 1px solid var(--secondary-btn-bg-color);
+    background-color: var(--secondary-btn-bg-color);
+    color: var(--secondary-btn-txt-color);
+  }
+  table.casaTable td:last-child{ text-align: left !important;}
+  .tableInfo {
+    margin-top: 21px;
+    margin-left: 15px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 98%;
+    margin: 10px;
+  }
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid rgb(230, 228, 228);
+  }
+  .footerText {
+    margin-top: 30px;
+    display: inline-block;
+    font-family: "HelveticaNeue",arial,sans-serif;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    .termsContainer{
+      color: var(--short-profile-txt-color);
+    }
+  }
+  .actionGroup {
+    float: right;
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-top: 30px;
+    margin-right: 18px;
+  }
+  .flexRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 25px 0px 0px;
+  }
+  .subTransfers {
+    padding: 15px 5px 5px 0px;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+    color: #5d5d5d;
+  }
+  table{
+    margin-left: 0px!important;
+    th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+       padding-left: 5px!important; 
+  }
+  }
+  .marginBottom_4{
+    margin-bottom: 4px;
+  }
+  
+  .uploadContainer {
+    display: flex;
+    align-items: center;
+    padding: 15px 15px 0px;
+    .upload-file {
+      display: flex;   
+      align-items: center;
+      width: 15%;
+      .upload-file-title {
+        font-family: 'HelveticaNeueMed', sans-serif;
+      }
+    }    
+    .download-template {
+      width: calc(100% - 20%);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      cursor: pointer;  
+      app-download-template {
+        display: flex;
+        align-items: center;
+        width: calc(100% - 20%);
+        margin-top: 22px;
+      }
+          
+    }
+  }
+
+  .fileName_deleteIcon {
+    display: flex;
+    align-items: center;
+    padding: 0px 15px;
+    .fileName {
+      width: 20%;
+      font-family: "HelveticaNeue", sans-serif;
+    }
+    .deleteIcon {
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      margin-right: 1%;
+      background-image: url(/assets/images/delete.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;   
+      margin-right: 5px;
+      height: 2.7vh;
+      width: 5%;
+    }
+  }
+
+  .noteText {
+    color: var(--table-header-color);
+    font-size: 14px;
+    padding: 15px;
+    font-family: 'HelveticaNeue', sans-serif;
+    span {
+      margin-right: 5px;
+    }
+  }
+  
+  .downloadFile {
+    display: flex;
+    align-items: center;
+    .downloadFile {
+      padding: 15px;
+      color: #006A52;
+      font-size: 14px;
+      font-family: 'HelveticaNeu', sans-serif;
+    }
+    .downloadIcon {
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      margin-right: 1%;
+      background-image: url(/assets/images/downloadIcon.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;   
+      margin-right: 5px;
+      height: 2.7vh;
+      width: 5%;
+    }
+  }

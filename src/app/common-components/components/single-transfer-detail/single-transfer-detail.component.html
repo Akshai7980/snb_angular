@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="subTitles">
+    {{ transferSummary.function_ID_DISPVAL }} {{ "LBL_ACC_TO" | translate }}
+    {{
+    transferSummary.bene_NAME && transferSummary.bene_NAME.trim() !== ""
+    ? transferSummary.bene_NAME
+    : "--"
+    }},
+    {{ transferSummary.bene_ACC_NO ? transferSummary.bene_ACC_NO : "--" }}
+  </div>
+  <div class="refNO">
+    {{ "LBL_TRANSACTION_REF_NUM" | translate }} {{ transferSummary.ref_NO }}
+  </div>
+  <div class="title">
+    <div translate>
+      LBL_AMOUNT
+      <span>
+        {{
+        transferSummary.payment_AMOUNT
+        | currencyFormat: transferSummary.payment_CURRENCY
+        }}
+        {{ transferSummary.payment_CURRENCY }}</span>
+      on
+      {{ transferSummary.value_DATE }}
+    </div>
+    <button class="status-green-button" translate [class.status-red-button]="
+        transferSummary.status === 'RN' ||
+        transferSummary.status === 'RS' ||
+        transferSummary.status === 'RE' ||
+        transferSummary.status === 'RO' ||
+        transferSummary.status === 'RH'
+      ">
+      {{ transferSummary.status_DISPVAL }}
+    </button>
+  </div>
+  <div class="subContainer">
+    <div class="subTitles" translate>LBL_TRANSFER_DETAILS</div>
+    <div class="rowInnerCntr">
+      <div class="field">
+        <div class="label" translate>LBL_DETAIL_CREDIT_TO</div>
+        <div class="information">
+          {{
+          transferSummary.bene_NAME && transferSummary.bene_NAME.trim() !== ""
+          ? transferSummary.bene_NAME
+          : "--"
+          }},
+          {{ transferSummary.bene_ACC_NO ? transferSummary.bene_ACC_NO : "--" }}
+        </div>
+        <div class="information data">
+          Bank : {{ transferDetails.creditBank }},
+          {{ transferDetails.creditCountry }}
+        </div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_DEBIT_FROM</div>
+        <div class="information">
+          {{
+          transferDetails.debitAccName &&
+          transferDetails.debitAccName.trim() !== ""
+          ? transferDetails.debitAccName
+          : "--"
+          }},
+          {{ transferDetails.debitNumber }}
+        </div>
+        <div class="information data">
+          Balance :
+          <span *ngIf="transferDetails.debitAvailableBalance; else emptyBalance">
+            {{
+            transferDetails.debitAvailableBalance
+            | currencyFormat: transferSummary.payment_CURRENCY
+            }}
+            {{ transferSummary.payment_CURRENCY }}</span>
+          <ng-template #emptyBalance>--</ng-template>
+        </div>
+      </div>
+      <div class="field" *ngIf="transferSummary.subprcode !== 'BKSIFT'">
+        <div class="label" translate>LBL_PURPOSE</div>
+        <div class="information" *ngIf="transferDetails.secPurposeCodeDesc; else emptyPurpose">
+            {{ transferDetails.secPurposeCodeDesc }}</div>
+          <ng-template #emptyPurpose>--</ng-template>
+      </div>
+      <div class="field" *ngIf="transferSummary.subprcode !== 'BKSIFT'">
+        <div class="label" translate>LBL_RELATIONSHIP</div>
+        <div class="information" *ngIf="transferDetails.relCodeDesc; else emptyRelation">
+            {{ transferDetails.relCodeDesc }}</div>
+          <ng-template #emptyRelation>--</ng-template>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_FEE</div>
+        <div class="information" *ngIf="transferDetails.chargeAmt; else emptyFee">{{transferDetails.chargeAmt}} SAR</div>
+        <ng-template #emptyFee>--</ng-template>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_VAT</div>
+        <div class="information" *ngIf="transferDetails.vatAmt; else emptyVAT">{{transferDetails.vatAmt}} SAR</div>
+        <ng-template #emptyVAT>--</ng-template>
+      </div>
+    </div>
+  </div>
+</div>

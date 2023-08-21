@@ -1,0 +1,85 @@
+{
+    "data": [
+        {
+            "refNo": "TBC2208301819244",
+            "productCode": "CORESVS",
+            "subproductCode": "POSMCD",
+            "functionCode": "POSMCDFNC",
+            "versionNo": "2",
+            "totalRecords": "4",
+            "requestType": "Multi Claim Request",
+            "status": "RA",
+            "statusDesc": "Ready for Authorization"
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "productCode": "CORESVS",
+            "subproductCode": "POSMCD",
+            "functionCode": "POSMCDFNC",
+            "versionNo": "2",
+            "totalRecords": "4",
+            "requestType": "Multi Claim Request",
+            "status": "RA",
+            "statusDesc": "Ready for Authorization"
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "productCode": "CORESVS",
+            "subproductCode": "POSMCD",
+            "functionCode": "POSMCDFNC",
+            "versionNo": "2",
+            "totalRecords": "4",
+            "requestType": "Multi Claim Request",
+            "status": "RA",
+            "statusDesc": "Ready for Authorization"
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "productCode": "CORESVS",
+            "subproductCode": "POSMCD",
+            "functionCode": "POSMCDFNC",
+            "versionNo": "2",
+            "totalRecords": "4",
+            "requestType": "Multi Claim Request",
+            "status": "RA",
+            "statusDesc": "Ready for Authorization"
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "productCode": "CORESVS",
+            "subproductCode": "POSMCD",
+            "functionCode": "POSMCDFNC",
+            "versionNo": "2",
+            "totalRecords": "4",
+            "requestType": "Multi Claim Request",
+            "status": "RA",
+            "statusDesc": "Ready for Authorization"
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "productCode": "CORESVS",
+            "subproductCode": "POSMCD",
+            "functionCode": "POSMCDFNC",
+            "versionNo": "2",
+            "totalRecords": "4",
+            "requestType": "Multi Claim Request",
+            "status": "RA",
+            "statusDesc": "Ready for Authorization"
+        },
+        {
+            "refNo": "TBC2208301819244",
+            "productCode": "CORESVS",
+            "subproductCode": "POSMCD",
+            "functionCode": "POSMCDFNC",
+            "versionNo": "2",
+            "totalRecords": "4",
+            "requestType": "Multi Claim Request",
+            "status": "RA",
+            "statusDesc": "Ready for Authorization"
+        }
+    ],
+    "headerValue": {
+        "moduleId": "MYTASKEPYUPDSUMY",
+        "totalCount": "148"
+    }
+}

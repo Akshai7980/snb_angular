@@ -1,0 +1,292 @@
+<div *ngIf="!isReview">
+  <div class="merchantDetails">
+    <div class="subTitles" translate>LBL_APPLICANT_DETAILS</div>
+    <div class="detailContainer">
+      <div class="outerContainer">
+        <div class="mtop_10 accountDetails flexContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_APPLICANTS_NAME
+            </div>
+            <p class="selectInputBorderNone">{{ applicantName }}</p>
+          </div>
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_COMMISSION_ACCOUNT <span class="required">*</span>
+            </div>
+            <mat-select
+              panelClass="dropDownOption"
+              disableOptionCentering
+              class="matSelectInput mt-top"
+              placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+              name="commissionAccount"
+              (selectionChange)="commissionAccountChanged($event)"
+            >
+              <mat-option
+                *ngFor="let commissionAccount of commissionAccounts"
+                [value]="commissionAccount.OD_ACC_NO"
+                >{{ commissionAccount.OD_ACC_NO }}</mat-option
+              >
+            </mat-select>
+            <div class="errorMsg" translate>
+              {{ errorsObject.commissionAccountError }}
+            </div>
+          </div>
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_MARGIN_ACCOUNT <span class="required">*</span>
+            </div>
+            <mat-select
+              panelClass="dropDownOption"
+              disableOptionCentering
+              class="matSelectInput mt-top"
+              placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+              name="marginAccount"
+              (selectionChange)="marginAccountChanged($event)"
+            >
+              <mat-option
+                *ngFor="let marginAccount of marginAccounts"
+                [value]="marginAccount.OD_ACC_NO"
+                >{{ marginAccount.OD_ACC_NO }}</mat-option
+              >
+            </mat-select>
+            <div class="errorMsg" translate>
+              {{ errorsObject.marginAccountError }}
+            </div>
+          </div>
+        </div>
+        <div class="mtop_10 accountDetails flexContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_ADDRESS1</div>
+            <input
+              class="selectInput"
+              type="text"
+              [(ngModel)]="details.address1"
+              (blur)="inputChanged()"
+            />
+          </div>
+
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_ADDRESS2</div>
+            <input
+              class="selectInput"
+              type="text"
+              [(ngModel)]="details.address2"
+              (blur)="inputChanged()"
+            />
+          </div>
+
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_ADDRESS3</div>
+            <input
+              class="selectInput"
+              type="text"
+              [(ngModel)]="details.address3"
+              (blur)="inputChanged()"
+            />
+          </div>
+        </div>
+        <div class="mtop_10 accountDetails flexContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_EMAIL_ID</div>
+            <input
+              class="selectInput"
+              type="text"
+              [(ngModel)]="details.email"
+              (blur)="inputChanged()"
+            />
+          </div>
+
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_MOBILE</div>
+            <input
+              class="selectInput"
+              (keypress)="allowNumbersOnly($event)"
+              [(ngModel)]="details.mobile"
+              maxlength="10"
+              (blur)="inputChanged()"
+            />
+          </div>
+
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_PHONE</div>
+            <input
+              class="selectInput"
+              (keypress)="allowNumbersOnly($event)"
+              [(ngModel)]="details.phone"
+              maxlength="10"
+              (blur)="inputChanged()"
+            />
+          </div>
+        </div>
+
+        <div class="mtop_10 accountDetails flexContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_FAX_NO</div>
+            <input
+              class="selectInput"
+              type="text"
+              [(ngModel)]="details.fax"
+              (blur)="inputChanged()"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="isReview">
+  <div class="merchantDetails">
+    <div class="subTitles" translate>LBL_APPLICANT_DETAILS</div>
+    <div class="detailContainer">
+      <div class="outerContainer">
+        <div class="mtop_10 accountDetails flexContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_APPLICANTS_NAME
+            </div>
+            <p class="selectInputBorderNone">{{ applicantName }}</p>
+          </div>
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_COMMISSION_ACCOUNT
+              <span class="required" *ngIf="isUpdate">*</span>
+            </div>
+            <p *ngIf="!isUpdate" class="selectInputBorderNone">
+              {{ details.commissionAccount }}
+            </p>
+            <mat-select
+              *ngIf="isUpdate"
+              panelClass="dropDownOption"
+              disableOptionCentering
+              class="matSelectInput mt-top"
+              placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+              name="commissionAccount"
+              [(value)]="applicantDetail.commissionAccount"
+              (selectionChange)="commissionAccountChanged($event)"
+            >
+              <mat-option
+                *ngFor="let commissionAccount of commissionAccounts"
+                [value]="commissionAccount"
+                >{{ commissionAccount.OD_ACC_NO }}</mat-option
+              >
+            </mat-select>
+          </div>
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_MARGIN_ACCOUNT
+              <span class="required" *ngIf="isUpdate">*</span>
+            </div>
+            <p *ngIf="!isUpdate" class="selectInputBorderNone">
+              {{ details.marginAccount }}
+            </p>
+            <mat-select
+              *ngIf="isUpdate"
+              panelClass="dropDownOption"
+              disableOptionCentering
+              class="matSelectInput mt-top"
+              placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+              name="marginAccount"
+              [(value)]="applicantDetail.marginAccount"
+              (selectionChange)="marginAccountChanged($event)"
+            >
+              <mat-option
+                *ngFor="let marginAccount of marginAccounts"
+                [value]="marginAccount"
+                >{{ marginAccount.OD_ACC_NO }}</mat-option
+              >
+            </mat-select>
+          </div>
+        </div>
+        <div class="mtop_10 accountDetails flexContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_ADDRESS1</div>
+            <p
+              [ngClass]="
+                details.address1 ? 'selectInputBorderNone' : 'noDataContent'
+              "
+              translate
+            >
+              {{ details.address1 ? details.address1 : "LBL_NOT_PROVIDED" }}
+            </p>
+          </div>
+
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_ADDRESS2</div>
+            <p
+              [ngClass]="
+                details.address2 ? 'selectInputBorderNone' : 'noDataContent'
+              "
+              translate
+            >
+              {{ details.address2 ? details.address2 : "LBL_NOT_PROVIDED" }}
+            </p>
+          </div>
+
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_ADDRESS3</div>
+            <p
+              [ngClass]="
+                details.address3 ? 'selectInputBorderNone' : 'noDataContent'
+              "
+              translate
+            >
+              {{ details.address3 ? details.address3 : "LBL_NOT_PROVIDED" }}
+            </p>
+          </div>
+        </div>
+        <div class="mtop_10 accountDetails flexContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_EMAIL_ID</div>
+            <p
+              [ngClass]="
+                details.email ? 'selectInputBorderNone' : 'noDataContent'
+              "
+              translate
+            >
+              {{ details.email ? details.email : "LBL_NOT_PROVIDED" }}
+            </p>
+          </div>
+
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_MOBILE</div>
+            <p
+              [ngClass]="
+                details.mobile ? 'selectInputBorderNone' : 'noDataContent'
+              "
+              translate
+            >
+              {{ details.mobile ? details.mobile : "LBL_NOT_PROVIDED" }}
+            </p>
+          </div>
+
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_PHONE</div>
+            <p
+              [ngClass]="
+                details.phone ? 'selectInputBorderNone' : 'noDataContent'
+              "
+              translate
+            >
+              {{ details.phone ? details.phone : "LBL_NOT_PROVIDED" }}
+            </p>
+          </div>
+        </div>
+
+        <div class="mtop_10 accountDetails flexContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>LBL_FAX_NO</div>
+            <p
+              [ngClass]="
+                details.fax ? 'selectInputBorderNone' : 'noDataContent'
+              "
+              translate
+            >
+              {{ details.fax ? details.fax : "LBL_NOT_PROVIDED" }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

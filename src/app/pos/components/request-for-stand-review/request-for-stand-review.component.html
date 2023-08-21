@@ -1,0 +1,125 @@
+<div class="outerContainer" *ngIf="!showReceipt">
+  <div class="subTitles" translate>LBL_REVIEW</div>
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_MERCHANT_DETAILS</div>
+    <div class="acc" translate>LBL_ACCOUNT</div>
+    <table>
+      <tr class="tableHeader">
+        <th translate>LBL_ACC_NUMBER</th>
+        <th translate>LBL_NICK_NAME</th>
+        <th translate>LBL_FULL_NAME</th>
+        <th translate>LBL_STATUS</th>
+        <th translate>LBL_BALANCE</th>
+      </tr>
+      <ng-container>
+        <tr class="tableRowConatiner">
+          <td>SA1010 0100 1000 0000123</td>
+          <td>Dameer</td>
+          <td>Dameer Ahsan</td>
+          <td>Active</td>
+          <td>1,235.00 SAR</td>
+          <div class="downArrowAcc"></div>
+        </tr>
+      </ng-container>
+    </table>
+    <div class="merchnatDetails">
+      <table>
+        <tr class="tableHeader">
+          <th translate>LBL_MERCHANT_NAME</th>
+          <th translate>LBL_MERCHANT_NAME_ARABIC</th>
+          <th translate>LBL_MERCHANT_NUMBER</th>
+
+          <th translate>LBL_SHOP_NAME</th>
+        </tr>
+        <ng-container>
+          <tr class="tableRowConatiner">
+            <td>Adhara Alam</td>
+            <td>علم أذار</td>
+            <td>1010 0100 1000 0000 0123</td>
+            <td>Zamzam Water</td>
+
+            <div class="downArrowAcc"></div>
+          </tr>
+        </ng-container>
+      </table>
+    </div>
+    <div class="merchnatDetails">
+      <table>
+        <tr class="tableHeader">
+          <th translate>LBL_TERMINAL_ID</th>
+          <th translate>LBL_TERMINAL_TYPE</th>
+          <th translate>LBL_SHOP_NAME</th>
+        </tr>
+        <ng-container>
+          <tr class="tableRowConatiner">
+            <td>Adhara Alam</td>
+            <td>Physical</td>
+
+            <td>Zamzam Water</td>
+
+            <div class="downArrowAcc"></div>
+          </tr>
+        </ng-container>
+      </table>
+    </div>
+  </div>
+  <div class="merchantDetails">
+    <div class="subTitles" translate>LBL_RETAILER_INFORMATION</div>
+
+    <div class="flexContainer">
+      <div>
+        <div class="geneStaTitles fieldTitles" translate>
+          LBL_EMAIL <span class="errorMsg">*</span>
+        </div>
+        <p class="selectInputBorderNone">info@zamzam.com</p>
+      </div>
+      <div class="inputConatiner">
+        <div class="geneStaTitles fieldTitles" translate>
+          LBL_MOBILE_NUMBER <span class="errorMsg">*</span>
+        </div>
+        <div>+966 00966 1 2411681</div>
+      </div>
+      <div class="descriptionContainer">
+        <div class="geneStaTitles fieldTitles" translate>
+          LBL_CLAIM_DESCRIPTION <span class="errorMsg">*</span>
+        </div>
+        <div>Not Provided</div>
+      </div>
+    </div>
+  </div>
+  <app-authentication></app-authentication>
+  <div class="footerText" translate>
+    LBL_TERMS
+    <a href="{{ url }}" target="_blank"
+      ><span class="termsContainer" translate
+        >LBL_THE_TERMS_AND_CONDITIONS</span
+      ></a
+    >
+  </div>
+  <div class="btnGroup mtop_20">
+    <div>
+      <!-- <button type="button" class="button-secondary" translate>
+        LBL_CANCEL
+      </button> -->
+
+      <app-tertiary-button buttonValue="LBL_CANCEL" class="tertiaryBtn">
+      </app-tertiary-button>
+    </div>
+    <div>
+      <!-- <button type="button" class="button-primary" translate (click)="submit()">
+        LBL_SUBMIT
+      </button> -->
+
+      <app-primary-button buttonValue="LBL_SUBMIT" (click)="submit()">
+      </app-primary-button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showReceipt">
+  <app-receipt
+    [receiptDetails]="receiptData"
+    (onInitAgainClick)="initiateAnotherRequest()"
+  >
+  </app-receipt>
+</div>

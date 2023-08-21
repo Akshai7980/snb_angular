@@ -1,0 +1,94 @@
+<div class="parentDiv" id="transferSummaryDetails">
+    <div class="row" id="logoPrint">
+      <div><img class="logo" src="{{ logo }}" /></div>
+      <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+    </div>
+    <div class="mainTitle">
+        <div class="backIcon backArrow" routerLink="/cards/creditCardSummaryDetails"></div>
+        <span translate>LBL_TRANSFER_SUMMARY</span>
+    </div>
+    <div class="container">
+        <div class="right_align"> <!-- Need to integrate moduleId after getting from OF -->
+            <app-summary-tools [printSection]="printSection" [moduleId]="''" [isshowndownloadablePrint]="true" [isshownPrint]="false"></app-summary-tools>
+        </div>
+        <div class="fileDetails">
+            <div class="title bold">
+                {{"LBL_WITHIN_BANK_TRANSFER_TO_ACC" | translate}}--
+                <!-- Ahmed, 93656650839756657685 -->
+                <!-- Name and account number -->
+            </div>
+            <div class="title">
+                {{"LBL_TRANSACTION_REF_NUM" | translate}}--
+                <!-- 5452106032021030 -->
+                <!-- Reference number -->
+            </div>
+            <div class="title pad_20">
+                {{"LBL_AMOUNT" | translate}}
+                <b>&nbsp;--&nbsp;</b>
+                <!-- <b>&nbsp;1,000.00 SAR&nbsp;</b> Show amount from an api -->
+                {{"LBL_ON" | translate}}--
+                <!-- 20/04/2022 -->
+                <!-- Show date from an api -->
+                <div class="pad_l_10">
+                    <button class="status-red-button statusButton" translate>
+                        <!-- Pending for Approval -->--
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cardDetailsContainer">
+            <div class="subContainer">
+                <div class="subTitles" translate>LBL_TRANSFER_DETAILS</div>
+                <div class="rowInnerCntr">
+                    <div class="field">
+                        <div class="label" translate>LBL_DETAIL_CREDIT_TO</div>
+                        <div class="information">
+                            <span>--</span>
+                            <span>--</span>
+                            <!-- <span>Ahmed, 93656650839756657685</span>
+                            <span>Bank : SNB, Saudi Arabia</span> -->
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_DEBIT_FROM</div>
+                        <div class="information">
+                            <span>--</span>
+                            <span>--</span>
+                            <!-- <span>Dameer, 96656650839756650839</span>
+                            <span>Balance : 1,671.00 SAR</span> -->
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_PURPOSE</div>
+                        <div class="information">--</div>
+                        <!-- <div class="information">Personal Fees</div> -->
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_RELATIONSHIP</div>
+                        <div class="information">--</div>
+                        <!-- <div class="information">Travel Expenses</div> -->
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_FEE</div>
+                        <div class="information">--</div>
+                        <!-- <div class="information">0.5 SAR</div> -->
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_VAT</div>
+                        <div class="information">--</div>
+                        <!-- <div class="information">0.8 SAR</div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btnGroup mtop_20">
+        <div>
+            <app-tertiary-button buttonValue="LBL_BACK" routerLink="/cards/creditCardSummaryDetails">
+            </app-tertiary-button>
+        </div>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

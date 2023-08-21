@@ -1,0 +1,32 @@
+{
+    "data":[
+        {
+            "odDRefNo": "TBC2208301819244",
+            "bene_ACC_NO": "SA1010 0100 1000 0000123",
+            "odFileName": "Bharain_Bulk_fileupload_Aug 30.xls",
+            "odStatus": "Sent to Bank",
+            "odTxnCy": "BHD",
+            "odFunctionCode": "",
+            "odProductCode": "",
+            "odSubprodCode": "",
+            "makerName": "sheik  maker",
+            "acceptAmt": "200.097",
+            "rejectAmt": "0",
+            "cif":"70000632000002",
+            "callerName":"Mohmouud_1006241572",
+            "userId":"1006241572",
+            "region":"Jeddah",
+            "cntTelephoneNo":"0540000634",
+            "abstract":"علم أذار",
+            "reason":"Business Related",
+            "src":"ECORP"
+            
+          }
+    ],
+    "headerValue": {
+        "sortColumn": "odMakerDate",
+        "sortOrder": "desc",
+        "moduleId": "",
+        "totalCount": "1"
+      }
+}

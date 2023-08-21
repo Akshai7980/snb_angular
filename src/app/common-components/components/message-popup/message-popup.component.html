@@ -1,0 +1,9 @@
+<div class="row" mat-dialog-title><span translate>{{data.title}}</span><img
+    src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close>
+    <div class="refNoBox"><span>{{'LBL_REF_NUMBER' | translate}} : </span><span *ngIf="data.trxRefNo">{{data.trxRefNo}}</span><span *ngIf="!data.trxRefNo">--</span></div>
+</div>
+
+<div mat-dialog-content translate>{{data.content}}</div>
+<div mat-dialog-actions>
+<button class="button-primary" mat-dialog-close translate>{{data.btnLabel}}</button>
+</div>

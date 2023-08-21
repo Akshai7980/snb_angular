@@ -1,0 +1,21 @@
+.actionIcon{
+    background: url(../../../../assets/images/delete.svg) no-repeat center;
+    width: 24px;
+    height: 24px;
+    // display: inline-block;
+    margin: auto;
+}
+input[type='text'] {    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    font-size: 14px;
+    color: var(--tableData-header-color); 
+}
+.messageContent{
+    width: 30%;
+}
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+    padding-left: 5px;
+}
+th.mat-header-cell{
+    cursor: pointer;
+}
+    

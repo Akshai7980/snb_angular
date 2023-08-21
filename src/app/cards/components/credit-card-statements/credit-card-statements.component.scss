@@ -1,0 +1,77 @@
+.statementHeader {
+    margin-top: 20px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    color: #a2a2a2;
+    font-size: 14px;
+    padding: 0px 0px 0px 5px;
+}
+
+table {
+    padding: 20px 0px 0px 0px;
+    width: 100%;
+    word-break: break-word;
+}
+
+td {
+    height: 40px;
+    font-size: 14px;
+    color: #5d5d5d;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.statementDescription {
+    position: relative;
+    float: left;
+    right: 5px;
+}
+
+.downloadIcon {
+    position: relative;
+    float: right;
+    cursor: pointer;
+    right: 3.5%;
+}
+
+td {
+    border-radius: 10px 10px 10px 10px;
+    cursor: default;
+}
+
+table tr:hover {
+    background-color: var(--summary-hover-color);
+}
+
+tr:nth-child(odd) {
+    background-color: var(--secondary-btn-txt-color);
+    cursor: pointer;
+}
+
+tr:nth-child(even) {
+    background-color: var(--summary-row-bg-color);
+    cursor: pointer;
+}
+
+.mTop_18 {
+    position: relative;
+    padding-top: 18px;
+}
+
+.rightPanel {
+    position: relative;
+    float: right;
+}
+
+.actionsConatiner {
+    width: 98%;
+}
+
+.totalStatement {
+    font-family: "HelveticaNeueMed", arial, sans-serif !important;
+    font-size: 14px !important;
+    color: var(--table-header-color) !important;
+}
+
+.dslk_flex{
+    display: flex;
+}

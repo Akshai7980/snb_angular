@@ -1,0 +1,64 @@
+.detailsTitleContainer {
+  margin: -15px 0px -27px 30px;
+}
+
+.backArrow {
+  top: 40px;
+  left: -20px;
+}
+
+.container {
+  padding: 16px 0 14px 18px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  margin: 5px 20px 0px 30px;
+}
+
+.btnContainer {
+  float: right;
+  margin-top: 25px;
+}
+
+.headerTitle {
+  margin-bottom: 23px;
+}
+
+.main-container {
+  padding: 12px 0px;
+  margin: 26px 18px 0px 0px;
+  font-family: "HelveticaNeue", Arial, sans-serif;
+}
+
+.rejecttextarea {
+  margin-top: 10px !important;
+}
+
+.rejectReasonContainer {
+  margin-left: 5px;
+}
+
+.rejecthead {
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  color: var(--table-header-color);
+  font-size: 14px;
+}
+
+textarea {
+  width: 300px;
+  height: 80px;
+  border: 1px solid var(--input-border-color);
+  resize: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: var(--primary-widget0bg-color);
+  color: var(--default-text-color);
+}
+
+.backButton {
+  margin-right: 15px;
+  width: 100px !important;
+}

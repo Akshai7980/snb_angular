@@ -1,0 +1,148 @@
+<div class="mainContainer">
+  <div class="subContainer" *ngIf="!isProceed">
+    <div class="subTitles" translate>LBL_PROXY_IDENTIFIER</div>
+    <div id="manageAlertsDefaultCntr" class="sectionDivide">
+      <div class="toggleButtonContainer">
+        <p class="col-space1 subTitleFont" translate>LBL_ACTION</p>
+        <p class="subTitleFont" translate>LBL_MOBILE_NUMBER</p>
+      </div>
+      <div class="toggleButtonContainer">
+        <mat-slide-toggle
+          class="col-space1"
+          [checked]="mobile"
+          [disabled]="deregister || !mobile"
+          (change)="selectNumberType($event, setProxy.mobile)"
+        ></mat-slide-toggle>
+        <p *ngIf="mobile">{{ setProxy.mobile }}</p>
+      </div>
+      <p class="toggleSubtitlePaddingLeft subTitleFont" translate>LBL_EMAIL</p>
+      <div class="toggleButtonContainer">
+        <mat-slide-toggle
+          class="col-space1"
+          [checked]="emailId"
+          [disabled]="deregister || !emailId" 
+          (change)="selectType($event, setProxy.email)"
+        ></mat-slide-toggle>
+        <p *ngIf="emailId">{{ setProxy.email }}</p>
+      </div>
+      <p class="toggleSubtitlePaddingLeft subTitleFont" translate>
+        LBL_NATIONAL_ID
+      </p>
+      <div class="toggleButtonContainer">
+        <mat-slide-toggle
+          class="col-space1"
+          [checked]="nationalId"
+          [disabled]="deregister || !nationalId"
+          (change)="selectNationalIDType($event, setProxy.nationalId)"
+        ></mat-slide-toggle>
+        <p *ngIf="nationalId">{{ setProxy.nationalId }}</p>
+      </div>
+    </div>
+    <div>
+      <div class="flexContainer">
+        <div class="degToggleButtonContainer">
+          <mat-slide-toggle
+            [disabled]="isProceed"
+            class="col-space1"
+            [checked]="deregister"
+            (change)="selectDeregister($event, setProxy)"
+          ></mat-slide-toggle>
+        </div>
+        <p class="degSubTitleFont" translate>
+          LBL_DEREGISTER_ACCOUNT
+        </p>
+      </div>
+      <div *ngIf="deregister">
+        <div translate class="col-space1 subTitleFont reasonSubText">
+          LBL_REASON<span class="required">*</span>
+        </div>
+        <!-- <br /> -->
+        <div class="amtContainer">
+          <label *ngIf="isProceed">{{ selectedReason }}</label>
+          <mat-select
+            *ngIf="!isProceed"
+            class="selectInput"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            panelClass="dropDownOption"
+            disableOptionCentering
+          >
+            <mat-option
+              (click)="reasonSelected(reason)"
+              *ngFor="let reason of reasonList"
+              value="{{ reason }}"
+            >
+              {{ reason.reasonValue }}
+            </mat-option>
+          </mat-select>
+          <div *ngIf="setProxy.reasonCode == '4'">
+            <input type="text" class="inputField" [(ngModel)]="otherReasonDescription" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Review  -->
+  <div class="subContainer" *ngIf="isProceed">
+    <div class="subTitles" translate>LBL_PROXY_IDENTIFIER</div>
+    <div id="manageAlertsDefaultCntr" *ngIf="!deregister">
+      <div class="toggleButtonContainer">
+        <p class="col-space1 subTitleFont" translate>LBL_ACTION</p>
+        <p class="subTitleFont" translate>LBL_MOBILE_NUMBER</p>
+      </div>
+      <div class="toggleButtonContainer">
+        <mat-slide-toggle
+          class="col-space1"
+          [checked]="mobile"
+          [disabled]="true"
+        ></mat-slide-toggle>
+        <p *ngIf="mobile">{{ setProxy.mobile }}</p>
+      </div>
+      <p class="toggleSubtitlePaddingLeft subTitleFont" translate>LBL_EMAIL</p>
+      <div class="toggleButtonContainer">
+        <mat-slide-toggle
+          class="col-space1"
+          [checked]="emailId"
+          [disabled]="true"
+        ></mat-slide-toggle>
+        <p *ngIf="emailId">{{ setProxy.email }}</p>
+      </div>
+      <p class="toggleSubtitlePaddingLeft subTitleFont" translate>
+        LBL_NATIONAL_ID
+      </p>
+      <div class="toggleButtonContainer">
+        <mat-slide-toggle
+          class="col-space1"
+          [checked]="nationalId"
+          [disabled]="true" 
+        ></mat-slide-toggle>
+        <p *ngIf="nationalId">{{ setProxy.nationalId }}</p>
+      </div>
+    </div>
+    <div *ngIf="deregister">
+      <p class="subTitleFont" translate>LBL_DEREGISTER_ACCOUNT</p>
+      <div class="toggleButtonContainer">
+        <mat-slide-toggle
+          [disabled]="true"
+          class="col-space1"
+          [checked]="deregister"
+        ></mat-slide-toggle>
+      </div>
+      <div translate class="col-space1 subTitleFont">LBL_REASON</div>
+      <p *ngIf="setProxy.reasonValue">{{ setProxy.reasonValue }}</p>
+    </div>
+  </div>
+  <!-- Review  -->
+  <app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>
+  <div class="actionGroupNext" *ngIf="!isProceed">
+    <app-tertiary-button
+      buttonValue="LBL_CANCEL"
+      (click)="cancel()"
+    ></app-tertiary-button>
+    <app-primary-button
+      buttonValue="LBL_PROCEED"
+      routerPath="./"
+      *ngIf="mobile || emailId || nationalId || setProxy.reasonValue"
+      (click)="proceedToNext()"
+    ></app-primary-button>
+  </div>
+</div>

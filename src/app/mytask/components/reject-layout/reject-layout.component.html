@@ -1,0 +1,17 @@
+<div class="detailsTitleContainer">
+    <div>
+    <div class="backIcon backArrow" routerLink="/mytask/detailsLayout"></div>
+    <div class="mainTitle">Reject Cheque Book Request</div>
+    </div>
+</div>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-reject-cheque-book-request (rejectReasonValidationFlag)="getRejectReasonValidationFlag($event)" (submitData)="getSubmitData($event)"></app-reject-cheque-book-request>
+      </div>
+</section>
+<section>
+    <div class="btnContainer">
+        <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button>
+     </div>
+</section>
+

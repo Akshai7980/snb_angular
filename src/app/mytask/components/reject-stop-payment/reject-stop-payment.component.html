@@ -1,0 +1,63 @@
+<div *ngIf="!receiptForm">
+  <div class="detailsTitleContainer">
+    <div class="headerTitle">
+      <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+      <div class="mainTitle" translate>LBL_REJECT_STOP_PAYMENT</div>
+    </div>
+  </div>
+  <div class="container">
+    <div>
+      <app-stop-payment-file-details></app-stop-payment-file-details>
+    </div>
+    <section>
+      <div class="main-container">
+        <div class="rejectReasonContainer">
+          <div class="rejecthead" translate>
+            LBL_RJCT_RSN
+            <!-- <span class="required">*</span> -->
+          </div>
+          <div>
+            <div class="rejecttextarea">
+              <textarea
+                [(ngModel)]="rejectReason"
+                maxlength="140"
+                (blur)="validateRejectReason()"
+                (keypress)="validateSpace($event)"
+              ></textarea>
+              <div class="errorMsg" *ngIf="rejectReasonInvalid" translate>
+                LBL_ERROR_MESSAGE_RJCT_RSN
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btnContainer">
+        <button
+          class="button-secondary backButton"
+          routerLink="/mytask/Payroll/stop-payment"
+          translate
+        >
+          LBL_CANCEL
+        </button>
+        <button
+          class="button-primary backButton"
+          translate
+          (click)="rejectStopPayment()"
+        >
+          LBL_SUBMIT
+        </button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<app-receipt
+  (onInitAgainClick)="initiateAnotherRequest()"
+  [receiptDetails]="receiptData"
+  [saveReceiptObject]="saveReceiptObject"
+  *ngIf="receiptForm"
+  (DownloadReceiptClick)="downloadPdf($event)"
+  [rejectMsg]="rejectMsg"
+>
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

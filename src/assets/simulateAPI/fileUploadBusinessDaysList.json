@@ -1,0 +1,54 @@
+{
+  "dataValue": {
+    "businessDaysList": [ 
+      {
+        "swiftFlag": "01",
+        "businessDay": "28/12/2022",
+        "sarieFlag": "",
+        "sequanceDay": "0002"
+      },
+      {
+        "swiftFlag": "01",
+        "businessDay": "29/12/2022",
+        "sarieFlag": "",
+        "sequanceDay": "0002"
+      },
+      {
+        "swiftFlag": "01",
+        "businessDay": "30/12/2022",
+        "sarieFlag": "",
+        "sequanceDay": "0000"
+      },
+      {
+        "swiftFlag": "01",
+        "businessDay": "19/02/2023",
+        "sarieFlag": "",
+        "sequanceDay": "0000"
+      },
+      {
+        "swiftFlag": "01",
+        "businessDay": "16/02/2023",
+        "sarieFlag": "",
+        "sequanceDay": "0000"
+      },
+      {
+        "swiftFlag": "01",
+        "businessDay": "02/01/2023",
+        "sarieFlag": "",
+        "sequanceDay": "0000"
+      },
+      {
+        "swiftFlag": "01",
+        "businessDay": "03/01/2023",
+        "sarieFlag": "",
+        "sequanceDay": "0000"
+      }
+
+    ]
+  },
+  "headerValue": {
+    "moduleId": "BUSINESSDAYPAYLIST",
+    "simulate": "N", 
+    "_dinsess": "b1752a6b-52f9-4b22-be80-e731a44c6cff"
+  }
+}

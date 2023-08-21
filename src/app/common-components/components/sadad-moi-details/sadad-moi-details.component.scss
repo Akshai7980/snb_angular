@@ -1,0 +1,68 @@
+.container{
+    margin: 10px 15px 0px 15px;
+}
+.casaTable{
+    margin: 20px 14px 15px 1px;
+    width: 97%;
+    word-break: break-word;
+    table-layout: fixed;
+}
+tr.mat-header-row,.mat-row{height: 40px;}
+.mat-table{background:var(--summary-row-bg-color) !important; }
+th.mat-header-cell:first-of-type,td.mat-cell:first-of-type{padding-left: 5px !important;}
+th.mat-header-cell:last-of-type,td.mat-cell:last-of-type{padding-right: 5px !important;}
+.information{
+    font-family: 'HelveticaNeue', arial, sans-serif;
+    color: var(--table-header-color);
+    font-size: 14px;
+    padding-top: 10px;
+}
+   
+.subContainer {
+    border-radius: 10px;
+    background: var(--summary-row-bg-color);
+    margin: 20px 30px 10px 0;
+    padding: 12px 0 15px 18px;
+}
+.title{
+    padding-top: 16px;
+    display: flex;
+}
+.refNO{
+    padding-top: 5px;
+    color: var(--default-text-color);
+}
+.fxContainer{display: flex;}
+.mt-top{margin-top:20px;}
+.column1,.column2,.column3{width:33%}
+.flexCntr {
+    display: flex;
+    flex-wrap: wrap;
+    > div {
+        width: 33%;
+    }
+}
+.label {
+    width: 107px;
+    height: 30px;
+    font-size: 14px;
+    color: var(--table-header-color);
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+
+.dataInfo {
+    height: 40px;
+    font-family: 'HelveticaNeue', arial, sans-serif;
+    font-size: 12px;
+    color: var(--input-text-color);
+    margin-top: 8px;
+}
+
+.rejectreason{
+    margin-top: 2px !important;
+  }
+.bankreason
+  {
+    margin-left: 15px !important;
+    margin-right: 5px !important;
+  }

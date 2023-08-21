@@ -1,0 +1,28 @@
+<div *ngIf="!receiptForm">
+    <div class="detailsTitleContainer">
+        <div>
+            <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+            <div class="mainTitle" translate>LBL_AUTHORIZE_IPS_REG</div>
+        </div>
+    </div>
+    <div class="container">
+        <app-instant-transfer-registration-details></app-instant-transfer-registration-details>
+    </div>
+    <div class="proxyContainer">
+        <app-proxy-identifier-registration></app-proxy-identifier-registration>
+    </div>
+    <div class="authcontainer" *ngIf=" showAuthorization">
+        <app-authorization [authListDataSource]="authOptions" (authEmit)="getDisplayStatus($event)"></app-authorization>
+    </div>
+    <section>
+        <div class="btnContainer">
+            <!-- <button class="button-secondary" routerLink="/mytask/instantTransferManagement" translate>LBL_CANCEL</button>
+            <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button> -->
+            <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()"></app-tertiary-button>
+            <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+        </div>
+    </section>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm"  (DownloadReceiptClick)="downloadPdf($event)" [rejectMsg]="rejectMsg">
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

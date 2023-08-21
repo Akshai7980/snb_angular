@@ -1,0 +1,63 @@
+<div
+  class="filter-search-popup"
+  *ngIf="showAdvancedSearchPopup"
+  (click)="stopAdvancedSearchClose($event)"
+>
+  <div translate class="header">LBL_FILTER
+    <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+  </div>
+  <div>
+    <div >
+      <div class="flexContainer">
+        <div class="cardContainer">
+        <div class="searchwithin">
+            <div translate class="fieldLabel">LBL_SERVICE_TYPE</div>
+            <mat-select panelClass="dropDownOption" class="selectInput" [(value)]="serviceType" disableOptionCentering>
+                <mat-option value="all">{{'LBL_ALL' | translate}}</mat-option>
+                <mat-option value="DR">{{'LBL_DEBIT' | translate}}</mat-option>
+                <mat-option value="CR">{{'LBL_CREDIT' | translate}}</mat-option>
+            </mat-select>
+        </div>
+        </div>
+
+        <div class="cardContainer">
+            <div class="searchwithin">
+                <div translate class="fieldLabel">LBL_REQUEST_STATUS</div>
+                <mat-select panelClass="dropDownOption" class="selectInput" [(value)]="requestStatus" disableOptionCentering>
+                    <mat-option value="open">{{'LBL_OPEN' | translate}}</mat-option>
+                </mat-select>
+            </div>
+        </div>
+      </div>
+    </div>
+<!-- from date and to date -->
+    <div class="flexCntr">
+        <div class="flex-1">           
+            <div class="datefrom">
+                <div translate class="fieldLabel" id="proctm">LBL_DATE_FROM</div>
+                <div class="shortDatePicker mt-top"><app-date-picker [clearFlag]="clearFlag" (dateValue)="getFromDate($event)" [maxDate]="maxDate" [minDate]="minDate" [newDate]="fromDateValue"></app-date-picker></div>
+                <div class="errorMsg" *ngIf="fromDateError" translate>LBL_PLSE_SELECT_FROMDATE</div>
+            </div>
+          </div>
+            <div class="flex-1">           
+              <div class="dateto">
+                  <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+                  <div class="shortDatePicker mt-top"><app-date-picker [clearFlag]="clearFlag" (dateValue)="getToDate($event)"[maxDate]="maxDate" [minDate]="fromDateValue" [newDate]="toDateValue"></app-date-picker></div>
+                  <div class="errorMsg" *ngIf="toDateError" translate>LBL_PLSE_SELECT_TODATE</div>
+              </div>
+          </div>
+    </div>
+  </div>
+  <div class="actionGroup">
+    <app-tertiary-button
+      buttonValue="LBL_CLEAR"
+      (click)="onClickClear()"
+      class="tertiaryBtn"
+    >
+    </app-tertiary-button>
+    <app-primary-button (click)="onClickApply()" buttonValue="LBL_APPLY">
+    </app-primary-button>
+  </div>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

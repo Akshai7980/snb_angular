@@ -1,0 +1,114 @@
+{
+  "dataValue": {
+    "lg": [
+      {
+        "beneficiaryNameEng": "PAVITRAAA",
+        "beneficiaryNameAr": ".",
+        "lgTextLanguage": "E",
+        "customerAccountNumber": "05100003411902",
+        "applicantNameEng": "SAM HUSSEIN NASSER SALEH AL LAWDHAE",
+        "lgObligationCodeDescriptionAr": "نهائي",
+        "lgObligationCodeDescriptionEng": "FINAL",
+        "customerNameEng": "SAM HUSSEIN NASSER SALEH AL LAWDHAE",
+        "applicantNameAr": ".",
+        "lgObligationCode": "202",
+        "lgPrefix": "B",
+        "lgNumber": "280401",
+        "status": "RELEASED"
+      },
+      {
+        "beneficiaryNameEng": "PAVITRAAA",
+        "beneficiaryNameAr": ".",
+        "lgTextLanguage": "E",
+        "customerAccountNumber": "05100003411902",
+        "applicantNameEng": "SAM HUSSEIN NASSER SALEH AL LAWDHAE",
+        "lgObligationCodeDescriptionAr": "نهائي",
+        "lgObligationCodeDescriptionEng": "FINAL",
+        "customerNameEng": "lkih",
+        "applicantNameAr": ".",
+        "lgObligationCode": "203",
+        "lgPrefix": "B",
+        "lgNumber": "280402",
+        "status": "RELEASED"
+      },
+      {
+        "beneficiaryNameEng": "PAVITRAAA",
+        "beneficiaryNameAr": ".",
+        "lgTextLanguage": "E",
+        "customerAccountNumber": "05100003411902",
+        "applicantNameEng": "SAM HUSSEIN NASSER SALEH AL LAWDHAE",
+        "lgObligationCodeDescriptionAr": "نهائي",
+        "lgObligationCodeDescriptionEng": "FINAL",
+        "customerNameEng": "SAM HUSSEIN NASSER SALEH AL LAWDHAE",
+        "applicantNameAr": ".",
+        "lgObligationCode": "204",
+        "lgPrefix": "B",
+        "lgNumber": "280404",
+        "status": "RELEASED"
+      },
+      {
+        "beneficiaryNameEng": "PAVITRAAA",
+        "beneficiaryNameAr": ".",
+        "lgTextLanguage": "E",
+        "customerAccountNumber": "05100003411902",
+        "applicantNameEng": "SAM HUSSEIN NASSER SALEH AL LAWDHAE",
+        "lgObligationCodeDescriptionAr": "نهائي",
+        "lgObligationCodeDescriptionEng": "FINAL",
+        "customerNameEng": "test",
+        "applicantNameAr": ".",
+        "lgObligationCode": "205",
+        "lgPrefix": "B",
+        "lgNumber": "280405",
+        "status": "RELEASED"
+      },
+      {
+        "beneficiaryNameEng": "PAVITRAAA",
+        "beneficiaryNameAr": ".",
+        "lgTextLanguage": "E",
+        "customerAccountNumber": "05100003411902",
+        "applicantNameEng": "SAM HUSSEIN NASSER SALEH AL LAWDHAE",
+        "lgObligationCodeDescriptionAr": "نهائي",
+        "lgObligationCodeDescriptionEng": "FINAL",
+        "customerNameEng": "etdf",
+        "applicantNameAr": ".",
+        "lgObligationCode": "206",
+        "lgPrefix": "B",
+        "lgNumber": "280407",
+        "status": "RELEASED"
+      },
+      {
+        "beneficiaryNameEng": "PAVITRAAA",
+        "beneficiaryNameAr": ".",
+        "lgTextLanguage": "E",
+        "customerAccountNumber": "05100003411902",
+        "applicantNameEng": "SAM HUSSEIN NASSER SALEH AL LAWDHAE",
+        "lgObligationCodeDescriptionAr": "نهائي",
+        "lgObligationCodeDescriptionEng": "FINAL",
+        "customerNameEng": "ZZZ",
+        "applicantNameAr": ".",
+        "lgObligationCode": "207",
+        "lgPrefix": "B",
+        "lgNumber": "280407",
+        "status": "RELEASED"
+      },
+      {
+        "beneficiaryNameEng": "PAVITRAAA",
+        "beneficiaryNameAr": ".",
+        "lgTextLanguage": "E",
+        "customerAccountNumber": "05100003411902",
+        "applicantNameEng": "SAM HUSSEIN NASSER SALEH AL LAWDHAE",
+        "lgObligationCodeDescriptionAr": "نهائي",
+        "lgObligationCodeDescriptionEng": "FINAL",
+        "customerNameEng": "AAA",
+        "applicantNameAr": ".",
+        "lgObligationCode": "208",
+        "lgPrefix": "B",
+        "lgNumber": "280407",
+        "status": "RELEASED"
+      }
+    ]
+  },
+  "headerValue": {
+    "moduleId": "GETCUSTOMERLG"
+  }
+}

@@ -1,0 +1,51 @@
+<div class="outerContainer" *ngIf="!showReceipt">
+        <div class="issueDetails">
+            <div class="subTitles" translate>LBL_ISSUE_DETAILS</div>
+            <div class="felxContainer">
+                <div class="inputlabel">
+                    <div class="labels" translate>
+                        LBL_MOBILE_NUMBER 
+                    </div>
+                    <p>{{ecropGeneralDetails.mobile}}</p>
+                </div>
+                <div class="inputlabel m-left">
+                    <div class="labels" translate>
+                        LBL_CLAIM_DESCRIPTION
+                    </div>
+                    <p>{{ecropGeneralDetails.describtionDetails ? ecropGeneralDetails.describtionDetails : 'Not Provided'}}</p>
+                </div>
+            </div>
+            <div class="uploadFile" *ngIf="this.ecropGeneralDetails.uploadData?.fileActualName">
+                <div class="rowInnerCntr">
+                  <div class="field field-bottom">
+                    <div class="label" translate>LBL_UPLOAD_FILE</div>
+                    <div class="fileNameDownload" >
+                      
+                      <app-uploaded-file-download
+                        class="fileDownload"
+                       
+                        [fileUploadedDetails]="fileUploadedDetails"
+                      ></app-uploaded-file-download>
+                    </div>
+                 
+          
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="authenticationContainer">
+          <app-authentication (onTwoAuthClick)="setSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)"
+          [otpError]="otpError" (authenticationType)="getAuthType($event)"></app-authentication>
+        </div>
+        
+        <div class="buttonConatiner">
+            <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()" ></app-tertiary-button>
+            
+        </div>
+</div>
+<div *ngIf="showReceipt">
+  <app-receipt [receiptDetails]="receiptData" [hideButton]="hideInitiateButton">
+  </app-receipt>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>
+

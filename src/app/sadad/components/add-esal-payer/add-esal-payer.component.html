@@ -1,0 +1,36 @@
+<div class="mainContainer" *ngIf="showAddEsalPayer">
+  <div class="title" *ngIf="!rootScopeData.addEsalPayerReviewMode" translate>
+    LBL_ADD_PAYER
+  </div>
+  <div class="title" *ngIf="rootScopeData.addEsalPayerReviewMode" translate>
+    LBL_REVIEW
+  </div>
+  <div class="detailsDataCntr">  
+  <div class="subContainer">
+    <app-esal-payer-details (emitPayerDetails)="setPayerDetails($event)" (emitPayerValidationBtn)="emitPayerValidationBtn($event)" [payerDetails]="payerDetails"
+      [clearFlag]="clearForm"></app-esal-payer-details>
+  </div>
+  <div class="buttons">
+    <app-tertiary-button *ngIf="!proceed" buttonValue="LBL_CANCEL" (click)="clearClick()"></app-tertiary-button>
+    <app-primary-button *ngIf="!proceed" buttonValue="LBL_PROCEED" [disablBtn]="checkPayerIDBtnValid"  (click)="proceedNext()"></app-primary-button>
+  </div>
+  <div class="afterproceed">
+    <app-authorization *ngIf="proceed && showAuthorization" [authListDataSource]="authorsList" [authError]="authorError"
+      (authEmit)="setAuthorizationData($event)"></app-authorization>
+    <app-authentication *ngIf="proceed && showAuthentication" (authenticationType)="getAuthType($event)" (onTwoAuthClick)="onSecondFactorValue($event)"
+      (getOtpClick)="getOtpValue($event)" [otpError]="otpError" [initParam]="initReqParam"></app-authentication>
+  </div>
+  <div *ngIf="finalSubmit" class="footer">
+    <div class="finalProceed">
+      <app-tertiary-button *ngIf="!isProceed" buttonValue="LBL_CANCEL" (click)="clearClick(); refresh()">
+      </app-tertiary-button>
+      <!-- <app-primary-button *ngIf="!isProceed" buttonValue="LBL_SUBMIT" (click)="onSubmit()"></app-primary-button> -->
+    </div>
+    <div class="termsAndConditions" translate>
+      LBL_TERMS <a href="{{ url }}" target="_blank" translate>LBL_THE_TERMS_AND_CONDITIONS</a>
+    </div>
+  </div>
+  </div>
+</div>
+<app-receipt [receiptDetails]="receiptData" *ngIf="!showAddEsalPayer" [saveReceiptObject]="saveReceiptObject"
+  (onInitAgainClick)="initializeAnotherTransaction()" (DownloadReceiptClick)="downloadPdf($event)" [rejectMsg]="rejectMsg"></app-receipt>

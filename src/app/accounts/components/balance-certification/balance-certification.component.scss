@@ -1,0 +1,97 @@
+.mainContainer {
+    margin: 0px 25px 50px 25px;
+}
+.subContainer {
+    padding: 20px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: #ffffff;
+    background-size: cover;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+    color: #5d5d5d;
+   
+}
+.certificateInfo{
+    margin-top: 20px;
+}
+.subTitles{
+    font-size: 16px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    color: var(--tableData-header-color);
+}
+.row {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+}
+.column {
+    margin-bottom: 20px;
+    width: 300px;
+}
+.geneStaTitles {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+}
+.detailsContainer{
+    margin-top: 21px;
+    padding: 0px 0px 0px 10px;
+}
+.dataContainer{
+    font-family: "HelveticaNeue";
+    color: var(--tableData-header-color);
+}
+.btnGroup{
+    margin-top: 20PX;
+    float: right;
+    display: flex;
+}
+.box{
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: #656565;
+    cursor: pointer;
+    margin-right: 40px;
+}
+.issuedMsg{
+    background-color: #f0fcf9;
+    padding: 10px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+}
+
+input[type=text]{
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    background-size: cover;
+    font-size: 14px;
+    background-color: var(--primary-widget-bg-color);
+}
+.errorMsg{
+    font-family: "HelveticaNeue", arial, sans-serif;
+}
+.cifMsgContainer{
+    font-size: 0.999em;
+    line-height: normal;
+}
+.cifInfoMsg {
+    border-radius: 4px;
+    padding: 11px 2px 2px 2px;
+    background-color: var(--summary-hover-color);
+    margin-left: 9px;
+}
+
+.img-style{
+    height: 21px;
+    padding: 0px 0px 0px 7px;
+    filter: contrast(0%);
+}

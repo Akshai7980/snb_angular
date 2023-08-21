@@ -1,0 +1,29 @@
+{
+    "headerValue": {
+        "moduleId": "GETFLDDATA"
+    },
+    "data": [
+        {
+            "transactionCcy": [
+                "AED",
+                "AUD",
+                "BHD",
+                "CAD",
+                "CHF",
+                "DKK",
+                "EUR",
+                "GBP",
+                "INR",
+                "JOD",
+                "JPY",
+                "KWD",
+                "MAD",
+                "OMR",
+                "SAR",
+                "SEK",
+                "USD",
+                "YER"
+            ]
+        }
+    ]
+}

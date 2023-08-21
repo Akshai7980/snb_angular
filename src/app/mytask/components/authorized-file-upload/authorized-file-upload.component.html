@@ -1,0 +1,230 @@
+<div id="authFileUpload">
+  <div class="container">
+    <div class="title" translate>LBL_AUTHORIZE_FILE_UPLOAD</div>
+    <!-- file details component -->
+    <div class="beneficiaryDetails">
+      <div class="subTitles" translate>LBL_UPLOAD_FILE</div>
+      <div class="rowInnerCntr">
+        <div class="field">
+          <div class="label" translate>LBL_DEPO_TYPE</div>
+          <p class="label-content">{{ selectedElementData?.upload_type ? selectedElementData.upload_type : "--" }}</p>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_FORMAT</div>
+          <p class="label-content">{{ selectedElementData?.fileFormat ? selectedElementData.fileFormat : "--" }}</p>
+        </div>
+  
+        <div class="field">
+          <div class="label" translate>LBL_VALUE_DATE</div>
+          <p class="label-content">{{ fileDetails?.valueDate ? fileDetails.valueDate : "--" }}</p>
+          <!-- <p class="label-content" *ngIf="!showDatePicker">{{ fileDetails?.valueDate ? fileDetails.valueDate : "--" }}</p>
+          <p class="label-content" *ngIf="showDatePicker">
+            <app-date-picker [showDateErrorMessage]="showDateErrorMessage" (dateValue)="getDate($event)">
+            </app-date-picker></p> -->
+        </div>
+        <div
+          class="field"
+          *ngIf="
+            (selectedElementData.fileFormat === 'csv' ||
+            selectedElementData.fileFormat === 'CSV') && selectedElementData.payment_type === 'WPSUP'
+          "
+        >
+          <div class="label" translate>LBL_COMMERCIAL_NO</div>
+          <p class="label-content">{{ selectedElementData?.COMMERCIAL_NO ? selectedElementData.COMMERCIAL_NO : "--" }}</p>
+        </div>
+        <div
+          class="field"
+          *ngIf="
+            (selectedElementData.fileFormat === 'csv' ||
+            selectedElementData.fileFormat === 'CSV') && selectedElementData.payment_type === 'WPSUP'
+          "
+        >
+          <div class="label" translate>LBL_MOL_ID</div>
+          <p class="label-content">{{ selectedElementData.MOL_ID ? selectedElementData.MOL_ID : "--"}}</p>
+        </div>
+  
+        <div class="field">
+          <div class="label" translate>LBL_UPLOAD_FILE</div>
+          <div class="fileNameDownloadContainer">
+            <p class="label-content" *ngIf="selectedElementData?.file_name">
+              {{ selectedElementData?.file_name ? selectedElementData.file_name : "--" }}
+            </p>
+            <app-uploaded-file-download *ngIf="selectedElementData?.file_name"
+              [fileUploadedDetails]="fileUploadedDetails"
+              (click)="onUploadDownload()"
+            >
+            </app-uploaded-file-download>
+          </div>
+        </div>
+      </div>
+  
+      <div>
+        <app-debit-lookup
+          *ngIf="showDebitData"
+          [debitAccDetails]="debitDataObj"
+        ></app-debit-lookup>
+      </div>
+    </div>
+  
+    <div>
+      <div class="beneficiaryDetails">
+        <div class="sub">
+          <div>
+            <div class="subTitles" translate>LBL_FILE_DETAILS</div>
+          </div>
+        </div>
+  
+        <div class="rowInnerCntr">
+          <div class="field">
+            <div class="label" translate>LBL_SNB_RECORDS</div>
+            <p class="label-content">{{ fileDetails?.snbCount ? fileDetails.snbCount : "--" }}</p>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_SNB_AMOUNT</div>
+            <p class="label-content">
+              {{ (fileDetails?.snbAmt ? (fileDetails.snbAmt | currencyFormat: fileDetails.snbCcy) : "--") + ' ' + ( (fileDetails?.snbAmt && fileDetails?.snbCcy) ? fileDetails?.snbCcy : " ") }}
+            </p>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_FILE_STATUS</div>
+            <p class="label-content">
+              {{ fileDetails?.fileStatus ? fileDetails.fileStatus : "--" }}
+            </p>
+          </div>
+        </div>
+  
+        <div class="rowInnerCntr">
+          <div class="field">
+            <div class="label" translate>LBL_OTHER_BANKS_RECORDS</div>
+            <p class="label-content">{{ fileDetails?.bankRec ? fileDetails.bankRec : "--" }}</p>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_OTHER_BANKS_AMOUNT</div>
+            <p class="label-content">
+              {{ (fileDetails?.bankAmt ? (fileDetails.bankAmt | currencyFormat: fileDetails.bankCcy) : "--") + ' ' + ( (fileDetails?.bankAmt && fileDetails?.bankCcy) ? fileDetails?.bankCcy : " ") }}
+            </p>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_BASE_FEE</div>
+            <p class="label-content">
+              {{ (fileDetails?.bseFee ? (fileDetails.bseFee | currencyFormat: fileDetails.bseCcy) : "--") + ' ' + ( (fileDetails?.bseFee && fileDetails?.bseCcy) ? fileDetails?.bseCcy : " ") }}
+            </p>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_CARD_RECORDS</div>
+            <p class="label-content">{{ fileDetails?.crdRec ? fileDetails.crdRec : "--" }}</p>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_CARD_AMOUNT</div>
+            <p class="label-content">
+            {{ (fileDetails?.crdAmt ? (fileDetails.crdAmt | currencyFormat: fileDetails.crdCcy) : "--") + ' ' + ( (fileDetails?.crdAmt && fileDetails?.crdCcy) ? fileDetails?.crdCcy : " ") }}
+            </p>
+          </div>
+          <div class="field">
+            <div class="label">
+              <span translate>LBL_VAT </span> <span translate>LBL_FEE</span>
+            </div>
+            <p class="label-content">
+              {{ (fileDetails?.vatFee ? (fileDetails.vatFee | currencyFormat: fileDetails.vatCcy) : "--") + ' ' + ( (fileDetails?.vatFee && fileDetails?.vatCcy) ? fileDetails?.vatCcy : " ") }}
+            </p>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_TOTAL_RECAORDS</div>
+            <p class="label-content">{{ fileDetails?.totalCount ? fileDetails.totalCount : "--" }}</p>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_TOTAL_AMOUNT</div>
+            <p class="label-content">
+              {{ (fileDetails?.odFileAmount ? (fileDetails.odFileAmount | currencyFormat: fileDetails.odTxnCy) : "--") + ' ' + ( (fileDetails?.odFileAmount && fileDetails?.odTxnCy) ? fileDetails?.odTxnCy : " ") }}
+            </p>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_FEE</div>
+            <p class="label-content">
+              {{ (fileDetails?.fee ? (fileDetails.fee | currencyFormat: fileDetails.feeCcy) : "--") + ' ' + ( (fileDetails?.fee && fileDetails?.feeCcy) ? fileDetails?.feeCcy : " ") }}
+            </p>
+          </div>
+        </div>
+        <div *ngIf="balanceValidation" class="errorMsg errorMsgBottomMargin" translate>LBL_AMOUNT_SHOULD_BE_LESS_THAN_DEBIT_AMOUNT</div>
+      </div>
+    </div>
+    <app-record-summary
+      *ngIf="showRecSumm"
+      (sortColumnEmit)="onSortColumn($event)"
+      [moduleId]="moduleId"
+      [sortOptions]="sortOptions"
+      [recordSummaryObject]="recordSummaryObject" [refNo]="uploadFileDetails?.d_ref_no" [subprdt]="uploadFileDetails?.subprod_code" [pageCall]="pageName"
+    ></app-record-summary>
+
+    <!-- <app-duplicate-records
+      [duplicateList]="duplicateRecordList"
+      (sortColumnEmit)="onDupSortColumn($event)"
+      [moduleId]="dupModuleId"
+      [sortOptions]="dupSortOptions"
+      ></app-duplicate-records> -->
+       <app-duplicate-records 
+      [duplicateList]="duplicateRecordList" [duplicateDetailsList]="dupDetailsList"
+      (sortColumnEmitDup)="onSortColumnDup($event)"
+        [totalrecords]="totalrecords"
+      *ngIf="duplicateRecordList.length > 0" (callDuplicateRecordEmit)="fetchDuplicateFileDetails()"
+    ></app-duplicate-records>
+
+      <div class="footer-container" *ngIf="duplicateRecordList">
+        <div class="footerText" translate *ngIf="duplicateRecordList.length > 0">
+          <img src="assets/images/Icon.svg" alt="" /> 
+
+          <span class="termsContainer" translate>
+            LBL_DUPLICATE_TRANSACTION_FOOTER_TXT
+          </span>
+        </div>
+        <div class="footerText" translate *ngIf="duplicateRecordList.length === 0">
+          <img src="assets/images/Icon.svg" alt="" /> 
+
+          <span class="termsContainer" translate>
+            LBL_NO_POSSIBLE_DUPLICATE_FOOTER_TXT
+          </span>
+        </div>
+      </div>
+    <!-- <app-duplicate-records
+      [duplicateList]="duplicateRecordList"
+      *ngIf="duplicateRecordList.length"
+    ></app-duplicate-records> -->
+    <div class="summaryConainer">
+      <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+    </div>
+  
+    <div class="summaryConainer">
+      <app-history [historyData]="workFlowHistoryParams"></app-history>
+    </div>
+  
+    <div class="footer-container">
+      <!-- <div class="footerText" translate>
+        <img src="assets/images/Icon.svg" alt="" />
+  
+        <span class="termsContainer" translate>
+          LBL_DUPLICATE_TRANSACTION_FOOTER_TXT
+        </span>
+      </div> 
+      <br/> -->
+
+    <div class="actionGroup">
+      <app-tertiary-button
+        buttonValue="Back"
+        (click)="backTOPayroll()"
+        class="tertiaryBtn"
+      ></app-tertiary-button>
+      <app-secondary-button
+        (click)="rejectFileUpload()"
+        buttonValue="Reject"
+      ></app-secondary-button>
+      <app-secondary-button
+        (click)="authorizeFileUpload()"
+        buttonValue="Authorize" [disablBtn]="showAuthorizeBtn"
+      ></app-secondary-button>
+    </div> 
+    </div>
+
+  </div>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

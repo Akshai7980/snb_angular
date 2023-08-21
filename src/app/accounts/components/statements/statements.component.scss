@@ -1,0 +1,19 @@
+.statementHeader{margin-top:20px;font-family:"HelveticaNeueMed", arial, sans-serif;color:#a2a2a2;font-size: 14px;padding:0px 0px 0px 5px;}
+table{
+    padding:10px 0px 0px 5px;
+    width: 100%;
+    word-break: break-word;
+}
+td {
+    height:40px;
+    font-size: 14px;
+    color: #5d5d5d;
+    text-align: left;
+    padding-left:10px;
+}
+.statementDescription{float:left;}
+.downloadIcon{float:right;padding-right:25px;}
+td{border-radius: 10px 10px 10px 10px;}
+table tr:hover {background-color: var(--summary-hover-color);}
+tr:nth-child(even){background-color: var(--secondary-btn-txt-color);cursor:pointer;}
+tr:nth-child(odd){background-color:var(--summary-row-bg-color);cursor:pointer;}

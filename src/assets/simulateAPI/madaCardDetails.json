@@ -1,0 +1,70 @@
+{
+  "dataValue": {
+    "cafATMATravelCheckLimit": "0",
+    "issuedDate": "20221121",
+    "cafATMTotalCcaLimit": "0",
+    "contactlessIndicator": "N",
+    "cafPosOfflineRefundLimit": "20000",
+    "cashLimit": "5000",
+    "numberOfFailedPinRetries": "0",
+    "transferAmount": "10",
+    "cafPosUsageLimit": "10",
+    "internationalCardType": "1",
+    "lowerConsecutiveOfflineTransactionLimit": "0",
+    "chequesLimit": "0",
+    "cafOfflineCcaLimit": "0",
+    "changedDate": "20221121",
+    "cafOfflineWithdrawalLimit": "25000",
+    "pinSet": "Y",
+    "cafATMCreditLimit": "0",
+    "subCardType": "MS",
+    "cafTotalCcaLimit": "0",
+    "secondaryCardExpiryDate": "0",
+    "subCardTypeDescription": "Mass Non-Payroll",
+    "expiry": "11/2025",
+    "cardLimit": "25000",
+    "linkAccounts": {
+      "ownerAccount": [
+        {
+          "sequenceNumber": "1",
+          "accountId": "5100005059209",
+          "canDepositToThisAccount": "Y",
+          "level": "false",
+          "description": "",
+          "canWithdrawFromThisAccount": "Y",
+          "canInqThisAccount": "Y",
+          "type": "1",
+          "canPayFromThisAccount": "Y",
+          "canTransferToThisAccount": "Y",
+          "status": "3",
+          "canTransferFromThisAccount": "Y"
+        }
+      ]
+    },
+    "physicalCardType": "Y",
+    "offlineLimitsFlg": "N",
+    "cafATMTransferLimit": "0",
+    "cafPosOfflineCcaLimit": "0",
+    "upperConsecutiveOfflineTransactionLimit": "0",
+    "cardType": "1",
+    "cafATMOfflineCcalLimit": "0",
+    "cafPosTotalWithdrawalLimit": "20000",
+    "ecommerceStatus": "Y",
+    "cafPosOfflineWithdrawalLimit": "20000",
+    "cafPosTotalRefundLimit": "20000",
+    "cafTotalWithdrawalLimit": "25000",
+    "posLimit": "0",
+    "upperConsecutiveOfflineLimit": "0",
+    "name": "KEERTHAN",
+    "cafPosTotalCcaLimit": "0",
+    "ecommerceLimit": "0",
+    "lowerConsecutiveOfflineLimit": "0",
+    "cafATMUsageLimit": "4",
+    "status": "1"
+  },
+  "headerValue": {
+    "moduleId": "MADACRDDET",
+    "simulate": "N",
+    "_dinsess": "083d8428-5394-4812-98d1-389b3b78a0a2"
+  }
+}

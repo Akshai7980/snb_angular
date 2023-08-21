@@ -1,0 +1,108 @@
+.mainContainer {
+    margin: 0px 25px 50px 25px;
+}
+
+.title {
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    margin: 5px 0px 0px 0px;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+
+.subTitles {
+    font-size: 16px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    color: var(--tableData-header-color);
+}
+
+.subContainer {
+    padding: 20px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--secondary-btn-txt-color);
+    background-size: cover;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+}
+
+.detailsContainer {
+    margin-top: 21px;
+    padding: 0px 0px 0px 10px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+}
+
+.column {
+    margin-bottom: 20px;
+}
+
+.geneStaTitles {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+}
+
+.dataContainer {
+    font-family: "HelveticaNeueLight", arial, sans-serif;
+    font-size: 14px;
+}
+
+.box {
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--input-text-color);
+    cursor: pointer;
+    margin-right: 40px;
+}
+
+.note {
+    background-color: var(--summary-hover-color);
+    padding: 10px;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+}
+
+.btnGroup {
+    float: right;
+    display: flex;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    position: relative;
+    bottom: 75px;
+}
+
+.mtop_20 {
+    margin-top: 30px;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    width: 75%;
+}
+
+.mandatory {
+    margin-left: 10px;
+}
+
+.footerAlign {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-btn-bg-color);
+}
+
+.cifContainer {
+    margin-bottom: 25px;
+}

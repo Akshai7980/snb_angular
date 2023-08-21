@@ -1,0 +1,53 @@
+<div class="parentDiv" *ngIf="!showReceipt">
+  <div class="mainTitle cusTitle">
+    <div
+      class="backIcon backArrow"
+      (click)="onBackArrowClick()"
+    ></div>
+    <span translate>LBL_REVIEW</span>
+  </div>
+  <div class="container">
+    <app-credit-card-details></app-credit-card-details>
+    <div class="rejectReasonContainer">
+      <div class="rejectHead" translate>
+        LBL_RJCT_RSN
+        <span class="required">*</span>
+      </div>
+      <div>
+        <div class="rejectTextarea">
+          <textarea
+            autofocus
+            [(ngModel)]="rejectReasonText"
+            maxlength="200"
+            (keypress)="isValidReason($event)"
+          ></textarea>
+          <div class="errorMsg" *ngIf="isRejectReasonValid" translate>
+            {{ rejectReasonError }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="btnGroup mtop_20">
+    <div class="btnContainer">
+      <app-tertiary-button
+        buttonValue="LBL_CANCEL"
+        routerLink="/mytask/cards/creditCard"
+      ></app-tertiary-button>
+      <app-primary-button
+        buttonValue="LBL_SUBMIT"
+        (click)="onSubmit()"
+      ></app-primary-button>
+    </div>
+  </div>
+</div>
+<div id="creditCardRejectReceipt">
+  <app-receipt
+    *ngIf="showReceipt"
+    [receiptDetails]="receiptObject"
+    (onInitAgainClick)="initiateAnotherRequest()"
+    (DownloadReceiptClick)="downloadPdf()"
+  ></app-receipt>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

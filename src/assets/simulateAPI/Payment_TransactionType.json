@@ -1,0 +1,33 @@
+{
+    "headerValue": {
+        "moduleId": "PMNTSGETFLDDATA",
+        "simulate": "N",
+        "export": null,
+        "exportType": null,
+        "_dinsess": "c95010fa-c434-46e0-a2f6-d480bbeb457b",
+        "languageId": null
+    },
+    "data": [
+        {
+            "entitledSubPdt": [
+                {
+                    "subPdtCode": "BKSIBT",
+                    "subPdtDesc": "Transfer Within Bank"
+                },
+                {
+                    "subPdtCode": "BKSIFT",
+                    "subPdtDesc": "Own Account Transfer"
+                },
+                {
+                    "subPdtCode": "BKSRNT",
+                    "subPdtDesc": "Domestic Fund Transfer"
+                },
+                {
+                    "subPdtCode": "TELTRF",
+                    "subPdtDesc": "International Fund Transfer"
+                }
+            ],
+            "qckTxr": "Y"
+        }
+    ]
+}

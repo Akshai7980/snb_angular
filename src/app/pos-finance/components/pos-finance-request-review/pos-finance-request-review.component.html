@@ -1,0 +1,82 @@
+<div class="outerContainer" *ngIf="!showReceipt">
+  <div class="title" translate>LBL_REVIEW</div>
+  <app-debit-lookup [debitAccDetails]="fromDataDetailsObj" (onAccountSelect)="getDisplayStatus($event, 'fromData')"
+    [clear]="clearFlag" [tableId]="'debitData'" [setWidth]="setColumnWidth"></app-debit-lookup>
+
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_TENOR_DETAILS</div>
+    <div class="financeperiod">
+      {{ posFinanceRequestDetailsList.tenorMonths }}
+    </div>
+    <div class="details">
+      <div>
+        <div class="labels" translate>LBL_REQUEST_ID</div>
+        <div class="dataInfo">
+          {{
+          posFinanceRequestDetailsList.requestId
+          ? posFinanceRequestDetailsList.requestId
+          : "--"
+          }}
+        </div>
+      </div>
+      <div>
+        <div class="labels" translate>LBL_MAX_AMT</div>
+        <div class="dataInfo">
+          {{
+          posFinanceRequestDetailsList.maximumAmount
+          ? (posFinanceRequestDetailsList.maximumAmount
+          | currencyFormat
+          : posFinanceRequestDetailsList.maximumAmount) +
+          " " +
+          posFinanceRequestDetailsList.currency
+          : "--"
+          }}
+        </div>
+      </div>
+      <div>
+        <div class="labels" translate>LBL_FINANCE_AMOUNT</div>
+        <div class="dataInfo">
+          {{
+          posFinanceRequestDetailsList.financeAmount
+          ? (posFinanceRequestDetailsList.financeAmount
+          | currencyFormat
+          : posFinanceRequestDetailsList.financeAmount) +
+          " " +
+          posFinanceRequestDetailsList.currency
+          : "--"
+          }}
+        </div>
+      </div>
+      <div>
+        <div class="labels referal" translate>LBL_RM_REFERALS</div>
+        <div class="dataInfo">
+          {{
+          posFinanceRequestDetailsList.rmReferals
+          ? posFinanceRequestDetailsList.rmReferals
+          : "--"
+          }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-authorization [authListDataSource]="authOptions" (authEmit)="getData($event)"></app-authorization>
+  <app-authentication (onTwoAuthClick)="setSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)"
+    [otpError]="otpError" (authenticationType)="getAuthType($event)"></app-authentication>
+
+  <div class="footer-container">
+    <div class="footerText" translate>
+      LBL_TERMS
+      <a href="{{ url }}" target="_blank"><span class="termsContainer" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>
+    </div>
+
+    <div class="actionGroup">
+      <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()" class="tertiaryBtn">
+      </app-tertiary-button>
+      <app-primary-button buttonValue="LBL_SUBMIT" (click)="submit()"></app-primary-button>
+    </div>
+  </div>
+</div>
+<div *ngIf="showReceipt">
+  <app-receipt [receiptDetails]="receiptData" [hideButton]="hideInitiateButton">
+  </app-receipt>
+</div>

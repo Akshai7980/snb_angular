@@ -1,0 +1,26 @@
+{
+"headerValue": {
+    "moduleId": "SADADBILLERS",
+    "simulate": "N"
+
+ },
+  "data": [
+            {
+             "billerId" : "1",
+             "billerCode" : "TELCO",
+             "billerType" : "SADAD",
+             "shortName" : "STC",
+             "billerName" : "GROUP_TELCO",
+			 "billerGroups" : "1"
+             },
+             {
+             "billerId" : "1",
+             "billerCode" : "TELCO",
+             "billerType" : "SADAD",
+             "shortName" : "STC",
+             "billerName" : "GROUP_TELCO",
+			 "billerGroups" : "1"
+           }
+                        
+       ]
+    }

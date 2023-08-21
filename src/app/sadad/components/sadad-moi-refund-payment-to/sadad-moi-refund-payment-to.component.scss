@@ -1,0 +1,123 @@
+.subContainer {
+    width: 94%;
+    border-radius: 6px;
+    background-color: var(--primary-widget-bg-color);
+    padding: 19px 20px 51px 22px;
+    border: 1px solid var(--widget-border-color);
+    margin-top: 20px;
+  }
+  
+  .selectInput {
+    margin-bottom: 10px;
+    min-width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    cursor: auto;
+    background-color: var(--primary-widget-bg-color);
+  }
+  .dateInput{
+    width: 100%;
+  }
+  .row {
+    margin-top: 20px;
+    margin-left: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+  }
+  
+  .column {
+    margin-bottom: 20px;
+    display: inline;
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  .paySelect{
+  min-width: 323px;
+  max-height: 169px !important;
+  }
+  .primaryBtn{
+    width: 160px;
+    float: right;
+    margin-top: -5px;
+    margin-right: 15px;
+  }
+  .actionGroup {
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-top: 30px;
+    margin-right: 24px;
+  }
+  .tableInfo {
+    margin-top: 21px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 99%;
+    background-color: var(--primary-widget-bg-color);
+  }
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid rgb(230, 228, 228);
+  }.downArrow{
+    background: url(../../../../assets/images/iconDownGreen.svg) no-repeat center ;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    cursor: pointer;
+    transition: 1s transform;
+  }
+  .arrowRotate{
+    transform: rotate(180deg);
+    margin-top: 12px;
+  }
+  .subTableGroup{
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+  .totalFonts{
+    font-size: 14px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    color: var(--tableData-header-color);
+    margin-top: 16px;
+  }
+  .dispHide{
+    visibility: hidden;
+    min-width: 100px;
+  }
+  .tertiaryBtn{
+    .buttonPrimary{
+      margin-left: 0px;
+    }
+    float:right;
+    margin-top: 28px;
+    margin-right: 15px;
+  }
+  .mat-option.mat-active {
+    color: var(--tableData-header-color);
+  }
+  .dropdownIcon{
+    position: absolute;
+    right: 0;
+    background-position: -153px -346px;
+    width: 20px;
+    height: 16px;
+    margin: 7px 10px;
+    float: right;
+  }
+  .autosugges .information{
+    position: relative; 
+    color: var(--tableData-header-color);
+    &.data{
+        padding-top: 20px;
+    }
+  }

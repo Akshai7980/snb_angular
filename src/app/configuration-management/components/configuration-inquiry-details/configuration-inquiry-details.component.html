@@ -1,0 +1,103 @@
+<div class="container">
+    <!-- <div class="subTitles">
+      {{ transferDetails.paymentTypeDesc }} {{ "LBL_ACC_TO" | translate }}
+      {{ transferSummary.benefName ? transferSummary.benefName : "--" }},
+      {{ transferSummary.benefAccNo ? transferSummary.benefAccNo : "--" }}
+    </div> -->
+    <div class="refNO">
+      {{ "LBL_TRANSACTION_REF_NUM" | translate }} {{ showProxyDetails.REF_NO }}
+    </div>
+    <div class="status">
+      <button class="status-green-button" translate [class.status-red-button]="
+      showProxyDetails.OD_STATUS === 'RN' ||
+      showProxyDetails.OD_STATUS === 'RS' ||
+      showProxyDetails.OD_STATUS === 'RE' ||
+      showProxyDetails.OD_STATUS === 'RO' ||
+      showProxyDetails.OD_STATUS === 'RH'
+        ">
+        {{showProxyDetails.OD_STATUS_DESC }}
+      </button>
+    </div>
+    <!-- <div class="title">
+      <div translate>
+        LBL_AMOUNT
+        <span>
+          {{
+          transferSummary.paymentAmt
+          | currencyFormat: transferSummary.payment_CURRENCY
+          }}
+          {{ transferSummary.payment_CURRENCY }}</span>
+        on
+        {{ transferSummary.txnDate }}
+      </div>
+      <button class="status-green-button" translate [class.status-red-button]="
+          transferSummary.statusCode === 'RN' ||
+          transferSummary.statusCode === 'RS' ||
+          transferSummary.statusCode === 'RE' ||
+          transferSummary.statusCode === 'RO' ||
+          transferSummary.statusCode === 'RH'
+        ">
+        {{ transferSummary.odStatus }}
+      </button>
+    </div> -->
+    <div class="subContainer">
+      <!-- <div class="subTitles" translate>LBL_TRANSFER_DETAILS</div> -->
+      <div class="rowInnerCntr">
+        <!-- <div class="field">
+          <div class="label" translate>LBL_NICKNAME</div>
+          <div class="information" *ngIf="showProxyDetails.ALIAS_NAME; else emptyNickName">{{showProxyDetails.ALIAS_NAME}}</div>
+          <ng-template #emptyNickName>--</ng-template>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_FULL_NAME</div>
+          <div class="information" *ngIf="showProxyDetails.OD_ACC_NAME; else emptyFullName">{{showProxyDetails.OD_ACC_NAME}}</div>
+          <ng-template #emptyFullName>--</ng-template>
+        </div> -->
+        <div class="field">
+          <div class="label" translate>LBL_ACC_NUMBER</div>
+          <div class="information" *ngIf="showProxyDetails.ACC_NO; else emptyAccNum">{{showProxyDetails.ACC_NO}}</div>
+          <ng-template #emptyAccNum>--</ng-template>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_MOBILE_NUMBER</div>
+          <div class="information" *ngIf="showProxyDetails.PROXY_1_VALUE; else emptyMobile">{{showProxyDetails.PROXY_1_VALUE}}</div>
+          <ng-template #emptyMobile>--</ng-template>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_EMAIL_ID</div>
+          <div class="information" *ngIf="showProxyDetails.PROXY_2_VALUE; else emptyEmail">{{showProxyDetails.PROXY_2_VALUE}}</div>
+          <ng-template #emptyEmail>--</ng-template>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_NATIONAL_ID</div>
+          <div class="information" *ngIf="showProxyDetails.PROXY_3_VALUE; else emptyNatId">{{showProxyDetails.PROXY_3_VALUE}}</div>
+          <ng-template #emptyNatId>--</ng-template>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_CIF_NUMBER</div>
+          <div class="information" *ngIf="showProxyDetails.CIF_NO; else emptyCif">{{showProxyDetails.CIF_NO}}</div>
+          <ng-template #emptyCif>--</ng-template>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_VALUE_DATE</div>
+          <div class="information" *ngIf="showProxyDetails.IPS_MAKER_DATE; else emptyDate">{{showProxyDetails.IPS_MAKER_DATE}}</div>
+          <ng-template #emptyDate>--</ng-template>
+        </div>
+        <div class="field" *ngIf="showProxyDetails.OD_STATUS ==='RH'">
+          <div class="label" translate>LBL_RJCT_RSN</div>
+          <div class="information" *ngIf="showProxyDetails.OD_REJECT_REASON; else emptyRejectReason">{{showProxyDetails.OD_REJECT_REASON}}</div>
+          <ng-template #emptyRejectReason>--</ng-template>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_REQUEST_TYPE</div>
+          <div class="information" *ngIf="showProxyDetails.OD_SUBPROD_DESC; else emptyRequestType">{{showProxyDetails.OD_SUBPROD_DESC}}</div>
+          <ng-template #emptyRequestType>--</ng-template>
+        </div>
+        <div class="field" *ngIf="showProxyDetails.OD_SUBPROD_CODE ==='IPSDRG'">
+          <div class="label" translate>LBL_DEREGISTER_ACCOUNT_REASON</div>
+          <div class="information" *ngIf="showProxyDetails.REASON_DESC; else emptydere">{{showProxyDetails.REASON_DESC}}</div>
+          <ng-template #emptydere>--</ng-template>
+        </div>
+      </div>
+    </div>
+  </div>

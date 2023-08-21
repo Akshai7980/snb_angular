@@ -1,0 +1,83 @@
+{
+    "DATA": {
+      "TOTAL_COUNT": 3,
+      "ALL_RECORDS": [
+        {
+          "UNIT_ID": "IGTBAE",
+          "CURR_AVAIL_BAL_AMT": "5409.99",
+          "CURR_AVAIL_BAL_AMOUNT_NEW": "5409.99",
+          "REQ_COUNTRY_CODE": "AE",
+          "BANKNAME": "Bank of Bahrain and Kuwait",
+          "REQ_COUNTRY_DESC": "UNITED ARAB EMIRATES",
+          "COD_CORECIF": "7000020027",
+          "OD_ACC_NAME": "Aldar Properties CA",
+          "OD_ACC_NO": "600060030801",
+          "STATUS": "Active",
+          "EQU_AMT": "5409.99",
+          "DATE_TIME": "10-02-2022 17:10:25",
+          "TOTAL_COUNT": 6,
+          "OD_PORTAL_ACC_NO": "100000002762",
+          "COUNTRY": "UNITED ARAB EMIRATES",
+          "OD_IBAN_ACC_NO": "KW81CBKU0000000000600060030801",
+          "ALIAS_NAME": "2test",
+          "OD_ACC_TYPE_2": "Current Account",
+          "OD_CCY_CODE": "AED",
+          "EQU_AMT_CUR": "",
+          "ACC_LIST_FROZEN_AMT": "",
+          "BRANCH_NAME": "Human Resources"
+        },
+        {
+          "UNIT_ID": "IGTBAE",
+          "CURR_AVAIL_BAL_AMT": "2345.76",
+          "CURR_AVAIL_BAL_AMOUNT_NEW": "2345.76",
+          "REQ_COUNTRY_CODE": "AE",
+          "BANKNAME": "Bank of Bahrain and Kuwait",
+          "REQ_COUNTRY_DESC": "UNITED ARAB EMIRATES",
+          "COD_CORECIF": "7000020027",
+          "OD_ACC_NAME": "Aldar Properties AC",
+          "OD_ACC_NO": "600060030802",
+          "STATUS": "Active",
+          "EQU_AMT": "2345.76",
+          "DATE_TIME ": "10-02-2022 17:10:25",
+          "TOTAL_COUNT": 6,
+          "OD_PORTAL_ACC_NO": "100000002769",
+          "COUNTRY": "UNITED ARAB EMIRATES",
+          "OD_IBAN_ACC_NO": "KW81CBKU0000000000600060030802",
+          "ALIAS_NAME": "Mandy",
+          "OD_ACC_TYPE_2": "Current Account",
+          "OD_CCY_CODE": "GBP",
+          "EQU_AMT_CUR": "",
+          "ACC_LIST_FROZEN_AMT": "",
+          "BRANCH_NAME": "Human Resources"
+        },
+        {
+          "UNIT_ID": "IGTBBH",
+          "CURR_AVAIL_BAL_AMT": "7345.51",
+          "CURR_AVAIL_BAL_AMOUNT_NEW": "7345.51",
+          "REQ_COUNTRY_CODE": "BH",
+          "BANKNAME": "Bank of Bahrain and Kuwait",
+          "REQ_COUNTRY_DESC": "BAHRAIN",
+          "COD_CORECIF": "3114",
+          "OD_ACC_NAME": "NAJEEB EBRAHIM MOHD",
+          "OD_ACC_NO": "600060030803",
+          "STATUS": "Active",
+          "EQU_AMT": "7345.51",
+          "DATE_TIME ": "10-02-2022 17:10:25",
+          "TOTAL_COUNT": 6,
+          "OD_PORTAL_ACC_NO": "100000002712",
+          "COUNTRY": "BAHRAIN",
+          "OD_IBAN_ACC_NO": "KW81CBKU0000000000600060030803",
+          "ALIAS_NAME": "Randy",
+          "OD_ACC_TYPE_2": "Retail  Current Account",
+          "OD_CCY_CODE": "EUR",
+          "EQU_AMT_CUR": "",
+          "ACC_LIST_FROZEN_AMT": "",
+          "BRANCH_NAME": "Muharraq MKT FM"
+        }
+      ]
+    },
+    "HEADER_VALUE": {
+      "MODULE_ID": "CHEQINQACCLKP",
+      "TXN_PROCESS_DATE_TIME": ""
+    }
+  }

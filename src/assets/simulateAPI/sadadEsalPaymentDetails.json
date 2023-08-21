@@ -1,0 +1,382 @@
+{
+    "DATA": {
+        "TOTAL_COUNT": 5,
+        "ALL_RECORDS_BENEFICIARY": [
+            {
+                "NICK_NAME": "Ahmed",
+                "ESAL_ACC_NO": "SA1010 0100 1000 0000123",
+                "FULL_NAME": "Ahmed Saleh",
+                "BANK_NAME":"Riyad Bank",
+                "STAT": "Active",
+                "IS_ALL_SELECTED":false,
+                "INV_DATA":[
+                    {
+                        "INV_NO":"234242342341211",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341212",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341213",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341214",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    }
+                ]
+            },
+            {
+                "NICK_NAME": "Ahmed",
+                "ESAL_ACC_NO": "SA1010 0100 1000 0000123",
+                "FULL_NAME": "Ahmed Saleh",
+                "BANK_NAME":"Riyad Bank",
+                "STAT": "Active",
+                "IS_ALL_SELECTED":false,
+                "INV_DATA":[
+                    {
+                        "INV_NO":"234242342341211",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341212",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341213",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341214",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    }
+                ]
+            },
+            {
+                "NICK_NAME": "Ahmed",
+                "ESAL_ACC_NO": "SA1010 0100 1000 0000123",
+                "FULL_NAME": "Ahmed Saleh",
+                "BANK_NAME":"Riyad Bank",
+                "STAT": "Active",
+                "IS_ALL_SELECTED":false,
+                "INV_DATA":[
+                    {
+                        "INV_NO":"234242342341211",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341212",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341213",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341214",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    }
+                ]
+            },
+            {
+                "NICK_NAME": "Ahmed",
+                "ESAL_ACC_NO": "SA1010 0100 1000 0000123",
+                "FULL_NAME": "Ahmed Saleh",
+                "BANK_NAME":"Riyad Bank",
+                "STAT": "Active",
+                "IS_ALL_SELECTED":false,
+                "INV_DATA":[
+                    {
+                        "INV_NO":"234242342341211",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341212",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341213",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341214",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    }
+                ]
+            },
+            {
+                "NICK_NAME": "Ahmed",
+                "ESAL_ACC_NO": "SA1010 0100 1000 0000123",
+                "FULL_NAME": "Ahmed Saleh",
+                "BANK_NAME":"Riyad Bank",
+                "STAT": "Active",
+                "IS_ALL_SELECTED":false,
+                "INV_DATA":[
+                    {
+                        "INV_NO":"234242342341211",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341212",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341213",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341214",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    }
+                ]
+            }
+        ],
+        "INVOICE_RECORDS":[
+            {
+                "INV_NO":"234242342341211",
+                "BILLER":"Alysuf Group",
+                "DUE_DATE":"30/12/2021",
+                "MIN_AMT":"400.00 SAR",
+                "DUE_AMT_SAR":"1,000.00",
+                "AMT_CURN_CODE":"SAR",
+                "IS_SELECTED":false
+            },{
+                "INV_NO":"234242342341212",
+                "BILLER":"Alysuf Group",
+                "DUE_DATE":"30/12/2021",
+                "MIN_AMT":"400.00 SAR",
+                "DUE_AMT_SAR":"1,000.00",
+                "AMT_CURN_CODE":"SAR",
+                "IS_SELECTED":false
+            },{
+                "INV_NO":"234242342341213",
+                "BILLER":"Alysuf Group",
+                "DUE_DATE":"30/12/2021",
+                "MIN_AMT":"400.00 SAR",
+                "DUE_AMT_SAR":"1,000.00",
+                "AMT_CURN_CODE":"SAR",
+                "IS_SELECTED":false
+            },{
+                "INV_NO":"234242342341214",
+                "BILLER":"Alysuf Group",
+                "DUE_DATE":"30/12/2021",
+                "MIN_AMT":"400.00 SAR",
+                "DUE_AMT_SAR":"1,000.00",
+                "AMT_CURN_CODE":"SAR",
+                "IS_SELECTED":false
+            }
+        ],
+        "PAYER_RECORDS":[
+            {
+                "PAY_ID":"44323452324245",
+                "IS_ALL_SELECTED":false,
+                "INV_DATA":[
+                    {
+                        "INV_NO":"234242342341211",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341212",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341213",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341214",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    }
+                ]
+            },
+            {
+                "PAY_ID":"44323452324246",
+                "IS_ALL_SELECTED":false,
+                "INV_DATA":[
+                    {
+                        "INV_NO":"2342423423412119",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341212",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341213",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341214",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    }
+                ]
+            },
+            {
+                "PAY_ID":"44323452324240",
+                "IS_ALL_SELECTED":false,
+                "INV_DATA":[
+                    {
+                        "INV_NO":"2342423423412119",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341212",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341213",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    },{
+                        "INV_NO":"234242342341214",
+                        "BILLER":"Alysuf Group",
+                        "DUE_DATE":"30/12/2021",
+                        "MIN_AMT":"400.00 SAR",
+                        "DUE_AMT_SAR":"1,000.00",
+                        "AMT_CURN_CODE":"SAR",
+                        "IS_SELECTED":false
+                    }
+                ]
+            }
+        ]
+    },
+    "HEADER_VALUE": {
+        "sortColumn": "SADAD_ID",
+        "sortOrder": "desc",
+        "MODULE_ID": "CARDMODSUM",
+        "TXN_PROCESS_DATE_TIME": ""
+    }
+}

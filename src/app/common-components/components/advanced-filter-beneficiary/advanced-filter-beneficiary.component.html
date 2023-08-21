@@ -1,0 +1,57 @@
+<div class="filter-search-popup" *ngIf="showAdvancedSearchPopup" (click)="stopAdvancedSearchClose($event)">
+    <div translate class="header">LBL_FILTER
+        <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+    </div>
+    <div class="flexCntr">
+        <div class="toggleCntr">   
+            <div translate id="leftToggle" class="toggle" [class.active]="leftToggle" (click)="leftToggleCntl()">LBL_BY_NAME</div>
+            <div translate id="rightToggle" class="toggle" [class.active]="rightToggle" (click)="rightToggleCntl()">LBL_BY_BANK</div> 
+        </div>
+    </div>
+    <div class="flexCntr">
+        <div class="datefrom" *ngIf="leftToggle">
+            <div translate class="fieldLabel" id="proctm">LBL_NICKNAME</div>
+            <div class="mtop_10">
+                <input type="text" [(ngModel)]="nickName" class="txt-fld">
+            </div>
+        </div>
+        <div class="fromto" *ngIf="rightToggle && !leftToggle">           
+            <div class="dateto">
+                <div translate class="fieldLabel" id="proctm">LBL_BANK</div>
+                <div class="mtop_10">
+                    <input type="text" [(ngModel)]="bankName" class="txt-fld">
+                </div>
+            </div>
+        </div>
+        
+        <!-- <div class="searchwithin">
+            <div translate class="fieldLabel">LBL_BENEFICIARY_TYPE</div>
+            <mat-select panelClass="advancedDropDwn dropDownOption" class="selectInput" [(value)]="searchwithin" disableOptionCentering [disabled]="true">
+                <mat-option value="Transfer Within Bank">{{'LBL_WITHIN_SNB' | translate}}</mat-option>
+                <mat-option value="Domestic Fund Transfer">{{'LBL_LOCAL' | translate}}</mat-option>
+                <mat-option value="International Fund Transfer">{{'LBL_TELTRF' | translate}}</mat-option>
+            </mat-select>
+        </div> -->
+        
+        <!-- <div class="searchwithin">
+            <div translate class="fieldLabel">Status</div>
+            <mat-select panelClass="advancedDropDwn dropDownOption" class="selectInput" [(value)]="status" disableOptionCentering>
+                <mat-option value="Active">{{'LBL_ACTIVE' | translate}}</mat-option>
+                <mat-option value="Inactive">{{'LBL_INACTIVE' | translate}}</mat-option>
+            </mat-select>
+        </div> -->
+    </div>
+      
+   
+    <div class="submt">
+        <div>
+            <!-- <button class="clr" (click)="onClickClear()" translate>LBL_CLEAR</button> -->
+            <app-tertiary-button buttonValue="LBL_CLEAR" (click)="onClickClear()"></app-tertiary-button>
+        </div>
+        <div>
+            <!-- <button class="apply" (click)="onClickApply()" translate>LBL_APPLY</button> -->
+            <app-primary-button (click)="onClickApply()" buttonValue="LBL_APPLY"></app-primary-button>
+        </div>
+    </div>
+</div>
+

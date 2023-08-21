@@ -1,0 +1,29 @@
+{
+  "data": {
+    "billerID": "373",
+    "billCategory": "PARTIAL",
+    "dueAmount": "50000.00",
+    "dueDate": "08/04/2019",
+    "invoiceNumber": "Test_001",
+    "billStatus": "Pending",
+    "PaymentRange": {
+      "billType": "billType",
+      "range": {
+        "lowerRange": "25000.00",
+        "upperRange": "50000.00"
+      }
+    },
+    "message": "",
+    "billerName": "Development and Co",
+    "buyerName": "Testing and co.",
+    "invoiceCode": "699462489023"
+  },
+  "headerValue": {
+    "moduleId": "ESALPAYINVLIST",
+    "simulate": "N",
+    "export": null,
+    "totalCount": null,
+    "exportType": null,
+    "_dinsess": null
+  }
+}

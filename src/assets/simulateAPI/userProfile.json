@@ -1,0 +1,24 @@
+{
+    "data": {
+        "FIRST_NAME": "Model",
+        "EMAIL_ID": "test2@development.com",
+        "MOBILE_NO": "82209480",
+        "ADDRESS_LINE1": "P O BOX 5201",
+        "ADDRESS_LINE2": null,
+        "OD_RES_AREA_UL": null,
+        "OD_COUNTRY_UL": null,
+        "OD_PROVINCE_UL": null,
+        "OD_CITY_UL": null,
+        "OFF_PH": null,
+        "POB": null,
+        "OD_ROLE_DESC": "Maker",
+        "OD_MAKER_NAME": "CBX",
+        "OD_AUTH_NAME": "CBX",
+        "ZIP_CODE":"626001",
+        "NATIONAL_ID":"150794",
+        "DISABLENATIONALIDFLAG":"Y"
+    },
+    "headerValue": {
+        "moduleId": "userProf"
+    }
+}

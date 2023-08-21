@@ -1,0 +1,12 @@
+<div class="detailsContainer">
+    <div class="titleContainer">
+        <div class="titleContainerLeft">{{'LBL_CHEQUE_BOOK_REQUEST' | translate}} {{'LBL_LOWERCASE_TO' | translate}} {{'LBL_ACC_SHORTFORM' | translate}} <span *ngIf="details">{{details.ACCOUNT_NAME}}</span>,
+            <span *ngIf="details">{{details.DEBIT_ACCOUNT_NO}}</span></div>
+    </div>
+    <div class="subTitleContainer">
+        <div class="subTitleContainerLeft">{{'LBL_TRANSACTION_REF_NUM' | translate}}<span *ngIf="details"> {{details.INPUT_REFERENCE_NO}}</span></div>
+    </div>
+    <div class="statusContainerLeft">
+        <button class="status-green-button" *ngIf="details" [class.status-red-button]="(details.OD_STATUS === 'RN') || (details.OD_STATUS === 'RS') || (details.OD_STATUS === 'RE') || (details.OD_STATUS === 'RO') || (details.OD_STATUS === 'RH')">{{details.OD_STATUS_DESCRIPTION}}</button>
+    </div>
+</div>

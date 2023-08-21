@@ -1,0 +1,14 @@
+{
+  "headerValue": {
+    "moduleId": "ARCOREMI",
+    "simulate": "N"
+  },
+  "data": [
+    {
+      "remitterId": "2019992"
+    },
+    {
+      "remitterId": "2019993"
+    }
+  ]
+}

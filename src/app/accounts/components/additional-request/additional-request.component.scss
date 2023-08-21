@@ -1,0 +1,32 @@
+.mTop_18{
+    margin-top: 18px;
+}
+.searchContainer{
+    display: flex;
+    justify-content: space-between;
+}
+.fileName {
+    padding-left: 30px;
+    overflow: hidden;
+  max-width: 80px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+}
+
+
+
+  th.mat-header-cell:first-of-type , td.mat-cell:first-of-type{
+    padding-left: 0px !important;
+  }
+  .col-reqtype{width:22%}
+  .casaTable{
+    table-layout: fixed;
+    background-color: var(--primary-widget-bg-color);
+    .mat-column-linkAccount{width: 16%;}
+    .mat-column-requestType{width:26%;}
+    .mat-column-status{width:19.06%; padding: 0px;}
+    .mat-column-valueDate{width:25%}
+    .mat-column-action{width: 18%;}
+}
+

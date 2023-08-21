@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="subTitles">
+    {{ selectedTransfer?.uploadType ? selectedTransfer.uploadType : "--" }} {{ "LBL_FROM" | translate }}
+    {{ selectedTransfer?.makerName ? selectedTransfer.makerName : "--" }},
+    {{ selectedTransfer?.accNo ? selectedTransfer.accNo : "--" }}
+  </div>
+  <div class="refNO">
+    {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+    {{ selectedTransfer?.odDRefNo ? selectedTransfer.odDRefNo : "--" }}
+  </div>
+  <div class="title">
+    <div>
+      {{ "LBL_AMOUNT" | translate }}
+      <span>{{
+        selectedTransfer?.odFileAmount ? (selectedTransfer?.odFileAmount | currencyFormat: selectedTransfer?.odTxnCy) +
+        " " + (selectedTransfer?.odTxnCy ? selectedTransfer.odTxnCy : '') : "--"
+        }}
+      </span>
+      {{ "LBL_ON" | translate }}
+      {{ selectedTransfer?.valueDate ? (selectedTransfer.valueDate | dateFormat) : "--" }}
+    </div>
+  </div>
+  <div class="subContainer">
+    <div class="subTitles" translate>LBL_TRANSFER_DETAILS</div>
+    <div class="rowInnerCntr">
+      <div class="field">
+        <div class="label" translate>LBL_UPLOAD_TRANSACTION_ID</div>
+        <div class="information">
+          {{ selectedTransfer?.odDRefNo ? selectedTransfer.odDRefNo : "--" }}
+        </div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_FILE_NAME</div>
+        <div class="information">
+          <!-- {{ selectedTransfer?.odFileName ? selectedTransfer.odFileName : "--" }} -->
+          <app-uploaded-file-download [fileUploadedDetails]="fileUploadedDetails"></app-uploaded-file-download>
+        </div>
+      </div>
+      <div class="field" *ngIf="(selectedTransfer.odSubprodCode != 'SADPAYUP' && selectedTransfer.odSubprodCode != 'SADMOIUP')">
+        <div class="label" translate>LBL_FILE_FORMAT</div>
+        <div class="information">
+          {{ selectedTransfer?.fileFormat ? (selectedTransfer.fileFormat | uppercase) : "--" }}
+        </div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_ACC_NUMBER</div>
+        <div class="information">{{ selectedTransfer?.accNo ? selectedTransfer.accNo : "--" }}</div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_RECORDS</div>
+        <div class="information">{{ selectedTransfer?.odNoOfTrans ? selectedTransfer.odNoOfTrans : "--" }}</div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_AMOUNT</div>
+        <div class="information">
+          {{
+          selectedTransfer?.odFileAmount ? (selectedTransfer?.odFileAmount | currencyFormat: selectedTransfer?.odTxnCy)
+          + " " + (selectedTransfer?.odTxnCy ? selectedTransfer.odTxnCy : '') : "--"
+          }}
+        </div>
+      </div>
+      <div class="field" *ngIf="(selectedTransfer.odSubprodCode != 'SADPAYUP' && selectedTransfer.odSubprodCode != 'SADMOIUP')">
+        <div class="label" translate>LBL_VAT</div>
+        <div class="information">
+          {{
+          selectedTransfer?.snbVatFee ? (selectedTransfer?.snbVatFee | currencyFormat: selectedTransfer?.currency) + " "
+          + (selectedTransfer?.currency ? selectedTransfer.currency : '') : "--"
+          }}
+        </div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_FILE_STATUS</div>
+        <div class="information">{{ filestatus ? filestatus : "--"}}</div>
+      </div>
+      <div class="field" *ngIf="(selectedTransfer.fileStatusCd === 'PNCONV' || selectedTransfer.fileStatusCd === 'CONFAL' || selectedTransfer.fileStatusCd === 'VERFAL' || selectedTransfer.fileStatusCd === 'FAILED' || selectedTransfer.fileStatusCd === 'REJECT' )">
+        <div class="label" translate>LBL_RJCT_RSN</div>
+        <div class="information">{{ selectedTransfer.odRejectReason?selectedTransfer.odRejectReason:"--" }}</div>
+      </div>
+    </div>
+  </div>
+</div>

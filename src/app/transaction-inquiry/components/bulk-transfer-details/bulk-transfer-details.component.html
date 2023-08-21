@@ -1,0 +1,69 @@
+<div id="fileTransferDetails">
+  <div class="detailsTitleContainer">
+    <div class="mainTitle" translate>LBL_UPLOAD_SUMMARY</div>
+    <app-summary-tools
+      [printSection]="printDomWithId"
+      [enabledProperty]="true"
+      [moduleId]="rootScopeData.accountsActiveModule"
+      (onPDFdownloadChange)="printPdf('fileTransferDetails','save')" [isshownPrint]="shownPrint" [saveReceiptObject]="saveReceiptObject" [isshowndetailsPrint]="isshowndetailsPrint" (onDetailsPagePrintemit)="selectDetailsPagePrint()"
+    ></app-summary-tools>
+  </div>
+  <section *ngIf="selectedTransfer">
+    <div>
+      <app-bulk-transfer-details-view [filestatus]="fileStatus"></app-bulk-transfer-details-view>
+    </div>
+  </section>
+  <div *ngIf="showRecordSummary" class="recordSummaryContainer">
+    <app-record-summary
+      (sortColumnEmit)="onSortColumn($event)" 
+      [moduleId]="moduleId"
+      [refNo]="referenceNo"
+      [sortOptions]="sortOptions"
+      [recordSummaryObject]="recordSummaryObject" [refNo]="selectedTransfer?.odDRefNo" [subprdt]="selectedTransfer?.odSubprodCode" [pageCall]="pageName"
+    ></app-record-summary>
+  </div>
+  <div *ngIf="duplicateRecordList" class="recordSummaryContainer">
+    <app-duplicate-records
+        [duplicateList]="duplicateRecordList"
+        [duplicateDetailsList]="dupDetailsList"
+        (sortColumnEmitDup)="onSortColumnDup($event)"
+        [totalrecords]="totalrecords"
+        *ngIf="duplicateRecordList.length > 0"
+      ></app-duplicate-records>
+  
+        <div class="footer-container" *ngIf="duplicateRecordList">
+          <div class="footerText" translate *ngIf="duplicateRecordList.length > 0">
+            <img src="assets/images/Icon.svg" alt="" /> 
+  
+            <span class="termsContainer" translate>
+              LBL_DUPLICATE_TRANSACTION_FOOTER_TXT
+            </span>
+          </div>
+          <div class="footerText" translate *ngIf="duplicateRecordList.length === 0">
+            <img src="assets/images/Icon.svg" alt="" /> 
+  
+            <span class="termsContainer" translate>
+              LBL_NO_POSSIBLE_DUPLICATE_FOOTER_TXT
+            </span>
+          </div>
+        </div>
+  </div>
+  <section class="summaryOuterContainer" *ngIf="selectedTransfer">
+    <div class="summaryContainer">
+      <app-work-flow [workFlowData]="workFlowAndHistoryParams"></app-work-flow>
+    </div>
+  </section>
+  <section class="summaryOuterContainer" *ngIf="selectedTransfer">
+    <div class="summaryContainer">
+      <app-history [historyData]="workFlowAndHistoryParams"></app-history>
+    </div>
+  </section>
+  <section>
+    <div class="btnContainer">
+      <app-tertiary-button
+        buttonValue="LBL_BACK"
+        (click)="routeToTransfers()"
+      ></app-tertiary-button>
+    </div>
+  </section>
+</div>

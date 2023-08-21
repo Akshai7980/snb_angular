@@ -1,0 +1,71 @@
+<div class="mainContainer">
+    <div translate class="mainTitle"> LBL_BENEFICIARY_ACTIVATION</div>
+    <div class="subContainer">
+        <div class="subTitles" translate>LBL_BENEFICIARY</div>
+        <table id="beneficiaryInquiryContainer" class="casaTable" [dataSource]="details" mat-table >
+            
+            <ng-container matColumnDef="AccountNumber">
+                <th mat-header-cell *matHeaderCellDef>
+                    <div class="position_rel" translate>LBL_ACC_NUMBER</div>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <div *ngIf="element.accountNo">{{element.accountNo}}</div>
+                    <div *ngIf="!element.accountNo">--</div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Nickname">
+                <th mat-header-cell *matHeaderCellDef>
+                    <div class="position_rel" translate>LBL_NICKNAME</div>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <div *ngIf="element.beneId">{{element.beneId}}</div>
+                    <div *ngIf="!element.beneId">--</div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="BankName">
+                <th mat-header-cell *matHeaderCellDef>
+                    <div class="position_rel" translate>LBL_BANK</div>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <div *ngIf="element.beneBankName">{{element.beneBankName}}</div>
+                    <div *ngIf="!element.beneBankName">--</div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="FullName">
+                <th mat-header-cell *matHeaderCellDef>
+                    <div class="position_rel" translate>LBL_FULL_NAME</div>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <div *ngIf="element.beneName">{{element.beneName}}</div>
+                    <div *ngIf="!element.beneName">--</div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Type">
+                <th mat-header-cell *matHeaderCellDef>
+                    <div class="position_rel" translate>LBL_TYPE</div>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <div *ngIf="element.subProduct">{{element.subProduct}}</div>
+                    <div *ngIf="!element.subProduct">--</div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+    </div>
+    <div class="callBack">
+        <app-call-back [callBackParams]="details" [beneSummary]="beneSummary" [pageName]="beneficaiaryActivation"  (clickCancelCallBck)="getCanelBtnClick()"></app-call-back>
+    </div>
+
+    <section>
+        <div class="btnContainer">
+            <button class="button-secondary backButton" routerLink="/payments/beneficiaryInquiry" translate>LBL_BACK</button>
+        </div>
+    </section>
+</div>

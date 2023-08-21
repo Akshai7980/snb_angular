@@ -1,0 +1,33 @@
+{
+    "data": 
+        {    
+            "bank_NAME": "SBI",
+            "orderDate": "15/07/2022 20:54:16",
+            "valueDate": "20:54:16",
+            "actionBy": "AUTHORIZER",
+            "productCode": "CORESVS",
+            "statusDesc": "Sent to Bank",
+            "functionDesc": "Cheque Book Request",
+            "payamentStatus": "Authorize",
+            "dealRef": null,
+            "txnRefNo": "TBC2207152054155",
+            "statusDesc1": "KSA189  Maker1 Sent to Bank",
+            "status": "AO",
+            "portalProduct": "Core Account Services",
+            "action": "RELEASE",
+            "actionByUserId": "202204007005",
+            "actionByUserName": "KSA189  Maker1",
+            "subProductCode": "CHEQUES",
+            "authorizer": "KSA189  Maker1",
+            "maker": "KSA189  Maker1"
+        },
+
+    "headerValue": {
+        "txnRefNo" : "",
+        "productCode" :"" ,
+        "subProductCode":"",
+        "functionCode":"",
+        "gcif":"",
+        "unit_ID" :""
+    }
+}

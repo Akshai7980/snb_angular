@@ -1,0 +1,75 @@
+<div class="outerContainer">
+    <div class="accountDetails">
+        <section class="summaryOuterConainer">
+            <div class="summaryConainer mainContainer">
+                <div class="subTitles">
+                    {{ rootScopeData.pendingActivitiesServiceRequestObject.requestType }},
+                    {{ rootScopeData.pendingActivitiesServiceRequestObject.accountNumber ? rootScopeData.pendingActivitiesServiceRequestObject.accountNumber : "--" }}
+                </div>
+                <div class="refNO">
+                    {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+                    {{ rootScopeData.pendingActivitiesServiceRequestObject.requestRefNo }}
+                </div>
+            </div>
+        </section>
+        <div class="detailContainer">
+            <div class="flexContainer">
+                <div>
+                    <div class="label" translate>LBL_REQUEST_TYPE</div>
+                    <span class="data">{{rootScopeData.pendingActivitiesServiceRequestObject.requestType ? rootScopeData.pendingActivitiesServiceRequestObject.requestType : "--"}}</span>
+                </div>
+                <!-- <div>
+                    <div translate class="label">LBL_CIF</div>
+                    <span class="data">{{nationalDetails.cifNo}}</span>
+                </div>
+                <div>
+                    <div translate class="label">LBL_CIF_NAME</div>
+                    <span class="data">{{nationalDetails.cifName}}</span>
+                </div> -->
+           
+                <div>
+                    <div translate class="label">LBL_BUILDING_NUMBER</div>
+                    <span class="data" *ngIf="nationalDetails && nationalDetails.basicNumber">{{nationalDetails.basicNumber}}</span>
+                    <span class="data" *ngIf="!nationalDetails && !nationalDetails.basicNumber">--</span>
+                </div>
+                <div>
+                    <div translate class="label">LBL_STREET_NAME</div>
+                    <span class="data" *ngIf="nationalDetails && nationalDetails.street">{{nationalDetails.street}}</span>
+                    <span class="data" *ngIf="!nationalDetails && !nationalDetails.street">--</span>
+                </div>
+                <div>
+                    <div translate class="label">LBL_DISTRICT_NAME</div>
+                    <span class="data"*ngIf="nationalDetails && nationalDetails.district">{{nationalDetails.district}}</span>
+                    <span class="data"*ngIf="!nationalDetails && !nationalDetails.district">--</span>
+                </div>
+         
+          
+                <div>
+                    <div translate class="label">LBL_CITY</div>
+                    <span class="data" *ngIf="nationalDetails && nationalDetails.cityNameEnglish">{{nationalDetails.cityNameEnglish}}</span>
+                    <span class="data" *ngIf="!nationalDetails && !nationalDetails.cityNameEnglish">--</span>
+                </div>
+                <div>
+                    <div translate class="label">LBL_ZIP_CODE</div>
+                    <span class="data" *ngIf="nationalDetails && nationalDetails.postCode">{{nationalDetails.postCode}}</span>
+                    <span class="data" *ngIf="!nationalDetails && !nationalDetails.postCode">--</span>
+                </div>
+                <div>
+                    <div translate class="label">LBL_COUNTRY</div>
+                    <span class="data" *ngIf="nationalDetails && nationalDetails.countryOfBirth">{{nationalDetails.countryOfBirth}}</span>
+                    <span class="data" *ngIf="!nationalDetails && !nationalDetails.countryOfBirth">--</span>
+                </div>
+            </div>
+            <!-- <div class="flexContainer">
+                <div>
+                    <div translate class="label">LBL_DATE_OF_BIRTH</div>
+                    <span class="data">{{nationalDetails.dob}}</span>
+                </div>
+                <div>
+                    <div translate class="label">LBL_EXPIRY_ID</div>
+                    <span class="data">{{nationalDetails.expiryId}}</span>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

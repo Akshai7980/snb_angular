@@ -1,0 +1,25 @@
+{
+    "HEADER_VALUE": {
+        "MODULE_ID": "BROADCAST",
+        "TXN_PROCESS_DATE_TIME": "13/07/2021 12:03:16"
+    },
+    "DATA": {
+        "ALL_RECORDS": [
+            {
+                "WELCOMEMESSAGE": "iGTB Cloud Transaction Ba",
+                "BULLETIN": "iGTB Cloud Transaction BaiGTB Cloud Transaction BaiGTB Cloud Transaction BaiGTB Cloud Transaction BaiGTB Cloud Transaction Ba",
+                "OD_MAKER_DATE": "2020-06-06 01:43:48.0"
+            },
+            {
+                "WELCOMEMESSAGE": "iGTB Cloud Transaction Ba",
+                "BULLETIN": "iGTB Cloud Transaction BaiGTB Cloud Transaction BaiGTB Cloud Transaction BaiGTB Cloud Transaction BaiGTB Cloud Transaction Ba",
+                "OD_MAKER_DATE": "2020-09-16 14:23:14.0"
+            },
+            {
+                "WELCOMEMESSAGE": "iGTB Cloud Transaction Ba",
+                "BULLETIN": "iGTB Cloud Transaction BaiGTB Cloud Transaction BaiGTB Cloud Transaction BaiGTB Cloud Transaction BaiGTB Cloud Transaction Ba",
+                "OD_MAKER_DATE": "2021-10-02 15:24:41.0"
+            }
+        ]
+    }
+}

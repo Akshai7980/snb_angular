@@ -1,0 +1,15 @@
+{
+    "data": [
+      {
+        "transferDirection": "Incoming"
+      },
+      {
+        "transferDirection": "Outgoing"
+      }
+    ],
+    "headerValue": {
+      "moduleId": "RCDRPDOWN",
+      "simulate": "N",
+      "_dinsess": "9c6e5df8-4cc9-4862-9209-c3c19b588149"
+    }
+  }

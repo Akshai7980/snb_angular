@@ -1,0 +1,89 @@
+<div class="mainContainer">
+  <div class="mainTitle" translate>LBL_REVIEW</div>
+
+  <div class="subContainer">
+    <p class="title" translate>LBL_DETAILS</p>
+
+    <div class="innerContainer">
+      <div>
+        <p class="subTitles" translate>LBL_CURRENCY</p>
+
+        <p class="subText">
+          {{
+            additionalAccountDetails?.currency_DESC
+              ? additionalAccountDetails?.currency_DESC
+              : "--"
+          }}
+        </p>
+      </div>
+
+      <div >
+        <p class="subTitles" translate>LBL_REASON</p>
+
+        <p class="subText">
+          {{
+            additionalAccountDetails?.reason
+              ? additionalAccountDetails?.reason
+              : "--"
+          }}
+        </p>
+      </div>
+
+      <div class="account-sec">
+        <p class="subTitles" translate>LBL_LINK_ACCOUNT</p>
+
+        <p class="subText">
+          {{
+            additionalAccountDetails?.account?.OD_ACC_NO
+              ? additionalAccountDetails?.account?.OD_ACC_NO
+              : "--"
+          }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subContainer callBackDiv">
+    <app-call-back [pageName]="additionalAccount" [pageName]='pageCall' (onSuccessEmit)="callBackSuccess()"  
+    (clickCancelCallBck)="getCanelBtnClick()"></app-call-back>
+  </div>
+
+  <app-authorization
+    [authListDataSource]="authOptions"
+    [authError]="errorCode"
+    (authEmit)="getDatas($event, 'authorization')"
+    *ngIf="showAuthorization && showAuthentication"
+  >
+  </app-authorization>
+
+  <app-authentication
+    (onTwoAuthClick)="onSecondFactorValue($event)"
+    (getOtpClick)="getOtpValue($event)"
+    [otpError]="otpError"
+    (authenticationType)="getAuthType($event)"
+    *ngIf="showAuthentication"
+  ></app-authentication>
+
+  <div class="footer-container">
+    <div class="footerText" translate>
+      LBL_TERMS
+      <a href="{{ url }}" target="_blank"
+        ><span class="termsContainer" translate
+          >LBL_THE_TERMS_AND_CONDITIONS</span
+        ></a
+      >
+    </div>
+
+    <div class="actionGroup">
+      <app-tertiary-button
+        buttonValue="LBL_CANCEL"
+        class="tertiaryBtn"
+        (click)="toCancel()"
+      ></app-tertiary-button>
+      <!-- <app-primary-button
+        buttonValue="LBL_SUBMIT"
+        (click)="submit()"
+      ></app-primary-button> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,151 @@
+
+<div>
+  <div class="actionsConatiner">
+    <div class="leftPannel">
+       <div>
+        <app-selection [moreActionList]="contextMenuList" (onMenuClick)="triggerDropdownFilter($event)" ></app-selection>
+      </div>
+      <div class="searchCntnrLeft">
+        <app-search class="actionHide" *ngIf="!norecordflag" (childEvent)="triggerSearchFilter($event)"></app-search>
+      </div>
+    </div>
+    <div>
+      <div>
+        <app-refresh class="actionHide" (onRefresh)="refreshSummary()"></app-refresh>
+      </div>
+    </div>
+  </div>
+   <!-- <div class="searchCntr actionHide">
+     <app-search class="actionHide" *ngIf="!norecordflag" (childEvent)="triggerSearchFilter($event)"></app-search>
+   </div>
+  <div class="refreshCntr actionHide"><app-refresh  [ngStyle]="{'top': norecordflag === true ? '0px' : '-40px'}"  (click)="refreshSummary()"></app-refresh></div> -->
+  <div>
+    <table *ngIf="!norecordflag" id="accountsInquirytable" mat-table matSort [dataSource]="dataSourceToPass"
+      class="casaTable">
+
+      <ng-container matColumnDef="ALIAS_NAME">
+        <th class="nickName" mat-header-cell *matHeaderCellDef mat-sort-header>
+          <div class="position_rel" translate>LBL_NICKNAME</div>
+        </th> 
+        <td class="nickName" mat-cell *matCellDef="let element; let i = index" (click)="$event.stopPropagation()">
+          <div id="nickNameCntr_{{i}}" class="dslk_flex">
+            <div class="position_rel">
+              <span class="nickNameInputNotselected nickNameLabel">{{element.ALIAS_NAME}}</span>
+              <div class="editNickNameCntr">
+                <input type="text" (keyup)="getUpdatedNickName($event)" value="{{editedNickName}}" class="nickNameInput" maxlength="35" (keypress)="nickNameValidation($event)">
+                <span *ngIf="errorMessage"><app-tooltip></app-tooltip></span> 
+                <div  (click)="acceptNickName(i,element)" class="acceptIcon"></div>
+                <div  (click)="closeNickName(i)" class="cancelIcon"></div>
+              </div>
+            </div>
+            <div class="EditIcon" [ngClass]="[(element.ALIAS_NAME !== '') ? 'EditIcon':'EditIconWhenNoData',(element.ALIAS_NAME !==  undefined) ? 'EditIcon':'EditIconWhenNoData',(element.ALIAS_NAME !== null) ? 'EditIcon':'EditIconWhenNoData']" (click)="nickNameEditClick(i)"></div>
+          </div>
+        </td>
+      </ng-container>
+
+
+      <!-- <ng-container matColumnDef="FULL_NAME">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+          <div class="position_rel" translate>LBL_FULL_NAME</div>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.OD_ACC_NAME}} </td>
+      </ng-container> -->
+
+
+      <ng-container matColumnDef="OD_ACC_NO">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+          <div class="position_rel" translate> LBL_ACC_NUMBER</div>
+        </th>
+        <td mat-cell *matCellDef="let element"> 
+          <span *ngIf="element.OD_ACC_NO">{{element.OD_ACC_NO}}</span>
+          <span *ngIf="!element.OD_ACC_NO">--</span>  
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="STATUS">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+          <div class="position_rel" translate>LBL_STATUS</div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <span *ngIf="element.STATUS">{{element.STATUS}}</span>
+          <span *ngIf="!element.STATUS">--</span>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="CURR_AVAIL_BAL_AMT">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+          <div class="position_rel" translate> LBL_ACT_BALANCE</div>
+        </th>
+        <td mat-cell *matCellDef="let element"> 
+          <span *ngIf="element.CURR_AVAIL_BAL_AMT && element.OD_CCY_CODE && !rootScopeData.userInfo.maskingFlag">{{element.CURR_AVAIL_BAL_AMT | currencyFormat:element.OD_CCY_CODE}} {{element.OD_CCY_CODE}}</span>
+          <span *ngIf="(!element.CURR_AVAIL_BAL_AMT || !element.OD_CCY_CODE) && !rootScopeData.userInfo.maskingFlag">--</span>
+          <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}}&nbsp;{{element.OD_CCY_CODE}}</span>
+        </td>         
+      </ng-container>
+      <ng-container matColumnDef="HIDE_CURR_AVAIL_BAL_AMT" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header translate [style.display]="'none'">
+          <div class="position_rel" translate> LBL_ACT_BALANCE</div>
+        </th>
+        <td mat-cell *matCellDef="let element" [style.display]="'none'"> <span *ngIf="element.CURR_AVAIL_BAL_AMT && element.OD_CCY_CODE ">
+          {{element.CURR_AVAIL_BAL_AMT | amountUnformatPipe:element.OD_CCY_CODE}}
+          {{element.OD_CCY_CODE}}
+        </span> 
+        <span *ngIf="!(element.CURR_AVAIL_BAL_AMT && element.OD_CCY_CODE)">
+          --
+        </span> 
+    </td>         
+      </ng-container>
+      <ng-container matColumnDef="EQU_AMT">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+          <div class="position_rel" translate>LBL_EQUIVALENT</div>
+        </th>
+        <td mat-cell *matCellDef="let element"> 
+          <span *ngIf="element.EQU_AMT && !rootScopeData.userInfo.maskingFlag">{{element.EQU_AMT | currencyFormat:"SAR"}}</span>
+          <span *ngIf="!element.EQU_AMT  && !rootScopeData.userInfo.maskingFlag">--</span>
+          <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}}&nbsp;{{"SAR"}}</span>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="HIDE_EQU_AMT">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header translate [style.display]="'none'">
+          <div class="position_rel" translate>LBL_EQUIVALENT</div>
+        </th>
+        <td mat-cell *matCellDef="let element" [style.display]="'none'"> <span *ngIf="element.EQU_AMT">{{element.EQU_AMT | amountUnformatPipe :"SAR"}}</span></td>
+      </ng-container>
+      <ng-container matColumnDef="COD_CORECIF">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header translate [style.display]="'none'">
+          <div class="position_rel" translate>Core CIF</div>
+        </th>
+        <td mat-cell *matCellDef="let element" [style.display]="'none'"> <span *ngIf="element.COD_CORECIF">{{element.COD_CORECIF}}
+         </span></td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef class="actionHide" translate>LBL_ACTION</th>
+        <td mat-cell *matCellDef="let element" class="actionHide">
+        <!-- <div *ngIf="rootScopeData.userEntitlements.accContext && rootScopeData.userEntitlements.accContext[element.OD_PORTAL_ACC_NO]"> -->
+          <app-more-action (onMenuClick)="menuClick($event)" [currentRecord]="element" 
+          [moreActionList]="rootScopeData.userEntitlements.accContext && rootScopeData.userEntitlements.accContext[element.OD_PORTAL_ACC_NO] && element?.STATUS==='Active' ? rootScopeData.userEntitlements.accContext[element.OD_PORTAL_ACC_NO] : contextMenuList"
+          [routepath]="routeDetailScreen" (click)="selectedRecord($event,element)"></app-more-action>
+        <!-- </div>
+        <div *ngIf="rootScopeData.userEntitlements.accContext && !rootScopeData.userEntitlements.accContext[element.OD_PORTAL_ACC_NO]">
+          <app-more-action (onMenuClick)="menuClick($event)" [currentRecord]="element" [moreActionList]="rootScopeData.userEntitlements.accContext[element.OD_PORTAL_ACC_NO]" [routepath]="routeDetailScreen" (click)="selectedRecord($event,element)"></app-more-action>
+        </div> -->
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="isSelected(row)"></tr>
+    </table>
+  </div>
+  <div *ngIf="norecordflag">
+    <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+  </div>
+  <div  *ngIf="!norecordflag">
+    <app-pagination #paginator class="actionHide" [dataSourceLength]="dataSourceLength" [currentRecord]="'Accounts'"
+    [totalRecords]="totalRecords" (onPaginationChange)="paginationChangeClick($event)"></app-pagination>
+  </div>
+ 
+  <!-- <mat-paginator *ngIf="!norecordflag" [length]="dataLength"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page" #paginator>
+</mat-paginator> -->
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

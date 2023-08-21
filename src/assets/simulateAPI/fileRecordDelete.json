@@ -1,0 +1,12 @@
+{
+    "headerValue": {
+        "moduleId": "FILERECDELETE", 
+        "simulate": ""
+    },
+    "dataValue": {
+            "journalId": "",
+            "status": "Success",
+            "cancelConfirmation": "Cancellation request has been submitted. Please check After Some time.. "
+    },
+    "footerValue": {}
+}

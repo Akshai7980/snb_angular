@@ -1,0 +1,10 @@
+{
+    "data": {
+        "dire_payment": "Y"
+    },
+    "headerValue": {
+        "moduleId": "ARAMCOYN",
+        "simulate": "N",
+        "_dinsess": null
+    }
+}

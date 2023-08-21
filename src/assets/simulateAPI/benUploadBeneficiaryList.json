@@ -1,0 +1,22 @@
+{
+  "headerValue": {
+    "moduleId": "BENEUPTXNSUMY",
+    "simulate": null,
+    "sortColumn": "violatorId",
+    "sortOrder": "asc"
+  },
+  "data": [
+    {
+      "beneId": "AHMED",
+      "odRefNo": "BE2462020142130",
+      "beneNme": "AHMEDALI",
+      "swiftAddr": "PASCITM1018",
+      "alliasName": "AHMED",
+      "beneCnty": "UNITED ARAB EMIRATES",
+      "bankName": "BANCA MONTE DEI PASCHI DI SIENA SPA",
+      "accountNo": "AE070331234567890123456",
+      "beneType": "",
+      "status": ""
+    }
+  ]
+}

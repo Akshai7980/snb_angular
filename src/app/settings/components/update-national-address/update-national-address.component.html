@@ -1,0 +1,145 @@
+<div class="mainContainer" *ngIf="!showReceipt">
+    <div class="mainTitle" *ngIf="!review" translate>
+        LBL_UPDT_NATIONAL_ADDRESS
+    </div>
+    <div class="mainTitle" *ngIf="review" translate>
+        LBL_REVIEW
+    </div>
+    <div *ngIf="!review">
+        <div class="subContainer">
+            <div class="subTitles" translate>LBL_ADDRESS_DETAILS</div>
+            <div class="row detailsContainer">
+                <div class="column">
+                    <div class="geneStaTitles" translate>LBL_CIF<span class="required">*</span></div>
+                    <div class="mtop_10 details">
+                        <mat-select id="cif" class="box" name="nameoption" panelClass="dropDownOption"
+                            placeholder="Choose an option" [(ngModel)]="cifData" disableOptionCentering>
+                            <mat-option *ngFor="let cif of cifList" [value]="cif.cifNo" (click)="setData(cif)">{{cif.cifNo}}
+                            </mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_NATIONAL_ADDRESS</div>
+                    <div class="mtop_10 details" *ngIf="businessAdrObj">
+                        <span *ngIf="businessAdrObj.buildingNumber">{{businessAdrObj.buildingNumber}},</span>
+                        <span *ngIf="businessAdrObj.street">{{businessAdrObj.street}},</span>
+                        <span *ngIf="businessAdrObj.district">{{businessAdrObj.district}},</span>
+                        <span *ngIf="businessAdrObj.city">{{businessAdrObj.city}} {{businessAdrObj.postCode}}</span>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="subContainer" *ngIf="detailsObj">
+            <div class="subTitles" translate>LBL_NATIONAL_ADDRESS</div>
+            <div class="row detailsContainer">
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_BUILDING_NUMBER</div>
+                    <div class="mtop_10 details">{{detailsObj.basicNumber}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_STREET_NAME<span class="required">*</span></div>
+                    <input type="text" maxlength="20" class="inpField" (keypress)="engOly($event)" (blur)="validate($event)" [(ngModel)]="nationalAddressStreet" [disabled]="disabledStreet">
+                    <div *ngIf="showStreetErr">
+                        <!-- <small translate class="required" *ngIf="streetAlreadyAddressExistErr" translate>LBL_ADDRESS_ALREADY_EXIST_ERROR_MESSAGE</small> -->
+                        <small translate class="required" *ngIf="streetEnterValidAddressErr" translate>LBL_ENTER_VALID_STREET_ERROR_MESSAGE</small>
+                    </div>
+                </div>
+                <div class="column">
+                    <!-- <div translate class="geneStaTitles">LBL_DISTRICT_NAME</div>
+                    <div class="mtop_10 details">{{detailsObj.district}}</div> -->
+                    <div translate class="geneStaTitles">LBL_DISTRICT_NAME<span class="required">*</span></div>
+                    <input type="text" maxlength="15" class="inpField" (keypress)="engOly($event)"  [(ngModel)]="detailsObj.district" [disabled]="disabledDistrict" (blur)="validatedistrict($event)"
+                        value="detailsObj.district">
+                    <small translate class="required" *ngIf="districtErr" translate>LBL_ENTER_DISTRICT_ERR</small>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_CITY</div>
+                    <div class="mtop_10 details">{{detailsObj.cityNameEnglish}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_ZIP_CODE</div>
+                    <div class="mtop_10 details">{{detailsObj.postCode}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_COUNTRY</div>
+                    <div class="mtop_10 details">{{detailsObj.countryOfBirth}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="review">
+        <div class="subContainer">
+            <div class="subTitles" translate>LBL_ADDRESS_DETAILS</div>
+            <div class="row detailsContainer">
+                <div class="column">
+                    <div class="geneStaTitles" translate>LBL_CIF</div>
+                    <div class="mtop_10 details">{{cifObj.cifNo}}</div>
+                </div>
+                <div class="column">
+                    <div class="geneStaTitles" translate>LBL_NATIONAL_ADDRESS</div>
+                    <div class="mtop_10 details">
+                        <span *ngIf="cifObj.buildNo">{{cifObj.buildNo}},</span>
+                        <span *ngIf="cifObj.streetName">{{cifObj.streetName}},</span>
+                        <span *ngIf="cifObj.distName">{{cifObj.distName}},</span>
+                        <span *ngIf="cifObj.city">{{cifObj.city}} {{cifObj.zipCode}}</span> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="subContainer">
+            <div class="subTitles" translate>LBL_NATIONAL_ADDRESS</div>
+            <div class="row detailsContainer">
+                <div class="column">
+                    <div class="geneStaTitles" translate>LBL_BUILDING_NUMBER</div>
+                    <div class="mtop_10 details">{{detailsObj.basicNumber}}</div>
+                </div>
+                <div class="column">
+                    <div class="geneStaTitles" translate>LBL_STREET_NAME</div>
+                    <div class="mtop_10 details">{{nationalAddressStreet}}</div>
+                </div>
+                <div class="column">
+                    <div class="geneStaTitles" translate>LBL_DISTRICT_NAME</div>
+                    <div class="mtop_10 details">{{detailsObj.district}}</div>
+                </div>
+                <div class="column">
+                    <div class="geneStaTitles" translate>LBL_CITY</div>
+                    <div class="mtop_10 details">{{detailsObj.cityNameEnglish}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_ZIP_CODE</div>
+                    <div class="mtop_10 details">{{detailsObj.postCode}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_COUNTRY</div>
+                    <div class="mtop_10 details">{{detailsObj.countryOfBirth}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="review">
+        <div class="mtop_20" *ngIf="showAuthorization">
+            <app-authorization (authEmit)="autherizationDetailsReceived($event)" [authListDataSource]="authListArray"
+                [authError]="authError"></app-authorization>
+        </div>
+        <div class="mtop_20" *ngIf="showAuthentication">
+            <app-authentication (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)"
+                [otpError]="otpError" [initParam]="initReqParam" (authenticationType)="getAuthType($event)"></app-authentication>
+        </div>
+    </div>
+    <div class="footer" *ngIf="review">
+        <span class="termsAndContion" translate>LBL_TERMS</span>
+        <a href="{{ 'javascript:;' }}" target="_blank"><span class="terms" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>
+    </div>
+    <div class="buttons">
+        <app-tertiary-button buttonValue="LBL_CANCEL" (click)="onClickCancel()"></app-tertiary-button>
+        <app-primary-button *ngIf="!review && cifObj" buttonValue="LBL_SAVE_TO_ALL_CIFS" (click)="onClickUpdate('saveAllCif')" [disablBtn]="disabledDistrict && disabledStreet">
+        </app-primary-button>
+        <app-primary-button *ngIf="!review && cifObj" buttonValue="LBL_UPDATE" (click)="onClickUpdate('update')" [disablBtn]="disabledDistrict && disabledStreet">
+        </app-primary-button>
+        <!-- <app-primary-button *ngIf="review" buttonValue="LBL_SUBMIT" (click)="onClickSubmit()">
+        </app-primary-button> -->
+    </div>
+</div>
+<app-receipt [hideButton]="true" [receiptDetails]="receiptData" (DownloadReceiptClick)="downloadPdf()" *ngIf="showReceipt"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

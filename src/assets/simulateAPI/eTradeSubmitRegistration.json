@@ -1,0 +1,10 @@
+{
+  "dataValue": {
+    "INPUT_REFERENCE_NO": "TBC2208181448012",
+    "OD_STATUS": "000",
+    "OD_STATUS_DESC": "Success"
+  },
+  "headerValue": {
+    "moduleId": "ETRDSUBMIT"
+  }
+}

@@ -1,0 +1,30 @@
+<div id="nationalAddressDetailsPrintSection">
+    <div class="detailsTitleContainer">
+        <div class="mainTitle" translate>{{'LBL_UPDATE_CR_EXPIRY' | translate}} {{'LBL_DETAILS' | translate}}</div>
+        <app-summary-tools id="printCheque" [printSection]="printSection" [enabledProperty]="true"
+            (onPDFdownloadChange)="toPdf('chequeBookDetailsPrintSection')"></app-summary-tools>
+    </div>
+    <div class="detailsDataCntr">
+        <section class="summaryOuterConainer">
+            <div class="summaryConainer">
+                <app-cr-expiry-details></app-cr-expiry-details>
+            </div>
+        </section>
+        <section class="summaryOuterConainer">
+            <div class="summaryConainer">
+                <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+            </div>
+        </section>
+        <section class="summaryOuterConainer">
+            <div class="summaryConainer">
+                <app-history [historyData]="workFlowHistoryParams"></app-history>
+            </div>
+        </section>
+    </div>
+    <section>
+        <div class="btnContainer">
+            <!-- <button class="button-secondary backButton" routerLink="/accounts/service-request/otherrequest" translate>LBL_BACK</button> -->
+                <app-tertiary-button buttonValue="LBL_BACK" (click)="routeToOtherRequest()"></app-tertiary-button>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,53 @@
+
+<div class="mLeft_45 mainContainer" *ngIf="!hideAll">
+    <div class="flexRow">
+      <div translate class="title" *ngIf="isProceed || editData">LBL_REVIEW</div>
+    </div>
+    <div class="subContainer">
+      <div translate class="subTitles">LBL_CIF_ACCOUNT</div>
+      <div class="fieldSets">
+          <div class="fieldSetsContent">
+              <div translate class="geneStaTitles">LBL_CUSTOMER_INFORMATION_NUMBER</div>
+              <div class="amtContainer">
+                  {{CIFDetails.cifNo}}
+              </div>
+          </div>
+          <div class="transferAmounrt">
+              <div translate class="geneStaTitles">LBL_CUSTOMER_NAME</div>
+              <div class="amtContainer">
+                  {{CIFDetails.customerName}}
+              </div>
+          </div>
+      </div>
+  </div>
+    <div class="subContainer">
+        <div translate class="subTitles">LBL_TRANSFER_LIMIT</div>
+        <div class="fieldSets">
+            <div class="fieldSetsContent">
+                <div translate class="geneStaTitles">LBL_QUICK_TRANSFER_LIMIT</div>
+                <div class="amtContainer">
+                    {{OwnLimitAmount | currencyFormat: 'SAR'}} SAR
+                </div>
+            </div>
+            <div class="transferAmounrt">
+                <div translate class="geneStaTitles">LBL_CUSTOMER_INSTANT_TRANSFER_LIMIT</div>
+                <div class="amtContainer">
+                    {{customersLimit}} SAR
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mTop_18">
+      <div class="quickTransfer">
+        <app-authorization class='arrange'  [authListDataSource]="authOptions" *ngIf=" showAuthorization && isProceed && !rootScopeData.transferReset" (authEmit)="getDisplayStatus($event)"></app-authorization>      
+        <app-authentication class='arrange'  *ngIf=" isProceed && !rootScopeData.transferReset" (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError" [initParam]="initReqParam" (authenticationType)="getAuthType($event)"></app-authentication>
+         <div class="footerText" *ngIf=" isProceed"translate>LBL_TERMS <a href="{{ url }}" target="_blank"><span class="termsContainer" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a></div>
+        <div class="actionGroup">
+          <app-tertiary-button buttonValue="LBL_CANCEL" class="tertiaryBtn" (click)="reset()"></app-tertiary-button>
+          <!-- <app-primary-button *ngIf="isProceed" buttonValue="LBL_SUBMIT" (click)="onSubmit()" routerPath="./">
+          </app-primary-button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-receipt [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" [hideButton]="initiate" (DownloadReceiptClick)="downloadPdf($event)" *ngIf="hideAll" [rejectMsg]="rejectMsg"></app-receipt>

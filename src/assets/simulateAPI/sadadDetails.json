@@ -1,0 +1,42 @@
+{
+    "data": {
+        "referenceNo": "TBC2207121611434",
+        "txnType": "SADAD Bill Payment",
+        "functionCode": "SADTXN",
+        "subProdCode": "SADADPAY",
+        "debitAccNo": "500500165111",
+        "debitAccName": null,
+        "debitBank": "Saudi National Bank",
+        "debitCcy": "SAR",
+        "inputDebitAmount": 5001,
+        "paymentDetails": "test",
+        "paymentAmount": 5001,
+        "customerReference": null,
+        "odMakerDate": "12/07/2022",
+        "createdDate": "12/07/2022",
+        "valueDate": "12/07/2022",
+        "odStatus": "Ready for Authorization",
+        "odStatusCode": "RE",
+        "odVersionNo": 1,
+        "productCode": "PAYMNT",
+        "unitId": "IGTBAE",
+        "paymentCcy": "SAR",
+        "selectedBillers": [
+            {
+                "billerName": "Riyadh Municipality",
+                "billerNickName": "asds",
+                "BILLERGROUPNAME": "asds",
+                "paymentType": "Recharge",
+                "billerStatus": "BillOverPd",
+                "dueDate": "09/07/2020",
+                "subscriberID": "123213213",
+                "amount": 5001
+            }
+        ],
+        "rejectReason":"Testing Rejected Reason"
+    },
+    "headerValue": {
+        "moduleId": "SADADDETAIL",
+        "simulate": "N"
+    }
+}

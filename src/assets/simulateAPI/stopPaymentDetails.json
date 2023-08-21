@@ -1,0 +1,27 @@
+{
+  "data": {
+    "makerName": "Dameer ",
+    "accNo": "SA1010010010000000123",
+    "amount": "28000.00",
+    "nickName": "Dameer",
+    "makerDate": "30/12/2021",
+    "referenceNum": "TBC2208301819244",
+    "uploadTransactionID": "214288712124",
+    "fileName": "FILE_RECORD",
+    "fileStatusCd": "PNAUTH",
+    "odTxnCy": "SAR",
+    "fileFormat": "CSV",
+    "cal": "GREGORIAN",
+    "snbRecords": "200",
+    "snbAmt": "20000",
+    "otherBankRecs": "12",
+    "bankAmt": "8000.00",
+    "fee": "200.00",
+    "totalRecs": "212",
+    "totalAmt": "28000.00",
+    "totalFee": "200.00"
+  },
+  "headerValue": {
+    "moduleId": "STOPPMNTFILEDETAILS"
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "headerValue": {
+      "moduleId": "GETFLDDATA",
+      "simulate": null,
+      "export": null,
+      "exportType": null,
+      "_dinsess": "67c5cdb7-2239-4ae8-9be5-466a690993c2",
+      "sortColumn": null,
+      "sortOrder": null
+    },
+    "data": [
+      {
+        "chargeInfo": [
+          {
+            "charge": "0.2",
+            "ccy": "SAR",
+            "vat": "0.3",
+            "tax": "0.3"
+          }
+        ]
+      }
+    ]
+  }

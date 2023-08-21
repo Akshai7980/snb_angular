@@ -1,0 +1,49 @@
+<div class="mainContainer" id="cardsPrintSection">
+    <div translate class="title"> LBL_CARDS_INQUIRY</div>
+    <div class="subContainer" id="cardsPrintSection">
+        <div class="row" id="logoPrint">
+            <div><img class="logo" src="{{logo}}"> </div>
+            <!-- <div><span class="logotext" translate>LBL_ECORP</span></div> -->
+            <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+        </div>
+        <div class="titleConatiner">
+            <div class="titleIcons">
+                <div class="gridline01">
+                    <div class="accountIcon"></div>
+                    <div translate>LBL_CARDS</div>
+                </div>
+                <div class="gridline02">
+                    <div class="summarytools">
+                        <app-summary-tools [printSection]="printSection" [moduleId]="rootScopeData.accountsActiveModule"></app-summary-tools>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actionConatinere">
+
+            </div>
+        </div>
+        <div class="mtop_10 subTitleConatiner">
+            <ul class="titleList">
+                <li routerLink="./credit" class="animate"
+                    [ngClass]="this.rootScopeData.activeTabName==='credit' ? 'listActive':'listInactive'"><a
+                        translate>LBL_CREDIT <span class="actionHide">({{rootScopeData.totalNumberOfCreditCards}})</span></a></li>
+                <li routerLink="./MADA" class="animate"
+                    [ngClass]="this.rootScopeData.activeTabName==='MADA' ? 'listActive':'listInactive'"><a
+                        translate>LBL_MADA <span class="actionHide">({{rootScopeData?.MADASummaryCount ?
+                            rootScopeData.MADASummaryCount : "0"}})</span></a></li>
+            </ul>
+        </div>
+        <div class="mTop_18">
+            <div class="actionsConatiner">
+                <div class="leftPannel">
+
+
+                </div>
+            </div>
+            <div>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

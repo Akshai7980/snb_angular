@@ -1,0 +1,73 @@
+<div class="mainContainer">
+  <div translate class="title">LBL_Pos_Service_Request</div>
+  <div class="subContainer" id="serviceRequestsPrintSection">
+    <div class="row" id="logoPrint">
+      <div><img class="logo" src="{{ logo }}" /></div>
+      <!-- <div><span class="logotext" translate>LBL_ECORP</span></div> -->
+      <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+    </div>
+    <div class="header-panel">
+      <div class="titleIcons header-panel-left headerPanelWidth">
+        <div class="accountIcon"></div>
+        <div translate>LBL_POINT_OF_SALE</div>
+      </div>
+      <div
+        class="actionConatinere header-panel-right headerPanelWidth"
+        *ngIf="enablePropertty"
+      >
+        <!-- <app-summary-tools [printSection]="printSection" [moduleId]="rootScopeData.accountsActiveModule">
+        </app-summary-tools> -->
+        <app-summary-tools [printSection]="printSection"> </app-summary-tools>
+      </div>
+    </div>
+    <div class="mtop_10 subTitleConatiner">
+      <ul class="titleList">
+        <li
+          routerLink="./service"
+          class="animate"
+          [ngClass]="
+            this.rootScopeData.activeTabName === 'otherrequest'
+              ? 'listActive'
+              : 'listInactive'
+          "
+        >
+          <a translate
+            >LBL_SERVICE
+            <span
+              *ngIf="
+                rootScopeData.posServiceCount &&
+                rootScopeData.posServiceCount > 0
+              "
+              >({{ rootScopeData.posServiceCount }})</span
+            ></a
+          >
+        </li>
+        <li
+          routerLink="./downloadcenter"
+          class="animate"
+          [ngClass]="
+            this.rootScopeData.activeTabName === 'downloadcenter'
+              ? 'listActive'
+              : 'listInactive'
+          "
+        >
+          <a translate
+            >LBL_DOWNLOAD_CENTER
+            <span
+              *ngIf="
+                rootScopeData.posDownloadCenterCount &&
+                rootScopeData.posDownloadCenterCount > 0
+              "
+              >({{ rootScopeData.posDownloadCenterCount }})</span
+            ></a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="mTop_18">
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,135 @@
+<div class="mainContainer">
+  <div>
+    <div translate class="mainTitle" *ngIf="!showDetails">
+      LBL_E_TRADE_INQUIRY
+    </div>
+    <div translate class="mainTitle" *ngIf="showDetails">
+      LBL_LETTER_OF_GUARANTEE_SUMMARY
+    </div>
+    <!-- <div translate *ngIf="showReview" class="mainTitle">LBL_REVIEW</div> -->
+  </div>
+  <div *ngIf="!showDetails">
+    <div>
+      <app-debit-lookup
+        id="fromDebitLookup"
+        *ngIf="fromAccountsObject"
+        (onAccountSelect)="onFromAccountSelection($event)"
+        [debitAccDetails]="fromAccountsObject"
+        [shownsearch]="true"
+        [tableId]="'fromAccounts'"
+      ></app-debit-lookup>
+    </div>
+    <div *ngIf="showLgList">
+      <div class="accountDetails">
+        <div class="subTitles" translate>LBL_LETTER_OF_GUARANTEE</div>
+        <div class="mTop_18 actionsConatiner">
+          <div class="leftPannel searchCntnrLeft">
+            <app-search
+              (childEvent)="triggerSearchFilter($event)"
+              (searchParams)="advancedSearchApply($event)"
+              [showAdvanceSearch]="true"
+            ></app-search>
+          </div>
+          <div>
+            <app-refresh (onRefresh)="refreshLgList()"></app-refresh>
+          </div>
+        </div>
+        <div>
+          <table
+            mat-table
+            matSort
+            [dataSource]="lgListDataSource"
+            class="casaTable"
+            *ngIf="!noRecordFound || lgListDataSource.filteredData.length > 0"
+          >
+            <ng-container matColumnDef="lgNumber">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <div translate>LBL_REF_NUMBER</div>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.lgNumber }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="lgObligationCodeDescriptionEng">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <div translate>LBL_LG_TYPE</div>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.lgObligationCodeDescriptionEng }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="customerNameEng">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <div translate>LBL_FULL_NAME</div>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.customerNameEng }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="lgTextLanguage">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+                <div translate>LBL_LG_LANGUAGE</div>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.lgTextLanguage }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header translate>
+                <div translate>LBL_STATUS</div>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.status }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef translate></th>
+              <td mat-cell *matCellDef="let element">
+                <app-more-action
+                  [moreActionList]="moreActionsList"
+                  [hideViewDetails]="true"
+                  (click)="selectedRecord($event, element)"
+                ></app-more-action>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr
+              mat-row
+              *matRowDef="let row; columns: displayedColumns"
+              (click)="showLgDetails(row)"
+            ></tr>
+          </table>
+        </div>
+        <div *ngIf="noRecordFound || lgListDataSource.filteredData.length <= 0">
+          <app-no-record-found
+            [noRecordFoundInfo]="noRecordFoundInfoObj"
+          ></app-no-record-found>
+        </div>
+        <div>
+          <app-pagination
+            #paginator
+            class="actionHide"
+            *ngIf="!noRecordFound"
+            [hidden]="lgListDataSource.filteredData.length <= 0"
+            [dataSourceLength]="lgList.length"
+            [currentRecord]="'lgList'"
+            [totalRecords]="lgList.length"
+          ></app-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showDetails">
+    <app-et-lg-details
+      [details]="applicantDetails"
+      (back)="closeDetails($event)"
+    ></app-et-lg-details>
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

@@ -1,0 +1,108 @@
+{
+    "data": [
+        {
+            "billerId": "090",
+            "billerCode": "MOIAC",
+            "billerName": "Alien Control",
+            "billerGroups": "11",
+            "billerNameInArabic": null,
+            "billerType": null,
+            "shortName": null,
+            "minAmount": null,
+            "maxAmount": null
+        },
+        {
+            "billerId": "091",
+            "billerCode": "MOIDL",
+            "billerName": "Driving License",
+            "billerGroups": "11",
+            "billerNameInArabic": null,
+            "billerType": null,
+            "shortName": null,
+            "minAmount": null,
+            "maxAmount": null
+        },
+        {
+            "billerId": "092",
+            "billerCode": "MOISP",
+            "billerName": "Saudi Passports",
+            "billerGroups": "11",
+            "billerNameInArabic": null,
+            "billerType": null,
+            "shortName": null,
+            "minAmount": null,
+            "maxAmount": null
+        },
+        {
+            "billerId": "093",
+            "billerCode": "MOITV",
+            "billerName": "Traffic Violations",
+            "billerGroups": "11",
+            "billerNameInArabic": null,
+            "billerType": null,
+            "shortName": null,
+            "minAmount": null,
+            "maxAmount": null
+        },
+        {
+            "billerId": "094",
+            "billerCode": "MOIMV",
+            "billerName": "Motor Vehicles",
+            "billerGroups": "11",
+            "billerNameInArabic": null,
+            "billerType": null,
+            "shortName": null,
+            "minAmount": null,
+            "maxAmount": null
+        },
+        {
+            "billerId": "126",
+            "billerCode": "MOIDPS",
+            "billerName": "National Platform for Violations",
+            "billerGroups": "11",
+            "billerNameInArabic": null,
+            "billerType": null,
+            "shortName": null,
+            "minAmount": null,
+            "maxAmount": null
+        },
+        {
+            "billerId": "127",
+            "billerCode": "MOIDCT",
+            "billerName": "Deportation Control",
+            "billerGroups": "11",
+            "billerNameInArabic": null,
+            "billerType": null,
+            "shortName": null,
+            "minAmount": null,
+            "maxAmount": null
+        },
+        {
+            "billerId": "95",
+            "billerCode": "MOILI",
+            "billerName": "Labor Importation",
+            "billerGroups": "11",
+            "billerNameInArabic": null,
+            "billerType": null,
+            "shortName": null,
+            "minAmount": null,
+            "maxAmount": null
+        },
+        {
+            "billerId": "96",
+            "billerCode": "MOICR",
+            "billerName": "Civil Registration",
+            "billerGroups": "11",
+            "billerNameInArabic": null,
+            "billerType": null,
+            "shortName": null,
+            "minAmount": null,
+            "maxAmount": null
+        }
+    ],
+    "headerValue": {
+        "moduleId": "SADADMOIBILRS",
+        "simulate": "N",
+        "_dinsess": "9c6e5df8-4cc9-4862-9209-c3c19b588149"
+    }
+}

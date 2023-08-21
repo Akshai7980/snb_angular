@@ -1,0 +1,50 @@
+<div *ngIf="!receiptForm">
+  <div class="detailsTitleContainer">
+    <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+    <div class="mainTitle" translate>
+      LBL_AUTHORIZE_ADDITIONAL_ACCOUNT_SUMMARY
+    </div>
+  </div>
+  <section class="summaryOuterConainer">
+    <div class="summaryConainer">
+      <app-additional-account-request></app-additional-account-request>
+    </div>
+  </section>
+  <section class="authorizationOuterConatiner">
+    <app-authorization
+      [authListDataSource]="authOptions"
+      [authError]="errorCode"
+      (authEmit)="getDatas($event, 'authorization')"
+    >
+    </app-authorization>
+  </section>
+
+  <section>
+    <div class="btnContainer">
+      <!-- <button
+        class="button-secondary backButton"
+        routerLink="/mytask/serviceRequest/additionalAccount"
+        translate
+      >
+        LBL_CANCEL
+      </button>
+
+      <button class="button-primary" (click)="submit()" translate>
+        LBL_SUBMIT
+      </button> -->
+      <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()"></app-tertiary-button>
+      <app-primary-button buttonValue="LBL_SUBMIT" (click)="submit()"></app-primary-button>
+    </div>
+  </section>
+</div>
+
+<app-receipt
+  (onInitAgainClick)="initiateAnotherRequest()"
+  [receiptDetails]="receiptData"
+  [saveReceiptObject]="saveReceiptObject"
+  *ngIf="receiptForm"
+  (DownloadReceiptClick)="downloadPdf($event)"
+>
+</app-receipt>
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

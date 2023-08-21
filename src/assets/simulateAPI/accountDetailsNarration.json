@@ -1,0 +1,8 @@
+{
+    "DATA": {
+        "res_description": "Outgoing Local Transfer Khadejah Alnufaie Riyad Bank Ref.NCBK981221580QJU"
+    },
+    "HEADER_VALUE": {
+        "MODULE_ID": "CASATXNDET"
+    }
+}

@@ -1,0 +1,97 @@
+.filter-search-popup{
+    width: 660px;
+    padding: 20px 20px 20px 20px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 5px;
+    background-color: var(--advance-filter-bg-color);
+    color: var(--tableData-header-color);
+    text-decoration: none;
+    line-height: 18px;
+    position: absolute;
+    left: -320px;
+    top: 46px;
+    z-index: 1;
+}
+.header{
+    font-family: 'HelveticaNeueMed', Arial, sans-serif;
+    margin-bottom: -24px;
+    font-size: 14px;
+}
+.cardContainer {
+    padding-top: 10px;
+    color: var(--tableData-header-color);
+   
+  
+  
+    &.data {
+      padding-top: 20px;
+    }
+  }
+  .fieldLabel {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", Arial, sans-serif;
+
+    font-size: 14px;
+  }
+  .selectInput {
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--input-text-color);
+    cursor: pointer;
+  }
+  .mt-top {
+    margin-top: 10px;
+  }
+  .fromto {
+    display: flex;
+    
+    margin: 40px 0px 19px 28px;
+  }
+  .flex{
+    display: flex;
+  }
+  .processTime{
+    margin-top: 40px;
+  }
+ 
+  .dateto{
+    margin-left: 32px;
+  }
+  .amountDetails{
+    width: 135px !important;
+      height: 40px;
+      
+      border: 1px solid var(--widget-border-color);
+      border-radius: 4px;
+      color: var(--tableData-header-color);
+      background-color: var(--primary-widget-bg-color);
+  }
+  .toDetails{
+    width: 135px !important;
+      height: 40px;
+     
+      border: 1px solid var(--widget-border-color);
+      border-radius: 4px;
+      color: var(--tableData-header-color);
+      background-color: var(--primary-widget-bg-color);
+  }
+  .amountContainer{
+    margin-left: 30px;
+  }
+  .amountTo{
+    margin-left: 30px;
+  }
+  .actionGroup {
+    float: right;
+    margin-top: 30px;
+   
+  }
+  .close-icon {
+    float: right;
+    cursor: pointer;
+  }

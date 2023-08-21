@@ -1,0 +1,11 @@
+{
+    "dataValue": {
+        "INPUT_REFERENCE_NO": "TBC2212231917478",
+        "OD_STATUS": "RA",
+        "STATUS": "SUCCESS",
+        "OD_STATUS_DESC": "Success"
+    },
+    "headerValue": {
+        "moduleId": "CDPAYSUBMIT"
+    }
+}

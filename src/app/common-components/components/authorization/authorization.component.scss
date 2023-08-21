@@ -1,0 +1,71 @@
+.authorizationContainer {
+  background-color: var(--primary-widget-bg-color);
+  padding: 20px;
+  padding-top: 5px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  color: var(--tableData-header-color);
+  text-decoration: none solid rgb(93, 93, 93);
+  margin-top: 20px;
+}
+.authorizationContent {
+  color: var(--tableData-header-color);
+  margin-top: 8px;
+  margin-left: 16px;
+  display: flex;
+ 
+}
+.authorizationContent1{
+  margin-right: 40px;
+}
+.subTitles{
+  padding:20px 0 10px 0;
+}
+.genericTitles {
+  color: var(--table-header-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+}
+.selectInput {
+  width: 300px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  cursor: auto;
+  background-color: var(--primary-widget-bg-color);
+}
+.selectInput::placeholder,.mat-select::placeholder{
+  color: #bbbbbb;
+}
+// ::ng-deep.cdk-overlay-pane{
+//  left: unset !important;
+// }
+
+.mat-option {
+  padding: 5px;
+  border-left: 1px solid var(--widget-border-color);
+  border-right: 1px solid var(--widget-border-color);
+  border-bottom: 1px solid var(--widget-border-color);
+  line-height: 40px !important;
+  color: var(--default-text-color);
+  
+}
+.mat-option:first-child {
+  background-color: transparent;
+}
+.mat-option:hover,
+.mat-option.mat-selected {
+  // background-color: #f0fcf9 !important;
+}
+::ng-deep.mat-select-value-text {
+  font-family:inherit;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  text-decoration: none solid rgb(93, 93, 93);
+}
+input:focus {
+  outline: none;
+}

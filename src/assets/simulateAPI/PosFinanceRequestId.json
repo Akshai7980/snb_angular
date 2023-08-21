@@ -1,0 +1,27 @@
+{
+  "data": {
+    "cif": "SA1010010010000000123",
+    "crNumber": "1010667896",
+    "currency": "SAR",
+    "requestID": 3096,
+    "status": "Approved",
+    "maxAmt": "345",
+    "tenorList": [
+      {
+        "tenorLimit": 66000,
+        "tenorNumber": 24
+      },
+      {
+        "tenorLimit": 66000,
+        "tenorNumber": 36
+      },
+      {
+        "tenorLimit": 66000,
+        "tenorNumber": 48
+      }
+    ]
+  },
+  "headerValue": {
+    "moduleId": "POSFINFETCH"
+  }
+}

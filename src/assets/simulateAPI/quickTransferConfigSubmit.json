@@ -1,0 +1,18 @@
+{
+    "dataValue":
+    {
+        "UTI_REFERENCE":null,
+        "INPUT_REFERENCE_NO":"TBC2303031806103",
+        "OD_STATUS":"RA",
+        "STATUS":"SUCCESS",
+        "OD_REJECT_REASON":null,
+        "TXN_STATUS":"AH",
+        "JOURNAL_ID":null,
+        "OD_STATUS_DESC":"Success"
+    },
+    "headerValue":
+    {
+        "moduleId":"IPSREGSUB"
+    }
+}
+

@@ -1,0 +1,56 @@
+<div class="mainContainer" *ngIf="!showReceipt">
+    <div class="mainTitle" *ngIf="!review" translate>
+      LBL_APPLY_FR_EPAY
+    </div>
+    <div class="mainTitle" *ngIf="review" translate>
+      LBL_REVIEW
+    </div>
+    <!-- <div class="title" *ngIf="rootScopeData.addEsalPayerReviewMode" translate>
+      LBL_REVIEW
+    </div> -->
+    <div class="detailsDataCntr">
+      <div class="bodyConatiners">
+        <app-debit-lookup *ngIf="debitAccountDetailsObj" (onAccountSelect)="afterFromAccountSelection($event)" [debitAccDetails]="debitAccountDetailsObj" [clear]="clearFlag"  [shownsearch]="searchShownFlag" [tableId]="'ePayAccount'"></app-debit-lookup>
+        <app-new-merchant-details *ngIf="showMerchantDetails" (merchantDetailsObj)="getMerchantDetails($event,'mthData')" (hideMerchant)="getMerchantDetails($event,'clearFlag')" [isReadOly]="showReadOly" [modify]="modifyFlag"></app-new-merchant-details>
+        <div class="subContainer" *ngIf="showFeeDetails">
+          <div class="subTitles" translate>LBL_FEE_DETAILS</div>
+          <div class="row detailsContainer">
+            <div class="column">
+              <div translate class="geneStaTitles">LBL_SET_UP_FEE</div>
+              <div class="mtop_10 details">{{feeDetails.setupFee | currencyFormat : feeDetails.ccy}}</div>
+            </div>
+            <div class="column">
+              <div translate class="geneStaTitles">LBL_MONTHLY_FEE</div>
+              <div class="mtop_10 details">{{feeDetails.monthlyFee | currencyFormat : feeDetails.ccy}}</div>
+            </div>
+            <div class="column">
+              <div translate class="geneStaTitles">LBL_MADA_PERC</div>
+              <div class="mtop_10 details">{{feeDetails.madaPerc}} %</div>
+            </div>
+            <div class="column">
+              <div translate class="geneStaTitles">LBL_CRD_CARD_PERC</div>
+              <div class="mtop_10 details">{{feeDetails.ccPerc}} %</div>
+            </div>
+            <div class="column">
+              <div translate class="geneStaTitles">LBL_CRD_CARD_FIX_FEE</div>
+              <div class="mtop_10 details">{{feeDetails.ccFixFee | currencyFormat : feeDetails.ccy}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="mtop_20" *ngIf="showAuthorization">
+          <app-authorization (authEmit)="autherizationDetailsReceived($event)" [authListDataSource]="authListArray" [authError]="authError"></app-authorization>
+        </div>
+        <div class="mtop_20" *ngIf="showAuthentication">
+          <app-authentication (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError" [initParam]="initReqParam"></app-authentication>
+        </div>
+      </div>
+    </div>
+    <div class="btnGroup">
+      <app-tertiary-button *ngIf="showFeeDetails" buttonValue="LBL_CANCEL" (click)="onClickCancel()" ></app-tertiary-button>
+      <app-primary-button *ngIf="showFeeDetails && !isSubmit" buttonValue="LBL_PROCEED" (click)="prceedNext()"></app-primary-button>
+      <app-secondary-button *ngIf="showFeeDetails && isSubmit" buttonValue="LBL_MODIFY" (click)="modify()"></app-secondary-button>
+      <app-primary-button *ngIf="showFeeDetails && isSubmit" buttonValue="LBL_SUBMIT" (click)="submit()"></app-primary-button>
+  </div>
+</div>
+<app-receipt [receiptDetails]="receiptData" (onInitAgainClick)="initGenerateStatement()" *ngIf="showReceipt" (DownloadReceiptClick)="downloadPdf()"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> 

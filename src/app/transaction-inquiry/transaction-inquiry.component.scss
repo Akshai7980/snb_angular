@@ -1,0 +1,102 @@
+.title {
+    width: 215px;
+    height: 30px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    margin: 5px 20px 0px 30px;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+
+.subContainer {
+    padding: 20px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 16px;
+    color: var(--tableData-header-color);
+    margin: 24px 20px 0px 30px;
+}
+
+.accountIcon {
+    background: url(../../assets/images/iconTransfer.svg);
+    width: 20px;
+    height: 16px;
+    // margin-right: 10px;
+    display: inline-block;
+}
+.gridline01{
+    display: flex;
+}
+.mtop_20{
+    margin-top: 10px;
+}
+.listActive{
+    border-bottom: 3px solid #006a52 !important;
+    color: var(--primary-fontColor) !important;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+.listInactive:hover{
+    border-bottom: 3px solid #84bd00 !important;
+}
+.titleList {
+    list-style: none;
+    display: flex;
+    padding: 0px;
+    margin: 0;
+    border-bottom: 1px solid var(--widget-border-color) !important;
+    li {
+        width: 146px;
+        padding: 0px 0px 1px;
+        background-color: transparent;
+        background-size: cover;
+        font-size: 14px;
+        color: var(--primary-fontColor);
+        line-height: 40px;
+        text-align: center;
+        cursor: pointer;
+        border: none;
+        margin-bottom: -1px;
+    }
+}
+.mTop_18{
+    margin-top: 18px;
+}
+.titleIcons{
+    display: flex;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    div:last-child{
+        margin:-2px 6px;
+    }
+}
+.titleIcons{
+    display: grid;
+}
+.gridline01{
+    display: flex;
+}
+.gridline02{
+    margin-top: -10px !important;
+}
+@media print{
+    #logoPrint{display: block;}
+    .subTitleConatiner .listInactive,.actionsConatiner{display: none;}
+    .subTitleConatiner .listActive{border-bottom: none !important;}
+    div.divFooter {
+        position: fixed;
+        bottom: 0;
+        font-family: 'HelveticaNeueMed' !important;
+        margin-left:8%;
+    }
+    .subContainer{
+        border: none;
+    }
+}
+
+@media screen{
+    #logoPrint{display: none;}
+}
+.logo{height:60px;margin-top:10px;margin-left:48%;width:60px;vertical-align: middle;padding-bottom: 10px;}
+// .logo{height:30px;margin-top:10px;margin-left:15px;width:40px;}
+.logotext{position: relative;top: -28px;left: 65px;font-size:18px;font-family:"C-Helvetica Neue-18", Arial !important;color:var(--secondary-btn-border-color);}

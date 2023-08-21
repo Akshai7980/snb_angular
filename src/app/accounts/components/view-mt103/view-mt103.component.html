@@ -1,0 +1,36 @@
+<div class="viewMT103Cntr">
+    <div class="topTittleCntr">
+        <div><div class="backIcon backArrow" [routerLink]="recentTransaction"></div><a class="mainTitle" translate>LBL_SWIFT_MSG</a></div>
+    </div>
+    <div id="toPrintId">
+    <div class="row" id="logoPrint">
+        <div><img class="logo" src="{{logo}}"> </div>
+        <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+      </div>
+    <div class="sub-container" >
+        <div class="titleConatiner">
+            <div class="titleIcons">
+                <div class="gridline01">
+                    <div translate>LBL_SWIFT_COPY_DET</div> 
+                </div>
+                <div class="gridline02">
+                    <div ><app-summary-tools [isshownPDF]="false"  [isshownPDF]="true"  [enabledProperty]="true"  [printSection] = "'toPrintId'"  [moduleId]="''" (onPDFdownloadChange)= "downloadPDF()"></app-summary-tools></div>           
+                </div>   
+            </div>
+        </div>
+
+
+        <div [innerHTML]="htmlData" class="dynamicHtml">
+            <!-- {{encryptedString}} -->
+            
+        </div>
+        <div  class="dynamicHtml">
+            <p *ngFor="let item of checkData;let i = index">{{("00000" + (i + 4)).slice(-5)}} {{item}}</p>
+        </div>
+    </div>
+    </div>
+
+
+
+
+</div>

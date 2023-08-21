@@ -1,0 +1,16 @@
+{
+  "headerValue": {
+    "moduleId": "PAYMNTINIT"
+  },
+  "dataValue": {
+    "INPUT_REFERENCE_NO": "TBC2112021301511",
+    "OD_STATUS": "RA",
+    "TXN_TYPE": "MULACC",
+    "OD_STATUS_DESC": "Success",
+    "TXN_STATUS" : "AH",
+    "JOURNAL_ID" : "121212",
+    "UTI_REFERENCE": "232373",
+    "OD_REJECT_REASON" :"Your transaction is rejected due to Insufficient Fund"
+  },
+  "footerValue": {}
+}

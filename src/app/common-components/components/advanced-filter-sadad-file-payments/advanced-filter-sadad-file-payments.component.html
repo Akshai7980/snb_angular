@@ -1,0 +1,71 @@
+<div class="filter-search-popup" *ngIf="showAdvancedSearchPopup" (click)="stopAdvancedSearchClose($event)">
+    <div translate class="header">LBL_FILTER
+        <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+    </div>
+    <div class="flexCntr">
+        <div class="toggleCntr">   
+            <div translate id="leftToggle" class="toggle" [class.active]="leftToggle" (click)="leftToggleCntl()">LBL_DATE</div>
+            <div translate id="rightToggle" class="toggle" [class.active]="rightToggle" (click)="rightToggleCntl()">LBL_AMOUNT</div> 
+        </div>
+        <div class="searchwithin">
+            <div translate class="fieldLabel">LBL_UPLOADED_TYPE</div>
+            <mat-select panelClass="dropDownOption advdownWidth_300" class="selectInput"  [(value)]="uploadType">
+                <mat-option value="SADPAYUP">{{'LBL_SADAD' | translate}}</mat-option>
+                <mat-option value="SADMOIUP">{{'LBL_SADAD_MOI' | translate}}</mat-option>
+            </mat-select>
+            <div><span class="required" *ngIf="showUploadTypeErrorMessage"><small translate class="errorMsg" translate>LBL_PLEASE_ENTER_VALID_DETAILS</small></span></div>
+        </div>
+    </div>
+    <div class="flexCntrData">
+        <div class="dateFrom" *ngIf="leftToggle">
+            <div class="datefrom">
+                <div translate class="fieldLabel" id="proctm">LBL_DATE_FROM</div>
+                <div class="shortDatePicker mt-top"><app-date-picker [clearFlag]="clearFlag" [showDateErrorMessage]="fromDateErrorMessage" (dateValue)="getFromDate($event)" [maxDate]="maxFromDate" [minDate]="minFromDate" [newDate]="fromDateValue"></app-date-picker></div>
+            </div>
+            <div class="dateto">
+                <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+                <div class="shortDatePicker mt-top"><app-date-picker [clearFlag]="clearFlag" [showDateErrorMessage]="toDateErrorMessage" (dateValue)="getToDate($event)" [maxDate]="maxToDate" [minDate]="minToDate" [newDate]="toDateValue"></app-date-picker></div>
+            </div>
+        </div>
+        <div class="fromto" *ngIf="rightToggle && !leftToggle">           
+            <div class="datefrom">
+                <div translate class="fieldLabel" id="proctm">LBL_AMOUNT</div>
+                <input type="text" [(ngModel)]="amount" class="txt-fld mt-top" placeholder="0.00" (keypress)="numericOnly($event)">
+                <div><span class="required"  *ngIf="showAmountErrorMessage"><small translate class="errorMsg" translate>LBL_PLEASE_ENTER_VALID_DETAILS</small></span></div>
+            </div>
+            <div class="dateto">
+                <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+                <input type="text" [(ngModel)]="to" class="txt-fld mt-top added" placeholder="0.00" (keypress)="numericOnly($event)">
+                <div><span class="required"  *ngIf="showAmountErrorMessage"><small translate class="errorMsg" translate>LBL_PLEASE_ENTER_VALID_DETAILS</small></span></div>
+            </div>
+        </div>
+        <div class="dateto"><div translate class="fieldLabel">LBL_STATUS</div>
+        <mat-select panelClass="dropDownOption advdownWidth_300" class="selectInput"  [(value)]="statusType">
+            <mat-option value="RA">{{'LBL_SADAD_RDY_FOR_AUTH' | translate}}</mat-option>
+            <mat-option value="IO">{{'LBL_SADAD_PEND_ADD_AUTH' | translate}}</mat-option>
+        </mat-select>
+        <div><span class="required"  *ngIf="showStatusTypeErrorMessage"><small translate class="errorMsg" translate>LBL_PLEASE_ENTER_VALID_DETAILS</small></span></div>
+        </div>
+        <div class="dateorder">
+            <div class="fieldLabel" translate>LBL_DATE_ORDER</div>
+            <mat-select panelClass="dropDownOption" class="selectInput" [(value)]="dateOrderType">
+                <mat-option value="desc">{{'LBL_DESCENDING' | translate}}</mat-option>
+                <mat-option value="asc">{{'LBL_ASCENDING' | translate}}</mat-option>
+            </mat-select>
+            <div><span class="required"  *ngIf="showDateOrderTypeErrorMessage"><small translate class="errorMsg" translate>LBL_PLEASE_ENTER_VALID_DETAILS</small></span></div>            
+        </div>
+    </div>
+      
+   
+    <div class="submt">
+        <div>
+            <!-- <button class="clr" (click)="onClickClear()" translate>LBL_CLEAR</button> -->
+            <app-tertiary-button buttonValue="LBL_CLEAR" (click)="onClickClear()"></app-tertiary-button>
+        </div>
+        <div>
+            <!-- <button class="apply" (click)="onClickApply()" translate>LBL_APPLY</button> -->
+            <app-primary-button (click)="onClickApply()" buttonValue="LBL_APPLY"></app-primary-button>
+        </div>
+    </div>
+</div>
+

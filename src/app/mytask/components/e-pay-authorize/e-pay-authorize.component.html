@@ -1,0 +1,33 @@
+<div *ngIf="!showReceipt">
+    <div class="mainTitle cusTitle">
+        <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+        <span translate>LBL_REVIEW</span>
+    </div>
+    <div class="container">
+        <app-e-pay-details [pageName]="'authorize'"></app-e-pay-details>
+    </div>
+    <section class="summaryOuterContainer" *ngIf="showAuthorization">
+        <div class="summaryContainer">
+            <app-authorization [authListDataSource]="authorizersList" (authEmit)="getData($event)">
+            </app-authorization>
+        </div>
+    </section>
+
+    <div class="termsAndConditions1" translate>
+        LBL_TERMS
+        <a href="{{ url }}" target="_blank"><span class="termsContainer"
+                translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>
+    </div>
+
+    <div class="btnGroup mtop_20">
+        <div class="btnContainer">
+            <app-tertiary-button buttonValue="LBL_CANCEL" routerLink="/mytask/ePay"></app-tertiary-button>
+            <app-primary-button buttonValue="LBL_SUBMIT" (click)="onSubmit()"></app-primary-button>
+        </div>
+    </div>
+</div>
+<div id="creditCardAuthorizeReceipt">
+    <app-receipt *ngIf="showReceipt" [receiptDetails]="receiptObject" [saveReceiptObject]="saveReceiptObject"
+        (onInitAgainClick)="initiateAnotherRequest()" (DownloadReceiptClick)="downloadPdf()"></app-receipt>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

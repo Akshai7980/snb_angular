@@ -1,0 +1,154 @@
+<div class="container">
+    <div class="subTitles">
+        {{'LBL_REQ'|translate}} {{'LBL_FROM' | translate}}
+      {{
+      complaintDetails.makerName && complaintDetails.makerName.trim() !== ""
+      ? complaintDetails.makerName
+      : "--"
+      }},
+      {{ complaintDetails.bene_ACC_NO ? complaintDetails.bene_ACC_NO : "--" }}
+    </div>
+    <div class="refNO">
+        <div>
+            {{ "LBL_TRANSACTION_REF_NUM" | translate }} {{ complaintDetails.odDRefNo }}
+        </div>
+        <div>
+            on {{complaintSummary.creationDate}}
+        </div>
+    </div>
+    <div class="subContainer">
+        <div class="subTitles" translate>LBL_REQUEST_DETAILS</div>
+        <div class="rowInnerCntr">
+            <div class="field">
+                <div class="label" translate>LBL_SERVICE_TYPE</div>
+                <div class="information">
+                    {{
+                    complaintSummary && complaintSummary.serviceType
+                    ? complaintSummary.serviceType
+                    : "--"
+                    }}
+                  </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_SOURCE</div>
+                <div class="information">
+                    {{
+                    complaintDetails && complaintDetails.src
+                    ? complaintDetails.src
+                    : "--"
+                    }}
+                  </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_CIF</div>
+                <div class="information">
+                    {{
+                    complaintDetails && complaintDetails.cif
+                    ? complaintDetails.cif
+                    : "--"
+                    }}
+                  </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_CALLER_NAME</div>
+                <div class="information">
+                    {{
+                    complaintDetails && complaintDetails.callerName
+                    ? complaintDetails.callerName
+                    : "--"
+                    }}
+                  </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_USER_ID</div>
+                <div class="information">
+                    {{
+                    complaintDetails && complaintDetails.userId
+                    ? complaintDetails.userId
+                    : "--"
+                    }}
+                  </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_REGION</div>
+                <div class="information">
+                    {{
+                    complaintDetails && complaintDetails.region
+                    ? complaintDetails.region
+                    : "--"
+                    }}
+                  </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_CNT_TELE_NO</div>
+                <div class="information">
+                    {{
+                    complaintDetails && complaintDetails.cntTelephoneNo
+                    ? complaintDetails.cntTelephoneNo
+                    : "--"
+                    }}
+                  </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_ABSTRACT</div>
+                <div class="information">
+                    {{
+                    complaintDetails && complaintDetails.abstract
+                    ? complaintDetails.abstract
+                    : "--"
+                    }}
+                  </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_MOBILE_NUMBER</div>
+                <div class="information">
+                    {{
+                    complaintSummary && complaintSummary.mob_NO
+                    ? complaintSummary.mob_NO
+                    : "--"
+                    }}
+                  </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_REASON</div>
+                <div class="information">
+                    {{
+                    complaintDetails && complaintDetails.reason
+                    ? complaintDetails.reason
+                    : "--"
+                    }}
+                  </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_STATUS</div>
+                <div class="information">
+                    {{
+                    complaintSummary && complaintSummary.reqStatus
+                    ? complaintSummary.reqStatus
+                    : "--"
+                    }}
+                  </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_DATE</div>
+                <div class="information">
+                    {{
+                    complaintSummary && complaintSummary.creationDate
+                    ? complaintSummary.creationDate
+                    : "--"
+                    }}
+                  </div>
+            </div>
+            <div class="field">
+                <div class="label" translate>LBL_CLOSURE_DATE</div>
+                <div class="information">
+                    {{
+                    complaintSummary && complaintSummary.closureDate
+                    ? complaintSummary.closureDate
+                    : "--"
+                    }}
+                  </div>
+            </div>
+        </div>
+    </div>
+  </div>

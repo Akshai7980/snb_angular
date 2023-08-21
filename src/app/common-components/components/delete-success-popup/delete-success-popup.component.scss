@@ -1,0 +1,58 @@
+.tick-icon {
+    fill: #10b013;
+    background: url(/assets/images/greenTick.svg) no-repeat left;
+    margin-left: -2%;
+    margin-top: -1%;
+    font-family: 'HelveticaNeue', arial, sans-serif;
+}
+
+.close-icon {
+    /* background: url(../../../../../assets/images/closeIcon.svg) no-repeat right; */
+    float: right;
+    margin-right: -3%;
+    cursor: pointer;
+}
+
+.yes-btn {
+    margin-left: 10px;
+    width: 56px;
+    height: 31px;
+    border: 1px solid var(--secondary-btn-bg-color);
+    border-radius: 3px;
+    background-color: var(--secondary-btn-bg-color);
+    background-size: cover;
+    font-family: 'HelveticaNeue', arial, sans-serif;
+    font-size: 14px;
+    color: var(--secondary-btn-txt-color);
+    text-decoration: none solid rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+}
+
+.mat-dialog-content {
+    border-top: none;
+    border-bottom: none;
+    margin-top: 5%;
+    margin-left: -7%;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    
+}
+
+.mat-dialog-actions {
+    float: right !important;
+    margin-top: 10%;
+}
+
+.mat-dialog-title{
+    font-family: 'HelveticaNeueBd', arial, sans-serif;
+}
+
+.reftext{
+    margin-left: 55px;
+    font-family: 'HelveticaNeueBd', arial, sans-serif;
+     font-size: 1em;
+     padding-top: 2px;
+     margin-left: 20px;
+   }
+

@@ -1,0 +1,84 @@
+.mtop_20 {
+    margin-top: 20px;
+}
+
+.geneStaTitles {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+}
+
+.amtContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flexWidth{
+    width: 300px;
+    padding-bottom: 20px;
+    color: var(--default-text-color);
+}
+
+.eRatePtop{
+    padding-top: 12px;
+    color: var(--default-text-color);
+}
+.innerContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: calc(100% - 24px);
+}
+
+.selectInput {
+    width: 95px;
+    line-height: 40px;
+    padding: 0px 0px 0px 5px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--input-text-color);
+    cursor: pointer;
+}
+
+.dropdown{
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.mbot_4 {
+    margin-bottom: 4px;
+}
+
+.mtop_17 {
+    margin-top: 17px;
+}
+
+.amountTxt{
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: var(--primary-widget-bg-color);
+}
+
+.information{
+    padding-top: 10px;
+    color: var(--tableData-header-color);
+}
+.mat-option.mat-active {
+    color: var(--default-text-color);
+}
+.counter{
+    color:var(--short-profile-txt-color);
+    font-family:'HelveticaNeue', arial, sans-serif;
+    font-size: 14px;
+    align-self: flex-end;
+    padding-left: 20px;
+    padding-top: 23px;
+  }
+  .timerContainer{
+    width: 300px;
+    align-self: center;
+  }

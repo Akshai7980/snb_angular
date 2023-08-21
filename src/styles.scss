@@ -1,0 +1,6521 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "HelveticaNeue";
+  src:
+    url("assets/fonts/HelveticaNeue/HelveticaNeue.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNeueLight";
+  src:
+    url("assets/fonts/HelveticaNeue/HelveticaNeueLight.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+
+@font-face {
+  font-family: "HelveticaNeueMed";
+  src:
+    url("assets/fonts/HelveticaNeue/HelveticaNeueMed.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* custom scroll bar start */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+:root {
+  scrollbar-color: #888 #f1f1f1 !important;
+  scrollbar-width: thin !important;
+}
+
+/* custom scroll bar end */
+
+@import './assets/theme/_snb.scss';
+@import './assets/theme/_dark.scss';
+@import './assets/fontIcons/icons.scss';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'HelveticaNeueLight', arial, sans-serif !important;
+  font-size: 14px;
+  // background: url('./assets/images/snb-background.png');
+}
+
+body[theme='dark'] {
+  background: #000;
+  .mainContainer {background-image: none !important;}
+}
+
+@media print {
+  body {
+    background: none;
+  }
+
+  app-refresh {
+    display: none;
+  }
+
+  table.casaTable,
+  .dashboardTable {
+    border-collapse: collapse;
+
+    th.mat-header-cell,
+    td.mat-cell,
+    td.mat-footer-cell {
+      border: 1px solid #e8e8e8 !important;
+      border-radius: 0;
+      padding: 0 10px !important;
+
+    }
+  }
+}
+
+.mat-select-arrow-wrapper {
+  background-image: url("../src/assets/images/iconDropdown.svg");
+  margin-right: 14px;
+  margin-top: -10px;
+}
+
+.mat-select-arrow {
+  opacity: 0;
+}
+
+.datePicker {
+  right: -8px !important;
+}
+
+.mtop_10 {
+  margin-top: 10px;
+}
+
+.datePicker {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  .mat-datepicker-toggle {
+    color: #000000;
+  }
+
+  .mat-datepicker-toggle-active {
+    color: var(--primary-hover-color) !important;
+  }
+}
+
+.mat-calendar-controls {
+
+  .mat-calendar-previous-button,
+  .mat-calendar-next-button {
+    color: var(--secondary-btn-bg-color) !important;
+  }
+
+  .mat-calendar-arrow {
+    fill: #000000;
+  }
+}
+
+.mat-calendar-content {
+  .mat-calendar-body-selected {
+    // background-color: var(--primary-hover-color) !important;
+    background-color: var(--short-profile-txt-color) !important;
+  }
+}
+
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element,
+.mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+  background-color: var(--primary-hover-color) !important; 
+}
+
+.mat-checkbox-frame {
+  border-color: var(--checkbox-default-border-color);
+}
+
+.mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame {
+  border-color: var(--checkbox-disabled-border-color);
+}
+
+app-dashboard-base,
+app-details-layout,
+app-cheque-details-layout,
+app-single-transfer-detail-layout,
+app-single-beneficiary-details-layout,
+app-pmt-single-transfer-details-layout,
+app-additional-details-summary,
+app-receipt-beneficiary-upload,
+app-beneficiary-details-layout,
+app-payroll-onboarding-details,
+app-stop-payment-details,
+app-my-tasks-sadad-details-layout,
+app-instant-transfer-registration-details-layout,
+app-authorized-file-upload,
+app-credit-card-summary,
+app-my-tasks-esal-details-layout,
+app-my-tasks-sadad-moi-refund-req-details-layout,
+app-my-tasks-aramco-details-layout,
+app-my-tasks-sadad-moi-details-layout,
+app-instant-transfer-dereg-details-layout,
+app-qtl-details-layout,
+app-bulk-transfer-details,
+app-sadad-moi-refund-req-details-layout,
+app-esal-payment-details-layout,
+app-sadad-details-layout,
+app-sadad-moi-details-layout,
+app-aramco-details-layout,
+app-service-inquiry,
+app-sadad-bulk-payment-details,
+app-pos-finance-summary,
+app-pos-finance-ticket-inquiry-summary,
+app-standing-order-detail-layout,
+app-complaints-summary-layout,
+app-et-lg-details,
+app-sp-stop-file,
+app-credit-card-summary-details,
+app-national-address-layout,
+app-cr-expiry-layout {
+  .collapse {
+    height: 0 !important;
+  }
+
+  .expandCollpase {
+    overflow: hidden;
+  }
+
+  .accordion {
+    width: 25px;
+    height: 25px;
+    float: right;
+    cursor: pointer;
+  }
+
+  .accordionUp {
+    background: url(./assets/images/tableCollapseIcon.svg);
+    transform: rotate(0);
+    margin-top: -8px;
+    margin-right: 10px;
+  }
+
+  .accordionDown {
+    background: url(./assets/images/tableCollapseIcon.svg);
+    transform: rotate(180deg);
+    // position: relative;
+    // left: 10px;
+    // top: 3px;
+  }
+ // .icon-down::before,.icon-up::before{
+ //   cursor: pointer;
+  //  font-size: 15px;
+  //  font-weight: 600;
+  //  color:var(--short-profile-txt-color);
+  //  margin-top: -8px;
+  //  margin-right: 10px;
+  //}
+
+}
+
+.dropDownOption {
+  // max-height: 170px !important;
+  min-width: 311px !important;
+  position: absolute;
+  top: 29px;
+  right: -17px;
+  box-shadow: none !important;
+
+  &.dropdownWidth {
+    min-width: 323px !important;
+  }
+
+  &.advdownWidth_300 {
+    min-width: 300px !important;
+  }
+
+  &.advdownWidth_210 {
+    min-width: 210px !important;
+  }
+
+  overflow-x: hidden !important;
+}
+
+.mediumDropDownOption {
+  min-width: 261px !important;
+  position: absolute;
+  top: 29px;
+  right: -17px;
+  box-shadow: none !important;
+}
+
+.smallDdropDownOption {
+  min-width: 100px !important;
+  position: absolute;
+  top: 29px;
+  right: -17px;
+  box-shadow: none !important;
+}
+
+.optionDropDwn {
+  max-height: 127px !important;
+  overflow-y: scroll !important;
+}
+
+.worksapceBase {
+  margin: 20px 20px 0 20px;
+
+  .titleSection {
+    font-size: 1.5em;
+    padding-bottom: 10px;
+  }
+
+  .contentSection {
+    background: var(--primary-widget-bg-color);
+    border-radius: 10px;
+    border: 1px solid var(--widget-border-color);
+    // min-height: 300px;
+    min-height: 600px;
+  }
+}
+
+@media (min-width:1900px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+.summaryCntnrHeight {
+  border-radius: 10px;
+  background: var(--primary-widget-bg-color);
+  border: 1px solid var(--widget-border-color);
+  min-height: none !important;
+  margin-top: 20px;
+}
+
+.hide {
+  display: none;
+}
+
+.visibilityHide {
+  visibility: hidden;
+}
+
+.tabDataCntr {
+  // MY TASK IF DATA IS LESS ADVANCED FILTER IS HIDING
+  // min-height: initial !important;
+  // max-height: initial !important;
+  min-height: 500px !important;
+  overflow: hidden !important;
+}
+
+.tabCntr ul {
+  padding: 0;
+  margin-top: 20px;
+  list-style: none;
+  border-bottom: 1px solid var(--overlaypopup-margin);
+}
+
+.tabCntr ul li {
+  display: inline-block;
+  padding-left: 10px;
+}
+
+.tabCntr ul li a {
+  padding: 5px 20px;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+  color: var(--primary-fontColor);
+  display: inline-block;
+  margin-bottom: -1px;
+}
+
+.tabCntr ul li a {
+  border-bottom: 0 solid transparent;
+}
+
+.tabCntr ul li a.active {
+  border-bottom: 3px solid var(--secondary-btn-bg-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+
+.animate {
+  transition: 0.3s;
+}
+
+.tabCntr ul li a:hover {
+  border-bottom: 3px solid var(--primary-hover-color);
+}
+
+.selectionCommon+* .mat-menu-panel {
+  box-shadow: none;
+
+  .mat-menu-content {
+    padding: 0px;
+    width: 150px;
+
+    button.mat-menu-item:first-child {
+      border-bottom: none;
+    }
+
+    button.mat-menu-item:last-child {
+      border: 1px solid #d9dde0;
+    }
+
+    button.mat-menu-item {
+      border: 1px solid #d9dde0;
+      border-bottom: none;
+      width: 99%;
+      margin: auto;
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+    }
+  }
+}
+
+.mtop_15 {
+  margin-top: 15px;
+}
+
+.fileNameDownload {
+  app-uploaded-file-download {
+    &.fileDownload {
+      .uploadedSct {
+        width: 100%;
+
+        .downloadText {
+          width: 30%;
+          word-break: break-all;
+        }
+
+        .downloadIcon {
+          width: 5%;
+        }
+      }
+    }
+    
+  }
+}
+
+// sai changes
+
+.casaTable {
+
+  .mat-row:nth-child(odd) {
+    background-color: var(--summary-row-bg-color);
+  }
+
+  .mat-cell,
+  .mat-footer-cell {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .mat-row:hover {
+    background-color: var(--summary-hover-color);
+    cursor: pointer;
+  }
+
+  td.mat-cell:first-of-type {
+    border-radius: 10px 0px 0px 10px !important;
+  }
+
+  td.mat-cell:last-of-type {
+    border-radius: 0px 10px 10px 0px !important;
+  }
+
+  td.mat-column-action {
+    width: 50px;
+  }
+
+  th.mat-header-cell,
+  td.mat-cell,
+  td.mat-footer-cell {
+    border: none !important;
+  }
+
+  th.mat-header-cell {
+    font-family: 'HelveticaNeueMed', arial, sans-serif !important;
+    font-size: 14px !important;
+    color: var(--table-header-color) !important;
+
+  }
+
+  tr.mat-row,
+  tr.mat-footer-row {
+    height: auto !important;
+  }
+
+  td.mat-cell {
+    font-family: 'HelveticaNeueMed', arial, sans-serif !important;
+    font-size: 14px !important;
+    color: var(--tableData-header-color) !important;
+    line-height: 20px;
+    height: 50px;
+
+    // padding-top: 5px !important;
+    // padding-bottom: 5px !important;
+    &.nickName {
+      position: relative;
+    }
+  }
+
+  .mat-cell {
+    line-height: 50px;
+  }
+
+  th.mat-header-cell:last-of-type,
+  td.mat-cell:last-of-type,
+  td.mat-footer-cell:last-of-type {
+
+    text-align: center !important;
+  }
+}
+
+.header-panel,
+.searchCntnr {
+  margin: 20px 15px 25px 20px !important;
+}
+
+.summaryConainer {
+  padding-bottom: 0px !important;
+}
+
+.moreAction-popup {
+
+  ul,
+  li {
+    border: none !important;
+  }
+}
+
+.arrowRotate {
+  margin-bottom: -5px;
+  margin-top: 0px !important;
+}
+
+.isFromSelected {
+  .mat-row {
+    background-color: var(--summary-hover-color) !important;
+  }
+}
+
+.shortDatePicker {
+  app-date-picker {
+    .container {
+      width: 141px;
+
+      input {
+        width: 123px !important;
+        height: 40px;
+        padding: 0px 8px;
+        border: 1px solid var(--widget-border-color);
+        border-radius: 4px;
+        color: var(--tableData-header-color);
+        background-color: var(--primary-widget-bg-color);
+      }
+    }
+
+    .datePicker {
+      position: absolute;
+      top: 0;
+      right: none;
+      left: 100px;
+    }
+  }
+}
+
+.cancelIcon {
+  top: 20px !important;
+}
+
+.EditIcon {
+  height: 45px !important;
+}
+
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  background-color: #d6d6d6 !important;
+}
+
+.dashboardTable {
+  td.mat-cell {
+    color: var(--tableData-header-color) !important;
+  }
+}
+
+/*15062022*/
+#accDetailsDefault .more-icon-container {
+  text-align: center;
+  padding-right: 0px;
+}
+
+/*15062022*/
+.mat-paginator-page-size-label {
+  font-family: 'HelveticaNeue BlackCond', arial, sans-serif;
+  font-size: 14px;
+  color: var(--paginator-label-color);
+}
+
+.mat-select-value-text {
+  font-family: 'HelveticaNeue';
+  color: var(--primary-fontColor);
+  font-size: 14px;
+}
+
+.mat-paginator-range-label {
+  font-size: 14px;
+  font-family: 'HelveticaNeue';
+  margin: 0px 7px 0px 7px !important;
+  color: var(--paginator-label-color);
+}
+
+.mat-paginator-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.mat-button-disabled {
+  color: #c1c1c1 !important;
+}
+
+.mat-datepicker-content .mat-calendar .mat-calendar-header .mat-icon-button {
+  width: 40px !important;
+}
+
+.mat-icon-button {
+  width: 28px !important;
+}
+
+.mat-paginator {
+  color: var(--secondary-btn-border-color) !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #8c8c8c;
+}
+
+/**********************/
+
+.themeContainer .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: var(--toggle-bg-color) !important;
+}
+
+.themeContainer .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: var(--primary-widget-bg-color) !important;
+}
+
+/**global page styles**/
+.button-primary {
+  min-width: 80px;
+  height: 40px;
+  padding: 0px 16px;
+  border: 1px solid var(--short-profile-txt-color);
+  border-radius: 100px;
+  background-color: var(--short-profile-txt-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--secondary-btn-print-bgcolor);
+  text-align: center;
+  cursor: pointer;
+  font-family: 'HelveticaNeue', arial, sans-serif;
+}
+
+.button-secondary {
+  min-width: 80px;
+  height: 40px;
+  padding: 0px 8px;
+  border: 1px solid var(--button-tertiary-bg-color);
+  border-radius: 100px;
+  background-color: var(--button-tertiary-bg-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--primary-btn-text);
+  text-align: center;
+  cursor: pointer;
+  margin: 0px 16px;
+  font-family: 'HelveticaNeue', arial, sans-serif;
+}
+
+.button-print-secondary {
+  width: 100px;
+  line-height: 40px;
+  border: 1px solid var(--short-profile-txt-color);
+  border-radius: 100px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--short-profile-txt-color);
+  text-align: center;
+  cursor: pointer;
+  margin: 0px 8px;
+}
+
+.mainConatiner {
+  padding: 0px 25px 0px 20px;
+}
+
+.mainTitle {
+  font-size: 18px;
+  color: var(--tableData-header-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  line-height: 50px;
+}
+
+.ttileConatiner {
+  display: flex;
+  margin-left: -18px;
+}
+
+.subconatiner {
+  border-radius: 6px;
+  background-color: var(--primary-widget-bg-color);
+  padding: 19px 25px 20px 22px;
+  border: 1px solid var(--widget-border-color);
+}
+
+.subTitles {
+  font-size: 16px;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  color: var(--tableData-header-color);
+}
+
+.searchCntnrLeft {
+  float: left;
+}
+
+input[type='text'] {
+  font-family: 'HelveticaNeueMed', arial, sans-serif;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+}
+
+.backIcon {
+  background: url(./assets/images/iconBack.svg) no-repeat center;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  top: 16px;
+  left: -5px;
+}
+// .icon-back {
+//   display: inline-block;
+//   cursor: pointer;
+//   position: relative;
+//   top: 2px !important;
+//   left: -5px;
+//   font-size: 15px;
+//   font-weight: bolder;
+//   color: var(--primary-hover-color);
+// }
+.fieldTitles {
+  color: var(--table-header-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+}
+
+.required {
+  color: var(--mandatory-mark-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+
+.mat-option:hover {
+  background-color: var(--summary-hover-color);
+}
+
+.iconSort {
+  background: url(./assets/images/iconSort.svg);
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  // top: 1px;
+  cursor: pointer
+}
+
+.sortUp {
+  background: url(./assets/images/sortDown.svg);
+  transform: rotate(180deg) !important;
+  position: relative;
+  right: 33px;
+  cursor: pointer;
+}
+
+.rejectIcon {
+  background: url(./assets/images/reject-Icon.svg) no-repeat center;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+.acceptIcon {
+  background: url(./assets/images/accept-Icon.svg) no-repeat center;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+//Mat-Slider-Toggle//
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: var(--toggle-Secondary-bg-color) !important;
+  height: 20px;
+  width: 34px;
+  border-radius: 13px;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: var(--primary-widget-bg-color) !important;
+  height: 18px;
+  width: 18px;
+  margin-top: 4px;
+}
+
+.mat-slide-toggle-bar {
+  height: 20px !important;
+  width: 34px !important;
+  border-radius: 13px !important;
+}
+
+.mat-slide-toggle-thumb {
+  height: 18px !important;
+  width: 18px !important;
+  margin-top: 4px !important;
+}
+
+/**global page styles**/
+
+.advanced-pie-legend-wrapper {
+  display: none !important;
+}
+
+ngx-charts-advanced-pie-chart>div {
+  height: auto !important;
+  width: auto !important;
+  margin-top: -56px;
+  margin-right: -9px;
+}
+
+.advanced-pie {
+  height: 70px !important;
+}
+
+ngx-tooltip-content.ngx-charts-tooltip-content.type-tooltip {
+  .tooltip-caret.position-top {
+    border-top-color: #fafafa;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  background-color: #fafafa;
+  color: #425563;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  //box-shadow:0 1px 4px rgba(61, 47, 47, 0.2);
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.mat-sort-header-arrow[style] {
+
+  // Hide default arrow stem
+  .mat-sort-header-stem {
+    display: none;
+  }
+
+  .mat-sort-header-indicator {
+    opacity: 1;
+    color: black;
+    font-weight: bold;
+
+    // Hide default arrow as its composed of left, right and middle
+    .mat-sort-header-pointer-left,
+    .mat-sort-header-pointer-right,
+    .mat-sort-header-pointer-middle {
+      display: none;
+    }
+  }
+}
+
+// sort custom ascending arrow
+[aria-sort="ascending"] {
+  .mat-sort-header-arrow {
+    .mat-sort-header-indicator {
+      &::before {
+        top: -0.3em;
+        transform: rotate(180deg);
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+// sort custom descending arrow
+[aria-sort="descending"] {
+  .mat-sort-header-arrow {
+    .mat-sort-header-indicator {
+      &::before {
+        top: -0.8em;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+[aria-sort="none"] {
+  .mat-sort-header-arrow {
+    opacity: 1 !important;
+    transform: none !important;
+
+    .mat-sort-header-indicator {
+      transform: translateY(0) !important;
+      transition: none;
+    }
+  }
+}
+
+
+
+.mat-sort-header-arrow {
+  .mat-sort-header-indicator {
+    &::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      background: url(./assets/images/iconSort.svg);
+      top: 0;
+      position: absolute;
+      color: var(--input-text-color);
+    }
+
+    &::after {
+      content: "";
+      width: 18px;
+      height: 18px;
+      background: url(./assets/images/iconSort.svg);
+      top: -6px;
+      position: absolute;
+      color: var(--input-text-color);
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@media print {
+
+  .actionHide,
+  .mat-sort-header-arrow,
+  th img {
+    display: none;
+  }
+}
+
+//Sorting Arrow
+.img-style {
+  padding-right: 15px;
+  vertical-align: middle;
+}
+
+.sortUp {
+  transform: rotate(180deg) !important;
+  position: relative;
+  right: 33px;
+  cursor: pointer;
+}
+
+.sortUpAscending {
+  transform: rotate(180deg) !important;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+//status bg colour
+.status-green-button {
+  height: 24px;
+  padding: 2px 10px;
+  border: 1px solid var(--status-green-border-color);
+  border-radius: 15px;
+  background-color: var(--status-green-bg-color);
+  font-family: 'HelveticaNeueLight', arial, sans-serif;
+  font-size: 10px;
+  color: var(--primary-btn-text);
+}
+
+.status-red-button {
+  height: 24px;
+  padding: 2px 10px;
+  border: 1px solid var(--status-red-border-color);
+  border-radius: 15px;
+  background-color: var(--status-red-bg-color);
+  font-family: 'HelveticaNeueLight', arial, sans-serif;
+  font-size: 10px;
+  color: var(--primary-btn-text);
+}
+
+.errorMsg {
+  color: var(--mandatory-mark-color);
+  font-size: 10px;
+  height: 0px;
+}
+
+// .cdk-overlay-pane{
+//   left: 1101px !important;
+// }
+
+.mat-menu-panel {
+  transform-origin: left bottom;
+  overflow: unset !important;
+}
+
+#dashboardAccountInquiry,
+#dashboardLoanInquiry {
+  table.mat-table {
+    margin: 20px 14px 15px 14px;
+    width: 97%;
+    word-break: break-word;
+    background-color: var(--primary-widget-bg-color);
+    font-family: 'HelveticaNeueMed',arial, sans-serif;
+  }
+
+  td.mat-cell {
+    border-bottom-style: none;
+    border-bottom-width: 0px;
+  }
+
+  th.mat-header-cell:last-of-type {
+    width: 75px;
+  }
+
+  tr.mat-row,
+  tr.mat-header-row {
+    height: 40px;
+  }
+
+  tr.mat-row:hover {
+    background-color: var(--summary-hover-color);
+  }
+
+  th.mat-header-cell {
+    font-size: 14px;
+    color: var(--table-header-color);
+    border-bottom-style: none;
+  }
+
+  td.mat-header-cell {
+    font-size: 14px;
+    color: var(--tableData-header-color);
+  }
+
+  .mat-row:nth-child(even) {
+    background-color: var(--secondary-btn-txt-color);
+    cursor: pointer;
+  }
+
+  .mat-row:nth-child(odd) {
+    background-color: var(--summary-row-bg-color);
+    cursor: pointer;
+  }
+
+  td:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+
+  td:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+
+  .accountsHeader {
+    font-size: 16px;
+    color: var(--primary-fontColor);
+    font-family: 'HelveticaNeueMed';
+  }
+
+  .headerPanelWidth {
+    width: 50%;
+  }
+
+  div.header-panel,
+  div.searchCntnr {
+    margin: 20px 15px 0px 20px !important;
+    display: flex;
+  }
+
+  div.searchCntnr {
+    justify-content: space-between;
+    margin-top: 0px !important;
+  }
+
+  .header-panel-left,
+  .searchCntnrLeft {
+    float: left;
+  }
+
+  .header-panel-right,
+  .searchCntnrRight {
+    float: right;
+  }
+
+  .searchCntnrRightText {
+    color: var(--secondary-btn-print-text-color);
+    position: relative;
+    top: 10px;
+    cursor: pointer;
+    font-family: 'HelveticaNeueLight', arial, sans-serif;
+  }
+
+  .viewBalance {
+    color: var(--secondary-btn-print-text-color);
+    height: 40px;
+    vertical-align: middle;
+    display: table-cell;
+  }
+
+  .hideAllBalance {
+    color: var(--secondary-btn-print-text-color);
+    position: relative;
+    top: 10px;
+    right: 8px;
+    font-family: 'HelveticaNeueMed';
+  }
+
+  td.mat-cell:first-of-type,
+  td.mat-cell,
+  th.mat-header-cell:first-of-type,
+  th.mat-header-cell {
+    padding: 0px 0px 0px 5px;
+  }
+
+  th.mat-header-cell:last-of-type {
+    padding-right: 0px;
+  }
+
+  .sortDown {
+    background: url(./assets/images/sortDown.svg);
+    cursor: pointer
+  }
+
+  @media print {
+
+    th img,
+    .searchCntnrRightText,
+    .actionHide {
+      display: none;
+    }
+  }
+}
+
+app-settings {
+  .titleContainer {
+    margin-top: 27px;
+    margin-left: 20px;
+    margin-bottom: 12px;
+  }
+}
+
+app-mytask {
+  .casaTable {
+    width: 100%;
+    background-color: var(--primary-widget-bg-color);
+  }
+
+  .position_rel {
+    position: relative;
+  }
+
+  .mat-row:hover .EditIcon {
+    display: inline-block;
+  }
+
+  td.mat-cell:first-of-type {
+    width: 20%;
+  }
+
+  .searchCntnrLeft {
+    margin-left: 15px;
+  }
+
+  .actionsConatiner {
+    display: flex;
+    justify-content: space-between;
+
+    .leftPannel {
+      display: flex;
+      min-width: 40%;
+      justify-content: space-between;
+    }
+  }
+}
+
+app-mytask {
+
+  app-beneficiaries,
+  app-biller-management,
+  app-payment,
+  app-sadad,
+  app-onboard-file-transfers,
+  app-e-trade,
+  app-service-request-tab {
+    a {
+      font-size: 14px;
+    }
+
+    .tabCntr ul li {
+      padding-left: 0px;
+    }
+
+    .worksapceBase {
+      margin: 20px 20px 0 15px !important;
+      width:100%
+    }
+
+    .tabCntr ul li a {
+      font-family: 'HelveticaNeue', arial, sans-serif;
+      width: 150px;
+    }
+
+    .tabCntr ul li a.active {
+      font-family: 'HelveticaNeueMed', arial, sans-serif;
+      width: 150px;
+    }
+
+    .tabCntr ul li a {
+      text-align: center;
+      font-family: "HelveticaNeue", arial, sans-serif;
+    }
+  }
+}
+
+app-notifications {
+
+  app-alerts,
+  app-announcements,
+  app-drafts,
+  app-sent,
+  app-notification,
+  app-inbox {
+    .casaTable {
+      width: 100%;
+      background-color: var(--primary-widget-bg-color);
+    }
+
+    .position_rel {
+      position: relative;
+    }
+
+    .dslk_flex {
+      display: flex;
+      justify-content: space-between;
+      width: 135px;
+    }
+
+    .mat-row:hover .EditIcon {
+      display: inline-block;
+    }
+
+    td.mat-cell:first-of-type {
+      width: 20%;
+    }
+
+    .searchCntnrLeft {
+      float: left;
+      // margin-left: 15px;
+    }
+
+    .actionsConatiner {
+      display: flex;
+      justify-content: space-between;
+
+      .leftPannel {
+        display: flex;
+        min-width: 40%;
+        justify-content: space-between;
+      }
+    }
+
+  }
+
+}
+
+.mat-option {
+  padding: 5px;
+  border-left: 1px solid var(--widget-border-color);
+  border-right: 1px solid var(--widget-border-color);
+  border-bottom: 1px solid var(--widget-border-color);
+  line-height: 40px !important;
+  color: var(--default-text-color) !important;
+
+  //common for all pages
+  font-family: "HelveticaNeueLight", arial, sans-serif !important;
+  font-size: 14px !important;
+
+}
+
+.mat-option:first-child {
+  background-color: transparent;
+}
+
+.mat-option:hover,
+.mat-option.mat-selected {
+  background-color: var(--summary-hover-color) !important;
+  color: var(--default-text-color)
+}
+
+.selectDropdown {
+  min-width: 282px !important;
+}
+
+app-sadad-payments {
+  .debit {
+
+    .header-panel,
+    .searchCntnr {
+      margin: 0px !important;
+    }
+
+  }
+}
+
+
+
+app-credited-to,
+app-transaction-lookup,
+app-e-pay-debit,
+app-merchant-lookup {
+
+  .header-panel,
+  .searchCntnr {
+    margin: 10px 15px 25px 0px !important;
+  }
+
+  .mat-select {
+    width: 250px !important;
+  }
+
+  .selected {
+    background-color: var(--summary-hover-color) !important;
+  }
+
+  // .subContainer{
+  //   padding-left: 30px !important;
+  // }
+  .header-panel,
+  .marginLeft_0 {
+    margin: 0 !important;
+    padding-right: 0px !important;
+  }
+
+  .casaTable th.mat-header-cell:last-of-type,
+  .casaTable td.mat-cell:last-of-type,
+  .casaTable td.mat-footer-cell:last-of-type {
+    text-align: start !important;
+  }
+
+  tr.mat-footer-row {
+    border-top: 2px solid #8c8c8c;
+  }
+
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element,
+  .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+    background-color: var(--short-profile-txt-color) !important;
+  }
+
+  .checkedToRead {
+
+    table {
+      margin: 0px !important;
+
+      td.mat-cell:first-of-type,
+      td.mat-cell,
+      th.mat-header-cell:first-of-type,
+      th.mat-header-cell {
+        padding-left: 5px !important;
+      }
+
+      th.mat-header-cell:last-of-type,
+      td.mat-cell:last-of-type,
+      td.mat-footer-cell:last-of-type {
+        padding-right: 10px !important;
+      }
+    }
+  }
+}
+
+app-sadad-payments {
+  app-debit-lookup {
+
+    .header-panel,
+    .searchCntnr {
+      margin: 20px 15px 25px 0px !important;
+    }
+  }
+
+  .tertiaryBtn {
+    .buttonTertiary {
+      width: 100px !important;
+      padding-top: 5px !important;
+
+      .headerContainer {
+        margin-right: 0px !important;
+      }
+    }
+  }
+
+  .arrange {
+
+    .additionDetailsContainer,
+    .authorizationContainer,
+    .authentication {
+      margin-left: 16px;
+      padding-right: 0px;
+      margin-right: 21px;
+      background-color: var(--primary-widget-bg-color);
+    }
+
+    .mainContainer {
+      padding: 0px 25px 0px 20px;
+
+    }
+
+    // th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+    //   padding-left: 14px !important;
+    // }
+    // .subContainer {
+    //   padding: 19px 10px 31px 22px;
+    //   }
+  }
+
+  // .padding_0{
+  //   td.mat-cell:first-of-type,
+  //     td.mat-cell,
+  //     th.mat-header-cell:first-of-type,
+  //     th.mat-header-cell {
+  //       padding-left: 0px !important;
+  //     }
+  // }
+}
+
+input,
+button,
+a,
+*[routerLink] {
+  outline: none !important;
+}
+
+app-sadad-moi,
+app-credited-to,
+app-aramco-make-payment,
+app-sadad-esal,
+app-sadad-moi-refund {
+  .debit {
+    .subContainer {
+      padding: 25px 31px 31px 25px;
+      margin-right: 15px;
+
+      .searchCntnr {
+        margin: 10px 15px 25px 0px !important;
+      }
+    }
+
+    th.mat-header-cell:first-of-type,
+    td.mat-cell:first-of-type {
+      padding-left: 10px !important;
+    }
+  }
+
+  .selected {
+    background-color: var(--summary-hover-color) !important;
+  }
+
+  .primaryBtn {
+    .buttonPrimary {
+      width: 160px !important;
+    }
+  }
+
+  .deb {
+    .mainConatiner {
+      margin-right: 15px !important;
+    }
+  }
+
+  .arrange,
+  .debit {
+    .tableInfo {
+      margin-top: 10px !important;
+    }
+
+    .additionDetailsContainer,
+    .authorizationContainer,
+    .authentication {
+      margin-right: 20px !important;
+      background-color: var(--primary-widget-bg-color);
+    }
+
+    // .subContainer{
+    //   .searchCntnr{
+    //     margin: 5px !important;
+    //   }
+    // }
+    table {
+      margin-left: 0px !important;
+
+      th.mat-header-cell:first-of-type,
+      td.mat-cell:first-of-type,
+      td.mat-footer-cell:first-of-type {
+        padding-left: 5px;
+        line-height: 10px;
+      }
+    }
+  }
+
+  .arrange {
+
+    // .tableInfo{
+    //   margin-left: 2px !important;
+    // }
+    .subContainer {
+      border: none !important;
+      // padding: 10px 10px 0px 0px;
+    }
+  }
+
+  .modifyBtn {
+    .secondoryButton {
+      width: 100px !important;
+    }
+  }
+
+  .rearrange {
+
+    .additionDetailsContainer,
+    .authorizationContainer,
+    .authentication {
+      margin-right: 15px !important;
+    }
+  }
+}
+
+app-pagination.mTop_35 {
+  .paginationCntr {
+    margin-top: 35px !important;
+  }
+}
+
+app-sadad-moi-payment-to {
+  .tertiaryBtn {
+    .buttonPrimary {
+      margin-left: 0px;
+    }
+  }
+
+  .selected {
+    background-color: var(--summary-hover-color) !important;
+  }
+
+  .mat-select {
+    width: 290px !important;
+  }
+
+  table {
+
+    td.mat-cell:first-of-type,
+    td.mat-cell,
+    th.mat-header-cell:first-of-type,
+    th.mat-header-cell {
+      padding-left: 5px !important;
+    }
+
+    td.mat-cell:last-of-type {
+      padding-right: 10px !important;
+    }
+
+    td.mat-footer-cell:last-of-type {
+      padding-right: 0px;
+      margin-left: 20px;
+    }
+
+    tr.mat-header-row {
+      height: 40px;
+    }
+
+    .casaTable .mat-cell {
+      line-height: 40px;
+    }
+  }
+
+  .subTableGroup {
+    table {
+      margin: 0px;
+
+      .mat-row:hover {
+        cursor: auto;
+      }
+    }
+
+    tr.mat-footer-row {
+      border-top: 2px solid #8c8c8c;
+    }
+
+    td.mat-footer-cell:first-of-type {
+      padding-left: 0px !important
+    }
+  }
+}
+
+@media print {
+
+  .buttonContainer,
+  .lhsContainer,
+  .mainTitle,
+  .footerContainer {
+    display: none;
+  }
+
+  div.divFooter {
+    margin-left: 8% !important;
+  }
+
+  .subContainer {
+    border: none !important;
+  }
+
+  .title {
+    display: none !important;
+  }
+
+  .titleList {
+    border-bottom: none !important;
+  }
+
+  .receiptConatiner {
+    width: 90%;
+  }
+
+  app-summary-tools {
+    display: none;
+  }
+
+  @page {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+
+}
+
+app-fund-transfer-own-account,
+app-fund-transfer-within-bank,
+app-fund-transfer-local,
+app-fund-transfer-international,
+app-si-menu,
+app-si-local-transfer,
+app-si-international-transfer,
+app-si-own-transfer {
+  #paymentDebitLookup .subContainer {
+    padding-top: 75px !important;
+  }
+
+  #paymentBeneLookup .subContainer {
+    padding-top: 20px !important;
+  }
+
+  // app-debit-lookup{
+  //   .searchCntnr, .tableInfo{
+  //     margin-left:-4px !important;
+  //   }
+  // }
+  .amountTxt {
+    width: 188px;
+  }
+}
+
+app-fund-transfer-local {
+  @media print {
+    app-receipt {
+      .receiptConatiner {
+        width: 100% !important;
+      }
+
+      .row {
+        padding: 15px 0px 0px 0px !important;
+      }
+
+      th.mat-header-cell:nth-child(2) {
+        width: 42% !important;
+      }
+
+      .rowInnerCntr {
+        .field {
+          width: 33.33% !important;
+        }
+
+        .field:nth-child(2) {
+          width: 41% !important;
+        }
+
+        .field:nth-child(3) {
+          width: 25% !important;
+        }
+      }
+
+    }
+  }
+}
+
+#dashboardContainer {
+
+  .chicklet,
+  .summaryConainer {
+    position: relative;
+
+    #ajaxLoaderMedium {
+      border-radius: 10px;
+    }
+  }
+}
+
+app-aramco-amount-details {
+  .mat-select {
+    min-width: 60px;
+  }
+}
+
+.currencyDropdown {
+  min-width: 82px !important;
+  position: absolute;
+  top: 29px;
+  right: -17px;
+  box-shadow: none !important;
+}
+
+app-aramco-to-payment {
+  .buttonPrimary {
+    margin-left: 0px !important;
+  }
+
+  tr.mat-footer-row {
+    border-top: 2px solid #8c8c8c;
+  }
+
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element,
+  .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+    background-color: var(--short-profile-txt-color) !important;
+  }
+}
+
+textarea {
+  resize: none !important;
+}
+
+app-beneficiary-inquiry {
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: var(--short-profile-txt-color) !important;
+  }
+}
+
+app-sadad-esal .arrange .subContainer .searchCntnr {
+  margin-bottom: 15px !important;
+}
+
+app-sadad-esal-payment-to {
+  .proceedBtn {
+    .buttonPrimary {
+      margin-left: 0px !important;
+    }
+  }
+
+  .invoiceTable {
+
+    td.mat-cell:last-of-type,
+    td.mat-footer-cell:last-of-type {
+      text-align: left !important;
+    }
+  }
+
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element,
+  .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+    background-color: var(--short-profile-txt-color) !important;
+  }
+
+  tr.mat-footer-row {
+    border-top: 2px solid #8c8c8c;
+  }
+}
+
+app-advanced-filtercommon {
+  .shortDatePicker {
+    app-date-picker {
+      .container {
+        width: 320px !important;
+
+        input {
+          width: 300px !important;
+          height: 40px;
+          padding: 0px 8px;
+          border: 1px solid var(--widget-border-color);
+          border-radius: 4px;
+          color: var(--tableData-header-color);
+        }
+      }
+
+      .datePicker {
+        right: 0 !important;
+        left: unset !important;
+
+      }
+    }
+  }
+}
+
+app-pmt-single-transfer-details-layout {
+  .transferContainer {
+    .container {
+      margin-right: 30px !important;
+
+    }
+  }
+
+  .summaryContainer {
+    .printIcon {
+      margin-top: 20px;
+      margin-right: 45px;
+    }
+
+    .icons {
+      margin-top: 20px;
+    }
+  }
+}
+
+app-beneficiary-activation {
+  .callBackConatiner {
+    border-radius: 10px;
+    border: 1px solid var(--widget-border-color);
+  }
+}
+
+app-authorize-cheque-book-request,
+app-delete-beneficiary,
+app-authorize-single-beneficiary,
+app-authorize-single-transfer,
+app-change-password {
+  .authContainer {
+    border: 0 !important;
+    padding-bottom: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+
+}
+
+app-change-password {
+  .authentication {
+    border: none !important;
+    border-radius: none !important;
+    margin-top: 0px !important;
+  }
+}
+
+td div.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// .disable-text-selection {
+//   -webkit-user-select: none;
+//   -ms-user-select: none;
+//   user-select: none;
+// }
+
+.printIcon.printIconRtl {
+  display: none;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: var(--paginator-underline-color);
+}
+
+.mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex {
+  background-color: var(--paginator-widget-bg-color);
+}
+
+.mat-select-panel {
+  background: var(--primary-widget-bg-color);
+}
+
+// date picker and calender stlyes started
+.mat-icon-button .mat-button-wrapper>*,
+.mat-button {
+  color: var(--default-text-color);
+}
+
+.mat-datepicker-content .mat-calendar {
+  background-color: var(--advance-filter-bg-color);
+  box-shadow: 0px 2px 4px -1px rgba(247, 245, 245, 0.2), 0px 4px 5px 0px rgba(151, 151, 151, 0.14), 0px 1px 10px 0px rgba(146, 146, 146, 0.12);
+}
+
+.mat-calendar-table-header,
+.mat-calendar-body-label,
+.mat-calendar-body-cell-content.mat-focus-indicator {
+  color: var(--calendar-header-color);
+}
+
+.mat-calendar-body-disabled>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  color: var(--date-disabled-color);
+}
+
+.mat-calendar-table-header-divider::after {
+  background: var(--calendar-divider-color);
+}
+
+.mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  border-color: var(--date-disabled-color);
+}
+
+.mat-calendar-body-cell-content.mat-focus-indicator:hover {
+  color: var(--date-hover-color);
+}
+
+//ended
+.mat-select-placeholder {
+  color: var(--table-header-color) !important;
+}
+
+.mat-button-toggle-group-appearance-standard {
+  border-color: var(--widget-border-color);
+}
+
+input[type=text]::placeholder {
+  color: var(--table-header-color);
+}
+
+//dialog box
+.mat-dialog-container {
+  box-shadow: 0px 11px 15px -7px var(--dialog-box-shadow-20per), 0px 24px 38px 3px var(--dialog-box-shadow-14per), 0px 9px 46px 8px var(--dialog-box-shadow-12per);
+  background: var(--advance-filter-bg-color);
+}
+
+/* image sprite START */
+.sprite {
+  background-image: url("assets/images/snb_web.png");
+}
+
+
+// .languageIcon {
+//   width: 24px;
+//   height: 24px;
+//   display: inline-block;
+//   cursor: pointer;
+//   background-position: -48px -900px;
+// }
+
+// .logoutIcon {
+//   width: 24px;
+//   height: 24px;
+//   display: inline-block;
+//   background-position: -42px -350px;
+//   cursor: pointer;
+// }
+/* image sprite END */
+
+/* RTL related changes START */
+body.rtl {
+
+  >div,
+  #appContainer {
+    direction: rtl;
+  }
+
+  div.dropdownIcon.sprite.leftIcon {
+    float: left;
+  }
+
+  .main-category .container {
+    flex-direction: row-reverse;
+  }
+
+  .sub-purpose {
+    direction: rtl;
+  }
+
+  .printIcon {
+    // display: none;
+
+    &.printIconRtl {
+      display: inline;
+    }
+  }
+
+  .headerContainer {
+    .menuGrp {
+      float: left;
+    }
+
+    .searchMover {
+      transform: translateX(10px);
+    }
+
+    .searchInput {
+      padding: 0 10px 0 0;
+    }
+  }
+
+  @media print {
+    .logo {
+      margin-right: 48%;
+      margin-left: 0%;
+    }
+
+    div.divFooter {
+      margin-left: 0%;
+      margin-right: 35%;
+    }
+
+    .subContainer {
+      border: none !important;
+    }
+
+    .title {
+      display: none;
+    }
+
+    .titleList {
+      border-bottom: none !important;
+    }
+
+    // #accountsPrintSection{
+    //   // width: 95% !important;
+    // }
+  }
+
+  #appContainer .mainContainer {
+    .lhsContainer {
+      border-right: 0 none;
+      border-left: 1px solid var(--widget-border-color);
+    }
+
+    .workspaceContainer {
+      .workspace {
+        margin-left: 10px !important;
+        margin-right: 20px !important;
+      }
+    }
+  }
+
+  .rhsSection {
+    .chicklet {
+      margin-right: 20px;
+      margin-left: 0 !important;
+    }
+  }
+
+  .mainSection {
+    .chicklet {
+      margin-left: 0 !important;
+
+      &:first-child {
+        margin-left: 20px !important;
+      }
+    }
+  }
+
+  .mainConatiner {
+    padding: 0px 20px 0px 25px;
+  }
+
+  .search-icon {
+    right: auto;
+    left: 17px;
+  }
+
+  .header-panel-right,
+  .searchCntnrRight {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .dropDownOption {
+    right: -28px !important;
+  }
+
+  .carouselBtnIndicators {
+    float: left !important;
+  }
+
+  .nexticon {
+    transform: rotate(180deg);
+  }
+
+  .announcementicon {
+    margin: 18px 13px 0px 0px !important;
+  }
+
+  .nextLogo {
+    transform: rotate(180deg);
+    float: left;
+  }
+
+  .accordion {
+    float: left;
+  }
+
+  .menuLevel1 {
+    a {
+      padding-right: 10px;
+    }
+  }
+
+  .search-icon {
+    right: auto;
+    left: 35px;
+  }
+
+  app-summary-tools {
+    .right-top {
+      float: left;
+      display: flex;
+      line-height: 0px;
+    }
+  }
+
+  .header-panel-right,
+  .searchCntnrRight {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .search-icon {
+    float: left;
+  }
+
+  app-accounts-inquiry {
+    .searchCntnrLeft {
+      margin-right: 15px;
+    }
+
+    .EditIcon {
+      right: auto;
+      left: 0;
+    }
+
+    .title {
+      margin-right: 25px;
+    }
+
+    .titleConatiner {
+      margin-right: 0;
+    }
+  }
+
+  .sortUp {
+    right: -18px;
+  }
+
+  .downarrow-icon {
+    margin-left: 13px;
+  }
+
+  app-account-details {
+    .downarrow-icon {
+      margin-right: 13px;
+    }
+
+    .mainTitle {
+      margin-right: 5px;
+    }
+
+    .closeIcon {
+      margin-right: 10px;
+    }
+
+    .tickIcon {
+      margin-right: 16px;
+    }
+
+    .pencilIcon {
+      margin-right: 10px;
+    }
+
+    .nicknameField {
+      padding-right: 16px;
+    }
+
+    .button-secondary {
+      float: left;
+      margin-left: 25px;
+      margin-right: auto;
+    }
+
+    .accDetailsInfo {
+      margin-right: 0px !important;
+      margin-left: 30px;
+    }
+
+    .label {
+      padding-right: 0px;
+    }
+  }
+
+  app-single-transfer-detail {
+    .container {
+      padding: 16px 14px 18px 0 !important;
+    }
+
+    .subContainer {
+      padding: 12px 18px 15px 0;
+      margin: 20px 0px 10px 30px;
+    }
+  }
+
+  app-pmt-single-transfer-details-layout {
+    .right-top {
+      margin-left: 40px;
+    }
+
+    .mainTitle {
+      margin-right: 30px;
+    }
+  }
+
+  app-loan-details {
+    .mainTitle {
+      margin-right: 5px;
+    }
+
+    .button-secondary {
+      float: left;
+      margin-left: 25px;
+      margin-right: auto;
+    }
+  }
+
+  .right-content {
+    border-left: none;
+    border-right: 1px solid #e8e8e8;
+    border-radius: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .left-content-Menulist {
+    ul {
+      padding: 0;
+
+      li {
+
+        a,
+        .title {
+          padding-right: 15px;
+        }
+      }
+    }
+  }
+
+  .backgroundContainer,
+  .summaryConainer {
+    margin-right: 0px;
+    // padding-right: 20px;
+  }
+
+  .detailsContainer {
+    margin-right: 20px;
+  }
+
+  .detailsTitleContainer,
+  .titleConatiner,
+  .rejectReasonContainer {
+    margin-right: 30px;
+  }
+
+  .status-green-button {
+    margin: -2px 10px 0 10px;
+  }
+
+  .receiptSubconatiner {
+    .row {
+      .rowInnerCntr {
+        margin-right: -20px;
+      }
+    }
+  }
+
+  .buttonTertiary {
+    margin-left: 10px;
+  }
+
+  .casaTable td.mat-cell:first-of-type {
+    border-radius: 0px 10px 10px 0px !important;
+  }
+
+  .casaTable td.mat-cell:last-of-type {
+    border-radius: 10px 0px 0px 10px !important;
+  }
+
+  .casaTable1 td.mat-cell:first-of-type {
+    border-radius: 0px 10px 10px 0px !important;
+    // padding-right: 5px !important;
+  }
+
+  .casaTable1 td.mat-cell:last-of-type {
+    border-radius: 10px 0px 0px 10px !important;
+    // padding-left: 24px !important;
+  }
+
+  .titleContainerLeft {
+    margin-right: 18px;
+  }
+
+  .subTitleContainerLeft {
+    margin-right: 18px;
+  }
+
+  app-authorize-single-transfer {
+
+    .backgroundContainer,
+    .summaryConainer {
+      // margin-right: 0px;
+      padding-right: 20px;
+    }
+
+    .footerText {
+      margin-right: 35px;
+    }
+
+    app-authentication {
+      .authentication {
+        padding: 20px;
+        margin-right: -18px;
+      }
+
+      .tokenCode {
+        margin-right: 40px;
+        margin-left: 0 !important;
+      }
+    }
+
+    app-authorization {
+      .authorizationContent {
+        margin-right: 16px;
+        margin-left: 0;
+
+      }
+
+      .authorizationContent1 {
+        margin-left: 40px;
+        margin-right: 0;
+      }
+
+      .mat-select-arrow-wrapper {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  app-receipt-beneficiary-upload {
+    .btnCntr {
+      margin-left: 0px;
+    }
+
+    .flexRow {
+      padding: 0px;
+    }
+  }
+
+  app-authorize-bulk-upload,
+  app-authorize-stop-payment {
+    .backArrow {
+      left: 10px
+    }
+
+    .mainTitle {
+      left: -10px;
+      position: relative;
+    }
+
+    .container {
+      padding: 16px 10px 14px 18px;
+    }
+  }
+
+  app-reject-bulk-upload,
+  app-reject-stop-payment {
+    .backArrow {
+      left: 10px
+    }
+
+    .mainTitle {
+      left: -10px;
+      position: relative;
+    }
+
+    .container {
+      padding: 16px 10px 14px 18px;
+    }
+
+    .btnContainer {
+      padding: 0px;
+    }
+  }
+
+  app-reject-single-transfer-payment {
+    .backArrow {
+      margin-right: -43px;
+    }
+  }
+
+  app-pmt-single-transfer-details-layout {
+    .summaryContainer .printIcon {
+      margin-top: 20px;
+      margin-right: 0;
+    }
+  }
+
+  app-cheque-book-details {
+    .dataContainer {
+      margin: 16px 18px 0 30px;
+    }
+
+    .detailsContainer {
+      margin-right: 0px;
+    }
+
+    .label {
+      padding-right: 0px;
+    }
+
+    .statusContainerLeft {
+      margin-right: 10px;
+    }
+  }
+
+  app-cheque-details-layout {
+    .detailsTitleContainer {
+      margin: -15px 30px -27px 0px;
+    }
+
+    .accordionUp {
+      margin-left: -10px;
+    }
+  }
+
+  app-cheque-details-layout {
+    .right-top {
+      position: relative;
+      left: 85px;
+    }
+  }
+
+  .titleContainerLeft {
+    margin-right: 18px;
+  }
+
+  .subTitleContainerLeft {
+    margin-right: 18px;
+  }
+
+  .searchMore {
+    margin-right: -5px;
+  }
+
+  .refreshCntr {
+
+    //position: relative;
+    app-refresh {
+      // position: absolute;       
+      right: unset !important;
+      left: 0 !important;
+    }
+  }
+
+  // Settings Start
+  .right-content {
+    border-right: 1px solid #e8e8e8;
+    padding-right: 20px;
+  }
+
+  label {
+    padding-right: 15px;
+  }
+
+  .camIcon {
+    right: 155%;
+    transform: rotate(270deg);
+  }
+
+  .mat-slide-toggle {
+    transform: rotate(180deg);
+  }
+
+  .button1 {
+    margin-left: 16px;
+    margin-right: 0px;
+  }
+
+  .selectInput {
+    padding: 0px 10px 0px 0px;
+  }
+
+  .btncntr {
+    float: left;
+  }
+
+  .btnContainer {
+    float: left;
+    padding-right: auto;
+    padding-left: 30px;
+  }
+
+  .authentication {
+    padding: 20px 0px 20px 20px;
+  }
+
+  .rightColumn {
+    margin-right: 30px;
+  }
+
+  .btnCntr {
+    float: left;
+    margin-left: 20px;
+  }
+
+  .mat-select-panel .mat-optgroup-label,
+  .mat-select-panel .mat-option {
+    text-align: right !important;
+    height: 34px;
+  }
+
+  .mat-autocomplete-panel .mat-option {
+    text-align: right !important;
+  }
+  // Settings End
+  // Notifications Start
+  app-delete-popup {
+    float: left;
+    text-align: right;
+
+    .close-icon {
+      float: left;
+      cursor: pointer;
+      margin-left: 0;
+    }
+
+    .mat-dialog-actions {
+      flex-direction: row-reverse;
+      float: left !important;
+    }
+
+    .mat-dialog-content {
+      float: right;
+    }
+  }
+
+  app-notifications {
+    th.mat-header-cell {
+      text-align: right;
+    }
+
+    .sortUp {
+      right: -18px !important;
+    }
+
+    td.mat-cell {
+      padding-right: 5px;
+    }
+
+    .trash-btn-shown {
+      float: left;
+    }
+  }
+
+  // Notification End
+  app-short-profile {
+
+    .logo,
+    .profile-pic-icon {
+      margin-left: 0px;
+      margin-right: 15px;
+    }
+
+    .username,
+    .logindatelable {
+      margin-left: 0px;
+      margin-right: 11px;
+    }
+  }
+
+  app-lhs-menus {
+    .menuLevel1 a.applyFor .icon {
+      transform: rotate(180deg);
+    }
+
+    .menuLevel1 a.TRANSFERS .icon {
+      transform: rotateY(180deg);
+    }
+
+    .menuLevel1 a {
+      padding-right: 10px;
+      padding-left: 0px;
+    }
+
+    .label {
+      padding-right: 5px !important;
+    }
+
+    .menuLevel1 a .icon {
+      background-repeat: no-repeat !important;
+    }
+  }
+
+  .footertext {
+    padding: 0px 20px 0px 0px;
+  }
+
+  .footerlables {
+
+    .snbcap,
+    .careertext {
+      padding-right: 30px !important;
+      padding-left: 0px !important;
+    }
+  }
+
+  app-market-place {
+    .marketPlaceInfo {
+      padding: 2px 12px 24px 7px;
+    }
+
+    .marketPlaceData,
+    .subtitle {
+      margin-right: 5px !important;
+      margin-left: 0px !important;
+    }
+
+    .pointSale img {
+      margin-left: 3px;
+      margin-right: 0px !important;
+    }
+
+    .carouselBtnIndicators {
+      float: left;
+    }
+
+    .mainConatiner {
+      padding: unset;
+    }
+  }
+
+  app-announcements {
+    .carouselBtnIndicators {
+      float: left !important;
+    }
+
+    .icon-announcement_active{
+      &::before{          
+        margin-left: 0px !important;
+        margin-right: 13px !important;
+      }
+    }
+    .nexticon {
+      transform: rotate(180deg);
+    }
+
+    .announcementInfo {
+      padding: 2px 12px 12px 7px !important;
+    }
+
+    .casaTable td.mat-cell:last-of-type {
+      padding-left: 24px !important;
+    }
+  }
+
+  app-portfolio {
+    .titleConatiner {
+      padding: 10px 18px 37px 10px;
+      margin-right: 0px !important;
+    }
+
+    .portFolioBar {
+      padding: 0px 19px 0px 40px;
+    }
+
+    .assetsLiabilities {
+      padding: 4px 18px 0px 21px;
+    }
+
+    .nextLogo {
+      float: left;
+    }
+
+    .portfolioAmount {
+      padding: 0px 18px 6px 19px;
+    }
+    .icon-next_active{
+      &::before{          
+        transform: rotate(180deg);
+        margin-right: 22px;
+      }
+    }
+  }
+
+  app-task {
+    .mainCntr .topTittle {
+      padding: 6px 20px 0px 15px;
+    }
+
+    .leftSide {
+      padding: 9px 20px 8px 0px !important;
+    }
+
+    .icon-service_request_active ,.icon-benificiaries_active ,.icon-transfer_active,.icon-my_task_inactive_1{
+      &::before{
+          
+          margin-left: 25px;
+          margin-right: 0px;
+      }
+    }
+
+    .BillPayments {
+      margin-right: 0px !important;
+      margin-left: 25px
+    }
+
+    .count {
+      margin-right: 0px;
+    }
+
+.icon-next_active{
+  &::before{
+    margin-right: 0px;    
+    margin-left: 17px;
+    transform: rotate(180deg);
+  }
+}
+
+    .rightSide .nextArrow {
+      background: url(./assets/images/iconBack.svg) no-repeat center !important;
+    }
+  }
+
+  app-accounts,
+  app-loans {
+
+    #dashboardLoanInquiry th.mat-header-cell:first-of-type,
+    #dashboardLoanInquiry th.mat-header-cell,
+    #dashboardAccountInquiry th.mat-header-cell:first-of-type,
+    #dashboardAccountInquiry th.mat-header-cell {
+      padding-left: 0px;
+      padding-right: 5px !important;
+    }
+
+    #dashboardAccountInquiry div.header-panel,
+    #dashboardLoanInquiry div.header-panel {
+      margin: 20px 20px 0px 15px !important;
+    }
+
+    #dashboardAccountInquiry div.searchCntnr,
+    #dashboardLoanInquiry div.searchCntnr {
+      margin: 20px 20px 0px 15px !important;
+    }
+
+    .mat-sort-header-arrow,
+    .mat-sort-header-position-before .mat-sort-header-arrow {
+      margin: 0 6px 0 0px;
+    }
+
+    th.mat-header-cell {
+      text-align: right;
+    }
+
+    td.mat-cell {
+      padding: 0px 5px 0px 0px !important;
+    }
+
+    #dashboardLoanInquiry th.mat-header-cell:last-of-type,
+    #dashboardAccountInquiry th.mat-header-cell:last-of-type {
+      text-align: center;
+    }
+
+    #dashboardAccountInquiry td:first-child,
+    #dashboardLoanInquiry td:first-child {
+      border-radius: 0px 10px 10px 0px;
+    }
+
+    #dashboardAccountInquiry td:last-child,
+    #dashboardLoanInquiry td:last-child {
+      border-radius: 10px 0px 0px 10px;
+    }
+
+    .nickNameWidth {
+      width: auto;
+    }
+
+    #dashboardAccountInquiry .hideAllBalance,
+    #dashboardLoanInquiry .hideAllBalance {
+      right: -8px !important;
+    }
+
+    .header-panel-right {
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+    }
+
+    .accordionUp {
+      margin-left: -10px !important;
+    }
+
+  }
+
+  app-debit-lookup {
+
+    .header-panel,
+    .searchCntnr {
+      margin: 20px 0 25px 15px !important;
+    }
+  }
+
+  app-generate-statement {
+    app-debit-lookup {
+      .subContainer {
+        padding: 19px 22px 31px 40px;
+      }
+
+      // .header-panel,.searchCntnr {
+      //   margin: 20px 20px 25px 15px !important;
+      // }
+      .casaTable td.mat-cell {
+        padding: 0px 8px !important;
+      }
+    }
+
+    .datePickerInput {
+      padding: 0px 10px 0px 0px;
+    }
+
+    .datePicker {
+      right: 105px !important;
+    }
+  }
+
+  app-cheque-book-request {
+
+    app-debit-lookup {
+      .subContainer {
+        padding: 19px 22px 31px 40px;
+      }
+
+      // .header-panel, .searchCntnr {
+      //   margin: 20px 25px 25px 20px !important;
+      // }
+    }
+
+    app-authorization {
+      .authorizationContent {
+        margin-right: 16px;
+        margin-left: 0px;
+      }
+
+      .authorizationContent1 {
+        margin-left: 40px;
+        margin-right: 0px;
+      }
+
+    }
+
+    app-authentication {
+      .authentication {
+        padding: 20px;
+      }
+
+      .mat-button-toggle-group {
+        width: 300px;
+      }
+
+      .tokenCode {
+        margin-right: 40px;
+        margin-left: 0px !important;
+      }
+    }
+  }
+
+  app-view-estatement {
+
+    // app-debit-lookup{
+    //   .searchCntnr {
+    //     margin: 20px 20px 25px 15px !important;
+    //   }
+    // }
+    .viewStatement td.mat-cell:first-of-type {
+      border-radius: 0px 10px 10px 0px !important;
+      padding-right: 24px;
+      padding-left: 0px;
+    }
+
+    .viewStatement td.mat-cell:last-of-type {
+      border-radius: 10px 0px 0px 10px !important;
+      padding-right: 0px;
+      padding-left: 24px;
+    }
+
+    .viewStatement th.mat-header-cell:first-of-type {
+      padding-right: 24px !important;
+      padding-left: 0px !important;
+    }
+
+    .viewStatement th.mat-header-cell:last-of-type {
+      padding-right: 0px;
+      padding-left: 24px;
+    }
+
+    .dslk_felxConatiner>div {
+      padding-left: 30px;
+      padding-right: 0px !important;
+    }
+
+    .datePickerInput {
+      padding: 0px 10px 0px 0px;
+    }
+
+    .datePicker {
+      right: 280px !important;
+    }
+
+    th,
+    td {
+      text-align: right;
+    }
+
+    th.mat-header-cell:first-of-type,
+    td.mat-cell:first-of-type,
+    td.mat-footer-cell:first-of-type {
+      padding-left: 8px !important;
+    }
+
+    th.mat-header-cell:last-of-type,
+    td.mat-cell:last-of-type {
+      padding-left: 24px;
+      padding-right: 0px !important;
+    }
+  }
+
+  app-view-estatement,
+  app-cheque-book-request,
+  app-generate-statement {
+    .btnGroup {
+      float: left;
+    }
+
+    .backIcon {
+      transform: rotate(180deg);
+      right: -5px;
+    }
+
+    .ttileConatiner {
+      margin-right: -18px;
+    }
+
+    .subconatiner {
+      padding: 19px 22px 31px 25px;
+    }
+
+    .selectInput {
+      padding: 0px 10px 0px 0px;
+    }
+
+    .mat-select-arrow-wrapper {
+      margin-left: 14px;
+      margin-right: 0px;
+    }
+
+    .casaTable td.mat-cell:first-of-type {
+      border-radius: 0px 10px 10px 0px !important;
+    }
+
+    .casaTable td.mat-cell:last-of-type {
+      border-radius: 10px 0px 0px 10px !important;
+    }
+
+    .casaTable td.mat-cell {
+      padding: 0px 8px !important;
+    }
+
+    .search-icon {
+      left: 35px;
+    }
+
+    app-debit-lookup {
+
+      th,
+      td {
+        text-align: right;
+      }
+
+      th.mat-header-cell {
+        padding: 8px !important;
+      }
+
+      th.mat-header-cell:last-of-type {
+        padding-right: 8px !important;
+      }
+    }
+  }
+
+  .mat-calendar {
+    direction: rtl;
+  }
+
+  .mat-calendar-previous-button::after {
+    transform: rotate(137deg);
+  }
+
+  .mat-calendar-next-button::after {
+    transform: rotate(-137deg);
+  }
+
+  .mat-calendar-arrow {
+    margin-right: 5px;
+    margin-left: 0px !important;
+  }
+
+  mat-datepicker-content {
+    th {
+      text-align: center !important;
+    }
+  }
+
+  mat-calendar-header {
+    .mat-button-disabled {
+      opacity: .4 !important;
+      color: var(--primary-hover-color) !important;
+    }
+  }
+
+  app-receipt {
+    .receiptSubconatiner .row .rowInnerCntr {
+      margin-right: 0px;
+    }
+
+    .row {
+      padding: 15px 24px 0 20px;
+    }
+
+    th.mat-header-cell {
+      text-align: right;
+    }
+
+    th.mat-header-cell,
+    .label {
+      padding-left: 20px !important;
+      padding-right: 0px !important;
+    }
+
+    .information {
+      padding: 10px 0px 0px 20px !important;
+    }
+
+    .viewPinLink {
+      right: 40px !important;
+    }
+
+    .buttonContainer {
+      float: left;
+
+      app-primary-button {
+        .buttonPrimary {
+          margin-left: 0px !important;
+          margin-right: 15px;
+        }
+      }
+
+      app-secondary-button {
+        .secondoryButton {
+          margin-left: 0px !important;
+          margin-right: 15px;
+        }
+      }
+    }
+
+    app-tertiary-button {
+      .icon {
+        float: right;
+      }
+    }
+
+    .buttonTertiary {
+      margin-left: 0px;
+    }
+  }
+
+  app-mytask {
+
+    th.mat-header-cell:first-of-type,
+    td.mat-cell:first-of-type,
+    td.mat-footer-cell:first-of-type {
+      padding-left: 0px !important;
+      padding-right: 24px !important;
+    }
+    th.mat-header-cell{
+      text-align: right;
+    }
+    .searchCntnrLeft {
+      margin-right: 15px;
+      margin-left: 0px !important;
+    }
+  }
+
+  .img-style {
+    padding-right: 0px;
+  }
+
+  .casaTable th.mat-header-cell:last-of-type,
+  .casaTable td.mat-cell:last-of-type,
+  .casaTable td.mat-footer-cell:last-of-type {
+    text-align: initial;
+    padding-right: 0;
+  }
+
+  app-casa {
+    .acceptIcon {
+      right: auto;
+      left: 44px;
+    }
+
+    .cancelIcon {
+      right: auto;
+      left: 18px;
+    }
+
+    .nickNameInput {
+      padding-left: 52px;
+      padding-right: 5px;
+      border-radius: 0 10px 10px 0;
+    }
+
+    th.mat-header-cell:last-of-type {
+      padding-right: 0px;
+      padding-left: 24px !important;
+    }
+
+    .toolTip {
+      right: 0px;
+    }
+
+    .toolTip::after {
+      left: auto;
+      right: 8%;
+    }
+
+    th.mat-header-cell:first-of-type {
+      .position_rel {
+        text-align: right !important;
+        max-width: 72px;
+      }
+    }
+  }
+
+  app-servicerequest {
+    .title {
+      margin: 5px 25px 0 0;
+    }
+  }
+
+  app-downloadcenter {
+
+    td.mat-cell:first-of-type,
+    th {
+      padding-right: 5px;
+    }
+
+    th.mat-header-cell {
+      text-align: right;
+    }
+  }
+
+  app-otherrequest {
+    td.mat-cell:first-of-type {
+      padding-right: 5px;
+    }
+
+    th.mat-header-cell {
+      text-align: right;
+    }
+  }
+
+  .mat-paginator-icon {
+    transform: rotate(180deg);
+  }
+
+  app-system-error {
+    #toast {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .backArrow {
+    transform: rotate(180deg);
+    margin-left: 3px;
+    // margin-right: -42px;
+  }
+
+  .exportIcon {
+    background: url(assets/images/export-Icon.svg) no-repeat right center;
+    padding-right: 21px;
+    margin-right: 8px;
+    text-align: right;
+  }
+
+  .moreAction-popup {
+    li input {
+      float: right;
+      margin: 9px 10px;
+    }
+
+    ul li {
+      text-align: right;
+      padding: 0px 5px 0px 15px;
+    }
+  }
+
+  app-statements {
+    .statementHeader {
+      padding: 0px 5px 0px 0px;
+    }
+
+    .downloadIcon {
+      float: left;
+      padding-left: 25px;
+      padding-right: auto;
+    }
+
+    .statementDescription {
+      float: right;
+    }
+
+    td {
+      padding-right: 10px;
+      padding-left: 0px;
+    }
+  }
+
+  /* Akshai Changes START */
+  app-loan-details {
+    .button-secondary {
+      float: left;
+      margin-left: 20px;
+    }
+  }
+
+  app-loan-recent-transaction {
+
+    td.mat-cell:first-of-type,
+    td.mat-footer-cell:first-of-type,
+    th.mat-header-cell:first-of-type {
+      padding-right: 5px;
+    }
+
+    td div {
+      text-align: start !important;
+    }
+
+    th.mat-header-cell:last-of-type {
+      padding-left: 25px;
+    }
+  }
+
+  app-recent-transactions {
+    td {
+      text-align: start !important;
+    }
+
+    .button-secondary {
+      float: left;
+      margin-left: 20px;
+    }
+
+    .subInfoData>div {
+      margin: 0px 35px 0px 35px !important;
+      text-align: right !important;
+    }
+
+    .transDate-collapsedPanel {
+      margin-right: unset;
+    }
+  }
+
+  app-search {
+    .search-icon {
+      right: auto;
+      left: 8%;
+    }
+  }
+
+  app-advanced-filter-sadad-payments,app-advanced-filter-sadad-file-payments,app-advanced-filter-stop-payment-summary{
+    .selectInput{
+      margin-right: 10px;
+    }
+    .fieldLabel{
+      margin-right: 13px;
+    }
+  }
+
+  app-advanced-filter-accounts,
+  app-advanced-filter-service-inquiry,
+  app-advanced-filter-credit-card-list,
+  app-advance-filter-pos-finance-inquiry,
+  app-advanced-filter-pos-finance-ticket-inquiry,
+  app-advanced-filter-billerinquiry-sadad,
+  app-advanced-filter-mytask-pos-finance-list,
+  app-advanced-filter-transaction-inquiry-single-transfer,app-advanced-filter-aramco,app-advanced-filter-sadad-payments,app-advanced-filter-single-transfer,app-advanced-filter-sadad-file-payments,
+  app-advanced-filter-stop-payment-summary,
+  app-advance-search-bulk-upload,
+  app-advanced-filter-beneficiary,app-advanced-filter-beneficiaries-single,
+  app-advanced-filter-transctn-inquiry-sadad,app-advanced-filter-single-transfer-transaction-inquiry,
+  app-advanced-filter-e-pay-summary-list {
+    mat-select {
+      padding: 0px 10px 0px 0px !important;
+    }
+
+    mat-option {
+      span .mat-option-text {
+        position: relative !important;
+        left: 260px !important;
+      }
+    }
+
+    .submt {
+      float: left;
+    }
+
+    .apply {
+      margin-left: 0px;
+      margin-right: 10px;
+    }
+
+    .close-icon{
+      float: left;
+    }
+
+    mat-datepicker-toggle {
+      float: left;
+      position: relative;
+      right: 215%;
+    }
+
+    app-date-picker {
+      .container {
+        margin-left: 20px;
+      }
+    }
+
+    .toggle {
+      &#leftToggle {
+        border-radius: 0 100px 100px 0 !important;
+        border-right: 0 none;
+      }
+
+      &#rightToggle {
+        border-radius: 100px 0 0 100px !important;
+        border-left: 0 none;
+      }
+    }
+
+    .mat-select-arrow-wrapper {
+      margin-left: 5px;
+      margin-right: unset;
+    }
+  }
+
+  app-advanced-filter-e-pay-summary-list {
+    .fromto {
+      margin: 10px 10px 19px 28px !important;
+    }
+    .periodContainer {
+      margin-right: 10px !important;
+    }
+  }
+
+  app-advanced-filter-transctn-inquiry-sadad{
+    .searchwithin, .box{
+      margin-right: 0;
+    }
+  }
+
+  app-advanced-filter-mytask-pos-finance-list {
+    .datefrom {
+      margin-left: 15px !important;
+    }
+  }
+
+  // -- 09/08/2022 changes starts here -- 
+
+  app-advanced-filter-loans {
+
+    .toggle {
+      &#leftToggle {
+        border-radius: 0 100px 100px 0 !important;
+        border-right: 0 none;
+      }
+
+      &#rightToggle {
+        border-radius: 100px 0 0 100px !important;
+        border-left: 0 none;
+      }
+    }
+
+    .submt {
+      float: left;
+    }
+
+    .apply {
+      margin-left: 0px;
+      margin-right: 10px;
+    }
+
+    .datePicker {
+      right: 0 !important;
+      left: unset !important;
+
+      mat-datepicker-toggle {
+        position: relative;
+        right: 370%;
+      }
+    }
+
+    app-date-picker {
+      .container {
+        margin-left: 20px;
+      }
+    }
+
+    .mat-select-arrow-wrapper {
+      margin-left: 5px;
+      margin-right: unset;
+    }
+  }
+
+  // -- 09/08/2022 changes ends here --  
+
+  /* Akshai Changes END */
+
+  // Service Inquiry Start - Charan
+
+  app-advanced-filtercommon {
+    .shortDatePicker app-date-picker .container input {
+      width: 300px !important;
+    }
+
+    .submt {
+      float: left;
+    }
+
+    .apply {
+      margin-left: 0px;
+      margin-right: 10px;
+    }
+
+    .mat-datepicker-toggle {
+      margin-right: 271px;
+    }
+
+    .dateto {
+      margin-right: 17px;
+      margin-left: 0;
+    }
+  }
+
+  // Service inquiry End - Charan
+
+  app-timeout-popup {
+    .close-icon {
+      float: left;
+    }
+
+    .mat-dialog-title {
+      text-align: right;
+    }
+  }
+
+  app-user-profile {
+    .profilePicContainer {
+      margin-right: 0;
+    }
+  }
+
+  app-single-transfer,
+  app-file-transfer,
+  app-service-request,
+  app-bulk-file,
+  app-history,
+  app-sadad-single-payment,
+  app-payroll,
+  app-standing-order,
+  app-sadad-transaction,
+  app-aramco-transaction,
+  app-multi-claim-req-layout {
+    th.mat-header-cell {
+      text-align: right;
+    }
+
+    td.mat-cell:last-of-type {
+      padding-left: 24px;
+    }
+  }
+
+  app-file-transfer,
+  app-history {
+
+    td.mat-cell:first-of-type,
+    th.mat-header-cell:first-of-type {
+      padding-right: 5px !important;
+      padding-left: 0px !important;
+    }
+  }
+
+  app-single-file {
+    th.mat-header-cell {
+      text-align: right;
+    }
+
+    .casaTable .mat-column-nickname {
+      width: 12% !important;
+    }
+
+    .sortUpAscending {
+      position: absolute;
+      margin-top: -12px;
+    }
+  }
+
+  app-single-beneficiary-details {
+    .backgroundContainer {
+      margin: 16px 18px 0px 30px;
+    }
+
+    .detailsContainer {
+      margin-right: auto;
+    }
+
+    .titleContainerText,
+    .bankDetailsContainerText,
+    .subHeadingText,
+    .subText,
+    .fxContainer {
+      margin-left: auto;
+      margin-right: 18px;
+    }
+
+    .label {
+      padding-right: 0px;
+    }
+  }
+
+  app-single-beneficiary-details-layout {
+    .backButton {
+      margin-left: 8px;
+    }
+  }
+
+  app-history {
+
+    td.mat-cell:last-of-type,
+    th.mat-header-cell:last-of-type {
+      padding-right: 0px;
+      padding-left: 24px;
+    }
+
+    td:last-child {
+      border-radius: 10px 0px 0px 10px;
+    }
+
+    td:first-child {
+      border-radius: 0px 10px 10px 0px;
+    }
+
+    th.mat-header-cell,
+    td.mat-cell {
+      padding-left: 0px;
+      padding-right: 5px;
+    }
+
+    div.header-panel {
+      margin: 20px 20px 0px 15px !important;
+    }
+  }
+
+  app-authorize-single-beneficiary,
+  app-reject-single-beneficiary,
+  app-authorize-cheque-book-request,
+  app-reject-cheque-book-request {
+    .backArrow {
+      left: 20px;
+    }
+
+    .backgroundContainer {
+      margin: 16px 18px 0px 30px;
+    }
+
+    .detailsContainer {
+      margin-right: auto;
+    }
+
+    .titleContainerText,
+    .bankDetailsContainerText,
+    .subHeadingText,
+    .subText,
+    .fxContainer {
+      margin-left: auto;
+      margin-right: 18px;
+      ;
+    }
+
+    .authentication {
+      padding: 20px;
+    }
+
+  }
+
+  app-reject-cheque-book-request {
+    .rejectReasonContainer {
+      margin-right: 18px;
+    }
+  }
+
+  app-work-flow {
+    .chequesTitles {
+      text-align: right !important;
+    }
+
+    #workFlowDefault th.mat-header-cell:last-of-type,
+    #workFlowDefault td.mat-cell:last-of-type {
+      text-align: right !important;
+    }
+
+    td.mat-cell:first-of-type,
+    th.mat-header-cell {
+      padding-right: 5px;
+    }
+
+    td.mat-cell:last-of-type {
+      padding-left: 5px;
+    }
+
+    div.header-panel {
+      margin: 20px 20px 0px 15px !important;
+    }
+
+    // th.mat-header-cell{
+    //   text-align: right;
+    // }
+    // .casaTable th.mat-header-cell:last-of-type{
+    //   text-align: right !important;
+    // }
+    // .casaTable, th.mat-header-cell:last-of-type{
+    //   text-align: right !important;
+    // }
+  }
+
+  // notification changes
+  app-notifications {
+    app-notification-parent {
+
+      app-alerts,
+      app-notification,
+      app-announcements {
+        td.mat-cell:not(:first-of-type) {
+          padding-left: 0px !important;
+          padding-right: 0px !important;
+        }
+
+        td.mat-cell:first-of-type,
+        td.mat-footer-cell:first-of-type,
+        th.mat-header-cell:first-of-type {
+          padding-left: 0px !important;
+          padding-right: 5px;
+        }
+
+        th.mat-header-cell:last-of-type,
+        td.mat-cell:last-of-type,
+        td.mat-footer-cell:last-of-type {
+          padding-right: 0px !important;
+          padding-left: 24px;
+        }
+
+        td.mat-cell:last-of-type {
+          text-align: center;
+        }
+      }
+
+      app-notification {
+        #notificationAllign {
+          td:last-of-type {
+            padding-left: 24px !important;
+          }
+        }
+      }
+    }
+
+    app-mailbox {
+
+      app-inbox,
+      app-sent {
+        td.mat-cell:not(:first-of-type) {
+          padding-left: 0px !important;
+          padding-right: 0px !important;
+        }
+
+        td.mat-cell:first-of-type,
+        td.mat-footer-cell:first-of-type,
+        th.mat-header-cell:first-of-type {
+          padding-left: 0px !important;
+          padding-right: 5px;
+        }
+
+        th.mat-header-cell:last-of-type,
+        td.mat-cell:last-of-type,
+        td.mat-footer-cell:last-of-type {
+          padding-right: 0px !important;
+          padding-left: 24px;
+        }
+
+        td.mat-cell:last-of-type {
+          text-align: center;
+        }
+
+        #inboxAllign,
+        #sentAllign {
+          td:last-of-type {
+            padding-left: 24px !important;
+          }
+        }
+      }
+    }
+
+    app-trash {
+      app-trash-mailbox {
+        td.mat-cell:not(:first-of-type) {
+          padding-left: 0px !important;
+          padding-right: 0px !important;
+        }
+
+        td.mat-cell:first-of-type,
+        td.mat-footer-cell:first-of-type,
+        th.mat-header-cell:first-of-type {
+          padding-left: 0px !important;
+          padding-right: 5px;
+        }
+
+        th.mat-header-cell:last-of-type,
+        td.mat-cell:last-of-type,
+        td.mat-footer-cell:last-of-type {
+          padding-right: 0px !important;
+          padding-left: 24px;
+        }
+
+        td.mat-cell:last-of-type {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  app-loans,
+  app-casa,
+  app-otherrequest,
+  app-downloadcenter,
+  app-work-flow,
+  app-recent-transactions,
+  app-loan-recent-transaction {
+    th.mat-header-cell:first-of-type {
+      padding-right: 5px !important;
+      padding-left: 0px !important;
+    }
+
+    td.mat-cell:last-of-type {
+      padding-left: 24px !important;
+      padding-right: 0px !important;
+    }
+
+    td.mat-cell:first-of-type {
+      padding-right: 5px !important;
+      padding-left: 0px !important;
+    }
+
+    td.mat-cell,
+    th.mat-header-cell {
+      padding-right: 0px !important;
+    }
+  }
+
+  app-manage-alerts {
+    .casaTable th.mat-header-cell {
+      text-align: right;
+      padding-left: unset !important;
+    }
+
+    td.mat-cell:first-of-type,
+    th.mat-header-cell:first-of-type {
+      padding-left: 0px !important;
+      padding-right: 8px !important;
+    }
+  }
+
+  app-settings {
+    .btncntr {
+      margin-right: unset !important;
+    }
+  }
+
+  app-pagination {
+    .paginatorLabel {
+      margin: 0px 7px 0px 0px !important
+    }
+  }
+
+
+  //payments cahnges
+  app-fund-transfer-menu {
+    .paymentName {
+      margin-right: 24px;
+      margin-left: 0px !important;
+    }
+
+    .toggle:first-child {
+      border-top-right-radius: 100px;
+      border-bottom-right-radius: 100px;
+      border-top-left-radius: 0px !important;
+      border-bottom-left-radius: 0px !important;
+    }
+
+    .toggle:last-child {
+      border-top-left-radius: 100px;
+      border-bottom-left-radius: 100px;
+      border-top-right-radius: 0px !important;
+      border-bottom-right-radius: 0px !important;
+    }
+
+    .paymentToggels {
+      margin-left: 0px !important;
+      margin-right: 20px;
+    }
+
+    .casaTable {
+
+      th,
+      td {
+        text-align: right;
+      }
+    }
+
+    table {
+      margin-right: -4px;
+      margin-left: 10px;
+    }
+
+    .subconatiner {
+      padding: 19px 22px 31px 25px;
+    }
+
+    app-debit-lookup {
+      .subContainer {
+        padding: 19px 22px 31px 40px;
+
+      }
+
+      .searchCntnr {
+        margin: 20px -4px 25px 15px !important;
+      }
+    }
+
+    app-amount-details {
+      .dropdown {
+        margin-right: 10px;
+        margin-left: 0px !important;
+      }
+
+      .amountTxt {
+        padding: 0px 10px 0px 0px;
+      }
+    }
+
+    app-additional-details-payments {
+      .datePicker {
+        right: 280px !important;
+      }
+
+      .datePickerInput {
+        padding: 0px 10px 0px 0px;
+      }
+
+    }
+
+    .footer {
+      float: right;
+    }
+
+    .btnGroup {
+      float: left;
+
+      app-tertiary-button,
+      app-secondary-button,
+      app-primary-button {
+
+        .buttonTertiary,
+        .secondoryButton,
+        .buttonPrimary {
+          margin-right: 10px;
+          margin-left: 0px !important;
+        }
+      }
+    }
+
+    .onetimepayment {
+      margin-left: 50px;
+      margin-right: 0px !important;
+    }
+  }
+
+  .smallDdropDownOption {
+    right: -23px !important;
+  }
+
+  app-daily-limit {
+    .textTitle {
+      margin-left: 10px;
+      margin-right: 0px !important;
+    }
+
+    .fieldTitles {
+      margin-left: 13px;
+      margin-right: 0px !important;
+    }
+
+    .progressBar {
+      transform: rotate(180deg);
+    }
+  }
+
+  app-authorization {
+    .authorizationContent {
+      margin-right: 16px;
+      margin-left: 0px !important;
+    }
+
+    .authorizationContent1 {
+      margin-left: 40px;
+      margin-right: 0px !important;
+    }
+  }
+
+  app-authentication {
+    .authentication {
+      padding: 20px !important;
+    }
+  }
+
+  app-beneficiary-withinbank,
+  app-beneficiary-localtransfer,
+  app-beneficiary-internationaltransfer {
+    .beneficiaryDetails {
+      padding: 83px 18px 0px 0px;
+    }
+
+    .rowInnerCntr {
+      padding-right: 11px;
+      padding-left: 0px !important;
+    }
+
+    .btnCntr {
+      right: -145px;
+    }
+
+    .footer {
+      .termsAndContion {
+        padding-right: 10px;
+        padding-left: 0px !important
+      }
+
+      .terms {
+        margin-right: 2px;
+        margin-left: 0px !important;
+      }
+    }
+  }
+
+  app-add-beneficiary {
+    .paymentToggels {
+      margin-right: 45px;
+      margin-left: 0px !important;
+
+      .toggle#toggle1 {
+        border-radius: 0px 100px 100px 0px;
+      }
+
+      .toggle#toggle3 {
+        border-radius: 100px 0px 0px 100px;
+      }
+    }
+
+    .mainTitle {
+      margin-right: 31px;
+      margin-left: 0px !important;
+    }
+
+    app-tertiary-button,
+    app-secondary-button,
+    app-primary-button {
+
+      .buttonTertiary,
+      .secondoryButton,
+      .buttonPrimary {
+        margin-right: 10px;
+        margin-left: 0px !important;
+      }
+    }
+  }
+
+  app-account-details,
+  app-beneficiary-details {
+    .AccountDetails {
+      padding: 20px 18px 0 0px;
+    }
+  }
+
+  app-beneficiary-internationaltransfer {
+    .beneficiaryReviewDetails {
+      padding: 20px 18px 0 0px;
+      margin: 5px 20px 0px 30px;
+    }
+
+    .actionGroupNext {
+      margin-left: 24px;
+      margin-right: 0px !important
+    }
+
+    app-primary-button,
+    app-tertiary-button {
+      .buttonPrimary {
+        margin-right: 15px;
+        margin-left: 0px !important;
+      }
+
+      .tertiaryBtn {
+        margin-right: 0px;
+        margin-left: 15px;
+      }
+    }
+  }
+
+  app-beneficiary-inquiry {
+    .subContainer {
+      margin: 5px 30px 0px 20px;
+    }
+
+    .title {
+      padding: 0px 5px 0px 0px;
+      margin: 5px 25px 0px 0px;
+    }
+
+    .searchCntnrLeft {
+      margin-right: 15px;
+      margin-left: 0px !important;
+    }
+
+    .casaTable {
+
+      th,
+      td {
+        text-align: right;
+      }
+    }
+
+    #beneficiaryInquiryContainer {
+
+      th.mat-header-cell:last-of-type>div,
+      td.mat-cell:last-of-type>div {
+        text-align: left;
+      }
+
+      th.mat-header-cell:first-of-type,
+      td.mat-cell:first-of-type,
+      td.mat-footer-cell:first-of-type {
+        padding-right: 24px;
+        padding-left: 0px !important;
+      }
+
+      th.mat-header-cell:last-of-type,
+      td.mat-cell:last-of-type {
+        padding-right: 5px;
+        padding-left: 10px;
+      }
+
+      label {
+        padding-right: 0px !important;
+      }
+
+      // .mat-column-Nickname {
+      //   width: 200px;
+      // }
+    }
+
+  }
+
+  app-beneficiary-activation {
+    .mainTitle {
+      padding-right: 17px;
+      padding-left: 0px !important;
+    }
+
+    td,
+    th {
+      text-align: right;
+    }
+
+    th.mat-header-cell:first-of-type,
+    td.mat-cell:first-of-type,
+    td.mat-footer-cell:first-of-type {
+      padding-right: 24px;
+      padding-left: 0px;
+    }
+
+    th.mat-header-cell:last-of-type,
+    td.mat-cell:last-of-type,
+    td.mat-footer-cell:last-of-type {
+      padding-right: 0px !important;
+      padding-left: 24px;
+    }
+  }
+
+  app-call-back {
+    .subContainer {
+      margin-right: 10px;
+      margin-left: 0px !important;
+    }
+    .mobNum{
+      direction: ltr;
+    }
+    .buttons {
+      app-secondary-button {
+        .secondoryButton {
+          margin-right: 15px;
+          margin-left: 0px !important;
+        }
+      }
+
+      app-tertiary-button {
+        .buttonTertiary {
+          margin-left: 0px !important;
+        }
+      }
+    }
+  }
+
+  app-beneficiary-details-layout {
+    .btnContainer {
+      app-primary-button {
+        .buttonPrimary {
+          margin-right: 15px;
+          margin-left: 0px !important;
+        }
+      }
+    }
+  }
+
+  app-delete-beneficiary {
+    .titleContainerText {
+      margin-right: 18px;
+      margin-left: 0px !important;
+    }
+
+    .backgroundContainer {
+      margin-right: 18px;
+      margin-left: 30px;
+    }
+
+    .bankDetailsContainerText,
+    .subHeadingText,
+    .subText {
+      margin-right: 18px;
+      margin-left: 0px !important;
+    }
+
+    .detailsContainer {
+      margin-right: 0px !important;
+    }
+
+  }
+
+  .moreAction-popup {
+    transform: translateX(-193px);
+
+    li {
+      display: flex;
+      direction: rtl;
+    }
+  }
+
+  //MyTask Payments
+  app-mytask {
+    app-payment {
+      .worksapceBase {
+        margin: 20px 15px 0 20px !important;
+      }
+
+      .casaTable th.mat-header-cell:last-of-type,
+      .casaTable td.mat-cell:last-of-type,
+      .casaTable td.mat-footer-cell:last-of-type {
+        text-align: right !important;
+      }
+
+      th.mat-header-cell:last-of-type,
+      td.mat-cell:last-of-type,
+      td.mat-footer-cell:last-of-type {
+        padding-right: 0px !important;
+        padding-left: 24px;
+      }
+    }
+
+    .right-content {
+      padding-right: 0px !important;
+    }
+
+  }
+
+  app-work-flow,
+  app-history {
+    .accordionUp {
+      margin-right: 0px !important;
+      margin-left: -8px;
+    }
+
+  }
+
+  app-reject-single-transfer-payment {
+    .dataContainer {
+      padding: 20px 20px 80px 0px;
+    }
+
+    .detailsContainer {
+      margin-right: 0px;
+    }
+  }
+
+  app-single-transfer,
+  app-aramco-transaction,
+  app-sadad-single-payment,
+  app-payroll {
+
+    .searchCntnrLeft {
+      float: left;
+      margin-right: 15px;
+      margin-left: 0px;
+    }
+
+    th.mat-header-cell:first-of-type,
+    td.mat-cell:first-of-type {
+      padding-left: 0px;
+      padding-right: 5px;
+    }
+
+    th.mat-header-cell:last-of-type,
+    td.mat-cell:last-of-type,
+    td.mat-footer-cell:last-of-type {
+      padding-right: 0px;
+      padding-left: 24px;
+    }
+  }
+
+  #moreActionList {
+    transform: translateX(0px);
+  }
+
+  app-cheque-book-request {
+    mat-button-toggle-group {
+      max-width: max-content !important;
+    }
+
+    mat-button-toggle {
+      width: 150px;
+    }
+  }
+
+  app-quick-transfer-config {
+    app-debit-lookup {
+      .casaTable {
+
+        th.mat-header-cell,
+        td.mat-cell {
+          text-align: right;
+        }
+      }
+    }
+
+    app-proxy-identifier {
+      .toggleButtonContainer {
+        margin: 10px 10px 15px 0px;
+      }
+
+      label {
+        padding-right: 0px;
+        float: left;
+      }
+
+      .tertiaryBtn {
+        float: left;
+        margin-right: 0px;
+      }
+    }
+
+    .actionGroup {
+      float: left;
+    }
+
+    app-primary-button {
+      .buttonPrimary {
+        margin-left: 0px !important;
+      }
+    }
+
+    .flexRow {
+      padding: 0px 0px 0px 25px;
+    }
+  }
+
+  app-configuration-inquiry {
+
+    th.mat-header-cell,
+    td.mat-cell {
+      padding-right: 4px;
+      padding-left: 0px;
+      text-align: right;
+    }
+
+    th.mat-header-cell:last-of-type,
+    td.mat-cell:last-of-type,
+    td.mat-footer-cell:last-of-type {
+      padding-left: 24px;
+      padding-right: 0px;
+    }
+
+    .flexRow {
+      padding: 0px 0px 0px 25px;
+    }
+  }
+
+  app-deregistration-proxy-identifier {
+    label {
+      padding-right: 0px;
+      float: left;
+    }
+  }
+
+  .moreAction-popup ul li {
+    text-align: left;
+    padding: 0px 15px 0px 5px;
+  }
+
+  app-add-sadad-biller {
+    .subContainer {
+      margin: 5px 30px 0px 20px;
+    }
+
+    .title {
+      padding: 0px 30px 0px 0px;
+    }
+
+    .buttons {
+      float: left;
+      margin: 19px 0px 0 30px;
+    }
+
+    .footer {
+      margin: 36px 46px 0 30px;
+
+      .finalProceed {
+        float: left !important;
+      }
+    }
+
+    .afterproceed {
+      margin: 5px 30px 0px 20px;
+    }
+
+    app-tertiary-button,
+    app-primary-button {
+
+      .buttonTertiary,
+      .buttonPrimary {
+        margin-left: 0px;
+        margin-right: 10px;
+      }
+    }
+
+    app-sadad-bill-details {
+      .childContainer {
+        margin: 30px 10px 0 0px;
+      }
+
+      .box {
+        padding: 0px 10px 0px 0px;
+        margin-left: 40px;
+        margin-right: 0px;
+      }
+
+      input[type=text] {
+        padding: 0px 10px 0px 0px;
+      }
+    }
+
+    label {
+      padding-left: 15px;
+      padding-right: 0px;
+    }
+  }
+
+  app-add-esal-payer {
+    .subContainer {
+      margin: 5px 30px 0px 20px;
+    }
+
+    .title {
+      padding: 0px 30px 0px 0px;
+    }
+
+    .buttons {
+      float: left;
+      margin: 19px 0px 0 30px;
+    }
+
+    .afterproceed {
+      margin: 5px 30px 0px 20px;
+    }
+
+    .footer {
+      margin: 36px 46px 0 30px;
+    }
+
+    .footer .finalProceed {
+      float: left !important;
+    }
+
+    app-tertiary-button,
+    app-primary-button {
+
+      .buttonTertiary,
+      .buttonPrimary {
+        margin-left: 0px !important;
+        margin-right: 15px;
+      }
+    }
+
+    app-esal-payer-details {
+      .childContainer {
+        padding-right: 8px;
+        padding-left: 0px;
+      }
+
+      .childContainer .field.sname {
+        margin-left: 0px !important;
+        margin-right: 24px;
+      }
+
+      .childContainer .field {
+        width: 329px !important;
+      }
+
+      input[type=text] {
+        padding: 0px 10px 0px 0px;
+      }
+    }
+  }
+
+  app-quick-transfer-limit {
+    .subContainer {
+      padding: 19px 22px 31px 40px;
+    }
+
+    .ownAmount {
+      margin-left: 20px;
+      margin-right: 0px;
+    }
+
+    .amtContainer,
+    .currencyContainer {
+      float: none;
+    }
+
+    .fieldSets {
+      margin-left: 0px;
+      margin-right: 2px;
+    }
+
+    .actionGroup {
+      float: left;
+      align-self: flex-end;
+      justify-content: flex-end;
+    }
+
+    input[type=text],
+    .selectInputCustomerLimit {
+      padding: 0px 10px 0px 40px;
+    }
+
+    .curencyPosition {
+      right: -39px;
+    }
+
+    app-quick-transfer-limit-preview {
+      .fieldSetsContent {
+        margin-left: 40px;
+        margin-right: 0px;
+      }
+
+      .flexRow {
+        padding: 0px 0px 0px 25px;
+      }
+    }
+  }
+
+  //tradeSSO popup starts
+  #diaglog-title {
+    text-align: right;
+  }
+
+  #dialogContainer {
+    text-align: right !important;
+
+    input {
+      margin-top: 5px !important;
+      float: right;
+    }
+  }
+
+  #dialog-action {
+    float: left !important;
+  }
+
+  //tradeSSO popup ends
+  app-execution-details {
+    .executionContainer>div {
+      margin-left: 45px;
+      margin-right: 0px !important;
+    }
+
+    .box {
+      padding: 0px 5px 0px 0px;
+    }
+
+    app-date-picker {
+      .datePicker {
+        left: 0 !important;
+        text-align: left;
+      }
+
+      .datePickerInput {
+        padding: 0px 10px 0px 0px;
+      }
+    }
+  }
+
+  app-si-menu {
+    .paymentName{
+      margin-right: 24px;
+      margin-left: 0px !important;
+    }
+    .paymentToggels{
+      margin-left: 0px !important;
+      margin-right: 20px;
+    }
+    .toggle:first-child {
+      border-top-right-radius: 100px;
+      border-bottom-right-radius: 100px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+
+    .toggle:last-child {
+      border-top-left-radius: 100px;
+      border-bottom-left-radius: 100px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    app-debit-lookup {
+
+      .casaTable th.mat-header-cell,
+      .casaTable td.mat-cell {
+        text-align: right;
+      }
+    }
+  }
+  
+  app-multi-claim-req-layout, app-e-pay-authorize {
+    app-debit-lookup {
+
+      .casaTable th.mat-header-cell,
+      .casaTable td.mat-cell {
+        text-align: right;
+      }
+    }
+
+    .download-template {
+      right: 130px;
+    }
+
+    .subTitle {
+      right: 10px;
+    }
+
+    .claimDetails .row {
+      margin-right: 10px;
+    }
+
+    .termsAndConditions {
+      position: relative !important;
+      padding: 0px 30px 0 40px !important;
+      float: right !important;
+    }
+
+    .termsAndConditions1 {
+      position: relative !important;
+      padding: 0px 30px 0 40px !important;
+      float: right !important;
+    }
+
+    app-multi-claim-claim-details {
+      .inputFields1 {
+        float: right !important;
+        right: 0 !important;
+        padding: 0px 5px 0 50px !important;
+      }
+  
+      .currency {
+        position: absolute !important;
+        top: 20px;
+        float: left !important;
+        left: 10px !important;
+        right: unset !important;
+      }
+    }
+
+    .actionGroup {
+      float: left !important;
+      margin-left: 18px;
+    }
+
+    .footerText {
+      padding: 0px 20px 0 40px !important;
+      float: right;
+    }
+
+    app-record-summary {
+      .gridline02 {
+        float: left !important;
+        left: 50px !important;
+      }
+    }
+  }
+
+  app-refund-request, app-merchant-finance-dispute {
+    .tableHeader {
+      th {
+        text-align: right;
+      }
+    }
+
+    .tableRowConatiner {
+      td {
+        text-align: right;
+      }
+    }
+
+    th,
+    td {
+        text-align: right;
+        padding-right: 5px;
+    }
+
+    .downArrowAcc {
+      float: left;
+      left: 0px;
+      right: unset;
+    }
+
+    .inputFields1 {
+      float: right !important;
+      right: 0 !important;
+      padding: 0px 5px 0 50px !important;
+    }
+
+    .currency {
+      position: absolute !important;
+      top: 20px !important;
+      float: left !important;
+      left: 17px !important;
+      right: unset !important;
+    }
+  }
+
+  app-standing-order-details,
+  app-si-own-transfer,
+  app-si-local-transfer,
+  app-si-international-transfer {
+    .datePicker {
+      left: 30px !important;
+      right: 0px !important;
+      text-align: left;
+    }
+
+    .datePickerInput {
+      padding: 0px 10px 0px 0px;
+    }
+
+    app-amount-details {
+      .amtContainer>div {
+        margin-left: 10px
+      }
+
+      .amountTxt {
+        padding: 0px 10px 0px 0px;
+      }
+    }
+
+    .btnGroup {
+      float: left;
+    }
+
+    .footer {
+      padding-top: 40px;
+      padding-right: 33px;
+      float: right;
+    }
+
+    .footer .termsAndContion {
+      padding-left: 0px !important;
+    }
+  }
+
+  app-change-password {
+    .lockSymbol {
+      background-position: right center;
+      padding-right: 25px !important;
+      padding-left: 0px !important;
+    }
+
+    .closeIcon {
+      background-position: right center;
+    }
+  }
+
+  app-payroll-onboarding {
+    #serviceRequestDefaultCntr {
+      .casaTable {
+        th.mat-header-cell {
+          text-align: right !important;
+        }
+      }
+    }
+
+    .title {
+      margin: 20px 20px 0px 0px;
+    }
+
+    .btnContainer {
+      float: right;
+      padding-left: 0px;
+    }
+
+  }
+
+  app-payroll-onboarding-details {
+    .container {
+      padding: 16px 16px 14px 18px;
+    }
+  }
+
+  app-payroll-onboarding-reject {
+    .container {
+      padding: 16px 16px 14px 18px;
+    }
+
+    .backArrow {
+      right: -20px
+    }
+  }
+
+  app-payroll-onboarding-authorize {
+    .container {
+      padding: 16px 16px 14px 18px;
+    }
+
+    .backArrow {
+      right: -20px
+    }
+  }
+
+  app-sp-details {
+    .mainTitle {
+      margin-right: 31px;
+    }
+
+    mat-button-toggle-group {
+      margin-right: 23px;
+    }
+
+    .btnGroup {
+      margin-right: 0px;
+    }
+  }
+
+  app-sp-upload-details {
+    .fileDetails {
+      margin-right: 18px;
+    }
+
+    .subContainer {
+      .subTitles {
+        margin-right: 20px;
+
+      }
+    }
+
+    .rowInnerCntr {
+      margin-right: 20px;
+    }
+  }
+
+  app-sp-stop-file {
+    .summaryOuterConainer {
+      .summaryConainer {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  app-sp-record-stop {
+    .summaryOuterConainer {
+      .summaryConainer {
+        margin-right: 14px;
+      }
+    }
+  }
+
+  app-sp-payment-review {
+    .btnGroup {
+      margin-right: 6px;
+    }
+
+    .footerText {
+      position: absolute;
+      margin: 40px 644px 0px 33px;
+    }
+  }
+
+  app-editable-record-summary {
+
+    table {
+      thead {
+        tr.mat-header-row {
+          th.mat-header-cell {
+            padding-left: 45px !important;
+          }
+
+        }
+      }
+
+    }
+
+    .wrapper {
+      margin: 20px 0 0px 0px;
+    }
+
+    .mat-expansion-panel {
+      margin: 10px 0px 10px 10px;
+    }
+
+    .gridline02 {
+      position: absolute;
+      left: 4%;
+      top: 4%;
+    }
+
+    .checkBoxPrimary {
+      left: 0px !important;
+    }
+
+    .editable-record-checkbox {
+      position: relative;
+      left: 20px;
+    }
+
+  }
+
+  app-stop-payment-details {
+    .subTitles {
+      margin: 20px 21px 0px 22px;
+    }
+
+    .gridline02 {
+      // margin-right: 75%!important;
+      margin: 0 78% 0 0;
+    }
+
+    th.mat-header-cell {
+      padding: 0px 0px 0px 58px !important;
+    }
+
+    table {
+      padding-right: 40px;
+      // padding-left: 30px;
+    }
+
+    td.mat-cell {
+      padding: 0px !important;
+    }
+
+    .footerText {
+      margin: 40px 33px 0px 33px;
+    }
+
+    .btnContainer {
+      padding-left: 26px;
+    }
+
+    .container {
+      margin: 5px 31px 0px 30px;
+    }
+
+    .titleConatiner {
+      margin-right: 38px;
+    }
+
+    td.mat-cell:first-of-type {
+      border-top-right-radius: 10px 10px !important;
+      border-bottom-right-radius: 10px 10px !important;
+      border-top-left-radius: 0px 0px !important;
+      border-bottom-left-radius: 0px 0px !important;
+    }
+
+    td.mat-cell:last-of-type {
+      border-top-left-radius: 10px 10px !important;
+      border-bottom-left-radius: 10px 10px !important;
+      border-top-right-radius: 0px 0px !important;
+      border-bottom-right-radius: 0px 0px !important;
+    }
+
+    .recordDetails {
+      margin-right: 5px;
+    }
+  }
+
+  app-stop-payment-file-details,
+  app-et-lg-details {
+    .fileDetails {
+      margin-right: 37px;
+    }
+
+    .rowInnerCntr {
+      padding-right: 10px;
+    }
+
+    .feeVatLabel {
+      padding-right: 30px;
+    }
+  }
+
+  app-sp-accounts {
+    .btnGroup {
+      float: left;
+    }
+  }
+
+  app-credit-card-limit,
+  app-stop-credit-card {
+    .limitText {
+      float: right !important;
+      right: 0 !important;
+    }
+
+    .currency {
+      position: absolute !important;
+      top: 12px;
+      float: left !important;
+      left: 10px !important;
+    }
+
+    .creditCardLimitDetails {
+      padding: 20px 20px 15px 15px;
+    }
+
+    .rowInnerCntr {
+      padding-right: 11px;
+      padding-left: 0px !important;
+    }
+
+    .footer {
+      .termsAndConditions {
+        padding-right: 10px;
+        padding-left: 0px !important
+      }
+
+      .finalProceed {
+        float: left !important;
+      }
+    }
+
+    app-debit-lookup {
+      .casaTable {
+
+        th.mat-header-cell,
+        td.mat-cell {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  app-stop-credit-card,
+  app-credit-card-change-withdrawal-limit,
+  app-card-limit-multiple {
+    .limitText {
+      float: right !important;
+      right: 0 !important;
+    }
+
+    .currency {
+      position: absolute !important;
+      top: 12px;
+      float: left !important;
+      left: 7px !important;
+    }
+
+    .rowInnerCntr {
+      padding-right: 20px !important;
+      padding-left: 0px !important;
+    }
+
+    .footer {
+      .termsAndConditions {
+        padding-right: 10px;
+        padding-left: 0px !important
+      }
+
+      .finalProceed {
+        float: left !important;
+      }
+    }
+
+    .creditCardLimitDetails .sub {
+      padding-right: 5px;
+    }
+
+    app-debit-lookup {
+      .casaTable {
+
+        th.mat-header-cell,
+        td.mat-cell {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  app-credit-card-summary-details,
+  app-credit-card-transfer-summary-details,
+  app-stop-credit-card {
+    .container {
+      padding: 20px 20px 0px 20px !important;
+    }
+
+    .rowInnerCntr {
+      padding-right: 11px;
+      padding-left: 0px !important;
+    }
+
+    th.mat-header-cell:first-of-type,
+    td.mat-cell:first-of-type,
+    td.mat-footer-cell:first-of-type,
+    th.mat-header-cell,
+    td.mat-cell,
+    td.mat-footer-cell {
+      text-align: right;
+      right: 0;
+      padding-left: 0px !important;
+      padding-right: 24px !important;
+    }
+
+    .sortUp {
+      right: -18px !important;
+    }
+
+    .leftPannel {
+      float: right;
+    }
+
+    .rightPanel {
+      float: left;
+    }
+
+    .titleList {
+      margin: 0 !important;
+    }
+
+    .outerContainer {
+      position: relative;
+      padding-left: 0px !important;
+      right: 0px !important;
+      margin-right: 0px !important;
+    }
+
+    .actionsConatiner {
+      width: 100% !important;
+    }
+
+    .link_label {
+      right: 10px;
+    }
+
+    .right_align {
+      right: unset !important;
+      left: 0;
+    }
+
+    // .subContainer {
+    //   margin: 20px 0px 10px 0 !important;
+    //   padding: 12px 18px 38px 0px !important;
+    // }
+    .mainTitle {
+      margin: 0px 15px 0px 0 !important;
+
+      span {
+        position: relative;
+        right: 7px;
+      }
+    }
+
+    .name span {
+      left: unset !important;
+      right: 10px;
+    }
+
+    .statusButton {
+      position: relative;
+      right: 10px;
+    }
+
+    #reentTransaction {
+      .btnGroup {
+        position: relative;
+        float: left !important;
+        left: 35px;
+      }
+    }
+
+    .summaryTools {
+      float: left;
+      left: 45px;
+    }
+  }
+
+  app-credit-card-statements {
+    .downloadIcon {
+      float: left;
+      padding-left: 35px;
+      padding-right: auto;
+    }
+
+    .statementDescription {
+      float: right;
+    }
+  }
+
+  app-credit-card-summary,
+  app-credit-card-authorize,
+  app-credit-card-reject,
+  app-pos-finance-summary,
+  app-pos-finance-ticket-inquiry-summary,
+  app-e-pay-summary,
+  app-e-pay-authorize,
+  app-e-pay-reject {
+    .container {
+      padding: 16px 18px 14px 18px !important;
+    }
+
+    .subContainer {
+      padding: 12px 18px 10px 0 !important;
+      margin: 20px 0 10px 10px !important;
+    }
+
+    .cusTitle {
+      margin: 0px 25px 0px 0 !important;
+
+      span {
+        position: relative;
+        right: 7px;
+      }
+    }
+
+    .termsAndConditions {
+      padding: 35px 0 0 40px !important;
+      float: left;
+      left: 0;
+    }
+
+    .btnGroup {
+      float: left;
+    }
+  }
+
+  app-pos-finance-summary,
+  app-pos-finance-ticket-inquiry-summary, app-sadad-biller-details-layout, app-esal-biller-details-layout {
+    .pad_l_60 {
+      padding-right: 60px;
+    }
+
+    app-summary-tools {
+      position: absolute;
+      float: left;
+      left: 0;
+      margin-top: 26px !important;
+      margin-left: 63px !important;
+      margin-right: unset !important;
+    }
+  }
+
+  app-credit-view-pin-layout {
+    app-debit-lookup {
+
+      .casaTable th.mat-header-cell,
+      .casaTable td.mat-cell {
+        text-align: right;
+      }
+    }
+
+    .title {
+      padding: 0px 5px 0px 0px;
+      margin: 5px 25px 0px 0px;
+    }
+
+    .buttonContainer {
+      margin: 20px 0px 0px 15px;
+    }
+  }
+
+  app-credit-view-pin-review {
+    app-debit-lookup {
+
+      .casaTable th.mat-header-cell,
+      .casaTable td.mat-cell {
+        text-align: right;
+      }
+    }
+
+    .footerContainer {
+      .footerText {
+        margin: 40px 30px 0px 0px !important;
+      }
+
+      .buttonContainer {
+        margin: 20px 0px 0px 20px;
+      }
+    }
+  }
+
+  app-re-issue-credit-card-layout {
+    app-debit-lookup {
+
+      .casaTable th.mat-header-cell,
+      .casaTable td.mat-cell {
+        text-align: right;
+      }
+    }
+
+    .mainContainer {
+      .title {
+        margin: 5px 22px 0px 0px;
+      }
+    }
+
+    .buttonContainer {
+      margin: 20px 0px 0px 15px;
+    }
+  }
+
+  app-pos-finance-inquiry,
+  app-pos-finance-ticket-inquiry {
+    .mainContainer {
+      .title {
+        padding: 0px 5px 0px 0px;
+        margin: 5px 25px 0px 0px;
+      }
+    }
+
+    .titleConatiner {
+      margin-right: 0px !important;
+    }
+
+    .titleIcons .gridline02 {
+      margin: -2px -10px !important;
+    }
+  }
+
+  app-re-issue-credit-card-review {
+    app-debit-lookup {
+
+      .casaTable th.mat-header-cell,
+      .casaTable td.mat-cell {
+        text-align: right;
+      }
+    }
+
+    .footerContainer {
+      .footerText {
+        margin: 40px 30px 0px 0px !important;
+      }
+
+      .buttonContainer {
+        margin: 20px 0px 0px 20px;
+      }
+    }
+  }
+
+  app-credit-card,
+  app-pos-finance-inquiry,
+  app-pos-finance-ticket-inquiry {
+    .actionsConatiner {
+      display: flex;
+      justify-content: space-between;
+
+      .leftPannel {
+        display: flex;
+      }
+
+      .searchCntnrLeft {
+        margin-left: 15px;
+      }
+    }
+
+    .casaTable th.mat-header-cell,
+    .casaTable td.mat-cell {
+      text-align: right;
+    }
+  }
+
+  app-activate-card-review {
+    app-debit-lookup {
+
+      .casaTable th.mat-header-cell,
+      .casaTable td.mat-cell {
+        text-align: right;
+      }
+    }
+  }
+
+  app-cards {
+    .tabCntr>ul>li {
+      padding: 0px;
+    }
+
+    .tabCntr>ul>li:first-child {
+      padding-right: 10px
+    }
+  }
+
+  app-mada-card-details {
+    .backArrow {
+      left: 0;
+    }
+
+    .mainTitle,
+    .subTitles,
+    .refNO,
+    .title {
+      padding-right: 20px
+    }
+
+    .madadetailSubContainer {
+      margin-right: 20px;
+      padding-right: 20px
+    }
+
+    .madadetailSubContainer .subTitles,
+    .madadetailSubContainer .title {
+      padding-right: 0;
+    }
+
+    .summaryOuterConainer .summaryConainer {
+      margin-right: 20px;
+    }
+  }
+
+  app-mada-card,
+  app-reissue-mada-card,
+  app-link-additional-mada-card,
+  app-add-mada-card,
+  app-mada-card-summary {
+
+    .casaTable th.mat-header-cell,
+    .casaTable td.mat-cell,
+    tr>th,
+    tr>td {
+      text-align: right !important;
+    }
+
+    .leftPannel {
+      float: right;
+    }
+
+    .rightPanel {
+      float: left;
+    }
+
+    .title {
+      padding: 0px 5px 0px 0px;
+      margin: 5px 25px 0px 0px;
+    }
+  }
+
+  app-card-limit-multiple {
+
+    th.mat-header-cell:first-of-type,
+    td.mat-cell:first-of-type {
+      padding: 0px 5px 0px 0;
+    }
+
+    th.mat-header-cell,
+    .mat-column-newLimit {
+      text-align: right !important;
+    }
+
+    .information {
+      left: 5px;
+    }
+
+    // .footer .finalProceed {
+    //   right: 60px;
+    // }
+  }
+
+  app-stop-mada-card,
+  app-reissue-mada-card,
+  app-pos-purchase-limit-mada-card,
+  app-pos-purchase-limit-mada-card,
+  app-link-additional-mada-card,
+  app-add-mada-card {
+    .footer .finalProceed {
+      float: left;
+    }
+  }
+
+  app-et-registration,
+  app-et-issue-lg,
+  app-et-lg-details {
+    .btnGroup {
+      float: left;
+    }
+  }
+
+  app-et-amend-lg {
+    .btnContainer {
+      float: left;
+    }
+  }
+
+  app-service-inquiry-layout {
+
+    .casaTable1 th.mat-header-cell,
+    .casaTable1 td.mat-cell {
+      text-align: right !important;
+    }
+
+    .leftPannel {
+      float: right;
+    }
+
+    .rightPanel {
+      float: left;
+    }
+
+    .title {
+      padding: 0px 5px 0px 0px;
+      margin: 5px 25px 0px 0px;
+    }
+  }
+
+  app-service-inquiry-request-summary {
+    .container {
+      padding: 16px 18px 14px 18px !important;
+    }
+
+    .subContainer {
+      padding: 12px 18px 10px 0 !important;
+      margin: 20px 0 10px 10px !important;
+    }
+
+    .mainTitle {
+      margin: 0px 15px 0px 0 !important;
+
+      span {
+        position: relative;
+        right: 7px;
+      }
+    }
+
+    .btnGroup {
+      position: relative;
+      float: left;
+      left: 35px;
+    }
+  }
+
+  app-credit-card-payment-layout,
+  app-credit-card-payment,
+  app-refund-request {
+    .title {
+      padding: 0px 5px 0px 0px !important;
+      margin: 5px 25px 0px 0px !important;
+    }
+
+    .dailyLimitContainer {
+      margin-left: 13px !important;
+    }
+
+    .termsAndConditions {
+      padding: 0px 20px 0 40px !important;
+      float: right;
+      // left: 0;
+    }
+
+    .limitText {
+      float: right !important;
+      right: 0 !important;
+    }
+
+    .currency {
+      position: absolute !important;
+      top: 12px;
+      float: left !important;
+      left: 10px !important;
+    }
+
+    .footer .finalProceed {
+      float: left !important;
+    }
+
+    app-debit-lookup {
+      .casaTable {
+
+        th.mat-header-cell,
+        td.mat-cell {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  app-card-limit-multiple {
+    .casaTable2 {
+      width: 39.3%;
+      float: left;
+
+      .tableData2 {
+        width: 47.7% !important;
+      }
+    }
+  }
+
+  app-credit-card-show-pin {
+    .container {
+      padding: 16px 18px 14px 18px !important;
+    }
+
+    .subContainer {
+      padding: 12px 18px 10px 0 !important;
+      margin: 20px 0 10px 10px !important;
+    }
+
+    .rejectIcon {
+      float: left !important;
+      right: 7px !important;
+      left: unset !important;
+    }
+
+    .subTitles,
+    .label {
+      float: right !important;
+    }
+
+    .information {
+      display: flex !important;
+      width: 100% !important;
+      flex-direction: row-reverse !important;
+    }
+
+    .pinBorder {
+      border-left: none !important;
+      border-right: 1px solid var(--widget-border-color) !important;
+    }
+
+    .lastIndex {
+      border-left: 1px solid var(--widget-border-color) !important;
+    }
+  }
+
+  app-credit-card-recent-transactions {
+    .subInfoData {
+      text-align: right !important;
+      right: 50px;
+    }
+
+    .narrationBox {
+      margin-right: 16%;
+    }
+
+    .uniqTransSeqNum {
+      margin-right: 48%;
+    }
+
+    .data_adjust {
+      left: unset;
+    }
+  }
+
+  app-credit-cards-list,
+  app-pos-finance {
+    .casaTable {
+
+      th.mat-header-cell,
+      td.mat-cell {
+        text-align: right;
+      }
+    }
+
+    .parentContainer {
+      margin: 20px 20px 0px 0px;
+    }
+  }
+
+  app-additional-account-review {
+    .mainContainer {
+      .subContainer {
+        .innerContainer {
+          margin: 15px 29px 0px 10px !important;
+
+          .account-sec {
+            margin-left: 22% !important;
+            margin-right: 0px !important;
+          }
+        }
+      }
+    }
+
+  }
+
+  app-additional-account-request {
+    .detailsContainer {
+      .statusContainerLeft {
+        margin-right: 15px !important;
+      }
+
+      .dataContainer {
+        .dataInfo {
+          margin-right: 13px !important;
+        }
+      }
+    }
+  }
+
+  app-add-acc-reject-request,
+  app-add-acc-authorize-request {
+    .detailsTitleContainer {
+      .backArrow {
+        left: 22px !important;
+      }
+    }
+  }
+
+  app-fatca {
+
+    .box {
+      padding: 0px 10px 0px 0px;
+      margin-right: 0px;
+      margin-left: 40px;
+    }
+
+
+    .overlapInput {
+      left: 45px;
+      position: absolute;
+      top: 21px;
+    }
+
+    .overlapInputInQuickTrans {
+      left: 22px;
+      position: absolute;
+      top: 13px;
+    }
+
+    .overlapInputData {
+      padding-right: 25px !important;
+      width: 255px !important;
+    }
+
+    .btnGroup {
+      float: left;
+    }
+
+    .mat-select-arrow-wrapper {
+      margin-left: 5px;
+      margin-right: unset;
+    }
+
+    app-primary-button {
+      .buttonPrimary {
+        margin-left: unset;
+      }
+    }
+
+  }
+
+  app-pos-statement-account {
+    .action {
+      float: left;
+      margin-left: -29px;
+    }
+
+    .downArrowAcc {
+      margin-left: 0px;
+      margin-right: -26px;
+    }
+
+    table {
+      .tableRowConatiner {
+        td:first-of-type {
+          border-top-right-radius: 10px 10px !important;
+          border-bottom-right-radius: 10px 10px !important;
+          border-top-left-radius: 0px 0px !important;
+          border-bottom-left-radius: 0px 0px !important;
+        }
+
+        td:last-of-type {
+          border-top-left-radius: 10px 10px !important;
+          border-bottom-left-radius: 10px 10px !important;
+          border-top-right-radius: 0px 0px !important;
+          border-bottom-right-radius: 0px 0px !important;
+          padding-left: 40px;
+        }
+      }
+
+      .tableHeader {
+        th:last-child {
+          padding-left: 40px;
+        }
+      }
+    }
+
+    .outerContainer {
+      .actionGroup {
+        float: left;
+        margin-left: -10px;
+      }
+    }
+  }
+
+  app-generate-statement {
+    table {
+      .tableRowConatiner {
+        td:first-of-type {
+          border-top-right-radius: 10px 10px !important;
+          border-bottom-right-radius: 10px 10px !important;
+          border-top-left-radius: 0px 0px !important;
+          border-bottom-left-radius: 0px 0px !important;
+        }
+
+        td:last-of-type {
+          border-top-left-radius: 10px 10px !important;
+          border-bottom-left-radius: 10px 10px !important;
+          border-top-right-radius: 0px 0px !important;
+          border-bottom-right-radius: 0px 0px !important;
+          padding-left: 40px;
+        }
+      }
+
+      .tableHeader {
+        th:last-child {
+          padding-left: 40px;
+        }
+      }
+    }
+
+    .outerContainer {
+      .actionGroup {
+        float: left;
+        margin-left: -10px;
+      }
+    }
+
+
+  }
+
+  app-sadad-biller-inquiry, app-esal-biller-inquiry{
+    .refreshCntr {
+      app-search{
+          right : 73px;
+      }
+    }
+  }
+  app-sadad-esal-payment-to{
+    .proceedBtn {
+      float: left;
+    }
+  }
+  app-sadad-moi-payment-to{
+    .primaryBtn, .tertiaryBtn{
+      float: left;
+    }
+    .mat-footer-cell{
+      text-align: right;
+    }
+    .mainContainer{
+      margin-right: 0 !important;
+    }
+    .datePicker{
+      left:0 !important;
+      right: unset !important;
+    }
+    .datePickerInput{
+      padding: 0 10px 0 0 !important;
+    }
+  }
+  app-sadad-moi, app-sadad-payments, app-sadad-esal{
+    .actionGroup{
+      float: left;
+    }
+  }
+  app-sadad-payments, app-sadad-esal-payment-to, app-sadad-moi, app-sadad-moi-refund{
+    th.mat-header-cell, td.mat-cell{
+      text-align: right;
+    }
+  }
+  app-sadad-payments{
+    app-additional-details{
+      .additionDetailsContainer{
+        padding:20px 20px 20px 0;
+      }
+    }
+  }
+  app-file-upload{
+    .deleteIcon{
+      position: unset;
+      // left:-35px !important;
+      // right: 0px !important;
+    }    
+  }
+  app-file-details{
+    .templateGuideLineContainer img {
+      margin-left:10px;
+      margin-right:0;
+    }
+    .downloadIcon{
+      margin-left: 10px;
+      margin-right: 0;
+    }
+  }
+  app-file-details, app-review-beneficiary-upload{
+    .actionGroup{
+      float: left;
+    }
+  }
+  app-upload-bulk-beneficiary{
+  .footerText{
+    margin: 40px 33px 0px 0px;
+  }
+
+  
+}
+app-file-details, app-review-beneficiary-upload{
+  .actionGroup{
+    float: left;
+  }
+}
+app-upload-bulk-beneficiary{
+.footerText{
+  margin: 40px 33px 0px 0px;
+}
+}
+app-servicerequest{
+  @media print{
+    .subTitleConatiner {
+      .listActive{text-align: right !important;}
+    }
+  }
+}
+
+
+
+app-payroll-detail{
+
+  .actionGroup{
+    float: left !important;
+  }
+  app-debit-lookup {
+
+    .casaTable th.mat-header-cell,
+    .casaTable td.mat-cell {
+      text-align: right;
+    }
+  }
+  mat-datepicker-toggle {
+    float: left;
+    position: relative;
+    right: 276px;
+  } 
+}
+
+app-recent-transactions{
+  .casaTable1 th.mat-header-cell,
+  .casaTable1 td.mat-cell {
+    text-align: right;
+  } 
+  app-more-action{
+    .more-icon{
+      margin: unset !important;
+    }
+  }
+  
+}
+
+app-download-balance-confirmaion{
+  .mat-dialog-actions{
+    flex-direction: row-reverse;
+    float: left !important;
+  }
+  .mat-dialog-content{
+    float: right;
+  }
+}
+
+app-download-template{
+  .downloadText{
+    margin-right: 7px;
+  }
+}
+
+app-pagination{
+  .mat-paginator-range-label{
+    direction: rtl !important;
+  }
+}
+
+app-advanced-filter-accounts{
+  .dateto{
+    margin-right: 14px;
+  }
+}
+app-sadad-moi-payment-to .autosugges, app-sadad-moi-refund-payment-to .autosugges, app-sadad-bill-details .autosugges{
+  .dropdownIcon{
+    left: 0 !important;
+    right: auto;
+  }
+}
+app-beneficiary-internationaltransfer{
+  .dropdownIcon{
+    left: 30px !important;
+    right: auto;
+  }
+}
+.moiServiceDrp{
+  .mat-option {
+    height: auto !important;
+  }
+}
+
+app-multi-claim-req-layout {
+  .title {
+    padding: 0px 30px 0px 0px !important;
+  }
+}
+
+
+  /* RTL related changes END */
+
+  app-authorize-single-transfer,
+  app-authorize-sadad-payment,
+  app-authorize-sadad-moi-payment,
+  app-authorize-sadad-moi-refund-req,
+  app-authorize-esal-payment,
+  app-authorize-sadad-bulk-payment,
+  app-authorize-esal-biller,
+  app-authorize-sadad-biller {
+    app-authorization {
+      .authorizationContainer {
+        margin-left: 30px !important;
+        margin-right: 30px;
+      }
+    }
+
+  }
+
+  app-generate-statement {
+    .dropDownOption {
+      max-height: auto !important;
+    }
+  }
+
+  app-postransaction-details {
+    &.transactionContainer {
+      .outerContainer {
+        margin: 0px !important;
+      }
+
+      .accountDetails {
+        border: none;
+        margin-top: 0px !important;
+      }
+
+    }
+
+  }
+
+  .setDropdownFont,
+  .mat-select-value-text {
+    font-family: 'HelveticaNeueLight', arial, sans-serif !important;
+    font-size: 14px !important;
+    color: var(--default-text-color);
+  }
+
+  .termsAndContion {
+    font-family: 'HelveticaNeueLight', arial, sans-serif !important;
+    font-size: 14px !important;
+    color: var(--tableData-header-color) !important;
+  }
+
+  app-advance-filter-ticket-inquiry {
+    .shortDatePicker app-date-picker .container input {
+      width: 300px !important;
+    }
+
+    .shortDatePicker app-date-picker .datePicker {
+      left: 283px !important;
+    }
+
+    .container {
+      width: 0px !important;
+    }
+
+
+  }
+  app-update-national-address{
+    .buttons {
+      float: left;
+  
+      app-tertiary-button ,
+      app-primary-button {
+        .buttonTertiary ,.buttonPrimary {
+          margin-left: 0px !important;
+          margin-right: 15px;
+        }
+      }
+     
+    }
+  }
+  app-update-cr-expiry{
+    .buttons{
+      float: left;
+    }
+  }
+  app-update-national-id {
+    .btnGroup {
+      float: left;
+    }
+  }
+  
+
+/* RTL related changes END */
+  app-pos-finance-request-details{
+    .outerContainer {
+      .accountDetails{
+        .checkBoxContainer{
+          .mat-checkbox{
+            margin-right: 0px!important; 
+           margin-left: 10px;
+           
+          }
+        }
+        
+      }
+      
+    }
+    .buttonConatiner {
+     float: left!important;
+     right: 0px!important;
+      
+    }
+  }
+  app-request-details-summary{
+    .dataContainer{
+      margin-right: 0px!important;
+    }
+  }
+  app-pos-finance-reject{
+    .outerContainer {
+      .btnContainer{
+        padding-left: 0px!important;
+      }
+    }
+  }
+  app-pos-finance-authorize{
+    .outerContainer {
+      .btnContainer{
+        padding-left: 0px!important;
+      }
+    }
+  }
+  app-request-details-summary{
+    .dataContainer{
+      .gridContainer {
+        .label{
+          padding-right: 0px!important;
+        }
+      }
+    }
+  }
+
+  //Transaction Inquiry Details Screen RTL changes
+  app-single-transfer-details,app-bulk-transfer-details-view,app-standing-order-detail{
+    .container {
+      padding: 16px 18px 14px 0 !important;
+    }
+    .subContainer {
+      padding: 12px 18px 15px 0 !important;
+      margin: 20px 0 10px 30px !important;
+    }
+  }
+  app-single-transfer-detail-layout, app-bulk-transfer-details, app-standing-order-detail-layout{
+    app-summary-tools {
+      .right-top {
+        margin-left: 7em;
+      }
+    }
+  }
+  app-sadad-moi-refund-req-details-layout, app-esal-payment-details-layout,app-sadad-details-layout,app-sadad-moi-details-layout,app-aramco-details-layout{
+    app-esal-payment-details ,app-sadad-moi-refund-req-details,app-sadad-details,app-sadad-moi-details,app-aramco-details{
+      .subContainer {
+        padding: 12px 18px 15px 0 !important;
+        margin: 20px 0 10px 30px !important;
+      }
+    }
+  }
+
+  app-cancel-transaction{
+    .container {
+      padding: 16px 18px 14px 0 !important;
+      margin: 5px 0px 10px 30px;
+    }
+    .subContainer {
+      padding: 12px 18px 15px 0 !important;
+      margin: 20px 0 10px 30px !important;
+    }
+  }
+
+  app-logout-confirmation{
+    float: left;
+    text-align: right;
+    .close-icon{
+      float: left;
+      cursor: pointer;
+      margin-left: 0;
+    }
+    .mat-dialog-actions{
+      flex-direction: row-reverse;
+      float: left !important;
+    }
+    .mat-dialog-content{
+      float: right;
+    }
+  }
+
+  app-sadad-payments{
+    app-credited-to{
+      .subContainer{
+        padding: 19px 22px 65px 20px !important;
+      }
+
+      app-primary-button{
+        .buttonPrimary{
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .overlapInput{
+    left: 45px !important;
+    position: absolute;
+    top: 21px;
+  }
+
+  .overlapInputInQuickTrans{
+    left: 25px !important;
+    position: absolute;
+    top: 13px;
+    width: 20px;
+  }
+
+  .overlapInputData{
+    padding-right: 25px !important;
+    width: 255px !important;
+  }
+
+  app-beneficiary-localtransfer {
+    .beneficiaryReviewDetails {
+      padding: 20px 18px 0 0px;
+      margin: 5px 20px 0px 30px;
+    }
+  }
+
+  app-additional-account-form,app-aramco-make-payment,app-aramco-to-payment {
+    app-tertiary-button,
+    app-secondary-button,
+    app-primary-button {
+
+      .buttonTertiary,
+      .secondoryButton,
+      .buttonPrimary {
+        margin-right: 10px;
+        margin-left: 0px !important;
+      }
+    }
+    .btnGroup,.actionGroup,.proceedBtn  {
+      float: left;
+    } 
+  }
+
+  .iconText{
+    margin-right: 5px;
+  }
+
+  app-additional-request, app-esal-biller-inquiry, app-sadad-biller-inquiry, app-aramco-make-payment {
+    td.mat-cell:first-of-type {
+      padding-right: 5px;
+    }
+
+    th.mat-header-cell {
+      text-align: right;
+    }
+  }
+
+  app-service-inquiry-additional-account{
+    .dataContainer{
+      margin-right: 0 !important;
+    }
+  }
+
+  app-sadad-bill-details{
+    .margin_Class{
+      margin-right : 0;
+    }
+    .billercontent{
+      margin-right: 0;
+    }
+  }
+
+  app-additional-request {
+    th.mat-header-cell:first-of-type {
+      padding-right: 5px !important;
+      padding-left: 0px !important;
+    }
+
+    td.mat-cell:last-of-type {
+      padding-left: 24px !important;
+      padding-right: 0px !important;
+    }
+
+    td.mat-cell:first-of-type {
+      padding-right: 5px !important;
+      padding-left: 0px !important;
+    }
+
+    td.mat-cell,
+    th.mat-header-cell {
+      padding-right: 0px !important;
+    }
+  }
+
+  app-aramco-make-payment,app-sadad-billers,app-esal-biller{
+    .casaTable {
+  
+      th,
+      td {
+        text-align: right;
+      }
+    }
+  }
+
+  app-aramco-amount-details-cash{
+    .fee_Div{
+      margin-right: 10%;
+    }
+
+    .feeTemplate{
+      margin-right: 10%;
+    }
+  }
+
+  app-advance-search-bulk-upload{
+    .dateInputright{
+      margin-right: 27px;
+    }
+  }
+
+  app-beneficiary-inquiry{
+    .paymentToggels {
+      margin-right: 45px;
+      margin-left: 0px !important;
+
+      .toggle#toggle1 {
+        border-radius: 0px 100px 100px 0px;
+      }
+
+      .toggle#toggle3 {
+        border-radius: 100px 0px 0px 100px;
+      }
+    }
+  }
+
+  app-advanced-filter-beneficiary{
+    .searchwithin{
+      margin-right: 17px
+    }
+  }
+
+  app-user-profile {
+    app-tertiary-button,
+    app-secondary-button,
+    app-primary-button {
+
+      .buttonTertiary,
+      .secondoryButton,
+      .buttonPrimary {
+        margin-right: 10px;
+        margin-left: 0px !important;
+      }
+    }
+    .buttons  {
+      float: left;
+      margin-left: 20px;
+    } 
+  }
+  app-funding-facility{
+    .title{
+      padding: 0px 25px 0px 0px;
+    }
+    .subContainer{
+      .titleConatiner{
+        margin-right: 0px!important;
+      }
+    }
+    .main{
+      .searchContainer{
+        .flexContainer{
+          app-selection{
+            margin-left: 15px;
+          }
+        }
+      }
+    }
+  }
+  app-funding-facility-review{
+    .detailsTitleContainer{
+      .backArrow{
+        left: 3px;
+      }
+      .mainTitle{
+      margin-right: 17px;
+      }
+    }
+   .summaryOuterConainer{
+    .summaryConainer{
+      .detailsContainer{
+        .dataContainer{
+          margin-right: 0px!important;
+        }
+        .titleContainer{
+          .titleContainerLeft{
+            margin-right: 3px;
+          }
+        }
+      }
+    }
+   }
+   section{
+    .btnContainer{
+      padding-left: 16px!important;
+    }
+   }
+  }
+  app-authentication{
+    .mobNum{
+      float: right;
+      direction: ltr;
+    }
+  }
+  app-additional-account-form,app-cheque-book-request {
+    .information  .dropdownIcon {
+      left :0px !important;
+      right: auto  !important;
+    } 
+  }
+  app-payroll-file-summary-details{
+    .actionGroup{
+      float: left;
+    }
+  }
+  app-aramco-invoice-inquiry{
+    .datePicker{
+      left: 0;
+      right: unset !important;
+    }
+  }
+  app-aramco-invoice-inquiry{
+    .submt{
+      float: left;
+    }
+  }
+  app-credited-to{
+    .mat-column-nickName{
+      padding-right: 20px;
+    }
+  }
+  	
+app-fund-transfer-local-quickpay,app-beneficiary-localtransfer{
+    .ibanNo{
+      direction:ltr
+    }
+  }
+}
+
+
+app-recent-transactions {
+  app-secondary-pagination {
+    .mat-paginator-range-label {
+      display: none !important;
+    }
+  }
+}
+
+app-payroll-file-upload-authorize{
+  .label-content{
+    font-family: 'HelveticaNeueLight' !important;
+    color: var(--primary-btn-text) !important;
+  }
+}
+
+app-view-mt103{
+.dynamicHtml{
+  id, type,sequence, data {
+    display: block !important;
+  }
+}
+}
+
+app-bulk-transfer-details-view,app-sadad-bulk-payment-details{
+  app-uploaded-file-download {
+    .uploadedSct{
+      padding-left: 0 !important;
+      width: 100% !important;
+    }
+  }
+}
+
+app-advanced-filtercommon{
+  .datePicker{
+    padding-right: 9px !important;
+  }
+}
+
+app-aramco-invoice-inquiry{
+  app-date-picker{
+    .datePickerInput{
+      width: 291px !important;
+    }
+  }
+}
+
+//FONT ICONS STARTED HERE//
+
+.icon-back{
+  padding-top: 17px;
+  margin-left: -5px;
+  &::before{
+      cursor: pointer;
+      font-size: 13px;
+      color: #84bd00;
+      font-weight: bolder;
+  }
+}
+
+app-authorize-single-transfer{
+  app-authorization{
+    display: inline-block;
+    margin-left: 30px;
+    width: 95%;
+  }
+}
+
+app-add-sadad-biller,app-additional-account-review,app-payroll-onboarding {
+  app-call-back {
+    .callBackConatiner{
+        padding: 0 !important;
+    }
+}
+}
+
+
+app-file-upload {
+  &.notRequired {
+    .fileContainer {
+      .upload-file-title {
+        span {
+          &.required {
+            display: none !important;
+          }
+        }
+      }
+    }
+  }
+}
+

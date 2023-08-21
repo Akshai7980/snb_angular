@@ -1,0 +1,28 @@
+{
+    "headerValue": {
+      "moduleId": "MYTASKSADADTRAN",
+      "simulate": "N",
+      "sortColumn": "valueDate",
+      "sortOrder": "desc",
+      "_dinsess": "ea65f3c8-d49f-415b-bca0-38c656eb9563"
+    },
+    "dataValue": {
+      "userNo": "",
+      "gcif": "",
+      "fromRowNo": 1,
+      "toRowNo": 50,
+      "filterList": [
+        {
+          "filterField": "",
+          "filterConstraint": "contains",
+          "filterValue": ""
+        }
+      ],
+      "unitId": "",
+      "groupBy": "",
+      "languageId": "en_US",
+      "filterFlag": ""
+    },
+    "footerValue": {
+    }
+  }

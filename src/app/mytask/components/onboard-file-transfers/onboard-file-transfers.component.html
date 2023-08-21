@@ -1,0 +1,29 @@
+<div class="worksapceBase">
+  <div class="content-header" translate>LBL_PAYROLL</div>
+
+  <div class="tabCntr">
+    <ul>
+      <li>
+        <a
+          routerLink="file-upload"
+          [class.active]="rootScopeData.activeTabName === 'fileUpload'"
+          ><span translate>LBL_FILE_UPLOAD</span> ({{
+            rootScopeData.singleBeneficiaryCount
+          }})</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="stop-payment"
+          [class.active]="rootScopeData.activeTabName === 'stopPayment'"
+          ><span translate>LBL_STOP_PAYMENT</span> ({{
+            rootScopeData.benUploadBeneficiaryCount
+          }})</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="tabDataCntr">
+    <router-outlet></router-outlet>
+  </div>
+</div>

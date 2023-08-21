@@ -1,0 +1,41 @@
+<div class="mainContainer">
+    <div class="titleConatiner">
+        <div>
+            <div class="title" translate>LBL_PORTFOLIO</div>
+            <div class="accountsInfo">{{totalaccounts}} <span translate>LBL_ACCOUNTS</span> </div>
+        </div>
+        <div class="icon-portfolio_active">
+        </div>
+    </div>
+    <div>
+        <div class="portfolioStatusbarContainer">
+            <div class="progresscontainer">
+            <div class="subTitles portfolioAmount">
+                <div [class.hideVisibility]="!netAssetData" style="margin-left:18px">
+                    <span class="ccy-positive">{{netAssetData |numberSuffix:2 }}</span>
+                    <span class="ccy-type">&nbsp;{{netAssetCurrency}}</span>
+                </div>
+                <div [class.hideVisibility]="!netLiabilityData" style="margin-right:16px">
+                    <span class="ccy-positive">{{netLiabilityData |numberSuffix:2}}</span>
+                    <span class="ccy-type">&nbsp;{{netLiablityCurrency}}</span>
+                </div>
+            </div>
+            <div id="portfolioBar" class="portFolioBar">
+                <div class="progressBar">
+                    <span class="insideProgressBar animate" [ngStyle]="{'width': assetPercent+'%'}"></span>
+                </div>
+            </div>
+            <div class="subTitles assetsLiabilities">
+                <div translate>LBL_ASSETS</div>
+                <div translate>LBL_LIABILITIES</div>
+            </div>
+        </div>
+        <div class="routercontainer">
+            <div class="icon-next_active" routerLink="/accounts/accounts-inquiry/casa"></div>
+        </div>
+            
+        </div>
+        
+    </div>
+</div>
+<app-ajax-loader-medium [hidden]="isLoadingCompelete"></app-ajax-loader-medium>

@@ -1,0 +1,16 @@
+<div class="worksapceBase">
+  <div class="content-header" translate>LBL_E_TRADE</div>
+
+  <div class="tabCntr">
+    <ul>
+      <li>
+        <a routerLink="file-upload" [class.active]="rootScopeData.activeTabName === 'eTrade'"><span
+            translate>LBL_LETTER_OF_GUARANTEE</span> ({{rootScopeData.selectedInquiryForStopPayment?.lgSummary ?
+          rootScopeData.selectedInquiryForStopPayment.lgSummary : 0}})</a>
+      </li>
+    </ul>
+  </div>
+  <div class="tabDataCntr">
+    <router-outlet></router-outlet>
+  </div>
+</div>

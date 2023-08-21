@@ -1,0 +1,126 @@
+.casaTable{
+    width: 100%;
+    background-color: var(--primary-widget-bg-color);
+}
+.mat-table{word-break: break-word;}
+.iconSort{
+    background: url(../../../../assets/images/iconSort.svg);
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    position: absolute;
+    top: 1px;
+}
+.position_rel{
+    position: relative;
+}
+.mat-row:nth-child(odd){
+    background-color: var(--summary-row-bg-color);
+}
+.mat-row:hover{
+background-color: var(--summary-hover-color);
+    cursor: pointer;
+}
+td.mat-cell:first-of-type{
+    border-radius: 10px 0px 0px 10px;
+    padding:0px 0px 0px 5px;
+}
+th.mat-header-cell:first-of-type{ padding:0px 0px 0px 5px;}
+td.mat-cell:last-of-type{
+    border-radius: 0px 10px 10px 0px;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    border: none;
+}
+th.mat-header-cell:last-of-type{padding-right: 0px !important;}
+th.mat-header-cell{
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    font-size: 14px;
+    color: #a2a2a2;
+    
+    }
+
+   td.mat-cell{
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    font-size: 14px;
+    color: #5d5d5d;
+   } 
+
+   .actionIcon{
+    background: url(../../../../assets/images/icoaction.svg) no-repeat center;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.dslk_flex{
+    display: flex;
+    justify-content: space-between;
+    width: 135px;
+}
+.nickNameInput{
+    width: 135px;
+height: 40px;
+padding: 0px 8px 0px 5px;
+border: 1px solid #e8e8e8;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+background-color: #ffffff;
+background-size: cover;
+font-size: 14px;
+color: #5d5d5d;
+
+}
+.cancelIcon{
+   background: url("../../../../assets/images/icoClose.svg") no-repeat center;
+   display: inline-block;
+   width: 10px;
+   height: 10px;   
+   position: absolute;
+   top: 16px;
+   right: 10px;
+   cursor: pointer;
+
+}
+.mat-row:hover .EditIcon{
+    display: inline-block;
+}
+.EditIcon{
+    background: url("../../../../assets/images/Icopencial.svg") no-repeat center;
+    width: 40px;
+    height: 18px;
+    display: none;
+    cursor: pointer;
+}
+.nickNameInputNotselected{
+    border: none;
+    background: transparent;
+    width: 100%;
+}
+input:focus{
+    outline: none;
+}
+input[type='text'] {    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    font-size: 14px;
+    color: #5d5d5d; }
+
+.refreshCntr {
+    position: relative;
+    app-refresh {
+        position: absolute;
+        right: 0;
+    }
+}
+.actionsConatiner {
+    display: flex;
+    justify-content: space-between;
+    .leftPannel {
+        display: flex;
+        min-width: 40%;
+        justify-content: space-between;
+    }
+}
+.searchCntnrLeft {
+    float: left;
+    margin-left: 15px;
+}

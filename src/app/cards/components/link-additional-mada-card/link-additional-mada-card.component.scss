@@ -1,0 +1,266 @@
+.title {
+    width: 215px;
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--input-text-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+.outerContainer{margin: 0 20px 30px;}
+.mtb10{margin:10px 0}
+.madaCardDetails {
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+
+    .sub {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 5px;
+    }
+}
+
+.rowInnerCntr {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    padding-top: 21px;
+
+    .field {
+        width: 35.33%;
+        padding-bottom: 10px;
+
+        &.field-bottom {
+            padding-bottom: 5px;
+        }
+
+        .label {
+            font-family: "HelveticaNeueMed", arial, sans-serif;
+            color: var(--table-header-color);
+            font-size: 14px;
+        }
+
+        .information {
+            padding-top: 10px;
+            color: var(--tableData-header-color);
+
+            &.data {
+                padding-top: 20px;
+            }
+
+            .currency {
+                position: absolute;
+                float: left;
+                left: 274px;
+                top: 21px;
+            }
+        }
+    }
+}
+
+.pR {
+    position: relative;
+}
+
+.newLimit {
+    width: 295px !important;
+}
+
+input[type="text"] {
+    width: 300px;
+    height: 40px;
+    padding: 0px 8px;
+    border: 1px solid var(--widget-border-color);
+    background-color: var(--primary-widget-bg-color);
+    border-radius: 4px;
+    background-size: cover;
+    font-family: "HelveticaNeue";
+    font-size: 14px;
+    color: var(--tableData-header-color);
+}
+
+.limit {
+    position: relative;
+}
+// NoWhere it is used , so commented on 06-03
+// .buttonContainer {
+//     display: flex;
+//     margin: 20px 20px 0px 0px;
+//     justify-content: end
+// }
+.finalProceed {
+  position: relative;
+  float: right;
+  bottom: 10px;
+}
+.footer {
+    margin: 36px 30px 0 46px;
+
+    .termsAndConditions {
+        position: absolute;
+        color: var(--tableData-header-color);
+        font-size: 14px;
+        font-family: 'HelveticaNeue', arial, sans-serif;
+
+        a {
+            color: var(--short-profile-txt-color);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}
+.subContainer{
+    border-radius: 6px;
+    background-color: var(--primary-widget-bg-color);
+    padding: 19px 20px 31px 20px ;
+    border: 1px solid var(--widget-border-color);
+    // margin-left: 15px;
+}
+.downArrowAcc {
+    background: url(../../../../assets/images/iconDownGreen.svg) no-repeat center;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    cursor: pointer;
+    transform: rotate(180deg);
+    transition: 1s transform;
+    margin-top: 6px;
+    margin-left: -26px;
+  }
+  .casaTable {
+
+    .mat-row:nth-child(odd) {
+      background-color: var(--summary-row-bg-color);
+    }
+  
+    .mat-cell,
+    .mat-footer-cell {
+      padding: 0 5px !important;
+    }
+  
+    .mat-row:hover {
+      background-color: var(--summary-hover-color);
+      cursor: pointer;
+    }
+  
+    td.mat-cell:first-of-type {
+      border-radius: 10px 0px 0px 10px !important;
+    }
+  
+    td.mat-cell:last-of-type {
+      border-radius: 0px 10px 10px 0px !important;
+    }
+  
+    td.mat-column-action {
+      width: 50px;
+    }
+  
+    th.mat-header-cell,
+    td.mat-cell,
+    td.mat-footer-cell {
+      border: none !important;
+    }
+  
+    th.mat-header-cell {
+      font-family: 'HelveticaNeueMed', arial, sans-serif !important;
+      font-size: 14px !important;
+      color: var(--table-header-color) !important;
+      background-color: #fff;padding: 0 5px 5px;
+    }
+  
+    tr.mat-row,
+    tr.mat-footer-row {
+      height: auto !important;
+    }
+  
+    td.mat-cell {
+      font-family: 'HelveticaNeueMed', arial, sans-serif !important;
+      font-size: 14px !important;
+      color: var(--tableData-header-color) !important;
+      line-height: 20px;
+      height: 50px;
+      &.nickName {
+        position: relative;
+      }
+    }
+  
+    .mat-cell {
+      line-height: 50px;
+    }
+  
+    th.mat-header-cell:last-of-type,
+    td.mat-cell:last-of-type,
+    td.mat-footer-cell:last-of-type {  
+      text-align: center !important;
+    }
+}
+.selectedMultipleAcc{width: 100%; border-collapse: collapse;}
+.selectInput {
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    width: 300px !important;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--input-text-color);
+    cursor: pointer;
+}
+
+.dropDownOption {
+    position: relative;
+    width: 181px !important;
+    top: 29px;
+    right: -5px;
+    box-shadow: none !important;
+}
+.viewAccContainer {
+    background-color: var(--summary-hover-color);
+    width: 93%;
+    padding: 10px 0px 0px 66px;
+    border-radius: 10px !important;
+  
+    color: var(--tableData-header-color);
+    font-size: 14px;
+    font-style: italic;
+    display: flex;
+    justify-content: space-between;
+  }
+textarea {
+    width: 300px;
+    height: 80px;
+    border: 1px solid var(--widget-border-color);
+    resize: none;
+    border-radius: 5px;
+    outline: none;
+}
+.mt20{margin-top: 20px;}
+.tableHeader {
+    color: var(--secondary-font-color);
+    background-size: cover;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+  }
+  
+  .tableRowConatiner {
+    background-color: var(--summary-hover-color);
+    font-size: 14px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    border-radius: 10px;
+    height: 40px;
+  }
+.multiselectAcc{width: 96%;
+    margin-left: 2%;
+    margin-top: 10px;}
+.mt15{margin-top: 15px;}
+.dataBackgroundColor {
+    color: var(--secondary-font-color);
+    margin-bottom: 10px;
+  }

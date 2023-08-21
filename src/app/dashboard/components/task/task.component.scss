@@ -1,0 +1,157 @@
+.mainCntr {
+    .topTittle {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 15px 0px 20px;
+        height: 25px;
+
+        h3 {
+            font-size: 16px;
+            color: var(--primary-fontColor);
+            font-family:'HelveticaNeueMed', arial, sans-serif;
+        }
+
+        a {
+            font-size: 14px;
+            color: var(--secondary-hover-color);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--primary-selected-color);
+        }
+    }
+
+    .subCntr {
+        max-height: 143px;
+        overflow-y: auto;
+        .paymentSection {
+            width: 100%;
+            height: 35px;
+            display: flex;
+            border-bottom: 1px solid var(--widget-border-color);
+            cursor: pointer;
+
+            .leftSide {
+                width: 80%;
+                display: flex;
+                padding: 9px 0px 8px 20px;
+
+                span {
+                    color: var(--primary-fontColor);
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .paymentSection:last-of-type {
+            border: none;
+        }
+    }
+}
+
+// .Payments {
+//     width: 18px;
+//     height: 18px;
+//     margin-right: 25px;
+//     background: url(../../../../assets/images/icoPayments.svg) no-repeat;
+
+// }
+
+// .ServiceRequest {
+//     width: 18px;
+//     height: 18px;
+//     margin-right: 25px;
+//     background: url(../../../../assets/images/icoServiceRequest.svg) no-repeat;
+// }
+
+.icon-service_request_active ,.icon-benificiaries_active ,.icon-transfer_active,.icon-my_task_inactive_1{
+    &::before{
+        cursor: pointer;
+        font-size: 18px;
+        color: var(--primary-fonticon-color);
+        margin-right: 25px;
+    }
+}
+
+// .Beneficiaries {
+//     width: 20px;
+//     height: 16px;
+//     margin-right: 23px;
+//     background: url(../../../../assets/images/taskBeneficiaries.png) no-repeat;
+// }
+
+
+
+.BillPayments {
+    width: 18px;
+    height: 20px;
+    margin-right: 25px;
+    background: url(../../../../assets/images/icoBillPayments.svg) no-repeat center;
+}
+
+.norecordflag{
+    height: 148px;
+    position: relative;
+    top: -60px;
+    overflow: hidden;
+}
+
+.rightSide {
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    
+
+    // .nextArrow {
+    //     width: 35px;
+    //     height: 35px;
+    //     background: url(../../../../assets/images/icoNextArrow.svg) no-repeat;
+    // }
+
+    .icon-next_active{
+        &::before{
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--secondary-fonticon-color);
+            margin-right: 12px;
+            background-size: contain;
+            float: right;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+    }
+
+    .count {
+        width: 24px;
+        height: 24px;
+        background-color: #006a52;
+        color: #ffffff;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 12px;
+        padding: 4px 2px;
+        border: none;
+        cursor: pointer;
+        transform: translate(0px, 5px);
+        margin-right: 10px;
+    }
+
+
+}
+
+// .icon-globe{
+//     // background: url(../../../../assets/images/icoLang.svg) no-repeat center;
+//     // width: 24px;
+//     // height: 24px;
+//     // display: inline-block;
+//     // background-size: contain;
+//     // cursor: pointer;
+//     &::before{
+//         cursor: pointer;
+//         font-size: 23px;
+//         color: #006a52;
+//     }
+// }

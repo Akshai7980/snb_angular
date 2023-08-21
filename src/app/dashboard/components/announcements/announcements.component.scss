@@ -1,0 +1,79 @@
+.mainContainer {
+    color: var(--announcement-fontColor);
+
+    .containerTitle {
+        display: flex;
+    }
+
+    .announcementTitle {
+        font-size: 16px;
+        padding: 18px 8px 8px 8px;
+        font-family: 'HelveticaNeueMed', arial, sans-serif;
+    }
+
+    // .announcementicon {
+    //     background: url(../../../../assets/images/icoAnnouncements.svg) no-repeat center;
+    //     width: 20px;
+    //     height: 20px;
+    //     display: inline-block;
+    //     background-size: contain;
+    //     margin: 18px 0px 0px 13px;
+    // }
+
+    .icon-announcement_active {
+        &::before {
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--primary-fonticon-color);
+            margin: 18px 0px 0px 13px;
+            display: inline-block;
+            background-size: contain;
+        }
+    }
+
+    .announcementInfo {
+        padding: 2px 7px 12px 12px;
+        font-size: 14px;
+        line-height: 24px;
+        // min-height: 75px;
+    }
+
+    .carouselIndicators {
+        border: none;
+        background-color: var(--widget-border-color);
+        padding: 4px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        cursor: pointer;
+        transition: background-color 0.5s ease-in-out;
+    }
+
+    .carouselbg {
+        background-color: var(--primary-unselected-color);
+    }
+
+    .carouselLoopGrp {
+        width: 62px;
+        justify-content: space-between;
+        display: flex;
+    }
+
+    .carouselBtnIndicators {
+        display: flex;
+        float: right;
+    }
+
+    .nexticon {
+        background: url(../../../../assets/images/icoAnnouncementnext.svg) no-repeat center;
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        background-size: contain;
+        margin-top: -6px;
+        cursor: pointer;
+    }
+}

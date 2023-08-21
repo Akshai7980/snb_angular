@@ -1,0 +1,66 @@
+{
+    "data": {
+        "record": [
+            {
+                "date": "13/10/2022",
+                "amountSR": "900",
+                "recordNumber": "001",
+                "amount": "900",
+                "description": "PAYMENT",
+                "merchant": "BRANCH PAYMENT",
+                "location": "",
+                "transactionCode": "09",
+                "postingDate": "20221013",
+                "currencyCode": "SAR",
+                "cardNumber": "xjaFjmI75LQ5APOPuQfE9g3TKbx8lceaTYduyw4WZpeN+ZxOf1s6abT4Vyk0+wbs",
+                "status": "S"
+            },
+            {
+                "date": "13/10/2022",
+                "amountSR": "900",
+                "recordNumber": "002",
+                "amount": "900",
+                "description": "PAYMENT",
+                "merchant": "BRANCH PAYMENT",
+                "location": "",
+                "transactionCode": "09",
+                "postingDate": "20221013",
+                "currencyCode": "SAR",
+                "cardNumber": "xjaFjmI75LQ5APOPuQfE9g3TKbx8lceaTYduyw4WZpeN+ZxOf1s6abT4Vyk0+wbs",
+                "status": "S"
+            },
+            {
+                "date": "13/10/2022",
+                "amountSR": "900",
+                "recordNumber": "003",
+                "amount": "900",
+                "description": "PAYMENT",
+                "merchant": "BRANCH PAYMENT",
+                "location": "",
+                "transactionCode": "09",
+                "postingDate": "20221013",
+                "currencyCode": "SAR",
+                "cardNumber": "xjaFjmI75LQ5APOPuQfE9g3TKbx8lceaTYduyw4WZpeN+ZxOf1s6abT4Vyk0+wbs",
+                "status": "S"
+            },
+            {
+                "date": "13/10/2022",
+                "amountSR": "900",
+                "recordNumber": "004",
+                "amount": "900",
+                "description": "PAYMENT",
+                "merchant": "BRANCH PAYMENT",
+                "location": "",
+                "transactionCode": "09",
+                "postingDate": "20221013",
+                "currencyCode": "SAR",
+                "cardNumber": "xjaFjmI75LQ5APOPuQfE9g3TKbx8lceaTYduyw4WZpeN+ZxOf1s6abT4Vyk0+wbs",
+                "status": "S"
+            }
+        ]
+    },
+    "headerValue": {
+        "moduleId": "STATEONLNE",
+        "totalCount": 1
+    }
+}

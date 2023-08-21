@@ -1,0 +1,55 @@
+.outerContainer {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.title {
+    width: 215px;
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+
+.subTitles {
+    margin-bottom: 15px;
+}
+
+.mtop_20 {
+    margin-top: 20px;
+}
+
+.selectedDetails {
+    background-color: var(--primary-widget-bg-color);
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+}
+
+:host ::ng-deep .selectedDetails app-debit-lookup .subContainer {
+    border: unset;
+    padding-top: unset;
+}
+
+:host ::ng-deep .selectedAccount app-debit-lookup .subContainer {
+    padding-bottom: unset;
+}
+
+:host ::ng-deep .selectedMerchant app-debit-lookup .subContainer {
+    padding-top: 2px;
+}
+
+.actionGroup {
+    float: right;
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-top: 30px;
+    margin-right: 18px;
+  }

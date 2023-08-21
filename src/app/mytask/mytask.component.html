@@ -1,0 +1,39 @@
+<div class="worksapceBase">
+    <div class="mainTitle" translate>LBL_MY_TASK</div>
+    <div class="contentSection">
+        <div class="left-content-Menulist">
+            <ul> 
+                <!-- <input type="radio" name="menu" id="Payments" checked>
+                <li><label for="Payments" class="title" (click)="selectMenu_click('Payments')" translate>LBL_PAYMENTS</label></li>
+                <input type="radio" name="menu" id="ServiceRequest">
+                <li><label for="ServiceRequest" class="title" (click)="selectMenu_click('ServiceRequest')" translate>LBL_SERVICE_REQUEST</label></li>
+                <input type="radio" name="menu" id="Beneficiaries">
+                <li><label for="Beneficiaries" class="title" (click)="selectMenu_click('beneficiaries')" translate>LBL_BENEFICIARIES</label></li>
+                <input type="radio" name="menu" id="BillPayments">
+                <li><label for="BillPayments" class="title" translate>LBL_BILL_PAYMENTS</label></li>
+                <input type="radio" name="menu" id="SadadBillPayments">
+                <li><label for="SadadBillPayments" class="title" (click)="selectMenu_click('sadadbiller')" translate>LBL_SADAD_BILLERS</label></li> -->
+            
+              
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_PAYMENTS"><a routerLink="/mytask/payment/single-payments" [class.active]="rootScopeData.paymentActiveTabName === 'payments'"><span class="title" translate>LBL_PAYMENTS</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_SERVICE_REQUEST_INQ"><a routerLink="/mytask/serviceRequest" [class.active]="rootScopeData.paymentActiveTabName === 'serviceRequest'"><span class="title" translate>LBL_SERVICE_REQUEST</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_BENIFICIARIES"><a routerLink="/mytask/beneficiary" [class.active]="rootScopeData.paymentActiveTabName === 'beneficiary'"><span class="title" translate>LBL_BENEFICIARIES</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_SADAD"><a routerLink="/mytask/sadad" [class.active]="rootScopeData.paymentActiveTabName === 'sadad'"><span class="title" translate>LBL_SADAD</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_BILL_PAYMENTS"><a  [class.active]="rootScopeData.paymentActiveTabName === 'BillPayments'"><span class="title" translate>LBL_BILL_PAYMENTS</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_BILLER_MANAGEMENT"><a routerLink="/mytask/billerManagement" [class.active]="rootScopeData.paymentActiveTabName === 'billermanagement'"><span class="title" translate>LBL_BILLER_MANAGEMENT</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_INSTANT_TRANSFER_MANAGEMENT"><a routerLink="/mytask/instantTransferManagement" [class.active]="rootScopeData.paymentActiveTabName === 'instantTransferManagement'"><span class="title ellipsis" translate>LBL_CONFIGURATION_MANAGEMENT</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_PAYROLL"><a routerLink="/mytask/Payroll" [class.active]="rootScopeData.paymentActiveTabName === 'Payroll'"><span class="title" translate>LBL_PAYROLL</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_PAYROLL"><a routerLink="/mytask/Onboarding" [class.active]="rootScopeData.paymentActiveTabName === 'PayrollOnboarding'"><span class="title" translate>LBL_PAYROLL_ONBOARDING</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_CARDS"><a routerLink="/mytask/cards" [class.active]="rootScopeData.paymentActiveTabName === 'cards'"><span class="title ellipsis" translate>LBL_CARDS</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.E_TRADE"><a routerLink="/mytask/eTrade" [class.active]="rootScopeData.paymentActiveTabName === 'eTrade'"><span class="title ellipsis transNone" translate>LBL_E_TRADE</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_POS"><a routerLink="/mytask/posTransaction" [class.active]="rootScopeData.paymentActiveTabName === 'PosTransaction'"><span class="title ellipsis" translate>LBL_POS</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_COMMON"><a routerLink="/mytask/commonServices" [class.active]="rootScopeData.paymentActiveTabName === 'CommonServices'"><span class="title ellipsis" translate>LBL_COMMON_SERVICES</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_POS_FINANCE"><a routerLink="/mytask/posFinance" [class.active]="rootScopeData.paymentActiveTabName === 'posFinance'"><span class="title ellipsis" translate>LBL_POS_FINANCE</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_EPAY"><a routerLink="/mytask/ePay" [class.active]="rootScopeData.paymentActiveTabName === 'ePay'"><span class="title ellipsis transNone" translate>LBL_E_PAY</span></a></li>
+            </ul>
+        </div>
+        <div class="right-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

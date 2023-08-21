@@ -1,0 +1,403 @@
+<div *ngIf="!showReceipt">
+  <div class="outerContainer">
+    <div class="accountDetails">
+      <div class="subTitles" translate>
+        {{ "LBL_POS" | translate }}
+        {{
+          rootScopeData.pendingActivitiesBulkUploadObject.requestType ===
+          "Merchant Finance Dispute"
+            ? ("LBL_MERCHANT_FINANCE_DISPUTE" | translate)
+            : rootScopeData.pendingActivitiesBulkUploadObject.requestType ===
+              "Fee Debit Inquiry"
+            ? ("LBL_FEE_DEBIT_INQUIRY" | translate)
+            : rootScopeData.pendingActivitiesBulkUploadObject.requestType ===
+              "Refund Request"
+            ? ("LBL_REFUND_REQUEST" | translate)
+            : rootScopeData.pendingActivitiesBulkUploadObject.requestType ===
+              "Multi Claim Request"
+            ? ("LBL_MULTI_CLAIM_REQUEST" | translate)
+            : "--"
+        }}
+        {{ "LBL_FROM" | translate }}
+
+        <span
+          *ngIf="transactionDetails?.merchantName && transactionDetails?.accNo"
+        >
+          {{
+            transactionDetails?.merchantName
+              ? transactionDetails.merchantName
+              : "--"
+          }},
+          {{ transactionDetails?.accNo ? transactionDetails.accNo : "--" }}
+        </span>
+      </div>
+
+      <div class="refNo" translate>
+        LBL_REF_NUMBER
+        <span class="refNo">
+          {{ transactionDetails?.refNo ? transactionDetails.refNo : "--" }}
+        </span>
+      </div>
+
+      <div>
+        <span class="refNo">
+          {{ "LBL_ON" | translate }}
+          {{
+            transactionDetails?.posDate
+              ? (transactionDetails.posDate | dateFormat)
+              : "--"
+          }}
+        </span>
+
+        <button
+          [hidden]="!rootScopeData.pendingActivitiesBulkUploadObject.statusDesc"
+          class="status-green-button"
+          translate
+          [class.status-red-button]="
+            rootScopeData.pendingActivitiesBulkUploadObject.status === 'RN' ||
+            rootScopeData.pendingActivitiesBulkUploadObject.status === 'RS' ||
+            rootScopeData.pendingActivitiesBulkUploadObject.status === 'RE' ||
+            rootScopeData.pendingActivitiesBulkUploadObject.status === 'RO' ||
+            rootScopeData.pendingActivitiesBulkUploadObject.status === 'RH'
+          "
+          translate
+        >
+          {{ rootScopeData.pendingActivitiesBulkUploadObject?.statusDesc }}
+        </button>
+      </div>
+
+      <div class="detailContainer">
+        <div translate class="subTitles alignContainer">
+          LBL_REQUEST_DETAILS
+        </div>
+
+        <div class="flexContainer">
+          <div>
+            <div class="label" translate>LBL_Account_Number</div>
+            <span class="data">{{
+              transactionDetails?.accNo ? transactionDetails.accNo : "--"
+            }}</span>
+          </div>
+
+          <div>
+            <div translate class="label">LBL_MERCHANT_NAME</div>
+            <span class="data">
+              {{
+                transactionDetails?.merchantName
+                  ? transactionDetails.merchantName
+                  : "--"
+              }}
+            </span>
+          </div>
+
+          <div>
+            <div translate class="label">LBL_MERCHANT_NUMBER</div>
+            <span class="data">
+              {{
+                transactionDetails?.merchantId
+                  ? transactionDetails.merchantId
+                  : "--"
+              }}
+            </span>
+          </div>
+        </div>
+
+        <div class="flexContainer">
+          <div>
+            <div translate class="label">LBL_TERMINAL_ID</div>
+            <span class="data">
+              {{
+                transactionDetails?.terminalId
+                  ? transactionDetails.terminalId
+                  : "--"
+              }}
+            </span>
+          </div>
+          <div>
+            <div translate class="label">LBL_TERMINAL_TYPE</div>
+            <span class="data">
+              {{
+                transactionDetails?.terminalType
+                  ? transactionDetails.terminalType
+                  : "--"
+              }}
+            </span>
+          </div>
+          <div>
+            <div translate class="label">LBL_SEQUENCE_NUMBER</div>
+            <span class="data">
+              {{
+                transactionDetails?.sequenceNo
+                  ? transactionDetails.sequenceNo
+                  : "--"
+              }}</span
+            >
+          </div>
+        </div>
+
+        <div class="flexContainer">
+          <div>
+            <div translate class="label">LBL_TERM_ID</div>
+            <span class="data">
+              {{
+                transactionDetails?.terminalId
+                  ? transactionDetails.terminalId
+                  : "--"
+              }}
+            </span>
+          </div>
+          <div>
+            <div translate class="label">LBL_CARD_TYPE</div>
+            <span class="data">
+              {{
+                transactionDetails?.cardType
+                  ? transactionDetails.cardType
+                  : "--"
+              }}
+            </span>
+          </div>
+          <div>
+            <div translate class="label">LBL_CARD_NO</div>
+            <span class="data">
+              {{
+                transactionDetails?.cardNo ? transactionDetails.cardNo : "--"
+              }}</span
+            >
+          </div>
+        </div>
+
+        <div class="flexContainer">
+          <div>
+            <div translate class="label">LBL_VALUE_DATE</div>
+            <span class="data">
+              {{
+                transactionDetails?.posDate
+                  ? (transactionDetails.posDate | dateFormat)
+                  : "--"
+              }}
+            </span>
+          </div>
+          <div>
+            <div translate class="label">LBL_AMOUNT</div>
+            <span class="data">
+              {{
+                (transactionDetails.amount
+                  ? (transactionDetails.amount
+                    | currencyFormat : transactionDetails.currency)
+                  : "--") +
+                  " " +
+                  transactionDetails.currency
+              }}
+            </span>
+          </div>
+          <div>
+            <div translate class="label">LBL_EMAIL</div>
+            <span class="data">
+              {{
+                transactionDetails?.email ? transactionDetails.email : "--"
+              }}</span
+            >
+          </div>
+        </div>
+
+        <div class="flexContainer">
+          <div>
+            <div translate class="label">LBL_MOBILE_NUMBER</div>
+            <span class="data">
+              {{
+                transactionDetails?.mobileNo
+                  ? transactionDetails.mobileNo
+                  : "--"
+              }}
+            </span>
+          </div>
+          <div>
+            <div translate class="label">LBL_FINANCIAL_CLAIM_TYPE</div>
+            <span class="data">
+              {{
+                transactionDetails?.claimType
+                  ? transactionDetails.claimType
+                  : "--"
+              }}
+            </span>
+          </div>
+          <div>
+            <div translate class="label">LBL_CLAIM_DESCRIPTION</div>
+            <span class="data">
+              {{
+                transactionDetails?.claimDesc
+                  ? transactionDetails.claimDesc
+                  : "--"
+              }}</span
+            >
+          </div>
+        </div>
+
+        <div class="flexContainer">
+          <div>
+            <div translate class="label">LBL_COMMENTS</div>
+            <span class="data">
+              {{
+                transactionDetails?.comments
+                  ? transactionDetails.comments
+                  : "--"
+              }}
+            </span>
+          </div>
+          <div *ngIf="!isPosService && !isPosReject">
+            <div translate class="label">LBL_FILE</div>
+            <span class="data">
+              {{ transactionDetails?.accNo ? transactionDetails.accNo : "--" }}
+            </span>
+          </div>
+        </div>
+
+        <!-- <div class="flexContainer">
+                    <div>
+                        <div translate class="label">LBL_ACTION</div>
+                        <span class="data"> {{ transactionDetails?.accNo ? transactionDetails.accNo : '--' }} </span>
+                    </div>
+                    <div>
+                        <div translate class="label">LBL_ENGLISH_NAME</div>
+                        <span class="data"> {{ transactionDetails?.accNo ? transactionDetails.accNo : '--' }} </span>
+                    </div>
+                    <div>
+                        <div translate class="label">LBL_ARABIC_NAME</div>
+                        <span class="data"> {{ transactionDetails?.accNo ? transactionDetails.accNo : '--' }}</span>
+                    </div>
+                </div> -->
+
+        <!-- <div class="flexContainer">
+                    <div>
+                        <div translate class="label">LBL_ENGLISH_SHOP</div>
+                        <span class="data"> {{ transactionDetails?.shopEnglish ? transactionDetails.shopEnglish : '--'
+                            }} </span>
+                    </div>
+                    <div>
+                        <div translate class="label">LBL_ARABIC_SHOP</div>
+                        <span class="data"> {{ transactionDetails?.accNo ? transactionDetails.accNo : '--' }} </span>
+                    </div>
+                    <div>
+                        <div translate class="label">LBL_TERMINAL_CITY_NAME_OR_NEAREST_CITY</div>
+                        <span class="data"> {{ transactionDetails?.accNo ? transactionDetails.accNo : '--' }} </span>
+                    </div>
+                </div> -->
+
+        <!-- <div class="flexContainer">
+                    <div>
+                        <div translate class="wrappe label">
+                            LBL_TERMINAL_ADDRESS_STREET_NAME_OR_DISTRICT_(ENGLISH_LETTER_ONLY)</div>
+                        <span class="data"> {{ transactionDetails?.addressEnglish ? transactionDetails.addressEnglish :
+                            '--' }} </span>
+                    </div>
+                    <div>
+                        <div translate class="label">LBL_TERMINAL_ADDRESS_ARABIC</div>
+                        <span class="data"> {{ transactionDetails?.addressArabic ? transactionDetails.addressArabic :
+                            '--' }} </span>
+                    </div>
+                    <div>
+                        <div translate class="label">LBL_CONTACT_FIRST_NAME</div>
+                        <span class="data"> {{ transactionDetails?.firstName ? transactionDetails.firstName : '--' }}
+                        </span>
+                    </div>
+                </div> -->
+
+        <!-- <div class="flexContainer">
+                    <div>
+                        <div translate class="label">LBL_CONTACT_LAST_NAME</div>
+                        <span class="data"> {{ transactionDetails?.lastName ? transactionDetails.lastName : '--' }}
+                        </span>
+                    </div>
+                    <div>
+                        <div translate class="label">LBL_MOBILE_1</div>
+                        <span class="data"> {{ transactionDetails?.mobileNo ? transactionDetails.mobileNo : '--' }}
+                        </span>
+                    </div>
+                    <div>
+                        <div translate class="label">LBL_MOBILE_2</div>
+                        <span class="data"> {{ transactionDetails?.mobileNo2 ? transactionDetails.mobileNo2 : '--' }}
+                        </span>
+                    </div>
+                </div> -->
+
+        <!-- <div class="flexContainer">
+                    <div>
+                        <div translate class="label">LBL_EMAIL_ADDRESS_1</div>
+                        <span class="data"> {{ transactionDetails?.address ? transactionDetails.address : '--' }}
+                        </span>
+                    </div>
+                    <div>
+                        <div translate class="label">LBL_NUMBER_OF_TERMINALS_(IN_SAME_LOCATION)</div>
+                        <span class="data"> {{ transactionDetails?.terminalNo ? transactionDetails.terminalNo : '--' }}
+                        </span>
+                    </div>
+                </div> -->
+      </div>
+
+      <div class="rejectReasonContainer" *ngIf="isPosReject">
+        <div class="rejecthead" translate>
+          LBL_RJCT_RSN
+          <span class="required">*</span>
+        </div>
+        <div>
+          <div class="rejecttextarea">
+            <textarea
+              [(ngModel)]="rejectreason"
+              maxlength="140"
+              (blur)="textAreaClick()"
+              (keypress)="space($event)"
+            ></textarea>
+            <div class="errorMsg" *ngIf="isrejectreasonValid" translate>
+              LBL_ERROR_MESSAGE_RJCT_RSN
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section *ngIf="!isPosService">
+      <app-record-summary
+        *ngIf="showRecSumm"
+        (sortColumnEmit)="onSortColumn($event)"
+        [moduleId]="moduleId"
+        [sortOptions]="sortOptions"
+        [recordSummaryObject]="recordSummaryObject"
+        [refNo]="''"
+        [subprdt]="''"
+        [pageCall]="pageName"
+      ></app-record-summary>
+    </section>
+
+    <section *ngIf="showRecSumm">
+      <div class="summaryContainer">
+        <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+      </div>
+    </section>
+
+    <section *ngIf="showRecSumm">
+      <div class="summaryContainer">
+        <app-history [historyData]="workFlowHistoryParams"></app-history>
+      </div>
+    </section>
+  </div>
+
+  <div class="btnContainer" *ngIf="isPosReject">
+    <app-tertiary-button
+      buttonValue="LBL_CANCEL"
+      routerLink="/mytask/posTransaction"
+    ></app-tertiary-button>
+    <app-primary-button
+      buttonValue="LBL_SUBMIT"
+      (click)="submitToReceipt()"
+    ></app-primary-button>
+  </div>
+</div>
+
+<app-receipt
+  *ngIf="showReceipt"
+  [receiptDetails]="receiptData"
+  [hideButton]="hideInitiateButton"
+>
+</app-receipt>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

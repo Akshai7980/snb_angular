@@ -1,0 +1,12 @@
+{
+    "hdr_Tran_Id": "GENERATECALLBACK",
+    "res_ErrorMessage": "Success",
+    "GenerateCallbackResponse": {
+        "success": {
+            "uniqueId": "100001880"
+        }
+    },
+    "res_CoreRefno": "4567",
+    "res_ErrorCode": "00000",
+    "mobileNo":"+966 53*****815"
+}

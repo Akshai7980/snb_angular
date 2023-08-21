@@ -1,0 +1,23 @@
+<app-credit-view-pin-layout
+  *ngIf="!viewPinEmit.canProceed"
+  (getProceedEmit)="getViewPinEmit($event)"
+  [cardDetails]="cardDetails"
+>
+</app-credit-view-pin-layout>
+
+<app-credit-view-pin-review
+  *ngIf="viewPinEmit.canProceed && !viewPinReviewEmit.canSubmit"
+  (getSubmitEmit)="getSubmitEmit($event)"
+  [cardDetails]="cardDetails"
+></app-credit-view-pin-review>
+
+<app-receipt
+  *ngIf="viewPinReviewEmit.canSubmit"
+  (onInitAgainClick)="toActivateAnotherCard()"
+  [receiptDetails]="receiptObject"
+  (viewPinEmit)="onViewPinClick()"
+  (DownloadReceiptClick)="downloadPdf()"
+>
+</app-receipt>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

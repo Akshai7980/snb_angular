@@ -1,0 +1,43 @@
+<div class="mainContainer">
+    <div translate class="title"> LBL_SERVICE_INQUIRY</div>
+    <div class="subContainer" id="serviceRequestsPrintSection">
+        <div class="row" id="logoPrint">
+            <div><img class="logo" src="{{logo}}"> </div>
+            <!-- <div><span class="logotext" translate>LBL_ECORP</span></div> -->
+            <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+        </div>
+        <div class="header-panel">
+            <div class="titleIcons header-panel-left headerPanelWidth">
+                <div class="accountIcon"></div><div translate>LBL_SERVICE_INQUIRY</div>
+            </div>
+            <div class="actionConatinere header-panel-right headerPanelWidth" *ngIf="enablePropertty">
+                <app-summary-tools [printSection]="printSection"  [moduleId]=rootScopeData.accountsActiveModule [isshowndownloadablePrint]="isShownDocPrint" [isshownPrint]="shownPrint"></app-summary-tools>
+            </div>
+        </div>
+        <div class="mtop_10 subTitleConatiner">
+            <ul class="titleList">
+                <li routerLink="./downloadcenter" class="animate" [ngClass]="this.rootScopeData.activeTabName==='downloadcenter' ? 'listActive':'listInactive'"><a translate>LBL_DOWNLOAD_CENTER <span *ngIf="rootScopeData.downloadcentersummarycount && rootScopeData.downloadcentersummarycount > 0">({{rootScopeData.downloadcentersummarycount}})</span></a></li>
+                <li routerLink="./otherrequest" class="animate" [ngClass]="this.rootScopeData.activeTabName==='otherrequest' ? 'listActive':'listInactive'"><a translate>LBL_OTHER_REQUEST <span *ngIf="rootScopeData.otherReqSummaryCount && rootScopeData.otherReqSummaryCount > 0">({{rootScopeData.otherReqSummaryCount}})</span></a></li>
+                <li routerLink="./additionalrequest" class="animate" [ngClass]="this.rootScopeData.activeTabName==='additionalrequest' ? 'listActive':'listInactive'"><a translate>LBL_ADDITIONAL_ACCOUNT_REQUEST <span *ngIf="rootScopeData.additionalRequestCount && rootScopeData.additionalRequestCount > 0" >({{rootScopeData.additionalRequestCount}})</span></a></li>
+
+            </ul>
+        </div>
+        <div class="mTop_18">
+            <!-- <div class="actionsConatiner"> -->
+                <!-- <div class="leftPannel">
+                    <div class="searchCntnrLeft" *ngIf="enablePropertty">
+                        <app-search (searchParams)="advancedSearchApply($event)" [showAdvanceSearch]="true" (childEvent)="triggerSearchFilter($event)"></app-search>
+                    </div>
+                </div> -->
+                <!-- <div class="actionHide">
+                    <div>
+                        <app-refresh> </app-refresh>
+                    </div>
+                </div> -->
+            <!-- </div> -->
+            <div>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

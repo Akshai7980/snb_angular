@@ -1,0 +1,29 @@
+<div class="outerContainer">
+    <div *ngIf="!selectedAccount || !selectedMerchant">
+        <app-debit-lookup *ngIf="accountListObj" [tableId]="'multiClaimAccountData'" [debitAccDetails]="accountListObj"
+            [shownsearch]="true" (onAccountSelect)="getSelectedAccount($event)"></app-debit-lookup>
+        <div class="mtop_20">
+            <app-debit-lookup *ngIf="merchantListObj" [tableId]="'multiClaimMerchantData'"
+                [debitAccDetails]="merchantListObj" [shownsearch]="true"
+                (onAccountSelect)="getSelectedMerchant($event)"></app-debit-lookup>
+        </div>
+    </div>
+    <div class="selectedDetails" *ngIf="selectedAccount && selectedMerchant">
+        <div class="subTitles" translate>LBL_MRCHNT_DETAILS</div>
+        <div class="selectedAccount">
+            <app-debit-lookup *ngIf="selectedAccountListObj" [debitAccDetails]="selectedAccountListObj"
+                (onAccountSelect)="onClickSelectedAccount($event)"></app-debit-lookup>
+        </div>
+        <div class="selectedMerchant">
+            <app-debit-lookup *ngIf="selectedMerchantListObj" [debitAccDetails]="selectedMerchantListObj"
+                (onAccountSelect)="onClickSelectedMerchant($event)"></app-debit-lookup>
+        </div>
+    </div>
+</div>
+
+<div class="actionGroup">
+    <app-tertiary-button *ngIf="selectedAccount && !selectedMerchant" buttonValue="LBL_CANCEL" class="tertiaryBtn"
+        (click)="toCancel()"></app-tertiary-button>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

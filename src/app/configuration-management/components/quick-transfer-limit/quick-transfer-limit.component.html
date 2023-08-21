@@ -1,0 +1,69 @@
+<div class="mainContainer" *ngIf="!isProceed">
+    <div translate class="subTitles">LBL_QUICK_TRANSFER_LIMIT</div>
+    <div class="subContainer">
+        <div translate class="subTitles"> LBL_CIF_ACCOUNT</div>
+           <div class="fieldSets" *ngIf="!readOnly">
+             <div class="ownAmount">
+                 <div translate class="geneStaTitles">LBL_CUSTOMER_INFORMATION_NUMBER<span class="required">*</span></div>
+                 <!-- <div class="amtContainer"> -->
+                    <div class="mtop_10">
+                        <mat-select
+                          class="selectInput"
+                          placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+                          panelClass="dropDownOption"
+                          disableOptionCentering>
+                          <mat-option 
+                          value = "{{customerNumber}}"
+                          (click)="selectedCustomerNumber(customerNumber)"
+                          *ngFor="let customerNumber of customerInforList">
+                             {{customerNumber.cifNo}}
+                          </mat-option>
+                        </mat-select>
+                        <!-- <div *ngIf="authError">
+                          <small translate class="required">{{ authError }}</small>
+                        </div> -->
+                    </div>
+                     <!-- <div  class="geneStaTitlesRes">{{ownLimitAmount}} {{amountObj.currencyCode}}</div>
+                     <div class="geneStaTitles"></div> -->
+                 <!-- </div> -->
+             </div>
+             <div class="transferAmounrt">
+                 <div translate class="geneStaTitles">LBL_CUSTOMER_NAME</div>
+                 <div class="amtContainer" *ngIf="viewCustomerDet">
+                    <div  class="geneStaTitlesRes">{{customerName}}</div>
+                    <div class="geneStaTitles"></div>
+                 </div>
+             </div>
+         </div>
+     </div>
+    <div class="subContainer" *ngIf="viewCustomerDet">
+       <div translate class="subTitles"> LBL_TRANSFER_LIMIT</div>
+          <div class="fieldSets" *ngIf="!readOnly">
+            <div class="ownAmount">
+                <div translate class="geneStaTitles">LBL_QUICK_TRANSFER_LIMIT</div>
+                <div class="amtContainer">
+                    <div  class="geneStaTitlesRes">{{ownLimitAmount | currencyFormat: 'SAR'}} {{amountObj.currencyCode}}</div>
+                    <div class="geneStaTitles"></div>
+                </div>
+            </div>
+            <div class="transferAmounrt">
+                <div translate class="geneStaTitles">LBL_CUSTOMER_INSTANT_TRANSFER_LIMIT<span class="required">*</span></div>
+                <div class="amtContainer">
+                    <input type="text" [value]="this.amountObj.transferAmt" (keypress)="numberOnly($event)" (blur)="amountOnBlur($event)" autocomplete="off"
+                    placeholder="{{'LBL_PLEASE_ENTER_THE_AMOUNT' | translate }}" (blur)="onAmountConvertion()">
+                        <span class="curencyPosition">SAR</span>
+                    <div *ngIf="paymentAmountError">
+                        <small translate class="required">{{paymentAmountError}}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actionGroup">
+        <app-tertiary-button buttonValue="LBL_CANCEL" class="tertiaryBtn" (click)="reset()"></app-tertiary-button>
+        <app-primary-button  buttonValue="LBL_PROCEED"  [disablBtn]='isLimitAmntChecked' (click)="proceedNext()" routerPath="./"></app-primary-button>
+    </div>
+</div>
+<div class="mainContainer" *ngIf="isProceed">
+    <app-quick-transfer-limit-preview [customersLimit]="amountObj.transferAmt" [OwnLimitAmount]="ownLimitAmount" [customercurrency]="amountObj.currencyCode" [CIFDetails]="CifDetails" (redirectFlag)="changeRedirect($event)"></app-quick-transfer-limit-preview>
+</div>

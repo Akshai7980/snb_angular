@@ -1,0 +1,61 @@
+<div class="mainContainer">
+  <div *ngIf="!registrationSubmitted">
+    <div class="mainTitle" translate>LBL_E_TRADE_REGISTRATION</div>
+    <div *ngIf="companyInformation">
+      <app-et-company-info
+        [companyInformation]="companyInformation"
+      ></app-et-company-info>
+    </div>
+    <div *ngIf="userInformation">
+      <app-et-user-info [userInformation]="userInformation"></app-et-user-info>
+    </div>
+
+    <div *ngIf="proceedForRegistration">
+      <app-authentication
+        (onTwoAuthClick)="getSecondFactorValue($event)"
+        (getOtpClick)="getOtpValue($event)"
+        [otpError]="otpError"
+        [initParam]="initParam"
+        (authenticationType)="getAuthType($event)"
+      ></app-authentication>
+    </div>
+    <div class="btnGroup mtop_20" *ngIf="!proceedForRegistration">
+      <app-tertiary-button
+        buttonValue="LBL_CANCEL"
+        routerLink="/dashboard"
+      ></app-tertiary-button>
+      <app-primary-button
+        buttonValue="LBL_PROCEED"
+        (click)="proceedRegistration()"
+      >
+      </app-primary-button>
+    </div>
+    <div class="footer-container" *ngIf="proceedForRegistration">
+      <div class="footerText" translate>
+        LBL_TERMS
+        <a href="{{ url }}" target="_blank"
+          ><span class="termsContainer" translate
+            >LBL_THE_TERMS_AND_CONDITIONS</span
+          ></a
+        >
+      </div>
+      <div class="actionGroup">
+        <app-tertiary-button buttonValue="LBL_CANCEL" routerLink="/dashboard">
+        </app-tertiary-button>
+        <!-- <app-primary-button
+          buttonValue="LBL_SUBMIT"
+          (click)="submitRegistration()"
+        ></app-primary-button> -->
+      </div>
+    </div>
+  </div>
+  <div *ngIf="registrationSubmitted">
+    <app-receipt
+      [receiptDetails]="receiptObject"
+      [hideButton]="true"
+      *ngIf="registrationSubmitted"
+    >
+    </app-receipt>
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

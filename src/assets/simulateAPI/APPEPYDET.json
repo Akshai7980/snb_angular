@@ -1,0 +1,35 @@
+{
+    "data": {
+        "refNo": "TBC2208301819244",
+        "productCode": "CORESVS",
+        "subproductCode": "APEPYSTMT",
+        "functionCode": "APEPYFNC",
+        "accNo": "12344567686786",
+        "nickname": "Dameer",
+        "fullname": "Dameer Ahsan",
+        "comName": "nrtgt",
+        "address": "btytnytn",
+        "city": "jnkgk",
+        "phoneNo": "1234567788",
+        "deFtName": "frgr",
+        "deLtName": "frrrtg",
+        "demoblieNo": "1234567890",
+        "email": "abc@gmail.com",
+        "websiteUrl": "abc.com",
+        "tecFtName": "grggrtg",
+        "tecLtName": "fefefq",
+        "tecMobileNo": "123432123",
+        "tecemail": "abc@gmail.com",
+        "pytType": "fref",
+        "pytService": "cerv",
+        "schema": "vrvrt",
+        "gateWay": "vrgrt",
+        "comments": "cefrek",
+        "status": "inactive",
+        "arbname": "",
+        "curDate":"11/03/2023"
+    },
+    "headerValue": {
+        "moduleId": "APPEPYDET"
+    }
+}

@@ -1,0 +1,41 @@
+<div class="additionDetailsContainer">
+  <div class="flexContainer">
+    <div translate class="subTitles">LBL_ACCOUNT_DETAILS</div>
+  </div>
+  <div class="container readOnlyContainer">
+    <div class="fixedWidth">
+      <div translate>LBL_NICKNAME</div>
+      <div class="mtop_10 dataContent">
+        {{ selectedAccount.ALIAS_NAME ? selectedAccount.ALIAS_NAME : "--" }}
+      </div>
+    </div>
+    <div class="fixedWidth">
+      <div translate>LBL_ACC_NUMBER</div>
+      <div class="mtop_10 dataContent">
+        {{ selectedAccount.OD_ACC_NO ? selectedAccount.OD_ACC_NO : "--" }}
+      </div>
+    </div>
+    <div class="fixedWidth">
+      <div translate>LBL_FULL_NAME</div>
+      <div class="mtop_10 dataContent">
+        {{ selectedAccount.OD_ACC_NAME ? selectedAccount.OD_ACC_NAME : "--" }}
+      </div>
+    </div>
+    <div class="fixedWidth">
+      <div translate>LBL_STATUS</div>
+      <div class="mtop_10 dataContent">
+        {{ selectedAccount.STATUS ? selectedAccount.STATUS : "--" }}
+      </div>
+    </div>
+    <div class="fixedWidth">
+      <div translate>LBL_BALANCE</div>
+      <div class="mtop_10 dataContent">
+        {{
+          selectedAccount.CURR_AVAIL_BAL_AMT
+            | currencyFormat: selectedAccount.OD_CCY_CODE
+        }}
+        {{ selectedAccount.OD_CCY_CODE }}
+      </div>
+    </div>
+  </div>
+</div>

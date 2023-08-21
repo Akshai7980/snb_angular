@@ -1,0 +1,63 @@
+<div *ngIf="title !== 'receipt'" class="container">
+    <div class="title" translate *ngIf="title !== 'review'">LBL_CHANGE_WITHDRAWAL_LIMIT</div>
+    <div class="title" translate *ngIf="title === 'review'">LBL_REVIEW</div>
+    <app-debit-lookup [debitAccDetails]="creditCardObj" (onAccountSelect)="OnAccountSelect($event)"></app-debit-lookup>
+
+    <div class="creditCardLimitDetails marginLeft_0 pR">
+        <div class="sub">
+            <div>
+                <div class="subTitles" translate>LBL_AMOUNT_DETAILS</div>
+            </div>
+        </div>
+
+        <div class="rowInnerCntr" *ngIf="title !== 'review'">
+            <div class="column" id="toggle_button">
+                <mat-slide-toggle [checked]="enableEdit" (change)="onToggleChange()"></mat-slide-toggle>
+            </div>
+        </div>
+        <div class="rowInnerCntr" *ngIf="enableEdit">
+            <div class="field">
+                <div class="label" translate>LBL_CURRENT_LIMIT</div>
+                <p class="information">{{(creditCardLimit.currentCreditLimit.amount ? (creditCardLimit.currentCreditLimit.amount | currencyFormat: creditCardLimit.currentCreditLimit.currencyCode) : '--') + ' ' + (creditCardLimit.currentCreditLimit.currencyCode)}}</p>
+            </div>
+            <div class="field">
+                <div class="label" translate>
+                    LBL_NEW_LIMIT <span class="required">*</span>
+                </div>
+                <p *ngIf="title === 'review'" class="information" translate>{{(newLimit ? (newLimit | currencyFormat: creditCardLimit.currentCreditLimit.currencyCode) : '--') + ' ' + (creditCardLimit.currentCreditLimit.currencyCode)}}</p>
+                <div class="information limit" *ngIf="title !== 'review'">
+                    <input class="limitText" type="text" placeholder="{{'LBL_ENTER_NEW_LIMIT' | translate}}"
+                        [(ngModel)]="newLimit" (keypress)="numberOnly($event)" (blur)="onCheckNewLimit()" />
+                    <span class="currency" translate> LBL_SAR </span>
+                </div>
+                <small *ngIf="showErrMsg" translate class="errorMsg">LBL_CREDIT_CARD_LIMIT_ERR_MSG</small>
+            </div>
+        </div>
+
+    </div>
+
+    <app-authorization *ngIf="title === 'review' && flexiAuth === 'true'" [authListDataSource]="authOptions" (authEmit)="getData($event)">
+    </app-authorization>
+
+    <app-authentication *ngIf="title === 'review'" (onTwoAuthClick)="onSecondFactorValue($event)"
+        (getOtpClick)="getOtpValue($event)" [otpError]="otpError"></app-authentication>
+</div>
+
+<app-receipt *ngIf="title === 'receipt'" (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptObject" (DownloadReceiptClick)="downloadPdf()"
+></app-receipt>
+
+<div class="footer" *ngIf="title !== 'receipt'">
+    <div *ngIf="title === 'review'" class="termsAndConditions" translate>
+        LBL_TERMS <a href="{{url}}" target="_blank" translate>LBL_THE_TERMS_AND_CONDITIONS</a>
+    </div>
+    <div class="finalProceed">
+        <app-tertiary-button buttonValue="{{'LBL_CANCEL' | translate}}" routerLink="/cards/cardsInquiry/credit">
+        </app-tertiary-button>
+        <app-primary-button buttonValue="{{'LBL_PROCEED' | translate}}" *ngIf="title !== 'review' && enableEdit && (newLimit && newLimit > 0)"
+            (click)="toProceed()"></app-primary-button>
+        <!-- <app-primary-button buttonValue="{{'LBL_SUBMIT' | translate}}" *ngIf="title === 'review'" (click)="onSubmit()">
+        </app-primary-button> -->
+    </div>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

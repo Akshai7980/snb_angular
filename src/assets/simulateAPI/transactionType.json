@@ -1,0 +1,33 @@
+{
+    "header": {
+        "moduleId": "GETTRANSACTIONTYPE"
+    },
+    "data": {
+        "ALL_RECORDS": [
+            {
+                "keyvalue": "SA",
+                "keydescription": "Own Account Transfer"
+            },
+            {
+                "keyvalue": "SF",
+                "keydescription": "Intenational Transfer"
+            },
+            {
+                "keyvalue": "SD",
+                "keydescription": "Domestic Transfer"
+            },
+            {
+                "keyvalue": "SW",
+                "keydescription": "Within Transfer"
+            },
+            {
+                "keyvalue": "SS",
+                "keydescription": "SADAD"
+            },
+            {
+                "keyvalue": "SM",
+                "keydescription": "SADAD MOI"
+            }
+        ]
+    }
+}

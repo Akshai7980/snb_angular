@@ -1,0 +1,263 @@
+
+td:first-child {border-radius: 10px 0 0 10px;}
+td:last-child{border-radius: 0 10px 10px 0;}
+
+th.mat-header-cell:last-of-type {
+    padding-right: 0px;
+    width: 75px;
+}
+th.mat-header-cell:first-of-type {
+    padding-left: 5px !important;
+}
+
+.red span{
+    color: var(--mandatory-mark-color) !important;
+}
+.green span{
+    color: var(--primary-selected-color) !important;
+}
+.sortDown {
+    background: url(/assets/images/sortDown.svg);
+}
+.sortUp {
+    transform: rotate(180deg) !important;
+    position: relative;
+    right: 33px;
+}
+.img-style {
+    padding-right: 15px;
+    vertical-align: middle;
+}
+
+.tableDisplay {
+    opacity: 0;
+}
+// .subInfoData {
+//     display: flex;
+//     justify-content: space-between;
+//     margin-left: 0;
+//     height: 80px;
+//     width: 78%;
+//     text-align: left;
+//     div {
+//         margin: 0 auto;
+//         line-height: 40px;
+//     }
+// }
+.title {
+    color: #a2a2a2;
+    font-size: 14px;
+    line-height: 40px;
+}
+.tablebgColor{
+    background-color: var(--summary-row-bg-color);
+}
+
+.transactionCntr {
+    .ng-toolPanel {
+        display: flex;
+        margin-top:20px;
+        justify-content: space-between;
+        .leftSide {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+.dslk_flex{
+    display: flex;
+}
+
+
+//CSS START//
+
+.tb-head-align{
+  text-align: left;
+}
+.mat-expansion-panel{
+    box-shadow: none;
+    background: inherit;
+}
+
+.mat-button-focus-overlay{
+    background: none !important;
+  }
+
+
+.disable_ripple:hover{
+    background: currentColor !important;
+    }
+
+
+  .action-cls{
+    padding-left: 2%;
+    padding-right: 0px !important;
+  }
+
+  .drp-width{width: 6px;}
+  .drp-width1{
+    width: 5px;
+    padding-right: 0px !important;}
+  .mat-expansion-panel-header{padding: 0px;margin-bottom: 10px;}
+  .drp-column{margin-bottom: 0px;vertical-align: middle;}
+  .drp-col{ width: 18%;}
+  .drp-col1{ width: 18%;padding-left: 23px !important;}
+  .mat-button.no-hover ::ng-deep .mat-button-focus-overlay {
+    background: none;
+  }
+  .mat-menu-item:hover{
+      background: none;
+  }
+
+.subInfoData{
+  // display: flex;
+  // justify-content: space-between;
+  border-top:1px solid #e2e2e2;
+  background-color: var(--summary-row-bg-color);
+// margin-left: -45px;
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  border: unset;
+  padding-left: 13px;
+//  div{
+//    margin: 0 auto;
+//    flex: 1;
+//  }
+//  .narrationBox{
+//   flex: 2;
+//  }
+}
+.title{
+  color: #868686;
+  font-size: 1em;
+}
+
+.tableDisplay{
+  opacity: 0;
+}
+ 
+.refNumber-collapsedPanel{margin-left: 25px !important;}
+// .transDate-collapsedPanel{margin-right:50px !important;}
+  .formCntr .field input, .formCntr .field mat-select {width: 250px; height: 20px; border: 1px solid #e2e2e2; border-radius: 5px; padding: 5px 10px;}
+  input.mat-input-element{margin-top: 0;}
+  .mat-datepicker-toggle{margin-left: -35px;}
+
+  @media (max-width: 767px) {
+    .mainTableStr td{
+      line-height: 40px;
+    }
+  }
+td.mat-cell:first-of-type{padding-left: 0px;}
+tr.mat-header-row{height:40px !important}
+.mat-cell{/*padding-top: 8px !important;*/padding-bottom:0px !important;}
+.up-drp-column{transform: rotate(180deg); vertical-align: middle;}
+.mat-cell{line-height: 31px;}
+
+tr.example-detail-row {
+  height: 0;
+  td {
+    padding: 0 !important;
+  }
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  // display: flex;
+}
+.mat-icon-button .mat-button-wrapper{margin-top: 8px;}
+
+.btnView{
+    border: unset !important;
+    background: transparent !important;
+}
+// td.mat-cell{
+//     border-bottom: unset;
+// }
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+    border-bottom: unset;
+}
+.position_rel {
+    position: relative;
+}
+
+
+.casaTable1 {
+    width: 100%;
+    table-layout: fixed;
+    background-color: var(--primary-widget-bg-color);
+    .mat-column-expand, .mat-column-TO {
+        width: 3.56% !important;
+    }
+    .mat-column-res_Txn_Dt {
+        width: 11.63% !important;
+    }
+    .mat-column-res_Description {
+        width: 30% !important;
+        text-overflow: ellipsis;
+    } 
+    .mat-column-res_DebitCreditAmt  {
+        width: 14.66% !important;
+    }
+    .mat-column-hide_res_Credit_Amt {
+        width: 10.75% !important;
+    }
+    .mat-column-res_Running_Bal {
+        width: 12.75% !important;
+    }
+    .mat-column-hide_res_Running_Bal {
+        width: 10.75% !important;
+    }
+    .mat-column-res_TxnType {
+        width: 14.75% !important;
+    }
+    .mat-column-Action {
+        width: 8.75% !important;
+    }
+    .mat-cell div, .mat-cell span {
+      // overflow: hidden; text-overflow: ellipsis; white-space: nowrap
+      overflow-wrap: break-word;
+    }
+    .mat-row:nth-child(4n-3) {
+        // background-color: #fafafa !important;
+      background-color: var(--dark-summary-row-bg-color);
+    }
+
+    th.mat-header-cell {
+        font-family: 'HelveticaNeueMed', arial, sans-serif !important;
+        font-size: 14px !important;
+        color: var(--table-header-color) !important;
+    
+      }
+
+      td.mat-cell {
+        font-family: 'HelveticaNeueMed', arial, sans-serif !important;
+        font-size: 14px !important;
+        color: var(--tableData-header-color) !important;
+      }
+}
+
+.extraDesc{
+  font-family: 'HelveticaNeueLight', arial, sans-serif !important;
+        font-size: 13px !important;
+        line-height: 27px;
+}
+
+
+.more-icon{
+  background: url(../../../../assets/images/more-action.svg)no-repeat center center;
+  // display: inline-block;
+  width: 20px;
+  height: 19px;
+  cursor: unset !important;
+  margin: auto;
+}
+
+app-search{position: absolute;}

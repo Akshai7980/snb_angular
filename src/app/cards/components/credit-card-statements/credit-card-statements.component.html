@@ -1,0 +1,30 @@
+<div *ngIf="!noRecordFlag">
+    <div class="mTop_18">
+        <div class="actionsConatiner">
+            <div class="leftPannel">
+                <div class="searchCntnrLeft advSearch">
+                    <app-search (searchParams)="advancedSearchApply($event)"
+                        (childEvent)="triggerSearchFilter($event)">
+                    </app-search>
+                </div>
+            </div>
+            <div class="rightPanel dslk_flex">
+                <app-refresh (onRefresh)="refreshPayrollInquiry()"></app-refresh>
+            </div>
+        </div>
+    </div>
+    <table>
+        <span class="totalStatement" *ngIf="statementsToShow.length">{{"LBL_TOTAL" | translate}}
+            {{statementsToShow.length}} {{"LBL_STMNTS_FOUND" | translate}}</span>
+        <tr *ngFor="let stmtData of statementsToShow">
+            <td>
+                <span class="statementDescription">{{stmtData.statementId}}</span>
+                <img src="assets/images/downloadIcon.svg" class="downloadIcon" (click)="download_Click(stmtData)">
+            </td>
+        </tr>
+    </table>
+</div>
+<div *ngIf="noRecordFlag || statementsToShow.length <= 0">
+    <app-no-record-found [noRecordFoundInfo]="noRecordFoundObject"></app-no-record-found>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

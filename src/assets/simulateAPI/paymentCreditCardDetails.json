@@ -1,0 +1,22 @@
+{
+  "data": {
+    "refNo": "TBC2207021533397",
+    "cardNo": "10107654360011",
+    "cardType": "Master Card",
+    "currency": "SAR",
+    "fullOutLmt": "500.00",
+    "accNo": "SA1010010010000000123",
+    "cardStatus": "active",
+    "balance": "4535",
+    "comments": "DTHDT",
+    "amount": "46456",
+    "accName": "fefefffdsg",
+    "productCode": "CORESVS",
+    "subProductCode": "CARDPAY",
+    "functionCode": "CDPAYFNC"
+  },
+
+  "headerValue": {
+    "moduleId": "CRDPAYDETAILS"
+  }
+}

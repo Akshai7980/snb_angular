@@ -1,0 +1,42 @@
+<div class="dataContainer">
+    <span class="header" translate>LBL_REQUEST_DETAILS</span>
+    <div class="gridContainer mt-top">
+        <div>
+            <label class="label" translate>LBL_CIF_NUMBER</label>
+            <div class="dataInfo">{{posFinanceRequestMytaskSummaryDetails.res.cifNo ?posFinanceRequestMytaskSummaryDetails.res.cifNo :'--' }}</div>
+        </div>
+        
+        <div>
+            <label class="label" translate>LBL_CR_NUMBER</label>
+            <div class="dataInfo">{{posFinanceRequestMytaskSummaryDetails.res.crNo ? posFinanceRequestMytaskSummaryDetails.res.crNo: '--'}}</div>
+        </div>
+        <div>
+            <label class="label" translate>LBL_ACC_NUMBER</label>
+            <div class="dataInfo">{{posFinanceRequestMytaskSummaryDetails.res.accNo ?posFinanceRequestMytaskSummaryDetails.res.accNo:'--' }}</div>
+        </div>
+        <div>
+            <label class="label" translate>LBL_REQ_ID</label>
+            <div class="dataInfo">{{posFinanceRequestMytaskSummaryDetails.res.requestId ? posFinanceRequestMytaskSummaryDetails.res.requestId:'--'}}</div>
+        </div>
+        <div>
+            <label class="label" translate>LBL_TENURE</label>
+            <div class="dataInfo">{{posFinanceRequestMytaskSummaryDetails.res.tenor? posFinanceRequestMytaskSummaryDetails.res.tenor:'--'}}</div>
+        </div>
+        <div>
+            <label class="label" translate>LBL_TENOR_LIMIT</label>
+            <div class="dataInfo">{{posFinanceRequestMytaskSummaryDetails.res.tenorLmt ? (posFinanceRequestMytaskSummaryDetails.res.tenorLmt | currencyFormat : posFinanceRequestMytaskSummaryDetails.res.tenorLmt):'--'}} {{posFinanceRequestMytaskSummaryDetails.res.currency ?posFinanceRequestMytaskSummaryDetails.res.currency  :'--' }}</div>
+        </div>
+        <div>
+            <label class="label" translate>LBL_MAX_AMT</label>
+            <div class="dataInfo">{{posFinanceRequestMytaskSummaryDetails.res.maxAmt ?(posFinanceRequestMytaskSummaryDetails.res.maxAmt | currencyFormat :posFinanceRequestMytaskSummaryDetails.res.maxAmt) : '--'}} {{posFinanceRequestMytaskSummaryDetails.res.currency ?posFinanceRequestMytaskSummaryDetails.res.currency:'--' }}</div>
+        </div>
+        <div>
+            <label class="label" translate>LBL_FINANCE_AMOUNT</label>
+            <div class="dataInfo">{{posFinanceRequestMytaskSummaryDetails.res.financeAmt  ?(posFinanceRequestMytaskSummaryDetails.res.financeAmt | currencyFormat :posFinanceRequestMytaskSummaryDetails.res.financeAmt ) : '--'}} {{posFinanceRequestMytaskSummaryDetails.res.currency ? posFinanceRequestMytaskSummaryDetails.res.currency :'--'}}</div>
+        </div>
+        <div>
+            <label class="label" translate>LBL_RM_REFERALS</label>
+            <div class="dataInfo">{{posFinanceRequestMytaskSummaryDetails.res.rmReferal ? posFinanceRequestMytaskSummaryDetails.res.rmReferal :'--'}}</div>
+        </div>
+     
+  </div>

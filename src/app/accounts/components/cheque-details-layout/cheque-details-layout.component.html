@@ -1,0 +1,28 @@
+<div id="chequeBookDetailsPrintSection">
+    <div class="detailsTitleContainer">
+        <div class="mainTitle" translate>LBL_CHEQUE_BOOK_DETAILS</div>
+        <app-summary-tools id="printCheque" [printSection]="printSection" [enabledProperty]="true" [saveReceiptObject]="saveReceiptObject" [isshownPrint]="shownPrint" [isshowndetailsPrint]="isshowndetailsPrint"></app-summary-tools>
+    </div>
+    <div class="detailsDataCntr">
+        <section class="summaryOuterConainer">    
+            <div class="summaryConainer">
+                <app-cheque-book-details (getCharges)="getCharges($event)"></app-cheque-book-details>
+            </div>
+        </section>
+        <section class="summaryOuterConainer">
+            <div class="summaryConainer">
+                <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+            </div>
+        </section>
+        <section class="summaryOuterConainer">
+            <div class="summaryConainer">
+                <app-history [historyData]="workFlowHistoryParams"></app-history>
+            </div>
+        </section>
+    </div>
+    <section>
+        <div class="btnContainer">
+            <button class="button-secondary backButton" routerLink="/accounts/service-request/otherrequest" translate>LBL_BACK</button>
+        </div>
+    </section>
+</div>

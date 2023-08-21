@@ -1,0 +1,70 @@
+{
+  "data": [
+    {
+      "groupFacilityId": "4226045",
+      "facilityDetails": {
+        "restructuringFee": "",
+        "facilityId": "4226056",
+        "productId": "",
+        "existingPushedLimit": "15000000.00",
+        "profitMarginRepaymentFrequency": "",
+        "rateSubType": "",
+        "productStatus": "",
+        "otherPayment": "",
+        "principalRepaymentFrequency": "95",
+        "productName": "",
+        "totalTenor": "",
+        "spread": "",
+        "availableLimit": "11906000.00",
+        "rateType": "2",
+        "costOfFund": "",
+        "liquidityPremium": "",
+        "controlFacility": "2",
+        "downPayment": "",
+        "gracePeriodTenor": "3",
+        "currency": "SAR",
+        "rollover": "",
+        "extensionFee": "",
+        "drawdownFee": "",
+        "drawdownPeriod": ""
+      },
+      "productGroupName": "TAYSEER",
+      "groupAvailableLimit": "14429214.83"
+    },
+    {
+      "groupFacilityId": "4226045",
+      "facilityDetails": {
+        "restructuringFee": "",
+        "facilityId": "4226056",
+        "productId": "",
+        "existingPushedLimit": "15000000.00",
+        "profitMarginRepaymentFrequency": "",
+        "rateSubType": "",
+        "productStatus": "",
+        "otherPayment": "",
+        "principalRepaymentFrequency": "95",
+        "productName": "",
+        "totalTenor": "",
+        "spread": "",
+        "availableLimit": "11906000.00",
+        "rateType": "2",
+        "costOfFund": "",
+        "liquidityPremium": "",
+        "controlFacility": "2",
+        "downPayment": "",
+        "gracePeriodTenor": "3",
+        "currency": "SAR",
+        "rollover": "",
+        "extensionFee": "",
+        "drawdownFee": "",
+        "drawdownPeriod": ""
+      },
+      "productGroupName": "TAYSEER",
+      "groupAvailableLimit": "14429214.83"
+    }
+  ],
+  "headerValue": {
+    "moduleId": "FACILITYDETAILS",
+    "totalCount": ""
+  }
+}

@@ -1,0 +1,8 @@
+<div class="row" mat-dialog-title><span translate>{{data.title}}</span><img
+    src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close>
+</div>
+
+<div mat-dialog-content translate>{{data.content}}</div>
+<div mat-dialog-actions>
+<button class="button-primary" [routerLink]="data.btnRoute" mat-dialog-close translate>{{data.btnLabel}}</button>
+</div>

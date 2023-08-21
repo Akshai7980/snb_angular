@@ -1,0 +1,25 @@
+{
+  "data":
+    {
+         "refNo": "TBC2208301819244",
+         "crNo":"1010667896",
+         "accNo":"7387356683468",
+         "cifNo":"2387646628",
+         "requestId": "102487701094",
+         "tenor":"24 months",
+         "tenorLmt":"5344",
+         "maxAmt":"345",
+         "makerName":"Dameer",
+         "rmReferal":"32456765433",
+         "financeAmt":"1,000,000.00",
+         "currency":"SAR",
+         "status":"RA",
+         "statusDesc":"Ready for authorization",
+         "inputVersionNo":"7",
+                 "valueDate":"16/11/2022"
+    },
+  "headerValue": {
+   
+    "moduleId": "MYTASKPOSFINDET"
+  }
+}

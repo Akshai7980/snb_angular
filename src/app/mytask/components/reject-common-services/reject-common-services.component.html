@@ -1,0 +1,31 @@
+<div *ngIf="!hideAll">
+    <div class="ttileConatiner">
+        <div class="backIcon backArrow" [routerLink]="routeBack"></div>
+        <div class="mainTitle" translate>LBL_REJECT_PAYMENT</div>
+    </div>
+    
+    <div class="container">
+        <div class="subTitles">
+            {{ transferDetails.requestType }},
+            {{ transferDetails.crNum ? transferDetails.crNum : "--" }}
+          </div>
+            <div class="title">{{'LBL_TRANSACTION_REF_NUM' | translate}} 5452106032021030</div>
+
+            <div class="rejectReasonContainer">
+            <div class="rejecthead" translate>LBL_RJCT_RSN
+            </div>
+            <div>
+                <div class="rejecttextarea">
+                    <textarea [(ngModel)]="rejectReason" maxlength="140" ></textarea>
+                    <div class="errorMsg" *ngIf="isrejectreasonValid" translate>LBL_ERROR_MESSAGE_RJCT_RSN
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="submitButton">
+    <app-primary-button  buttonValue="LBL_SUBMIT" (click)="submit()"></app-primary-button>
+    </div>
+</div>
+<app-receipt [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="hideAll" ></app-receipt>

@@ -1,0 +1,21 @@
+<div class="subContainer">
+    <div translate class="subTitles">LBL_TRANSFER<span>(s)</span></div>
+    <div class="subTransfers"> {{basketData.data.length}}Transfer(s) Totaling Aggregated Amount {{transferTotal}} SAR</div>
+    <div class="tableInfo" id="accountsDefaultCntr">
+        <table class="mat-table cdk-table tableInfo casaTable">
+            <tr>
+                <th class="mat-header-cell cdk-header-cell chequesTitles" *ngFor="let field of basketData.fieldDetails"
+                    translate>{{field.dispKey}}</th>
+                <th class="mat-header-cell cdk-header-cell chequesTitles"></th>
+            </tr>
+            <tr class="mat-row cdk-row selected" *ngFor="let rowData of basketDataToDisplay.data;let i=index">
+                <td class="mat-cell cdk-cell tableInfoFonts" *ngFor="let field of basketData.fieldDetails"><span
+                        *ngIf="field.dataKeySupport">{{field.dataKeySupport}}</span>{{rowData[field.dataKey]}}</td>
+                <td class="mat-cell cdk-cell tableInfoFonts" class="action">
+                    <span class="EditsIcon" (click)="editRecord(i)"></span>
+                    <span class="DeleteIcon" (click)="deleteRecord(i)"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

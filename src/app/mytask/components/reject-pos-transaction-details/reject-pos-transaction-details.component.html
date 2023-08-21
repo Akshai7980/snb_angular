@@ -1,0 +1,46 @@
+<div>
+  <div *ngIf="!rootScopeData.isActivateCard" class="subTitles" translate>LBL_POS_SUMMARY</div>
+  <!-- <div class="outerContainer"> -->
+    <!-- <div> -->
+      <app-postransaction-details
+        class="transactionContainer"
+      ></app-postransaction-details>
+    <!-- </div> -->
+  
+    <!-- <div class="rejectReasonContainer">
+      <div class="rejecthead" translate>
+        LBL_RJCT_RSN
+        <span class="required">*</span>
+      </div>
+      <div>
+        <div class="rejecttextarea">
+          <textarea
+            [(ngModel)]="rejectreason"
+            maxlength="140"
+            (blur)="textArea_Click()"
+            (keypress)="space($event)"
+          ></textarea>
+          <div class="errorMsg" *ngIf="isrejectreasonValid" translate>
+            LBL_ERROR_MESSAGE_RJCT_RSN
+          </div>
+        </div>
+      </div>
+    </div> -->
+    
+  <!-- </div> -->
+
+  <!-- <div class="btnContainer">
+    <button
+      class="button-secondary"
+      routerLink="/mytask/posTransaction"
+      translate
+    >
+      LBL_CANCEL
+    </button>
+    <button class="button-primary" (click)="submitToReceipt()" translate>LBL_SUBMIT</button>
+  </div> -->
+
+</div>
+
+<!-- <app-receipt *ngIf="showReceipt" [receiptDetails]="receiptData"  [hideButton]="hideInitiateButton">
+</app-receipt> -->

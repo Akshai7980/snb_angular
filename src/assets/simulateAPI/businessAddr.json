@@ -1,0 +1,38 @@
+{
+    "headerValue": {
+      "moduleId": "GET_BUSINESS_ADDR"
+    },
+    "dataValue": 
+      {
+            "title": "مؤسسة بوابة الفيصلية للتجارة",
+            "address1": "2577 -",
+            "address2": "AL KAMIL 25451 - 8343",
+            "objectLatitudeLongitude": "39.79032802 22.25672786",
+            "buildingNumber": 2577,
+            "street": "",
+            "district": "",
+            "city": "AL KAMIL",
+            "postCode": 25451,
+            "additionalNumber": 8343,
+            "regionName": "Mecca Al Mokarama",
+            "polygonString": "",
+            "isPrimaryAddress": true,
+            "unitNumber": 4,
+            "latitude": 22.25672786,
+            "longitude": 39.79032802,
+            "cityId": 118,
+            "regionId": 2,
+            "restriction": "",
+            "pkAddressID": 2545125778343,
+            "districtID": "",
+            "title_L2": "",
+            "regionName_L2": "مكة المكرمة",
+            "city_L2": "الكامل",
+            "street_L2": "",
+            "district_L2": "منطقة مكة المكرمة",
+            "companyName_L2": "",
+            "governorateID": "",
+            "governorate": "",
+            "governorate_L2": ""
+      }
+  }

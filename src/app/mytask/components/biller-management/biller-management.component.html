@@ -1,0 +1,17 @@
+<div class="worksapceBase">
+    <div class="content-header" translate>LBL_BILLER_MANAGEMENT</div>
+
+    <div class="tabCntr">
+        <ul>
+            <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_SADAD_BILLER"><a  routerLink="sadad-billers" [class.active]="rootScopeData.activeTabName === 'sadadbillers'"><span
+                        translate>LBL_SADAD</span>
+                    <span *ngIf="rootScopeData.sadadBillerMyTasksCount">({{rootScopeData.sadadBillerMyTasksCount}})</span></a></li>
+            <li *ngIf="rootScopeData.userEntitlements.tabs.MYTASK_ESAL_BILLER"><a routerLink="esal-biller" [class.active]="rootScopeData.activeTabName === 'esalbillers'"><span
+                        translate>LBL_ESAL</span>
+                    <span *ngIf="rootScopeData.esalBillerMyTasksCount">({{rootScopeData.esalBillerMyTasksCount}})</span></a></li>
+        </ul>
+    </div>
+    <div class="tabDataCntr">
+        <router-outlet></router-outlet>
+    </div>
+</div>

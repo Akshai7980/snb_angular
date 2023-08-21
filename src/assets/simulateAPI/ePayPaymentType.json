@@ -1,0 +1,17 @@
+{
+    "headerValue": {
+        "moduleId": "PYTTYPECTY"
+    },
+    "data": [
+        {
+            "paymentType": [
+                {
+                    "paymentType": "Option1"
+                },
+                {
+                    "paymentType": "Option2"
+                }
+            ]
+        }
+    ]
+}

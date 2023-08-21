@@ -1,0 +1,30 @@
+<div class="worksapceBase">
+    <div class="titleSection" translate>LBL_SETTINGS</div>
+    <div class="contentSection">
+        <div class="left-content-Menulist">
+            <ul>
+                <!-- <input type="radio" name="menu" id="Preferences" checked>
+                <li><label for="Preferences" class="title" (click)="selectMenu_click('Preferences')" translate>LBL_PREFERENCES</label></li>
+                <input type="radio" name="menu" id="userProfile">
+                <li><label for="userProfile" class="title" (click)="selectMenu_click('userProfile')" translate>LBL_USER_PROFILE</label></li>
+                <input type="radio" name="menu" id="appearance">
+                <li><label for="appearance" class="title" (click)="selectMenu_click('appearance')" translate>LBL_APPEARANCE</label></li>
+                <input type="radio" name="menu" id="manageAlerts">
+                <li><label for="manageAlerts" class="title" (click)="selectMenu_click('manageAlerts')" translate>LBL_MANAGE_ALERTS</label></li>
+                <input type="radio" name="menu" id="changePassword">
+                <li><label for="changePassword" class="title" (click)="selectMenu_click('changePassword')" translate>LBL_CHANGE_PASSWORD</label></li> -->
+                
+                <li><a routerLink="/settings/preferences" [class.active]="rootScopeData.settingsActiveTabName === 'preferences'"><span class="title" translate>LBL_PREFERENCES</span></a></li>
+                <li><a routerLink="/settings/userProfile" [class.active]="rootScopeData.settingsActiveTabName === 'userProfile'"><span class="title" translate>LBL_USER_PROFILE</span></a></li>
+                <li><a routerLink="/settings/appearance" [class.active]="rootScopeData.settingsActiveTabName === 'appearance'"><span class="title" translate>LBL_APPEARANCE</span></a></li>
+                <li><a routerLink="/settings/manageAlerts" [class.active]="rootScopeData.settingsActiveTabName === 'manageAlerts'"><span class="title" translate>LBL_MANAGE_ALERTS</span></a></li>
+                <li><a routerLink="/settings/changePassword" [class.active]="rootScopeData.settingsActiveTabName === 'changePassword'"><span class="title" translate>LBL_CHANGE_PASSWORD</span></a></li>
+            
+            </ul>
+        </div>
+        <div class="right-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,75 @@
+.mainContainer {
+    margin: 0px 25px 50px 25px;
+}
+.mtop_20{
+    margin-top: 20px;
+}
+.subContainer {
+    padding: 20px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: #ffffff;
+    background-size: cover;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+    color: #5d5d5d;
+    margin-top: 20px;
+    padding-bottom: 30px;
+}
+.subTitles{
+    font-size: 16px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    color: var(--tableData-header-color);
+}
+.row {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+}
+.column {
+    margin-bottom: 20px;
+    height: 80px;
+}
+.selectInput{
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: #656565;
+    cursor: pointer;
+}
+.geneStaTitles {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+}
+.comment {
+    width: 307px;
+    height: 80px;
+    border-radius: 4px;
+    border: 1px solid var(--input-border-color);
+    font-size: 14px;
+    background-color: var(--primary-widget-bg-color);
+    color: var(--default-text-color);
+  }
+.comment:focus {
+    outline: none;
+    border-radius: 4px;
+    border: 1px solid var(--input-border-color);
+}
+.details{
+    // font-family: "HelveticaNeue";
+    // color: var(--tableData-header-color);
+    font-family: "HelveticaNeueLight", arial, sans-serif;
+    font-size: 14px;
+}
+.alter{
+    height: auto;
+}
+.btnGroup{
+    float: right; 
+    margin-top: 30px;
+}

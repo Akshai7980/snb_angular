@@ -1,0 +1,118 @@
+<div class="outerContainer">
+  <div class="subTitles" translate>LBL_MADA_MATERIAL</div>
+  <div class="merchantDetails">
+    <div class="subTitles" translate>LBL_MERCHANT_DETAILS</div>
+    <!-- Account -->
+    <div class="detailContainer">
+      <div class="outerContainer">
+        <div class="accountDetails">
+          <div class="subTitles" translate>LBL_ACCOUNT</div>
+          <table>
+            <tr class="tableHeader">
+              <th translate>LBL_ACC_NUMBER</th>
+              <th translate>LBL_NICK_NAME</th>
+              <th translate>LBL_FULL_NAME</th>
+              <th translate>LBL_STATUS</th>
+              <th translate>LBL_BALANCE</th>
+            </tr>
+            <ng-container>
+              <tr class="tableRowConatiner">
+                <td>SA1010 0100 1000 0000123</td>
+                <td>Dameer</td>
+                <td>Dameer Ahsan</td>
+                <td>Active</td>
+                <td>1,235.00 SAR</td>
+                <div class="downArrowAcc"></div>
+              </tr>
+            </ng-container>
+          </table>
+        </div>
+      </div>
+      <!-- Account end -->
+      <!-- merchant -->
+      <div class="outerContainer">
+        <div class="accountDetails">
+          <table>
+            <tr class="tableHeader">
+              <th translate>LBL_MERCHANT_NAME</th>
+              <th translate>LBL_MERCHANT_NAME_ARABIC</th>
+              <th translate>LBL_MERCHANT_NUMBER</th>
+
+              <th translate>LBL_SHOP_NAME</th>
+            </tr>
+            <ng-container>
+              <tr class="tableRowConatiner">
+                <td>Adhara Alam</td>
+                <td>علم أذار</td>
+                <td>1010 0100 1000 0000 0123</td>
+
+                <td>Zamzam Water</td>
+                <div class="downArrowAcc"></div>
+              </tr>
+            </ng-container>
+          </table>
+        </div>
+      </div>
+      <!-- MERCHANT END -->
+      <!-- TERMINAL -->
+      <div class="outerContainer">
+        <div class="accountDetails">
+          <table>
+            <tr class="tableHeader">
+              <th translate>LBL_TERMINAL_ID</th>
+              <th translate>LBL_TERMINAL_TYPE</th>
+
+              <th translate>LBL_SHOP_NAME</th>
+            </tr>
+            <ng-container>
+              <tr class="tableRowConatiner">
+                <td>Adhara Alam</td>
+                <td>Physical</td>
+
+                <td>Zamzam Water</td>
+                <div class="downArrowAcc"></div>
+              </tr>
+            </ng-container>
+          </table>
+        </div>
+      </div>
+      <!-- terminal end  -->
+    </div>
+  </div>
+</div>
+
+<div class="outerContainer">
+  <div class="merchantDetails">
+    <div class="subTitles" translate>LBL_REQUEST_DETAILS</div>
+    <div class="detailContainer">
+      <div class="outerContainer">
+        <div class="accountDetails flexContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_EMAIL <span class="errorMsg">*</span>
+            </div>
+            <p class="selectInputBorderNone">info@zamzam.com</p>
+          </div>
+          <div class="inputConatiner">
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_MOBILE_NUMBER <span class="errorMsg">*</span>
+            </div>
+            <input class="selectInput" type="text" />
+          </div>
+          <div class="descriptionContainer">
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_CLAIM_DESCRIPTION <span class="errorMsg">*</span>
+            </div>
+            <textarea class="textArea"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="btnGroup mtop_20">
+    <app-tertiary-button buttonValue="LBL_CANCEL"> </app-tertiary-button>
+    <app-primary-button buttonValue="LBL_PROCEED" (click)="proceedButton()">
+    </app-primary-button>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+
+<div class="mainContainer" *ngIf="ShowAddSadadbiller">
+    <div class="title" *ngIf="!rootScopeData.addSadadBillerReviewMode" translate>LBL_ADD_NEW_BILL</div>
+    <div class="title" *ngIf="rootScopeData.addSadadBillerReviewMode" translate>LBL_REVIEW</div>
+    <div class="detailsDataCntr">  
+    <div class="subContainer">
+        <app-sadad-bill-details [validations]="validationFlag" [clearFlag]="clearForm" (clearFormEmit)="clearEvent($event)" (submitParams)="getSubmitParams($event)" (onValidationCheck)="proceedNextScreen($event)" (inqData)="getInquiryData($event)"></app-sadad-bill-details>
+    </div>
+    <div class="buttons">
+        <app-tertiary-button *ngIf="hideSelectionInput" buttonValue="LBL_CANCEL" (click)="clearClick()"></app-tertiary-button>
+        <app-primary-button *ngIf="rootScopeData.nicknameValidationCheck && rootScopeData.subscribeValidationCheck && hideSelectionInput" buttonValue="LBL_PROCEED" (click)="proceednext()"></app-primary-button>
+    </div>
+    <div class="subContainer callBackDiv" *ngIf="showCallback">
+        <app-call-back [pageName]="sadadBiller" [pageName]='pageCall' (onSuccessEmit)="callBackSuccess()"  (clickCancelCallBck)="getCanelBtnClick()"></app-call-back>    </div>
+    <div class="afterproceed">
+        <app-authorization *ngIf="proceed && showAuthorization" [authListDataSource]="authorsList" [authError]="authorError"
+      (authEmit)="setAuthorizationData($event)"></app-authorization>
+        <app-authentication *ngIf="proceed && showAuthentication" (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError" (authenticationType)="getAuthType($event)" [initParam]="initReqParam"></app-authentication>
+    </div>
+    <div *ngIf="finalsubmit" class="footer">
+        <div class="finalProceed">
+            <app-tertiary-button *ngIf="!isProceed" buttonValue="LBL_CANCEL" (click)="clearClick()"></app-tertiary-button>
+            <!-- <app-primary-button *ngIf="!isProceed" buttonValue="LBL_SUBMIT" (click)="onSubmit()"></app-primary-button> -->
+        </div>
+        <div class="termsAndConditions" translate>
+            LBL_TERMS <a href="{{ url }}" target="_blank" translate>LBL_THE_TERMS_AND_CONDITIONS</a>
+        </div>
+    </div>
+    </div>
+</div>
+<app-receipt [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" (onInitAgainClick)="initAnotherBiller()" *ngIf="isProceed" (DownloadReceiptClick)="downloadPdf($event)" [pageName]='pageCall' (cancelCallBck)="getCancelBtnClick()" [rejectMsg]="rejectMsg"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> 

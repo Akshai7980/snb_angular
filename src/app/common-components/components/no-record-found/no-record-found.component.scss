@@ -1,0 +1,23 @@
+.icon-size{
+    width: 24px;
+    height: 24px;
+}
+.investnowbtn{
+height: 40px;
+padding: 5px 18px;
+border: 1px solid var(--secondary-btn-border-color);
+border-radius: 100px;
+background-color: var(--primary-widget-bg-color); 
+font-family: 'Helvetica Neue',sans-serif;
+font-size: 14px;
+color: var(--secondary-btn-border-color);
+text-align: center;
+cursor:pointer;
+}
+.investnowbtn:hover{
+    background-color: rgba(3, 70, 56, 0.098);
+}
+.parent{height: 200px;padding-top: 100px;}
+.child{text-align: center;}
+.investdiv{margin-top: 7px;}
+.noinvestdiv{font-size: 14px;color: #5d5d5d;text-decoration: none solid rgb(93, 93, 93);}

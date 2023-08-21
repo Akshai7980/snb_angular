@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "lgType": "B280480",
+      "descEng": "MAKKAH AL MOKARAMAH MAIN",
+      "descAr": "مكة المكرمة الرئيسى",
+      "lastDateTime": 1669828361000
+    },
+    {
+      "lgType": "213",
+      "descEng": "Others",
+      "descAr": "أخرى",
+      "lastDateTime": 1669828361000
+    },
+    {
+      "lgType": "215",
+      "descEng": "Umrah Guarantee",
+      "descAr": "ضمان عمرة",
+      "lastDateTime": 1669828361000
+    },
+    {
+      "lgType": "SBY",
+      "descEng": "STANDBY FROM BandG MODULE",
+      "descAr": null,
+      "lastDateTime": 1669828361000
+    }
+  ],
+  "headerValue": {
+    "moduleId": "GETLGTYPE",
+    "simulate": "N",
+    "_dinsess": "9c6e5df8-4cc9-4862-9209-c3c19b588149"
+  }
+}

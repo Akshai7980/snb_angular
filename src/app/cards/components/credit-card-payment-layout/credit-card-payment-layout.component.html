@@ -1,0 +1,267 @@
+<div class="mainContainer">
+  <div class="topContainer">
+
+    <div>
+      <div class="title" translate> LBL_CREDIT_CARD_PAYMENT </div>
+    </div>
+
+    <div class="dailyLimitContainer">
+      <app-daily-limit *ngIf="this.rootScopeData.dailyLimit && showDailyLimit"></app-daily-limit>
+    </div>
+
+  </div>
+
+  <div class="debitContainer" *ngIf="!showCardDetails">
+    <app-debit-lookup [debitAccDetails]="fromDataDetailsObj" (onAccountSelect)="getDisplayStatus($event, 'fromData')"
+      [shownsearch]="shownSearchFlag" [tableId]="'debitData'" [setWidth]="setColumnWidth"></app-debit-lookup>
+  </div>
+
+  <div class="debitContainer creditListContainer" *ngIf="!showCardDetails">
+    <app-debit-lookup *ngIf="toCreditCardList" [debitAccDetails]="creditCardDetailsObj"
+      (onAccountSelect)="getDisplayStatus($event, 'creditCard')" [shownsearch]="shownSearchFlag"
+      [tableId]="'creditData'" [setWidth]="setColumnWidth"></app-debit-lookup>
+  </div>
+
+  <div class="mainContainer cardDetailsContainer" *ngIf="showCardDetails">
+    <div class="subContainer">
+
+      <div translate class="subTitles"> LBL_CARD_DETAILS </div>
+      <div class="fromDetails">
+        <div translate class="innerTitle"> LBL_FROM </div>
+
+        <table mat-table [dataSource]="from" class="casaTable">
+
+          <!-- Reference Number Column -->
+          <ng-container matColumnDef="AccountNumber">
+            <th mat-header-cell *matHeaderCellDef translate>
+              LBL_ACC_NUMBER
+
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.number ? element.number : "--" }}
+            </td>
+          </ng-container>
+
+          <!-- Upload Type Column -->
+          <ng-container matColumnDef="Nickname">
+            <th mat-header-cell *matHeaderCellDef translate>
+              LBL_NICKNAME
+
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.shortName ? element.shortName : "--" }}
+            </td>
+          </ng-container>
+
+          <!-- File Format Column -->
+          <ng-container matColumnDef="FullName">
+            <th mat-header-cell *matHeaderCellDef translate>
+              LBL_FULL_NAME
+
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.name ? element.name : "--" }}
+            </td>
+          </ng-container>
+
+          <!-- Status Column -->
+          <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef translate>
+              LBL_STATUS
+
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.status ? element.status : "--" }}
+            </td>
+          </ng-container>
+
+          <!-- Total Amount Column -->
+          <ng-container matColumnDef="Balance">
+            <th mat-header-cell *matHeaderCellDef translate>
+              LBL_BALANCE
+
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.amount ? (element.amount | currencyFormat:element?.currency) + ' ' + (element.currency ?? "")
+              : "--" }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="fromDataColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: fromDataColumns"></tr>
+        </table>
+
+      </div>
+
+      <div class="fromDetails">
+        <div translate class="innerTitle"> LBL_CREDIT_CARD </div>
+
+        <table mat-table [dataSource]="card" class="casaTable">
+
+          <!-- Reference Number Column -->
+          <ng-container matColumnDef="cardNumber">
+            <th mat-header-cell *matHeaderCellDef translate>
+             LBL_CARD_NO
+
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.number ? element.number : "--" }}
+            </td>
+          </ng-container>
+
+          <!-- Upload Type Column -->
+          <ng-container matColumnDef="Nickname">
+            <th mat-header-cell *matHeaderCellDef translate>
+              LBL_NICKNAME
+
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.shortName ? element.shortName : "--" }}
+            </td>
+          </ng-container>
+
+          <!-- File Format Column -->
+          <ng-container matColumnDef="cardType">
+            <th mat-header-cell *matHeaderCellDef translate>
+             LBL_CARD_TYPE
+
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.type ? element.type : "--" }}
+            </td>
+          </ng-container>
+
+          <!-- Status Column -->
+          <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef translate>
+              LBL_STATUS
+
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.status ? element.status : "--" }}
+            </td>
+          </ng-container>
+
+          <!-- Total Amount Column -->
+          <ng-container matColumnDef="balanceAmount">
+            <th mat-header-cell *matHeaderCellDef translate>
+              LBL_BALANCE_AMOUNT
+
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.amount ? (element.amount | currencyFormat:element?.currency) + ' ' + (element.currency ?? "")
+              : "--" }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="cardDataColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: cardDataColumns"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="mainContainer" *ngIf="showCardDetails">
+    <div class="subContainer toggleContainer">
+      <div translate class="subTitles"> LBL_AMOUNT_DETAILS </div>
+
+      <mat-button-toggle-group>
+        <mat-button-toggle value="Outstanding" disableRipple="true" #togglebtn1 (click)="displayContent('Outstanding')"
+          [ngClass]="isChecked === 'Outstanding'?'hoverSelected':'baseSelected'">{{ 'LBL_FULL_OUTSTANDING' | translate}}
+        </mat-button-toggle>
+        <mat-button-toggle value="Statement" disableRipple="true" #togglebtn1 (click)="displayContent('Statement')"
+          [ngClass]="isChecked === 'Statement'?'hoverSelected':'baseSelected'">{{'LBL_STATEMENT_DUE' | translate}}
+        </mat-button-toggle>
+        <mat-button-toggle value="Minimum" disableRipple="true" #togglebtn1 (click)="displayContent('Minimum')"
+          [ngClass]="isChecked === 'Minimum'?'hoverSelected':'baseSelected'">{{'LBL_MIN_DUE' | translate}}
+        </mat-button-toggle>
+
+        <mat-button-toggle value="Amount" disableRipple="true" #togglebtn2 (click)="displayContent('Amount')"
+          [ngClass]="isChecked === 'Amount'?'hoverSelected':'baseSelected'">{{'LBL_SPECIFIC_AMOUNT' | translate}}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <div *ngIf="isChecked === 'Outstanding'">
+
+        <div class="amountContainer">
+          <p class="containerLabel" translate>LBL_AMOUNT</p>
+          <p class="containerContent">9,125.00 SAR</p>
+
+          <div class="commentContainer">
+            <p class="containerLabel" translate>LBL_COMMENTS</p>
+            <textarea type="text" cols="35" rows="5"></textarea>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div *ngIf="isChecked === 'Statement'">
+        <div class="amountContainer">
+          <p class="containerLabel" translate>LBL_AMOUNT</p>
+          <p class="containerContent">7,000.00 SAR</p>
+
+          <div class="commentContainer">
+            <p class="containerLabel" translate>LBL_COMMENTS</p>
+            <textarea type="text" cols="35" rows="5"></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <div *ngIf="isChecked === 'Minimum'">
+        <div class="amountContainer">
+          <p class="containerLabel" translate>LBL_AMOUNT</p>
+          <p class="containerContent">400.00 SAR</p>
+
+          <div style="margin-top: 25px;">
+            <p class="containerLabel" translate>LBL_COMMENTS</p>
+            <textarea type="text" cols="35" rows="5"></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <div *ngIf="isChecked === 'Amount'">
+        <div class="amountContainer">
+          <div class="specificAmountContainer">
+
+            <div>
+              <p class="containerLabel" translate>LBL_FULL_AMOUNT</p>
+              <p class="containerContent">9,125.00 SAR</p>
+            </div>
+
+            <div>
+              <p class="containerLabel" translate>LBL_MIN_DUE</p>
+              <p class="containerContent">9,125.00 SAR</p>
+            </div>
+
+            <div>
+              <p class="containerLabel" translate>LBL_OTHER_AMOUNT</p>
+              <div class="information">
+                <input class="limitText" type="text" [(ngModel)]="otherAmount" (change)="onChangeLimit($event)"
+                  (keypress)="numberOnly($event)" />
+                <span class="currency">SAR</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="commentContainer">
+            <p class="containerLabel" translate>LBL_COMMENTS</p>
+            <textarea type="text" cols="35" rows="5"></textarea>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="buttonContainer">
+
+    <app-tertiary-button buttonValue="LBL_CANCEL" routerPath="./" (click)="toCancel()" *ngIf="toCreditCardList"></app-tertiary-button>
+    <app-primary-button buttonValue="LBL_PROCEED" routerPath="./" (click)="toProceed()" *ngIf="showCardDetails"></app-primary-button>
+
+  </div>
+</div>

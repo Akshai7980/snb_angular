@@ -1,0 +1,52 @@
+<div>
+    <div class="mTop_18">
+      <div class="actionsConatiner">
+          <div class="leftPannel">
+              <div class="searchCntnrLeft">
+                  <app-search [showAdvanceSearch]="true" (childEvent)="triggerSearchFilter($event)"></app-search>
+              </div>
+          </div>
+          <div>
+              <div>
+                  <app-refresh (onRefresh)="refreshSummary()"></app-refresh>
+              </div>
+          </div>
+      </div>   
+  </div>
+    <div *ngIf="!norecordflag" id="draftDefaultCntr">
+  <table  mat-table [dataSource]="dataSourceToPass" class="casaTable">
+  
+    <ng-container matColumnDef="messages">
+      <th mat-header-cell *matHeaderCellDef><div class="position_rel" translate>LBL_DATE<span class="iconSort"></span></div> </th>
+      <td mat-cell *matCellDef="let element">{{element.DATE |dateFormat}}</td>
+    </ng-container>
+    <ng-container matColumnDef="datetime">
+      <th mat-header-cell *matHeaderCellDef translate><div class="position_rel" translate>LBL_REFERENCE_NO<span class="iconSort"></span></div> </th>
+      <td mat-cell *matCellDef="let element"> {{element.REF_NO}} </td>
+    </ng-container>
+    <ng-container matColumnDef="transactiontype">
+      <th mat-header-cell *matHeaderCellDef translate><div class="position_rel" translate> LBL_SUBJECT<span class="iconSort"></span></div></th>
+      <td mat-cell *matCellDef="let element"> {{element.SUBJECT}} </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef translate>LBL_ACTION</th>
+      <td mat-cell *matCellDef="let element"> <div class="actionIcon"></div> </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div>
+  <div *ngIf="norecordflag">
+  <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+  </div>
+  <app-pagination #paginator [dataSourceLength]="dataSourceLength" [currentRecord]="'Draft'" [totalRecords]="totalRecords"  (onPaginationChange)="paginationChangeClick($event)" ></app-pagination>
+  <!-- <mat-paginator *ngIf="!norecordflag" [length]="dataLength"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page" #paginator>
+  </mat-paginator> -->
+  </div>  
+
+  <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>
+  
+  

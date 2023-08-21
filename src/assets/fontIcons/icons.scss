@@ -1,0 +1,349 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('fonts/icomoon.eot?8ki5qp');
+    src:  url('fonts/icomoon.eot?8ki5qp#iefix') format('embedded-opentype'),
+      url('fonts/icomoon.woff2?8ki5qp') format('woff2'),
+      url('fonts/icomoon.ttf?8ki5qp') format('truetype'),
+      url('fonts/icomoon.woff?8ki5qp') format('woff'),
+      url('fonts/icomoon.svg?8ki5qp#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    // speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-back:before {
+    content: "\e93a";
+  }
+  .icon-globe:before {
+    content: "\e93b";
+  }
+  .icon-hide:before {
+    content: "\e93c";
+  }
+  .icon-logo:before {
+    content: "\e93d";
+  }
+  .icon-preferences:before {
+    content: "\e93e";
+  }
+  .icon-refresh:before {
+    content: "\e93f";
+  }
+  .icon-search:before {
+    content: "\e940";
+  }
+  .icon-setting:before {
+    content: "\e941";
+  }
+  .icon-sheild_check:before {
+    content: "\e942";
+  }
+  .icon-trash:before {
+    content: "\e943";
+  }
+  .icon-view:before {
+    content: "\e944";
+  }
+  .icon-aaramco_active:before {
+    content: "\e900";
+  }
+  .icon-accounts_active:before {
+    content: "\e901";
+  }
+  .icon-add_soft_terminal_active:before {
+    content: "\e902";
+  }
+  .icon-announcement_active:before {
+    content: "\e903";
+  }
+  .icon-approve_active:before {
+    content: "\e904";
+  }
+  .icon-Artboard-26:before {
+    content: "\e905";
+  }
+  .icon-Artboard-35:before {
+    content: "\e906";
+  }
+  .icon-Artboard-55:before {
+    content: "\e907";
+  }
+  .icon-benificiaries_active:before {
+    content: "\e908";
+  }
+  .icon-calender:before {
+    content: "\e909";
+  }
+  .icon-card_active:before {
+    content: "\e90a";
+  }
+  .icon-card_pin_active:before {
+    content: "\e90b";
+  }
+  .icon-Collections--Receivables:before {
+    content: "\e90c";
+  }
+  .icon-contextual_action_active:before {
+    content: "\e90d";
+  }
+  .icon-corporate_id:before {
+    content: "\e90e";
+  }
+  .icon-credit-limit-active:before {
+    content: "\e90f";
+  }
+  .icon-customer_request_active_1:before {
+    content: "\e910";
+  }
+  .icon-digital_hub_active:before {
+    content: "\e911";
+  }
+  .icon-dividends-active:before {
+    content: "\e912";
+  }
+  .icon-down:before {
+    content: "\e913";
+  }
+  .icon-download:before {
+    content: "\e914";
+  }
+  .icon-edit_active:before {
+    content: "\e915";
+  }
+  .icon-email:before {
+    content: "\e916";
+  }
+  .icon-epay_active:before {
+    content: "\e917";
+  }
+  .icon-etrade_active:before {
+    content: "\e918";
+  }
+  .icon-flip_card_active:before {
+    content: "\e919";
+  }
+  .icon-font_size_active:before {
+    content: "\e91a";
+  }
+  .icon-gcif_selection:before {
+    content: "\e91b";
+  }
+  .icon-info_active:before {
+    content: "\e91c";
+  }
+  .icon-Investment_amend_active:before {
+    content: "\e91d";
+  }
+  .icon-itm_active:before {
+    content: "\e91e";
+  }
+  .icon-Liquidity_management_active:before {
+    content: "\e91f";
+  }
+  .icon-logout_active:before {
+    content: "\e920";
+  }
+  .icon-my_task_inactive_1:before {
+    content: "\e921";
+  }
+  .icon-n0_data_active:before {
+    content: "\e922";
+  }
+  .icon-national_id_active:before {
+    content: "\e923";
+  }
+  .icon-next_active:before {
+    content: "\e924";
+  }
+  .icon-notification_active:before {
+    content: "\e925";
+  }
+  .icon-omnibus_active:before {
+    content: "\e926";
+  }
+  .icon-password_active:before {
+    content: "\e927";
+  }
+  .icon-payroll_active:before {
+    content: "\e928";
+  }
+  .icon-phone_active:before {
+    content: "\e929";
+  }
+  .icon-portfolio_active:before {
+    content: "\e92a";
+  }
+  .icon-pos_active:before {
+    content: "\e92b";
+  }
+  .icon-print_active:before {
+    content: "\e92c";
+  }
+  .icon-reject_active:before {
+    content: "\e92d";
+  }
+  .icon-sadad:before {
+    content: "\e92e";
+  }
+  .icon-save_as_draft_active:before {
+    content: "\e92f";
+  }
+  .icon-save_as_pdf_active:before {
+    content: "\e930";
+  }
+  .icon-save_as_template_active:before {
+    content: "\e931";
+  }
+  .icon-service_request_active:before {
+    content: "\e932";
+  }
+  .icon-sort_active:before {
+    content: "\e933";
+  }
+  .icon-ticket_inquiry_active:before {
+    content: "\e934";
+  }
+  .icon-transaction_inquiry_active:before {
+    content: "\e935";
+  }
+  .icon-transfer_active:before {
+    content: "\e936";
+  }
+  .icon-up:before {
+    content: "\e937";
+  }
+  .icon-user_id_active:before {
+    content: "\e938";
+  }
+  .icon-xls_active:before {
+    content: "\e939";
+  }
+  //icons set 2
+  .icon-add_beni_active:before {
+    content: "\e945";
+  }
+  .icon-bill_managment_active:before {
+    content: "\e946";
+  }
+  .icon-digital_hub_2_active:before {
+    content: "\e947";
+  }
+  .icon-direct_debits_active:before {
+    content: "\e948";
+  }
+  .icon-e-commerce_active:before {
+    content: "\e949";
+  }
+  .icon-e-finance_active:before {
+    content: "\e94a";
+  }
+  .icon-etrade_active_1:before {
+    content: "\e94b";
+  }
+  .icon-investments_active:before {
+    content: "\e94c";
+  }
+  .icon-mof_active:before {
+    content: "\e94d";
+  }
+  .icon-moi_active:before {
+    content: "\e94e";
+  }
+  .icon-payment_histroy_active:before {
+    content: "\e94f";
+  }
+  .icon-personal_info_active:before {
+    content: "\e950";
+  }
+  .icon-pos_finance_active:before {
+    content: "\e951";
+  }
+  .icon-request_to_pay_active:before {
+    content: "\e952";
+  }
+  .icon-service_request_2_active:before {
+    content: "\e953";
+  }
+  .icon-settings_active_1:before {
+    content: "\e954";
+  }
+  .icon-tickets_active:before {
+    content: "\e955";
+  }
+  .icon-transaction_inq_active:before {
+    content: "\e956";
+  }
+  //lhs icons
+  .icon-HOME:before{
+    content: "\e93d";
+  }
+  .icon-ACCOUNTS:before{
+    content: "\e901";
+  }
+  .icon-TRANSFERS:before{
+    content: "\e936";
+  }
+  .icon-SADAD:before{
+    content: "\e92e";
+  }
+  .icon-ARAMCO:before{
+    content: "\e900";
+  }
+  .icon-E_TRADE:before{
+    content: "\e918";
+  }
+  .icon-MY_TASK:before{
+    content: "\e921";
+  }
+  .icon-PAYROLL:before{
+    content: "\e928";
+  }
+  .icon-CARDS:before{
+    content: "\e90a";
+  }
+  .icon-POS:before{
+    content: "\e92b";
+  }
+  .icon-E_FINANCE:before{
+    content: "\e951";
+  }
+  .icon-NOTIFICATIONS:before{
+    content: "\e925";
+  }
+  .icon-TRANSACTION_INQUIRY:before{
+    content: "\e956";
+  }
+  .icon-CONFIGURATION_MANAGEMENT:before{
+    content: "\e91f";
+  }
+  .icon-E_PAY:before{
+    content: "\e917";
+  }
+  .icon-TICKET_INQUIRY:before{
+    content: "\e934";
+  }
+  .icon-POS_FINANCE:before{
+    content: "\e951";
+  }
+  .icon-SETTINGS:before{
+    content: "\e941";
+  }
+  .icon-DIGITAL_HUB:before{
+    content: "\e911";
+  }
+  

@@ -1,0 +1,40 @@
+<div class="mainContainer">
+    <div translate class="title">LBL_E_PAY</div>
+    <div class="subContainer" id="epayServicePrintSection">
+        <div class="row" id="logoPrint">
+            <div><img class="logo" src="{{logo}}"> </div>
+            <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+        </div>
+        <div class="titleConatiner">
+            <div class="titleIcons">
+                <div class="gridline01">
+                    <div class="accountIcon"></div><div translate>LBL_INQUIRY</div> 
+                </div>
+                <div class="gridline02">
+                    <div class="summarytools" *ngIf="enablePropertty"><app-summary-tools [printSection]="printSection" ></app-summary-tools></div>           
+                </div>   
+            </div>
+            <div class="mtop_10 subTitleConatiner">
+                <ul class="titleList">
+                    <li *ngIf="rootScopeData.userEntitlements.tabs.E_PAY_REQU_INQUIRY" routerLink="./epayRequest" class="animate" [ngClass]="this.rootScopeData.activeTabName==='epayRequest' ? 'listActive':'listInactive'"><a translate>LBL_REQ <span *ngIf="rootScopeData.epayRequestInquirCount && rootScopeData.epayRequestInquirCount > 0" class="actionHide">({{rootScopeData.epayRequestInquirCount}})</span></a></li>
+                    <li *ngIf="rootScopeData.userEntitlements.tabs.E_PAY_DOWNLOAD_INQUIRY" routerLink="./epayDownload" class="animate" [ngClass]="this.rootScopeData.activeTabName==='epayDownload' ? 'listActive':'listInactive'"><a translate>LBL_DOW_CENTER<span *ngIf="rootScopeData.epayDownloadInquirCount && rootScopeData.epayDownloadInquirCount > 0" class="actionHide">({{rootScopeData.epayDownloadInquirCount}})</span></a></li>
+                </ul>
+                <!-- <hr class="separator"> -->
+            </div>
+            <div class="mTop_18">
+                <div class="actionsConatiner">
+                    <div class="leftPannel">
+                        <div *ngIf="enablePropertty">
+                            <app-selection class="test" [moreActionList]="contextMenuList" (onMenuClick)="triggerDropdownFilter($event)"></app-selection>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+

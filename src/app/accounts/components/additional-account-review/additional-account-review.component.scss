@@ -1,0 +1,55 @@
+.mainContainer {
+  padding: 0px 15px 0px 15px;
+
+  .subContainer {
+    border-radius: 6px;
+    background-color: var(--primary-widget-bg-color);
+    padding: 20px 15px 20px 20px;
+    border: 1px solid var(--widget-border-color);
+
+    .title {
+      font-size: 16px;
+      font-family: "HelveticaNeueMed", arial, sans-serif;
+      color: var(--tableData-header-color);
+    }
+
+    .innerContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 15px 0px 0px 10px;
+
+      .account-sec {
+        margin-right: 23%;
+      }
+
+      .subTitles {
+        color: var(--table-header-color);
+        font-family: "HelveticaNeueMed", arial, sans-serif;
+        font-size: 14px;
+      }
+
+      .subText {
+        color: var(--table-header-color);
+        font-size: 14px;
+        font-family: "HelveticaNeueLight", arial, sans-serif;
+      }
+    }
+  }
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-btn-bg-color);
+}
+
+.callBackDiv{
+  margin-top: 20px;
+}

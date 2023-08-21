@@ -1,0 +1,25 @@
+{
+  "dataValue": {
+    "ccsAccountIdentifier": {
+      "institutionCode": "NCB",
+      "accountNumber": "3300000000000100",
+      "currencyCode": "SAR"
+    },
+    "currentCreditLimit": {
+      "amount": "618",
+      "currencyCode": "SAR"
+    },
+    "maximumCreditLimitDecreaseValue": {
+      "amount": "118",
+      "currencyCode": "SAR"
+    },
+    "finalExpenses": "",
+    "maximumCreditLimitIncreaseValue": {
+      "amount": "10",
+      "currencyCode": "SAR"
+    }
+  },
+  "headerValue": {
+    "moduleId": "CRDAMTDET"
+  }
+}

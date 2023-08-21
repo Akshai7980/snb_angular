@@ -1,0 +1,91 @@
+.outerContainer {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.title {
+  width: 215px;
+  height: 30px;
+  padding: 0px 0px 0px 5px;
+  background-size: cover;
+  font-size: 18px;
+  color: var(--tableData-header-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+
+
+
+.subTitles {
+  margin-bottom: 15px;
+}
+
+.issueDetails {
+  padding: 15px;
+  margin-top: 15px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+}
+
+.labels {
+  color: var(--table-header-color);
+  font-family: "HelveticaNeueMed", Arial, sans-serif;
+  margin-bottom: 4px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.inputContainer {
+  width: 293px;
+  height: 40px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 4px;
+  color: var(--tableData-header-color);
+  background-color: var(--primary-widget-bg-color);
+}
+
+.buttonConatiner {
+  position: relative;
+  float: right;
+  top: 30px;
+}
+
+.inputlabel {
+  margin-left: 10px;
+}
+
+.m-left{
+  margin-left: 60px;
+}
+
+.textArea {
+  min-width: 280px;
+  height: 80px;
+  padding: 8px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+}
+
+.felxContainer {
+  display: flex;
+}
+
+.uploadContainer {
+  display: flex;
+  align-items: center;
+  padding: 15px 15px 0px;
+
+  .upload-file {
+    width: 15%;
+    max-height: 350px;
+
+    .upload-file-title {
+      font-family: "HelveticaNeueMed", sans-serif;
+    }
+  }
+}

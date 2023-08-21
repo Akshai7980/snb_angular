@@ -1,0 +1,241 @@
+.accountDetailsCntr {
+    .tabCntr ul li {
+        a{
+            font-weight: normal !important;
+            // width: 206px;
+            width: 166px;
+            line-height: 40px;
+            background: var(--primary-widget-bg-color);
+            font-size: 14px;
+            // color: #425563;
+            color: var(--primary-fontColor);
+            text-align: center;
+        }
+    }
+
+    .sub-container {
+        border-radius: 10px;
+        background: var(--primary-widget-bg-color);
+        border: 1px solid var(--widget-border-color);
+        min-height: 50%;
+        margin-top: 11px;
+        margin-left: 25px;
+        padding: 22px;
+        margin-right: 20px;
+
+        .accDetails {
+            line-height: 28px;
+            padding: 5px 5px 5px 0px;
+            font-family: "HelveticaNeueLight";
+            font-size: 16px;
+            color: var(--tableData-header-color);
+        }
+
+        .pencilIcon,
+        .closeIcon {
+            width: 18px;
+            height: 18px;
+            transform: translateY(3px);
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .nicknameField {
+            display: inline-block;
+            width: 230px;
+            height: 40px;
+            border: 1px solid #e2e2e2;
+            border-radius: 6px;
+            background-color:var(--primary-widget-bg-color);
+            font-size: 14px;
+            color: var(--primary-fontColor);
+            outline: none;
+            padding-left: 10px;
+            padding-right: 60px;
+        }
+
+        .tickIcon {
+            width: 44px;
+            height: 40px;
+            background: url(../../../../assets/images/icoTick.svg) no-repeat center center;
+            border: none;
+            border-radius: 6px;
+            border: 2px solid #006a52;
+            cursor: pointer;
+            margin-left: 16px;
+            transform: translateY(12px);
+        }
+
+        .amount {
+            width: 127px;
+            height: 29px;
+            padding: 5px;
+            font-family: "HelveticaNeueMed";
+            font-size: 16px;
+            color: var(--tableData-header-color);
+        }
+
+        .showDetails,
+        .hideDetails {
+            width: 100px;
+            line-height: 24px;
+            padding: 5px 0px;
+            font-family: "HelveticaNeueMed";
+            font-size: 12px;
+            color: var(--short-profile-txt-color);
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .inputField {
+            margin-bottom: 10px;
+            position: relative;
+            width: 300px;
+        }
+
+        .balance {
+            margin-top: 9px;
+            color: var(--tableData-header-color);
+        }
+
+        .accDetailsInfo {
+            height: auto;
+            background-color: var(--summary-row-bg-color);
+            border-radius: 10px;
+            padding: 15px;
+            // margin-right: 30px;
+
+            .titleBar {
+                height: 27px;
+                background-size: cover;
+                font-family: "HelveticaNeueMed", arial, sans-serif;
+                font-size: 16px;
+                color: #5d5d5d;
+                margin-bottom: 15px;
+
+                h4 {
+                    width: 200px;
+                    height: 27px;
+                    background-size: cover;
+                    font-family: "HelveticaNeueMed", arial, sans-serif;
+                    font-size: 16px;
+                    color: var(--tableData-header-color);
+
+                }
+            }
+
+            .accInfo {
+                justify-content: space-between;
+                .label {
+                    width: 107px;
+                    height: 30px;
+                    font-size: 14px;
+                    color: var(--table-header-color);
+                    font-family: "HelveticaNeueMed", arial, sans-serif;
+                }
+
+                .dataInfo {
+                    height: 40px;
+                    font-family: "HelveticaNeueMed";
+                    font-size: 14px;
+                    color: var(--tableData-header-color);
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+}
+
+.button-secondary{float: right; margin-top: 30px;margin-right: 20px;}
+.button-secondary:hover {
+    background-color: #e8e8e8;
+}
+
+.currentAccAmount {
+    line-height: 27px;
+    padding: 5px 5px 5px 0px;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    margin-top: 4px;
+}
+
+.tabCntr ul li {
+    padding: 0 !important;
+}
+
+.inputField input::placeholder {
+    color: #e2e2e2;
+    font-family: "HelveticaNeueLight", arial, sans-serif;
+    font-size: 14px;
+}
+
+.topTittleCntr {
+    margin-left: 13px;
+}
+.activeList{
+    border-bottom: 4px solid var(--secondary-btn-bg-color);;
+}.titleList {
+    list-style: none;
+    display: flex;
+    padding: 0px;
+    margin: 0;
+    border-bottom: 1px solid var(--widget-border-color) !important;
+
+    li {
+        width: 206px;
+        padding: 0px 0px 1px;
+        background-color: transparent;
+        background-size: cover;
+        font-size: 14px;
+        color: #425563;
+        line-height: 40px;
+        text-align: center;
+        cursor: pointer;
+        border: none;
+        margin-bottom: -1px;
+
+    }
+}
+.backArrow{top:5px}
+.column1,.column2,.column3{width:33%}
+.fxContainer{display: flex;}
+.mt-top{margin-top:20px}
+.errorTooltip{position: relative;top: -71px;left: 2px;}
+.cancelIcon{
+    background: url(../../../../assets/images/reject-Icon.svg) no-repeat center;
+    display: inline-block;
+    width: 10px;
+    height: 10px;   
+    position: absolute;
+    top: 14px !important;
+    right: 10px;
+    cursor: pointer;
+    padding: 4px; 
+}
+
+.acceptIcon{
+    background: url("../../../../assets/images/accept-Icon.svg") no-repeat center;
+    display: inline-block;
+    width: 10px;
+    height: 10px;   
+    position: absolute;
+    top: 14px;
+    right: 40px;
+    cursor: pointer;
+    padding: 4px;
+ }
+
+ .icon-back {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    top: 2px !important;
+    left: -5px;
+    font-size: 15px;
+    font-weight: bolder;
+    color: var(--primary-hover-color);
+  }
+  .button-pos{
+    float: right; margin-top: 30px;margin-right: 20px;
+  }

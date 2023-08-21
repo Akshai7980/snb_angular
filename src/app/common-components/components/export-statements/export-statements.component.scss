@@ -1,0 +1,85 @@
+.downarrow-icon {
+    display: inline-block;
+    background: url(../../../../assets/images/downloadIcon.svg) no-repeat center center;
+    cursor: pointer;
+    width: 55px;
+    height: 40px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 5px;
+    margin-right: 13px;
+}
+
+.export-popup {
+    width: auto;
+    height: auto;
+    // padding: 5px 40px 5px 15px;
+    border: 1px solid var(--overlaypopup-margin);
+    border-radius: 3px;
+    background-color: var(--primary-widget-bg-color);
+    font-size: 1em;
+    color: var(--tableData-header-color);
+    text-decoration: none;
+    line-height: 18px;
+}
+.exportIcon{
+    display: inline-block;
+    background: url(../../../../assets/images/export-Icon.svg) no-repeat left center;
+    cursor: pointer;
+    //  margin-left: 5px;
+    padding-left: 21px;
+    width: 106px;
+    margin-left: 8px;
+    color: var(--default-text-color);
+}
+.mt940Icon{
+    display: inline-block;
+    background: url(../../../../assets/images/MT940icon.svg) no-repeat left center;
+    cursor: pointer;
+    //  margin-left: 5px;
+    padding-left: 21px;
+    width: 106px;
+    margin-left: 8px;
+}
+
+ul,li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    line-height: 30px;
+    cursor: pointer;
+    background-size: cover;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+    display: table;
+    transition: all .25s ease-in;
+   
+}
+
+li{
+    border-bottom: 1px solid var(--widget-border-color);
+    height: 35px;
+    
+}
+li:hover{
+background-color: var(--summary-hover-color);
+
+}
+
+
+
+#exportMask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #ccc;
+    z-index: 9;
+    opacity: 0;
+}
+
+/* .mat-menu-item{
+    padding: 0 40px 0 16px !important;
+    height: 40px!important;
+}
+.mat-menu-content:not(:empty){padding-top:0px !important;padding-bottom:13px !important} */

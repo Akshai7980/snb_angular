@@ -1,0 +1,271 @@
+.mtop_12 {
+    margin-top: 12px;
+}
+.dslk_flex {
+    display: flex;
+}
+.mtop_19 {
+    margin-top: 19px;
+}
+
+.mtop_21 {
+    margin-top: 21px;
+}
+
+.tableInfo {
+    width: 100%;
+}
+
+.mat-row:nth-child(odd) {
+    background-color: var(--summary-row-bg-color);
+}
+
+.mat-row:hover {
+    background-color: var(--summary-hover-color);
+    cursor: pointer;
+}
+
+td.mat-cell:first-of-type {
+    border-radius: 10px 0px 0px 10px;
+}
+
+td.mat-cell:last-of-type {
+    border-radius: 0px 10px 10px 0px;
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+    border: none;
+}
+
+.mtop_20 {
+    margin-top: 20px;
+}
+
+th.mat-header-cell:last-of-type {
+    width: 5%;
+}
+
+
+.downArrow {
+    background: url(/assets/images/iconDownGreen.svg) no-repeat center;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    cursor: pointer;
+    transition: 1s transform;
+}
+
+.arrowRotate {
+    transform: rotate(180deg);
+    margin-top: 12px;
+}
+
+.generateStatementContainer {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 24px);
+}
+
+.mbot_4 {
+    margin-bottom: 4px;
+}
+
+.mtop_17 {
+    margin-top: 17px;
+}
+
+.geneStaTitles {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+}
+
+.selectInput {
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--input-text-color);
+    cursor: pointer;
+}
+
+.mat-option {
+    padding: 5px;
+    border-left: 1px solid var(--widget-border-color);
+    border-right: 1px solid var(--widget-border-color);
+    border-bottom: 1px solid var(--widget-border-color);
+    line-height: 40px !important;
+    color: var(--default-text-color);
+}
+
+
+.btnGroup {
+    float: right;
+    display: flex;
+}
+
+.receiptConatiner {
+    width: 800px;
+    margin: 11px auto auto;
+}
+
+.receiptSubconatiner {
+    border-radius: 6px;
+    background-color: var(--primary-widget-bg-color);
+    border: 1px solid var(--widget-border-color);
+    padding: 22px 0px 21px 0px;
+}
+
+.shieldIcon {
+    width: 40px;
+    height: 40px;
+}
+
+.textalign_center {
+    text-align: center;
+}
+
+.fromContainer {
+    margin: 19px 0px 0px 35px;
+
+    .fromsubConatiner {
+        div div {
+            line-height: 24px;
+        }
+
+        flex: 1 1 auto;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        div {
+            flex: 0 0 40%;
+        }
+    }
+}
+
+.collectionNote {
+    font-size: 12px;
+    color: var(--primary-fontColor);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+
+}
+
+.statementDetails {
+    margin: 19px 0px 0px 35px;
+
+    .statementDetailsSubConatiner {
+        div div {
+            line-height: 24px;
+        }
+
+        flex: 1 1 auto;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        div {
+            flex: 0 0 40%;
+        }
+    }
+}
+
+
+.infoFontSize {
+    font-size: 14px;
+    color: #687782;
+    font-family: "HelveticaNeueLight", arial, sans-serif;
+}
+
+.printIcon {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    left: -5px;
+
+}
+
+.downloadIcon {
+    background: url(/assets/images/downloadIcon.svg) no-repeat center;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    left: -5px;
+}
+
+.mtop_4 {
+    margin-top: 4px;
+}
+
+.setcontent {
+    width: 155px;
+}
+
+.download {
+    cursor: pointer;
+    width: 130px;
+
+}
+
+.finish {
+    width: 100px;
+}
+
+.mtop_24 {
+    margin-top: 24px;
+}
+
+.textalign_center {
+    text-align: center;
+}
+
+
+.seperator {
+    border-top: 1px solid var(--widget-border-color);
+}
+
+.mat-option.mat-active {
+    background: none;
+}
+
+.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+    background: none;
+}
+
+.mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled):hover {
+    background-color: var(--summary-hover-color) !important;
+}
+
+.mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled) {
+    background: none;
+}
+
+.emptyFormField {
+    width: 300px;
+}
+
+.customeDateConatiner {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.mat-option-text.mat-option {
+    font-family: 'HelveticaNeue', arial, sans-serif !important;
+}
+
+.mat-select-panel {
+    height: 125px !important;
+}
+
+.mainTitle{
+    padding-left: 10px;
+}

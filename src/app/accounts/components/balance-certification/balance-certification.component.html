@@ -1,0 +1,127 @@
+<div class="mainContainer" *ngIf="!showReceipt">
+    <div class="mainTitle" translate>
+        LBL_BAL_CERTIFICATE
+    </div>
+    <div>
+        <div class="subContainer">
+            <div class="subTitles" translate>LBL_SELECT_CIF</div>
+            <div class="row detailsContainer">
+                <div class="column">
+                    <div class="geneStaTitles" translate>LBL_CIF <span class="required">*</span></div>
+                    <div class="mtop_10 details">
+                        <mat-select id="cif" class="box" name="nameoption" panelClass="dropDownOption"
+                            placeholder="Choose an option" [(ngModel)]="cifData" disableOptionCentering>
+                            <mat-option *ngFor="let cif of cifList" [value]="cif.cifNo" (click)="selectAuthor(cif)">{{cif.cifNo}} - {{cif.customerName}}
+                            </mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="cifValidationMsg">
+              <div class="cifMsgContainer">
+                <div class="cifInfoMsg">
+                    <p><img src="assets/images/information.svg" class="img-style"/> {{cifValidMsg}}</p>
+                </div>
+            </div>
+           </div>
+            <div class="issuedMsg" translate *ngIf="hideaccess">
+                <img src="assets/images/Icon.svg"> LBL_BAL_CERTIFICATE_ACCESS_DENIED
+            </div>
+        </div>
+    </div>
+    <div  class="certificateInfo" *ngIf="ShowAuthorDetails">
+        <div class="subContainer">
+            <div class="subTitles" translate>LBL_BAL_CERTIFICATE_INFO</div>
+            <div class="row detailsContainer">
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_AS_ON_DATE <span class="required">*</span></div>
+                    <div class="mtop_10 dataContainer">
+                        <app-date-picker [showDateErrorMessage]="dateErr" [clearFlag]="clearFlag" [maxDate]="maxDate"
+                             (dateValue)="getDate($event)"></app-date-picker>
+                    </div>
+                </div>
+            </div>
+            <div class="row detailsContainer">
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_AUDTIOR <span class="required">*</span></div>
+                    <div class="mtop_10 details">
+                        <input  type="text" [formControl]="myControl" class="searchInput" (change)="getAuditorData($event)"
+                         placeholder="{{ 'LBL_SEARCH_FOR' | translate }}" [matAutocomplete]="auditoSearch" 
+                        [(ngModel)]="auditorData" >
+                     <mat-autocomplete #auditoSearch="matAutocomplete">
+                      <mat-option *ngFor="let item of filteredOptions | async" [value]="item.auditor" (click)="setData(item)" >
+                        {{item.auditor}}
+                      </mat-option>
+                      </mat-autocomplete>
+                    </div>
+                    <div *ngIf="auditorErr">
+                        <small translate class="errorMsg ">LBL_AUDITOR_ERR</small>
+                    </div>
+                </div>
+
+                <div class="column" *ngIf="auditorData === 'Other'">
+                    <div translate class="geneStaTitles">LBL_NAME <span class="required">*</span></div>
+                    <div class="data mtop_10"><input type="text" 
+                        [(ngModel)]="otherAuditorName" 
+                       name="auditorName" matInput></div>
+                       <div *ngIf="otherNameErr">
+                        <small translate class="errorMsg">LBL_AUDITOR_NAME_ERR</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row detailsContainer" *ngIf="cifObj">
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_PO_BOX</div>
+                    <!-- <div class="mtop_10 dataContainer">{{cifObj.PoBox}}</div> -->
+                    <div class="data mtop_10"><input (keypress)="numberOnly($event)" type="text" maxlength="5"
+                         [(ngModel)]="cifObj.poBox" (paste)="$event.preventDefault()" name ="poBox" 
+                        name="PoBox" matInput></div>
+                        <!-- <div *ngIf="poBoxErr">
+                            <small translate class="errorMsg">LBL_POBX_ERR</small>
+                        </div> -->
+                </div>
+                <div class="column" *ngIf="auditorData === 'Other'">
+                    <div translate class="geneStaTitles">LBL_CITY </div>
+                    <!-- <div class="mtop_10 dataContainer">{{cifObj.City}}</div> -->
+                    <div class="dataContainer mtop_10">
+                        <mat-select id="city" class="box" name="city" panelClass="dropDownOption" 
+                            placeholder="Choose an option" [(ngModel)]="cifObj.city" disableOptionCentering>
+                            <mat-option *ngFor="let item of cityLists" [value]="item.cityName" >{{item.cityName}}
+                            </mat-option>
+                        </mat-select>
+                    </div> 
+                    <!-- <div *ngIf="cityErr">
+                        <small translate class="errorMsg">LBL_CITY_ERR</small>
+                    </div> -->
+                </div>
+                <div class="column" *ngIf="auditorData !== 'Other'">
+                    <div translate class="geneStaTitles">LBL_CITY </div>
+                    <div class="data mtop_10"><input type="text" 
+                        [(ngModel)]="cifObj.city"   
+                       name="City" matInput></div>
+                       <!-- <div *ngIf="cityErr">
+                        <small translate class="errorMsg">LBL_CITYERR</small>
+                    </div> -->
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_POSTAL_CODE </div>
+                    <!-- <div class="mtop_10 dataContainer"> {{cifObj.PostalCode}}</div> -->
+                    <div class="data mtop_10"><input type="text" maxlength="10" 
+                        [(ngModel)]="cifObj.postalCode" (paste)="$event.preventDefault()"  (keypress)="numberOnly($event)"
+                       name="PostalCode" matInput></div>
+                       <!-- <div *ngIf="postalCodeErr">
+                        <small translate class="errorMsg">LBL_POSTAL_CODE_ERR</small>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="btnGroup" translate>
+            <!-- <div><button type="button" class="button-secondary" (click)="onClickCancel()" translate>LBL_CANCEL</button></div>
+            <div><button type="button" class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button></div> -->
+            <app-tertiary-button buttonValue="LBL_CANCEL" (click)="onClickCancel()"></app-tertiary-button>
+            <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+        </div>
+    </div>
+</div>
+<app-receipt [hideButton]="true" [receiptDetails]="receiptData" *ngIf="showReceipt" [saveReceiptObject]="saveReceiptObject" [finishButtonActive]="false" [downloadButtonActive]="true" (DownloadReceiptClick)="downloadPDF()" (downloadFromApi)="downloadFromApi()"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

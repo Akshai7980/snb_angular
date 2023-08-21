@@ -1,0 +1,11 @@
+{
+  "dataValue": {
+    "STATUS": "Success",
+    "SELECTED_RECORDS": "TBC2208191800224",
+    "STATUS_CODE": "UA",
+    "INTERNAL_REFERENCE_NO": "TBC2208231636059"
+  },
+  "headerValue": {
+    "moduleId": "TXNAUTH"
+  }
+}

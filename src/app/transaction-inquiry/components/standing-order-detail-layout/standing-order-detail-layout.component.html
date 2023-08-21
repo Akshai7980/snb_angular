@@ -1,0 +1,41 @@
+<div id="standingOrderInquiryPrinSection">
+    <div class="detailsTitleContainer">
+        <div class="mainTitle" translate>LBL_TRANSFER_SUMMARY</div>
+        <div class="row" id="logoPrint">
+            <div><img class="logo" src="{{logo}}"> </div>
+            <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+        </div>
+        <app-summary-tools [printSection]="printSection" [enabledProperty]="true" id="printCheque"
+            [moduleId]="rootScopeData.accountsActiveModule"
+            (onPDFdownloadChange)="printPdf('standingOrderInquiryPrinSection','save')" [isshownPrint]="shownPrint" [saveReceiptObject]="saveReceiptObject" [isshowndetailsPrint]="isshowndetailsPrint" (onDetailsPagePrintemit)="selectDetailsPagePrint()"></app-summary-tools>
+        <!-- class="summaryContainer" -->
+    </div>
+    <div class="detailsDataCntr">
+        <section class="summaryOuterConainer">
+            <div>
+                <app-standing-order-detail></app-standing-order-detail>
+            </div>
+        </section>
+        <section class="summaryOuterConainer" *ngIf="arrayofExecutionDetails">
+            <div class="summaryConainer">
+                <app-execution-details-table [ExecutuionData]="arrayofExecutionDetails"></app-execution-details-table>
+            </div>
+        </section>
+        <section class="summaryOuterConainer">
+            <div class="summaryConainer">
+                <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+            </div>
+        </section>
+        <section class="summaryOuterConainer">
+            <div class="summaryConainer">
+                <app-history [historyData]="workFlowHistoryParams"></app-history>
+            </div>
+        </section>
+        <section>
+            <div class="btnContainer">
+                <app-tertiary-button buttonValue="LBL_BACK" (click)="back()"></app-tertiary-button>
+            </div>
+        </section>
+    </div>
+
+</div>

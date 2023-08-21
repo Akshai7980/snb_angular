@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="refNO">
+        {{'LBL_TRANSACTION_REF_NUM' | translate }} <b><span
+                *ngIf="details && details.REF_NO">{{details.REF_NO}}</span><span
+                *ngIf="!details || !details.REF_NO">--</span></b>
+    </div>
+    <div class="subContainer">
+        <div class="flexCntr">
+            <div class="column">
+                <label class="label" translate>LBL_QUICK_TRANSFER_LIMIT</label>
+                <div class="dataInfo" *ngIf="details && details.QTL_AMT && details.QTL_CURRENCY">{{details.QTL_AMT | currencyFormat:details.QTL_CURRENCY}} {{details.QTL_CURRENCY}}</div>
+                <div class="dataInfo" *ngIf="!details || !details.QTL_AMT || !details.QTL_CURRENCY">--</div>
+            </div>
+            <div class="column">
+                <label class="label" translate>LBL_CUSTOMER_INSTANT_TRANSFER_LIMIT</label>
+                <div class="dataInfo" *ngIf="details && details.CQTL_AMT && details.CQTL_CURRENCY">{{details.CQTL_AMT | currencyFormat:details.CQTL_CURRENCY}} {{details.CQTL_CURRENCY}}</div>
+                <div class="dataInfo" *ngIf="!details || !details.CQTL_AMT || !details.CQTL_CURRENCY">--</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="refNO">
+      {{'LBL_TRANSACTION_REF_NUM' | translate }} <b><span *ngIf="refNum">{{refNum}}</span><span *ngIf="!refNum">--</span></b>
+    </div>
+    <div class="subContainer">
+      <div class="subTitles" translate>LBL_FROM</div>
+      <table mat-table [dataSource]="fromDataObj" class="casaTable" id="creditData">
+        <ng-container matColumnDef="accNumber">
+          <th mat-header-cell *matHeaderCellDef translate >LBL_ACC_NUMBER</th>
+          <td mat-cell *matCellDef="let element">
+            <span *ngIf="element.accNum">{{element.accNum}}</span>
+            <span *ngIf="!element.accNum">--</span>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="nickName">
+            <th mat-header-cell *matHeaderCellDef translate >LBL_NICKNAME</th>
+            <td mat-cell *matCellDef="let element">
+              <span *ngIf="element.nickName">{{element.nickName}}</span>
+              <span *ngIf="!element.nickName">--</span>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fullName">
+            <th mat-header-cell *matHeaderCellDef translate >LBL_FULL_NAME</th>
+            <td mat-cell *matCellDef="let element">
+              <span *ngIf="element.fullname">{{element.fullname}}</span>
+              <span *ngIf="!element.fullname">--</span>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef translate >LBL_STATUS</th>
+            <td mat-cell *matCellDef="let element">
+              <span *ngIf="element.status">{{element.status}}</span>
+              <span *ngIf="!element.status">--</span>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="balance">
+            <th mat-header-cell *matHeaderCellDef translate >LBL_BALANCE</th>
+            <td mat-cell *matCellDef="let element">
+              <span *ngIf="element.balance && element.ccyCode && !rootScopeData.userInfo.maskingFlag">{{element.balance | currencyFormat:element.ccyCode}} {{element.ccyCode}}</span>
+              <span *ngIf="(!element.balance || !element.ccyCode) && !rootScopeData.userInfo.maskingFlag">--</span>
+              <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}} {{element.ccyCode}}</span>
+            </td>
+          </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+  </div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>  

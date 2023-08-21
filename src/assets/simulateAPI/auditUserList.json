@@ -1,0 +1,32 @@
+{
+    "data": [
+        {
+            "auditorDetails": [
+                {
+                    "cif": "11234576 - AL Sabic Group",
+                    "auditor": "Audito 1",
+                    "poBox": "35424",
+                    "city": "Al Mawain",
+                    "postalCode": "6531"
+                },
+                {
+                    "cif": "11234576 - Sabic Group",
+                    "auditor": "Audito 2",
+                    "poBox": "35424",
+                    "city": "Baljurashi",
+                    "postalCode": "6531"
+                },
+                {
+                    "cif": "",
+                    "auditor": "Other",
+                    "poBox": "",
+                    "city": "",
+                    "postalCode": ""
+                }
+            ]
+        }
+    ],
+    "headerValue": {
+        "moduleId": "BALANAUDITLIST"
+    }
+}

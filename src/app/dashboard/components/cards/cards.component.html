@@ -1,0 +1,146 @@
+<div class="header-panel">
+    <div class="header-panel-left headerPanelWidth">
+        <div class="accountsHeader" translate>LBL_CARDS</div>
+    </div>
+    <div class="header-panel-right headerPanelWidth">
+        <div class="accordion" [ngClass]="{'accordionUp':!isCardsExpand,accordionDown:isCardsExpand}" (click)="onClickExpand($event)"></div>
+        <div *ngIf="!isCardsExpand" id="cardssummaryToolsElement">
+            <app-summary-tools [printSection]="printSection"></app-summary-tools>
+        </div>
+    </div>
+</div>
+<div id="cardsexpandCollapseElement" class="animate expandCollpase" [ngClass]="{'collapse':isCardsExpand}" [ngStyle]="{'height': contentHeight+'px'}">
+<div class="searchCntnr">
+    <div class="searchCntnrLeft">
+        <app-search [showAdvanceSearch]="false" (childEvent)="triggerSearchFilter($event)"></app-search>
+    </div>
+    <div class="searchCntnrRight">
+        <span class="searchCntnrRightText" *ngIf="!isViewAllBalClicked" (click)="onViewAllBalanceClick()"
+            translate>LBL_VIEW_ALL_BALANCES</span>
+        <span *ngIf="isViewAllBalClicked" class="hideAllBalance">Balance is 10000 BHD</span>
+        <span class="searchCntnrRightText" *ngIf="isViewAllBalClicked" (click)="onHideAllBalanceClick()"
+            translate>LBL_HIDE_ALL_BALANCES</span>
+    </div>
+</div>
+<div id="cardsDefaultCntr" *ngIf="!norecordflag">
+    <table id="cardsDefault" mat-table [dataSource]="dataSourceToPass" class="dashboardTable" (contentChanged)="getTableHeight()" *ngIf="responseHeader != undefined">
+        <ng-container matColumnDef="cardNumber">
+            <th mat-header-cell *matHeaderCellDef translate>LBL_CARD_NO
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn != 'CARD_NO'">
+                    <img src="assets/images/sortDown.svg" class="img-style">
+                    <img src="assets/images/sortDown.svg" class="sortUp">
+                </span>
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn == 'CARD_NO'">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'desc'"
+                        class="img-style">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'asc'"
+                        class="sortUpAscending">
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let CardsData">
+                *{{CardsData.CARD_NO | slice:-4}}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="cardHolderName">
+            <th mat-header-cell *matHeaderCellDef  translate>LBL_CARD_HOLDER_NAME
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn != 'EMB_NAME'">
+                    <img src="assets/images/sortDown.svg" class="img-style">
+                    <img src="assets/images/sortDown.svg" class="sortUp">
+                </span>
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn == 'EMB_NAME'">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'desc'"
+                        class="img-style">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'asc'"
+                        class="sortUpAscending">
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let CardsData">
+                {{(CardsData.EMB_NAME.length>8)? (CardsData.EMB_NAME | slice:0:8)+'...':(CardsData.EMB_NAME)}}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="cardCategory">
+            <th mat-header-cell *matHeaderCellDef translate>LBL_CARD_TYPE
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn != 'CARD_CATEGORY'">
+                    <img src="assets/images/sortDown.svg" class="img-style">
+                    <img src="assets/images/sortDown.svg" class="sortUp">
+                </span>
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn == 'CARD_CATEGORY'">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'desc'"
+                        class="img-style">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'asc'"
+                        class="sortUpAscending">
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let CardsData" >
+                {{CardsData.CARD_CATEGORY}}
+            </td>
+        </ng-container>        
+        <ng-container matColumnDef="creditLimit">
+            <th mat-header-cell class="fcenter" *matHeaderCellDef translate>LBL_AVAILABLE_LMT
+                <span
+                    *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn != 'CR_LIMIT'">
+                    <img src="assets/images/sortDown.svg" class="img-style">
+                    <img src="assets/images/sortDown.svg" class="sortUp">
+                </span>
+                <span
+                    *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn == 'CR_LIMIT'">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'desc'"
+                        class="img-style">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'asc'"
+                        class="sortUpAscending">
+                </span>
+            </th>
+
+            <td mat-cell *matCellDef="let CardsData;let i=index">
+                <div *ngIf="!isViewBalClicked[i]" (click)="onViewBalanceClick(i)" class="viewBalance" translate>
+                    LBL_VIEW_BALANCE</div>
+                <div *ngIf="isViewBalClicked[i]">{{CardsData.CR_LIMIT |currencyFormat :CardsData.CCY}}&nbsp;{{CardsData.CCY}}
+                </div>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="billedAmount">
+            <th mat-header-cell *matHeaderCellDef  translate>LBL_OUTSTANDING_AMT
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn != 'PAY_DUE_AMT'">
+                    <img src="assets/images/sortDown.svg" class="img-style">
+                    <img src="assets/images/sortDown.svg" class="sortUp">
+                </span>
+                <span *ngIf="responseHeader.sortColumn != undefined && responseHeader.sortColumn == 'PAY_DUE_AMT'">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'desc'"
+                        class="img-style">
+                    <img src="assets/images/sortDown.svg"
+                        *ngIf="responseHeader.sortOrder != undefined && responseHeader.sortOrder == 'asc'"
+                        class="sortUpAscending">
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let CardsData;let i=index">
+                <div *ngIf="!isViewBalClicked[i]" (click)="onViewBalanceClick(i)" class="viewBalance" translate>
+                    LBL_VIEW_BALANCE</div>
+                <div *ngIf="isViewBalClicked[i]"> {{CardsData.PAY_DUE_AMT |currencyFormat : CardsData.CCY }}&nbsp;{{CardsData.CCY}}</div>
+                <div class="date-align" *ngIf="isViewBalClicked[i]">on {{CardsData.DUE_DT|dateFormat}}</div>
+            </td>           
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th mat-header-cell class="fcenter actionHide" *matHeaderCellDef translate>LBL_ACTION</th>
+            <td mat-cell *matCellDef="let CardsData">
+                <div><app-more-action [moreActionList]="contextMenuList" (onMenuClick)="actionOnMenuClick($event)"></app-more-action></div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+</div>
+<div *ngIf="norecordflag">
+    <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+  </div>
+</div>

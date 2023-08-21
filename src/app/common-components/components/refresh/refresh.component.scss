@@ -1,0 +1,9 @@
+.refresh-icon{
+    display: inline-block;
+    background: url(../../../../assets/images/refresh.svg) no-repeat center center;
+    cursor: pointer !important;
+    width: 55px;
+    height: 40px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 5px;
+}

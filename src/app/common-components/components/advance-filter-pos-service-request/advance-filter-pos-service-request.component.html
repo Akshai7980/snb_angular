@@ -1,0 +1,233 @@
+<div
+  class="filter-search-popup"
+  *ngIf="showAdvancedSearchPopup"
+  (click)="stopAdvancedSearchClose($event)"
+>
+  <div translate class="header">LBL_FILTER
+    <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+  </div>
+  <div class="flexCntr">
+    <div class="toggleCntr">
+      <div
+        translate
+        id="leftToggle"
+        class="toggle active"
+        (click)="toggleControl('leftToggle')"
+      >
+        LBL_BY_DATE
+      </div>
+      <div
+        translate
+        id="rightToggle"
+        class="toggle"
+        (click)="toggleControl('rightToggle')"
+      >
+        LBL_BY_PERIOD
+      </div>
+      <div class="searchWithinDetails">
+        <div class="fieldLabel" translate>LBL_SEARCH_WITHIN</div>
+
+        <mat-select
+          panelClass="dropDownOption"
+          disableOptionCentering
+          class="selectInput mt-top"
+          placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+          name="fileType"
+          [(value)]="searchwithin"
+        >
+          <mat-option *ngFor="let type of searchWithin" [value]="type">{{
+            type.viewValue
+          }}</mat-option>
+        </mat-select>
+        <span
+          *ngIf="searchWithinErrorMessage"
+          translate
+          class="errorMsg zeroHeight searchError"
+          >LBL_PLEASE_SELECT_SEARCH_WITHIN</span
+        >
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="flexContainer">
+      <div>
+        <div class="cardContainer">
+          <div class="fieldLabel" translate>LBL_PROCESS_TIME</div>
+
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="selectInput mt-top"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="fileType"
+            [(value)]="processingtime"
+          >
+            <mat-option *ngFor="let type of processingTime" [value]="type">{{
+              type.viewValue
+            }}</mat-option>
+          </mat-select>
+          <span
+            *ngIf="processingTimeErrorMessage"
+            translate
+            class="errorMsg zeroHeight"
+            >LBL_PLEASE_SELECT_PROCESSING_TIME</span
+          >
+        </div>
+        <div class="flexContainer">
+          <div class="cardContainer">
+            <div class="fieldLabel" translate>LBL_AMOUNT</div>
+            <input
+              class="amountDetails"
+              type="text"
+              placeholder="AED"
+              [(ngModel)]="amount"
+            />
+            <span
+              *ngIf="AmountErrorMessage"
+              translate
+              class="errorMsg zeroHeight"
+              >LBL_PLEASE_ENTER_AMOUNT</span
+            >
+          </div>
+          <div class="cardContainer">
+            <div class="toTitle" translate>LBL_TO</div>
+            <input
+              class="toDetails"
+              type="text"
+              placeholder="AED"
+              [(ngModel)]="amountTo"
+            />
+            <span
+              *ngIf="ToAmountErrorMessage"
+              translate
+              class="errorMsg zeroHeight"
+              >LBL_PLEASE_ENTER_TO_AMOUNT</span
+            >
+          </div>
+        </div>
+        <div class="cardContainer">
+          <div class="fieldLabel" translate>LBL_RESULTS_PER_PAGE</div>
+
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="selectInput mt-top"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="fileType"
+            [(value)]="resultPage"
+          >
+            <mat-option *ngFor="let type of resultPerPage" [value]="type">{{
+              type.viewValue
+            }}</mat-option>
+          </mat-select>
+          <span
+            *ngIf="resultPageErrorMessage"
+            translate
+            class="errorMsg zeroHeight"
+            >LBL_PLEASE_SELECT_RESULT_PER_PAGE</span
+          >
+        </div>
+      </div>
+      <div>
+        <div class="fromto" *ngIf="leftToggle">
+          <div class="datefrom">
+            <div translate class="fieldLabel" id="proctm">LBL_DATE_FROM</div>
+            <div class="shortDatePicker mt-top">
+              <app-date-picker
+                [clearFlag]="clearFlag"
+                class="dateErrorMsg"
+                [showDateErrorMessage]="showDateErrorMessage"
+                (dateValue)="getFromDate($event)"
+                [maxDate]="maxDate"
+                [minDate]="minDate"
+              ></app-date-picker>
+            </div>
+          </div>
+          <div class="dateto">
+            <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+            <div class="shortDatePicker mt-top">
+              <app-date-picker
+                class="dateErrorMsg"
+                [clearFlag]="clearFlag"
+                [showDateErrorMessage]="showDateErrorMessage"
+                (dateValue)="getToDate($event)"
+                [maxDate]="maxDate"
+                [minDate]="fromDateValue"
+              ></app-date-picker>
+            </div>
+          </div>
+        </div>
+        <div class="periodContainer" *ngIf="rightToggle">
+          <div class="fieldLabel" translate>LBL_BY_PERIOD</div>
+
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="selectInput mt-top"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="fileType"
+            [(value)]="periodModel"
+          >
+            <mat-option *ngFor="let type of period" [value]="type">{{
+              type.viewValue
+            }}</mat-option>
+          </mat-select>
+          <span *ngIf="periodErrorMessage" translate class="errorMsg zeroHeight"
+            >LBL_PLEASE_SELECT_PERIOD</span
+          >
+        </div>
+        <div class="searchWithinContainer">
+          <div class="fieldLabel" translate>LBL_TRANSACTION_TYPE</div>
+
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="selectInput mt-top"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="fileType"
+            [(value)]="transactionType"
+          >
+            <mat-option *ngFor="let type of transcationType" [value]="type">{{
+              type.viewValue
+            }}</mat-option>
+          </mat-select>
+          <span
+            *ngIf="transactionErrorMessage"
+            translate
+            class="errorMsg zeroHeight"
+            >LBL_PLEASE_SELECT_TRANSACTION_TYPE</span
+          >
+        </div>
+        <div class="searchWithinContainer">
+          <div class="fieldLabel" translate>LBL_DATE_SORT</div>
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="selectInput mt-top"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="fileType"
+            [(value)]="datesort"
+          >
+            <mat-option *ngFor="let type of dateSort" [value]="type">{{
+              type.viewValue
+            }}</mat-option>
+          </mat-select>
+          <span *ngIf="dateErrorMessage" translate class="errorMsg zeroHeight"
+            >LBL_PLEASE_SELECT_DATE_SORT</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actionGroup">
+    <app-tertiary-button
+      buttonValue="LBL_CANCEL"
+      (click)="onClickClear()"
+      class="tertiaryBtn"
+    >
+    </app-tertiary-button>
+    <app-primary-button (click)="onClickApply()" buttonValue="LBL_SUBMIT">
+    </app-primary-button>
+  </div>
+</div>

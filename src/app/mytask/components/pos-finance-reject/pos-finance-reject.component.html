@@ -1,0 +1,43 @@
+<div  class="outerContainer" *ngIf="!showReceipt">
+    <div class="title" translate>LBL_REJECT_REQUEST</div>
+    <div class="accountDetails">
+        <div class="subTitles" translate> LBL_POSFINANCE_REQUEST
+            <span translate>LBL_FROM <span>{{posFinanceRequestMytaskSummaryDetails.res.makerName}}, {{posFinanceRequestMytaskSummaryDetails.res.cifNo}}</span></span>
+        </div>
+        <div class="reference">{{'LBL_REF_NUMBER' | translate}}: {{posFinanceRequestMytaskSummaryDetails.res.refNo}}</div>
+        <div class="amount">{{'LBL_FINANCE_AMOUNT' | translate}}<b>{{posFinanceRequestMytaskSummaryDetails.res.financeAmt | currencyFormat :posFinanceRequestMytaskSummaryDetails.res.financeAmt }} {{posFinanceRequestMytaskSummaryDetails.res.currency }}</b> {{'LBL_ON' | translate}} {{posFinanceRequestMytaskSummaryDetails.res.valueDate}}</div>
+        <div class="rejectReasonContainer">
+            <div class="rejecthead" translate>
+              LBL_RJCT_RSN
+              <span class="errorMsg">*</span>
+            </div>
+            <div>
+              <div class="rejecttextarea">
+                <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="textArea_Click()"
+                  (keypress)="space($event)"></textarea>
+                <div class="errorMsg" *ngIf="isrejectreasonValid" translate>
+                  LBL_ERROR_MESSAGE_RJCT_RSN </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="btnContainer">
+        <button class="button-secondary" routerLink="/mytask/posFinance" translate>
+          LBL_CANCEL
+        </button>
+        <button class="button-primary" translate (click)="submit()" >
+          LBL_PROCEED
+        </button>
+      </div>
+</div>
+
+
+<div *ngIf="showReceipt">
+  <app-receipt
+  (onInitAgainClick)="initiateAnotherRequest()"
+    [receiptDetails]="receiptData"
+    
+    
+  >
+  </app-receipt>
+</div>

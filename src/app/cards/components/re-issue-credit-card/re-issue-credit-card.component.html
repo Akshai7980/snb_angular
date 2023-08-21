@@ -1,0 +1,20 @@
+<app-re-issue-credit-card-layout
+  *ngIf="!reIssueEmit.canProceed"
+  (getProceedEmit)="getReIssueEmit($event)"
+>
+</app-re-issue-credit-card-layout>
+
+<app-re-issue-credit-card-review
+  *ngIf="reIssueEmit.canProceed && !reIssueReviewEmit.canSubmit"
+  (getSubmitEmit)="getSubmitEmit($event)"
+></app-re-issue-credit-card-review>
+
+<app-receipt
+  *ngIf="reIssueReviewEmit.canSubmit"
+  (onInitAgainClick)="toActivateAnotherCard()"
+  [receiptDetails]="receiptObject"
+  (DownloadReceiptClick)="downloadPdf()"
+>
+</app-receipt>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

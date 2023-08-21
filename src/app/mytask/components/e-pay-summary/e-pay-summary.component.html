@@ -1,0 +1,33 @@
+<div class="mainTitle cusTitle">
+  <div class="backIcon backArrow" routerLink="/mytask/ePay"></div>
+  <span translate>LBL_EPAY_REQEUST_SUMMARY</span>
+</div>
+<div class="container">
+  <app-e-pay-details></app-e-pay-details>
+</div>
+<section class="summaryOuterConainer" *ngIf="requestSummaryDetails.summary.subproductCode === 'EPYMCD'">
+  <div class="recordSummaryConainer">
+    <app-record-summary *ngIf="showRecSumm" (sortColumnEmit)="onSortColumn($event)" [moduleId]="recordSummaryModuleId"
+      [sortOptions]="sortOptions" [recordSummaryObject]="recordSummaryObject" [pageCall]="true"></app-record-summary>
+  </div>
+</section>
+<section class="summaryOuterConainer">
+  <div class="summaryConainer">
+    <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+  </div>
+</section>
+<section class="summaryOuterConainer">
+  <div class="summaryConainer">
+    <app-history [historyData]="workFlowHistoryParams"></app-history>
+  </div>
+</section>
+
+<div class="btnGroup mtop_20">
+  <div class="btnContainer">
+    <app-tertiary-button buttonValue="LBL_BACK" routerLink="/mytask/ePay"></app-tertiary-button>
+    <app-secondary-button buttonValue="LBL_REJECT" (click)="onClickReject()"></app-secondary-button>
+    <app-secondary-button buttonValue="LBL_AUTHORIZE" (click)="onClickAuthorize()">
+    </app-secondary-button>
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

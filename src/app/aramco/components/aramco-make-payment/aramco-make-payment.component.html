@@ -1,0 +1,28 @@
+<div class="mLeft_45 mainContainer" *ngIf="!hideAll">
+ 
+  <div class="flexRow">
+    <div translate class="title">LBL_ARAMCO</div>
+    <app-daily-limit class="dailyLimit" *ngIf="isDailyLimitActive && rootScopeData.dailyLimit"></app-daily-limit>
+  </div>
+  <div class="detailsDataCntr">  
+  <app-debit-lookup *ngIf="debitDataObj" [debitAccDetails]="debitDataObj" class="debit"
+    (onAccountSelect)="getDatas($event,'debitTo')" [shownsearch]="!selectedDebitObj" [tableId]="'aramcoMakePayment'"></app-debit-lookup>
+    <app-aramco-to-payment class="debit" *ngIf="selectedDebitObj" (onAccountSelect)="getDatas($event,'to')" (paymentToType)="getDatas($event,'paymentType')" (remitterId)="getRemitterId($event)" (resetAll)="getDatas($event,'reset')" [debitData]="selectedDebitObj" [creditTabs]="creditToEntitlementTabs"></app-aramco-to-payment>
+    <app-aramco-amount-details-cash class="debit" *ngIf="selectedTo && pmtType==='cash'" [readOnly]="isProceed" [debitAccDetails]="selectedDebitObj" (finalAmountObj)="getDatas($event,'amountObj')" (canProceedForm)="canProceedForm($event)"></app-aramco-amount-details-cash>
+    <!-- <app-aramco-amount-details class="debit" *ngIf="selectedTo && pmtType==='cash' && !resetRemain" [readOnly]="isProceed" (finalAmountObj)="getDatas($event,'amountObj')" [amount]="amountToPass" [paymentAmountError]="errorMsg" [debitAccDetails]="selectedDebitObj"></app-aramco-amount-details> -->
+    <app-aramco-amount-details class="debit" *ngIf="selectedTo && pmtType==='credit' && !resetRemain" [readOnly]="true" (finalAmountObj)="getDatas($event,'amountObj')"[amount]="amountToPass" [paymentAmountError]="errorMsg" [debitAccDetails]="selectedDebitObj"></app-aramco-amount-details>
+    <app-additional-details class="debit" *ngIf="selectedTo && !resetRemain" (additionalObj)="additionalObj($event)" [displayReadOnly]="!isProceed" ></app-additional-details>
+    <app-authorization class="debit" *ngIf="isProceed  && !resetRemain && showAuthorization" [authListDataSource]="authOptions" [authError]="errorCode"(authEmit)="getDatas($event,'authorization')"></app-authorization>
+    <app-authentication class="debit"  *ngIf="isProceed  && !resetRemain && showAuthentication" (authenticationType)="getAuthType($event)"  (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError" [initParam]="initReqParam"></app-authentication>
+  
+    <div class="footerText" *ngIf="isProceed  && !resetRemain" translate>LBL_TERMS<a href="{{ url }}" target="_blank"><span class="termsContainer" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a></div>
+    <div class="actionGroup">
+      <app-tertiary-button *ngIf="selectedDebitObj"buttonValue="LBL_CANCEL" class="tertiaryBtn" (click)="reset()"></app-tertiary-button>
+      <app-primary-button *ngIf="selectedDebitObj && selectedTo &&!isProceed && !resetRemain" [disablBtn]="checkAmountValid" buttonValue="LBL_PROCEED" (click)="proceedNext()" routerPath="./"></app-primary-button>
+      <app-secondary-button *ngIf="isProceed && !resetRemain" class="modifyBtn" (click)="reset()" buttonValue="LBL_MODIFY" routerPath="./"></app-secondary-button>
+      <!-- <app-primary-button *ngIf="isProceed && !resetRemain" buttonValue="LBL_SUBMIT" (click)="submit()" routerPath="./"></app-primary-button> -->
+    </div>
+</div>
+</div>
+<app-receipt [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" (onInitAgainClick)="initAramcoPayment()" *ngIf="hideAll" (DownloadReceiptClick)="downloadPdf($event)" [rejectMsg]="rejectMsg"></app-receipt>
+<app-ajax-loader-medium [hidden]="isLoadingCompelete"></app-ajax-loader-medium>

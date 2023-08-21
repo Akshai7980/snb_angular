@@ -1,0 +1,89 @@
+<div class="filter-search-popup" *ngIf="showAdvancedSearchPopup" (click)="stopAdvancedSearchClose($event)">
+    <div translate class="header">LBL_FILTER
+        <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+    </div>
+    <div class="flexCntr">
+        <div class="toggleCntr">
+            <div translate id="leftToggle" class="toggle active" (click)="leftToggleCntl()">LBL_BY_DATE</div>
+            <div translate id="rightToggle" class="toggle" (click)="rightToggleCntl()">LBL_BY_PERIOD</div>
+        </div>
+        <div class="searchwithin">
+            <div translate class="fieldLabel">LBL_SEARCH_WITHIN</div>
+            <mat-select panelClass="dropDownOption" class="selectInput" [(value)]="searchWithin" disableOptionCentering >
+                <mat-option value="all">{{'LBL_ALL' | translate}}</mat-option>
+                <mat-option value="debit">{{'LBL_DEBIT' | translate}}</mat-option>
+                <mat-option value="credit">{{'LBL_CREDIT' | translate}}</mat-option>
+            </mat-select>
+        </div>
+
+        <div>
+            <div translate class="fieldLabel">LBL_PROCESS_TIME</div>
+            <mat-select panelClass="dropDownOption" class="selectInput" [(value)]="processingTime" disableOptionCentering >
+                <mat-option value="processingDate">{{'LBL_PROCESS_DATE' | translate}}</mat-option>
+                <mat-option value="discard">{{'LBL_DISCARD' | translate}}</mat-option>
+                <mat-option value="pending">{{'LBL_PENDING' | translate}}</mat-option>
+            </mat-select>
+        </div>
+
+        <div class="fromto" *ngIf="leftToggle">
+            <div class="datefrom">
+                <div translate class="fieldLabel" id="proctm">LBL_DATE_FROM</div>
+                <div class="shortDatePicker mt-top"><app-date-picker [clearFlag]="clearFlag" [showDateErrorMessage]="showDateErrorMessage" (dateValue)="getFromDate($event)"></app-date-picker></div>
+            </div>
+            <div class="dateto">
+                <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+                <div class="shortDatePicker mt-top"><app-date-picker [clearFlag]="clearFlag" [showDateErrorMessage]="showDateErrorMessage"  (dateValue)="getToDate($event)" [minDate]="fromDateValue"></app-date-picker></div>
+            </div>
+        </div>
+
+        <div class="period" *ngIf="rightToggle && !leftToggle">
+            <div translate class="fieldLabel">LBL_PERIOD</div>
+            <mat-select panelClass="dropDownOption" class="selectInput" [(value)]="period" disableOptionCentering>
+                <mat-option value="all">{{'LBL_ALL' | translate}}</mat-option>
+                <mat-option value="monthly">{{'LBL_MONTHLY' | translate}}</mat-option>
+                <mat-option value="quarterly">{{'LBL_QUARTERLY' | translate}}</mat-option>
+                <mat-option value="yearly">{{'LBL_YEARLY' | translate}}</mat-option>
+            </mat-select>
+        </div>
+
+        <div class="fromto">
+            <div class="datefrom">
+                <div translate class="fieldLabel" id="proctm">LBL_AMOUNT_FROM</div>
+                <div class="shortInput mt-top"><input type="text" [(ngModel)]="amountFrom"></div>
+            </div>
+            <div class="dateto">
+                <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+                <div class="shortInput mt-top"><input type="text" [(ngModel)]="amountTo"></div>
+            </div>
+        </div>
+
+        <div class="searchwithin">
+            <div translate class="fieldLabel">LBL_RESULTS_PER_PAGE</div>
+            <mat-select panelClass="dropDownOption" class="selectInput" [(value)]="resultsPerPage" disableOptionCentering>
+                <mat-option value="100">100</mat-option>
+                <mat-option value="150">150</mat-option>
+                <mat-option value="200">200</mat-option>
+                <mat-option value="250">250</mat-option>
+                <mat-option value="300">300</mat-option>
+            </mat-select>
+        </div>
+
+        <div class="dateorder">
+            <div class="fieldLabel" translate>LBL_DATE_ORDER</div>
+            <mat-select panelClass="dropDownOption" class="selectInput" [(value)]="dateTime" disableOptionCentering>
+                <mat-option value="desc">{{'LBL_DESCENDING' | translate}}</mat-option>
+                <mat-option value="asc">{{'LBL_ASCENDING' | translate}}</mat-option>
+            </mat-select>
+        </div>
+    </div>
+    <div class="submt">
+        <div>
+            <!-- <button class="clr" (click)="onClickClear()" translate>LBL_CLEAR</button> -->
+            <app-tertiary-button buttonValue="LBL_CLEAR" (click)="onClickClear()"></app-tertiary-button>
+        </div>
+        <div>
+            <!-- <button class="apply" (click)="onClickApply()" translate>LBL_APPLY</button> -->
+            <app-primary-button (click)="onClickApply()" buttonValue="LBL_APPLY"></app-primary-button>
+        </div>
+    </div>
+</div>

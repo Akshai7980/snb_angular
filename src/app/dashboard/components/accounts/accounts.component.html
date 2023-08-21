@@ -1,0 +1,152 @@
+<div id="dashboardAccountInquiry">
+    <div class="header-panel">
+        <div class="header-panel-left headerPanelWidth">
+            <div class="accountsHeader" translate>LBL_ACCOUNTS</div>
+        </div>
+        <div class="header-panel-right headerPanelWidth">
+            <div class="accordion" [ngClass]="{'accordionUp':!isAccountsExpand,accordionDown:isAccountsExpand}"
+                (click)="onClickExpand($event)"></div>
+            <div *ngIf="!isAccountsExpand && enablePropertty" id="accsummaryToolsElement">
+                <app-summary-tools [printSection]="printSection" [moduleId]="'DASHBOARDCASASUMMARY'" [isshowndownloadablePrint]="isShownDocPrint" [isshownPrint]="shownPrint"></app-summary-tools>
+            </div>
+        </div>
+    </div>
+    <div id="accexpandCollapseElement" class="animate expandCollpase" [ngClass]="{'collapse':isAccountsExpand}"
+        [ngStyle]="{'height': contentHeight+'px'}">
+        <div class="searchCntnr" *ngIf="enablePropertty">
+            <div class="searchCntnrLeft">
+                <app-search [showAdvanceSearch]="false" (childEvent)="triggerSearchFilter($event)"></app-search>
+            </div>
+            <div class="searchCntnrRight">
+                <span class="searchCntnrRightText" *ngIf="!isViewAllBalClicked" (click)="onViewAllBalanceClick()"
+                    translate>LBL_VIEW_ALL_BALANCES</span>
+                <span *ngIf="isViewAllBalClicked && !rootScopeData.userInfo.maskingFlag" class="hideAllBalance"><span translate>LBL_BALANCE_IS</span> {{summaryData.TOTAL_BALANCE | currencyFormat : summaryData.CURRENCY}} {{summaryData.CURRENCY}}</span>
+                <span *ngIf="isViewAllBalClicked && rootScopeData.userInfo.maskingFlag" class="hideAllBalance"><span translate>LBL_BALANCE_IS</span> {{'LBL_HIDDEN' | translate}} {{summaryData.CURRENCY}}</span>
+                <span class="searchCntnrRightText" *ngIf="isViewAllBalClicked" (click)="onHideAllBalanceClick()"
+                    translate>LBL_HIDE_ALL_BALANCES</span>
+            </div>
+        </div>
+        <div id="accountsDefaultCntr" *ngIf="!norecordflag">
+            <table id="accountsDefault" mat-table matSort [dataSource]="dataSourceToPass" class="dashboardTable"
+                (contentChanged)="getTableHeight()">
+                <ng-container matColumnDef="OD_ACC_NO">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <div class="position_rel" translate>LBL_ACC_NUMBER</div>
+                    </th>
+                    <td mat-cell *matCellDef="let accData">
+                        <span *ngIf="accData.OD_ACC_NO">{{accData.OD_ACC_NO}}</span>
+                        <span *ngIf="!accData.OD_ACC_NO">--</span>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="ALIAS_NAME">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="nickNameWidth">
+                        <div class="position_rel" translate>LBL_NICKNAME</div>
+                    </th>
+                    <td mat-cell *matCellDef="let accData">
+                        <span *ngIf="accData.ALIAS_NAME">{{accData.ALIAS_NAME}}</span>
+                        <span *ngIf="!accData.ALIAS_NAME">--</span>
+                    </td>
+                </ng-container>
+                <!-- <ng-container matColumnDef="OD_ACC_NAME">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <div class="position_rel" translate>LBL_FULL_NAME</div>
+                    </th>
+                    <td mat-cell *matCellDef="let accData">
+                        <span *ngIf="accData.OD_ACC_NAME">{{accData.OD_ACC_NAME}}</span>
+                        <span *ngIf="!accData.OD_ACC_NAME">--</span>
+                    </td>
+                </ng-container> -->
+                
+                <ng-container matColumnDef="OD_ACC_TYPE_2">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <div class="position_rel" translate>LBL_DEPO_TYPE</div>
+                    </th>
+                    <td mat-cell *matCellDef="let accData">
+                        <span *ngIf="accData.OD_ACC_TYPE_2">{{accData.OD_ACC_TYPE_2}}</span>
+                        <span *ngIf="!accData.OD_ACC_TYPE_2">--</span>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="CURR_AVAIL_BAL_AMOUNT_NEW">
+                    <th mat-header-cell class="fcenter" *matHeaderCellDef mat-sort-header>
+                        <div class="position_rel" translate>LBL_BALANCE</div>
+                    </th>
+
+                    <!-- <td mat-cell *matCellDef="let accData;let i=index">
+                        <div *ngIf="!isViewBalClicked[i]" (click)="onViewBalanceClick(i)" class="viewBalance" translate>
+                            LBL_VIEW_BALANCE</div>
+                        <div *ngIf="isViewBalClicked[i]">
+                            <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}}&nbsp;{{accData.OD_CCY_CODE}}</span>
+                            <span *ngIf="!rootScopeData.userInfo.maskingFlag && accData.CURR_AVAIL_BAL_AMOUNT_NEW">{{accData.CURR_AVAIL_BAL_AMOUNT_NEW | currencyFormat : accData.OD_CCY_CODE}}&nbsp;{{accData.OD_CCY_CODE}}</span>
+                            <span *ngIf="!accData.CURR_AVAIL_BAL_AMOUNT_NEW && !rootScopeData.userInfo.maskingFlag">--</span>
+                        </div>
+                    </td> -->
+
+                    <td mat-cell *matCellDef="let accData;let i=index">
+                        <div *ngIf="!isViewBalClicked[i]" (click)="onViewBalanceClick(i)" class="viewBalance w-150px" translate>
+                            LBL_VIEW_BALANCE</div>
+                        <div *ngIf="isViewBalClicked[i]" class="flex">
+                            <!-- <div class="ml-10 eye-mask-on-svg"
+                             (click)="hideBalance(i)">
+                            </div> -->
+                            <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}}&nbsp;{{accData.OD_CCY_CODE}}</span>
+                            <span *ngIf="!rootScopeData.userInfo.maskingFlag && accData.CURR_AVAIL_BAL_AMOUNT_NEW">{{accData.CURR_AVAIL_BAL_AMOUNT_NEW | currencyFormat : accData.OD_CCY_CODE}}&nbsp;{{accData.OD_CCY_CODE}}</span>
+                            <span *ngIf="!accData.CURR_AVAIL_BAL_AMOUNT_NEW && !rootScopeData.userInfo.maskingFlag">--</span>
+                            <!-- <div class="ml-10 eye-mask-on-svg"
+                             (click)="hideBalance(i)">
+                            </div> -->
+                        </div>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="HIDE_CONTAINER">
+                    <th mat-header-cell class="fcenter" *matHeaderCellDef>
+                    </th>
+                    <td mat-cell *matCellDef="let accData;let i=index">
+                        <div *ngIf="isViewBalClicked[i]" (click)="hideBalance(i)" class="viewBalance" translate>
+                            LBL_HIDE</div>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="HIDE_CURR_AVAIL_BAL_AMOUNT_NEW">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header [style.display]="'none'">
+                        <div class="position_rel" translate>LBL_BALANCE</div>
+                    </th>
+                    <td mat-cell *matCellDef="let accData" [style.display]="'none'">
+                        <span *ngIf="accData.CURR_AVAIL_BAL_AMOUNT_NEW">{{accData.CURR_AVAIL_BAL_AMOUNT_NEW |amountUnformatPipe :accData.OD_CCY_CODE }} {{accData.OD_CCY_CODE}}</span>
+                        <span *ngIf="!accData.CURR_AVAIL_BAL_AMOUNT_NEW">--</span>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell class="fcenter actionHide" *matHeaderCellDef translate>LBL_ACTION</th>
+                    <td mat-cell *matCellDef="let accData" class="actionHide">
+                        <!-- <div> -->
+                            <!-- <app-more-action (onMenuClick)="menuClick($event)" [currentRecord]="accData" [moreActionList]="rootScopeData.userEntitlements.accContext && rootScopeData.userEntitlements.accContext[accData.OD_PORTAL_ACC_NO] && accData.STATUS==='Active' ? rootScopeData.userEntitlements.accContext[accData.OD_PORTAL_ACC_NO] : contextMenuList" [routepath]="routeDetailScreen" (click)="selectedRecord($event,accData)"></app-more-action> -->
+                        <!-- </div> -->
+                        <!-- <div *ngIf="rootScopeData.userEntitlements.accContext && accData.STATUS !=='Active'">
+                            <app-more-action (onMenuClick)="menuClick($event)" [currentRecord]="accData" [moreActionList]="contextMenuList" [routepath]="routeDetailScreen" (click)="selectedRecord($event,accData)"></app-more-action>
+                        </div> -->
+                        <!-- <div *ngIf="rootScopeData.userEntitlements.accContext && rootScopeData.userEntitlements.accContext[accData.OD_PORTAL_ACC_NO] && accData.STATUS==='Inactive'">
+                            <app-more-action (onMenuClick)="menuClick($event)" [currentRecord]="accData"  [routepath]="routeDetailScreen" (click)="selectedRecord($event,accData)"></app-more-action>
+                        </div> -->
+                        <app-more-action (onMenuClick)="menuClick($event)" [currentRecord]="accData" 
+                        [moreActionList]="rootScopeData.userEntitlements.accContext && rootScopeData.userEntitlements.accContext[accData.OD_PORTAL_ACC_NO] && accData?.res_Acc_Status_cd ==='00' ? rootScopeData.userEntitlements.accContext[accData.OD_PORTAL_ACC_NO] : contextMenuList" 
+                        [routepath]="routeDetailScreen" (click)="selectedRecord($event,accData)"></app-more-action>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="goToDetailsScreen(row)"></tr>
+
+            </table>
+        </div>
+        <div  [class.hide]="norecordflag" [ngClass]="disp === 'visible'?'pageHide':'pageShow'">
+            <app-pagination #paginator class="actionHide" [dataSourceLength]="dataSourceLength" [currentRecord]="'LoansSummary'"
+            [totalRecords]="totalRecords" (onPaginationChange)="paginationChangeClick($event)" [ngStyle]="{visibility : disp}" [dashBoardLanCahnges]="langDirection"></app-pagination>
+        </div>
+        <div *ngIf="norecordflag">
+            <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+        </div>
+    </div>
+</div>
+<app-ajax-loader-medium [hidden]="isLoadingCompelete"></app-ajax-loader-medium>

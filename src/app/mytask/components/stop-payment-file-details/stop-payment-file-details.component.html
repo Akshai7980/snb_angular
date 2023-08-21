@@ -1,0 +1,114 @@
+<div *ngIf="fileDetails">
+  <div class="fileDetails">
+    <div class="subTitles">
+      {{ "LBL_FILE_UPLOAD" | translate }} {{ "LBL_FROM" | translate }}
+      {{ fileDetails.makerName }},
+      {{ fileDetails.accNo }}
+    </div>
+    <div class="refNO">
+      {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+      {{ fileDetails.referenceNum }}
+    </div>
+    <div class="title">
+      <div>
+        {{ "LBL_AMOUNT" | translate }}
+        <span
+          >{{ fileDetails.amount | currencyFormat: fileDetails.odTxnCy }}
+          {{ fileDetails.odTxnCy }}</span
+        >
+        {{ "LBL_ON" | translate }}
+        {{ fileDetails.makerDate | dateFormat }}
+      </div>
+
+      <div class="pad_l_10">
+        <button
+          class="status-green-button"
+          translate
+          [class.status-red-button]="fileDetails.status === 'Rejected'"
+        >
+          {{ fileDetails.status }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="subContainer">
+    <div class="subTitles" translate>LBL_TRANSFER_DETAILS</div>
+    <div class="rowInnerCntr">
+      <div class="field">
+        <div class="label" translate>LBL_UPLOAD_TRANSACTION_ID</div>
+        <div class="information">{{ fileDetails.uploadTransactionID }}</div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_FILE_NAME</div>
+        <div class="fileNameDownload">
+          <app-uploaded-file-download
+            class="fileDownload"
+            *ngIf="fileDetails.fileName"
+            [fileUploadedDetails]="downloadFileDetails"
+          ></app-uploaded-file-download>
+        </div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_FILE_FORMAT</div>
+        <div class="information">{{ fileDetails.fileFormat }}</div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_CALENDAR</div>
+        <div class="information">{{ fileDetails.cal }}</div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_SNB_RECORDS</div>
+        <div class="information">{{ fileDetails.snbRecords }}</div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_SNB_AMOUNT</div>
+        <div class="information">
+          {{ fileDetails.snbAmt | currencyFormat: fileDetails.odTxnCy }}
+          {{ fileDetails.odTxnCy }}
+        </div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_OTHER_BANKS_RECORDS</div>
+        <div class="information">{{ fileDetails.otherBankRecs }}</div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_OTHER_BANKS_AMOUNT</div>
+        <div class="information">
+          {{ fileDetails.bankAmt | currencyFormat: fileDetails.odTxnCy }}
+          {{ fileDetails.odTxnCy }}
+        </div>
+      </div>
+      <div class="field">
+        <div class="label" translate>
+          LBL_FEE<span class="disclaimer"> #</span>
+        </div>
+        <div class="information">
+          {{ fileDetails.fee | currencyFormat: fileDetails.odTxnCy }}
+          {{ fileDetails.odTxnCy }}
+        </div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_TOTAL_RECAORDS</div>
+        <div class="information">{{ fileDetails.totalRecs }}</div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_TOTAL_AMOUNT</div>
+        <div class="information">
+          {{ fileDetails.totalAmt | currencyFormat: fileDetails.odTxnCy }}
+          {{ fileDetails.odTxnCy }}
+        </div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_TOTAL_FEES</div>
+        <div class="information">
+          {{ fileDetails.totalFee | currencyFormat: fileDetails.odTxnCy }}
+          {{ fileDetails.odTxnCy }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feeVatLabel" translate>
+    <span class="disclaimer"># </span>LBL_FEE_VAT
+  </div>
+</div>

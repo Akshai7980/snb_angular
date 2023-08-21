@@ -1,0 +1,16 @@
+{
+    "data": [
+        {
+          "chargeInfo": [
+            {
+              "setupFee": "0",
+              "monthlyFee": "0",
+              "madaPerc": "1.5",
+              "ccPerc": "2.5",
+              "ccFixFee": "1.0",
+              "ccy": "SAR"
+            }
+          ]
+        }
+      ]
+}

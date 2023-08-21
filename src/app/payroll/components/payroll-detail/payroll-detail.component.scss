@@ -1,0 +1,185 @@
+.rowInnerCntr {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 11px;
+  padding-top: 14px;
+  .field {
+    width: 33.33%;
+    padding-bottom: 20px;
+    &.field-bottom {
+      padding-bottom: 5px;
+    }
+    .label {
+      font-family: "HelveticaNeueMed", arial, sans-serif;
+      color: var(--table-header-color);
+      font-size: 14px;
+    }
+    .information {
+      padding-top: 10px;
+      color: var(--tableData-header-color);
+
+      &.data {
+        padding-top: 20px;
+      }
+    }
+  }
+}
+.commercialNo{
+  width: 295px!important;
+}
+
+input[type="text"] {
+  width: 300px;
+  height: 40px;
+  padding: 0px 8px;
+  border: 1px solid var(--widget-border-color);
+  background-color: var(--primary-widget-bg-color);
+  border-radius: 4px;
+  background-size: cover;
+  font-family: "HelveticaNeue";
+  font-size: 14px;
+  color: var(--tableData-header-color);
+}
+
+.title {
+  width: 215px;
+  height: 30px;
+  padding: 0px 0px 0px 5px;
+  background-size: cover;
+  font-size: 18px;
+  color: var(--tableData-header-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+
+.browseBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 76px;
+  height: 40px;
+  border: 1px dashed var(--widget-border-color);
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: var(--secondary-btn-print-text-color);
+  border-radius: 4px;
+  margin-left: 11px;
+}
+
+.lbl-amt {
+  font-size: 12px;
+  font-family: "Helvetica Neue", sans-serif;
+  color: var(--table-header-color);
+  margin-left: 11px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.actionGroup {
+  float: right;
+  display: flex;
+  align-self: flex-end;
+  justify-content: flex-end;
+  margin-top: 30px;
+  margin-right: 18px;
+}
+.outerContainer {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.beneficiaryDetails {
+  padding: 15px;
+  margin-top: 15px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+}
+
+.selectInput {
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  width: 300px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--input-text-color);
+  cursor: pointer;
+}
+.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+  background: none;
+}
+.mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled):hover {
+  background-color: var(--summary-hover-color) !important;
+}
+.mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled) {
+  background: none;
+}
+.mat-option {
+  border-left: 1px solid var(--widget-border-color);
+  border-right: 1px solid var(--widget-border-color);
+  border-bottom: 1px solid var(--widget-border-color);
+  color: var(--default-text-color);
+  line-height: 40px !important;
+  padding: 5px;
+  font-family: "HelveticaNeue", arial, sans-serif;
+}
+.mat-option:hover {
+  background-color: var(--summary-hover-color);
+}
+.mat-option.mat-active {
+  background: none;
+}
+.dropDownOption {
+  width: 308px;
+}
+.debit-section {
+  margin-top: 20px;
+  app-debit-lookup {
+    &.fromDebit {
+      .subContainer {
+        border: 1px solid transparent !important;
+      }
+    }
+  }
+}
+
+.uploadFile {
+  margin-left: 10px;
+}
+
+.upload-file {
+  width: 15%;
+}
+.required {
+  color: var(--mandatory-mark-color);
+}
+.uploadContainer {
+  display: flex;
+  align-items: center;
+  padding: 15px 15px 0px;
+  .upload-file {
+    width: 15%;
+    max-height: 350px;
+    .upload-file-title {
+      font-family: "HelveticaNeueMed", sans-serif;
+    }
+  }
+  .download-template {
+    position: relative;
+    top: 20px;
+    width: calc(100% - 20%);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    app-download-template {
+      display: flex;
+      align-items: center;
+      width: calc(100% - 20%);
+      margin-top: -61px;
+    }
+  }
+}

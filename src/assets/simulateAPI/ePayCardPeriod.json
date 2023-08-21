@@ -1,0 +1,16 @@
+{
+    "headerValue": {
+        "moduleId": "EPYCRDPRD",
+        "simulate": "N"
+    },
+    "data": {
+        "cardPeriod": [
+            {
+                "period": "Monthly"
+            },
+            {
+                "period": "Yearly"
+            }
+        ]
+    }
+}

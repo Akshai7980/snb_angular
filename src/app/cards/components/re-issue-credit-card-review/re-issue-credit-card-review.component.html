@@ -1,0 +1,45 @@
+<div class="mainContainer">
+    <div class="titleConatiner">
+        <div class="title" translate>LBL_REVIEW</div>
+    </div>
+
+    <section class="section">
+        <app-debit-lookup *ngIf="rootScopeData.accDetailsObject !== {}"
+            [debitAccDetails]="reIssueDetailsObj"></app-debit-lookup>
+    </section>
+
+    <section class="section">
+        <app-call-back [pageName]="pageName" (onSuccessEmit)="callBackSuccess()"
+            (clickCancelCallBck)="getCanelBtnClick()"></app-call-back>
+    </section>
+
+    <section class="section" *ngIf="isFlexiAuth && showAuthorization">
+        <app-authorization (authEmit)="setAuthorizationDetails($event)" [authListDataSource]="authorsList"
+            [authError]="noAuthorError"></app-authorization>
+    </section>
+
+    <section class="section" *ngIf="showAuthorization">
+        <app-authentication (onTwoAuthClick)="setSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)"
+            [otpError]="otpError"></app-authentication>
+    </section>
+
+    <div class="footerContainer">
+
+        <div class="footerText" translate>
+            LBL_TERMS
+            <a href="{{ url }}" target="_blank"><span class="termsContainer"
+                    translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>
+        </div>
+
+        <div class="buttonContainer">
+
+            <app-tertiary-button buttonValue="LBL_CANCEL" (click)="toCancel()"></app-tertiary-button>
+            <!-- <app-primary-button buttonValue="LBL_SUBMIT" (click)="submit()"></app-primary-button> -->
+
+        </div>
+
+    </div>
+
+</div>
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

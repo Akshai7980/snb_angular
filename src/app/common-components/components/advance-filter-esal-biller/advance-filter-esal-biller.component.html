@@ -1,0 +1,28 @@
+<div class="filter-search-popup" *ngIf="showAdvancedSearchPopup" (click)="stopAdvancedSearchClose($event)">
+    <div translate class="header">LBL_FILTER
+        <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+    </div>
+    <div class="flexCntr">
+        <div class="dateorder">
+            <div class="fieldLabel" translate>LBL_NAME</div>
+            <input class="selectInput" type="text" [(ngModel)]="name" >
+        </div>
+        <div class="dateorder">
+            <div class="fieldLabel" translate>LBL_REF_NUMBER</div>
+            <input class="selectInput" type="text" [(ngModel)]="refNo" (keypress)="alphaNumeric($event)">
+        </div>
+    </div>
+      
+   
+    <div class="submt">
+        <div>
+            <!-- <button class="clr" (click)="onClickClear()" translate>LBL_CLEAR</button> -->
+            <app-tertiary-button buttonValue="LBL_CLEAR" (click)="onClickClear()"></app-tertiary-button>
+        </div>
+        <div>
+            <!-- <button class="apply" (click)="onClickApply()" translate>LBL_APPLY</button> -->
+            <app-primary-button (click)="onClickApply()" buttonValue="LBL_APPLY"></app-primary-button>
+        </div>
+    </div>
+</div>
+

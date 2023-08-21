@@ -1,0 +1,114 @@
+<div class="container">
+  <div class="subTitles">
+    <span *ngIf="sadadDetails && sadadDetails.txnType">{{sadadDetails.txnType}}</span>
+    <span *ngIf="!sadadDetails || !sadadDetails.txnType">--</span>
+  </div>
+  <div class="refNO">
+    {{'LBL_TRANSACTION_REF_NUM' | translate }} <b><span
+        *ngIf="sadadDetails && sadadDetails.referenceNo">{{sadadDetails.referenceNo}}</span><span
+        *ngIf="!sadadDetails || !sadadDetails.referenceNo">--</span></b>
+  </div>
+  <div class="refNO">
+    {{'LBL_AMOUNT' | translate }} <b><span
+        *ngIf="sadadDetails && sadadDetails.paymentAmount && sadadDetails.paymentCcy">{{sadadDetails.paymentAmount |
+        currencyFormat:sadadDetails.paymentCcy}} {{sadadDetails.paymentCcy}}</span><span
+        *ngIf="!sadadDetails ||( !sadadDetails.paymentAmount && ! sadadDetails.paymentCcy)">--</span></b>
+  </div>
+  <div class="title" *ngIf="sadadDetails && sadadDetails.odStatusCode">
+    <button class="status-green-button" translate
+      [class.status-red-button]="sadadDetails.odStatusCode === 'RN' ||sadadDetails.odStatusCode === 'RS' ||sadadDetails.odStatusCode === 'RE' ||sadadDetails.odStatusCode === 'RO' ||sadadDetails.odStatusCode === 'RH'">
+      {{sadadDetails.odStatus}}
+    </button>
+    <!-- <div class="rejectreason" *ngIf="sadadDetails.odStatusCode === 'RH'">
+      <span class="bankreason">{{'LBL_BANK_REASON' | translate}}</span>
+      <b><span *ngIf="sadadDetails && sadadDetails.bankReason">{{sadadDetails.bankReason}}</span>
+      <span *ngIf="!sadadDetails || !sadadDetails.bankReason">--</span></b>
+    </div> -->
+    
+  </div>
+
+  <div class="subContainer">
+    <div class="subTitles mt-btm" translate>LBL_DEBIT_FROM</div>
+    <div class="rowInnerCntr">
+      <div class="field">
+        <div class="information">
+          <span *ngIf="sadadDetails && sadadDetails.debitAccName">{{sadadDetails.debitAccName}}</span>
+          <span *ngIf="!sadadDetails || !sadadDetails.debitAccName">--</span>,
+          <span *ngIf="sadadDetails && sadadDetails.debitAccNo">{{sadadDetails.debitAccNo}}</span>
+          <span *ngIf="!sadadDetails || !sadadDetails.debitAccNo">--</span>
+        </div>
+        <div class="information mt-btm">
+          {{'LBL_BANK' | translate}} :
+          <span *ngIf="sadadDetails && sadadDetails.debitBank">{{sadadDetails.debitBank}}</span>
+          <span *ngIf="!sadadDetails || !sadadDetails.debitBank">--</span>
+        </div>
+      </div>
+      <div class="field" *ngIf="(sadadDetails && (sadadDetails.odStatusCode ==='RH' || sadadDetails.odStatusCode ==='RO' || sadadDetails.odStatusCode ==='RE' || sadadDetails.odStatusCode ==='RN')) && ((sadadDetails && sadadDetails.bankReason && sadadDetails.bankReason !=='') || (rootScopeData.transactionInquiry && rootScopeData.transactionInquiry.rejectReason))">
+        <div class="label" translate>LBL_REJECTED_REASON</div>
+        <div class="information">
+          <span>
+            {{ sadadDetails.bankReason ? sadadDetails.bankReason:rootScopeData.transactionInquiry.rejectReason }}</span>
+        </div>
+      </div>
+      <div class="field">
+        <div class="label" translate>LBL_CUSTOMER_REFERENCE</div>
+        <div class="information">
+          <span>
+            {{ sadadDetails?.customerReference ? sadadDetails?.customerReference : "--" }}</span>
+        </div>
+      </div> 
+      <div class="field">
+        <div class="label" translate>LBL_PAYMENT_DETAILS</div>
+        <div class="information">
+          <span>
+            {{ sadadDetails?.paymentDetails ? sadadDetails?.paymentDetails : "--" }}</span>
+        </div>
+      </div> 
+
+    </div>
+    <div class="subTitles" translate>LBL_PAY_TO</div>
+    <table mat-table [dataSource]="sadadBillerDetails" class="casaTable" id="creditData">
+      <ng-container matColumnDef="nickName">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_NICKNAME</th>
+        <td mat-cell *matCellDef="let element">
+          <span *ngIf="element.billerNickName">{{element.billerNickName}}</span>
+          <span *ngIf="!element.billerNickName">--</span>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_NAME</th>
+        <td mat-cell *matCellDef="let element">
+          <span *ngIf="element.billerName">{{element.billerName}}</span>
+          <span *ngIf="!element.billerName">--</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="subscriberId">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_SUBSCRIBER_ID</th>
+        <td mat-cell *matCellDef="let element">
+          <span *ngIf="element.subscriberID">{{element.subscriberID}}</span>
+          <span *ngIf="!element.subscriberID">--</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dueDate">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_DUE_DATE</th>
+        <td mat-cell *matCellDef="let element">
+          <span *ngIf="element.dueDate">{{element.dueDate | dateFormat}}</span>
+          <span *ngIf="!element.dueDate">--</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_AMOUNT</th>
+        <td mat-cell *matCellDef="let element">
+          <span *ngIf="element.amount && paymentCCY">{{element.amount | currencyFormat:paymentCCY}}
+            {{paymentCCY}}</span>
+          <span *ngIf="!element.amount || !paymentCCY">--</span>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

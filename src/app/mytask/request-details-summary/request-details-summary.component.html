@@ -1,0 +1,42 @@
+<div class="dataContainer">
+    <span class="header" translate>LBL_REQUEST_DETAILS</span>
+    <div class="gridContainer mt-top">
+        <div>
+            <label class="label" translate>LBL_CIF_NUMBER</label>
+            <div class="dataInfo">{{rootScopeData.posFinanceRequestMytaskSummaryDetails.cifno}}</div>
+        </div>
+        
+        <div>
+            <label class="label" translate>LBL_CR_NUMBER</label>
+            <div class="dataInfo">{{rootScopeData.posFinanceRequestMytaskSummaryDetails.crNo}}</div>
+        </div>
+        <div>
+            <label class="label" translate>LBL_ACC_NUMBER</label>
+            <div class="dataInfo">{{rootScopeData.posFinanceRequestMytaskSummaryDetails.accNo}}</div>
+        </div>
+        <div>
+            <label class="label" translate>LBL_REQ_ID</label>
+            <div class="dataInfo">{{rootScopeData.posFinanceRequestMytaskSummaryDetails.requestId}}</div>
+        </div>
+        <div>
+            <label class="label" translate>LBL_TENURE</label>
+            <div class="dataInfo">{{rootScopeData.posFinanceRequestMytaskSummaryDetails.tenor}} {{rootScopeData.posFinanceRequestMytaskSummaryDetails.period}}</div>
+        </div>
+        <div>
+            <label class="label" translate>LBL_TENOR_LIMIT</label>
+            <div class="dataInfo">{{rootScopeData.posFinanceRequestMytaskSummaryDetails.tenorLimit}} {{rootScopeData.posFinanceRequestMytaskSummaryDetails.currency}}</div>
+        </div>
+        <div>
+            <label class="label" translate>LBL_MAX_AMT</label>
+            <div class="dataInfo">{{rootScopeData.posFinanceRequestMytaskSummaryDetails.maxAmut | currencyFormat : rootScopeData.posFinanceRequestMytaskSummaryDetails.maxAmut }} {{rootScopeData.posFinanceRequestMytaskSummaryDetails.currency }}</div>
+        </div>
+        <div>
+            <label class="label" translate>LBL_FINANCE_AMOUNT</label>
+            <div class="dataInfo">{{rootScopeData.posFinanceRequestMytaskSummaryDetails.financeAmount | currencyFormat :rootScopeData.posFinanceRequestMytaskSummaryDetails.financeAmount }} {{rootScopeData.posFinanceRequestMytaskSummaryDetails.currency }}</div>
+        </div>
+        <div>
+            <label class="label" translate>LBL_RM_REFERALS</label>
+            <div class="dataInfo">{{rootScopeData.posFinanceRequestMytaskSummaryDetails.rmRef}}</div>
+        </div>
+     
+  </div>

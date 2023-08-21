@@ -1,0 +1,223 @@
+.mainContainer {
+  margin-right: 15px;
+}
+.subContainer {
+  border-radius: 6px;
+  background-color: var(--primary-widget-bg-color);
+  padding: 0px 22px 31px 22px;
+  border: 1px solid var(--widget-border-color);
+  margin-top: 10px;
+}
+mat-button-toggle-group {
+  margin-top: 30px;
+  width: 612px;
+  height: 40px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 1px;
+}
+
+mat-button-toggle {
+  font-size: 14px;
+  font-family: "HelveticaNeue", arial, sans-serif;
+  width: 204px;
+  transition: all 0.3s;
+}
+
+.baseSelected {
+  background-color: var(--toggle-base-color);
+  color: var(--tableData-header-color);
+}
+.baseSelected:hover {
+  background-color: var(--toggle-hover-bg-color);
+}
+.hoverSelected {
+  border: 1px solid var(--short-profile-txt-color);
+  background-color: var(--short-profile-txt-color);
+  color: var(--promotions-fontColor);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+.mtop_20 {
+  margin: 20px 0px;
+}
+.tableInfo {
+  margin-top: 18px;
+  margin-left: 0px;
+}
+table {
+  border-collapse: collapse;
+  width: 99.5%;
+  margin: 10px;
+  table-layout: fixed;
+  background-color: var(--primary-widget-bg-color);
+  th.mat-header-cell:first-of-type,
+  td.mat-cell:first-of-type {
+    padding-left: 10px !important;
+  }
+}
+.removeAllign th.mat-header-cell:last-of-type,
+.removeAllign td.mat-cell:last-of-type {
+  width: 20px;
+  padding-right: 24px !important;
+  border-radius: 0px 10px 10px 0px !important;
+}
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--overlaypopup-margin);
+}
+.downArrow {
+  background: url(../../../../assets/images/iconDownGreen.svg) no-repeat center;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  cursor: pointer;
+  transition: 1s transform;
+}
+.arrowRotate {
+  transform: rotate(180deg);
+  margin-top: 12px;
+}
+.casaTable {
+  .action {
+    .downArrow {
+      display: none;
+    }
+  }
+  tr:first-child {
+    .action {
+      .downArrow {
+        display: block;
+      }
+    }
+  }
+  th.mat-header-cell:last-of-type,
+  td.mat-cell:last-of-type,
+  td.mat-footer-cell:last-of-type {
+    text-align: start !important;
+  }
+}
+
+.invoiceTable {
+  th.mat-header-cell:first-of-type,
+  td.mat-cell:first-of-type {
+    width: 40px;
+  }
+  th.mat-header-cell:last-of-type,
+  td.mat-footer-cell:last-of-type {
+    text-align: left !important;
+  }
+}
+.removeWidth th.mat-header-cell:last-of-type,
+.removeWidth td.mat-cell:last-of-type {
+  padding-right: 24px !important;
+  border-radius: 0px 10px 10px 0px !important;
+}
+.moveRight {
+  float: right;
+}
+
+.removeArrow {
+  display: none;
+}
+.removeWidth {
+  th.mat-header-cell:first-of-type,
+  td.mat-cell:first-of-type {
+    width: auto;
+  }
+}
+.totalFonts {
+  font-size: 14px;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  color: var(--tableData-header-color);
+  margin-top: 16px;
+}
+.readOnlyInput {
+  border: none;
+  background-color: transparent;
+}
+.writeOnlyInput {
+  width: 145px;
+  height: 40px;
+  padding-left: 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+  background-color: var(--summary-row-bg-color);
+  background-size: cover;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+  text-decoration: none solid var(--input-text-color);
+}
+.hide {
+  display: none;
+}
+.totalFonts {
+  font-size: 14px;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  color: var(--tableData-header-color);
+  margin-top: 16px;
+  padding-left: 5px;
+}
+.underlineText {
+  color: var(--short-profile-txt-color);
+  word-break: break-word;
+}
+.text-word{
+  word-break: break-word;
+}
+.proceedBtn {
+  margin-top: 30px;
+  float: right;
+}
+.nextBtn {
+  float: right;
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 50px;
+  height: 40px;
+  border: 1px solid var(--short-profile-txt-color);
+  border-radius: 100px;
+  background-color: var(--short-profile-txt-color);
+  background-image: url("../../../../assets/images/iconProceed.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.geneStaTitles {
+  color: var(--table-header-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+}
+.fieldSet {
+  margin-top: 30px;
+  margin-right: 10px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+.inputField {
+  margin-top: 10px;
+  width: 300px;
+  float: left;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: var(--primary-widget-bg-color);
+}
+.inputField::placeholder {
+  font-family: "HelveticaNeue", arial, sans-serif;
+  font-size: 14px;
+  color: var(--table-header-color);
+}
+.serachContainer {
+  margin: 20px;
+  margin-left: 0px !important;
+}
+
+.Btndynamic{
+  width: 305px !important;
+}

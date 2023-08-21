@@ -1,0 +1,80 @@
+{
+    "headerValue": {
+      "moduleId": "CONTACTBULKIP",
+      "simulate": null
+    },
+    "data": [
+      {
+        "beneReferenceNo": "TBC2012111105561",
+        "beneUploadType": "Beneficiary Upload",
+        "beneFileName": "GeneratedEXCEL_TMP111859201917002820_19MAY2020_17381314.txt",
+        "beneFileStatus": "Ready for Authorization",
+        "beneFileUploadDate": "11/12/2021",
+        "beneNoOfTxn": "4",
+        "NoSuccessOfTxn": "0",
+        "noFailedTxn": null,
+        "uploadedBy": "JAISONSMITH",
+        "noSuccessOfTxn": "0"
+      },
+      {
+        "beneReferenceNo": "TBC2012111105562",
+        "beneUploadType": "Beneficiary Upload",
+        "beneFileName": "GeneratedEXCEL_TMP111859201917002820_19MAY2020_17381314.txt",
+        "beneFileStatus": "Ready for Authorization",
+        "beneFileUploadDate": "11/12/2021",
+        "beneNoOfTxn": "4",
+        "NoSuccessOfTxn": "0",
+        "noFailedTxn": null,
+        "uploadedBy": "JAISONSMITH",
+        "noSuccessOfTxn": "0"
+      },
+      {
+        "beneReferenceNo": "TBC2012111105563",
+        "beneUploadType": "Beneficiary Upload",
+        "beneFileName": "GeneratedEXCEL_TMP111859201917002820_19MAY2020_17381314.txt",
+        "beneFileStatus": "Ready for Authorization",
+        "beneFileUploadDate": "11/12/2021",
+        "beneNoOfTxn": "4",
+        "NoSuccessOfTxn": "0",
+        "noFailedTxn": null,
+        "uploadedBy": "JAISONSMITH",
+        "noSuccessOfTxn": "0"
+      },
+      {
+        "beneReferenceNo": "TBC2012111105564",
+        "beneUploadType": "Beneficiary Upload",
+        "beneFileName": "GeneratedEXCEL_TMP111859201917002820_19MAY2020_17381314.txt",
+        "beneFileStatus": "Ready for Authorization",
+        "beneFileUploadDate": "11/12/2021",
+        "beneNoOfTxn": "4",
+        "NoSuccessOfTxn": "0",
+        "noFailedTxn": null,
+        "uploadedBy": "JAISONSMITH",
+        "noSuccessOfTxn": "0"
+      },
+      {
+        "beneReferenceNo": "TBC2012111105565",
+        "beneUploadType": "Beneficiary Upload",
+        "beneFileName": "GeneratedEXCEL_TMP111859201917002820_19MAY2020_17381314.txt",
+        "beneFileStatus": "Ready for Authorization",
+        "beneFileUploadDate": "11/12/2021",
+        "beneNoOfTxn": "4",
+        "NoSuccessOfTxn": "0",
+        "noFailedTxn": null,
+        "uploadedBy": "JAISONSMITH",
+        "noSuccessOfTxn": "0"
+      },
+      {
+        "beneReferenceNo": "TBC2012111105566",
+        "beneUploadType": "Beneficiary Upload",
+        "beneFileName": "GeneratedEXCEL_TMP111859201917002820_19MAY2020_17381314.txt",
+        "beneFileStatus": "Ready for Authorization",
+        "beneFileUploadDate": "11/12/2021",
+        "beneNoOfTxn": "4",
+        "NoSuccessOfTxn": "0",
+        "noFailedTxn": null,
+        "uploadedBy": "JAISONSMITH",
+        "noSuccessOfTxn": "0"
+      }
+    ]
+  }

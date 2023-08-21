@@ -1,0 +1,47 @@
+{
+  "data": {
+    "totalResultsNumber": "505",
+    "transactionDetails": [
+      {
+        "feesAmount": "0",
+        "reconciliationNumber": "Approved",
+        "contactless": "",
+        "mid": "3164412742",
+        "transactionTime": "43641",
+        "merchantFeesAmount": "0",
+        "offline": "N",
+        "reconciledTime": "200000",
+        "vatPercentage": "15",
+        "transactionAmount": "670",
+        "breakdownFeesAmount": "0",
+        "cashBackAmount": "0",
+        "sequenceNumber": "127912376016",
+        "reconciled": "Y",
+        "feesPercentage": "0",
+        "transactionStatus": "Approved",
+        "settled": "N",
+        "cardType": "MC",
+        "reconciledDate": "20211031",
+        "settlementDate": "",
+        "retailerId": "9910080229",
+        "transactionDate": "20211006",
+        "vatAmount": "0",
+        "transactionType": "REFUND",
+        "authorizationNumber": "535291",
+        "rejectionReasons": "",
+        "termianlId": "5519824103101929",
+        "settlementAmount": "670",
+        "cardNumber": "Nl2gLe2nw9RHukXzdJfpA0os0gk/mkD/3fhp0IV1nZqp0aPbigqTfkNSOVUzvSbM",
+        "maskedpan": "554576******3371"
+      }
+    ],
+    "currentResultsNumber": "50",
+    "currentPageNumber": "1",
+    "pageSize": "50",
+    "totalPageNumbers": "11",
+    "offlineReportName": ""
+  },
+  "headerValue": {
+    "moduleId": "POSTRNSCTIN"
+  }
+}

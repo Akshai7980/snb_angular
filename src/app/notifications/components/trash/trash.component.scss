@@ -1,0 +1,20 @@
+a{
+    font-size: 14px;
+}
+
+.tabCntr ul li {
+    padding-left: 0px;
+}
+
+.tabCntr ul li a.active {
+    border-bottom: 3px solid var(--secondary-btn-bg-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    width: 150px;
+    text-align: center;
+}
+.tabCntr ul li a{
+    font-family: "HelveticaNeue", arial, sans-serif;
+    width: 150px;
+    text-align: center;
+}
+

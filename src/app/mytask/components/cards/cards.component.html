@@ -1,0 +1,19 @@
+<div class="worksapceBase">
+    <div class="content-header" translate>LBL_CARDS</div>
+
+    <div class="tabCntr">
+        <ul>
+            <li>
+                <a routerLink="creditCard" [class.active]="rootScopeData.activeTabName === 'creditCard'"><span
+                        translate>LBL_CREDIT</span> ({{rootScopeData.creditSummaryCount}})</a>
+            </li>
+            <li class="pl0">
+                <a routerLink="madaCardMyTask" [class.active]="rootScopeData.activeTabName === 'madaCardMyTask'"><span
+                        translate>LBL_MADA</span> ({{rootScopeData.madaCardCount}})</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tabDataCntr">
+        <router-outlet></router-outlet>
+    </div>
+</div>

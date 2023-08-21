@@ -1,0 +1,114 @@
+<div *ngIf="!receiptForm">
+  <div class="detailsTitleContainer">
+    <div>
+      <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+      <div class="mainTitle" translate>LBL_AUTHORIZE_PAYROLL_ONBOARDING</div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="subTitles">
+      <span translate>LBL_PAYROLL_ONBOARDING</span>
+    </div>
+    <div class="refNO" translate>
+      LBL_TRANSACTION_REF_NUM
+      <b><span>{{
+          onboardingFeeDetails?.referenceNo
+          ? onboardingFeeDetails.referenceNo
+          : "--"
+          }}</span></b>
+    </div>
+    <div class="title">
+      <button class="status-green-button" translate [class.status-red-button]="
+          onboardingFeeDetails?.odStatusCode === 'RN' ||
+          onboardingFeeDetails?.odStatusCode === 'RS' ||
+          onboardingFeeDetails?.odStatusCode === 'RE' ||
+          onboardingFeeDetails?.odStatusCode === 'RO' ||
+          onboardingFeeDetails?.odStatusCode === 'RH'
+        ">
+        {{
+        onboardingFeeDetails?.statusDesc
+        ? onboardingFeeDetails.statusDesc
+        : "--"
+        }}
+      </button>
+    </div>
+    <div class="subContainer">
+      <div class="subTitles" translate>LBL_FEE_DETAILS</div>
+
+      <div class="rowInnerCntr">
+        <div class="field">
+          <div class="label" translate>LBL_CHARGE_ACC</div>
+          <div class="information">
+            {{
+            onboardingFeeDetails?.accNo ? onboardingFeeDetails.accNo : "--"
+            }}
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label" translate>LBL_SETUP_FEE</div>
+          <div class="information">
+            <span>{{ feeDetails?.setupFee ? feeDetails?.setupFee : "--" }}
+              {{ feeDetails?.setupFee ? onboardingFeeDetails?.ccy : "" }}</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label" translate>LBL_MONTHLY_FEE</div>
+          <div class="information">
+            <span>{{ feeDetails?.monthlyFee ? feeDetails?.monthlyFee : "--" }}
+              {{
+              feeDetails?.monthlyFee ? onboardingFeeDetails?.ccy : ""
+              }}</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label" translate>LBL_PREPAID_CARD</div>
+          <div class="information">
+            <span>{{ feeDetails?.prepaidCards ? feeDetails?.prepaidCards : "--" }}
+              {{ feeDetails?.prepaidCards ? onboardingFeeDetails?.ccy : "" }}
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label" translate>LBL_PER_SNB_RECORD</div>
+          <div class="information">
+            <span>{{
+              feeDetails?.perSNBrecord ? feeDetails?.perSNBrecord : "--"
+            }}
+            {{ feeDetails?.perSNBrecord ? onboardingFeeDetails?.ccy : "" }}</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label" translate>LBL_PER_SARIE_RECORD</div>
+          <div class="information">
+            <span>{{
+              feeDetails?.perSarieRecord ? feeDetails?.perSarieRecord : "--"
+              }}
+              {{ feeDetails?.perSarieRecord ? onboardingFeeDetails?.ccy : "" }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <app-authorization (authEmit)="authorizationDetails($event)" [authListDataSource]="authorizeList"
+      [authError]="authError"></app-authorization>
+  </section>
+
+  <section>
+    <div class="btnContainer">
+      <app-tertiary-button buttonValue="LBL_CANCEL" class="tertiaryBtn" (click)="initiateAnotherRequest()">
+      </app-tertiary-button>
+      <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()">
+      </app-primary-button>
+    </div>
+  </section>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)">
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

@@ -1,0 +1,80 @@
+.receiptConatiner{
+    width: 800px;
+    margin: -28px auto auto;
+}
+.receiptSubconatiner{
+border-radius: 6px;
+background-color: var(--primary-widget-bg-color);
+border: 1px solid var(--widget-border-color);
+padding: 22px 0px 21px  0px;
+}
+.shieldIcon{
+    width: 40px;
+    height: 40px;
+}
+.textalign_center{
+    text-align: center;
+}
+.fromContainer{
+    margin: 19px 0px 0px 35px;
+    .fromsubConatiner{
+        .chequeTableTitles{
+            line-height: 24px;
+            color: var(--table-header-color);
+            font-family: 'HelveticaNeueMed', arial, sans-serif;
+        }
+        flex: 1 1 auto;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        div{
+            flex: 0 0 33%;
+        }
+    }
+}
+.chequeBookContainer{
+    margin: 19px 0px 0px 35px;
+.chequeBookSubConatiner{
+    .chequeTableTitles{
+        line-height: 24px;
+        color: var(--table-header-color);
+        font-family: 'HelveticaNeueMed', arial, sans-serif;
+    }
+    flex: 1 1 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    div{
+        flex: 0 0 33%;
+    }
+}
+}
+.finish{
+    width: 160px;
+
+}
+.mtop_24{
+    margin-top: 24px;
+}
+.mtop_12{
+    margin-top: 12px;
+}
+.mtop_4{
+    margin-top: 4px;
+}
+.btnGroup{
+    float: right;
+    display: flex;
+}
+.infoFontSize{
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+
+.seperator{
+    border-top: 1px solid var(--widget-border-color) ;
+}
+.printReceiptIcon{background: url(../../../../assets/images/saveReceipt.svg)no-repeat left;padding-left: 30px;}
+.receiptBtn{width: 160px;height: 40px;}
+.saveReceiptIcon{background: url(../../../../assets/images/saveReceipt.svg)no-repeat left;padding-left: 30px;}

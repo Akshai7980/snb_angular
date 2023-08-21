@@ -1,0 +1,18 @@
+<app-pos-statement-account
+  *ngIf="showpos && !showReceipt"
+  (showGenerateStatementPage)="showEmitData($event)"
+>
+</app-pos-statement-account>
+<app-generate-statement
+  *ngIf="showGenerateStatement && !showReceipt"
+  [merchantDetail]="merchantDetail"
+  (goToInitialPage)="showItialPage($event)"
+  (submit)="submitfn($event)"
+></app-generate-statement>
+<app-receipt
+  [receiptDetails]="receiptData"
+  *ngIf="showReceipt"
+  (onInitAgainClick)="initiateAnotherRequest()"
+>
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

@@ -1,0 +1,238 @@
+<div class="mainContainer">
+  <div class="subContainer marginLeft_0">
+    <div translate class="subTitles">LBL_TO</div>
+    <div *ngIf="!readOly && !selectedObj">
+      <div class="row">
+        <div class="column">
+          <div translate class="geneStaTitles fieldTitles">
+            LBL_BILLER<span class="required">*</span>
+          </div>
+          <div class="mtop_10 autosugges">
+            <!-- <mat-select class="selectInput" panelClass="paySelect dropDownOption" disableOptionCentering
+              [(ngModel)]="moiTo.biller" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}">
+              <mat-option *ngFor="let billeroption of billerinformdataSource" [value]="billeroption.billerName"
+                (click)="onBillerSelect(billeroption)">
+                {{billeroption.billerName}}</mat-option>
+            </mat-select> -->
+            <div class="information">
+              <input
+                type="text"
+                matInput
+                [(ngModel)]="moiTo.biller"
+                placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}"                          
+                [matAutocomplete]="moiBiller"
+                (input)="searchBiller($event)"
+                (blur)="resetBillerInput($event)"
+                (focus)="selectedBillerName"
+                #billerRef="ngModel"
+                #billerInputRef
+                class="selectInput"
+                required
+                >
+              <span class="dropdownIcon sprite" (click)="billerInputRef.focus()"></span>
+            <mat-autocomplete #moiBiller="matAutocomplete" disableOptionCentering>
+              <mat-option *ngFor="let billeroption of billerinformdataSource"
+              [value]="billeroption?.billerName" (click)="onBillerSelect(billeroption)">
+              {{billeroption.billerName}}
+              </mat-option>
+            </mat-autocomplete></div>
+            <div class="errorMsg" *ngIf="billerRef?.touched && billerRef?.invalid || billerEmpty" translate>
+              LBL_PLEASE_SELECT_BILLER
+            </div>
+          </div>
+        </div>
+        <div class="column " *ngIf="moiTo.biller!=''">
+          <div translate class="geneStaTitles fieldTitles">
+            LBL_SERVICE_TYPE<span class="required">*</span>
+          </div>
+          <div class="mtop_10 autosugges">
+            <!-- <mat-select class="selectInput" panelClass="paySelect dropDownOption moiServiceDrp" disableOptionCentering
+              [(ngModel)]="moiTo.serviceType" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}">
+              <mat-option class="multiline-mat-option" *ngFor="let serviceType of serviceTypeData"
+                [value]="serviceType.serviceName" (click)="onSelectserviceType(serviceType)">
+                {{serviceType.serviceName}}</mat-option>
+            </mat-select> -->
+
+            <div class="information">
+              <input
+                type="text"
+                matInput
+                [(ngModel)]="moiTo.serviceType"
+                placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}"                          
+                [matAutocomplete]="moiServiceType"
+                (input)="searchServiceType($event)"
+                (blur)="resetServiceTypeInput($event)"
+                (focus)="selectedServiceType"
+                #serviceTypeRef="ngModel"
+                #serviceTypeInputRef
+                class="selectInput"
+                required
+                >
+              <span class="dropdownIcon sprite" (click)="serviceTypeInputRef.focus()"></span>
+            <mat-autocomplete #moiServiceType="matAutocomplete" disableOptionCentering>
+              <mat-option *ngFor="let serviceType of serviceTypeData"
+              [value]="serviceType.serviceName" (click)="onSelectserviceType(serviceType)">
+              {{serviceType.serviceName}}
+              </mat-option>
+            </mat-autocomplete></div>
+            <div class="errorMsg" *ngIf="serviceTypeRef?.touched && serviceTypeRef?.invalid || serviceTypeEmpty" translate>
+              LBL_PLEASE_SELECT_SERVICE_TYPE
+            </div>
+          </div>
+        </div>
+        <div *ngFor="let serviceDynamic of serviceDynamicValue;let i = index ">
+          <div class="column" *ngIf="moiTo.serviceType!=''">
+            <label class="geneStaTitles fieldTitles" *ngIf="languageval == 'en_US'">
+              {{serviceDynamic.englishName}} <span *ngIf="serviceDynamic.required" class="required">*</span>
+            </label>
+          </div>
+          <label class="geneStaTitles fieldTitles" *ngIf="languageval != 'en_US'">
+            {{serviceDynamic.parameterNameInArabic}} <span *ngIf="serviceDynamic.required" class="required">*</span>
+          </label>
+          <div class="mtop_10">
+            <div *ngIf="serviceDynamic.type === 'Number' || serviceDynamic.type === 'text'">
+              <input class="selectInput" name="checkedvalue" minlength="{{serviceDynamic.minimumLength}}"
+                maxlength="{{serviceDynamic.maximumLength}}" type="text" [(ngModel)]="checkedvalue[i]"
+                (blur)="ondynamicSelect(serviceDynamic.name,serviceDynamic.englishName,checkedvalue[i],serviceDynamic)"
+                (keypress)="serviceDynamic.type === 'Number' ? omitSplCharacters($event) : ''" />
+            </div>
+            <div *ngIf="serviceDynamic.type === 'Dropdown'">
+              <mat-select class="selectInput" panelClass="paySelect dropDownOption" disableOptionCentering
+                [(ngModel)]="checkedvalue[i]" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}">
+                <mat-option *ngFor="let dynamicOptionList of serviceDynamic.DropdownValues"
+                  [value]="dynamicOptionList.typeValue"
+                  (blur)="ondynamicSelect(serviceDynamic.name,serviceDynamic.englishName,checkedvalue[i],serviceDynamic)">{{
+                  dynamicOptionList.typeValueNameEnglish }}</mat-option>
+              </mat-select>
+              <!-- <input class="selectInput" name="checkedvalue" minlength="{{serviceDynamic.minimumLength}}" maxlength="{{serviceDynamic.maximumLength}}" type="text" [(ngModel)]="checkedvalue[i]" (blur)="ondynamicSelect(serviceDynamic.name,serviceDynamic.englishName,checkedvalue[i])" (keypress)="serviceDynamic.type === 'Number' ? omitSplCharacters($event) : ''"/>   -->
+            </div>
+            <div *ngIf="serviceDynamic.type === 'Date'">
+              <div class="container" (click)="startDatepicker.open()">
+                <input matInput class="datePickerInput" [matDatepicker]="startDatepicker" [(ngModel)]="newDate[i]" (dateChange)="onSelectedDate(serviceDynamic.name,serviceDynamic.englishName,newDate[i],serviceDynamic)"/>
+                <div class="datePicker">
+                  <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+                  <mat-datepicker #startDatepicker></mat-datepicker>
+                </div>                
+              </div>
+              <!-- <app-date-picker [newDate]="" (dateValue)="onSelectedDate(serviceDynamic.name,serviceDynamic.englishName,$event)"></app-date-picker> -->
+            </div>
+            <div *ngIf="showError[i]">
+              <small translate class="errorMsg" translate>LBL_PLEASE_ENTER_VALID_DETAILS</small>
+            </div>
+            <div *ngIf="showErrorForValidation[i]">
+              <small class="errorMsg">{{showLengthValidationError[i]}}</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="column dateInput" *ngIf="moiTo.serviceType!=''">
+          <div>
+            <div translate class="geneStaTitles fieldTitles">LBL_BIRTH_DATE<span class="required">*</span></div>
+           <app-date-picker (dateValue)="getDate($event)" [newDate]="moiTo.dob"></app-date-picker>
+          </div>
+        </div> -->
+      </div>
+
+      <div *ngIf="showErrorAPIFail" class="txtAlignCntr">
+        <small translate class="errorMsg" translate>LBL_PLEASE_ENTER_VALID_DETAILS</small>
+      </div>
+      <div *ngIf="showErrorFromAPIFail" class="txtAlignCntr">
+        <small translate class="errorMsg" translate>{{showErrorFromAPIFailData}}</small>
+      </div>
+
+      <app-primary-button buttonValue="{{'LBL_FETCH_BILL_DETAILS' | translate}}" routerPath="./" *ngIf="moiTo.serviceType!=''"
+        class="primaryBtn" (click)="setReadOly()"></app-primary-button>
+    </div>
+    <!-- read oly  -->
+    <div *ngIf="(readOly || selectedObj) && !showErrorAPIFail">
+      <table mat-table [dataSource]="selectedObj?selectedObj:dataSource" class="tableInfo casaTable">
+        <ng-container matColumnDef="biller">
+          <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+            LBL_BILLER
+          </th>
+          <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+            {{ element.biller }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="ServiceType">
+          <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+            LBL_SERVICE_TYPE
+          </th>
+          <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+            {{ element.serviceType }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef class="chequesTitles">
+            {{"LBL_DESCRIPTION" | translate}}
+          </th>
+          <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+             <div>{{ element.dynamicObject[0].englishName }}</div> 
+             <div>{{ element.dynamicObject[0].value }}</div>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef class="chequesTitles">
+            <div [ngClass]="!isProceed && !selectedObj?'dispHide':''"> {{amountToDisp | translate}}</div>
+          </th>
+          <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+            <div [ngClass]="!isProceed && !selectedObj?'dispHide':''"> {{ element.receiptAmt }}</div>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>
+          </th>
+          <td mat-cell *matCellDef="let element" class="action">
+            <div *ngIf="dataSource.length == 1" [ngClass]="dataSource.length == 1 ?'arrowRotate': 'hide'"
+              [ngStyle]="{'display': rootScopeData.changeHeading === 'Review' ? 'none' : 'block'}" class="downArrow"
+              (click)="selectedRow('iconClick')"></div>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" [ngClass]="{ selected: readOly }"></tr>
+      </table>
+      <div *ngIf="!isProceed && !selectedObj" class="subTableGroup">
+        <div translate class="subTitles">LBL_BILL_DETAILS</div>
+        <table mat-table [dataSource]="footerSource" class="tableInfo casaTable subTable">
+
+          <ng-container matColumnDef="desc">
+            <th mat-header-cell *matHeaderCellDef class="chequesTitles">
+              {{description | translate}}
+            </th>
+            <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+              <div>{{ element.dynamicObject[0].englishName }}</div> 
+              <div>{{ element.dynamicObject[0].value }}</div>
+            </td>
+            <td mat-footer-cell *matFooterCellDef>
+              <div class="totalFonts">{{totalPayableAmt | translate}}</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef class="chequesTitles">
+              {{amountToDisp | translate}}
+            </th>
+            <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+              <span *ngIf="element.amt; else zeroAmount">
+                {{ element.amt | currencyFormat: formatType}} {{formatType}}</span>
+              <ng-template #zeroAmount>{{element.amt}} {{formatType}}</ng-template>
+            </td>
+            <td mat-footer-cell *matFooterCellDef>
+              <div class="totalFonts">{{total+"" | currencyFormat:formatType}} {{formatType}}</div> <small
+                *ngIf="amountValidation" translate class="errorMsg" translate>LBL_TOTAL_AMOUNT_CANT_BE_ZERO</small>
+              <!-- <small *ngIf="insufAmtErrMsg" translate class="errorMsg" translate>LBL_INSUFFICIENT_BALANCE</small> -->
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="footerSourceColumn"></tr>
+          <tr mat-row *matRowDef="let row; columns: footerSourceColumn"></tr>
+          <tr mat-footer-row *matFooterRowDef="footerSourceColumn"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<app-primary-button buttonValue="LBL_PROCEED" routerPath="./" *ngIf="readOly && !isProceed" class="tertiaryBtn"
+  (click)="proceedToNext()"></app-primary-button>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

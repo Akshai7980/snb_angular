@@ -1,0 +1,22 @@
+<div class="right-top">
+
+        <div class="icons" *ngIf="isshownPDF" (click)="downloadStatements('PDF')"><img class="icon-size"
+                        src="./assets/images/PDFIcon.png"></div>
+        <app-ajax-loader-small [hidden]="isLoadingCompelete" class="icons"></app-ajax-loader-small>
+        <div class="icons" *ngIf="isshownXls" (click)="downloadStatements('XLS')"><img class="icon-size"
+                        src="./assets/images/ExcelIcon.png"></div>
+        <!-- <div class="icons" (click)="viewInMail()"><img class="icon-size" src="./assets/images/MailIcon.png"></div> -->
+        <button class="printIcon" [hidden]="isEnabledPropertyPrint" *ngIf="isshownPrint" (click)="onClickPrint()" translate> <img
+                        class="icon-size" src="./assets/images/PrinterIcon.png"></button>
+                        <!-------API response Screen Print------->   
+        <button class="printIcon" *ngIf="isshowndownloadablePrint && this.rootScopeData.userInfo.mLanguage==='en_US'" (click)="downloadPrintableStatement('PDF')" translate> <img
+                                class="icon-size" src="./assets/images/PrinterIcon.png"></button>
+                        <!-------Details Screen Print------->                     
+        <button class="printIcon" *ngIf="isshowndetailsPrint" (click)="onDetailsPagePrint()" translate> <img
+                                        class="icon-size" src="./assets/images/PrinterIcon.png"></button>
+
+        <button class="printIcon printIconRtl" *ngIf="isshowndownloadablePrint && this.rootScopeData.userInfo.mLanguage==='ar_SA'" (click)="downloadPrintableStatement('PDF')" translate> <img
+                        class="icon-size" src="./assets/images/PrinterIcon.png"></button>
+                       
+       
+</div>

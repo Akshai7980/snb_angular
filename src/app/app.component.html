@@ -1,0 +1,27 @@
+<div *ngIf="!showLoader" id="appContainer">
+  <section class="mainContainer" [ngStyle]="{backgroundImage:pageBackground}">
+    <section class="lhsContainer">
+      <section class="profileContainer">
+        <app-short-profile></app-short-profile>
+      </section>
+      <section class="menuContainer">
+        <app-lhs-menus></app-lhs-menus>
+      </section>
+    </section>
+    <section class="workspaceContainer">
+      <section class="headerContainer">
+        <app-header (langChangeDirection)="langSelected()"></app-header>
+      </section>
+      <section class="workspace">
+        <app-tradesso-ticketconfirm-popup *ngIf="rootScopeData.callTradeSSO"></app-tradesso-ticketconfirm-popup>
+        <router-outlet></router-outlet>
+      </section>
+    </section>
+  </section>
+  <section class="footerContainer"><app-footer></app-footer></section>
+</div>
+<div *ngIf="showLoader" id="appLoader">
+  <div>Loading...</div>
+</div>
+<app-system-error *ngIf="rootScopeData.showSystemError"></app-system-error>
+<app-error-validation-toast *ngIf="rootScopeData.validationErrorToast"></app-error-validation-toast>

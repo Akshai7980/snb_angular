@@ -1,0 +1,84 @@
+<div class="mainContainer" *ngIf="!submitSuccessful" id="etLgDetails">
+  <div translate class="mainTitle">LBL_AUTHORIZE_PAYMENT</div>
+  <div class="summaryOuterConainer">
+    <div class="summaryConainer">
+      <div class="fileDetails">
+        <div>
+          <div class="subTitles">
+            {{ "LBL_LETTER_GUARANTEE" | translate }}
+            {{ "LBL_LOWERCASE_TO" | translate }}
+            {{ lgSummary?.fullName ? lgSummary.fullName : "--" }}
+            {{ lgSummary?.nickNameAR ? lgSummary?.nickNameAR : "--" }}
+          </div>
+        </div>
+
+        <div class="refNO">
+          {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+          {{ lgSummary?.refNo ? lgSummary.refNo : "--" }}
+        </div>
+        <div class="title">
+          <div>
+            {{ "LBL_AMOUNT" | translate }}
+            <span class="fntbold"> {{ lgDetails?.amount ? (lgDetails.amount | currencyFormat: lgDetails?.lgCurrency) + " " + lgDetails?.lgCurrency : "--" }} </span>
+            {{ "LBL_ON" | translate }}
+            {{
+              lgSummary?.valueDate ? (lgSummary.valueDate | dateFormat) : "--"
+            }}
+          </div>
+
+          <div class="pad_l_10">
+            <button
+              class="status-green-button"
+              translate
+              [class.status-red-button]="
+                lgSummary?.status === 'RN' ||
+                lgSummary?.status === 'RS' ||
+                lgSummary?.status === 'RE' ||
+                lgSummary?.status === 'RO' ||
+                lgSummary?.status === 'RH'
+              "
+            >
+              {{ lgSummary?.statusDesc ? lgSummary.statusDesc : "--" }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-authorization
+    (authEmit)="setAuthorizationDetails($event)"
+    [authListDataSource]="authorsList"
+    *ngIf="showAuthorization"
+  ></app-authorization>
+
+  <div class="footer-container">
+    <div class="footerText" translate>
+      LBL_TERMS
+      <a href="{{ url }}" target="_blank"
+        ><span class="termsContainer" translate
+          >LBL_THE_TERMS_AND_CONDITIONS</span
+        ></a
+      >
+    </div>
+
+    <div class="actionGroup">
+      <app-tertiary-button
+        buttonValue="LBL_CANCEL"
+        class="tertiaryBtn"
+        (click)="cancelLgAuthorize()"
+      ></app-tertiary-button>
+      <app-primary-button
+        buttonValue="LBL_SUBMIT"
+        (click)="authorizeLg()"
+      ></app-primary-button>
+    </div>
+  </div>
+</div>
+<app-receipt
+  *ngIf="submitSuccessful"
+  [receiptDetails]="receiptData"
+  (onInitAgainClick)="cancelLgAuthorize()"
+  (DownloadReceiptClick)="downloadPdf()"
+>
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

@@ -1,0 +1,19 @@
+<!-- <ng-template> -->
+    <div class="row" id="diaglog-title" mat-dialog-title translate> 
+        <span translate>
+            LBL_DOWNLOAD_TRANSACTIONS
+        </span>
+    </div>
+    <div id="dialogContainer">
+    <div class="selectedClickAlign"><input type="radio" [(ngModel)]="selectedRadio" value="withBalance" id="withBalance"><label
+            for="withBalance" translate>LBL_WITH_BALANCE</label></div>
+    <div><input type="radio" [(ngModel)]="selectedRadio" value="withOutBalance" id="withOutBalance"><label
+            for="withOutBalance" translate>LBL_WITHOUT_BALANCE</label></div>
+    <div><span class="required" *ngIf='isConfirmTicketValid' translate>LBL_PLEASE_SELECT_TICKET</span></div>
+</div>
+    <div id="dialog-action" mat-dialog-actions>
+        <button mat-dialog-close class="button-secondary" translate>LBL_CANCEL</button>
+        <button class="button-primary" translate (click)="selectedOption()">LBL_OK</button>
+    </div>
+<!-- </ng-template> -->
+<app-ajax-loader-medium [hidden]="isLoadingCompelete"></app-ajax-loader-medium>

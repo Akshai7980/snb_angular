@@ -1,0 +1,15 @@
+{
+    "dataValue": 
+      {
+        
+        "accNo": "1001110001100011",
+        "fileName":"test",
+        "fileContent":"dfsrgsrhfhst",
+         "format":"PDF"
+       
+      }
+    ,
+    "headerValue": {
+      "moduleId": "DOWNIBANLETR"
+    }
+  }

@@ -1,0 +1,135 @@
+<div
+  class="filter-search-popup"
+  *ngIf="showAdvancedSearchPopup"
+  (click)="stopAdvancedSearchClose($event)"
+>
+  <div translate class="header">LBL_FILTER
+    <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+  </div>
+  <div>
+    <div class="flexContainer">
+      <div>
+        <div class="cardContainer">
+          <div class="fieldLabel" translate>LBL_LG_TYPE</div>
+
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="selectInput mt-top"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="lgType"
+            [(value)]="lgType"
+          >
+            <mat-option *ngFor="let type of lgTypes" [value]="type.lgType">{{type.lgType}}</mat-option>
+          </mat-select>
+          <!-- <span
+            *ngIf="processingTimeErrorMessage"
+            translate
+            class="errorMsg zeroHeight"
+            >LBL_PLEASE_SELECT_PROCESSING_TIME</span
+          > -->
+        </div>
+        <div class="cardContainer">
+          <div class="fieldLabel" translate>LBL_LG_LANGUAGE</div>
+
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="selectInput mt-top"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="language"
+            [(value)]="lgLanguage"
+          >
+            <mat-option *ngFor="let type of lgLanguages" [value]="type">{{
+              type
+            }}</mat-option>
+          </mat-select>
+          <!-- <span
+            *ngIf="resultPageErrorMessage"
+            translate
+            class="errorMsg zeroHeight"
+            >LBL_PLEASE_SELECT_RESULT_PER_PAGE</span
+          > -->
+        </div>
+        <div
+          class="flexContainer"
+          *ngIf="rootScopeData.advSearchCurrentPage === 'eTradeLg'"
+        >
+          <div class="cardContainer">
+            <div class="fieldLabel" translate>LBL_AMOUNT</div>
+            <input
+              class="amountDetails"
+              type="text"
+              placeholder="SAR"
+              [(ngModel)]="amountFrom"
+            />
+            <!-- <span
+              *ngIf="AmountErrorMessage"
+              translate
+              class="errorMsg zeroHeight"
+              >LBL_PLEASE_ENTER_AMOUNT</span
+            > -->
+          </div>
+          <div class="cardContainer">
+            <div class="toTitle" translate>LBL_TO</div>
+            <input
+              class="toDetails"
+              type="text"
+              placeholder="SAR"
+              [(ngModel)]="amountTo"
+            />
+            <!-- <span
+              *ngIf="ToAmountErrorMessage"
+              translate
+              class="errorMsg zeroHeight"
+              >LBL_PLEASE_ENTER_TO_AMOUNT</span
+            > -->
+          </div>
+        </div>
+      </div>
+      <div class="searchWithinContainer">
+        <div class="container">
+          <div class="fieldLabel" translate>LBL_BENEFICIARY_FULL_NAME</div>
+          <input class="beneFiciaryName" type="text" [(ngModel)]="fullName" />
+          <!-- <span *ngIf="AmountErrorMessage" translate class="errorMsg zeroHeight"
+            >LBL_PLEASE_ENTER_AMOUNT</span
+          > -->
+        </div>
+        <div class="cardContainer">
+          <div class="fieldLabel" translate>LBL_STATUS</div>
+
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="selectInput mt-top"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="status"
+            [(value)]="status"
+          >
+            <mat-option *ngFor="let type of statusList" [value]="type">{{
+              type
+            }}</mat-option>
+          </mat-select>
+          <!-- <span
+            *ngIf="transactionErrorMessage"
+            translate
+            class="errorMsg zeroHeight"
+            >LBL_PLEASE_SELECT_TRANSACTION_TYPE</span
+          > -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actionGroup">
+    <app-tertiary-button
+      buttonValue="LBL_CLEAR"
+      (click)="onClickClear()"
+      class="tertiaryBtn"
+    >
+    </app-tertiary-button>
+    <app-primary-button (click)="onClickApply()" buttonValue="LBL_APPLY">
+    </app-primary-button>
+  </div>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

@@ -1,0 +1,54 @@
+<div class="mainContainer" *ngIf="!hideAll">
+  <div class="flexRow">
+    <div class="title" *ngIf="rootScopeData.changeHeading">{{rootScopeData.changeHeading | translate}}</div>
+    <div *ngIf="showDailyLimit">
+      <app-daily-limit class="dailyLimit" *ngIf="this.rootScopeData.dailyLimit"></app-daily-limit>
+    </div>
+  </div>
+  <div class="detailsDataCntr">  
+<div>
+  <app-debit-lookup *ngIf="debitDataObj" [debitAccDetails]="debitDataObj" [clear]="DebitClearFlag"
+  (onAccountSelect)="afterFromAccountSelection($event)" [ngClass]="selectedDebitObj?'padding_0':''" class="arrange"
+  [tableId]="'sadad'" [shownsearch]="searchShownFlag"></app-debit-lookup>
+</div>
+  <div *ngIf="showCreditTo">
+    <app-credited-to *ngIf="selectedDebitObj" [regBillerDetails]="regBillerDataObj" [searchSadad]="regBillerData"
+      [billerGroupData]="billergroupsfromApi" [billerNameData]="billerNamefromApi"
+      (hideDebitArrow)="getDisplayArrowStatus($event)" (displayDetals)="getDisplayStatus($event,'credit')"
+      (grandTotal)="getDisplayStatus($event,'total')" (billergroupSelect)="billergroupSelect($event)"
+      (billerNameSelect)="billerNameSelect($event)" (cancel_Click)="credit_Cancel_Click($event)" (one_Time_Pay_Click)="getBillergroup()" (clearCredit)="creditSelected($event)" (filterDatas)="getFilterValues($event)"[selectedDebitObj]="selectedDebitObj"></app-credited-to>
+  </div>
+  <div *ngIf="showdetails">
+    <app-additional-details class='arrange' *ngIf="creditObjArray" [displayReadOnly]="additionalreadOly"
+      (additionalObj)="additionalObj($event)">
+    </app-additional-details>
+  </div>
+  <!-- (authData)="getDisplayStatus($event,'authorization')"  -->
+  <div *ngIf="showAuthorization">
+    <app-authorization class='arrange' *ngIf="creditObjArray && isProceed"
+    (authEmit)="autherizationDetailsReceived($event)"
+      [authListDataSource]="authListArray" [authError]="authError"></app-authorization>
+  </div>
+  <div *ngIf="showAuthentication">
+    <app-authentication class='arrange' *ngIf="creditObjArray && isProceed"
+      (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError" [initParam]="initReqParam" (authenticationType)="getAuthType($event)" >
+    </app-authentication>
+  </div>
+
+
+  <div class="footerText" *ngIf="creditObjArray && isProceed" translate>LBL_TERMS
+    <a href="{{ url }}" target="_blank"><span class="termsContainer" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a></div>
+  <div class="actionGroup" *ngIf="creditObjArray">
+    <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel_Click()" class="tertiaryBtn">
+    </app-tertiary-button>
+    <app-primary-button *ngIf="!isProceed" buttonValue="LBL_PROCEED" (click)="proceedNext()" routerPath="./">
+    </app-primary-button>
+    <!-- <app-primary-button *ngIf="isProceed" buttonValue="LBL_SUBMIT" (click)="onSubmit()" routerPath="./">
+    </app-primary-button> -->
+  </div>
+
+</div>
+
+</div>
+<app-receipt [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" (onInitAgainClick)="initAnotherPayment()" *ngIf="hideAll" (DownloadReceiptClick)="downloadPdf($event)" [rejectMsg]="rejectMsg"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> 

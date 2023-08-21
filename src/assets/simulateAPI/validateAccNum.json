@@ -1,0 +1,19 @@
+{
+    "data": {
+        "SWIFT_CODE": "",
+        "IBAN_IND": "Y",
+        "BENE_UNIT_ID": "IGTBSA",
+        "IBAN_VALID": "1",
+        "BANK_ADDRESS": "SNB HEAD OFFICE BUILDING,",
+        "BENE_CURRENCY": "SAR",
+        "NORMA_ACC": "500500165430",
+        "BRANCH_NAME": "Muharraq MKT FM",
+        "HOST_RESP": "SUCCESS",
+        "BANK_NAME": "KSA",
+        "IBAN_NUMBER": " ",
+        "BENE_NME": " Kaviya Queency"
+    },
+    "headerValue": {
+        "moduleId": "VLDTEBENEACCNO"
+    }
+}

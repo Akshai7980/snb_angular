@@ -1,0 +1,5 @@
+<button class="secondoryButton" [ngClass]="disablBtn?'btnDisable':''"[disabled]="disablBtn" (click)="eventClick()">
+  <span [ngClass]="iconPath ==='./assets/images/saveReceipt.svg'?'':'headerContainer'"><img *ngIf="iconPath" [ngClass]="iconPath ==='./assets/images/saveReceipt.svg'?'iconReceipt':'icon'"  src="{{iconPath}}"></span>
+  <span class="valueContainer" *ngIf="routerPath" routerLink="{{routerPath}}">{{buttonValue | translate}}</span>
+  <span class="valueContainer" *ngIf="!routerPath">{{buttonValue | translate}}</span> 
+</button>

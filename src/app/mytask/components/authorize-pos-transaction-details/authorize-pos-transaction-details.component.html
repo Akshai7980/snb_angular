@@ -1,0 +1,24 @@
+<div *ngIf="!showReceipt">
+  <div>
+    <div class="subTitles" translate>LBL_POS_SUMMARY</div>
+    <app-postransaction-details></app-postransaction-details>
+    <div class="outerContainer">
+      <app-authorization *ngIf="isFlexiAuth" (authEmit)="setAuthorizationDetails($event)"
+      [authListDataSource]="authList"></app-authorization>
+    </div>
+  </div>
+  
+  <div class="btnContainer">
+    <button
+      class="button-secondary"
+      routerLink="/mytask/posTransaction"
+      translate
+    >
+      LBL_CANCEL
+    </button>
+    <button class="button-primary" (click)="submitToReceipt()" translate>LBL_SUBMIT</button>
+  </div>
+</div>
+<app-receipt *ngIf="showReceipt" [receiptDetails]="receiptData"  [hideButton]="hideInitiateButton">
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

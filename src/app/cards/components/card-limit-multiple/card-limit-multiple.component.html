@@ -1,0 +1,128 @@
+<div *ngIf="title !== 'receipt'" class="container">
+    <div class="title" translate *ngIf="title === 'changeCardLimit'">LBL_CHANGE_CARD_LIMIT</div>
+    <div class="title" translate *ngIf="title === 'review'">LBL_REVIEW</div>
+    <div class="creditCardLimitDetails marginLeft_0 pR" [ngClass]="{'pad_bot_20': showErrMsg}">
+        <div class="sub">
+            <div>
+                <div class="subTitles" translate>LBL_CREDIT_CARD</div>
+            </div>
+        </div>
+        <div>
+            <div class="transactionCntr" *ngIf="title !== 'review'">
+                <div class="ng-toolPanel">
+                    <div class="leftSide">
+                        <div>
+                            <app-search [showAdvanceSearch]="false" (childEvent)="triggerSearchFilter($event)">
+                            </app-search>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <table *ngIf="!noRecordFlag && creditCardListToPass?.filteredData?.length > 0" mat-table
+                    [dataSource]="creditCardListToPass" class="casaTable1">
+
+                    <ng-container matColumnDef="holderName">
+                        <th mat-header-cell *matHeaderCellDef translate>LBL_CARD_NAME</th>
+                        <td mat-cell *matCellDef="let element">
+                            <div *ngIf="element.holderName" class="ellipsis" [matTooltip]="element.holderName">
+                                {{element.holderName}}
+                            </div>
+                            <div *ngIf="!element.holderName">--</div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="cardId">
+                        <th mat-header-cell *matHeaderCellDef translate>LBL_CARD_NO</th>
+                        <td mat-cell *matCellDef="let element">
+                            <div *ngIf="element.maskedCardId" class="ellipsis" [matTooltip]="element.maskedCardId">
+                                {{element.maskedCardId}}
+                            </div>
+                            <div *ngIf="!element.maskedCardId">--</div>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="cardType">
+                        <th mat-header-cell *matHeaderCellDef translate>LBL_CARD_TYPE</th>
+                        <td mat-cell *matCellDef="let element">
+                            <div *ngIf="element.cardType" class="ellipsis" [matTooltip]="element.cardType">
+                                {{element.cardType}}
+                            </div>
+                            <div *ngIf="!element.cardType">--</div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="creditLimit">
+                        <th mat-header-cell *matHeaderCellDef translate>LBL_CURRENT_LIMIT</th>
+                        <td mat-cell *matCellDef="let element">
+                            <div *ngIf="element.creditLimit" [matTooltip]="(element.creditLimit | currencyFormat: 'SAR') + ' ' + ('LBL_SAR' | translate)">
+                                {{(element.creditLimit | currencyFormat: 'SAR') + ' ' + ('LBL_SAR' | translate)}}
+                            </div>
+                            <div *ngIf="!element.creditLimit">--</div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="newLimit">
+                        <th mat-header-cell *matHeaderCellDef translate>LBL_NEW_LIMIT</th>
+                        <td mat-cell *matCellDef="let element">
+                            <div *ngIf="title === 'review'" [matTooltip]="(element.newLimitTemp | currencyFormat: 'SAR') + ' ' + ('LBL_SAR' | translate)"> {{(element.newLimitTemp | currencyFormat: 'SAR') + ' ' + ('LBL_SAR' | translate)}} </div>
+                            <!-- | currencyFormat: 'SAR' Need to add currency pipe-->
+                            <div class="information" *ngIf="title !== 'review'">
+                                <input class="limitText" type="text" placeholder="{{'LBL_ENTER_NEW_LIMIT' | translate}}"
+                                    [(ngModel)]="element.newLimit" (change)="onChangeLimit(element)"
+                                    (keypress)="numberOnly($event)" (blur)="onCheckNewLimit()" maxlength="20"/>
+                                <span class="currency" translate> LBL_SAR </span>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <table class="casaTable1 casaTable2" *ngIf="!noRecordFlag && creditCardListToPass?.filteredData?.length > 0">
+                    <ng-container>
+                        <td class="tableData1">
+                            <div *ngIf="title !== 'review'" translate>LBL_TOTAL_AVAILABLE_LIMIT</div>
+                            <div *ngIf="title === 'review'" translate>LBL_NEW_LIMIT</div>
+                        </td>
+                    </ng-container>
+                    <ng-container>
+                        <td class="tableData2" *ngIf="title !== 'review'" [matTooltip]="(totalAvailableLimit | currencyFormat: 'SAR') + ' ' + ('LBL_SAR' | translate)">
+                            <!-- <div *ngIf="totalAvailableLimit">{{totalAvailableLimit | currencyFormat: 'SAR'}} {{'LBL_SAR' | translate}}</div> -->
+                            <div *ngIf="!totalAvailableLimit">--</div>
+                        </td>
+                        <td class="tableData2" *ngIf="title === 'review'" [matTooltip]="(totalEnteredAmount | currencyFormat: 'SAR') + ' ' + ('LBL_SAR' | translate)">
+                            <div *ngIf="totalEnteredAmount">{{totalEnteredAmount | currencyFormat: 'SAR'}} {{'LBL_SAR' | translate}}</div>
+                            <div *ngIf="!totalEnteredAmount">--</div>
+                        </td>
+                    </ng-container>
+                </table>
+                <small *ngIf="showErrMsg" class="errorMsg">{{errMsg | translate}}</small>
+            </div>
+            <div *ngIf="noRecordFlag || creditCardListToPass?.filteredData?.length <= 0">
+                <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+            </div>
+        </div>
+    </div>
+
+    <app-authorization *ngIf="title === 'review' && flexAuthResp?.flexiAuth === 'true'" [authListDataSource]="authOptions" (authEmit)="getData($event)">
+    </app-authorization>
+
+    <app-authentication *ngIf="title === 'review'" (onTwoAuthClick)="onSecondFactorValue($event)"
+        (getOtpClick)="getOtpValue($event)" [otpError]="otpError"></app-authentication>
+</div>
+
+<app-receipt *ngIf="title === 'receipt'" (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptObject" (DownloadReceiptClick)="downloadPdf()"></app-receipt>
+
+<div class="footer" *ngIf="title !== 'receipt'">
+    <div *ngIf="title === 'review'" class="termsAndConditions" translate>
+        LBL_TERMS <a href="{{url}}" target="_blank" translate>LBL_THE_TERMS_AND_CONDITIONS</a>
+    </div>
+    <div class="finalProceed">
+        <app-tertiary-button buttonValue="{{'LBL_CANCEL' | translate}}" *ngIf="title === 'review'" (click)="toCancel()">
+        </app-tertiary-button>
+        <app-primary-button *ngIf="title !== 'review' && creditCardListToPass?.filteredData?.length > 0" buttonValue="{{'LBL_PROCEED' | translate}}"
+            (click)="toProceed()"></app-primary-button>
+        <!-- <app-primary-button *ngIf="title === 'review'" buttonValue="{{'LBL_SUBMIT' | translate}}" (click)="onSubmit()">
+        </app-primary-button> -->
+    </div>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

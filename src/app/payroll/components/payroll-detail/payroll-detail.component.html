@@ -1,0 +1,224 @@
+<div class="outerContainer">
+  <div class="title" translate>LBL_FILE_UPLOAD</div>
+
+  <div class="beneficiaryDetails">
+    <div class="subTitles" translate>LBL_UPLOAD_FILE</div>
+    <div class="rowInnerCntr">
+      <div class="field" [hidden]="isVendorPayment">
+        <div class="label" translate>
+          LBL_DEPO_TYPE <span class="required">*</span>
+        </div>
+        <div class="information">
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="selectInput"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="fileType"
+            [(ngModel)]="fileType"
+            (ngModelChange)="onChangeUpdate()"
+          >
+            <mat-option
+              *ngFor="let type of fileTypes"
+              [value]="type.subPdtCode"
+              (click)="onSelectedType($event, type)"
+              >{{ type.subPdtDesc }}</mat-option
+            >
+          </mat-select>
+        </div>
+        <small *ngIf="fileTypeError" translate class="errorMsg">
+          LBL_SELECT_FILE_TYPE
+        </small>
+      </div>
+      <div class="field">
+        <div class="label" translate>
+          LBL_FORMAT <span class="required">*</span>
+        </div>
+        <div class="information">
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="selectInput"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="fileName"
+            [(ngModel)]="fileFormat"
+            (ngModelChange)="onChangeUpdate()"
+          >
+            <mat-option
+              *ngFor="let file of fileFormats"
+              [value]="file.type"
+              (click)="onSelectedFile($event, file)"
+              >{{ file.typeDesc }}</mat-option
+            >
+          </mat-select>
+        </div>
+        <small *ngIf="formatTypeError" translate> LBL_SELECT_FORMAT </small>
+      </div>
+      <div class="field" *ngIf="csvField">
+        <div class="label" translate>
+          LBL_COMMERCIAL_NO <span class="required">*</span>
+        </div>
+        <div class="information">
+          <input
+          class="commercialNo"
+            type="text"
+            maxlength="10"
+            [(ngModel)]="commNo"
+            (keypress)="comValidation($event)"
+            (ngModelChange)="onChangeCommNo(); onChangeUpdate()"
+          />
+        </div>
+        <small *ngIf="showCommErrMsg" translate class="errorMsg"
+          >LBL_COMMERCIAL_NO_ERROR_MSG</small
+        >
+      </div>
+      <div class="field" *ngIf="csvField">
+        <div class="label" translate>
+          LBL_MOL_ID <span class="required">*</span>
+        </div>
+        <div class="information">
+          <input
+            type="text"
+            maxlength="18"
+            minlength="3"
+            placeholder="{{ 'LBL_EXAMPLE_MOL_ID' | translate }}"
+            [(ngModel)]="molId"
+            (keypress)="moiValidation($event)"
+            (blur)="toValidateMOLID($event)"
+            (ngModelChange)="onChangeMolId(); onChangeUpdate()"
+            title="MOL ID format is Wrong"
+          />
+        </div>
+        <small *ngIf="showMolIdErrMsg" translate class="errorMsg"
+          >LBL_MOL_ID_ERROR_MSG</small
+        >
+
+        <small *ngIf="showValidErrMsg" translate class="errorMsg"
+        >LBL_MOLID_INVALID_ERR_MSG</small>
+
+      </div>
+    </div>
+
+    <div class="uploadContainer txtfile" *ngIf="showUploadSection">
+      <div class="upload-file">
+        <app-file-upload
+          (clearFields)="(clearFields)"
+          [uploadInput]="uploadInput"
+          (titleCreated)="onFileAdded($event)"
+        ></app-file-upload>
+        <div class="validSec" *ngIf="txtClicked">
+          <span
+            class="errorMsg mr10"
+            translate
+            *ngIf="fileTypeValidationErrorMessage"
+            >LBL_TXT_SUPPORTED_FILE</span
+          >
+          <span class="errorMsg" translate *ngIf="fileSizeValidationErrorMessage"
+            >LBL_SADAD_BULK_PAYMENT_SUPPORTED_FILE_SIZE</span
+          >
+          <span class="errorMsg" translate *ngIf="fileNameValidationErrorMessage"
+            >LBL_INVALID_FILE_NAME</span
+          >
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <div *ngIf="showOtherFields" class="debit-section">
+    <app-debit-lookup
+      *ngIf="debitDataObj"
+      [debitAccDetails]="debitDataObj"
+      class="fromDebit"
+      [shownsearch]="!selectedDebitObj"
+      [clear]="clearFlag"
+      (onAccountSelect)="afterFromAccountSelection($event)"
+      [tableId]="'fileUpload'"
+    >
+    </app-debit-lookup>
+  </div>
+
+  <div class="beneficiaryDetails"  *ngIf="selectedDebitObj && fileFormat === 'csv' || fileFormat === 'CSV'">
+    <div class="subTitles" translate>LBL_ADDITIONAL_DETAILS</div>
+    <div class="rowInnerCntr">
+    <div class="field">
+      <div class="label" translate>
+        LBL_VALUE_DATE <span class="required">*</span>
+      </div>
+      <div class="information">
+        <app-date-picker
+          class="custom-datePicker"
+          (dateValue)="fromValue($event)"
+          [filterArray]="validDates"
+          [startDate]="startDate"
+          [minDate]="startDate"
+        ></app-date-picker>
+      </div>
+      <small *ngIf="dateErrorMsg" translate class="errorMsg"
+        >LBL_VALUE_DATE_ERROR_MSG</small
+      >
+    </div>
+    </div>
+  </div>
+
+  <div class="beneficiaryDetails marginLeft_0"  *ngIf="selectedDebitObj">
+    <div class="title" translate>LBL_FILE_UPLOAD</div>
+    <div class="uploadContainer">
+      <div class="upload-file">
+        <app-file-upload
+          (clearFields)="(clearFields)" [uploadInput]="uploadInput"
+          (titleCreated)="onFileAdded($event)"
+        ></app-file-upload>
+      </div>
+      <div class="download-template">
+        <app-download-template
+        [downloadTemplateData]="downloadTemplateData"
+          *ngIf="selectedDebitObj"
+        ></app-download-template>
+      </div>
+    </div>
+    <div class="validSec" *ngIf="csvClicked">
+      <span
+        class="errorMsg mr10"
+        translate
+        *ngIf="fileTypeValidationErrorMessage"
+        >LBL_SADAD_BULK_PAYMENT_SUPPORTED_FILE</span
+      >
+      <span class="errorMsg" translate *ngIf="fileSizeValidationErrorMessage"
+        >LBL_SADAD_BULK_PAYMENT_SUPPORTED_FILE_SIZE</span
+      >
+      <span class="errorMsg" translate *ngIf="fileNameValidationErrorMessage"
+            >LBL_INVALID_FILE_NAME</span
+          >
+    </div>
+  </div>
+
+  <div class="actionGroup">
+    <app-tertiary-button
+      buttonValue="LBL_CANCEL"
+      *ngIf="fileType || fileFormat"
+      class="tertiaryBtn"
+      (click)="toCancel()"
+    ></app-tertiary-button>
+    <app-primary-button
+      *ngIf="showButtons"
+      buttonValue="LBL_PROCEED"
+      (click)="proceedNext()"
+    ></app-primary-button>
+  </div>
+</div>
+
+<div>
+  <ng-template #myDialog>
+    <mat-dialog-actions align="end">
+      <button mat-button matDialogClose color="primary">X</button>
+    </mat-dialog-actions>
+    <mat-dialog-content>
+      <p translate>LBL_ACCOUNT_NUMBER_INVALID</p>
+    </mat-dialog-content>
+  </ng-template>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

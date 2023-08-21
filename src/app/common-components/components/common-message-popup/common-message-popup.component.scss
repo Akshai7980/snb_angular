@@ -1,0 +1,32 @@
+.close-icon {
+    float: right;
+    margin-right: -3%;
+    cursor: pointer;
+}
+.mat-dialog-content {
+    border-top: none;
+    border-bottom: none;
+    margin-left: -7%;
+    font-family: 'HelveticaNeue', arial, sans-serif;
+    font-size: 14px;
+    color: var(--default-text-color);
+}
+
+.mat-dialog-actions {
+    float: right !important;
+    // margin-top: 18%;
+}
+.mat-dialog-title{
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    font-size: 1.149em;
+    margin: 0 0 15px;
+    color: var(--default-text-color);
+}
+
+.close-icon{
+    margin-right : 0% !important
+}
+.mat-dialog-content {
+    margin-left: -24px !important;
+    font-family:revert;
+}

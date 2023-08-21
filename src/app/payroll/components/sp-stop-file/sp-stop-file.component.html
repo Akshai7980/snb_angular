@@ -1,0 +1,22 @@
+<div>
+  <section>
+    <app-sp-account-details></app-sp-account-details>
+  </section>
+  <section>
+    <app-sp-upload-details></app-sp-upload-details>
+  </section>
+  <section class="summaryOuterConainer">
+    <div class="summaryConainer">
+      <app-work-flow
+        [workFlowData]="workflowAndHistoryRequestPayload"
+      ></app-work-flow>
+    </div>
+  </section>
+  <section class="summaryOuterConainer">
+    <div class="summaryConainer">
+      <app-history
+        [historyData]="workflowAndHistoryRequestPayload"
+      ></app-history>
+    </div>
+  </section>
+</div>

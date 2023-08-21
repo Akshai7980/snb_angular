@@ -1,0 +1,41 @@
+
+{
+    "headerValue": {
+        "moduleId": "PMNTSGETFLDDATA",
+        "simulate": "N"
+    },
+    "data": [
+      {
+          "transactionCcy": [
+              "INR",
+              "GBP",
+              "PKR",
+              "QAR",
+              "AUD",
+              "BHD",
+              "BDT",
+              "CAD",
+              "LKR",
+              "DKK",
+              "HKD",
+              "JPY",
+              "JOD",
+              "KWD",
+              "MAD",
+              "OMR",
+              "NZD",
+              "NOK",
+              "SAR",
+              "SGD",
+              "SEK",
+              "CHF",
+              "AED",
+              "USD",
+              "EUR",
+              "EGP",
+              "TND",
+              "TRY"
+          ]
+      }
+  ]
+  }

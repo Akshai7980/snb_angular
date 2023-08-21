@@ -1,0 +1,93 @@
+<div class="outerContainer">
+    <div class="claimDetails" [ngClass]="{reviewClaimDetails: pageType === 'review'}">
+        <div class="subTitles" translate>LBL_CLAIM_DETAILS</div>
+        <div class="row">
+            <div class="column">
+                <div class="mtop_10">
+                    <div class="geneStaTitles" translate>LBL_MOBILE_NUMBER<span *ngIf="pageType !== 'review'"
+                            class="required">*</span></div>
+                    <div class="inpField">
+                        <input *ngIf="pageType !== 'review'" maxlength="10" class="inputFields" autofocus [(ngModel)]="mobileNumber"
+                            type="text" (blur)="validateInput(mobileNumber, 'mobileNumber')" (keypress)="allowNumbersOnly($event)">
+                        <span *ngIf="pageType === 'review'">{{mobileNumber}}</span>
+                        <div *ngIf="errMsg.mobileNumber">
+                            <span class="errorMsg mr10" translate>LBL_MOB_NUM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="mtop_10">
+                    <div class="geneStaTitles" translate>LBL_CLAIM_TYPE<span *ngIf="pageType !== 'review'"
+                            class="required">*</span></div>
+                    <div class="mtop_10" *ngIf="pageType !== 'review'">
+                        <mat-select panelClass="dropDownOption" class="selectInput"
+                            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+                            (selectionChange)="validateInput(claimType, 'claimType')" [(ngModel)]="claimType" disableOptionCentering>
+                            <mat-option *ngFor="let claim of claimTypes" value="{{claim.financialClaim}}"
+                                [value]="claim.financialClaim">{{claim.financialClaim}}</mat-option>
+                        </mat-select>
+                        <div *ngIf="errMsg.claimType">
+                            <span class="errorMsg mr10" translate>LBL_CLAIM_TYPE_ERR</span>
+                        </div>
+                    </div>
+                    <div class="mtop_10" *ngIf="pageType === 'review'">
+                        <span>{{mobileNumber}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="mtop_10">
+                    <div class="geneStaTitles" translate>LBL_CLAIM_DESCRIPTION</div>
+                    <div class="inpField">
+                        <div class="textareaInput">
+                            <textarea *ngIf="pageType !== 'review'" [(ngModel)]="description"
+                                maxlength="250"></textarea>
+                            <span *ngIf="pageType === 'review'">{{description.length > 0 ? description :
+                                ('LBL_NOT_PROVIDED' | translate)}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngIf="pageType !== 'review'" class="column uploadContainer">
+                <div class="mtop_10">
+                    <div class="inpField">
+                        <app-file-upload [uploadInput]="uploadInput"
+                            (titleCreated)="onFileAdded($event)"></app-file-upload>
+                        <div class="validSec" *ngIf="showErr">
+                            <span class="errorMsg mr10">{{showErr | translate}}</span>
+                        </div>
+                        <div class="download-template" [ngClass]="{temp_top_adj: showErr || uploadedFile}">
+                            <app-download-template
+                                [downloadTemplateData]="downloadTemplateData"></app-download-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="pageType === 'review'" class="column">
+                <div class="mtop_10">
+                    <div class="geneStaTitles" translate>LBL_UPLOAD_FILE</div>
+                    <div class="inpField" translate>
+                        <app-uploaded-file-download
+                            [fileUploadedDetails]="fileUploadedDetails"></app-uploaded-file-download>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="pageType === 'review'" class="column">
+                <div class="mtop_10">
+                    <div class="geneStaTitles" translate>LBL_TOTAL_RECAORDS</div>
+                    <span>{{rootScopeData.totalRecrdsCount}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="actionGroup" *ngIf="pageType !== 'review'">
+    <app-tertiary-button buttonValue="LBL_CANCEL" class="tertiaryBtn" (click)="toCancel()"></app-tertiary-button>
+    <app-primary-button buttonValue="LBL_PROCEED" (click)="proceedNext()"></app-primary-button>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

@@ -1,0 +1,47 @@
+<div class="gutterContainer">
+    <div translate class="title" *ngIf="title !== 'review' && newcardtitle">LBL_NEW_CARD_REQ</div>
+    <div class="title mb15" translate *ngIf="title === 'review'">LBL_REVIEW</div>
+
+    <!-- <app-account-details-for-card *ngIf="accountSection" (selectedAccount)="addSelectedAccount($event)"></app-account-details-for-card> -->
+
+    <app-debit-lookup [tableId]="'madaCard'" *ngIf="fromAccountsObject" [debitAccDetails]="fromAccountsObject"
+        class="arrange removeBorder" [shownsearch]="searchShownFlag"
+        (onAccountSelect)="onFromAccountSelection($event)"></app-debit-lookup>
+
+        <div class="subContainer callBackDiv mtop20" *ngIf="title === 'review' ">
+            <app-call-back [pageName]="pageName" [pageName]='pageCall' (onSuccessEmit)="callBackSuccess()"
+                (clickCancelCallBck)="getCanelBtnClick()"></app-call-back>
+        </div>
+
+    <div *ngIf="title !== 'receipt' && showAuthorization && !chooseAccount">
+        <!-- <div class="title" translate *ngIf="title !== 'review'">LBL_NEW_CARD_REQ</div> -->
+
+        <!-- <app-debit-lookup [debitAccDetails]="debitAccObj"></app-debit-lookup> -->
+
+        <app-authorization *ngIf="title === 'review' && isFlexiAuth" [authListDataSource]="authOptions"
+            (authEmit)="getData($event)">
+        </app-authorization>
+
+        <app-authentication *ngIf="title === 'review'" (onTwoAuthClick)="onSecondFactorValue($event)"
+            (getOtpClick)="getOtpValue($event)" [otpError]="otpError" [initParam]="initParam"></app-authentication>
+    </div>
+
+    <app-receipt *ngIf="title === 'receipt'" [receiptDetails]="receiptObject" (onInitAgainClick)="initAnotherCard()"
+        (DownloadReceiptClick)="downloadPdf()"></app-receipt>
+
+    <div class="footer" *ngIf="title !== 'receipt' && !chooseAccount">
+        <div *ngIf="title === 'review'" class="termsAndConditions" translate>
+            LBL_TERMS <a (click)="openTermsAndCondition()" translate>LBL_THE_TERMS_AND_CONDITIONS</a>
+        </div>
+        <div class="finalProceed">
+            <app-tertiary-button buttonValue="{{'LBL_CANCEL' | translate}}" (click)="cancelClick()">
+            </app-tertiary-button>
+            <app-primary-button buttonValue="{{'LBL_PROCEED' | translate}}" *ngIf="title !== 'review'"
+                (click)="toProceed()"></app-primary-button>
+            <!-- <app-primary-button buttonValue="{{'LBL_SUBMIT' | translate}}" *ngIf="title === 'review'" (click)="onSubmit()">
+        </app-primary-button> -->
+        </div>
+    </div>
+
+    <app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>
+</div>

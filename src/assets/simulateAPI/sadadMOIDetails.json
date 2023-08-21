@@ -1,0 +1,54 @@
+{
+    "data": [
+        {
+            "parameters": [
+                {
+                    "name": "BeneficiaryId",
+                    "value": "67890875",
+                    "englishName": "Border Number"
+                },
+                {
+                    "name": "BeneficiaryId",
+                    "value": "",
+                    "englishName": "Border Number"
+                },
+                {
+                    "name": "BeneficiaryId",
+                    "value": "67890875",
+                    "englishName": "Border Number"
+                },
+                {
+                    "name": "BeneficiaryId",
+                    "value": "67890875",
+                    "englishName": "Border Number"
+                }
+            ],
+            "billerName": null,
+            "billerCode": "MOIAC",
+            "serviceType": "Extend Visitor Visa",
+            "referenceNo": "TBC2207211516369",
+            "debitAccNo": "500500165111",
+            "debitCcy": "SAR",
+            "debitAmount": 100,
+            "paymentAmount": 100,
+            "paymentCcy": "SAR",
+            "paymentDetails": "test",
+            "odStatusCode": "RH",
+            "createdDate": "21/07/2022",
+            "valueDate": "21/07/2022",
+            "customerReference": null,
+            "functionCode": "SAMITXN",
+            "productCode": "PAYMNT",
+            "subProdCode": "SADMOIPAY",
+            "odVersionNo": 1,
+            "odMakerDate": "21/07/2022",
+            "unitId": "IGTBAE",
+            "odStatus": "Ready for Authorization",
+            "rejectReason":"Testing Rejected Reason"
+        }
+    ],
+    "headerValue": {
+        "moduleId": "SADADMOIDETAIL",
+        "simulate": "N"
+    }
+}

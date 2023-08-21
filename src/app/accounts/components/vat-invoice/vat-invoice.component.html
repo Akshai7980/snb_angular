@@ -1,0 +1,96 @@
+<div>
+    <div class="mainConatiner" *ngIf="!showReceipt">
+        <div class="ttileConatiner">
+            <div translate *ngIf="!review" class="mainTitle">LBL_VAT_INVOICE</div>
+            <div translate *ngIf="review" class="mainTitle">LBL_REVIEW</div>
+        </div>
+        <div class="detailsDataCntr">
+            <div class="bodyConatiners">
+                <app-debit-lookup *ngIf="debitAccountDetailsObj" (onAccountSelect)="afterFromAccountSelection($event)" [debitAccDetails]="debitAccountDetailsObj" [clear]="clearFlag" [shownsearch]="searchShownFlag" [tableId]="'vat-invoice'"></app-debit-lookup>
+                <div class="subContainer" *ngIf="invoiceDetails">
+                    <div class="subTitles">{{'LBL_VAT_INVOICE' | translate}} {{'LBL_DETAILS' | translate}}</div>
+                    <div class="row">
+                        <div class="column">
+                            <div translate class="geneStaTitles">LBL_CATEGORY<span class="required">*</span></div>
+                            <div class="mtop_10">            
+                                <mat-select panelClass="dropDownOption" [(ngModel)]="invoiceObj.category" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  (selectionChange)="validate($event,'ctg')"  disableOptionCentering>
+                                    <mat-option *ngFor="let catgry of categories" value="{{catgry.CAT_NAME}}">{{catgry.CAT_NAME}}</mat-option>
+                                </mat-select>
+                                <div *ngIf="errObj && errObj.catErr">
+                                  <small translate class="required">{{errObj.catErr}}</small>
+                                </div>
+                             </div>
+                        </div>
+                        <div class="column">
+                            <div translate class="geneStaTitles">LBL_DEPO_TYPE<span class="required">*</span></div>
+                            <div class="mtop_10">            
+                                <mat-select panelClass="dropDownOption" [(ngModel)]="invoiceObj.type" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  (selectionChange)="validate($event,'typ')"  disableOptionCentering>
+                                    <mat-option *ngFor="let type of types" value="{{type.TYPE}}">{{type.TYPE}}</mat-option>
+                                </mat-select>
+                                <div *ngIf="errObj && errObj.typeErr">
+                                  <small translate class="required">{{errObj.typeErr}}</small>
+                                </div>
+                             </div>
+                        </div>
+                        <div class="column">
+                            <div translate class="geneStaTitles">LBL_SCOOP<span class="required">*</span></div>
+                            <div class="mtop_10">            
+                                <mat-select panelClass="dropDownOption" [(ngModel)]="invoiceObj.scoop" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  (selectionChange)="validate($event,'scp')"  disableOptionCentering>
+                                    <mat-option *ngFor="let scoop of scoopes" value="{{scoop.SCOOP}}">{{scoop.SCOOP}}</mat-option>
+                                </mat-select>
+                                <div *ngIf="errObj && errObj.scoopErr">
+                                  <small translate class="required">{{errObj.scoopErr}}</small>
+                                </div>
+                             </div>
+                        </div>
+                        <div class="column">
+                            <div translate class="geneStaTitles">LBL_POINT<span class="required">*</span></div>
+                            <div class="mtop_10">            
+                                <mat-select panelClass="dropDownOption" [(ngModel)]="invoiceObj.point" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  (selectionChange)="validate($event,'pnt')"  disableOptionCentering>
+                                    <mat-option *ngFor="let point of points" value="{{point.POINT}}">{{point.POINT}}</mat-option>
+                                </mat-select>
+                                <div *ngIf="errObj && errObj.pointErr">
+                                  <small translate class="required">{{errObj.pointErr}}</small>
+                                </div>
+                             </div>
+                        </div>
+                        <div class="column">
+                            <div translate class="geneStaTitles">LBL_LEVEL<span class="required">*</span></div>
+                            <div class="mtop_10">            
+                                <mat-select panelClass="dropDownOption" [(ngModel)]="invoiceObj.lvl" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  (selectionChange)="validate($event,'lvl')"  disableOptionCentering>
+                                    <mat-option *ngFor="let lvl of levels" value="{{lvl.LEVEL}}">{{lvl.LEVEL}}</mat-option>
+                                </mat-select>
+                                <div *ngIf="errObj && errObj.lvlErr">
+                                  <small translate class="required">{{errObj.lvlErr}}</small>
+                                </div>
+                             </div>
+                        </div>
+                        <div class="column">
+                            <div class="mtop_10">            
+                                <div class="fromto">
+                                    <div class="datefrom">
+                                        <div translate class="geneStaTitles" id="proctm">LBL_FROM<span class="required">*</span></div>
+                                        <div class="shortDatePicker mt-top"><app-date-picker (dateValue)="getDate($event,'frm')" [showDateErrorMessage]="frmDateErr" [clearFlag]="dateFlag" [minDate]="minDate" [maxDate]="maxDate"></app-date-picker></div>
+                                    </div>
+                                    <div class="dateto">
+                                        <div translate class="geneStaTitles" id="proctm">LBL_TO</div>
+                                        <div class="shortDatePicker mt-top"><app-date-picker (dateValue)="getDate($event,'to')" [showDateErrorMessage]="toDateErr" [clearFlag]="dateFlag" [minDate]="fromDate" [maxDate]="maxDate"></app-date-picker></div>
+                                    </div>
+                                </div>  
+                                <div *ngIf="errObj && errObj.dateErr">
+                                    <small translate class="required">{{errObj.dateErr}}</small>
+                                </div>
+                             </div>
+                        </div>
+                      </div> 
+                </div>
+            </div>
+        </div>
+        <div class="btnGrp">
+            <app-tertiary-button *ngIf="invoiceDetails" buttonValue="LBL_CANCEL" (click)="onClickCancel()" ></app-tertiary-button>
+      <app-primary-button *ngIf="invoiceDetails" buttonValue="LBL_SUBMIT" (click)="submit()"></app-primary-button>
+        </div>
+    </div>
+</div>
+<app-receipt [hideButton]="true" [receiptDetails]="receiptData"  *ngIf="showReceipt" (DownloadReceiptClick)="downloadPdf()"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

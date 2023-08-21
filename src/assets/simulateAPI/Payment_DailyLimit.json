@@ -1,0 +1,21 @@
+{
+    "headerValue": {
+      "moduleId": "DAILYLIMIT",
+      "simulate": "N",
+      "export": null,
+      "exportType": null
+    },
+    "data": [
+      {
+        "COUNT_TXN": 5,
+        "TOTAL_AMT": 1660.649
+      },
+      {
+        "availPayLimit": 90000,
+        "maxIndTxnLimit": 100000,
+        "baseCcy": "BHD",
+        "usedPayLimit": 90000
+      }
+    ]
+  }
+    

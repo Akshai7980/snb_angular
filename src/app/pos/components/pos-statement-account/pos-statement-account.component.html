@@ -1,0 +1,326 @@
+<!-- //////////////////////////////////////////////////////////////////////////////////////////SELECT ACCOUNT START//////////////////////////////////////////////////////////////////// -->
+<div *ngIf="showAccSelect" class="outerContainer">
+
+  <div class="title" translate>LBL_Pos_Statement</div>
+
+  <div class="accountDetails">
+
+    <div class="subTitles" translate>LBL_ACCOUNT</div>
+
+    <app-search *ngIf="!norecordflag" (childEvent)="triggerSearchFilter($event)"></app-search>
+
+    <div>
+
+      <table mat-table *ngIf="!norecordflag && responseHeader" [dataSource]="dataSourceToPass" class="casaTable">
+
+        <!-- SELECT BOX COLUMN CONTAINER -->
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()">
+            </mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+              [checked]="selection.isSelected(row)">
+            </mat-checkbox>
+          </td>
+        </ng-container>
+
+        <!-- ACCOUNT NUMBER COLUMN CONTAINER -->
+        <ng-container matColumnDef="accNumber">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_ACC_NUMBER</th>
+          <td mat-cell *matCellDef="let element">{{ element?.OD_ACC_NO ? element.OD_ACC_NO : '--' }}</td>
+        </ng-container>
+
+        <!-- NICK NAME COLUMN CONTAINER -->
+        <ng-container matColumnDef="nickName">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_NICKNAME</th>
+          <td mat-cell *matCellDef="let element">{{ element?.ALIAS_NAME ? element.ALIAS_NAME : '--' }}</td>
+        </ng-container>
+
+        <!-- FULL NAME COLUMN CONTAINER -->
+        <ng-container matColumnDef="fullName">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_FULL_NAME</th>
+          <td mat-cell *matCellDef="let element">{{ element?.OD_ACC_NAME ? element.OD_ACC_NAME : '--' }}</td>
+        </ng-container>
+
+        <!-- STATUS COLUMN CONTAINER -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_STATUS</th>
+          <td mat-cell *matCellDef="let element">{{ element?.STATUS ? element.STATUS : '--' }}</td>
+        </ng-container>
+
+        <!-- BALANCE COLUMN CONTAINER -->
+        <ng-container matColumnDef="balance">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_BALANCE</th>
+          <td mat-cell *matCellDef="let element">{{(element?.CURR_AVAIL_BAL_AMT && element?.OD_CCY_CODE) ?
+            (element?.CURR_AVAIL_BAL_AMT | currencyFormat: element?.OD_CCY_CODE) + ' ' + element.OD_CCY_CODE : '--'}}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="selection.toggle(row)"></tr>
+      </table>
+
+    </div>
+
+    <div *ngIf="norecordflag">
+      <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+    </div>
+
+  </div>
+
+  <div class="actionGroup">
+    <app-tertiary-button buttonValue="LBL_CANCEL" *ngIf="selection?.selected.length" (click)="initialState()">
+    </app-tertiary-button>
+
+    <app-primary-button *ngIf="selection?.selected.length" buttonValue="LBL_PROCEED" (click)="logSelection($event)">
+    </app-primary-button>
+  </div>
+
+</div>
+<!-- //////////////////////////////////////////////////////////////////////////////////////////SELECT ACCOUNT End//////////////////////////////////////////////////////////////////// -->
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////View Account Start//////////////////////////////////////////////////////////////////// -->
+
+<div *ngIf="showViewAcc" class="outerContainer">
+
+  <div class="title" translate>LBL_Pos_Statement</div>
+
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_ACCOUNT</div>
+
+    <table>
+
+      <tr class="tableHeader">
+        <th translate>LBL_ACC_NUMBER</th>
+        <th translate>LBL_NICK_NAME</th>
+        <th translate>LBL_FULL_NAME</th>
+        <th translate>LBL_STATUS</th>
+        <th translate>LBL_BALANCE</th>
+      </tr>
+
+      <ng-container *ngIf="selection.selected.length === 1">
+        <tr class="tableRowConatiner">
+          <td>{{ selection.selected[0]?.OD_ACC_NO ? selection.selected[0].OD_ACC_NO : '--' }}</td>
+          <td>{{ selection.selected[0]?.ALIAS_NAME ? selection.selected[0].ALIAS_NAME : '--' }}</td>
+          <td>{{ selection.selected[0]?.OD_ACC_NAME ? selection.selected[0].OD_ACC_NAME : '--' }}</td>
+          <td>{{ selection.selected[0]?.STATUS ? selection.selected[0].STATUS : '--' }}</td>
+          <td>{{(selection.selected[0]?.CURR_AVAIL_BAL_AMT && selection.selected[0]?.OD_CCY_CODE) ?
+            (selection.selected[0]?.CURR_AVAIL_BAL_AMT | currencyFormat: selection.selected[0]?.OD_CCY_CODE) + ' ' +
+            selection.selected[0]?.OD_CCY_CODE : '--'}} </td>
+          <td><span class="downArrowAcc" (click)="backToAcc($event)"></span></td>
+        </tr>
+      </ng-container>
+
+    </table>
+
+    <div class="viewAccContainer" *ngIf="selection.selected.length > 1">
+      <span class="dataBackgroundColor" translate>
+        LBL_MULTIPLE_ACCOUNT_SELECTED
+      </span>
+      <div class="downArrow" (click)="backToAcc($event)"></div>
+    </div>
+
+  </div>
+
+</div>
+<!-- //////////////////////////////////////////////////////////////////////////////////////////View Account End//////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////SELECT merchant start//////////////////////////////////////////////////////////////////// -->
+
+<div *ngIf="showMerchantSelect" class="outerContainer">
+  <div class="accountDetails">
+
+    <div class="subTitles" translate>LBL_SELECT_MERCHANT</div>
+
+    <app-search *ngIf="!norecordflag2" (childEvent)="triggerSearchFilter2($event)"></app-search>
+
+    <table *ngIf="!norecordflag2 && responseHeader2" mat-table [dataSource]="dataSourceToPass2">
+
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggleMerchant() : null"
+            [checked]="selection2.hasValue() && isAllSelectedMerchant()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection2.toggle(row) : null"
+            [checked]="selection2.isSelected(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <!-- merchantName Column -->
+      <ng-container matColumnDef="merchantName">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_MERCHANT_NAME</th>
+        <td mat-cell *matCellDef="let element">{{ element?.merchantNameInEnglish ? element.merchantNameInEnglish : '--'
+          }}</td>
+      </ng-container>
+
+      <!-- merchantNameArabic Column -->
+      <ng-container matColumnDef="merchantNameArabic">
+        <th mat-header-cell *matHeaderCellDef translate>
+          LBL_MERCHANT_NAME_ARABIC
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element?.merchantNameInArabic ? element.merchantNameInArabic : '--'}}
+        </td>
+      </ng-container>
+
+      <!-- merchantNumber Column -->
+      <ng-container matColumnDef="merchantNumber">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_MERCHANT_NUMBER</th>
+        <td mat-cell *matCellDef="let element">{{ element?.merchantNumber ? element.merchantNumber : '--' }}</td>
+      </ng-container>
+
+      <!-- status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_STATUS</th>
+        <td mat-cell *matCellDef="let element">{{ element?.status ? element.status : '--' }}</td>
+      </ng-container>
+
+      <!-- shopName Column -->
+      <ng-container matColumnDef="shopName">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_SHOP_NAME</th>
+        <td mat-cell *matCellDef="let element">{{ element?.shopEnglishName ? element.shopEnglishName : '--' }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns2" (click)="selection2.toggle(row)"></tr>
+    </table>
+
+    <div *ngIf="norecordflag2">
+      <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+    </div>
+
+  </div>
+
+  <div class="actionGroup" *ngIf="showViewAcc">
+    <app-tertiary-button buttonValue="LBL_CANCEL" (click)="backToAcc($event)" class="tertiaryBtn">
+    </app-tertiary-button>
+
+    <app-primary-button *ngIf="selection2?.selected.length" buttonValue="LBL_PROCEED"
+      (click)="logSelectionMerchant($event)">
+    </app-primary-button>
+  </div>
+
+</div>
+<!-- //////////////////////////////////////////////////////////////////////////////////////////SELECT Merchant End//////////////////////////////////////////////////////////////////// -->
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////View Merchant Start//////////////////////////////////////////////////////////////////// -->
+
+<div *ngIf="showViewMerchant" class="outerContainer">
+  <div class="accountDetails">
+
+    <div class="subTitles" translate>LBL_SELECT_MERCHANT</div>
+
+    <table>
+
+      <tr class="tableHeader">
+        <th translate>LBL_MERCHANT_NAME</th>
+        <th translate>LBL_MERCHANT_NAME_ARABIC</th>
+        <th translate>LBL_MERCHANT_NUMBER</th>
+        <th translate>LBL_STATUS</th>
+        <th translate>LBL_SHOP_NAME</th>
+      </tr>
+
+      <ng-container *ngIf="selection2.selected.length === 1">
+        <tr class="tableRowConatiner">
+          <td>{{ selection2.selected[0]?.merchantNameInEnglish ? selection2.selected[0].merchantNameInEnglish : '--' }}
+          </td>
+          <td>{{ selection2.selected[0]?.merchantNameInArabic ? selection2.selected[0].merchantNameInArabic : '--' }}
+          </td>
+          <td>{{ selection2.selected[0]?.merchantNumber ? selection2.selected[0].merchantNumber : '--' }}</td>
+          <td>{{ selection2.selected[0]?.status ? selection2.selected[0].status : '--' }}</td>
+          <td>{{ selection2.selected[0]?.shopEnglishName ? selection2.selected[0].shopEnglishName : '--' }}</td>
+          <td>
+            <div class="downArrowAcc" (click)="backToAcc($event)"></div>
+          </td>
+
+        </tr>
+      </ng-container>
+
+    </table>
+
+    <div class="viewAccContainer" *ngIf="selection2.selected.length > 1">
+      <span class="dataBackgroundColor" translate>
+        LBL_MULTIPLE_ACCOUNT_SELECTED
+      </span>
+      <div class="downArrow" (click)="backToMerchant($event)"></div>
+    </div>
+
+  </div>
+
+</div>
+<!-- //////////////////////////////////////////////////////////////////////////////////////////View Merchant End//////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////Select Terminal start//////////////////////////////////////////////////////////////////// -->
+<div *ngIf="showTerminalSelect" class="outerContainer">
+  <div class="accountDetails">
+
+    <div class="subTitles" translate>LBL_SELECT_TERMINAL</div>
+
+    <app-search *ngIf="!norecordflag3" (childEvent)="triggerSearchFilter3($event)"></app-search>
+
+    <table *ngIf="!norecordflag3 && responseHeader3" mat-table [dataSource]="dataSourceToPass3">
+
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggleTerminal() : null"
+            [checked]="selection3.hasValue() && isAllSelectedTerminal()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection3.toggle(row) : null"
+            [checked]="selection3.isSelected(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <!-- terminalID Column -->
+      <ng-container matColumnDef="terminalID">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_TERMINAL_ID</th>
+        <td mat-cell *matCellDef="let element">{{ element?.retailerId ? element.retailerId : '--' }}</td>
+      </ng-container>
+
+      <!-- terminalType Column -->
+      <ng-container matColumnDef="terminalType">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_TERMINAL_TYPE</th>
+        <td mat-cell *matCellDef="let element">{{ element?.retailerName ? element.retailerName : '--' }}</td>
+      </ng-container>
+
+      <!-- status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_STATUS</th>
+        <td mat-cell *matCellDef="let element">{{ element?.status ? element.status : '--' }}</td>
+      </ng-container>
+
+      <!-- shopName Column -->
+      <ng-container matColumnDef="shopName">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_SHOP_NAME</th>
+        <td mat-cell *matCellDef="let element">{{ element?.retailerAddress ? element.retailerAddress : '--' }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns3" (click)="selection3.toggle(row)"></tr>
+    </table>
+
+    <div *ngIf="norecordflag3">
+      <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+    </div>
+
+  </div>
+
+  <div class="actionGroup" *ngIf="showTerminalSelect">
+    <app-tertiary-button buttonValue="LBL_CANCEL" (click)="backToMerchant($event)" class="tertiaryBtn">
+    </app-tertiary-button>
+
+    <app-primary-button *ngIf="selection3?.selected.length" buttonValue="LBL_PROCEED"
+      (click)="logSelectionTerminal($event)">
+    </app-primary-button>
+  </div>
+
+</div>
+<!-- //////////////////////////////////////////////////////////////////////////////////////////View Terminal Start//////////////////////////////////////////////////////////////////// -->
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

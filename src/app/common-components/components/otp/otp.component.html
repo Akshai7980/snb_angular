@@ -1,0 +1,21 @@
+<div class="authentication">
+    <div translate class="subTitles">LBL_AUTHENTICATION</div>
+    <div class="otpContainer">
+        <!-- <div translate class="geneStaTitles genericTitles">LBL_OTP</div> -->
+        <div class="contentText">
+          <div><span translate>LBL_OTP_MSG</span></div>
+          <div>{{rootScopeData.userInfo.mobileNo}}</div>
+        </div>
+        <div class="mtop_10">
+          <input class="selectInput" placeholder="{{'LBL_OTP' | translate}}"  maxlength="4"  [(ngModel)]="otpValue" (keypress)="numberOnly($event)" (blur)="sendOtp($event)" />
+          <div class="errorMsg otpFont" *ngIf="isOtpValid" translate>
+            LBL_PLS_ENTER_OTP
+          </div>
+        </div>
+    </div>
+    <div>
+      <a *ngIf="!isShownOtp"(click)="shownOtp()">{{'LBL_RESEND_OTP' | translate}}</a>
+      <span class="otpmsg" *ngIf="isShownOtp">{{'LBL_REQUEST_RESEND_OTP' | translate}} {{showTimer}} {{'LBL_SEC' | translate}}</span>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

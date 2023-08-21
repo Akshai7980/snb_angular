@@ -1,0 +1,81 @@
+<div *ngIf="showAmtDetInitiateScreen">
+    <div translate class="subTitles">LBL_AMOUNT_DETAILS</div>
+    <div class="mtop_17 mbot_4 amtContainer">
+        <div class="amtContainer">
+            <div>
+                <div translate class="geneStaTitles">LBL_TRANSFER_AMOUNT<span class="required">*</span></div>
+                <div class="mtop_10">            
+                    <input type="text" class="amountTxt" (keypress)="numberOnly($event)" [(value)]="paymentDetailsObj.amount" (blur)="amountOnBlur($event)" autocomplete="off">
+                    <div *ngIf="paymentDetailsObj.amountError">
+                        <small translate class="required">{{paymentDetailsObj.amountError}}</small>
+                    </div>
+                </div>          
+            </div>  
+            <div>
+                <div class="mtop_10 dropdown">            
+                    <mat-select class="selectInput" panelClass="smallDdropDownOption" [(value)]="paymentDetailsObj.currency"
+                    disableOptionCentering (selectionChange)="currencyChanged()">
+                        <mat-option value="{{currency}}" *ngFor="let currency of currencyArrayDataSource">
+                            {{currency}}
+                        </mat-option>
+                    </mat-select>   
+                    <div *ngIf="paymentDetailsObj.currencyError">
+                        <small translate class="required">{{paymentDetailsObj.currencyError}}</small>
+                    </div>         
+                </div>          
+            </div>  
+        </div>   
+        <div class="eRatePleft" *ngIf="showFeeAndVat">
+            <div translate class="geneStaTitles">LBL_FEE</div>
+            <div class="mtop_10">            
+                <div>{{feeCharge}} {{ccy}}</div> 
+            </div>                     
+        </div>
+        <div class="eRatePleft" *ngIf="showFeeAndVat">
+            <div translate class="geneStaTitles">LBL_VAT</div>
+            <div class="mtop_10">            
+                {{vatCharge}} {{ccy}}
+            </div>            
+        </div>     
+        <div class="eRatePleft" *ngIf="paymentDetailsObj.exchangeRate">
+            <div translate class="geneStaTitles">LBL_EXCHANGE_RATE</div>
+            <div class="mtop_10 eRatePtop">            
+                {{paymentDetailsObj.exchangeRate}}
+            </div>            
+        </div>      
+        <div class="timerContainer">
+            <div class="counter" *ngIf="!dispRest && respStatus"> {{dispTime}} {{'LBL_SECONDS' | translate}}</div>
+            <div *ngIf="dispRest && respStatus && !isHideTimer"> <app-primary-button buttonValue="LBL_REFRESH_RATE" (onPrimarybtnemitClick) ="restTimmer($event)"> </app-primary-button></div>
+        </div>                      
+    </div>  
+</div>   
+
+<div *ngIf="!showAmtDetInitiateScreen">
+    <div translate class="subTitles">LBL_AMOUNT_DETAILS</div>
+    <div class="mtop_17 mbot_4 innerContainer">
+        <div class="flexWidth">
+            <div translate class="geneStaTitles">LBL_TRANSFER_AMOUNT</div>
+            <div class="mtop_10">            
+                <div>{{paymentDetailsObj.amount}} {{paymentDetailsObj.currency}}</div> 
+            </div>                     
+        </div>   
+        <div class="flexWidth" *ngIf="showCharges">
+            <div translate class="geneStaTitles">LBL_FEE</div>
+            <div class="mtop_10">            
+                <div>{{paymentDetailsObj.fee}} {{paymentDetailsObj.ccy}}</div> 
+            </div>                     
+        </div>   
+        <div class="flexWidth" *ngIf="showCharges">
+            <div translate class="geneStaTitles">LBL_VAT</div>
+            <div class="mtop_10">            
+                <div>{{paymentDetailsObj.vat}} {{paymentDetailsObj.ccy}}</div> 
+            </div>                     
+        </div>
+        <div class="flexWidth" *ngIf="paymentDetailsObj.debitAmount && paymentDetailsObj.debitCurrency">
+            <div translate class="geneStaTitles">LBL_DEBIT_AMT</div>
+            <div class="mtop_10">            
+                <div>{{paymentDetailsObj.debitAmount}} {{paymentDetailsObj.debitCurrency}}</div> 
+            </div>                     
+        </div>                                        
+    </div>           
+</div>   

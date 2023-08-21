@@ -1,0 +1,352 @@
+<div class="loanDetailsCntr">
+    <div class="topTittleCntr">
+        <div>
+            <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+            <a class="mainTitle" translate>LBL_LOAN_SUMMARY</a>
+        </div>
+    </div>
+    <div class="sub-container">
+        <div>
+            <div class="loanDetails">
+                <span *ngIf="loanDetailsData">{{ loanDetailsData.res_Loan_Acc_Number
+                    }}<!--, --></span>
+                <!-- Nickname <img class="pencilIcon" src="./assets/images/Icopencial.svg" alt="pencial"
+                    *ngIf="isEdit" (click)="isEdit_click()"><img class="closeIcon"
+                    src="./assets/images/icoClose.svg" alt="close" *ngIf="!isEdit" (click)="isEdit_click()">-->
+            </div>
+            <!-- <div class="inputField" *ngIf="!isEdit" @enterAnimation>
+                <input type="text" placeholder="Enter Nickname" class="nicknameField">
+                <button class="tickIcon" (click)="changeName()"></button>
+            </div> -->
+            <span class="currentLoanAmount" *ngIf="loanDetailsData">{{ "LBL_LOAN" | translate }}
+                <span *ngIf="
+            loanDetailsData.res_Orign_Loan_Amt &&
+            loanDetailsData.res_Currency &&
+            !rootScopeData.userInfo.maskingFlag
+          ">{{
+                    loanDetailsData.res_Orign_Loan_Amt
+                    | currencyFormat : loanDetailsData.res_Currency
+                    }}
+                    {{ loanDetailsData.res_Currency }}</span>
+                <span *ngIf="rootScopeData.userInfo.maskingFlag">{{ "LBL_HIDDEN" | translate }}
+                    {{ loanDetailsData.res_Currency }}</span>
+                {{ "LBL_FOR" | translate }} {{ loanDetailsData.res_Term }}</span><br />
+            <div class="balance" *ngIf="loanDetailsData">
+                <span class="amount">
+                    <span *ngIf="
+              loanDetailsData.res_totalprincipalpaid &&
+              loanDetailsData.res_Currency &&
+              !rootScopeData.userInfo.maskingFlag
+            ">{{
+                        loanDetailsData.res_totalprincipalpaid
+                        | currencyFormat : loanDetailsData.res_Currency
+                        }}
+                        {{ loanDetailsData.res_Currency }}</span>
+                    <span *ngIf="rootScopeData.userInfo.maskingFlag">{{ "LBL_HIDDEN" | translate }}
+                        {{ loanDetailsData.res_Currency }}</span>
+                    paid @ {{ loanDetailsData.res_Int_Rate }}% Interest</span>,{{ "LBL_OUTSTANDING_BALANCE" | translate
+                }}
+                <span class="amount"><span *ngIf="
+              loanDetailsData.res_Outstand_Loan_Amt &&
+              loanDetailsData.res_Currency &&
+              !rootScopeData.userInfo.maskingFlag
+            ">{{
+                        loanDetailsData.res_Outstand_Loan_Amt
+                        | currencyFormat : loanDetailsData.res_Currency
+                        }}
+                        {{ loanDetailsData.res_Currency }}</span>
+                    <span *ngIf="rootScopeData.userInfo.maskingFlag">{{ "LBL_HIDDEN" | translate }}
+                        {{ loanDetailsData.res_Currency }}</span> </span><button class="showDetails"
+                    (click)="showDetails()" *ngIf="isShow" translate>
+                    LBL_MORE_DETAILS</button><button class="showDetails" (click)="showDetails()" *ngIf="!isShow"
+                    translate>
+                    LBL_HIDE_DETAILS
+                </button>
+            </div>
+        </div>
+        <div class="loanDetailsInfo" *ngIf="!isShow" @enterAnimation>
+            <div class="titleBar">
+                <h4 translate>LBL_FINANCE_DETAILS</h4>
+            </div>
+            <div class="loanInfo">
+                <div class="fxContainer">
+                    <div class="column1">
+                        <label class="label" translate>LBL_FACILITY_ID</label>
+                        <div class="dataInfo" *ngIf="loanDetailsData.res_faciltyId">
+                            {{ loanDetailsData.res_faciltyId }}
+                        </div>
+                        <div class="dataInfo" *ngIf="!loanDetailsData.res_faciltyId">
+                            --
+                        </div>
+                    </div>
+                    <div class="column2">
+                        <label class="label" translate>LBL_ACC_NUMBER</label>
+                        <div class="dataInfo" *ngIf="loanDetailsData.res_Loan_Acc_Number">
+                            {{ loanDetailsData.res_Loan_Acc_Number }}
+                        </div>
+                        <div class="dataInfo" *ngIf="!loanDetailsData.res_Loan_Acc_Number">
+                            --
+                        </div>
+                        <!-- <div class="dataInfo">{{loanDetailsData.res_Loan_Start_Dt | dateFormat}}<span translate> LBL_LOWERCASE_TO </span>{{loanDetailsData.res_Maturity_Dt | dateFormat}}</div> -->
+                    </div>
+                    <div class="column3">
+                        <label class="label" translate>LBL_PRODUCT_TYPE</label>
+                        <div class="dataInfo" *ngIf="loanDetailsData.res_productType">
+                            {{ loanDetailsData.res_productType }}
+                        </div>
+                        <div class="dataInfo" *ngIf="!loanDetailsData.res_productType">
+                            --
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fxContainer mt-top">
+                    <div class="column1">
+                        <label class="label" translate>LBL_PRODUCT_DESCRIPTION</label>
+                        <div class="dataInfo" *ngIf="loanDetailsData.res_productDesc">
+                            {{ loanDetailsData.res_productDesc }}
+                        </div>
+                        <div class="dataInfo" *ngIf="!loanDetailsData.res_productDesc">
+                            --
+                        </div>
+                    </div>
+                    <div class="column2">
+                        <label class="label" translate>LBL_CURRENCY</label>
+                        <div class="dataInfo" *ngIf="loanDetailsData.res_Currency">
+                            {{ loanDetailsData.res_Currency }}
+                        </div>
+                        <div class="dataInfo" *ngIf="!loanDetailsData.res_Currency">--</div>
+                        <!-- <div class="dataInfo">{{loanDetailsData.res_Loan_Start_Dt | dateFormat}}<span translate> LBL_LOWERCASE_TO </span>{{loanDetailsData.res_Maturity_Dt | dateFormat}}</div> -->
+                    </div>
+                    <div class="column3">
+                        <label class="label" translate>LBL_ORIGINAL_AMOUNT</label>
+                        <div class="dataInfo" *ngIf="
+                loanDetailsData.res_Orign_Loan_Amt &&
+                loanDetailsData.res_Currency &&
+                !rootScopeData.userInfo.maskingFlag
+              ">
+                            {{
+                            loanDetailsData.res_Orign_Loan_Amt
+                            | currencyFormat : loanDetailsData.res_Currency
+                            }}
+                            {{ loanDetailsData.res_Currency }}
+                        </div>
+                        <div class="dataInfo" *ngIf="
+                (!loanDetailsData.res_Orign_Loan_Amt ||
+                  !loanDetailsData.res_Currency) &&
+                !rootScopeData.userInfo.maskingFlag
+              ">
+                            --
+                        </div>
+
+                        <div class="dataInfo" *ngIf="rootScopeData.userInfo.maskingFlag">
+                            {{ "LBL_HIDDEN" | translate }} {{ loanDetailsData.res_Currency }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fxContainer mt-top">
+                    <div class="column1">
+                        <label class="label" translate>LBL_LOAN_BALANCE</label>
+                        <div class="dataInfo" *ngIf="
+                loanDetailsData.res_loanBalance &&
+                loanDetailsData.res_Currency &&
+                !rootScopeData.userInfo.maskingFlag
+              ">
+                            {{
+                            loanDetailsData.res_loanBalance
+                            | currencyFormat : loanDetailsData.res_Currency
+                            }}
+                            {{ loanDetailsData.res_Currency }}
+                        </div>
+                        <div class="dataInfo" *ngIf="
+                (!loanDetailsData.res_loanBalance ||
+                  !loanDetailsData.res_Currency) &&
+                !rootScopeData.userInfo.maskingFlag
+              ">
+                            --
+                        </div>
+
+                        <div class="dataInfo" *ngIf="rootScopeData.userInfo.maskingFlag">
+                            {{ "LBL_HIDDEN" | translate }} {{ loanDetailsData.res_Currency }}
+                        </div>
+                    </div>
+                    <div class="column2">
+                        <label class="label" translate>LBL_REPAYMENT_AMOUNT</label>
+                        <div class="dataInfo" *ngIf="
+                loanDetailsData.res_repaymentAmt &&
+                loanDetailsData.res_Currency &&
+                !rootScopeData.userInfo.maskingFlag
+              ">
+                            {{
+                            loanDetailsData.res_repaymentAmt
+                            | currencyFormat : loanDetailsData.res_Currency
+                            }}
+                            {{ loanDetailsData.res_Currency }}
+                        </div>
+                        <div class="dataInfo" *ngIf="
+                (!loanDetailsData.res_repaymentAmt ||
+                  !loanDetailsData.res_Currency) &&
+                !rootScopeData.userInfo.maskingFlag
+              ">
+                            --
+                        </div>
+
+                        <div class="dataInfo" *ngIf="rootScopeData.userInfo.maskingFlag">
+                            {{ "LBL_HIDDEN" | translate }} {{ loanDetailsData.res_Currency }}
+                        </div>
+                        <!-- <div class="dataInfo">{{loanDetailsData.res_Loan_Start_Dt | dateFormat}}<span translate> LBL_LOWERCASE_TO </span>{{loanDetailsData.res_Maturity_Dt | dateFormat}}</div> -->
+                    </div>
+                    <div class="column3">
+                        <label class="label" translate>LBL_OUTSTANDING_BALANCE</label>
+                        <div class="dataInfo" *ngIf="
+                loanDetailsData.res_Outstand_Loan_Amt &&
+                loanDetailsData.res_Currency &&
+                !rootScopeData.userInfo.maskingFlag
+              ">
+                            {{
+                            loanDetailsData.res_Outstand_Loan_Amt
+                            | currencyFormat : loanDetailsData.res_Currency
+                            }}
+                            {{ loanDetailsData.res_Currency }}
+                        </div>
+                        <div class="dataInfo" *ngIf="
+                (!loanDetailsData.res_Outstand_Loan_Amt ||
+                  !loanDetailsData.res_Currency) &&
+                !rootScopeData.userInfo.maskingFlag
+              ">
+                            --
+                        </div>
+
+                        <div class="dataInfo" *ngIf="rootScopeData.userInfo.maskingFlag">
+                            {{ "LBL_HIDDEN" | translate }} {{ loanDetailsData.res_Currency }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fxContainer mt-top">
+                    <div class="column1">
+                        <label class="label" translate>LBL_DATE_OPENED</label>
+                        <div class="dataInfo" *ngIf="loanDetailsData.res_openDate">
+                            {{ loanDetailsData.res_openDate | dateFormat }}
+                        </div>
+                        <div class="dataInfo" *ngIf="!loanDetailsData.res_openDate">--</div>
+                    </div>
+                    <div class="column2">
+                        <label class="label" translate>LBL_MAT_DATE</label>
+                        <div class="dataInfo" *ngIf="loanDetailsData.res_Maturity_Dt">
+                            {{ loanDetailsData.res_Maturity_Dt | dateFormat }}
+                        </div>
+                        <div class="dataInfo" *ngIf="!loanDetailsData.res_Maturity_Dt">
+                            --
+                        </div>
+                    </div>
+                    <div class="column3">
+                        <label class="label" translate>LBL_INTERESET_RATE</label>
+                        <div class="dataInfo" *ngIf="loanDetailsData.res_Int_Rate">
+                            {{ loanDetailsData.res_Int_Rate }} %
+                        </div>
+                        <div class="dataInfo" *ngIf="!loanDetailsData.res_Int_Rate">--</div>
+                    </div>
+                </div>
+
+                <div class="fxContainer mt-top">
+                    <div class="column1">
+                        <label class="label" translate>LBL_GROSS_RATE</label>
+                        <div class="dataInfo" *ngIf="loanDetailsData.res_grossRate">
+                            {{ loanDetailsData.res_grossRate }} %
+                        </div>
+                        <div class="dataInfo" *ngIf="!loanDetailsData.res_grossRate">
+                            --
+                        </div>
+                    </div>
+                    <div class="column2">
+                        <label class="label" translate>LBL_SPREAD_RATE</label>
+                        <div class="dataInfo" *ngIf="loanDetailsData.res_spreadRate">
+                            {{ loanDetailsData.res_spreadRate }} %
+                        </div>
+                        <div class="dataInfo" *ngIf="!loanDetailsData.res_spreadRate">
+                            --
+                        </div>
+                        <!-- <div class="dataInfo">{{loanDetailsData.res_Loan_Start_Dt | dateFormat}}<span translate> LBL_LOWERCASE_TO </span>{{loanDetailsData.res_Maturity_Dt | dateFormat}}</div> -->
+                    </div>
+                    <div class="column3">
+                        <label class="label" translate>LBL_INTEREST_RULE</label>
+                        <!-- <div class="dataInfo" *ngIf="loanDetailsData.res_spreadRate">
+                            {{ loanDetailsData.res_spreadRate }} %
+                        </div> -->
+                        <div class="dataInfo">--</div>
+                        <!-- <div class="dataInfo">{{loanDetailsData.res_Loan_Start_Dt | dateFormat}}<span translate> LBL_LOWERCASE_TO </span>{{loanDetailsData.res_Maturity_Dt | dateFormat}}</div> -->
+                    </div>
+                </div>
+
+                <div class="fxContainer mt-top">
+                    <div class="column1">
+                        <label class="label" translate>LBL_PENALTY_INTEREST_RATE</label>
+                        <div class="dataInfo" *ngIf="loanDetailsData.res_penaltyRateInterest">
+                            {{ loanDetailsData.res_penaltyRateInterest }} %
+                        </div>
+                        <div class="dataInfo" *ngIf="!loanDetailsData.res_penaltyRateInterest">
+                            --
+                        </div>
+                    </div>
+                    <div class="column2">
+                        <label class="label" translate>LBL_PERIOD_INTEREST_ACCURED</label>
+                        <div class="dataInfo" *ngIf="loanDetailsData.res_loanInterestAccrued">
+                            {{ loanDetailsData.res_loanInterestAccrued }}
+                        </div>
+                        <div class="dataInfo" *ngIf="!loanDetailsData.res_loanInterestAccrued">
+                            --
+                        </div>
+                        <!-- <div class="dataInfo">{{loanDetailsData.res_Loan_Start_Dt | dateFormat}}<span translate> LBL_LOWERCASE_TO </span>{{loanDetailsData.res_Maturity_Dt | dateFormat}}</div> -->
+                    </div>
+                    <div class="column3">
+                        <label class="label" translate>LBL_APPROVED_LIMIT</label>
+                        <div class="dataInfo" *ngIf="loanDetailsData.res_approvedLimit">
+                            {{ loanDetailsData.res_approvedLimit }}
+                        </div>
+                        <div class="dataInfo" *ngIf="!loanDetailsData.res_approvedLimit">
+                            --
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fxContainer mt-top">
+                    <div class="column1">
+                        <label class="label" translate>LBL_STATUS</label>
+                        <div class="dataInfo" *ngIf="loanDetailsData.res_status">
+                            {{ loanDetailsData.res_status }}
+                        </div>
+                        <div class="dataInfo" *ngIf="!loanDetailsData.res_status">--</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tabCntr row-head">
+            <ul class="titleList">
+                <li>
+                    <a class="animate" routerLink="loanRecentTransaction" [class.active]="
+              rootScopeData.activeTabName === 'loanRecentTransaction'
+            "><span translate>LBL_RECENT_TRANSACTION</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="animate" routerLink="loanRepaymentSchedule" *ngIf="false" [class.active]="
+              rootScopeData.activeTabName === 'loanRepaymentSchedule'
+            "><span translate>LBL_REPAYMENT_SCHEDULE</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="tabDataCntr">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <!-- <button class="button-secondary" (click)="onBackArrowClick()" translate>
+        LBL_BACK
+    </button> -->
+    <div class="button-pos">
+        <app-tertiary-button buttonValue="LBL_BACK" (click)="onBackArrowClick()"></app-tertiary-button>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

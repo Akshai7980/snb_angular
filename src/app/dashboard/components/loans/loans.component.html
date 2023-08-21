@@ -1,0 +1,150 @@
+<div id="dashboardLoanInquiry">
+    <div class="header-panel">
+        <div class="header-panel-left headerPanelWidth">
+            <div class="accountsHeader" translate>LBL_LOANS</div>
+        </div>
+        <div class="header-panel-right headerPanelWidth">
+            <div class="accordion" [ngClass]="{'accordionUp':!isLoansExpand,accordionDown:isLoansExpand}"
+                (click)="onClickExpand($event)"></div>
+            <div *ngIf="!isLoansExpand && enablePropertty" id="loansummaryToolsElement">
+                <app-summary-tools [printSection]="printSection"  [moduleId]="'DASHBOARDLOANSUM'" [isshowndownloadablePrint]="isShownDocPrint" [isshownPrint]="shownPrint"></app-summary-tools>
+            </div>
+        </div>
+    </div>
+    <div id="loanexpandCollapseElement" class="animate expandCollpase" [ngClass]="{'collapse':isLoansExpand}"
+        [ngStyle]="{'height': contentHeight+'px'}">
+        <div class="searchCntnr" *ngIf="enablePropertty">
+            <div class="searchCntnrLeft">
+                <app-search [showAdvanceSearch]="false" (childEvent)="triggerSearchFilter($event)"></app-search>
+            </div>
+            <div class="searchCntnrRight">
+                <span class="searchCntnrRightText" *ngIf="!isViewAllBalClicked" (click)="onViewAllBalanceClick()"
+                    translate>LBL_VIEW_ALL_BALANCES</span>
+                <span *ngIf="isViewAllBalClicked && !rootScopeData.userInfo.maskingFlag" class="hideAllBalance"><span translate>LBL_BALANCE_IS</span> {{summaryData.TOTAL_BALANCE | currencyFormat : summaryData.CURRENCY}} {{summaryData.CURRENCY}}</span>
+                <span *ngIf="isViewAllBalClicked && rootScopeData.userInfo.maskingFlag" class="hideAllBalance"><span translate>LBL_BALANCE_IS</span> {{'LBL_HIDDEN' | translate}} {{summaryData.CURRENCY}}</span>
+                <span class="searchCntnrRightText" *ngIf="isViewAllBalClicked" (click)="onHideAllBalanceClick()"
+                    translate>LBL_HIDE_ALL_BALANCES</span>
+            </div>
+        </div>
+        <div id="loansDefaultCntr" *ngIf="!norecordflag">
+            <table id="loansDefault" mat-table matSort [dataSource]="dataSourceToPass" class="dashboardTable"
+                (contentChanged)="getTableHeight()">
+                <ng-container matColumnDef="LOAN_OD_ACC_NO">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <div class="position_rel" translate>LBL_ACC_NUMBER</div>
+                    </th>
+                    <td mat-cell *matCellDef="let loanData">
+                        <span *ngIf="loanData.LOAN_OD_ACC_NO">{{loanData.LOAN_OD_ACC_NO}}</span>
+                        <span *ngIf="!loanData.LOAN_OD_ACC_NO">--</span>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="CUSTOMER_NAME">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <div class="position_rel" translate>LBL_NAME</div>
+                    </th>
+                    <td mat-cell *matCellDef="let loanData">
+                        <span *ngIf="loanData.CUSTOMER_NAME">{{loanData.CUSTOMER_NAME}}</span>
+                        <span *ngIf="!loanData.CUSTOMER_NAME">--</span>
+                    </td>
+                </ng-container>                
+                <ng-container matColumnDef="LOAN_FACILITY_NUM">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <div class="position_rel" translate>LBL_FACILITY_NUMBER</div>
+                    </th>
+                    <td mat-cell *matCellDef="let loanData">
+                        <span *ngIf="loanData.LOAN_FACILITY_NUM">{{loanData.LOAN_FACILITY_NUM}}</span>
+                        <span *ngIf="!loanData.LOAN_FACILITY_NUM">--</span>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="LOAN_TYPE">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <div class="position_rel" translate>LBL_FINANCE_TYPE</div>
+                    </th>
+                    <td mat-cell *matCellDef="let loanData">
+                        <span *ngIf="loanData.LOAN_TYPE">{{loanData.LOAN_TYPE}}</span>
+                        <span *ngIf="!loanData.LOAN_TYPE">--</span>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="DUE_DATE">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <div class="position_rel" translate>LBL_DUE_DATE</div>
+                    </th>
+                    <td mat-cell *matCellDef="let loanData">
+                        <span *ngIf="loanData.DUE_DATE">{{(loanData.DUE_DATE | date: rootScopeData.userInfo.mDateFormat)}}</span>
+                        <span *ngIf="!loanData.DUE_DATE">--</span>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="LOAN_OS">
+                    <th mat-header-cell class="fcenter" *matHeaderCellDef mat-sort-header>
+                        <div class="position_rel" translate>LBL_OUTSTANDING_BALANCE</div>
+                    </th>
+
+                    <!-- <td mat-cell *matCellDef="let loanData;let i=index">
+                        <div *ngIf="!isViewBalClicked[i]" (click)="onViewBalanceClick(i)" class="viewBalance" translate>
+                            LBL_VIEW_BALANCE</div>
+                        <div *ngIf="isViewBalClicked[i]">
+                            <span *ngIf="loanData.LOAN_OS && !rootScopeData.userInfo.maskingFlag">{{loanData.LOAN_OS | currencyFormat : loanData.LOAN_CCY}}&nbsp;{{loanData.LOAN_CCY}}</span>
+                            <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}}&nbsp;{{loanData.LOAN_CCY}}</span>
+                            <span *ngIf="!loanData.LOAN_OS && !rootScopeData.userInfo.maskingFlag">--</span>
+                        </div>
+                    </td> -->
+
+                    <td mat-cell *matCellDef="let loanData;let i=index">
+                        <div *ngIf="!isViewBalClicked[i]" (click)="onViewBalanceClick(i)" class="viewBalance w-150px" translate>
+                            LBL_VIEW_BALANCE
+                        </div>
+                        <div *ngIf="isViewBalClicked[i]" class="flex">
+                        <span *ngIf="loanData.LOAN_OS && !rootScopeData.userInfo.maskingFlag">{{loanData.LOAN_OS | currencyFormat : loanData.LOAN_CCY}}&nbsp;{{loanData.LOAN_CCY}}</span>
+                        <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}}&nbsp;{{loanData.LOAN_CCY}}</span>
+                        <span *ngIf="!loanData.LOAN_OS && !rootScopeData.userInfo.maskingFlag">--</span>
+                        <!-- <div class="ml-10 eye-mask-on-svg" (click)="hideBalance(i)"></div>-->
+                        </div>
+                    </td>
+                        
+                        
+                </ng-container>
+
+                <ng-container matColumnDef="HIDE_CONTAINER">
+                    <th mat-header-cell class="fcenter" *matHeaderCellDef>
+                    </th>
+                    <td mat-cell *matCellDef="let accData;let i=index">
+                        <div *ngIf="isViewBalClicked[i]" (click)="hideBalance(i)" class="viewBalance" translate>
+                            LBL_HIDE</div>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="HIDE_LOAN_OS">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header [style.display]="'none'">
+                        <div class="position_rel" translate>LBL_OUTSTANDING</div>
+                    </th>
+                    <td mat-cell *matCellDef="let loanData" [style.display]="'none'">
+                        <span *ngIf="loanData.LOAN_OS">{{loanData.LOAN_OS |amountUnformatPipe:loanData.LOAN_CCY}} {{loanData.LOAN_CCY}}</span>
+                        <span *ngIf="!loanData.LOAN_OS">--</span>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell class="fcenter actionHide" *matHeaderCellDef translate>LBL_ACTION</th>
+                    <td mat-cell *matCellDef="let loanData" class="actionHide">
+                        <div>
+                            <app-more-action [currentRecord]="loanData" [routepath]="routeDetailScreen"  (click)="selectedRecord($event,loanData)"  (onMenuClick)="actionOnMenuClick($event)">
+                            </app-more-action>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="goToDetailsScreen(row)"></tr>
+
+            </table>
+        </div>
+        <div  [class.hide]="norecordflag" [ngClass]="disp === 'visible'?'pageHide':'pageShow'">
+            <app-pagination #paginator class="actionHide" [dataSourceLength]="dataSourceLength" [currentRecord]="'LoansSummary'"
+            [totalRecords]="totalRecords" (onPaginationChange)="paginationChangeClick($event)" [ngStyle]="{visibility : disp}"></app-pagination>
+        </div>
+        <div *ngIf="norecordflag">
+            <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+        </div>
+    </div>
+</div>
+<app-ajax-loader-medium [hidden]="isLoadingCompelete"></app-ajax-loader-medium>

@@ -1,0 +1,75 @@
+.merchantDetails {
+  padding: 15px;
+  margin-top: 15px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+}
+
+.subTitles {
+  margin-bottom: 20px;
+}
+
+.detailContainer {
+  margin-left: -16px;
+}
+
+.outerContainer {
+  margin: 15px 30px 0px 30px;
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.selectInput {
+  margin: 10px 0px 10px 0px;
+  min-width: 300px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 5px;
+  font-family: "HelveticaNeue", arial, sans-serif;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  cursor: auto;
+  background-color: var(--primary-widget-bg-color);
+}
+
+.matSelectInput {
+  margin: 10px 0px 0px 0px;
+  width: 300px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  cursor: auto;
+  background-color: var(--primary-widget-bg-color);
+}
+
+.selectInputBorderNone {
+  margin: 10px 0px 10px 0px;
+  min-width: 300px;
+  line-height: 40px;
+  padding: 0px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  cursor: auto;
+  background-color: var(--primary-widget-bg-color);
+}
+
+.noDataContent {
+  color: var(--tableData-header-color);
+  font-style: italic;
+  font-family: "HelveticaNeue", arial, sans-serif;
+  margin: 10px 0px 10px 0px;
+  min-width: 300px;
+  line-height: 40px;
+  padding: 0px;
+  font-size: 14px;
+}

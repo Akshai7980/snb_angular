@@ -1,0 +1,108 @@
+<div class="subconatiner mtop_20" *ngIf="showAddDetInitiateScreen">
+  <div translate class="subTitles">LBL_ADDITIONAL_DETAILS</div>
+  <div class="mtop_17 mbot_4 innerContainer">
+    <div class="pbot_20">
+      <div translate class="geneStaTitles">
+        LBL_PURPOSE<span class="required">*</span>
+      </div>
+      <div class="mtop_10">
+        <mat-select
+          class="selectInput"
+          panelClass="dropDownOption"
+          [(value)]="additionalDetailsObj.purpose"
+          disableOptionCentering
+          (selectionChange)="purposeChanged($event)"
+          placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+        >
+          <mat-option
+            value="{{ purpose.purposeCodeDesc }}"
+            *ngFor="let purpose of purposeOfTransferArrayDataSource"
+          >
+            {{ purpose.purposeCodeDesc }}
+          </mat-option>
+        </mat-select>
+        <div *ngIf="additionalDetailsErrorObj.purposeError">
+          <small translate class="required">{{
+            additionalDetailsErrorObj.purposeError
+          }}</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="pbot_20">
+      <div translate class="geneStaTitles">
+        LBL_RELATIONSHIP<span class="required">*</span>
+      </div>
+      <div class="mtop_10">
+        <mat-select
+          class="selectInput"
+          panelClass="dropDownOption"
+          [(value)]="additionalDetailsObj.relationship"
+          disableOptionCentering
+          (selectionChange)="relationshipChanged($event)"
+          placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+        >
+          <mat-option
+            value="{{ relationship.REL_CODE_DESC }}"
+            *ngFor="let relationship of relationshipArrayDataSource"
+          >
+            {{ relationship.REL_CODE_DESC }}
+          </mat-option>
+        </mat-select>
+        <div *ngIf="additionalDetailsErrorObj.relationshipError">
+          <small translate class="required">{{
+            additionalDetailsErrorObj.relationshipError
+          }}</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="pbot_20">
+      <div translate class="geneStaTitles">LBL_NARRATION</div>
+      <div class="mtop_10">
+        <textarea
+          id="narration"
+          [(ngModel)]="additionalDetailsObj.narration"
+          class="comment"
+          (blur)="narrationOnBlur($event)"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="subconatiner mtop_20" *ngIf="!showAddDetInitiateScreen">
+  <div translate class="subTitles">LBL_ADDITIONAL_DETAILS</div>
+  <div class="mtop_17 mbot_4 innerContainer">
+    <div class="flexWidth">
+      <div translate class="geneStaTitles">
+        LBL_PURPOSE<span class="required"></span>
+      </div>
+      <div class="mtop_10">
+        <div>{{ additionalDetailsObj.purpose }}</div>
+      </div>
+    </div>
+
+    <div class="flexWidth">
+      <div translate class="geneStaTitles">
+        LBL_RELATIONSHIP<span class="required"></span>
+      </div>
+      <div class="mtop_10">
+        <div>{{ additionalDetailsObj.relationship }}</div>
+      </div>
+    </div>
+
+    <div class="flexWidth">
+      <div translate class="geneStaTitles">LBL_NARRATION</div>
+      <div class="mtop_10">
+        <div>
+          {{
+            additionalDetailsObj.narration
+              ? additionalDetailsObj.narration
+              : "Not Provided"
+          }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

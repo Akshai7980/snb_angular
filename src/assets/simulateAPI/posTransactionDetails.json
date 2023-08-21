@@ -1,0 +1,28 @@
+{
+    "data": {
+        "refNo": "TBC2207021533397",
+        "accNo": "10107654360011",
+        "cardType": "Master Card",
+        "status": "inactive",
+        "merchantName": "765",
+        "merchantId": "SAR",
+        "terminalId": "Dameer Ahsan",
+        "terminalType": "Damaged",
+        "comments": "DTHDT",
+        "sequenceNo": "13123424",
+        "cardNo": "1233567890",
+        "posDate": "20/08/2023",
+        "amount": "2345",
+        "currency": "SAR",
+        "email": "ertyg@gmail.com",
+        "mobileNo": "123443221",
+        "claimType": "claim-1",
+        "claimDesc": "swqdwd",
+        "productCode": "CORESVS",
+        "subProductCode": "POSTRN",
+        "functionCode": "POSTRNFNC"
+    },
+    "headerValue": {
+        "moduleId": "POSTRANSDET"
+    }
+}

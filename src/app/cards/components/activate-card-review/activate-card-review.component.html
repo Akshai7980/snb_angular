@@ -1,0 +1,39 @@
+<div class="mainContainer">
+    <span class="mainTitle" translate>LBL_REVIEW</span>
+
+    <app-debit-lookup [debitAccDetails]="cardDetailsObj" (onAccountSelect)="getAccountData($event)"></app-debit-lookup>
+
+    <div class="subContainer callBackDiv">
+        <app-call-back [pageName]='pageName' (onSuccessEmit)="callBackSuccess()"
+            (clickCancelCallBck)="getCanelBtnClick()"></app-call-back>
+    </div>
+
+    <app-authorization *ngIf="showAuthorization"
+        [authListDataSource]="authOptions" (authEmit)="getAuthorizationEmit($event)"
+        [authError]="noAuthorError"></app-authorization>
+
+    <app-authentication *ngIf="showAuthentication" (onTwoAuthClick)="onSecondFactorValue($event)"
+        (getOtpClick)="getOtpValue($event)" [otpError]="otpError"></app-authentication>
+
+    <div class="footerContainer">
+
+        <div class="footerText" translate>
+            LBL_TERMS
+            <a href="{{ url }}" target="_blank"><span class="termsContainer"
+                    translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>
+        </div>
+        <div class="btnGroup mtop_20">
+            <div>
+                <app-tertiary-button buttonValue="LBL_CANCEL" routerPath="./"
+                    (click)="toCancel()"></app-tertiary-button>
+            </div>
+            <div>
+                <!-- <app-primary-button buttonValue="LBL_SUBMIT" routerPath="./" (click)="toSubmit()"></app-primary-button> -->
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

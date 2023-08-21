@@ -1,0 +1,15 @@
+<div class="worksapceBase">
+    <div class="content-header" translate>LBL_MAILBOX</div>
+    
+    <div class="tabCntr">
+        <ul>
+            <li><a routerLink="inbox" [class.active]="rootScopeData.activeTabName === 'inbox'" translate>LBL_INBOX <span *ngIf="rootScopeData.inboxSummaryCount && rootScopeData.inboxSummaryCount > 0">({{rootScopeData.inboxSummaryCount}})</span></a></li>
+            <li><a routerLink="sent" [class.active]="rootScopeData.activeTabName === 'sent'" translate>LBL_SENT <span *ngIf="rootScopeData.sentMailSummaryCount && rootScopeData.sentMailSummaryCount > 0">({{rootScopeData.sentMailSummaryCount}})</span></a></li>  
+            <li><a routerLink="drafts" *ngIf="false" [class.active]="rootScopeData.activeTabName === 'drafts'" translate>Drafts</a></li>      
+        </ul>
+    </div>
+    <div class="tabDataCntr">
+        <router-outlet></router-outlet>
+    </div>
+    </div>
+    

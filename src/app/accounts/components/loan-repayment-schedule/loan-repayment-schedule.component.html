@@ -1,0 +1,77 @@
+<div class="transactionCntr">
+    <div class="ng-toolPanel">
+        <div class="leftSide">
+            <div><app-search [showAdvanceSearch]="true" (childEvent)="triggerSearchFilter($event)"></app-search></div>
+        </div>
+        <div class="rightSide dslk_flex">
+            <div><app-refresh (onRefresh)="refreshSummary()"></app-refresh></div>
+        </div>
+    </div>
+</div>
+<div class="table" id="loanRepaymentScheduleCntr">
+    <table width="100%" id="loanRepaymentScheduleDefault" class="mainTableStr" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr class="mat-header-row">                      
+                <th class="mat-header-cell" translate>LBL_REPAYMENT_DATE
+                    <span>
+                        <img src="assets/images/sortDown.svg" class="img-style">
+                        <img src="assets/images/sortDown.svg" class="sortUp">
+                    </span>
+                </th>
+                <th class="mat-header-cell" translate>LBL_PRINCIPAL_EUR
+                    <span>
+                        <img src="assets/images/sortDown.svg" class="img-style">
+                        <img src="assets/images/sortDown.svg" class="sortUp">
+                    </span>
+                </th>
+                <th class="mat-header-cell" translate>LBL_INTEREST_EUR
+                    <span>
+                        <img src="assets/images/sortDown.svg" class="img-style">
+                        <img src="assets/images/sortDown.svg" class="sortUp">
+                    </span>
+                </th>
+                <th class="mat-header-cell" translate>LBL_OUTSTANDING
+                    <span>
+                        <img src="assets/images/sortDown.svg" class="img-style">
+                        <img src="assets/images/sortDown.svg" class="sortUp">
+                    </span>
+                </th>
+                <th class="mat-header-cell" translate>LBL_OUTSTANDING_SAR
+                    <span>
+                        <img src="assets/images/sortDown.svg" class="img-style">
+                        <img src="assets/images/sortDown.svg" class="sortUp">
+                    </span>
+                </th>
+            </tr>
+        </thead>
+         <tbody class="mainTableData">
+            <tr class="mainTable">                      
+                <td  [attr.data-label]="'LBL_REPAYMENT_DATE' | translate">04/06/2021</td>
+                <td [attr.data-label]="'LBL_PRINCIPAL_EUR' | translate">04/06/2021</td>
+                <td [attr.data-label]="'LBL_INTEREST_EUR' | translate">814.78</td>
+                <td [attr.data-label]="'LBL_OUTSTANDING' | translate">10,231.00</td>
+                <td [attr.data-label]="'LBL_OUTSTANDING_SAR' | translate">88,356.78</td>
+            </tr>
+            <tr class="mainTable">                      
+                <td  [attr.data-label]="'LBL_REPAYMENT_DATE' | translate">04/06/2021</td>
+                <td [attr.data-label]="'LBL_PRINCIPAL_EUR' | translate">04/06/2021</td>
+                <td [attr.data-label]="'LBL_INTEREST_EUR' | translate">814.78</td>
+                <td [attr.data-label]="'LBL_OUTSTANDING' | translate">10,231.00</td>
+                <td [attr.data-label]="'LBL_OUTSTANDING_SAR' | translate">88,356.78</td>
+            </tr>
+            <tr class="mainTable">                      
+                <td  [attr.data-label]="'LBL_REPAYMENT_DATE' | translate">04/06/2021</td>
+                <td [attr.data-label]="'LBL_PRINCIPAL_EUR' | translate">04/06/2021</td>
+                <td [attr.data-label]="'LBL_INTEREST_EUR' | translate">814.78</td>
+                <td [attr.data-label]="'LBL_OUTSTANDING' | translate">10,231.00</td>
+                <td [attr.data-label]="'LBL_OUTSTANDING_SAR' | translate">88,356.78</td>
+            </tr>
+        </tbody>     
+    </table>
+</div>
+
+<!-- <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> -->
+
+
+
+

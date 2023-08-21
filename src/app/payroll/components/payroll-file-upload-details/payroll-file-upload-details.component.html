@@ -1,0 +1,43 @@
+<div class="title" translate>LBL_FILE_UPLOAD</div>
+
+<app-upload-file-and-file-details
+  [dropDown]="dropDownArrow" 
+></app-upload-file-and-file-details>
+
+<div class="mtop_20" *ngIf="showAuthorization">
+  <app-authorization
+  [authListDataSource]="authOptions"
+  [authError]="errorCode" 
+  (authEmit)="getDatas($event, 'authorization')"
+></app-authorization>
+</div>
+
+<div class="mtop_20" *ngIf="showAuthentication">
+  <app-authentication
+  (onTwoAuthClick)="onSecondFactorValue($event)"
+  (getOtpClick)="getOtpValue($event)"
+  [otpError]="otpError"
+  (authenticationType)="getAuthType($event)"
+  [initParam]="initReqParam"
+></app-authentication>
+</div>
+
+<div class="footer-container">
+  <div class="footerText" translate>
+    LBL_TERMS
+    <a href="{{url}}" target="_blank" ><span class="termsContainer" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>  
+  </div>
+
+  <div class="actionGroup">
+    <app-tertiary-button
+      buttonValue="Cancel"
+      class="tertiaryBtn"
+      (click)="toCancel()"
+    ></app-tertiary-button>
+    <!-- <app-primary-button
+      buttonValue="Submit"
+      (click)="submit()"
+    ></app-primary-button> -->
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

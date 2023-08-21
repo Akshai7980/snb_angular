@@ -1,0 +1,142 @@
+<div *ngIf="!receiptForm">
+  <div class="detailsTitleContainer">
+    <div>
+      <!-- <div class="backIcon backArrow" (click)="onBackArrowClick()"></div> -->
+      <div class="mainTitle" translate>LBL_AUTHORIZE_PAYMENT</div>
+    </div>
+  </div>
+  <section class="summaryOuterConainer">
+    <div class="summaryConainer mainContainer">
+      <div class="subTitles">
+        {{ transferDetails.function_ID_DISPVAL }}
+        {{ "LBL_ACC_TO" | translate }}
+        {{
+        transferDetails.bene_NAME && transferDetails.bene_NAME.trim() !== ""
+        ? transferDetails.bene_NAME
+        : "--"
+        }},
+        {{ transferDetails.bene_ACC_NO ? transferDetails.bene_ACC_NO : "--" }}
+      </div>
+      <div class="refNO">
+        {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+        {{ transferDetails.ref_NO }}
+      </div>
+      <div class="title">
+        <div translate>
+          LBL_AMOUNT
+          <span>{{
+            transferDetails.debit_AMOUNT
+            | currencyFormat: transferDetails.payment_CURRENCY
+            }}
+            {{ transferDetails.payment_CURRENCY }}</span>
+          on
+          {{ transferDetails.value_DATE }}
+        </div>
+        <button class="status-green-button" translate [class.status-red-button]="
+            transferDetails.status === 'RN' ||
+            transferDetails.status === 'RS' ||
+            transferDetails.status === 'RE' ||
+            transferDetails.status === 'RO' ||
+            transferDetails.status === 'RH'
+          ">
+          {{ transferDetails.status_DISPVAL }}
+        </button>
+      </div>
+    </div>
+  </section> 
+  <!-- <section class="summaryOuterConainer">
+    <div class="m_LR">
+      <app-authorization
+        [authListDataSource]="authOptions"
+        [authError]="errorCode"
+        (authEmit)="getAuthorizationData($event)"
+      ></app-authorization>
+    </div>
+  </section> -->
+  <!-- <section class="summaryOuterConainer">
+    <div class="summaryConainer authContainer">
+      <app-authentication
+        (onTwoAuthClick)="onSecondFactorValue($event)"
+        (getOtpClick)="getOtpValue($event)"
+        [otpError]="invalidOtpError"
+      ></app-authentication>
+    </div>
+  </section> -->
+  <section class="summaryOuterConainer"
+    *ngIf="transferDetails && transferDetails.function_ID_DISPVAL==='International Fund Transfer'">
+    <div class="summaryConainer mainContainer timerContainer">
+      <div class="subTitles" translate="">LBL_AMOUNT_DETAILS</div>
+      <div class="mtop_17 mbot_4 innerContainer">
+        <div class="flexWidth">
+          <div translate class="geneStaTitles">LBL_TRANSFER_AMOUNT</div>
+          <div class="mtop_10 ">
+            <span class="dataContent" *ngIf="transferDetails && transferDetails.debit_AMOUNT">{{
+              transferDetails.debit_AMOUNT
+              | currencyFormat: transferDetails.debit_CURRENCY}} {{transferDetails.debit_CURRENCY}}</span>
+            <span class="dataContent" *ngIf="transferDetails && !transferDetails.debit_AMOUNT">--</span>
+          </div>
+        </div>
+
+        <div class="flexWidth">
+          <div translate class="geneStaTitles">LBL_FEE</div>
+          <div class="mtop_10 dataContent ">
+            <span class="dataContent" *ngIf="exchangeRateObj && exchangeRateObj.fee">{{exchangeRateObj.fee}}</span>
+            <span class="dataContent" *ngIf="exchangeRateObj && !exchangeRateObj.fee">0.0 SAR</span>
+          </div>
+        </div>
+
+        <div class="flexWidth">
+          <div translate class="geneStaTitles">LBL_VAT</div>
+          <div class="mtop_10 dataContent">
+            <span class="dataContent" *ngIf="exchangeRateObj && exchangeRateObj.vat">{{exchangeRateObj.vat}}</span>
+            <span class="dataContent" *ngIf="exchangeRateObj && !exchangeRateObj.vat">0.0 SAR</span>
+          </div>
+        </div>
+      </div>
+      <div class="mbot_4 conversionMsgBox">
+        <div>
+          <div translate class="geneStaTitles">LBL_CURRENCY_CONVERSION_RATE</div>
+          <div class="mtop_10">
+            <span class="dataContent"
+              *ngIf="exchangeRateObj && exchangeRateObj.conversionMessage">{{exchangeRateObj.conversionMessage}}</span>
+            <span class="dataContent" *ngIf="exchangeRateObj && !exchangeRateObj.conversionMessage">--</span>
+          </div>
+
+        </div>
+        <div class="counter">
+          <div *ngIf="!dispReset">{{dispTime}} {{'LBL_MINUTES' | translate}}</div>
+          <div *ngIf="dispReset"> <app-primary-button buttonValue="LBL_REFRESH_RATE" (onPrimarybtnemitClick) ="restTimmer($event)"> </app-primary-button></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="afterproceed"> 
+    <app-authorization *ngIf="showAuthorization" (authEmit)="autherizationDetailsReceived($event)" [authListDataSource]="authListArray" [authError]="authError"></app-authorization>
+    <!-- <app-authentication (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError"></app-authentication> -->
+    <!-- <app-authentication *ngIf="showAuthentication" (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError" (authenticationType)="getAuthType($event)"></app-authentication> -->
+  </div>
+
+  <div class="footerText">
+    {{'LBL_TERMS' | translate}} 
+    <a href="{{ url }}" target="_blank"><span class="termsContainer" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>
+  </div>
+  <section>
+    <div class="btnContainer">
+      <!--<button class="button-secondary" routerLink="/mytask/payment/single-payments" translate>
+        LBL_CANCEL
+      </button>
+      <button class="button-primary" (click)="onClickSubmit()" [disabled]="disablBtn"
+        [ngClass]="disablBtn?'btnDisable':''" translate>
+        LBL_SUBMIT
+      </button> -->
+      <app-tertiary-button buttonValue="LBL_CANCEL" (click)="back()"></app-tertiary-button>
+      <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+
+    </div>
+  </section>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)" [rejectMsg]="rejectMsg">  
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

@@ -1,0 +1,51 @@
+<div class="mainContainer">
+    <div translate class="title"> LBL_ACCOUNT_INQ</div>
+    <div class="subContainer" id="accountsPrintSection">
+        <div class="row" id="logoPrint">
+            <div><img class="logo" src="{{logo}}"> </div>
+            <!-- <div><span class="logotext" translate>LBL_ECORP</span></div> -->
+            <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+        </div>
+            <div class="titleIcons">
+                <div class="gridline01">
+                    <div class="accountIcon"></div><div translate>LBL_ACCOUNT</div> 
+                </div>
+                <div class="gridline02">
+                    <div class="summarytools" *ngIf="enablePropertty"><app-summary-tools [printSection]="printSection" [isshowndownloadablePrint]="isShownDocPrint"  [moduleId]=rootScopeData.accountsActiveModule [isshownPrint]="shownPrint"></app-summary-tools></div>           
+                </div>   
+            </div>
+            
+            <div class="actionConatinere">
+                
+            </div>
+        <div class="mtop_10 subTitleConatiner">
+            <ul class="titleList">
+                <li *ngIf="rootScopeData.userEntitlements.tabs.CASA_INQ" routerLink="./casa" class="animate" [ngClass]="this.rootScopeData.activeTabName==='casa' ? 'listActive':'listInactive'"><a translate>LBL_CASA <span *ngIf="rootScopeData.accountsSummaryCount && rootScopeData.accountsSummaryCount > 0" class="actionHide">({{rootScopeData.accountsSummaryCount}})</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.LOAN_INQ" routerLink="./loans" class="animate" [ngClass]="this.rootScopeData.activeTabName==='loans' ? 'listActive':'listInactive'"><a translate>LBL_LOANS <span *ngIf="rootScopeData.loanSummaryCount && rootScopeData.loanSummaryCount > 0" class="actionHide">({{rootScopeData.loanSummaryCount}})</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.DEPOSIT_INQ" routerLink="./deposits"  class="animate" [ngClass]="this.rootScopeData.activeTabName==='deposits' ? 'listActive':'listInactive'"><a translate>LBL_DEPOSITS <span *ngIf="rootScopeData.depositeSummaryCount && rootScopeData.depositeSummaryCount > 0" class=" hide">({{rootScopeData.depositeSummaryCount}})</span></a></li>
+                <li *ngIf="rootScopeData.userEntitlements.tabs.accounts_external" routerLink="./external-account" class="animate" [ngClass]="this.rootScopeData.activeTabName==='externalaccount' ? 'listActive':'listInactive'"><a translate>LBL_EXTERNAL_ACCOUNT <span *ngIf="rootScopeData.externalaccSummaryCount && rootScopeData.externalaccSummaryCount > 0" class=" hide">({{rootScopeData.externalaccSummaryCount}})</span></a></li>
+            </ul>
+            <!-- <hr class="separator"> -->
+        </div>
+        <div class="mTop_18">
+            <div class="actionsConatiner">
+                <div class="leftPannel">
+                    <!-- <div *ngIf="enablePropertty">
+                        <app-selection [moreActionList]="contextMenuList" (onMenuClick)="triggerDropdownFilter($event)" ></app-selection>
+                    </div> -->
+                    <!-- <div class="searchCntnrLeft" *ngIf="enablePropertty">
+                        <app-search [showAdvanceSearch]="false" (childEvent)="triggerSearchFilter($event)"></app-search>
+                    </div> -->
+                </div>
+                <!-- <div>
+                    <div>
+                        <app-refresh (onRefresh)="refreshSummary()"></app-refresh>
+                    </div>
+                </div> -->
+            </div>
+            <div>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,188 @@
+.mainContainer {
+  padding: 0px 25px 0px 20px;
+  margin-top: 20px;
+}
+.subContainer {
+  border-radius: 6px;
+  background-color: var(--primary-widget-bg-color);
+  padding: 19px 20px 31px 22px;
+  border: 1px solid var(--widget-border-color);
+
+  margin-bottom: 20px;
+}
+.searchCntnr {
+  margin-top: 19px;
+  display: flex;
+  justify-content: space-between;
+}
+.subText {
+  font-size: 14px;
+}
+.oneTimePayment{
+  margin-top: 30px;
+}
+.oneTimeForm {
+  display: inline-block;
+}
+.selectInput {
+  min-width: 85%;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  cursor: auto;
+  background-color: var(--primary-widget-bg-color);
+}
+.row {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 40px;
+}
+.column {
+  margin-bottom: 20px;
+}
+input:focus {
+  outline: none;
+}
+.actionGroup {
+  display: flex;
+  align-self: flex-end;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+.tableInfo {
+  margin-top: 21px;
+  margin-left: 0px;
+}
+.casaTable {
+  background-color: var(--primary-widget-bg-color);
+  .action{
+    .downArrow{display: none;}
+  }
+  tr:first-child{
+    .action{
+      .downArrow{display: block;}
+    }
+  }
+}
+.totalFonts{
+  font-size: 14px;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  color: var(--tableData-header-color);
+  margin-top: 16px;
+  // padding-left: 5px;
+}
+table {
+  border-collapse: collapse;
+  width: 98%;
+  margin: 10px;
+}
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid rgb(230, 228, 228);
+}
+.readOnlyInput {
+  border: none;
+  background-color: transparent;
+}
+.writeOnlyInput {
+  width: 125px;
+  height: 40px;
+  padding-left:10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+  background-color: var(--summary-row-bg-color);
+  background-size: cover;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+  text-decoration: none solid rgb(66, 85, 99);
+}
+
+.bottomGroup {
+  margin-top: 43px;
+}
+.hide {
+  display: none;
+}
+
+.downArrow{
+  background: url(../../../../assets/images/iconDownGreen.svg) no-repeat center ;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  cursor: pointer;
+  transition: 1s transform;
+}
+.arrowRotate{
+  transform: rotate(180deg);
+  margin-top: 12px;
+}
+.title{
+  margin-left: 0px!important;
+}
+.subTitles{
+  padding-right: 20px !important;
+}
+.mat-option.mat-active {
+  color: var(--default-text-color);
+}
+.txtAlignCntr{text-align: center;}
+.chequesTitles{
+  text-overflow: ellipsis;
+}
+.casaTable{
+  width: 100%;
+  table-layout: fixed;
+  .mat-cell{line-height:40px;}
+  .mat-column-checkbox {width: 2%;padding-left: 1px !important;}
+  .mat-column-nickName {width: 9.47%;}
+  .mat-column-name {width: 12.1%;} 
+  .mat-column-subcriberId {width: 10%;}
+  .mat-column-paymentType {width: 7%;}
+  .mat-column-dueDate {width: 8%;}
+  .mat-column-billStatus {width: 7%;} 
+  .mat-column-mininmumAmt {width: 9%;} 
+  .mat-column-maximumAmt {width: 11%;} 
+  .mat-column-dueAmt {width: 13%;} 
+}
+
+::ng-deep .mat-tooltip {
+  width: 186px;
+  min-height: 20px;
+  padding: 5px;
+  background-color: #d18686;
+  background-size: cover;
+  font-family: 'HelveticaNeue', Arial, sans-serif;
+  font-size: 12px;
+  color: #ffffff;
+  line-height: 16px;
+  z-index: 1;
+  position: absolute;
+  top: 5px;
+  left: -4px;
+  border-radius: 4px;
+}
+
+::ng-deep .mat-tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  right: 50%;
+  transform: rotate(180deg);
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #d18686 transparent transparent transparent;
+}
+
+::ng-deep .mat-tooltip {
+  display: inline;
+  position: relative;
+
+}

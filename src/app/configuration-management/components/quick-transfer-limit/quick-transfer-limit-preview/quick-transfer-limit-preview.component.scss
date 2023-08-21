@@ -1,0 +1,122 @@
+.footerText {
+    margin-top: 30px;
+    display: inline-block;
+    font-family: "HelveticaNeue",arial,sans-serif;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    .termsContainer{
+      color: var(--secondary-btn-print-border-color);
+    }
+    a{
+        text-decoration: none;
+    }
+  }
+  .subContainer {
+    border-radius: 6px;
+    // background-color: #ffffff;
+    padding: 19px 40px 31px 22px ;
+    // border: 1px solid #e8e8e8;
+    margin-top: 10px;
+    border: 1px solid var(--widget-border-color);
+    background-color: var(--primary-widget-bg-color);
+    color: var(--tableData-header-color);
+}
+
+.fieldSets {
+    // width: 75%;
+    margin-left: 2px;
+    margin-top: 25px;
+    display: flex;
+    // justify-content: space-between;
+}
+
+.transferAmounrt {
+    flex-basis: 400px;
+}
+
+.geneStaTitles {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+}
+
+input[type=text],
+.selectInput {
+    margin-top: 5px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input::placeholder {
+    font-family: "HelveticaNeue",arial,sans-serif;
+    font-size: 14px;
+    color: var(--table-header-color);
+}
+
+.amtContainer,
+.currencyContainer {
+    display: inline;
+    float: left;
+    padding: 15px 0;
+}
+
+.currencyContainer {
+    margin-left: 15px;
+    width: 70px;
+}
+
+.plainText {
+    margin-top: 10px;
+    font-family: "HelveticaNeue", arial, sans-serif;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+}
+
+.row {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+}
+
+.column {
+    margin-bottom: 20px;
+}
+
+.mLeft_45 {
+    margin-left: 30px;
+
+}
+.title {
+    width: 215px;
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    // color: #5d5d5d;
+    color: var(--tableData-header-color);
+    margin: 0px;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+.actionGroup {
+    float: right;
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-top: 30px;
+    margin-right: 18px;
+}
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 25px 0px 0px;
+}
+
+.fieldSetsContent {
+    width: 300px;
+    margin-right: 40px;
+}

@@ -1,0 +1,70 @@
+
+.paymentStatus{font-size: 16px;color: var( --primary-fontColor);font-family: 'HelveticaNeueMed',arial, sans-serif ;}
+.headerPanelWidth{width: 50%;}
+div.header-panel{margin: 20px 15px 0px 20px !important; display: flex;}
+.header-panel-left{float: left;}
+.header-panel-right{float: right;}
+
+.Container {
+    border-radius: 10px;
+    padding: 0 18px;
+  }
+  span {
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 16px;
+  }
+
+  .rowInnerCnt {
+    padding-left: 3px;
+    padding-top: 14px;
+    .fieldCntr {
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e8e8e8;
+      
+      .labelCntr {
+        font-family: "HelveticaNeueMed", arial, sans-serif;
+        color: var(--table-header-color);
+        font-size: 14px;
+        padding-top: 10px;
+      }
+      .informationCntr {
+        padding-top: 10px;
+        color: var(--input-text-color);
+        font-size: 14px;
+        &.data {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .subContainer {
+    border-radius: 10px;
+    padding: 0 0 15px 18px;
+  }
+  .rowInnerCntr {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 3px;
+    padding-top: 14px;
+    .field {
+      width: 33.33%;
+      padding-bottom: 20px;
+      .label {
+        font-family: "HelveticaNeueMed", arial, sans-serif;
+        color: var(--table-header-color);
+        font-size: 14px;
+        padding-top: 10px;
+      }
+      .information {
+        padding-top: 10px;
+        color: var(--input-text-color);
+        font-size: 14px;
+        &.data {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+

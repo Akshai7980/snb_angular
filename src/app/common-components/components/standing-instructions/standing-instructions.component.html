@@ -1,0 +1,145 @@
+<div class="mtop_20" *ngIf="showStandingInstructionsForm">
+  <div translate class="subTitles">LBL_STND_INSTRUCTIONS</div>
+  <div class="mtop_17 mbot_4 innerContainer">
+    <!-- frequency -->
+    <div class="pbot_20">
+      <div translate class="geneStaTitles">
+        LBL_FREQUENCY<span class="required">*</span>
+      </div>
+      <div class="mtop_10">
+        <mat-select class="selectInput" panelClass="dropDownOption" [(ngModel)]="standingInstructionsObject.frequency"
+          (selectionChange)="frequencyChanged()" disableOptionCentering [disabled]="disabledAmend"
+          placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}">
+          <mat-option *ngFor="let frequency of frequencies" value="{{ frequency }}">
+            {{ frequency }}
+          </mat-option>
+        </mat-select>
+        <div *ngIf="standingInstructionsObject.frequencyError">
+          <small translate class="required">{{
+            standingInstructionsObject.frequencyError
+            }}</small>
+        </div>
+      </div>
+    </div>
+    <!-- payment Start -->
+    <div class="pbot_20">
+      <div translate class="geneStaTitles">
+        LBL_PAYMENT_START_DATE<span class="required">*</span>
+      </div>
+      <div class="mtop_10">
+        <div class="container" (click)="startDatepicker.open()">
+          <input matInput class="datePickerInput" [matDatepicker]="startDatepicker"
+            [(ngModel)]="standingInstructionsObject.paymentStartDate" (dateChange)="setStartDate()"
+            [min]="minStartDate"  [disabled]="!startDateDisable"/>
+          <div class="datePicker">
+            <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #startDatepicker></mat-datepicker>
+          </div>
+          <div *ngIf="standingInstructionsObject.paymentStartDateError">
+            <small class="required" translate>{{
+              standingInstructionsObject.paymentStartDateError
+              }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- payment end option -->
+    <div class="pbot_20">
+      <div translate class="geneStaTitles">
+        LBL_PAYMENT_ENDS_ON_WITH<span class="required">*</span>
+      </div>
+      <div class="mtop_10">
+        <mat-select class="selectInput" panelClass="dropDownOption"
+          [(ngModel)]="standingInstructionsObject.paymentEndOnWith" (selectionChange)="setExpiryForm($event)"
+          disableOptionCentering placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}">
+          <mat-option *ngFor="let endOption of paymentEndOptions" value="{{ endOption }}">
+            {{ endOption }}
+          </mat-option>
+        </mat-select>
+      </div>
+    </div>
+    <!-- payment end date -->
+    <div class="pbot_21" *ngIf="standingInstructionsObject.paymentEndOnWith === 'Expiry Date'">
+      <div class="mtop_10">
+        <div class="container" (click)="expiryDatepicker.open()">
+          <input matInput class="datePickerInput" [matDatepicker]="expiryDatepicker"
+            [(ngModel)]="standingInstructionsObject.paymentEndDate" (dateChange)="setExpiryDate()"
+            [min]="minExpiryDate" />
+          <div class="datePicker">
+            <mat-datepicker-toggle matSuffix [for]="expiryDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #expiryDatepicker></mat-datepicker>
+          </div>
+          <div *ngIf="standingInstructionsObject.paymentStartDateError">
+            <small class="required" translate>{{
+              standingInstructionsObject.paymentEndDateError
+              }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pbop_20" *ngIf="
+        standingInstructionsObject.paymentEndOnWith === 'Number of Instances'
+      ">
+      <input type="text" class="selectInput" [(ngModel)]="standingInstructionsObject.numberOfInstances"
+        (blur)="calculateInstancesOrExpiry()" (paste)="(false)" (keypress)="alphabetsValidation($event)"
+        autocomplete="off" autocomplete="off" />
+      <div *ngIf="standingInstructionsObject.paymentStartDateError">
+        <small class="required" translate>{{
+          standingInstructionsObject.numberOfInstancesError
+          }}</small>
+      </div>
+    </div>
+    <div class="pbot_20" *ngIf="(standingInstructionsObject.paymentEndOnWith === 'Expiry Date' &&
+    standingInstructionsObject.paymentEndDate &&
+    isFormValid) || standingInstructionsObject.numberOfInstances
+      ">
+      <div translate class="geneStaTitles">LBL_NO_OF_INSTANCES</div>
+      <div class="mtop_10">
+        <div>{{ standingInstructionsObject.numberOfInstances }}</div>
+      </div>
+    </div>
+    <div class="pbot_20" *ngIf="
+        standingInstructionsObject.paymentEndOnWith === 'Number of Instances' &&
+        standingInstructionsObject.numberOfInstances &&
+        isFormValid
+      ">
+      <div translate class="geneStaTitles">LBL_EXPIRY_DATE</div>
+      <div class="mtop_10">
+        <div>
+          {{ standingInstructionsObject.paymentEndDate | date: "dd/MM/yyyy" }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mtop_20" *ngIf="!showStandingInstructionsForm">
+  <div translate class="subTitles">LBL_STND_INSTRUCTIONS</div>
+  <div class="mtop_17 mbot_4 innerContainer">
+    <div class="flexWidth">
+      <div translate class="geneStaTitles">LBL_FREQUENCY</div>
+      <div class="mtop_10">
+        <div>{{ standingInstructionsObject.frequency }}</div>
+      </div>
+    </div>
+
+    <div class="flexWidth">
+      <div translate class="geneStaTitles">LBL_PAYMENT_PERIOD</div>
+      <div class="mtop_10">
+        <div>
+          {{ standingInstructionsObject.paymentStartDate | date: "dd/MM/yyyy" }}
+          -
+          {{ standingInstructionsObject.paymentEndDate | date: "dd/MM/yyyy" }}
+        </div>
+      </div>
+    </div>
+
+    <div class="flexWidth">
+      <div translate class="geneStaTitles">LBL_NO_OF_INSTANCES</div>
+      <div class="mtop_10">
+        <div>{{ standingInstructionsObject.numberOfInstances }}</div>
+      </div>
+    </div>
+  </div>
+</div>

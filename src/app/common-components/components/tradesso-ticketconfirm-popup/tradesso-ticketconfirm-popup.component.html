@@ -1,0 +1,14 @@
+<ng-template #openPopup>
+    <div class="row" id="diaglog-title" mat-dialog-title translate>LBL_CONFIRM_TICKET</div>
+    <div id="dialogContainer">
+    <div class="selectedClickAlign"><input type="radio" [(ngModel)]="selectedRadioConfirmTicket" value="useExistingTic" id="existingTicket"><label
+            for="existingTicket" translate>LBL_USE_EXISTING_TICKET</label></div>
+    <div><input type="radio" [(ngModel)]="selectedRadioConfirmTicket" value="generateNewTic" id="newTicket"><label
+            for="newTicket" translate>LBL_GENERATE_NEW_TICKET</label></div>
+    <div><span class="required" *ngIf='isConfirmTicketValid' translate>LBL_PLEASE_SELECT_TICKET</span></div>
+</div>
+    <div id="dialog-action" mat-dialog-actions>
+        <button class="button-primary" (click)="ticketConfirmClick()" translate>LBL_OK</button>
+    </div>
+</ng-template>
+<app-ajax-loader-medium [hidden]="isLoadingCompelete"></app-ajax-loader-medium>

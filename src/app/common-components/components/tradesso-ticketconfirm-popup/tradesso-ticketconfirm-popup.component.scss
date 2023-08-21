@@ -1,0 +1,31 @@
+.mat-dialog-actions {
+    float: right !important;
+    padding: 24px 0 !important;
+    min-height: 0;
+}
+
+.mat-dialog-title{
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    font-size: 16px;
+    color: var(--default-text-color);
+}
+
+input{
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0px !important;
+    margin-top: 1px !important;
+}
+
+label{
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    color: var(--default-text-color);
+}
+
+.selectedClickAlign{
+    margin-bottom: 1em;
+}

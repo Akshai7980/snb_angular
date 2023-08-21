@@ -1,0 +1,12 @@
+<app-activate-card-layout *ngIf="!cardDetailsEmit.canProceed" (getProceedEmit)="getProceedEmit($event)">
+</app-activate-card-layout>
+
+<app-activate-card-review *ngIf="cardDetailsEmit.canProceed && !cardReviewEmit.canViewReceipt"
+  (getSubmitEmit)="getSubmitEmit($event)" (getProceedEmit)="getProceedEmit($event)">
+</app-activate-card-review>
+
+<app-receipt *ngIf="cardReviewEmit.canViewReceipt" (onInitAgainClick)="toActivateAnotherCard()"
+  [receiptDetails]="receiptObject" (DownloadReceiptClick)="downloadPdf()" [ChannelId]="ChannelId">
+</app-receipt>
+
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

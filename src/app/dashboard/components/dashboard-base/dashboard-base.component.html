@@ -1,0 +1,62 @@
+<section id="dashboardContainer">
+    <section class="mainSection">
+        <section class="chickletsCntr">
+            <div class="chicklet">
+                <app-portfolio [accountsData]="accountsData" [loansData]="loansData"></app-portfolio>
+            </div>
+            <div class="chicklet" *ngIf="false">
+                <app-credit-limit [langDirection]="this.rootScopeData.userInfo.mLanguage"></app-credit-limit>
+            </div>
+            <div class="chicklet">
+                <app-task [langDirection]="this.rootScopeData.userInfo.mLanguage"></app-task>
+            </div>
+        </section>
+        <section class="summaryOuterConainer">
+            <div id="dashboardAccountsContainer" class="summaryConainer" *ngIf="rootScopeData.userEntitlements.tabs.CASA_INQ">
+                <div class="row" id="logoPrint">
+                    <div><img class="logo" src="{{logo}}"> </div>
+                    <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+                    <!-- <div><span class="logotext" translate>LBL_ECORP</span></div> -->
+                </div>
+                <app-accounts (accountsDataToPortfolio)="accountsDataToPortfolio($event)" [langDirection]="this.rootScopeData.userInfo.mLanguage"></app-accounts>
+            </div>
+            <div id="dashboardLoansContainer" class="summaryConainer" *ngIf="rootScopeData.userEntitlements.tabs.LOAN_INQ">
+                <div class="row" id="logoPrint">
+                    <div><img class="logo" src="{{logo}}"> </div>
+                    <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+                    <!-- <div><span class="logotext" translate>LBL_ECORP</span></div> -->
+                </div>
+                <app-loans (loansDataToPortfolio)="loansDataToPortfolio($event)" [langDirection]="this.rootScopeData.userInfo.mLanguage"></app-loans>
+            </div>
+             <div id="dashboardDepositsContainer" class="summaryConainer" *ngIf="false">
+                <div class="row" id="logoPrint">
+                    <div><img class="logo" src="{{logo}}"> </div>
+                    <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+                    <!-- <div><span class="logotext" translate>LBL_ECORP</span></div> -->
+                </div>
+                 <app-deposit></app-deposit>
+             </div> 
+             <div id="dashboardCardsContainer" class="summaryConainer" *ngIf="false">
+                <div class="row" id="logoPrint">
+                    <div><img class="logo" src="{{logo}}"> </div>
+                    <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+                    <!-- <div><span class="logotext" translate>LBL_ECORP</span></div> -->
+                </div>
+                <app-cards></app-cards>
+            </div>           
+        </section>
+    </section>
+    <section class="rhsSection">
+        <section class="chickletsCntr">
+            <div class="chicklet">
+                <app-market-place [langDirection]="this.rootScopeData.userInfo.mLanguage"></app-market-place>
+            </div>
+            <div class="chicklet announcementsChicklet">
+                <app-announcements [langDirection]="this.rootScopeData.userInfo.mLanguage"></app-announcements>
+            </div>
+            <div class="chicklet promotions">
+                <app-promotions [langDirection]="this.rootScopeData.userInfo.mLanguage"></app-promotions>
+            </div>
+        </section>
+    </section>
+</section>

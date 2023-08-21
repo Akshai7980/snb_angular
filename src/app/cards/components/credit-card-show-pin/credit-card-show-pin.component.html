@@ -1,0 +1,16 @@
+<div class="rejectIcon" (click)="closeModal()" [matTooltip]="'LBL_CLOSE' | translate"></div>
+<div class="container">
+    <div class="subContainer">
+        <div class="subTitles" translate>LBL_CARD_DETAILS</div>
+        <div class="rowInnerCntr">
+            <div class="field">
+                <div class="label" translate>LBL_CARD_PIN</div>
+                <div class="information">
+                    <span *ngFor="let pin of currentPin; let i = index" [attr.data-index]="i" class="pinBorder" [ngClass]="i === 3 ? 'lastIndex' : ''">
+                        {{pin}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="detailsTitleContainer">
+  <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+  <div class="mainTitle" translate>LBL_FUNDED_FACILITY_DETAILS</div>
+</div>
+<section class="summaryOuterConainer">
+  <div class="summaryConainer">
+    <div class="detailsContainer">
+      <div class="titleContainer">
+        <div class="titleContainerLeft">
+          <span>
+            {{ "LBL_FUNDED_FACILITY" | translate }},
+
+            {{
+            detailList
+
+            .facilityId
+            ?detailList
+
+            .facilityId
+            : "--"
+            }}
+          </span>
+        </div>
+      </div>
+      <div class="dataContainer">
+        <span class="header" translate>LBL_MORE_DETAILS</span>
+        <div class="fxContainer mt-top">
+          <div class="column1">
+            <label class="label" translate>LBL_PRODUCT_NAME</label>
+            <div class="dataInfo">
+              {{detailList
+
+              .productName
+              ? detailList
+
+              .productName
+              : "--"
+              }}
+            </div>
+          </div>
+          <div class="column2">
+            <label class="label" translate>LBL_PRODUCT_TYPE</label>
+            <div class="dataInfo">
+              {{
+              detailList
+
+              .productId
+              ? detailList
+
+              .productId
+              : "--"
+              }}
+            </div>
+          </div>
+          <div class="column3">
+            <label class="label" translate>LBL_FACILITY_LIMIT</label>
+            <div class="dataInfo">
+              {{
+              detailList.facilityId ? (detailList.facilityId | currencyFormat:
+              detailList
+              .currency) +" " + detailList
+              .currency: "--"
+              }}
+            </div>
+          </div>
+        </div>
+        <div class="column4">
+          <label class="label" translate>LBL_AVAILABLE_LIMIT</label>
+          <div class="dataInfo">
+            {{detailList
+            .availableLimit? (detailList
+            . availableLimit | currencyFormat: detailList
+            .currency)+" " +detailList
+            .currency: "--"
+            }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="btnContainer">
+    <!-- <button class="button-secondary backButton" routerLink="/eFinance/fundingFacility" translate>
+      LBL_BACK
+    </button> -->
+    <app-tertiary-button buttonValue="LBL_BACK" (click)="onClickBack()"></app-tertiary-button>
+  </div>
+</section>

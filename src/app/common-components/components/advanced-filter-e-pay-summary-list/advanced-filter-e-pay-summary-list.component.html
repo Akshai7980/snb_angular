@@ -1,0 +1,117 @@
+<div
+  class="filter-search-popup"
+  *ngIf="showAdvancedSearchPopup"
+  (click)="stopAdvancedSearchClose($event)"
+>
+  <div translate class="header">LBL_FILTER
+    <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+  </div>
+  <div class="flexCntr">
+    <div class="toggleCntr">
+      <div
+        translate
+        id="leftToggle"
+        class="toggle active"
+        (click)="leftToggleCntl()"
+      >
+        LBL_BY_DATE
+      </div>
+      <div
+        translate
+        id="rightToggle"
+        class="toggle"
+        (click)="rightToggleCntl()"
+      >
+        LBL_BY_PERIOD
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="flexContainer">
+      <div>
+        <div class="searchWithinContainer">
+          <div class="fieldLabel" translate>LBL_REQUEST_TYPE</div>
+
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="selectInput mt-top"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="fileType"
+            [(value)]="requestType"
+          >
+            <mat-option *ngFor="let type of requestTypes" [value]="type">{{
+              type
+            }}</mat-option>
+          </mat-select>
+          <span
+            *ngIf="requestErrorMessage"
+            translate
+            class="errorMsg zeroHeight"
+            >LBL_PLEASE_SELECT_REQUEST_TYPE</span
+          >
+        </div>
+      </div>
+      <div>
+        <div class="fromto" *ngIf="leftToggle">
+          <div class="datefrom">
+            <div translate class="fieldLabel" id="proctm">LBL_DATE_FROM</div>
+            <div class="shortDatePicker mt-top">
+              <app-date-picker
+                [clearFlag]="clearFlag"
+                class="dateErrorMsg"
+                [showDateErrorMessage]="showDateErrorMessage"
+                (dateValue)="getFromDate($event)"
+                [maxDate]="maxDate"
+                [minDate]="minDate"
+              ></app-date-picker>
+            </div>
+          </div>
+          <div class="dateto">
+            <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+            <div class="shortDatePicker mt-top">
+              <app-date-picker
+                class="dateErrorMsg"
+                [clearFlag]="clearFlag"
+                [showDateErrorMessage]="showDateErrorMessage"
+                (dateValue)="getToDate($event)"
+                [maxDate]="maxDate"
+                [minDate]="fromDateValue"
+              ></app-date-picker>
+            </div>
+          </div>
+        </div>
+        <div class="periodContainer" *ngIf="rightToggle">
+          <div class="fieldLabel" translate>LBL_BY_PERIOD</div>
+
+          <mat-select
+            panelClass="dropDownOption"
+            disableOptionCentering
+            class="selectInput mt-top"
+            placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+            name="fileType"
+            [(value)]="periodModel"
+          >
+            <mat-option *ngFor="let type of period" [value]="type">{{
+              type
+            }}</mat-option>
+          </mat-select>
+          <span *ngIf="periodErrorMessage" translate class="errorMsg zeroHeight"
+            >LBL_PLEASE_SELECT_PERIOD</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actionGroup">
+    <app-tertiary-button
+      buttonValue="LBL_CANCEL"
+      (click)="onClickClear()"
+      class="tertiaryBtn"
+    >
+    </app-tertiary-button>
+    <app-primary-button (click)="onClickApply()" buttonValue="LBL_SUBMIT">
+    </app-primary-button>
+  </div>
+</div>

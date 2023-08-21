@@ -1,0 +1,79 @@
+.outerContainer {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.title {
+  width: 215px;
+  height: 30px;
+  padding: 0px 0px 0px 5px;
+  background-size: cover;
+  font-size: 18px;
+  color: var(--tableData-header-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+
+.accountDetails {
+  padding: 15px;
+  margin-top: 15px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+}
+
+.subTitles {
+  margin-bottom: 15px;
+}
+
+.casaTable {
+  width: 100%;
+  background-color: var(--primary-widget-bg-color);
+}
+
+td.mat-cell {
+  color: var(--tableData-header-color);
+  border-bottom-style: none;
+  padding: 8px;
+}
+
+th.mat-header-cell {
+  border-bottom-style: none;
+  // width: 200px;
+  height: 40px;
+  padding: 10px 47px 0px 5px;
+  background-size: cover;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+  color: var(--table-header-color);
+  text-decoration: none solid rgb(162, 162, 162);
+}
+
+tr.mat-row {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: var(--summary-row-bg-color);
+}
+
+th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type {
+  padding-left: 0px !important;
+  border-top-left-radius: 10px 10px;
+  border-bottom-left-radius: 10px 10px;
+}
+
+td.mat-cell:last-of-type {
+  border-top-right-radius: 10px 10px;
+  border-bottom-right-radius: 10px 10px;
+}
+
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type,
+th.mat-header-cell:first-of-type {
+  padding-left: 18px;
+}

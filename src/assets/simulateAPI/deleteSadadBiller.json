@@ -1,0 +1,9 @@
+{
+    "data": {
+        "Status": "Nick Name deleted successfully",
+        "data": "SUCCESS"
+    },
+    "headerValue": {
+        "moduleId": "DELETENICKNAME"
+    }
+}

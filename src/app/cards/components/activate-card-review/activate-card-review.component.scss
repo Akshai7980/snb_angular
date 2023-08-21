@@ -1,0 +1,46 @@
+.mainContainer {
+    padding: 0px 30px 30px 30px;
+
+    .footerContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .footerText {
+            margin: 40px 0px 0px 33px;
+            display: inline-block;
+            font-family: "HelveticaNeue", arial, sans-serif;
+            font-size: 14px;
+            color: var(--tableData-header-color);
+
+            .termsContainer {
+                color: var(--secondary-btn-print-border-color);
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .btnGroup {
+        float: right;
+        display: flex;
+        margin-right: 20px;
+    }
+
+    .mtop_20 {
+        margin-top: 20px;
+    }
+}
+
+.subContainer {
+    border-radius: 6px;
+    background-color: var(--primary-widget-bg-color);
+    padding: 20px 15px 20px 20px;
+    border: 1px solid var(--widget-border-color);
+}
+
+.callBackDiv {
+    margin-top: 20px;
+}

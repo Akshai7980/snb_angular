@@ -1,0 +1,26 @@
+{
+  "headerValue": {
+    "moduleId": "MYBENEUPSUMY",
+    "simulate": null
+  },
+  "data": [
+    {
+      "beneReferenceNo": "TBC2012111105561",
+      "beneUploadType": "Beneficiary Upload",
+      "beneFileName": "GeneratedEXCEL_TMP111859201917002820_19MAY2020_17381314.txt",
+      "beneFileStatus": "Ready for Authorization",
+      "beneFileUploadDate": "30/08/2022",
+      "beneNoOfTxn": null,
+      "NoSuccessOfTxn": "0",
+      "noFailedTxn": null,
+      "uploadedBy": "JAISONSMITH",
+      "templateId": "BASKETPAY",
+      "templateName": "Basket Payment - UNITED ARAB EMIRATES",
+      "productCode": "PAYMNT",
+      "subProductCode": "BENEUP",
+      "functionCode": "BULKUP",
+      "valueDate": "",
+      "versionNo": "3"
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+.filter-search-popup {
+    width: 660px;
+    padding: 20px 20px 20px 20px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 5px;
+    background-color: var(--advance-filter-bg-color);
+    color: var(--tableData-header-color);
+    text-decoration: none;
+    line-height: 18px;
+    position: absolute;
+    left: -320px;
+    top: 46px;
+    z-index: 1;
+  }
+  .header {
+    font-family: "HelveticaNeueMed", Arial, sans-serif;
+    margin-bottom: -24px;
+    font-size: 14px;
+  }
+  
+  .cardContainer {
+    padding-top: 15px;
+    color: var(--tableData-header-color);
+  
+    &.data {
+      padding-top: 20px;
+    }
+  }
+  
+  .container {
+    color: var(--tableData-header-color);
+  
+    &.data {
+      padding-top: 20px;
+    }
+  }
+  .fieldLabel {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", Arial, sans-serif;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .selectInput {
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--input-text-color);
+    cursor: pointer;
+  }
+  .flexContainer {
+    display: flex;
+    justify-content: space-around;
+  }
+  .mt-top {
+    margin-top: 10px;
+  }
+  .actionGroup {
+    float: right;
+    margin-top: 20px;
+  }
+  .zeroHeight {
+    height: 0px;
+  }
+  .searchWithinContainer {
+    color: var(--tableData-header-color);
+    margin-left: 30px;
+    margin-top: 20px;
+    &.data {
+      padding-top: 20px;
+    }
+  }
+  
+  .beneFiciaryName {
+    width: 300px !important;
+    height: 40px;
+    margin-top: 10px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 4px;
+    color: var(--tableData-header-color);
+    background-color: var(--primary-widget-bg-color);
+  }
+  
+  .amountDetails {
+    width: 123px !important;
+    height: 40px;
+    padding: 0px 8px;
+    margin-top: 10px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 4px;
+    color: var(--tableData-header-color);
+    background-color: var(--primary-widget-bg-color);
+  }
+  
+  .toDetails {
+    width: 123px !important;
+    height: 40px;
+    padding: 0px 8px;
+    margin-top: 10px;
+    margin-left: 30px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 4px;
+    color: var(--tableData-header-color);
+    background-color: var(--primary-widget-bg-color);
+  }
+  
+  .toTitle {
+    margin-left: 6px;
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", Arial, sans-serif;
+    margin-top: 10px;
+    margin-left: 30px;
+    font-size: 14px;
+  }
+
+
+//   .fromto {
+//     display: flex;
+// }
+
+// .toggleCntr {
+//     display: flex;
+//     margin-top: 51px;
+//     font-size: 14px;
+
+//     .toggle {
+//         text-align: center;
+//         height: 30px;
+//         width: 102px;
+//         font-family: 'HelveticaNeueMed', Arial, sans-serif;
+//         padding: 10px 0 1px;
+//         border: 1px solid var(--widget-border-color);
+//         background-color: var(--primary-widget-bg-color);
+//         transition: background-color .9s;
+
+//         &:hover {
+//             background-color: var(--widget-border-color);
+//         }
+
+//         &.active {
+//             background-color: var(--secondary-btn-border-color);
+//             color: #fff;
+//         }
+
+//         &#leftToggle {
+//             border-radius: 100px 0 0 100px;
+//             border-right: 0 none;
+//         }
+
+//         &#rightToggle {
+//             border-radius: 0 100px 100px 0;
+//             border-left: 0 none;
+//         }
+//     }
+// }
+
+// .dateto {
+//     margin-left: 17px;
+//     margin-top: 53px;
+// }
+
+.flexCntr {
+  display: flex;
+}
+.flex-1{
+  flex: 1;
+}
+
+// .fieldLabel {
+//   color: #a2a2a2;
+//   font-family: 'HelveticaNeueMed', Arial, sans-serif;
+//   margin-top: 10px;
+//   font-size: 14px;
+// }
+
+// .mt-top {
+//   margin-top: 10px
+// }
+.close-icon {
+  float: right;
+  cursor: pointer;
+}
+  

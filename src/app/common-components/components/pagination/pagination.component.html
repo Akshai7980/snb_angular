@@ -1,0 +1,9 @@
+<div class="paginationCntr">
+    <!-- <div class="paginationLeft">Displaying {{displayNumberStart}} - {{displayNumberEnd}} of {{totalRecords}} {{currentRecord}}
+    </div> -->
+    <div class="paginationRight">
+        <div class="paginatorLabel" *ngIf="!pagesizeFlag">{{'LBL_ITEMS_PER_PAGE' | translate}}</div>
+        <mat-paginator #paginator [length]="dataSourceLength" [pageSizeOptions]="tablePageSize" [hidePageSize]= "pagesizeFlag"
+            (page)="pageEvents($event)"></mat-paginator>
+    </div>
+</div>

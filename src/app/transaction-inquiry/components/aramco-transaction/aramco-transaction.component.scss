@@ -1,0 +1,76 @@
+.mTop_18{
+    margin-top: 18px;
+}
+.actionsConatiner {
+    display: flex;
+    justify-content: space-between;
+    .leftPannel {
+        display: flex;
+        min-width: 40%;
+        justify-content: space-between;
+    }
+}
+.searchCntnrLeft {
+    float: left;
+    // margin-left: 15px;
+}
+.casaTable {
+    width: 100%;
+    background-color: var(--primary-widget-bg-color);
+}
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+    border: none !important;
+}
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+    padding-left: 5px;
+}
+.actionIcon {
+    background: url(/assets/images/icoaction.svg) no-repeat center;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.mat-sort-header-arrow {
+    transform: none;
+    opacity: 0;
+}
+
+.casaTable {
+    width: 100%;
+    table-layout: fixed;
+    background-color: var(--primary-widget-bg-color);
+  
+    .mat-column-refNumber{
+        width: 15.00% !important;
+    }
+    .mat-column-debitAccNo {
+        width: 12.40% !important;
+    }
+    .mat-column-remitterID {
+        width: 11% !important;
+    } 
+    .mat-column-odMakerID {
+        width: 10% !important;
+    } 
+    .mat-column-invoiceAmount {
+        width: 13% !important;
+        .wrap {
+            display: flex;
+    overflow-wrap: anywhere;
+    padding-right: 14px;
+        }
+    }
+    .mat-column-txnType {
+        width: 15% !important;
+    }
+    .mat-column-status  {
+        width: 13.66% !important;
+        padding-right: 5px;
+    }   
+    .mat-column-action {
+        width: 2% !important;
+    }
+}

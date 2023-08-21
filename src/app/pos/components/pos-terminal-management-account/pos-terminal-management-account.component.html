@@ -1,0 +1,311 @@
+<!-- //////////////////////////////////////////////////////////////////////////////////////////SELECT ACCOUNT START//////////////////////////////////////////////////////////////////// -->
+<div *ngIf="showAccSelect" class="outerContainer">
+  <div class="title" translate>LBL_TERMINAL_MANAGEMENT</div>
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_ACCOUNT</div>
+    <app-search (childEvent)="triggerSearchFilter($event)"></app-search>
+    <div>
+      <table mat-table [dataSource]="dataSourceToPass">
+        <!-- OD_ACC_NO Column -->
+        <ng-container matColumnDef="OD_ACC_NO">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_ACC_NUMBER</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.OD_ACC_NO ? element.OD_ACC_NO : "--" }}
+          </td>
+        </ng-container>
+
+        <!-- ALIAS_NAME Column -->
+        <ng-container matColumnDef="ALIAS_NAME">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_NICKNAME</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.ALIAS_NAME ? element.ALIAS_NAME : "--" }}
+          </td>
+        </ng-container>
+
+        <!-- OD_ACC_NAME Column -->
+        <ng-container matColumnDef="OD_ACC_NAME">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_FULL_NAME</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.OD_ACC_NAME ? element.OD_ACC_NAME : "--" }}
+          </td>
+        </ng-container>
+
+        <!-- STATUS Column -->
+        <ng-container matColumnDef="STATUS">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_STATUS</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.STATUS ? element.STATUS : "--" }}
+          </td>
+        </ng-container>
+        <!-- CURR_AVAIL_BAL_AMT Column -->
+        <ng-container matColumnDef="CURR_AVAIL_BAL_AMT">
+          <th mat-header-cell *matHeaderCellDef translate>LBL_BALANCE</th>
+          <td mat-cell *matCellDef="let element" class="balanceData">
+            {{
+              element?.CURR_AVAIL_BAL_AMT && element?.OD_CCY_CODE
+                ? (element?.CURR_AVAIL_BAL_AMT
+                    | currencyFormat : element.OD_CCY_CODE) +
+                  " " +
+                  element.OD_CCY_CODE
+                : "--"
+            }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          (click)="logSelection($event)"
+          (click)="selection.toggle(row)"
+        ></tr>
+      </table>
+    </div>
+    <!-- <div *ngIf="norecordflag">
+            <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+          </div> -->
+  </div>
+</div>
+<!-- //////////////////////////////////////////////////////////////////////////////////////////SELECT ACCOUNT End//////////////////////////////////////////////////////////////////// -->
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////View Account Start//////////////////////////////////////////////////////////////////// -->
+
+<div *ngIf="showViewAcc" class="outerContainer">
+  <div class="title" translate>LBL_TERMINAL_MANAGEMENT</div>
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_ACCOUNT</div>
+    <table>
+      <tr class="tableHeader">
+        <th translate>LBL_ACC_NUMBER</th>
+        <th translate>LBL_NICK_NAME</th>
+        <th translate>LBL_FULL_NAME</th>
+        <th translate>LBL_STATUS</th>
+        <th translate>LBL_BALANCE</th>
+      </tr>
+      <ng-container *ngFor="let data of selection.selected">
+        <tr class="tableRowConatiner">
+          <td>{{ data.OD_ACC_NO ? data.OD_ACC_NO : "--" }}</td>
+          <td>{{ data.ALIAS_NAME ? data.ALIAS_NAME : "--" }}</td>
+          <td>{{ data.OD_ACC_NAME ? data.OD_ACC_NAME : "--" }}</td>
+          <td>{{ data.STATUS ? data.STATUS : "--" }}</td>
+          <td>
+            {{
+              data?.CURR_AVAIL_BAL_AMT && data?.OD_CCY_CODE
+                ? (data?.CURR_AVAIL_BAL_AMT
+                    | currencyFormat : data.OD_CCY_CODE) +
+                  " " +
+                  data.OD_CCY_CODE
+                : "--"
+            }}
+          </td>
+          <div class="downArrowAcc" (click)="backToAcc($event)"></div>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+</div>
+<!-- <app-debit-lookup [debitAccDetails]="debitDataObj"></app-debit-lookup> -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////View Account End//////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////SELECT merchant start//////////////////////////////////////////////////////////////////// -->
+
+<div *ngIf="rootScopeData.showMerchantSelect" class="outerContainer">
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_SELECT_MERCHANT</div>
+    <div class="flexMerchant">
+      <app-search (childEvent)="triggerSearchFilter2($event)"></app-search>
+      <!-- <button class="button-print-secondary" translate (click)="addNew($event)">
+        LBL_ADD_NEW
+      </button> -->
+      <app-secondary-button
+        buttonValue="LBL_ADD_NEW"
+        (click)="addNew($event)"
+      ></app-secondary-button>
+    </div>
+
+    <table mat-table [dataSource]="dataSourceToPass2" *ngIf="!norecordflag">
+      <!-- merchantNameInEnglish Column -->
+      <ng-container matColumnDef="merchantNameInEnglish">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_MERCHANT_NAME</th>
+        <td mat-cell *matCellDef="let element">{{ element.merchantNameInEnglish }}</td>
+      </ng-container>
+
+      <!-- merchantNameInArabic Column -->
+      <ng-container matColumnDef="merchantNameInArabic">
+        <th mat-header-cell *matHeaderCellDef translate>
+          LBL_MERCHANT_NAME_ARABIC
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.merchantNameInArabic }}
+        </td>
+      </ng-container>
+
+      <!-- merchantNumber Column -->
+      <ng-container matColumnDef="merchantNumber">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_MERCHANT_NUMBER</th>
+        <td mat-cell *matCellDef="let element">{{ element.merchantNumber }}</td>
+      </ng-container>
+
+      <!-- shopEnglishName Column -->
+      <ng-container matColumnDef="shopEnglishName">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_SHOP_NAME</th>
+        <td mat-cell *matCellDef="let element">{{ element.shopEnglishName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef translate></th>
+        <td mat-cell *matCellDef="let element" class="balanceData actionHide">
+          <div>
+            <app-more-action
+              [moreActionList]="moreActionListInActive"
+              [hideViewDetails]="true"
+              (click)="selectedRecord($event, element)"
+            ></app-more-action>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns2"
+        (click)="logSelectionMerchant($event)"
+        (click)="selection2.toggle(row)"
+      ></tr>
+    </table>
+    <div *ngIf="norecordflag">
+      <app-no-record-found
+        [noRecordFoundInfo]="noRecordFoundInfoObj"
+      ></app-no-record-found>
+    </div>
+  </div>
+  <div class="actionGroup" *ngIf="showViewAcc">
+    <app-tertiary-button
+      buttonValue="LBL_CANCEL"
+      (click)="backToAcc($event)"
+      class="tertiaryBtn"
+    >
+    </app-tertiary-button>
+  </div>
+</div>
+<!-- //////////////////////////////////////////////////////////////////////////////////////////SELECT Merchant End//////////////////////////////////////////////////////////////////// -->
+<app-terminal-management-add-new-merchant
+  *ngIf="rootScopeData.showAddNewMerchantContainer"
+  (addMerchnat)="getMerchnatDataEmit($event)"
+></app-terminal-management-add-new-merchant>
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////View Merchant Start//////////////////////////////////////////////////////////////////// -->
+<div *ngIf="rootScopeData.showViewMerchant" class="outerContainer">
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_SELECT_MERCHANT</div>
+    <table>
+      <tr class="tableHeader">
+        <th translate>LBL_MERCHANT_NAME</th>
+        <th translate>LBL_MERCHANT_NAME_ARABIC</th>
+        <th translate>LBL_MERCHANT_NUMBER</th>
+
+        <th translate>LBL_SHOP_NAME</th>
+      </tr>
+
+      <ng-container *ngFor="let data of selection2.selected">
+        <tr class="tableRowConatiner">
+          <td>{{ data.merchantNameInEnglish }}</td>
+          <td>{{ data.merchantNameInArabic }}</td>
+          <td>{{ data.merchantNumber }}</td>
+
+          <td>{{ data.shopEnglishName }}</td>
+          <div class="downArrowAcc" (click)="backToAcc($event)"></div>
+        </tr>
+      </ng-container>
+
+      <ng-container *ngIf="merchnatDataSelected">
+        <ng-container *ngFor="let data of merchnatData">
+          <tr class="tableRowConatiner">
+            <td>{{ data.commercialNameInEng }}</td>
+            <td>{{ data.commercialNameInArabic }}</td>
+            <td>{{ data.phone }}</td>
+
+            <td>{{ data.shopNameEng }}</td>
+            <div class="downArrowAcc" (click)="backToAcc($event)"></div>
+          </tr>
+        </ng-container>
+      </ng-container>
+    </table>
+  </div>
+</div>
+<!-- //////////////////////////////////////////////////////////////////////////////////////////View Merchant End//////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////Select Terminal start//////////////////////////////////////////////////////////////////// -->
+<div *ngIf="showTerminalSelect" class="outerContainer">
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_SELECT_TERMINAL</div>
+    <div class="flexMerchant">
+      <app-search (childEvent)="triggerSearchFilter3($event)"></app-search>
+      <!-- <button
+        class="button-print-secondary"
+        translate
+        (click)="addNewTerminal()"
+      >
+        LBL_ADD_NEW
+      </button> -->
+      <app-secondary-button
+        buttonValue="LBL_ADD_NEW"
+        (click)="addNewTerminal()"
+      ></app-secondary-button>
+    </div>
+    <table mat-table [dataSource]="dataSourceToPass3">
+      <!-- retailerId Column -->
+      <ng-container matColumnDef="retailerId">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_TERMINAL_ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.retailerId }}</td>
+      </ng-container>
+
+      <!-- retailerName Column -->
+      <ng-container matColumnDef="retailerName">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_TERMINAL_TYPE</th>
+        <td mat-cell *matCellDef="let element">{{ element.retailerName }}</td>
+      </ng-container>
+
+      <!-- retailerAddress Column -->
+      <ng-container matColumnDef="retailerAddress">
+        <th mat-header-cell *matHeaderCellDef translate>LBL_SHOP_NAME</th>
+        <td mat-cell *matCellDef="let element">{{ element.retailerAddress }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef translate></th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          class="balanceData dropDownContainer"
+        >
+          <app-more-action
+            [moreActionList]="moreActionListInActive2"
+            [hideViewDetails]="true"
+            (click)="selectedRecord2($event, element)"
+          ></app-more-action>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns3"
+        (click)="selection3.toggle(row)"
+        (click)="logSelectionTerminal($event)"
+      ></tr>
+    </table>
+  </div>
+  <div class="actionGroup" *ngIf="showTerminalSelect">
+    <app-tertiary-button
+      buttonValue="LBL_CANCEL"
+      (click)="backToMerchant($event)"
+      class="tertiaryBtn"
+    >
+    </app-tertiary-button>
+  </div>
+</div>
+<app-pos-terminal-add-new-terminal
+  *ngIf="rootScopeData.showAddNewTerminal"
+></app-pos-terminal-add-new-terminal>
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////View Terminal Start//////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////Transactions Start//////////////////////////////////////////////////////////////////// -->

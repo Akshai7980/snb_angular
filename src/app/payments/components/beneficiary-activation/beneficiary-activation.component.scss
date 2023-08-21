@@ -1,0 +1,33 @@
+.subContainer {
+    padding: 20px;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 16px;
+    color: #5d5d5d;
+    margin: 5px 20px 0px 20px;
+}
+.callBack{
+    margin: 25px 20px 0px 20px;
+}
+
+.casaTable{
+    width: 100%;
+    margin-top: 10px;
+    background-color: var(--primary-widget-bg-color);
+    .mat-cell{
+        background-color: var(--summary-hover-color);
+        line-height: 20px;
+    }
+}
+
+.mainTitle{
+    padding-left: 17px;
+    margin-top: -28px;
+}
+
+button:hover{background-color:#e8e8e8}
+.btnContainer{float: right;margin-top: 25px;padding-right: 30px;}
+.button-print-secondary{height: 40px !important;}
+.backButton{margin-right: 15px;width: 100px !important;}

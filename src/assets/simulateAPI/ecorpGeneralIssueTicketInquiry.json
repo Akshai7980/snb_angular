@@ -1,0 +1,31 @@
+{
+	"data": {
+		"name": "Dameer Ahsan",
+		"accNo": "1010 0100 1000 0000123",
+		"refNo": "9987462132012345",
+		"currency": "SAR",
+		"complaintType": "Held amount not released",
+		"source": "ECORP",
+		"fileName": "file060-2022-22242",
+		"amount": "800.00",
+		"cif": "70000632000002",
+		"mobileNo": "04-8222297",
+		"date": "10/04/20221",
+		"status": "Pending",
+		"claimDesc": "",
+		"transferDirection": "Incoming",
+		"transferNo": "9987462132012345",
+		"serviceType": "ecorp General Issue",
+		"callerName": "Mohmoud_1006241572",
+		"userId": "1006241572",
+		"region": "Jeddah",
+		"teleNo": "0540000634",
+		"abstract": "علم أذار",
+		"reason": "Business Related",
+		"reqStatus": "Closed",
+		"closureDate": "24/06/2022"
+	},
+	"headerValue": {
+		"moduleId": ""
+	}
+}

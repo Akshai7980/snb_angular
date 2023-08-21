@@ -1,0 +1,112 @@
+<div class="mainContainer">
+  <div class="flexRow">
+    <div class="title" translate>LBL_BENEFICIARY_UPLOAD_DETAILS</div>
+  </div>
+  <div class="main-container">
+    <div translate class="sub-title">LBL_UPLOAD_DETAILS</div>
+    <div class="templateName">
+      <div>
+        <p class="input-label" translate>LBL_TEMPLATE_NAME</p>
+        <p class="label-content">
+          {{
+            this.rootScopeData.pendingActivitiesBulkUploadObject.templateName
+          }}
+        </p>
+      </div>
+
+      <div class="fileName">
+        <p class="input-label" translate>LBL_FILE_NAME</p>
+        <div class="fileNameDownload">
+          <app-uploaded-file-download
+            class="fileDownload"
+            [fileUploadedDetails]="fileUploadedDetails"
+          >
+          </app-uploaded-file-download>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="flex">
+      <div translate class="sub-title" translate>LBL_FILE_DETAILS</div>
+    </div>
+    <div *ngIf="showFiledetail">
+      <div class="fileDetailsContainer" *ngFor="let recordsData of fileDetailsData">
+        <div class="fileDetailsSubContainer">
+          <div>
+            <p class="input-label" translate>LBL_TOTAL_RECAORDS</p>
+            <p class="input-records">{{ recordsData.totalRecord }}</p>
+          </div>
+
+          <div>
+            <p class="input-label" translate>LBL_SUCCESSFUL_RECORDS</p>
+            <p class="input-records">{{ recordsData.successfulRecord }}</p>
+          </div>
+
+          <div>
+            <p class="input-label" translate>LBL_REJECTED_RECORDS</p>
+            <p class="input-records">{{ recordsData.rejectedRecord }}</p>
+          </div>
+        </div>
+      </div>
+      <small class="errorMsg mr10" *ngIf="uploadFailed && !rejectReason" translate>LBL_FAILED</small> 
+      <small class="errorMsg mr10" *ngIf="rejectReason">{{this.rejectReason}}</small>
+    </div>
+    <div *ngIf="!showFiledetail  && !uploadFailed">
+      <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+    </div>
+    <app-ajax-loader-medium [hidden]="isLoadingCompelete"></app-ajax-loader-medium>
+  </div>
+
+  <div class="record-summary-container">
+  
+    <app-record-summary
+      *ngIf="showRecSumm"
+      (sortColumnEmit)="onSortColumn($event)"
+      [moduleId]="moduleId"
+      [sortOptions]="sortOptions"
+      [recordSummaryObject]="recordSummaryObject"
+    >
+    </app-record-summary>
+    <div class="spinnerPosition">
+      <app-ajax-loader-small
+      class="spinnerSummaryRecord"
+      [hidden]="isLoadingCompeleteRecordSummary"
+    >
+    </app-ajax-loader-small>
+    </div>
+  </div>
+
+  <section class="summaryOuterConainer">
+    <div class="summaryConainer">
+      <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+    </div>
+  </section>
+  <section class="summaryOuterConainer">
+    <div class="summaryConainer">
+      <app-history [historyData]="workFlowHistoryParams"></app-history>
+    </div>
+  </section>
+  <div class="actionGroup btnCntr">
+    <!-- <button
+      class="button-secondary backButton"
+      routerLink="/mytask/beneficiary"
+      translate
+    >
+      LBL_BACK
+    </button>
+    <button class="button-print-secondary" (click)="onClickReject()" translate>
+      LBL_REJECT
+    </button>
+    <button
+      class="button-print-secondary"
+      (click)="onClickAuthorize()"
+      translate
+    >
+      LBL_AUTHORIZE
+    </button> -->
+    <app-tertiary-button buttonValue="LBL_BACK" (click)="back()"></app-tertiary-button>
+    <app-secondary-button buttonValue="LBL_REJECT" (click)="onClickReject()"></app-secondary-button>
+    <app-secondary-button buttonValue="LBL_AUTHORIZE" (click)="onClickAuthorize()"></app-secondary-button>
+  </div>
+</div>

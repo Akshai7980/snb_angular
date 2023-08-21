@@ -1,0 +1,120 @@
+<div>
+  <div class="actionsConatiner">
+    <div class="leftPannel">
+       <div>
+        <app-selection [moreActionList]="contextMenuList" (onMenuClick)="triggerDropdownFilter($event)" ></app-selection>
+      </div>
+      <div class="searchCntnrLeft">
+        <app-search class="actionHide" *ngIf="!norecordflag" (childEvent)="triggerSearchFilter($event)"></app-search>
+      </div>
+    </div>
+    <div>
+      <div>
+        <app-refresh class="actionHide" (onRefresh)="refreshSummary()"></app-refresh>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="refreshCntr actionHide"><app-refresh [ngStyle]="{'top': norecordflag === true ? '0px' : '-40px'}" (click)="refreshSummary()"></app-refresh></div> -->
+    <div>
+<table *ngIf="!norecordflag" id="loansInquirytable" mat-table matSort [dataSource]="dataSourceToPass" class="casaTable">
+
+    <ng-container matColumnDef="CUSTOMER_NAME">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate><div class="position_rel" translate>LBL_NAME</div> </th>
+      <td mat-cell *matCellDef="let element"> 
+        <span *ngIf="element.CUSTOMER_NAME">{{element.CUSTOMER_NAME}}</span>
+        <span *ngIf="!element.CUSTOMER_NAME">--</span>
+      </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="LOAN_OD_ACC_NO">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate><div class="position_rel" translate>LBL_ACC_NUMBER</div> </th>
+      <td mat-cell *matCellDef="let element"> 
+        <span *ngIf="element.LOAN_OD_ACC_NO">{{element.LOAN_OD_ACC_NO}}</span>
+        <span *ngIf="!element.LOAN_OD_ACC_NO">--</span>
+       </td>
+    </ng-container>
+
+    <ng-container matColumnDef="LOAN_FACILITY_NUM">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate><div class="position_rel" translate>LBL_FACILITY_NUMBER</div> </th>
+      <td mat-cell *matCellDef="let element"> 
+        <span *ngIf="element.LOAN_FACILITY_NUM">{{element.LOAN_FACILITY_NUM}} </span>
+        <span *ngIf="!element.LOAN_FACILITY_NUM">--</span>
+      </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="LOAN_TYPE">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate><div class="position_rel" translate>LBL_FINANCE_TYPE</div></th>
+      <td mat-cell *matCellDef="let element"> 
+        <span *ngIf="element.LOAN_TYPE">{{element.LOAN_TYPE}}</span>
+        <span *ngIf="!element.LOAN_TYPE">--</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="LOAN_APPROVED_LIMIT">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate><div class="position_rel" translate>LBL_LOAN_AMT</div></th>
+      <td mat-cell *matCellDef="let element"> 
+        <span *ngIf="element.LOAN_APPROVED_LIMIT && element.LOAN_CCY && !rootScopeData.userInfo.maskingFlag">{{element.LOAN_APPROVED_LIMIT  | currencyFormat:element.LOAN_CCY}} {{element.LOAN_CCY}}</span>
+        <span *ngIf="(!element.LOAN_APPROVED_LIMIT || !element.LOAN_CCY) && !rootScopeData.userInfo.maskingFlag">--</span>
+        <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}} {{element.LOAN_CCY}}</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="HIDE_LOAN_APPROVED_LIMIT">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate [style.display]="'none'"><div class="position_rel" translate>LBL_LOAN_AMT</div></th>
+      <td mat-cell *matCellDef="let element" [style.display]="'none'"> {{element.LOAN_APPROVED_LIMIT |amountUnformatPipe:element.LOAN_CCY}} {{element.LOAN_CCY}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="DUE_DATE">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate><div class="position_rel" translate> LBL_DUE_DATE</div></th>
+      <td mat-cell *matCellDef="let element"> 
+        <span *ngIf="element.DUE_DATE">{{(element.DUE_DATE | date: rootScopeData.userInfo.mDateFormat)}}</span>
+        <span *ngIf="!element.DUE_DATE">--</span>
+     </td>
+    </ng-container>
+    <ng-container matColumnDef="LOAN_OS_AMT">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate><div class="position_rel" translate>LBL_OUTSTANDING</div></th>
+      <td mat-cell *matCellDef="let element"> 
+        <span *ngIf="element.LOAN_OS_AMT && element.LOAN_CCY && !rootScopeData.userInfo.maskingFlag">{{element.LOAN_OS_AMT | currencyFormat:element.LOAN_CCY}} {{element.LOAN_CCY}}</span>
+        <span *ngIf="(!element.LOAN_OS_AMT || !element.LOAN_CCY)&& !rootScopeData.userInfo.maskingFlag">--</span>
+        <span *ngIf="rootScopeData.userInfo.maskingFlag">{{'LBL_HIDDEN' | translate}} {{element.LOAN_CCY}}</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="HIDE_LOAN_OS_AMT">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate [style.display]="'none'"><div class="position_rel" translate>LBL_OUTSTANDING</div></th>
+      <td mat-cell *matCellDef="let element" [style.display]="'none'"> {{element.LOAN_OS_AMT |amountUnformatPipe:element.LOAN_CCY}} {{element.LOAN_CCY}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="COD_CORECIF">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate [style.display]="'none'">
+        <div class="position_rel" translate>Core CIF</div>
+      </th>
+      <td mat-cell *matCellDef="let element" [style.display]="'none'"> <span *ngIf="element.CIF_NO">{{element.CIF_NO}}
+       </span></td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef class="actionHide" translate>LBL_ACTION</th>
+      <td mat-cell *matCellDef="let element" class="actionHide">
+        <div>       
+          <app-more-action [currentRecord]="element" [routepath]="routeDetailScreen" (click)="selectedRecord($event,element)"></app-more-action>     
+      </div></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="isSelected(row)"></tr>
+  </table>
+</div>
+<div *ngIf="norecordflag">
+  <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+</div>
+<div  *ngIf="!norecordflag">
+<app-pagination #paginator class="actionHide" [dataSourceLength]="dataSourceLength" [currentRecord]="'loans'" [totalRecords]="totalRecords"  (onPaginationChange)="paginationChangeClick($event)" ></app-pagination></div>
+<!-- <mat-paginator *ngIf="!norecordflag" [length]="dataLength"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page" #paginator>
+</mat-paginator> -->
+</div>  
+  
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

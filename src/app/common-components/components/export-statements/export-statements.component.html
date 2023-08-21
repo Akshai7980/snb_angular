@@ -1,0 +1,26 @@
+<div class="downarrow-icon" (click)="enableButton ? isOpen = !isOpen : error()" cdkOverlayOrigin #trigger="cdkOverlayOrigin"></div>
+
+ <!-- This template displays the overlay content and is connected to the Search box --> 
+ <ng-template
+ cdkConnectedOverlay
+ [cdkConnectedOverlayOrigin]="trigger"
+ [cdkConnectedOverlayOpen]="isOpen"
+ >
+ 
+ <div class="export-popup" *ngIf="!childMessage">
+    <ul >
+       <li *ngFor ="let dropvalue of typeDataNew" [ngStyle]="{'color': nodataflag == true ? '#425563' : 'black'}" (click)="generateMtStatement(dropvalue.type)">
+          <span class="exportIcon"> {{dropvalue.type}}</span>
+       </li> 
+    </ul>
+</div>
+<div class="export-popup" *ngIf="childMessage">
+   <ul >
+      <li *ngFor ="let dropvalue of typeData" [ngStyle]="{'color': nodataflag == true ? '#425563' : 'black'}" (click)="generateMtStatement(dropvalue.type)">
+         <span [ngClass]="dropvalue.type === 'MT 940/942' ? 'mt940Icon':'exportIcon'"> {{dropvalue.type}}</span>
+      </li> 
+   </ul>
+</div>
+ </ng-template>
+<div id="exportMask" [class.hide]="!isOpen" (click)="closeContextMenu()"></div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

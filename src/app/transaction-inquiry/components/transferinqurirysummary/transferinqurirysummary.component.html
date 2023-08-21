@@ -1,0 +1,41 @@
+
+<div id="singleTransferInquiryPrinSection">
+    <div class="detailsTitleContainer">
+      <div class="mainTitle" translate>LBL_TRANSFER_SUMMARY</div>
+      <div class="row" id="logoPrint">
+        <div><img class="logo" src="{{logo}}"> </div>
+        <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+      </div>
+      <app-summary-tools [enabledProperty] ="true" [isshownPDF] = "false" [printSection] ="'singleTransferInquiryPrinSection'">
+      </app-summary-tools>
+        <!-- class="summaryContainer" -->
+      </div>
+      <div class="detailsDataCntr">
+        <section class="summaryOuterConainer" *ngIf="transfersummaryDetails">
+          <div>
+            <app-transferinqurirydetails [transfersummaryDetails]="transfersummaryDetails"></app-transferinqurirydetails>
+          </div>
+        </section>
+        <section class="summaryOuterConainer" *ngIf="transfersummaryDetails">
+          <div class="summaryConainer">
+            <app-transferinqurirypaymentstatus  [paymentStatusDetails]= "transfersummaryDetails"></app-transferinqurirypaymentstatus>
+          </div>
+        </section>
+        <section class="summaryOuterConainer" *ngIf="transfersummaryDetails">
+          <div class="summaryConainer">
+            <app-transferinqurirytrackerdetails [transfersummaryDetails]="transfersummaryDetails" ></app-transferinqurirytrackerdetails>
+          </div>
+        </section>
+        <section>
+          <div class="btnContainer">
+            <app-tertiary-button
+              buttonValue="LBL_BACK"
+              (click)="back()"
+            ></app-tertiary-button>
+          </div>
+        </section>
+      </div>
+    
+  </div>
+  
+  

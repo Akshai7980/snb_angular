@@ -1,0 +1,11 @@
+{
+    "dataValue": {
+        "INPUT_REFERENCE_NO": "TBC2301041120047",
+        "OD_STATUS": "RA",
+        "STATUS": "SUCCESS",
+        "OD_STATUS_DESC": "Success"
+    },
+    "headerValue": {
+        "moduleId": "CARDACTSUBMIT"
+    }
+}

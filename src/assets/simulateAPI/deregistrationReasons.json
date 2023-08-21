@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "reasonCode": "1",
+      "reasonValue": "LBL_SERVICE_IS_NOT_USER_FRIENDLY"
+    },
+    {
+      "reasonCode": "2",
+      "reasonValue": "LBL_PRIVACY_CONCERN"
+    },
+    {
+      "reasonCode": "3",
+      "reasonValue": "LBL_NOT_STATISFID_WITH_SERVICE"
+    },
+    {
+      "reasonCode": "4",
+      "reasonValue": "LBL_OTHERS"
+    }
+  ]
+}

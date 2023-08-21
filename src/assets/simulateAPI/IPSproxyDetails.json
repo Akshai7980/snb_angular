@@ -1,0 +1,32 @@
+{
+    "headerValue": {
+      "moduleId": "IPSREGPROXYIBAN",
+      "simulate": "N"
+  
+   },
+    "data": {
+                          "res_ErrorMessage": "Sucess",
+                          "res_ErrorCode": 0,
+                          "creationDate": 20220227,
+              "activationDate": "",
+              "aliasId": 7109,
+              "aliasType1": 13,
+              "aliasReference1": 1010723726,
+              "displayName": "Toulouse a. def ( )",
+              "aliasType2": 8647489390,
+              "aliasReference2": "asd@gmail.com",
+              "accountType": 1,
+              "accountReference": "SA0910000005100004392003",
+              "accountName": "",
+              "accountCurrency": "SAR",
+              "status": 4,
+              "eventStatus": "",
+              "registrationId": "fa702290-451b-4c73-8324-5e90f0787dc7",
+              "isBlocked": "",
+              "firstName": "",
+              "secondName": "",
+              "lastName": "",
+              "businessName": "test055",
+              "BeneRegFlag":"N"
+    }
+  }

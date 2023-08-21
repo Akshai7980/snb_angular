@@ -1,0 +1,31 @@
+<div class="creditContainer">
+    <div class="creditLimit" translate>LBL_CREDIT_LIMIT</div>
+    <div class="text" translate>LBL_AVAILABLE_LIMIT</div>
+    <div class="balance" *ngIf="creditLimitData.TOTAL_LIMIT">{{creditLimitData.TOTAL_LIMIT | currencyFormat : equivalentCurrency}} {{equivalentCurrency}}</div>
+<!--     <div class="chartContainer">
+        <div class="chart percent"><span>{{creditLimitData.AVAIL_PERCENT}}%</span></div>
+    </div> -->
+    <div *ngIf="showChart" class="chartContainer">
+        <ngx-charts-advanced-pie-chart 
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="saleData"
+            [gradient]="gradient"
+             >
+        </ngx-charts-advanced-pie-chart>
+      <span class="availablePercent">{{creditLimitData.AVAIL_PERCENT}}%</span>
+    </div>
+    <div id="table">
+        <div id="tableBody">
+            <div class="tableRow"> 
+                <div class="tableCell" translate>LBL_APPROVED</div>
+                <div class="tableCell" *ngIf="creditLimitData.AVAIL_LIMIT">{{creditLimitData.AVAIL_LIMIT | currencyFormat : equivalentCurrency}} {{equivalentCurrency}}</div> 
+            </div>
+            <div class="tableRow"> 
+                <div class="tableCell" translate>LBL_UTILIZED</div>
+                <div class="tableCell" *ngIf="creditLimitData.USED_LIMIT">{{creditLimitData.USED_LIMIT | currencyFormat : equivalentCurrency}} {{equivalentCurrency}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="navigationArrow"></div>
+</div>

@@ -1,0 +1,124 @@
+<div class="mainContainer" *ngIf="!showReceipt">
+    <div class="mainTitle" translate *ngIf="!showStmtDetails">
+        LBL_EPAY_STMNT
+    </div>
+    <div class="mainTitle" translate *ngIf="showStmtDetails">
+        LBL_GENERATE_STATEMENT
+    </div>
+
+    <div class="detailsDataCntr">
+        <div  [ngClass]="showStmtDetails? 'showStmtDetails': '' ">
+        <app-e-pay-debit [ngClass]="showStmtDetails? 'removeBorder' : '' " *ngIf="showAccounts" [dataSource]="debitAccountDetailsObj" [IS_ALL_SELECTED]="IS_ALL_SELECTED" (selectedData)="afterDebitAccount($event,'data')" (debitIconClick)="afterDebitAccount($event,'reset')"></app-e-pay-debit>
+        <app-merchant-lookup [ngClass]="showStmtDetails? 'removeBorder' : '' " *ngIf="showMerchantDatas" [dataSource]="merchantAccountDetailsObj" [IS_ALL_SELECTED]="IS_ALL_SELECTED" (selectedData)="afterMerchntAccount($event,'data')" (debitIconClick)="afterMerchntAccount($event,'reset')"></app-merchant-lookup>
+        </div>
+    <div *ngIf="showStmtDetails">
+            <div class="subContainer">
+                <div class="subTitles" translate>LBL_STATEMENT_DETAILS</div>
+                    <div class="row">
+                        <div class="column">
+                            <div translate class="geneStaTitles">LBL_CARD_TYPE<span class="required">*</span> </div>
+                            <div class="mtop_10">            
+                                <mat-select panelClass="dropDownOption" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  [(ngModel)]="stmtDetails.crdType" (selectionChange)="validate($event,'crdType')"   disableOptionCentering>
+                                    <mat-option *ngFor="let crdType of crdTypLists" [value]="crdType.cardType">{{crdType.cardType}}</mat-option>
+                                </mat-select>
+                                <div *ngIf="errObj && errObj.crdTypeErr">
+                                    <small translate class="required">{{errObj.crdTypeErr}}</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div translate class="geneStaTitles">LBL_PERIOD</div>
+                            <div class="mtop_10">            
+                                <mat-select panelClass="dropDownOption" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  [(ngModel)]="stmtDetails.period" disableOptionCentering>
+                                    <mat-option *ngFor="let period of periods" [value]="period.period">{{period.period}}</mat-option>
+                                </mat-select>
+                            </div>
+                        </div>
+                        <div class="column" *ngIf="stmtDetails.period === 'Custom Date'">
+                            <div class="fromto">
+                                <div class="datefrom">
+                                    <div translate class="geneStaTitles" id="proctm">LBL_DATE_FROM<span class="required">*</span></div>
+                                    <div class="shortDatePicker mt-top"><app-date-picker (dateValue)="getDate($event,'datefrom')" [showDateErrorMessage]="frmDateErr" [clearFlag]="clearFlag" [minDate]="minDate" [maxDate]="maxDate"></app-date-picker></div>
+                                </div>
+                                <div class="dateto">
+                                    <div translate class="geneStaTitles" id="proctm">LBL_TO</div>
+                                    <div class="shortDatePicker mt-top"><app-date-picker (dateValue)="getDate($event,'dateto')" [showDateErrorMessage]="toDateErr" [clearFlag]="clearFlag" [minDate]="fromDates" [maxDate]="maxDate"></app-date-picker></div>
+                                </div>
+                            </div>                
+                        </div>
+                        <div class="fromto">
+                            <div class="datefrom">
+                                <div translate class="geneStaTitles" id="reconciliationFrom">LBL_RECONCILE_DATE_FROM<span class="required">*</span></div>
+                                <div class="shortDatePicker mtop_10"><app-date-picker (dateValue)="getDate($event,'frm')" [showDateErrorMessage]="frmDateErr" [clearFlag]="clearFlag" [minDate]="minDate" [maxDate]="maxDate"></app-date-picker></div>
+                            </div>
+                            <div class="dateto">
+                                <div translate class="geneStaTitles" id="reconciliationTo">LBL_TO</div>
+                                <div class="shortDatePicker mtop_10"><app-date-picker (dateValue)="getDate($event,'to')" [showDateErrorMessage]="toDateErr" [clearFlag]="clearFlag" [minDate]="fromDates" [maxDate]="maxDate"></app-date-picker></div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div translate class="geneStaTitles">LBL_SETTLED</div>
+                            <div class="mtop_10">            
+                                <mat-select panelClass="dropDownOption" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  [(ngModel)]="stmtDetails.settled"  disableOptionCentering>
+                                    <mat-option *ngFor="let settled of settledList" value="{{settled.settled}}">{{settled.settled}}</mat-option>
+                                </mat-select>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div translate class="geneStaTitles">LBL_DATE_SORT</div>
+                            <div class="mtop_10">            
+                                <mat-select panelClass="dropDownOption" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  [(ngModel)]="stmtDetails.sort"  disableOptionCentering>
+                                    <mat-option *ngFor="let sort of dateSortList" value="{{sort?.sortedDate}}">{{sort?.sortedDate}}</mat-option>
+                                </mat-select>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="fromto">
+                                <div class="datefrom">
+                                    <div class="geneStaTitles" translate>LBL_AMOUNT</div>
+                                    <div class="inpField">
+                                        <input class="amountDetails" [(ngModel)]="stmtDetails.frmAmt" type="text" (blur)="formatCurrency($event,'frm')" (keypress)="numOly($event)"><span class="currencydata">SAR</span>
+                                    </div>
+                                </div>
+                                <div class="dateto">
+                                    <div class="geneStaTitles" translate>LBL_TO</div>
+                                    <div class="inpField">
+                                        <input class="amountDetails" [(ngModel)]="stmtDetails.toAmt" type="text" (blur)="formatCurrency($event,'to')" (keypress)="numOly($event)"><span class="currencydata">SAR</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div translate class="geneStaTitles">LBL_REFERENCE</div>
+                            <div class="mtop_10">            
+                                <input type="text" [(ngModel)]="stmtDetails.ref" (keypress)="charsOly($event)" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div translate class="geneStaTitles">LBL_AUTHORIZATION_NUMBER</div>
+                            <div class="mtop_10">            
+                                <input type="text" [(ngModel)]="stmtDetails.authNo" (keypress)="charsOly($event)" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div translate class="geneStaTitles">LBL_EXPORT_AS<span class="required">*</span></div>
+                            <div class="mtop_10">            
+                                <mat-select panelClass="dropDownOption" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  [(ngModel)]="stmtDetails.exprtAs" (selectionChange)="validate($event,'exprt')"  disableOptionCentering>
+                                    <mat-option *ngFor="let expt of exprtList" value="{{expt?.export}}">{{expt?.export}}</mat-option>
+                                </mat-select>
+                                <div *ngIf="errObj && errObj.exprtErr">
+                                    <small translate class="required">{{errObj.exprtErr}}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="btnGroup" *ngIf="showStmtDetails">
+        <app-tertiary-button  buttonValue="LBL_CANCEL" (click)="onClickCancel()" ></app-tertiary-button>
+        <app-primary-button  buttonValue="LBL_SUBMIT" (click)="submit()"></app-primary-button>
+    </div>
+</div>
+<app-receipt [receiptDetails]="receiptData" (onInitAgainClick)="initRequest()" *ngIf="showReceipt" (DownloadReceiptClick)="downloadPdf()"></app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> 

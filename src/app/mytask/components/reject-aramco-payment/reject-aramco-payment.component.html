@@ -1,0 +1,112 @@
+<div *ngIf="!receiptForm">
+    <div class="detailsTitleContainer">
+        <div>
+            <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+            <div class="mainTitle" *ngIf="rootScopeData.myTasksARAMCOSummaryObject.subprcode ==='ARAMCOPAY'" translate>LBL_REJECT_ARAMCO_PAYMENT</div>
+            <div class="mainTitle" *ngIf="rootScopeData.myTasksARAMCOSummaryObject.subprcode ==='ARCODIRPAY'" translate>LBL_REJECT_ARAMCO_ONETIME_DETAILS</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="subTitles" translate>LBL_ARAMCO_PAYMENT</div>
+        <div class="refNO">
+            {{'LBL_TRANSACTION_REF_NUM' | translate }} <b><span
+                    *ngIf="aramcoDetails && aramcoDetails.referenceNo">{{aramcoDetails.referenceNo}}</span><span
+                    *ngIf="!aramcoDetails || !aramcoDetails.referenceNo">--</span></b>
+        </div>
+        <div class="refNO">
+            {{'LBL_AMOUNT' | translate }} <b><span
+                    *ngIf="aramcoDetails && aramcoDetails.paymentAmount">{{aramcoDetails.paymentAmount
+                    | currencyFormat:aramcoDetails.debitCcy}} {{aramcoDetails.debitCcy}}</span><span
+                    *ngIf="!aramcoDetails ||( !aramcoDetails.paymentAmount && ! aramcoDetails.debitCcy)">--</span></b>
+        </div>
+        <div class="refNO">
+            {{'LBL_REMITTER_ID' | translate }} <b><span
+                    *ngIf="aramcoDetails && aramcoDetails.remitterId">{{aramcoDetails.remitterId}}</span><span
+                    *ngIf="!aramcoDetails || ! aramcoDetails.remitterId">--</span></b>
+        </div>
+        <div class="title" *ngIf="aramcoDetails && aramcoDetails.odStatusCode">
+            <button class="status-green-button" translate
+                [class.status-red-button]="aramcoDetails.odStatusCode === 'RN' ||aramcoDetails.odStatusCode === 'RS' ||aramcoDetails.odStatusCode === 'RE' ||aramcoDetails.odStatusCode === 'RO' ||aramcoDetails.odStatusCode === 'RH'">
+                {{aramcoDetails.odStatus}}
+            </button>
+        </div>
+        <div class="subContainer">
+            <div class="subTitles mt-btm" translate>LBL_DEBIT_FROM</div>
+            <div class="information">
+                <span *ngIf="aramcoDetails && aramcoDetails.debitAccNo">{{aramcoDetails.debitAccNo}}</span>
+                <span *ngIf="!aramcoDetails || !aramcoDetails.debitAccNo">--</span>
+            </div>
+            <div class="information mt-btm">
+                {{'LBL_BANK' | translate}} :
+                <span *ngIf="aramcoDetails && aramcoDetails.debitBank">{{aramcoDetails.debitBank}}</span>
+                <span *ngIf="!aramcoDetails || !aramcoDetails.debitBank">--</span>
+            </div>
+            <div class="subTitles mt-30" translate>LBL_PAY_TO</div>
+            <table mat-table [dataSource]="aramcoInvoiceDetails" class="casaTable mt-top" id="creditData">
+                <ng-container matColumnDef="invoiceNumber">
+                    <th mat-header-cell *matHeaderCellDef translate>LBL_INVOICE_NUMBER</th>
+                    <td mat-cell *matCellDef="let element">
+                        <span *ngIf="element.invoiceNo">{{element.invoiceNo}}</span>
+                        <span *ngIf="!element.invoiceNo">--</span>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="valueDate">
+                    <th mat-header-cell *matHeaderCellDef translate>LBL_VALUE_DATE</th>
+                    <td mat-cell *matCellDef="let element">
+                        <span *ngIf="element.invoiceDate">{{element.invoiceDate | dateFormat}}</span>
+                        <span *ngIf="!element.invoiceDate">--</span>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="dueOn">
+                    <th mat-header-cell *matHeaderCellDef translate>LBL_CAPITAL_DUE_ON</th>
+                    <td mat-cell *matCellDef="let element">
+                        <span *ngIf="element.invoiceDueDate">{{element.invoiceDueDate | dateFormat}}</span>
+                        <span *ngIf="!element.invoiceDueDate">--</span>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="invoiceAmount">
+                    <th mat-header-cell *matHeaderCellDef translate>LBL_INVOICE_AMOUNT</th>
+                    <td mat-cell *matCellDef="let element">
+                        <span *ngIf="element.invoiceAmount && element.currency">{{element.invoiceAmount |
+                            currencyFormat:element.currency}} {{element.currency}}</span>
+                        <span *ngIf="!element.invoiceAmount || !element.currency">--</span>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="amountInSar">
+                    <th mat-header-cell *matHeaderCellDef translate>LBL_AMOUNT_SAR</th>
+                    <td mat-cell *matCellDef="let element">
+                        <span *ngIf="element.invoiceAmtInAccCCy">{{element.invoiceAmtInAccCCy |
+                            currencyFormat:"SAR"}}</span>
+                        <span *ngIf="!element.invoiceAmtInAccCCy">--</span>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+        <div class="rejectReasonContainer">
+            <div class="rejecthead" translate>LBL_RJCT_RSN
+                <!-- <span class="required">*</span> -->
+            </div>
+            <div>
+                <div class="rejecttextarea">
+                    <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="textArea_Click()"></textarea>
+                    <div class="errorMsg" *ngIf="isrejectreasonValid" translate>LBL_ERROR_MESSAGE_RJCT_RSN
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section>
+            <div class="btnContainer">
+                <!-- <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button> -->
+                <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+            </div>
+        </section>
+    </div>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)">
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

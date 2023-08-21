@@ -1,0 +1,55 @@
+.outerContainer {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+.title {
+    width: 280px;
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+  }
+  .accountDetails {
+    padding: 15px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+  }
+  .subTitles {
+    margin-bottom: 15px;
+  }
+  .reference{
+    margin-bottom: 10px;
+  }
+  .actionGroup {
+    float: right;
+    margin-right: 20px;
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-top: 30px;
+  }
+  .backButton {
+    margin-right: 15px;
+    width: 100px !important;
+  }
+  .summaryOuterConainer {
+    .summaryConainer {
+        border-radius: 10px;
+        background-color: var(--primary-widget-bg-color);
+        border: 1px solid var(--widget-border-color);
+        
+        margin-top: 20px;
+      
+        padding-bottom: 15px !important;
+    }
+}
+.flexContiner{
+  display: flex;
+  justify-content: space-between;
+}

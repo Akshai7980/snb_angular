@@ -1,0 +1,17 @@
+{
+    "headerValue": {
+      "moduleId": "VIEWESTMT",
+      "simulate": null,
+      "export": null,
+      "exportType": null,
+      "_dinsess": "3394085f-39a5-4ddf-8fb9-a6791dd745fd"
+    },
+    "data": [
+      {
+        "statementDate": "20211124"
+      },
+      {
+        "statementDate": "20211125"
+      }
+    ]
+  }

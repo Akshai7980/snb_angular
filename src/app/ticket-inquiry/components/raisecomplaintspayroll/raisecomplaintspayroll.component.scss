@@ -1,0 +1,102 @@
+// .flexRow {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     padding: 0px 25px 0px 0px;
+//   }
+  .title {
+    width: 215px;
+    padding: 0px 0px 0px 5px;
+    font-size: 16px;
+    color: var(--tableData-header-color);
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+  }
+  .detailsContainer{
+    margin-top: 21px;
+    padding: 0px 0px 0px 10px;
+}
+.row {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+}
+.column {
+    margin-bottom: 20px;
+    height: 80px;
+}
+.fieldContainer{
+  height: 80px;
+}
+.geneStaTitles {
+  color: var(--table-header-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+}
+
+input[type=text]{
+  width: 294px;
+  height: 40px;
+  padding: 0px 8px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 4px;
+  background-size: cover;
+  font-family: "HelveticaNeue";
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  background-color: var(--primary-widget-bg-color);
+}
+.selectInput{
+  width: 300px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: #656565;
+  cursor: pointer;
+}
+.comment {
+  width: 307px;
+  height: 80px;
+  border-radius: 4px;
+  border: 1px solid var(--input-border-color);
+  background-color: var(--primary-widget-bg-color);
+  color: var(--default-text-color);
+ 
+}
+textarea {
+  resize: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+
+.mtop_20{
+  color: var(--table-header-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+  padding: 31px 0px 12px 7px;
+}
+.btnGroup{
+  float: right; 
+  margin-top: 16px;
+}
+// .pbot_20{
+//   padding-bottom: 20px;
+// }
+.autoContainer{
+  
+  padding: 16px 0 56px 18px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  margin: 20px 0 0 0;
+  height: 226px;
+}
+

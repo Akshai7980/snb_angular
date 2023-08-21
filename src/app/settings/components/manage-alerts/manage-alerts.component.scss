@@ -1,0 +1,63 @@
+.casaTable {
+    width: 100%;
+    background-color: var(--primary-widget-bg-color);
+    border-radius: 10px;
+}
+
+.position_rel {
+    position: relative;
+}
+
+.mat-row:hover .EditIcon {
+    display: inline-block;
+}
+.col-space1{
+width: 17%;
+}
+.col-space2{
+    width: 10%;;
+}
+
+td.mat-cell:first-of-type ,th.mat-header-cell:first-of-type {
+   padding-left: 8px !important;
+}
+
+.actionsConatiner {
+    display: flex;
+    justify-content: space-between;
+
+    .leftPannel {
+        display: flex;
+        min-width: 40%;
+        justify-content: space-between;
+    }
+}
+.btncntr{float: right; margin-right: 18px;margin-bottom:20px;margin-top: 10px;}
+.button-secondary,button-primary{height: 36px;}
+.content-header {
+    height: 30px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    margin: 5px 0px 0px 0px;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+.subContainer{
+    padding:20px 20px 0 20px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: #ffffff;
+    background-size: cover;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 16px;
+    color: #5d5d5d;
+    margin: 5px 20px 0px 0px;
+  }
+  .manageAlertSection{font-family: "HelveticaNeueMed", arial, sans-serif !important;font-size: 14px}
+  .rowInnerCntr{display: flex;flex-flow: wrap;font-family: "HelveticaNeueMed", arial, sans-serif !important;font-size: 14px !important;}
+  .rowInnerCntr .label, .manageAlertSection .label{color: var(--table-header-color); margin-top: 20px;}
+  div.field:nth-child(odd){width:10%}
+  div.field:nth-child(even){width:85%}
+  hr{color:#e8e8e8;margin:25px 0;border: 1px solid;}.wd150{width: 150px;}.mt25{margin-top: 25px;}.mr0{margin-right: 0;}
+  .col3algn{display: flex;flex-flow: wrap;}.col3algn>div{width: 33%;}.col3algn>div:nth-child(1){width:10%}.col3algn>div:last-child{padding-top:20px}
+  .col3, .col4, .col5{width:10%} .col1, .col2{width:35%}.casaTable td:last-child, .casaTable th:last-child{padding: 0; text-align: left!important;}

@@ -1,0 +1,15 @@
+{
+    "headerValue": {
+        "moduleId": "EPYCRDTYPE"
+    },
+    "data": {
+        "cardType": [
+            {
+                "cardType": "Debit"
+            },
+            {
+                "cardType": "Credit"
+            }
+        ]
+    }
+}

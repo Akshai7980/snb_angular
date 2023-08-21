@@ -1,0 +1,30 @@
+<div *ngIf="!receiptForm">
+    <div class="detailsTitleContainer">
+        <div>
+            <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+            <div class="mainTitle" translate>LBL_AUTHORIZE_ESAL_BILLER</div>
+        </div>
+    </div>
+    <section class="summaryOuterConainer">
+        <div class="summaryConainer">
+            <app-esal-biller-details></app-esal-biller-details>
+        </div>
+    </section>
+    <section>
+        <div *ngIf="showAuthorization" class="afterproceed">
+          <app-authorization [authListDataSource]="authOptions" (authEmit)="getDisplayStatus($event)"></app-authorization>      <!-- <app-authentication (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError"></app-authentication> -->
+          <!-- <app-authentication *ngIf="showAuthentication" (onTwoAuthClick)="onSecondFactorValue($event)" (getOtpClick)="getOtpValue($event)" [otpError]="otpError" (authenticationType)="getAuthType($event)"></app-authentication> -->
+        </div>
+    </section>
+    <section>
+        <div class="btnContainer">
+            <!-- <button class="button-secondary" routerLink="/mytask/billerManagement/esal-biller" translate>LBL_CANCEL</button>
+            <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button> -->
+            <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()"></app-tertiary-button>
+            <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+        </div>
+    </section>
+</div>
+<app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" (DownloadReceiptClick)="downloadPdf($event)" *ngIf="receiptForm">
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

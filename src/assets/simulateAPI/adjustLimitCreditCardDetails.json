@@ -1,0 +1,32 @@
+{
+  "data": {
+    "refNo": "TBC2207021533397",
+    "cardsLmtAdj": [
+      {
+        "cardNo": "10107654360011",
+        "cardName": "Dameer Ahsan",
+        "currency": "SAR",
+        "currentLmt": "500.0",
+        "changes": "1",
+        "newLmt": "2322",
+        "cardType": "Master Card"
+      },
+      {
+        "cardNo": "10107654360011",
+        "cardName": "Dameer Ahsan",
+        "currency": "SAR",
+        "currentLmt": "500.0",
+        "changes": "1",
+        "newLmt": "2322",
+        "cardType": "Master Card"
+      }
+    ],
+    "productCode": "CORESVS",
+    "subProductCode": "CRDLIMAD",
+    "functionCode": "LIMADFNC"
+  },
+
+  "headerValue": {
+    "moduleId": "CRDLMTADJDETAILS"
+  }
+}

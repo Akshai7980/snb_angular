@@ -1,0 +1,86 @@
+<div class="mainContainer">
+  <div class="flexRow">
+    <div class="title" translate>LBL_REVIEW_BENEFICIARY_UPLOAD</div>
+  </div>
+
+  <div class="main-container">
+    <div translate class="sub-title">LBL_UPLOAD_DETAILS</div>
+    <div class="templateName">
+      <div>
+        <p class="input-label" translate>LBL_TEMPLATE_NAME</p>
+        <p class="label-content">{{ uploadDetailsData.templateName }}</p>
+      </div>
+
+      <div class="fileName">
+        <p class="input-label" translate>LBL_FILE_NAME</p>
+        <div class="fileNameDownload">
+          <app-uploaded-file-download class="fileDownload" [fileUploadedDetails]="fileUploadedDetails">
+          </app-uploaded-file-download>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div class="flex">
+      <div translate class="sub-title" translate>LBL_FILE_DETAILS</div>
+    </div>
+    <div *ngIf="showFiledetail">
+      <div class="fileDetailsContainer" *ngFor="let recordsData of fileDetailsData">
+        <div class="fileDetailsSubContainer">
+          <div>
+            <p class="input-label" translate>LBL_TOTAL_RECAORDS</p>
+            <p class="input-records">{{ recordsData.totalRecord }}</p>
+          </div>
+
+          <div>
+            <p class="input-label" translate>LBL_SUCCESSFUL_RECORDS</p>
+            <p class="input-records">{{ recordsData.successfulRecord }}</p>
+          </div>
+
+          <div>
+            <p class="input-label" translate>LBL_REJECTED_RECORDS</p>
+            <p class="input-records">{{ recordsData.rejectedRecord }}</p>
+          </div>
+
+          <div>
+            <p class="input-label" translate>LBL_STATUS</p>
+            <p class="input-records">{{ recordsData.fileStatus }}</p>
+          </div>
+        </div>
+      </div>
+      <small class="errorMsg mr10" *ngIf="uploadFailed && !rejectReason" translate>LBL_FAILED</small> 
+      <small class="errorMsg mr10" *ngIf="rejectReason">{{this.rejectReason}}</small>
+    </div>
+    <div *ngIf="!showFiledetail  && !uploadFailed">
+      <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+    </div>
+    <app-ajax-loader-medium [hidden]="isLoadingCompelete"></app-ajax-loader-medium>
+  </div>
+  <div class="recordSummaryPosition">
+    <app-record-summary *ngIf="showRecSumm" (sortColumnEmit)="onSortColumn($event)" [moduleId]="moduleId"
+      [sortOptions]="sortOptions" [recordSummaryObject]="recordSummaryObject"></app-record-summary>
+    <div class="spinnerPosition">
+      <app-ajax-loader-small class="spinnerSummaryRecord" [hidden]="isLoadingCompeleteRecordSummary">
+      </app-ajax-loader-small>
+    </div>
+  </div>
+
+  <!-- <app-authorization [authListDataSource]="authOptions" *ngIf="submitbtn && !isSingleUser && isCorporateUser"
+    [authError]="errorCode" (click)="getAuthorizationData()" (authEmit)="getDatas($event, 'authorization')">
+  </app-authorization>
+  <app-authentication *ngIf="submitbtn" (onTwoAuthClick)="onSecondFactorValue($event)"
+    (getOtpClick)="getOtpValue($event)" [otpError]="otpError" [initParam]="initReqParam"></app-authentication> -->
+
+    <app-authorization [authListDataSource]="authOptions" *ngIf="submitbtn && showAuthorization"
+    [authError]="errorCode" (authEmit)="getDatas($event, 'authorization')">
+  </app-authorization>
+  <app-authentication *ngIf="submitbtn && showAuthentication" (onTwoAuthClick)="onSecondFactorValue($event)"
+    (getOtpClick)="getOtpValue($event)" [otpError]="otpError" [initParam]="initReqParam" (authenticationType)="getAuthType($event)"></app-authentication>
+  <div class="actionGroup">
+    <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancelfn()" class="tertiaryBtn">
+    </app-tertiary-button>
+    <!-- <app-primary-button buttonValue="LBL_SUBMIT" *ngIf="submitbtn" (click)="submitfn()"></app-primary-button> -->
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompeleteScreen"></app-ajax-loader>

@@ -1,0 +1,22 @@
+.rejectReasonContainer{margin-left:20px;margin-top:33px;}
+.rejecthead{font-family: 'HelveticaNeueMed'!important;color: var(--table-header-color);font-size: 14px;}
+.rejecttextarea{margin-top: 10px !important;}
+textarea{width: 300px;height: 80px;border: 1px solid var(--input-border-color);resize: none;border-radius: 5px;outline: none;background-color: var(--primary-widget-bg-color);color: var(--default-text-color);}
+.btnContainer{float: right;margin-top: 25px;padding-right: 30px;}
+.detailsTitleContainer{margin:-15px 0px -27px 30px;}
+.backArrow{top:40px;left:-20px;}
+.summaryOuterConainer {
+    .summaryConainer {
+        border-radius: 10px;
+        background: var(--primary-widget-bg-color);
+        border: 1px solid var(--widget-border-color);
+        margin-right:30px;
+        margin-top: 20px;
+        margin-left: 30px;
+        padding-bottom: 15px !important;
+    }
+}
+.button-primary:hover{
+    background-color: var(--primary-btn-hover-color);
+    border-color:  var(--primary-btn-hover-color);
+}

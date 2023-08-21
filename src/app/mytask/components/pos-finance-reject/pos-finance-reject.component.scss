@@ -1,0 +1,51 @@
+.outerContainer {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+.title {
+    width: 280px;
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+  }
+  .accountDetails {
+    padding: 15px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+  }
+  .subTitles {
+    margin-bottom: 15px;
+  }
+  .rejectReasonContainer {
+    margin-left: 5px;
+  }
+  textarea {
+    width: 300px;
+    height: 80px;
+    border: 1px solid var(--input-border-color);
+    resize: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: var(--primary-widget0bg-color);
+    color: var(--default-text-color);
+  }
+  .rejecthead {
+    margin-top: 40px;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+    color: var(--table-header-color);
+    font-size: 14px;
+  }
+  .btnContainer {
+    float: right;
+    margin-top: 25px;
+  }  
+  .amount{
+    margin-top: 10px;
+  }

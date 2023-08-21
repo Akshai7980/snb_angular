@@ -1,0 +1,118 @@
+<div class="worksapceBase">
+    <div class="content-header" translate>LBL_MANAGE_ALERTS</div>
+<div class="subContainer manageAlertSection">
+    <!-- <span class="">
+            <div class="label" translate>LBL_NAME</div>
+            <div class="information">
+              {{ "Mohammed Asif" }}
+            </div>
+          </span>
+      <div class="rowInnerCntr">        
+        <div class="field">
+          <div class="label" translate>LBL_ACTION</div>
+          <div class="information">
+            <mat-slide-toggle [checked]="mobile === 'Y'" (change)="selectMobileToggle($event, 'channelMobile')"></mat-slide-toggle>
+          </div>
+        </div>
+        <div class="field">
+          <div class="label" translate>LBL_MOBILE</div>
+          <div class="information">
+            {{ "+966 65243 22972" }}
+          </div>
+        </div>        
+      </div>
+
+      <div class="col3algn">
+        <div class="field">
+            <div class="label" translate>LBL_ACTION</div>
+            <mat-slide-toggle [checked]="email === 'Y'" (change)="selectEmailToggle($event, 'channelEmail')"></mat-slide-toggle>
+          </div>
+          <div class="field">
+            <div class="label" translate>LBL_EMAIL</div>
+            <div class="information">{{ "mohammed.asif@sabic.com" }} </div>
+          </div>
+          <div class="field">
+            <app-secondary-button
+        (click)="verifyMobileMail()"
+        buttonValue="LBL_VERIFY"
+        routerPath="./"
+      ></app-secondary-button>
+          </div>
+      </div>
+
+<hr /> -->
+    <div *ngIf="!norecordflag" id="manageAlertsDefaultCntr">
+        <div class="subTitles" translate>LBL_ALERTS</div>
+    <table mat-table [dataSource]="dataSourceToPass" class="casaTable mt25">       
+        <ng-container matColumnDef="Category" class="category">
+            <th class="col1 valntop" mat-header-cell *matHeaderCellDef translate>LBL_CATEGORY</th>
+            <td mat-cell *matCellDef="let dataSourceToPass" [attr.data-label]="'LBL_CATEGORY' | translate">{{dataSourceToPass.odProductCode}}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="Events">
+            <th class="col2 valntop" mat-header-cell *matHeaderCellDef translate>LBL_EVENTS</th>
+            <td mat-cell *matCellDef="let dataSourceToPass" [attr.data-label]="'LBL_EVENTS' | translate">
+                {{dataSourceToPass.alertDescription}}
+            </td>
+        </ng-container>
+        <!-- <ng-container matColumnDef="PushNotify">
+            <th mat-header-cell *matHeaderCellDef  class="col-space1" translate>LBL_PUSH_NOTIFY</th>
+            <td mat-cell *matCellDef="let dataSourceToPass" [attr.data-label]="'LBL_PUSH_NOTIFY' | translate">
+                <mat-slide-toggle [checked]="dataSourceToPass.channelPushNotify === 'Y'" (change)="selectType($event,dataSourceToPass,'PushNotify')"></mat-slide-toggle>
+            </td>
+        </ng-container> -->
+        <ng-container matColumnDef="Inbox">
+            <th mat-header-cell *matHeaderCellDef class="col3 col-space2 pushNotif" translate>
+                <p translate>LBL_INBOX</p>
+                <!-- <mat-slide-toggle [checked]="pushNotifSelectAll" (change)="pushNotifSelectAllCall($event)">
+				</mat-slide-toggle>
+                <p> {{ (pushNotifSelectAll) ? "Enabled" : "Disabled"}} </p> -->
+            </th>
+            <td mat-cell *matCellDef="let dataSourceToPass" [attr.data-label]="'LBL_INBOX' | translate">
+                <mat-slide-toggle [checked]="dataSourceToPass.channelInbox === 'Y'" (change)="selectType($event,dataSourceToPass,'channelInbox')"></mat-slide-toggle>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="Email" >
+            <th mat-header-cell *matHeaderCellDef class="col4 col-space2" translate><p translate>LBL_EMAIL</p>
+                <!-- <mat-slide-toggle [checked]="emailSelectAll" (change)="emailSelectAllCall($event)">
+				</mat-slide-toggle>
+                <p>{{(emailSelectAll) ? "Enabled" : "Disabled"}} </p> -->
+            </th>
+            <td mat-cell *matCellDef="let dataSourceToPass" [attr.data-label]="'LBL_EMAIL' | translate">
+                <mat-slide-toggle [checked]="dataSourceToPass.channelEmail === 'Y'" (change)="selectType($event,dataSourceToPass,'channelEmail')"></mat-slide-toggle>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="Sms">
+            <th mat-header-cell *matHeaderCellDef translate class="col5"><p translate>LBL_SMS</p>
+                <!-- <mat-slide-toggle [checked]="smsSelectAll" (change)="smsSelectAllCall($event)">
+				</mat-slide-toggle>
+                <p> {{(smsSelectAll) ? "Enabled" : "Disabled" }}</p> -->
+            </th>
+            <td mat-cell *matCellDef="let dataSourceToPass" [attr.data-label]="'LBL_SMS' | translate">
+                <mat-slide-toggle [checked]="dataSourceToPass.channelSms  === 'Y'" (change)="selectType($event,dataSourceToPass,'channelSms')"></mat-slide-toggle>
+            </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+</div>
+    </div>
+    <div *ngIf="norecordflag">
+        <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found></div>
+      
+       <app-pagination [class.hide]="true" #paginator class="actionHide" [dataSourceLength]="dataSourceLength" [currentRecord]="'manageAlerts'"
+    [totalRecords]="totalRecords" (onPaginationChange)="paginationChangeClick($event)"></app-pagination>
+       <div class="btncntr">
+        <!-- <button class="button-secondary mr0" (click)="onClickCancel()" translate>LBL_CANCEL</button>
+        <button class="button-secondary wd150" (click)="onClickReset()" translate>LBL_RESET_TO_DEFAULT</button>
+        <button class="button-primary" (click)="submitTransfer()" translate>LBL_SAVE</button> -->
+        <app-tertiary-button buttonValue="LBL_CANCEL" (click)="onClickCancel()"></app-tertiary-button>
+        <!-- <app-tertiary-button buttonValue="LBL_RESET_TO_DEFAULT" (click)="onClickReset()"></app-tertiary-button> -->
+        <app-primary-button buttonValue="LBL_SAVE" (click)="submitTransfer()"></app-primary-button>
+    </div>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

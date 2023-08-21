@@ -1,0 +1,134 @@
+.detailsTitleContainer {
+    margin: -15px 0px -27px 30px;
+}
+
+.detailsContainer {
+    height: auto;
+    display: flow-root;
+}
+
+.titleContainer {
+    margin-top: 16px;
+    font-size: 16px;
+    color: var(--tableData-header-color);
+    font-family: 'HelveticaNeueMed';
+}
+
+.titleContainerText {
+    margin-top:10px;
+    margin-left: 18px;
+    width: 50%
+}
+
+.subTitleContainer {
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    font-family: 'HelveticaNeue', arial, sans-serif;
+}
+
+.subTitleContainerLeft {
+    margin-left: 18px;
+    margin-top: 8px;
+    width: 50%;
+    font-size: 14px;
+    font-family: 'HelveticaNeue', arial, sans-serif;
+}
+
+.statusContainerLeft {
+    margin-left: 18px;
+    width: 50%;
+    margin-top: 20px;
+}
+
+.detailsTitleContainer {
+    margin: -15px 0px -27px 30px;
+}
+
+.summaryOuterConainer {
+    .summaryConainer {
+        border-radius: 10px;
+        background: var(--primary-widget-bg-color);
+        border: 1px solid var(--widget-border-color);
+        margin-right: 30px;
+        margin-top: 20px;
+        margin-left: 30px;
+        padding-bottom: 15px !important;
+    }
+}
+
+.button-secondary:hover {
+    background-color: #e8e8e8
+}
+
+.btnContainer {
+    float: right;
+    margin-top: 25px;
+    padding-right: 30px;
+}
+
+.button-print-secondary {
+    height: 40px !important;
+}
+
+.backArrow {
+    top: 40px;
+    left: -20px;
+}
+.bankDetailsContainerText {
+    margin-top: 20px;
+    margin-left: 18px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    font-family: 'HelveticaNeueMed';
+}
+
+.subHeadingText {
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-left: 18px;
+    color: var(--table-header-color);
+    font-family: 'HelveticaNeueMed';
+}
+
+.subText {
+    margin-left: 18px;
+    font-family: "HelveticaNeue", arial, sans-serif;;
+    font-size: 14px;
+    color: var(--default-text-color);
+}
+.fxContainer {
+    margin-left: 18px;
+    display: flex;
+}
+
+.column1,
+.column2,
+.column3 {
+    width: 33%
+}
+
+.label {
+    width: 107px;
+    height: 30px;
+    font-size: 14px;
+    color: var(--table-header-color);
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+
+.dataInfo {
+    font-family: "HelveticaNeue", arial, sans-serif;
+    ;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    margin: 8px 0px;
+}
+
+.backgroundContainer {
+    background-color: var(--summary-row-bg-color);
+    border-radius: 10px;
+    padding: 10px 5px;
+    margin-left: 18px;
+    margin-right: 30px;
+    margin-top: 16px;
+}

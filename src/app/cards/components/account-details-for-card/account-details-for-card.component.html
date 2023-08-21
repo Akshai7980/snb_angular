@@ -1,0 +1,45 @@
+<div class="">
+    
+    <div class="">
+      <div class="madaCardContainer">
+        <div>
+          <div class="border">
+            <div>
+              <!-- <span class="subTitles" translate>LBL_FROM</span> -->
+  
+              <!-- <div class="mTop_18" *ngIf="!noRecordFlag">
+                <div class="actionsConatiner">
+                  <div class="leftPannel">
+                    <div class="searchCntnrLeft advSearch">
+                        <app-search [showAdvanceSearch]="false" (childEvent)="triggerSearchFilter($event)"></app-search>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <app-debit-lookup [tableId]="'madaCard'" *ngIf="fromAccountsObject" [debitAccDetails]="fromAccountsObject" class="arrange removeBorder"
+               [shownsearch]="searchShownFlag" (onAccountSelect)="goToDetailsScreen($event)"></app-debit-lookup>
+
+              
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+

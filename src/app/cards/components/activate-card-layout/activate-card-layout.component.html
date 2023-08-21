@@ -1,0 +1,77 @@
+<div class="mainContainer">
+
+    <form [formGroup]="activateCardForm" (keydown)="onKeyDown($event)" (ngSubmit)="toProceed()">
+        <div translate class="title">LBL_ACTIVATE_CARD</div>
+        <div class="subContainer" id="cardsPrintSection">
+            <div class="titleConatiner">
+                <div translate class="subTitle">LBL_CARD_DETAILS</div>
+
+                <div class="innerContainer">
+                    <div>
+                        <label translate>LBL_CREDIT_CARD_NUMBER <span class="mandatory">*</span></label>
+                        <div class="inputContainer">
+                            <input type="text" class="input" formControlName="firstFour" maxlength="4" #firstFour
+                                (keyup)="validateInput('first')" />
+                            <h2>XXXX XXXX</h2>
+                            <input type="text" class="input" formControlName="lastFour" maxlength="4" #lastFour
+                                (keyup)="validateInput('last')" />
+                        </div>
+
+                        <div *ngIf="
+                (submitted && formValidation.firstFour.errors) ||
+                (submitted && formValidation.lastFour.errors)
+              ">
+                            <span class="error" *ngIf="
+                  (submitted && formValidation.firstFour.errors) ||
+                  formValidation.lastFour.errors
+                " translate>LBL_PLEASE_ENTER_CARD_NUMBER</span>
+                        </div>
+                    </div>
+
+                    <div class="selectionContainer">
+                        <label translate class="alignValidThru"> LBL_VALID_THRU <span class="mandatory">*</span></label>
+
+                        <div class="alignSelection">
+                            <div class="monthContainer">
+                                <mat-select panelClass="dropDownOption validThuru" class="selectInput"
+                                    placeholder="{{ 'LBL_MM' | translate }}" formControlName="month"
+                                    disableOptionCentering>
+                                    <mat-option *ngFor="let item of months" value="{{ item.month }}">{{ item.month }}
+                                    </mat-option>
+                                </mat-select>
+
+                                <div *ngIf="submitted && formValidation.month.errors">
+                                    <span class="error" *ngIf="submitted && formValidation.month.errors"
+                                        translate>LBL_PLEASE_SELECT_MONTH</span>
+                                </div>
+                            </div>
+
+                            <div class="yearContainer">
+                                <mat-select panelClass="dropDownOption validThuru" class="selectInput"
+                                    placeholder="{{ 'LBLYYYY' | translate }}" formControlName="year"
+                                    disableOptionCentering>
+                                    <mat-option *ngFor="let item of years" value="{{ item.year }}">{{ item.year }}
+                                    </mat-option>
+                                </mat-select>
+
+                                <div *ngIf="submitted && formValidation.year.errors">
+                                    <span class="error" *ngIf="submitted && formValidation.year.errors"
+                                        translate>LBL_PLEASE_SELECT_YEAR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttonContainer">
+            <app-tertiary-button buttonValue="LBL_CANCEL" routerPath="./" (click)="toCancel()"></app-tertiary-button>
+            <app-primary-button buttonValue="LBL_PROCEED" routerPath="./" type="submit"></app-primary-button>
+        </div>
+
+    </form>
+
+</div>
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

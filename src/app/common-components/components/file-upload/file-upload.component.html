@@ -1,0 +1,21 @@
+<div class="fileContainer">
+<div class="upload-file-title">
+  <span translate> LBL_UPLOAD_FILE</span> <span class="required">*</span>
+</div>
+<div class="browse-btn" (click)="fileFieldType.click()">
+  <span translate> LBL_BROWSE</span>
+  <input (change)="selectFile($event)" type="file" name="file" #fileFieldType hidden />
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>
+<div class="upload-note">
+  <h5><span translate>LBL_MAXIMUM</span> {{ uploadInput.supportedFileSize }} <span translate>LBL_MB</span> </h5>
+</div>
+<div class="deleteIconSection" *ngIf="deleteImgSection">
+  <span>{{filemanager_addfile.name}}</span>
+   <a href="javascript:void(0)" (click)="removeUpload()" class="deleteIcon"></a>
+</div>
+
+<div *ngIf="!deleteImgSection && invalidFileBackEndErrorMessage">
+  <small class="errorMsg mr10" translate> {{invalidFileBackEndErrorMessage}} </small></div>
+<!-- <app-ajax-loader-medium [hidden]="isLoadingCompelete"></app-ajax-loader-medium> -->
+</div>

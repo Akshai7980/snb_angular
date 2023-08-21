@@ -1,0 +1,9 @@
+<div class="paginationCntr">
+    <!-- <div class="paginationLeft">Displaying {{displayNumberStart}} - {{displayNumberEnd}} of {{totalRecords}} {{currentRecord}}
+    </div> -->
+    <div class="paginationRight">
+        <div class="paginatorLabel">{{'LBL_ITEMS_PER_PAGE' | translate}}</div>
+        <mat-paginator #paginator [hidePageSize]= "true" [length]="dataSourceLength" [pageSizeOptions]="tablePageSize" 
+            (page)="pageEvents($event)"></mat-paginator>
+    </div>
+</div>

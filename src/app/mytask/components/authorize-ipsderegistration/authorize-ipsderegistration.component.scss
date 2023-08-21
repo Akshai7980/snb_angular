@@ -1,0 +1,30 @@
+.detailsTitleContainer{margin:-15px 0px -27px 30px;position: relative;bottom:15px;}
+.button-secondary:hover{background-color:#e8e8e8}
+.btnContainer{float: right;margin-top: 25px;padding-right: 30px;}
+.backArrow{top:40px;left:-20px;}
+.container{
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    margin: 5px 20px 0px 30px;
+}
+.proxyContainer{
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    margin: 20px 20px 0px 30px;
+}
+.button-primary:hover{
+    background-color: var(--primary-btn-hover-color);
+    border-color: var(--primary-btn-hover-color);
+}
+
+.authcontainer{
+    margin: 5px 20px 0px 30px;
+}

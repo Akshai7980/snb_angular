@@ -1,0 +1,117 @@
+{
+  "headerValue": {
+      "moduleId": "GETFLDDATA",
+      "simulate": "N",
+      "export": null,
+      "exportType": null,
+      "_dinsess": "50caf791-0ed1-4ac4-9c38-d57f70b990c9"
+  },
+  "data": [
+      {
+          "chequeBookSize": [
+              {
+                  "CHEQUEBOOKTYPE": "7025",
+                  "ENGLISHNAME": "Al Asriyah - 25 Cheque Book ",
+                  "ARABICNAME": "العصريه - دفتر 25 شيك ",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "5025",
+                  "ENGLISHNAME": "Al Wessam - (25 pages)",
+                  "ARABICNAME": "الوسام - 25 ورقة",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "1025",
+                  "ENGLISHNAME": "Personal : 25 Cheques / book ",
+                  "ARABICNAME": "شخصي/ دفتر 25 شيك ",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "2050",
+                  "ENGLISHNAME": "Business : 50 Cheques / book ",
+                  "ARABICNAME": "شركات / دفتر 50 شيك ",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "8025",
+                  "ENGLISHNAME": "Private Banking (25 cheqs/bk)",
+                  "ARABICNAME": "البنكية الخاصة  25 شيك",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "9025",
+                  "ENGLISHNAME": "Cheque Book - Mazaya 25 Sheets",
+                  "ARABICNAME": "دفتر شيكات - مزايا 25 ورقة",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "6150",
+                  "ENGLISHNAME": "Tajir AlAhli Classic (50 pages)",
+                  "ARABICNAME": "تاجر الاهلي الكلاسيكي - 50 ورقه",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "6250",
+                  "ENGLISHNAME": "Tajir AlAhli Gold (50 pages)",
+                  "ARABICNAME": "تاجر الاهلي الذهبي - 50 ورقه",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "6350",
+                  "ENGLISHNAME": "Tajir AlAhli Platinum (50 pages)",
+                  "ARABICNAME": "تاجر الاهلي البلاتيني - 50 ورقه",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "5050",
+                  "ENGLISHNAME": "Al Wessam - (50 pages)",
+                  "ARABICNAME": "الوسام -50 ورقة",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "5075",
+                  "ENGLISHNAME": "Al Wessam - (75 pages)",
+                  "ARABICNAME": "الوسام -75 ورقة ",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "5001",
+                  "ENGLISHNAME": "Al Wessam - (100 pages)",
+                  "ARABICNAME": "الوسام -100 ورقة ",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "8050",
+                  "ENGLISHNAME": "Private Banking (50 cheqs/bk)",
+                  "ARABICNAME": "البنكية الخاصة  50 شيك",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "8075",
+                  "ENGLISHNAME": "Private Banking (75 cheqs/bk)",
+                  "ARABICNAME": "البنكية الخاصة  75 شيك",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "8001",
+                  "ENGLISHNAME": "Private Banking (01 cheqs/bk)",
+                  "ARABICNAME": "البنكية الخاصة  100 شيك",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "9225",
+                  "ENGLISHNAME": "Afaaq AlAhli Checkbook",
+                  "ARABICNAME": "دفتر شيكات آفاق الأهلي",
+                  "CHEQUECOUNT": "25"
+              },
+              {
+                  "CHEQUEBOOKTYPE": "9325",
+                  "ENGLISHNAME": "Afaaq AlAhli Executive Checkbook",
+                  "ARABICNAME": "دفتر شيكات آفاق الأهلي التنفيذي",
+                  "CHEQUECOUNT": "25"
+              }
+          ]
+      }
+  ]
+}

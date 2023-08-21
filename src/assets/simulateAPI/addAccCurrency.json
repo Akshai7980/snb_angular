@@ -1,0 +1,32 @@
+{
+    "headerValue": {
+        "moduleId": "ACCCURRENCY",
+        "simulate": "N",
+        "export": null,
+        "exportType": null,
+        "_dinsess": "9c6e5df8-4cc9-4862-9209-c3c19b588149",
+        "sortColumn": null,
+        "sortOrder": null,
+        "sortDirection": null
+    },
+    "data": [
+        {
+            "currencyDetails": [
+                {
+                    "currencyId": "Saudi",
+                    "currencyName": "Saudi Riyal",
+                    "unitId": "IGTBSA",
+                    "debitType": "M",
+                    "productType":"0200"
+                },
+                {
+                    "currencyId": "Dollar",
+                    "currencyName": "United States Dollar",
+                    "unitId": "IGTBSA",
+                    "debitType": "M",
+                    "productType":"0200"
+                }
+            ]
+        }
+    ]
+}

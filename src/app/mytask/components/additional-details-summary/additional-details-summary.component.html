@@ -1,0 +1,34 @@
+<div class="detailsTitleContainer">
+    <div class="mainTitle" translate>LBL_ADDITIONAL_ACCOUNT_SUMMARY</div>
+</div>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-additional-account-request></app-additional-account-request>
+    </div>
+</section>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+    </div>
+</section>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-history [historyData]="workFlowHistoryParams"></app-history>
+    </div>
+</section>
+<section>
+    <div class="btnContainer">
+        <!-- <button class="button-secondary backButton" routerLink="/mytask/serviceRequest/additionalAccount" translate>
+            LBL_BACK
+        </button>
+        <button class="button-print-secondary" translate (click)="onRejectClick()">
+            LBL_REJECT
+        </button>
+        <button class="button-print-secondary" translate (click)="onApproveClick()">
+            LBL_AUTHORIZE
+        </button> -->
+        <app-tertiary-button buttonValue="LBL_BACK" (click)="back()"></app-tertiary-button>
+        <app-secondary-button buttonValue="LBL_REJECT" (click)="onRejectClick()"></app-secondary-button>
+        <app-secondary-button buttonValue="LBL_AUTHORIZE" (click)="onApproveClick()"></app-secondary-button>
+    </div>
+</section>

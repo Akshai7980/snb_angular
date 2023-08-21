@@ -1,0 +1,28 @@
+{
+  "headerValue": {
+    "moduleId": "PMNTSGETFLDDATA",
+    "_dinsess": "b1752a6b-52f9-4b22-be80-e731a44c6cff"
+  },
+  "data": {
+    "entitledSubPdt": [
+      {
+        "subPdtCode": "SALPAY",
+        "subPdtDesc": "Payroll Upload",
+        "maxSize": "10mb",
+        "subType":"00"
+      },
+      {
+        "subPdtCode": "WPSUP",
+        "subPdtDesc": "WPS Upload",
+        "maxSize": "10mb",
+        "subType":"00"
+      },
+      {
+        "subPdtCode": "BULKPAY",
+        "subPdtDesc": "Vender Payment Upload",
+        "maxSize": "10mb",
+        "subType":"00"
+      }
+    ]
+  }
+}

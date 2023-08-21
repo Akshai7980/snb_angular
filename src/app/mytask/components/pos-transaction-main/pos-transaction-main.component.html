@@ -1,0 +1,29 @@
+<div class="worksapceBase">
+  <div class="content-header" translate>LBL_POS</div>
+
+  <div class="tabCntr">
+    <ul>
+      <li>
+        <a
+          routerLink="posService"
+          [class.active]="rootScopeData.activeTabName === 'posService'"
+          ><span translate>LBL_POS_SERVICE</span> ({{
+            rootScopeData?.posServiceCount ? rootScopeData.posServiceCount : 0
+          }})</a
+        >
+      </li>
+      <li class="pl0">
+        <a
+          routerLink="posUpload"
+          [class.active]="rootScopeData.activeTabName === 'posUpload'"
+          ><span translate>LBL_POS_UPLOAD</span> ({{
+            rootScopeData?.posUploadCount ? rootScopeData.posUploadCount : 0
+          }})</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="tabDataCntr">
+    <router-outlet></router-outlet>
+  </div>
+</div>

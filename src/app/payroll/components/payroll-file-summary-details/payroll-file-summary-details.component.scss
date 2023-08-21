@@ -1,0 +1,41 @@
+.footerText {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 5px;
+  background-color: var(--summary-hover-color);
+  background-size: cover;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  text-decoration: none solid rgb(93, 93, 93);
+  line-height: 20px;
+}
+.termsContainer {
+  align-items: center;
+}
+img {
+  height: 20px;
+  width: 20px;
+  align-items: center;
+  padding: 0 10px;
+}
+.actionGroup {
+  float: right;
+  margin-top: 30px;
+}
+.title {
+  width: 215px;
+  height: 30px;
+  padding: 0px 0px 0px 5px;
+  background-size: cover;
+  font-size: 18px;
+  color: var(--tableData-header-color);
+  margin: 0px;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+.footer-container {
+  display: block;
+}

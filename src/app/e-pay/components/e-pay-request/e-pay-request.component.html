@@ -1,0 +1,105 @@
+<div>
+    <div class="refreshCntr actionHide">
+      <app-search [ngStyle]="{'top': norecordflag === true ? '0px' : '-40px'}" [showAdvanceSearch]="true" (searchParams)="advancedSearchApply($event)" (childEvent)="triggerSearchFilter($event)"></app-search>
+      <app-refresh  [ngStyle]="{'top': norecordflag === true ? '0px' : '-40px'}"  (click)="refreshSummary()"></app-refresh></div>
+    <div>
+        <table class="casaTable" mat-table  [dataSource]="dataSourceToPass" >
+            <ng-container matColumnDef="merchantId">
+                <th mat-header-cell *matHeaderCellDef translate (click)="sortColumn('merchantId')"> LBL_MERCHANT_ID
+                    <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'merchantId'">
+                      <img src="assets/images/sortDown.svg" class="img-style">
+                      <img src="assets/images/sortDown.svg" class="sortUp">
+                    </span>
+                    <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'merchantId'">
+                      <img src="assets/images/sortDown.svg"
+                          *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+                          class="img-style">
+                      <img src="assets/images/sortDown.svg"
+                          *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+                          class="sortUpAscending">
+                    </span>
+                </th>
+                <td mat-cell *matCellDef="let element">{{element.merchantId}}</td>
+              </ng-container>
+              <ng-container matColumnDef="merchantName">
+                <th mat-header-cell *matHeaderCellDef   translate (click)="sortColumn('merchantName')">
+                 LBL_MERCHANT_NAME
+                    <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'merchantName'"> 
+                      <img src="assets/images/sortDown.svg" class="img-style">
+                      <img src="assets/images/sortDown.svg" class="sortUp">
+                    </span>
+                    <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'merchantName'">
+                      <img src="assets/images/sortDown.svg"
+                          *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+                          class="img-style">
+                      <img src="assets/images/sortDown.svg"
+                          *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+                          class="sortUpAscending">
+                    </span>
+                </th>
+                <td mat-cell *matCellDef="let element">{{element.merchantName}}</td>
+              </ng-container>
+              <ng-container matColumnDef="serviceType">
+                <th mat-header-cell *matHeaderCellDef   translate (click)="sortColumn('serviceType')">
+                  LBL_SERVICE_TYPE
+                    <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'serviceType'">
+                      <img src="assets/images/sortDown.svg" class="img-style">
+                      <img src="assets/images/sortDown.svg" class="sortUp">
+                    </span>
+                    <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'serviceType'">
+                      <img src="assets/images/sortDown.svg"
+                          *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+                          class="img-style">
+                      <img src="assets/images/sortDown.svg"
+                          *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+                          class="sortUpAscending">
+                    </span>
+                </th>
+                <td mat-cell *matCellDef="let element">{{element.serviceType}}</td>
+              </ng-container>
+              <ng-container matColumnDef="mobile">
+                <th mat-header-cell *matHeaderCellDef   translate (click)="sortColumn('mobile')">
+                  LBL_MOBILE
+                    <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'mobile'">
+                      <img src="assets/images/sortDown.svg" class="img-style">
+                      <img src="assets/images/sortDown.svg" class="sortUp">
+                    </span>
+                    <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'mobile'">
+                      <img src="assets/images/sortDown.svg"
+                          *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+                          class="img-style">
+                      <img src="assets/images/sortDown.svg"
+                          *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+                          class="sortUpAscending">
+                    </span>
+                </th>
+                <td mat-cell *matCellDef="let element">{{element.mobile}}</td>
+              </ng-container>
+              <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef   translate (click)="sortColumn('email')">
+                  LBL_EMAIL
+                    <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn !== 'email'">
+                      <img src="assets/images/sortDown.svg" class="img-style">
+                      <img src="assets/images/sortDown.svg" class="sortUp">
+                    </span>
+                    <span *ngIf="responseHeader && responseHeader.sortColumn !== undefined && responseHeader.sortColumn === 'email'">
+                      <img src="assets/images/sortDown.svg"
+                          *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'desc'"
+                          class="img-style">
+                      <img src="assets/images/sortDown.svg"
+                          *ngIf="responseHeader && responseHeader.sortOrder !== undefined && responseHeader.sortOrder === 'asc'"
+                          class="sortUpAscending">
+                    </span>
+                </th>
+                <td mat-cell *matCellDef="let element">{{element.email}}</td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <app-pagination #paginator *ngIf="!norecordflag" class="mTop_35 actionHide" [dataSourceLength]="dataSourceLength"
+          [currentRecord]="'epay-request'" [totalRecords]="totalRecords" (onPaginationChange)="paginationChangeClick($event)">
+        </app-pagination>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

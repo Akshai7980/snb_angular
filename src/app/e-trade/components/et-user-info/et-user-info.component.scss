@@ -1,0 +1,25 @@
+.mtop_20 {
+  margin-top: 20px;
+}
+
+.geneStaTitles {
+  color: var(--table-header-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+}
+
+.innerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.flexWidth {
+  width: 300px;
+  padding-bottom: 20px;
+  color: var(--default-text-color);
+}
+
+.mbot_4 {
+  margin-bottom: 4px;
+}

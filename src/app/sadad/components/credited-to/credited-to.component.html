@@ -1,0 +1,286 @@
+<div class="mainContainer">
+  <div class="subContainer marginLeft_0">
+    <div translate class="subTitles">LBL_TO</div>
+
+    <div [ngClass]="!isProced? 'searchCntnr' : 'hide'" *ngIf="!oneTimePaymentDisplay">
+      <app-search
+        [showAdvanceSearch]="true"
+        (childEvent)="triggerSearchFilter($event)" [datalist]="searchSadad" (searchParams)="advancedSearchApply($event)"
+      ></app-search>
+       <app-secondary-button
+        (click)="displayOneTimePayment()"
+        buttonValue="LBL_ONE_TIME_PAYMENT"
+        routerPath="./"
+      ></app-secondary-button>
+    </div>
+
+    <div
+      [ngClass]="isProced?'checkedToRead':'tableInfo'"
+      id="accountsDefaultCntr"
+      *ngIf="!oneTimePaymentDisplay"
+    >
+      <table mat-table [dataSource]="dataSource" class="tableInfo casaTable" [ngClass]="isProced ?'checkedToRead':''"id="creditData">
+        <ng-container matColumnDef="checkbox">
+          <th mat-header-cell *matHeaderCellDef translate class="checkData">
+            <!-- <mat-checkbox
+              (change)="selectAll($event)"
+              [ngClass]="!isProced  ? '' : 'hide'"
+            ></mat-checkbox> -->
+          </th>
+
+          <td mat-cell *matCellDef="let element; let i = index" class="checkData">
+            <mat-checkbox
+              [disabled] ="element?.disabled"
+              [ngClass]="!isProced  ? 'checkBoxPrimary' : 'hide'"
+              [checked]="element.IS_SELECTED"
+              (change)="checked(element,i)"
+            ></mat-checkbox>
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="nickName">
+          <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+            LBL_NICK_NAME
+          </th>
+          <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+            <div class="ellipsis"> 
+              <span> {{ element.nickName }}</span>
+            </div>           
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+            LBL_NAME
+          </th>
+          <td mat-cell *matCellDef="let element" class="tableInfoFonts" [matTooltip]="element.billerName ? element.billerName : '--'">
+            <div class="ellipsis"> 
+              <span>{{ element.billerName }}</span>
+            </div>           
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="subcriberId">
+          <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+            LBL_SUBSCRIBER_ID
+          </th>
+          <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+            {{ element.billAccount }}
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="paymentType">
+          <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+            LBL_PAYMENT_TYPE
+          </th>
+          <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+            <div class="ellipsis">
+            <span>{{ element.paymentType}}</span> 
+            </div>
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="dueDate">
+          <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+            LBL_DUE_DATE
+          </th>
+          <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+            <div class="ellipsis">
+              <span>{{ element.dueDate }}</span>
+            </div>
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="billStatus">
+          <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+            LBL_STATUS
+          </th>
+          <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+            <div class="ellipsis">
+              {{ element.billStatus}}
+            </div>           
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="mininmumAmt">
+          <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+            LBL_MINIMUM_AMOUNT
+          </th>
+          <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+            <div *ngIf="element.minAmount">{{element.minAmount | currencyFormat : element.currency}} {{element. currency}}</div>
+            <div *ngIf="!element.minAmount">--</div>
+          </td>
+          <td mat-footer-cell *matFooterCellDef><div translate class="totalFonts">LBL_Total</div></td>
+        </ng-container>
+        
+        <ng-container matColumnDef="maximumAmt">
+          <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+            LBL_MAX_AMT
+          </th>
+          <td mat-cell *matCellDef="let element" class="tableInfoFonts">
+            <div *ngIf="element.maxAmount">{{element.maxAmount | currencyFormat : element.currency}} {{element. currency}}</div>
+            <div *ngIf="!element.maxAmount">--</div>
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="dueAmt">
+          <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">
+            LBL_DUE_AMT_SAR
+          </th>
+          <td mat-cell *matCellDef="let element; let i = index" class="tableInfoFonts">
+            <!-- <input 
+              [ngClass]="element.IS_SELECTED ? 'writeOnlyInput' : 'readOnlyInput'"
+              type="text"
+              [(ngModel)]="element.amountDue"
+              [value]="element.amountDue"
+              [readonly]="!element.IS_SELECTED"
+              (keypress)="numberOnly($event)"
+              (blur)="inputChange(element,i,$event)"
+            /> -->
+            <div id="nickNameCntr_{{ i }}" class="dslk_flex">
+              <div class="position_rel">
+              <div class="editNickNameCntr">
+            <input 
+              [ngClass]="readOnlyValidation ? 'readOnlyInput' : 'writeOnlyInput'"
+              type="text"
+              [(ngModel)]="element.amountDue"
+              [value]="element.amountDue"
+              [readonly]="readOnlyValidation"
+              (keypress)="numberOnly($event)"
+              (blur)="inputChange(element,i,$event)"
+            />
+              </div>
+            <small translate class="errorMsg" *ngIf="errorMessage[i] && !errorMessage[i].isValid">
+              {{ errorMessage[i].message }}
+           </small>
+              </div>
+            </div>
+          </td>
+          <td mat-footer-cell *matFooterCellDef ><div *ngIf="!isProced"class="totalFonts">
+            {{totalAmount+"" | currencyFormat:formatType}}
+          </div>
+         <div *ngIf="isProced"class="totalFonts">
+            {{totalAmount+"" | currencyFormat:formatType}} SAR
+          </div>
+        </td>
+        </ng-container>
+        <ng-container matColumnDef="action" >
+          <th mat-header-cell *matHeaderCellDef> 
+          </th>
+          <td mat-cell *matCellDef="let element" class="action">
+            <div *ngIf="dataSource.length >= 1" [ngClass]="dataSource.length >= 1 ?'arrowRotate': 'removeArrow'"class="downArrow"   [ngStyle]="{'display': rootScopeData.changeHeading === 'Review' ? 'none' : 'block'}" (click)="selectedRow('iconClick')" ></div>
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          [ngClass]="{ selected: isProced }"
+        ></tr>
+        <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+      </table>
+      <div class="txtAlignCntr" *ngIf="amountValidError">
+        <small class="errorMsg" translate>LBL_TOTAL_AMOUNT_CANT_BE_ZERO</small>
+      </div>
+      <div class="txtAlignCntr" *ngIf="negativeAmountValidError">
+        <small class="errorMsg" translate>LBL_SELECTED_NEGATIVE_AMOUNT</small>
+      </div>
+      <!-- <div class="txtAlignCntr" *ngIf="insufAmtErrMsg">
+        <small class="errorMsg" translate>LBL_INSUFFICIENT_BALANCE</small>
+      </div> -->
+    </div>
+
+    <div class="oneTimePayment" *ngIf="oneTimePaymentDisplay">
+      <div translate class="subTitles subText">LBL_ONE_TIME_PAYMENT</div>
+      <div class="row">
+        <div class="column">
+          <div translate class="geneStaTitles fieldTitles">
+            LBL_BILLER_GROUP<span class="required">*</span>
+          </div>
+          <div class="mtop_10">
+            <mat-select
+              class="selectInput"
+              panelClass="selectDropdown dropDownOption"
+              disableOptionCentering
+              [(ngModel)]="oneTimeObj.billerGroup"
+              placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}"
+            >
+              <mat-option *ngFor="let billerGrp of billerGroupData" [value]="billerGrp.englishName"
+              (click)="groupOption(billerGrp)">{{ billerGrp.englishName }}</mat-option>
+            </mat-select>
+          </div>
+          <div class="errorMsg" *ngIf="BillerGroupInvalid" translate>LBL_ERR_MSG_SELECT_GROUP</div>
+        </div>
+        <div class="column">
+          <div translate class="geneStaTitles fieldTitles">
+            LBL_BILLER_COMPANY<span class="required">*</span>
+          </div>
+          <div class="mtop_10">
+            <mat-select
+              class="selectInput"
+              panelClass="selectDropdown dropDownOption"
+              disableOptionCentering
+              [(ngModel)]="oneTimeObj.billerCompany"
+              placeholder="{{'LBL_CHOOSE_AN_SELECT_OPTION' | translate}}"
+            >
+            <mat-option *ngFor="let billerComp of billerNameData" [value]="billerComp.billerName"
+            (click)="BillerNameOption(billerComp)">
+            {{ billerComp.billerName}}</mat-option>
+            </mat-select>
+          </div>
+          <div class="errorMsg" *ngIf="BillerNameInvalid" translate>LBL_ERROR_MESSAGE_NAME</div>
+        </div>
+        <div class="column">
+          <div translate class="geneStaTitles fieldTitles">
+            LBL_SUBCRIBER_ID <span class="required">*</span>
+          </div>
+          <div class="mtop_10">
+            <input class="selectInput"  [(ngModel)]="oneTimeObj.SUBID"  (keypress)="numberOnly($event)" maxlength="18" autocomplete="off"/>
+          </div>
+          <div class="errorMsg" *ngIf="SubcriberIdInvalid" translate>LBL_ERR_MSG_ENTER_SUBSCRIBER_ID</div>
+          <div class="errorMsg" *ngIf="SubcriberIdvalid" translate>LBL_PLSE_ENTER_VALID_SUBSCRIBERID</div>
+        </div>
+        <div class="column">
+          <div translate class="geneStaTitles fieldTitles">
+            LBL_NICKNAME<span class="required">*</span>
+          </div>
+          <div class="mtop_10">
+            <input class="selectInput" maxlength="25" (keypress)="nickNameValidation($event)" autocomplete="off" [(ngModel)]="oneTimeObj.NICK_NAME"/>
+          </div>
+          <div class="errorMsg" *ngIf="NickNameInvalid" translate>LBL_ERROR_MESSAGE_ADD_ACCOUNT_NICK_NAME</div>
+        </div>
+      </div>
+      <div class="actionGroup">
+        <app-tertiary-button
+          buttonValue="LBL_BACK"
+          class="tertiaryBtn"
+          (click)="hideOneTimePayment()"
+        ></app-tertiary-button>
+        <app-primary-button buttonValue="LBL_ADD" routerPath="./" (click)="subcriberIdValidate()"></app-primary-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="actionGroup" *ngIf="!isProced">
+    <app-tertiary-button
+      buttonValue="LBL_CANCEL"
+      class="tertiaryBtn"
+      (click)="hideOneTimePayment()"
+    ></app-tertiary-button>
+    <app-primary-button
+    *ngIf="!hideProceed"
+      buttonValue="LBL_PROCEED"
+      (click)="proceedToNext()"
+      routerPath="#"
+    ></app-primary-button>
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader> 

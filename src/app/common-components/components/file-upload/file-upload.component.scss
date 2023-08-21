@@ -1,0 +1,46 @@
+.upload-file-title {
+  color: var(--table-header-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+.browse-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--short-profile-txt-color);
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 1px dashed #006a521a;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 5px;
+  padding: 10px 4px;
+  width: 64px;
+}
+.deleteIconSection {
+  display: flex;word-break: break-all;align-items: center;position: relative;
+}
+.deleteIconSection > span{display: flex;}
+.deleteIcon {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  // margin-right: 1%;
+  background-image: url(../../../../assets/images/icoDelete.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  //margin-right: -180px;
+  height: 25px;
+  width: 32px;
+  //margin-left: 100px;
+  right: -35px;
+}
+.upload-note {
+  color: var(--table-header-color);
+}
+.subTitles {
+  margin-bottom: 1rem;
+}
+.fileContainer{
+  width:300px;
+}

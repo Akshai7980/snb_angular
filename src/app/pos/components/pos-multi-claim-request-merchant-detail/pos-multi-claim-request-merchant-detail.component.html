@@ -1,0 +1,257 @@
+<div class="outerContainer">
+  <div class="subTitles" translate>LBL_MULTI_CLAIM_REQUEST</div>
+  <div class="merchantDetails">
+    <div class="subTitles" translate>LBL_MERCHANT_DETAILS</div>
+    <!-- Account -->
+    <div class="detailContainer">
+      <div class="outerContainer">
+        <div class="accountDetails">
+          <div class="subTitles" translate>LBL_ACCOUNT</div>
+          <table>
+            <tr class="tableHeader">
+              <th translate>LBL_ACC_NUMBER</th>
+              <th translate>LBL_NICK_NAME</th>
+              <th translate>LBL_FULL_NAME</th>
+              <th translate>LBL_STATUS</th>
+              <th translate>LBL_BALANCE</th>
+            </tr>
+            <ng-container>
+              <tr
+                class="tableRowConatiner"
+                *ngFor="
+                  let data of this.rootScopeData
+                    .posMultiClaimRequestMerchantDetail.account
+                "
+              >
+                <td>{{ data.OD_ACC_NO ? data.OD_ACC_NO : "--" }}</td>
+                <td>{{ data.ALIAS_NAME ? data.ALIAS_NAME : "--" }}</td>
+                <td>{{ data.OD_ACC_NAME ? data.OD_ACC_NAME : "--" }}</td>
+                <td>{{ data.STATUS ? data.STATUS : "--" }}</td>
+                <td>
+                  {{
+                    data?.CURR_AVAIL_BAL_AMT && data?.OD_CCY_CODE
+                      ? (data?.CURR_AVAIL_BAL_AMT
+                          | currencyFormat : data.OD_CCY_CODE) +
+                        " " +
+                        data.OD_CCY_CODE
+                      : "--"
+                  }}
+                </td>
+                <div class="downArrowAcc" (click)="clearAllFields()"></div>
+              </tr>
+            </ng-container>
+          </table>
+        </div>
+      </div>
+      <!-- Account end -->
+      <!-- merchant -->
+      <div class="outerContainer">
+        <div class="accountDetails">
+          <table>
+            <tr class="tableHeader">
+              <th translate>LBL_MERCHANT_NAME</th>
+              <th translate>LBL_MERCHANT_NAME_ARABIC</th>
+              <th translate>LBL_MERCHANT_NUMBER</th>
+              <th translate>LBL_STATUS</th>
+              <th translate>LBL_SHOP_NAME</th>
+            </tr>
+            <ng-container>
+              <tr
+                class="tableRowConatiner"
+                *ngFor="
+                  let data of this.rootScopeData
+                    .posMultiClaimRequestMerchantDetail.merchant
+                "
+              >
+                <td>
+                  {{
+                    data.merchantNameInEnglish
+                      ? data.merchantNameInEnglish
+                      : "--"
+                  }}
+                </td>
+                <td>
+                  {{
+                    data.merchantNameInArabic ? data.merchantNameInArabic : "--"
+                  }}
+                </td>
+                <td>
+                  {{ data.merchantNumber ? data.merchantNumber : "--" }}
+                </td>
+                <td>{{ data.status ? data.status : "--" }}</td>
+                <td>
+                  {{ data.shopEnglishName ? data.shopEnglishName : "--" }}
+                </td>
+                <div class="downArrowAcc" (click)="clearAllFields()"></div>
+              </tr>
+            </ng-container>
+          </table>
+        </div>
+      </div>
+      <!-- MERCHANT END -->
+      <!-- TERMINAL -->
+      <div class="outerContainer">
+        <div class="accountDetails">
+          <table>
+            <tr class="tableHeader">
+              <th translate>LBL_TERMINAL_ID</th>
+              <th translate>LBL_TERMINAL_TYPE</th>
+              <th translate>LBL_STATUS</th>
+              <th translate>LBL_TERMINAL_CITY</th>
+            </tr>
+            <ng-container
+              *ngFor="
+                let data of this.rootScopeData
+                  .posMultiClaimRequestMerchantDetail.terminal
+              "
+            >
+              <tr class="tableRowConatiner">
+                <td>{{ data.retailerId ? data.retailerId : "--" }}</td>
+                <td>{{ data.retailerName ? data.retailerName : "--" }}</td>
+                <td>{{ data.status ? data.status : "--" }}</td>
+                <td>
+                  {{ data.retailerAddress ? data.retailerAddress : "--" }}
+                </td>
+                <div class="downArrowAcc" (click)="clearAllFields()"></div>
+              </tr>
+            </ng-container>
+          </table>
+        </div>
+      </div>
+      <!-- terminal end  -->
+    </div>
+  </div>
+</div>
+<!-- transactions start -->
+<div class="outerContainer">
+  <div class="merchantDetails">
+    <div class="subTitles" translate>LBL_REQUEST_DETAILS</div>
+    <div class="toggleCntr">
+      <div
+        translate
+        id="leftToggle"
+        class="toggle active"
+        (click)="leftToggleCntl()"
+      >
+        LBL_MERCHANT_FINANCE_DISPUTE
+      </div>
+      <div
+        translate
+        id="rightToggle"
+        class="toggle"
+        (click)="rightToggleCntl()"
+      >
+        LBL_REFUND_REQUEST
+      </div>
+    </div>
+    <div class="detailContainer">
+      <div class="outerContainer marginTop20">
+        <div class="accountDetails flexContainer">
+          <div>
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_EMAIL <span class="errorMsg">*</span>
+            </div>
+            <p class="selectInputBorderNone">{{ email }}</p>
+          </div>
+          <div class="inputConatiner">
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_MOBILE_NUMBER <span class="errorMsg">*</span>
+            </div>
+            <input
+              class="selectInput"
+              (keypress)="allowNumbersOnly($event)"
+              [(ngModel)]="mobileNumber"
+              type="text"
+            />
+          </div>
+          <div class="financialContainer">
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_FINANCIAL_CLAIM_TYPE <span class="errorMsg">*</span>
+            </div>
+            <mat-select
+              panelClass="dropDownOption"
+              disableOptionCentering
+              class="matSelectInput mt-top"
+              placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+              name="fileType"
+              [(ngModel)]="financialType"
+            >
+              <mat-option
+                *ngFor="let type of financialTypeDropdown"
+                [value]="type"
+                >{{ type.financialClaim }}
+              </mat-option>
+            </mat-select>
+          </div>
+        </div>
+        <div class="mtop_10 flex">
+          <div class="descriptionContainer">
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_CLAIM_DESCRIPTION
+              <!-- <span class="errorMsg">*</span> -->
+            </div>
+            <textarea class="textArea" [(ngModel)]="description"></textarea>
+          </div>
+
+          <div class="comment">
+            <div class="geneStaTitles fieldTitles" translate>
+              LBL_COMMENTS
+              <!-- <span class="errorMsg">*</span> -->
+            </div>
+            <textarea class="textArea" [(ngModel)]="comment"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="uploadContainer txtfile">
+      <div class="upload-file">
+        <app-file-upload
+          [uploadInput]="uploadInput"
+          (titleCreated)="onFileAdded($event)"
+        ></app-file-upload>
+        <div class="validSec">
+          <small
+            class="errorMsg mr10"
+            translate
+            *ngIf="fileTypeValidationErrorMessage"
+            >LBL_SUPPORTED_FILE_CSV</small
+          >
+          <small
+            class="errorMsg mr10"
+            translate
+            *ngIf="
+              !fileTypeValidationErrorMessage && fileNameValidationErrorMessage
+            "
+            >LBL_INVALID_FILE_NAME</small
+          >
+          <small
+            class="errorMsg"
+            translate
+            *ngIf="
+              !fileTypeValidationErrorMessage &&
+              !fileNameValidationErrorMessage &&
+              fileSizeValidationErrorMessage
+            "
+            >LBL_SUPPORTED_FILE_SIZE</small
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="btnGroup mtop_20">
+    <app-tertiary-button
+      buttonValue="LBL_CANCEL"
+      (click)="cancelButton()"
+      *ngIf="mobileNumber || financialType || comment || description"
+    >
+    </app-tertiary-button>
+    <app-primary-button
+      buttonValue="LBL_PROCEED"
+      (click)="proceedButton($event)"
+      *ngIf="mobileNumber && financialType && proceedBtnShow"
+    >
+    </app-primary-button>
+  </div>
+</div>

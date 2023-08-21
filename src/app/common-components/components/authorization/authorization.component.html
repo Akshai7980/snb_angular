@@ -1,0 +1,43 @@
+<div class="authorizationContainer">
+  <div class="subTitles" translate>LBL_AUTHORIZATION</div>
+
+  <div class="authorizationContent">
+    <div class="authorizationContent1">
+      <div translate class="geneStaTitles genericTitles">LBL_Next_Approver</div>
+      <div class="mtop_10">
+        <mat-select
+          class="selectInput"
+          placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+          panelClass="dropDownOption"
+          disableOptionCentering
+          [ngModel]="data.selectedAprover.AUTH_NAME"
+        >
+          <mat-option
+            value="{{ approver }}"
+            (click)="authorizationEmit(approver)"
+            *ngFor="let approver of authListDataSource"
+            [value]="approver.AUTH_NAME"
+          >
+            {{ approver.AUTH_NAME }}
+          </mat-option>
+        </mat-select>
+        <div *ngIf="authError">
+          <small translate class="required">{{ authError }}</small>
+        </div>
+      </div>
+    </div>
+    <div class="authorizationContent2">
+      <div translate class="geneStaTitles genericTitles">
+        LBL_ADD_NEXT_APROVER
+      </div>
+      <div class="mtop_10">
+        <input maxlength="35"
+          class="selectInput"
+          placeholder="{{ 'LBL_ADD_NOTE' | translate }}"
+          [(ngModel)]="data.aproveNote"
+          (blur)="emitAuthorizationData()"
+        />
+      </div>
+    </div>
+  </div>
+</div>

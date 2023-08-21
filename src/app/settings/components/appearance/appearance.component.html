@@ -1,0 +1,62 @@
+<div class="titleContainer" translate>LBL_APPEARANCE</div>
+<div class="subContainer">
+<!-- <div class="themeContainer">
+    <div class="column" translate>LBL_DARK_MODE</div>
+    <div class="column" translate>LBL_THEME</div>
+</div>
+<div class="themeContainer mt-top">
+    <div class="column">
+        <mat-slide-toggle [checked]="isDarkModeChecked" (change)="onDarkModeChange()"></mat-slide-toggle>
+    </div>
+    <div class="column">
+        <button class="themecolor" [ngClass]="[isDarkModeChecked ? 'darkmode':'button1', !isDarkModeChecked && themeName === 'default' ? 'themeBorderColor':''  ]" (click)="colorbtn('3d77d1', 'default')" [disabled]='isDarkModeChecked' ></button>
+        <button class="themecolor" [ngClass]="[isDarkModeChecked ? 'darkmode':'button2', !isDarkModeChecked && themeName === 'orange' ? 'themeBorderColor':'' ]"  [disabled]='isDarkModeChecked' ></button>
+    </div>
+</div>
+<div class="themeContainer fontContainer">
+    <div class="column" translate>LBL_FONT_SIZE</div>
+</div>
+<div class="themeContainer mt-top">
+    <div  *ngFor="let font of fonticons; let i = index">
+        <button type="button" class="btngrp" (click)="fontselected(i)"
+            [ngClass]="i === selectedFont ? 'font-selected' : '' "><span [ngClass]='font.class'>{{font.icon}}</span>
+            <span class="menuIcons">
+                <img class="iconsMenu" src="assets/images/menu_line.svg">
+            </span></button>
+    </div>
+</div> -->
+    <div class="row">
+        <div class="columns">
+            <div class="column" translate>LBL_DARK_MODE</div>
+            <div class="themeContainer mt-top">
+                <mat-slide-toggle [checked]="isDarkModeChecked" (change)="onDarkModeChange()"></mat-slide-toggle>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column" translate>LBL_THEME</div>
+            <div class="themeContainer mt-top">
+                <button class="themecolor" [ngClass]="[isDarkModeChecked ? 'darkmode':'button1', !isDarkModeChecked && themeName === 'default' ? 'themeBorderColor':''  ]" (click)="colorbtn('3d77d1', 'default')" [disabled]='isDarkModeChecked' ></button>
+                <button class="themecolor" [ngClass]="[isDarkModeChecked ? 'darkmode':'button2', !isDarkModeChecked && themeName === 'orange' ? 'themeBorderColor':'' ]"  [disabled]='isDarkModeChecked' ></button>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column" translate>LBL_FONT_SIZE</div>
+            <div class="themeContainer mt-top">
+                <div  *ngFor="let font of fonticons; let i = index">
+                    <button type="button" class="btngrp" (click)="fontselected(i)"
+                        [ngClass]="i === selectedFont ? 'font-selected' : '' "><span [ngClass]='font.class'>{{font.icon}}</span>
+                        <span class="menuIcons">
+                            <img class="iconsMenu" src="assets/images/menu_line.svg">
+                        </span></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="btnContainer">
+    <!-- <button class="button-secondary resetButton" (click)="onClickResetdefault()" translate>LBL_RESET_TO_DEFAULT</button>
+    <button class="button-primary" (click)="onClickSave()" translate>LBL_SAVE</button> -->
+    <app-tertiary-button buttonValue="LBL_RESET_TO_DEFAULT" (click)="onClickResetdefault()"></app-tertiary-button>
+    <app-primary-button buttonValue="LBL_SAVE" (click)="onClickSave()"></app-primary-button>
+</div>

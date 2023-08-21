@@ -1,0 +1,19 @@
+<div class="mainConatiner">
+    <div class="menuGrp">
+    <div><input *ngIf="searchStatus" type="text" class="searchInput" placeholder="{{ 'LBL_SEARCH_FOR' | translate }}" [matAutocomplete]="find" [(ngModel)]="searchText" (input)="filterItem(searchText)">
+        <mat-autocomplete #find="matAutocomplete">
+            <mat-option *ngFor="let find of filteredItems" (click)="clickRouter(find.item_id)" >
+             {{find.display_key | translate}}                        
+            </mat-option>
+            </mat-autocomplete>
+        </div>
+    <div class="searchLogo" [ngClass]="searchStatus ? 'searchMover' : ''" (click)="searchStatus ? inputSearch() : search()"></div>
+    <div class="closeLogo" *ngIf="searchStatus" [ngClass]="searchStatus ? 'closeApperience' : ''" (click)="search()"></div>
+    <div class="icon-globe" (click)="langChange()"></div>
+    <div class="logoutIcon"(click)="logOut()" ></div> 
+</div>
+</div>
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>
+
+

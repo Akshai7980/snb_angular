@@ -1,0 +1,15 @@
+{
+    "headerValue": {
+        "moduleId": "EPYCRDSTLD"
+    },
+    "data": {
+        "settledOption": [
+            {
+                "settled": "Option1"
+            },
+            {
+                "settled": "Option2"
+            }
+        ]
+    }
+}

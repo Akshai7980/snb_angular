@@ -1,0 +1,71 @@
+.menuGrp{
+    padding: 16px 30px 10px;
+    float: right;
+    display: flex;
+    justify-content: space-between;
+    div{
+        padding: 0px 5px ;
+    }
+}
+.searchInput:focus{outline: none;}
+.searchInput{
+    width: 267px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid #d9dde0;
+    height: 39px;
+    margin: -10px -30px;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+.mat-option{font-size: 14px;font-family:'HelveticaNeueLight', arial, sans-serif}
+.searchLogo{
+    background: url(../../../../assets/images/icoSearch.svg) no-repeat center;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-size: contain;
+    cursor: pointer;
+    transition: transform 500ms ease ;
+}
+.icon-globe{
+    // background: url(../../../../assets/images/icoLang.svg) no-repeat center;
+    // width: 24px;
+    // height: 24px;
+    // display: inline-block;
+    // background-size: contain;
+    // cursor: pointer;
+    &::before{
+        cursor: pointer;
+        font-size: 23px;
+        color: #006a52;
+    }
+}
+.logoutIcon{
+    background: url(../../../../assets/images/icoLogout.svg) no-repeat center;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-size: contain;
+    cursor: pointer;
+}
+.closeLogo{
+    background: url(../../../../assets/images/icoClose.svg) no-repeat center;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-size: contain;
+    cursor: pointer;  
+    opacity: 0;
+    transition: opacity 500ms ease ;
+}
+.searchMover{
+    transform: translateX(-10px);
+}
+.closeApperience{
+    opacity: 1;
+}
+@media print{
+    .icon-globe{
+        display: none;
+    }
+}

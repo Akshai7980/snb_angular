@@ -1,0 +1,47 @@
+{
+    "headerValue": {
+        "moduleId": "FATCACIFLKP",
+        "simulate": "N"
+    },
+    "dataValue": [
+        {
+            "cifNo": "00122",
+            "unitId": "IGTBSA",
+            "gcif": "10000187",
+            "country": "SA",
+            "customerName": "test",
+            "countryName": "Saudi Arabia",
+            "city": "Jeddah",
+            "zipCode": "33232",
+            "streetName": "Macronh S",
+            "distName": "Mushrifah",
+            "buildNo": "7712"
+        },
+        {
+            "cifNo": "00122",
+            "unitId": "IGTBSA",
+            "gcif": "10000187",
+            "country": "SA",
+            "customerName": "test",
+            "countryName": "Saudi Arabia",
+            "city": "Jeddah",
+            "zipCode": "33232",
+            "streetName": "Macronh S",
+            "distName": "Mushrifah",
+            "buildNo": "7712"
+        },
+        {
+            "cifNo": "00122",
+            "unitId": "IGTBSA",
+            "gcif": "10000187",
+            "country": "SA",
+            "customerName": "test",
+            "countryName": "Saudi Arabia",
+            "city": "Jeddah",
+            "zipCode": "33232",
+            "streetName": "Macronh S",
+            "distName": "Mushrifah",
+            "buildNo": "7712"
+        }
+    ]
+}

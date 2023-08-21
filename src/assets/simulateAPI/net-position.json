@@ -1,0 +1,22 @@
+{
+    "HEADER_VALUE": {
+        "MODULE_ID": "NETPOSITION",
+        "TXN_PROCESS_DATE_TIME": "13/07/2021 12:03:16"
+    },
+    "DATA": {
+        "ALL_RECORDS": [
+            {
+                "GCIF": "7000020027",
+                "LOGIN_ID": "202020003780",
+                "UNIT": "IGTBAE",
+                "NET_POSITION": "25,196,200.00",
+                "ASSET": "33,517,800.00",
+                "LIABILTY": "8,321,600.00",
+                "ASSET_PERCENT": "40",
+                "LIABILTY_PERCENT": "60",
+                "CCY": "AED",
+                "TOTAL_ACCOUNTS":"25"
+            }
+        ]
+    }
+}

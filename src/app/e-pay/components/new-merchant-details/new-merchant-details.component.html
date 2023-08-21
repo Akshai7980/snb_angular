@@ -1,0 +1,281 @@
+<div class="subContainer">
+    <div class="subTitles" translate>LBL_NEW_MERCHANT</div>
+    <div class="detailsContainer" *ngIf="!isReadOly">
+      <div class="fieldContainer">
+        <div translate class="geneStaTitles">LBL_COM_REG_NAME_ARB<span class="required">*</span></div>
+        <div class="mtop_10">            
+          <input type="text" class="inpField" (blur)="validate($event,'aName')" (keypress)="arabicOly($event)" [(ngModel)]="merchantObj.arabicName" autocomplete="off">
+            <div *ngIf="errObj && errObj.arbNameErr">
+              <small translate class="required">{{errObj.arbNameErr}}</small>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+        <div class="column">
+            <div translate class="geneStaTitles">LBL_COM_REG_NAME_ENG<span class="required">*</span></div>
+            <div class="mtop_10">            
+              <input type="text" class="inpField" (blur)="validate($event,'eName')" [(ngModel)]="merchantObj.engName" (keypress)="charsOly($event)" autocomplete="off">
+                <div *ngIf="errObj && errObj.engNameErr">
+                  <small translate class="required">{{errObj.engNameErr}}</small>
+                </div>
+             </div>
+        </div>
+        <div class="column">
+            <div translate class="geneStaTitles">LBL_PHONE<span class="required">*</span></div>
+            <div class="mtop_10">            
+              <input type="text" class="inpField" (blur)="validate($event,'phone')" [(ngModel)]="merchantObj.phone" (keypress)="numberOly($event)" autocomplete="off">
+                <div *ngIf="errObj && errObj.phoneErr">
+                  <small translate class="required">{{errObj.phoneErr}}</small>
+                </div>
+             </div>
+        </div>
+        <div class="column">
+            <div translate class="geneStaTitles">LBL_CITY<span class="required">*</span></div>
+            <div class="mtop_10">            
+                <mat-select panelClass="dropDownOption" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  [(ngModel)]="merchantObj.city" (selectionChange)="validate($event,'city')"  disableOptionCentering>
+                    <mat-option *ngFor="let city of cities" value="{{city.city}}">{{city.city}}</mat-option>
+                </mat-select>
+                <div *ngIf="errObj && errObj.cityErr">
+                  <small translate class="required">{{errObj.cityErr}}</small>
+                </div>
+             </div>
+        </div>
+      </div> 
+      <div class="fieldContainer">
+        <div translate class="geneStaTitles">LBL_ADDRESS<span class="required">*</span></div>
+        <div class="mtop_10">            
+          <input type="text" class="inpField" (blur)="validate($event,'address')" [(ngModel)]="merchantObj.address" autocomplete="off">
+            <div *ngIf="errObj && errObj.addressErr">
+              <small translate class="required">{{errObj.addressErr}}</small>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+        <div class="column">
+            <div translate class="geneStaTitles">{{'LBL_DLG' | translate}} {{'LBL_FNAME' | translate}}<span class="required">*</span></div>
+            <div class="mtop_10">            
+              <input type="text" class="inpField" (blur)="validate($event,'dlgFname')" [(ngModel)]="merchantObj.dlgFirstName" (keypress)="charsOly($event)" autocomplete="off">
+                <div *ngIf="errObj && errObj.dlgFnameErr">
+                  <small translate class="required">{{errObj.dlgFnameErr}}</small>
+                </div>
+             </div>
+        </div>
+        <div class="column">
+            <div translate class="geneStaTitles">{{'LBL_DLG' | translate}} {{'LBL_LNAME' | translate}}<span class="required">*</span></div>
+            <div class="mtop_10">            
+              <input type="text" class="inpField" (blur)="validate($event,'dlgLname')" [(ngModel)]="merchantObj.dlgLastName" (keypress)="charsOly($event)" autocomplete="off">
+                <div *ngIf="errObj && errObj.dlgLnameErr">
+                  <small translate class="required">{{errObj.dlgLnameErr}}</small>
+                </div>
+             </div>
+        </div>
+        <div class="column">
+            <div translate class="geneStaTitles">{{'LBL_DLG' | translate}} {{'LBL_MOBILE_NUMBER' | translate}}<span class="required">*</span></div>
+            <div class="mtop_10">            
+              <input type="text" class="inpField" (blur)="validate($event,'dlgmob')" [(ngModel)]="merchantObj.dlgMob" (keypress)="numberOly($event)" autocomplete="off">
+                <div *ngIf="errObj && errObj.dlgmobErr">
+                  <small translate class="required">{{errObj.dlgmobErr}}</small>
+                </div>
+             </div>
+        </div>
+      </div> 
+      <div class="fieldContainer">
+        <div translate class="geneStaTitles">LBL_EMAIL<span class="required">*</span></div>
+        <div class="mtop_10">            
+          <input type="text" class="inpField" (blur)="validate($event,'email')" [(ngModel)]="merchantObj.dlgEmail" (keypress)="validateEmail($event)" autocomplete="off">
+            <div *ngIf="errObj && errObj.dlgEmailErr">
+              <small translate class="required">{{errObj.dlgEmailErr}}</small>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+        <div class="column">
+            <div translate class="geneStaTitles">{{'LBL_TEC_CNT' | translate}} {{'LBL_FNAME' | translate}}<span class="required">*</span></div>
+            <div class="mtop_10">            
+              <input type="text" class="inpField" (blur)="validate($event,'tcFname')" [(ngModel)]="merchantObj.tcFirstName" (keypress)="charsOly($event)" autocomplete="off">
+                <div *ngIf="errObj && errObj.tcFnameErr">
+                  <small translate class="required">{{errObj.tcFnameErr}}</small>
+                </div>
+             </div>
+        </div>
+        <div class="column">
+            <div translate class="geneStaTitles">{{'LBL_TEC_CNT' | translate}} {{'LBL_LNAME' | translate}}<span class="required">*</span></div>
+            <div class="mtop_10">            
+              <input type="text" class="inpField" (blur)="validate($event,'tcLname')" [(ngModel)]="merchantObj.tcLastName" (keypress)="charsOly($event)" autocomplete="off">
+                <div *ngIf="errObj && errObj.tcLnameErr">
+                  <small translate class="required">{{errObj.tcLnameErr}}</small>
+                </div>
+             </div>
+        </div>
+        <div class="column">
+            <div translate class="geneStaTitles">{{'LBL_TEC_CNT' | translate}} {{'LBL_MOBILE_NUMBER' | translate}}<span class="required">*</span></div>
+            <div class="mtop_10">            
+              <input type="text" class="inpField" (blur)="validate($event,'tcmob')" [(ngModel)]="merchantObj.tcMob" (keypress)="numberOly($event)" autocomplete="off">
+                <div *ngIf="errObj && errObj.tcmobErr">
+                  <small translate class="required">{{errObj.tcmobErr}}</small>
+                </div>
+             </div>
+        </div>
+      </div> 
+      <div class="fieldContainer addBottomBorder">
+        <div translate class="geneStaTitles">{{'LBL_TEC_CNT' | translate}} {{'LBL_EMAIL' | translate}}<span class="required">*</span></div>
+        <div class="mtop_10">            
+          <input type="text" class="inpField" (blur)="validate($event,'tcEmail')" [(ngModel)]="merchantObj.tcEmail" (keypress)="validateEmail($event)" autocomplete="off">
+            <div *ngIf="errObj && errObj.tcEmailErr">
+              <small translate class="required">{{errObj.tcEmailErr}}</small>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+        <div class="column">
+            <div translate class="geneStaTitles">LBL_WEB_URL<span class="required">*</span></div>
+            <div class="mtop_10">            
+              <input type="text" class="inpField" (blur)="validate($event,'webUrl')" [(ngModel)]="merchantObj.websiteURL" autocomplete="off">
+                <div *ngIf="errObj && errObj.urlErr">
+                  <small translate class="required">{{errObj.urlErr}}</small>
+                </div>
+             </div>
+        </div>
+        <div class="column">
+            <div translate class="geneStaTitles">LBL_PAYMENT_TYPE<span class="required">*</span></div>
+            <div class="mtop_10">            
+                <mat-select panelClass="dropDownOption" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  [(ngModel)]="merchantObj.pmtType" (selectionChange)="validate($event,'pmtType')" disableOptionCentering>
+                    <mat-option *ngFor="let type of pmtTypes" value="{{type?.paymentType}}">{{type?.paymentType}}</mat-option>
+                </mat-select>
+                <div *ngIf="errObj && errObj.pmtTypeErr">
+                  <small translate class="required">{{errObj.pmtTypeErr}}</small>
+                </div>
+             </div>
+        </div>
+        <div class="column">
+            <div translate class="geneStaTitles">LBL_PMT_SRV_PROVD<span class="required">*</span></div>
+            <div class="mtop_10">            
+                <mat-select panelClass="dropDownOption" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  [(ngModel)]="merchantObj.pmtSrvProvider" (selectionChange)="validate($event,'pmtSvcPvd')" disableOptionCentering>
+                    <mat-option *ngFor="let service of pmtSvcPvds" value="{{service?.paymentService}}">{{service?.paymentService}}</mat-option>
+                </mat-select>
+                <div *ngIf="errObj && errObj.pmtSrvPvdErr">
+                  <small translate class="required">{{errObj.pmtSrvPvdErr}}</small>
+                </div>
+             </div>
+        </div>
+        <div class="column">
+            <div translate class="geneStaTitles">LBL_SCHEMA<span class="required">*</span></div>
+             <div class="mtop_10">            
+              <mat-select panelClass="dropDownOption" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  [(ngModel)]="merchantObj.schemas" (selectionChange)="validate($event,'schema')" disableOptionCentering>
+                  <mat-option *ngFor="let schema of schemas" value="{{schema?.schema}}">{{schema?.schema}}</mat-option>
+              </mat-select>
+              <div *ngIf="errObj && errObj.schemaErr">
+                <small translate class="required">{{errObj.schemaErr}}</small>
+              </div>
+           </div>
+        </div>
+        <div class="column">
+            <div translate class="geneStaTitles">LBL_GATEWAY<span class="required">*</span></div>
+            <div class="mtop_10">            
+                <mat-select panelClass="dropDownOption" class="selectInput" placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"  [(ngModel)]="merchantObj.gateWay" (selectionChange)="validate($event,'gateWay')" disableOptionCentering>
+                    <mat-option *ngFor="let gateway of gateways" value="{{gateway?.gateWays}}">{{gateway?.gateWays}}</mat-option>
+                </mat-select>
+                <div *ngIf="errObj && errObj.gatewaydErr">
+                  <small translate class="required">{{errObj.gatewaydErr}}</small>
+                </div>
+             </div>
+        </div>
+        <div class="column">
+            <div translate class="geneStaTitles">LBL_COMMENTS</div>
+            <div class="mtop_10">            
+                <input type="text" class="inpField"  [(ngModel)]="merchantObj.comment" autocomplete="off">
+             </div>
+        </div>
+      </div> 
+    </div>
+    <div class="detailsContainer" *ngIf="isReadOly">
+      <div class="fieldContainer alter">
+        <div translate class="geneStaTitles">LBL_COM_REG_NAME_ARB</div>
+          <div class="mtop_10 details">{{merchantObj.arabicName}}</div>
+      </div>
+      <div class="row">
+        <div class="column alter">
+          <div translate class="geneStaTitles">LBL_COM_REG_NAME_ENG</div>
+          <div class="mtop_10 details">{{merchantObj.engName}}</div>
+        </div>
+        <div class="column alter">
+          <div translate class="geneStaTitles">LBL_PHONE</div>
+          <div class="mtop_10 details">{{merchantObj.phone}}</div>
+        </div>
+        <div class="column alter">
+          <div translate class="geneStaTitles">LBL_CITY</div>
+          <div class="mtop_10 details">{{merchantObj.city}}</div>
+        </div>
+      </div>
+      <div class="fieldContainer alter">
+        <div translate class="geneStaTitles">LBL_ADDRESS</div>
+        <div class="mtop_10 details">{{merchantObj.address}}</div>
+      </div>
+      <div class="row">
+        <div class="column alter">
+          <div translate class="geneStaTitles">{{'LBL_DLG' | translate}} {{'LBL_FNAME' | translate}}</div>
+        <div class="mtop_10 details">{{merchantObj.dlgFirstName}}</div>
+        </div>
+        <div class="column alter">
+          <div translate class="geneStaTitles">{{'LBL_DLG' | translate}} {{'LBL_LNAME' | translate}}</div>
+        <div class="mtop_10 details">{{merchantObj.dlgLastName}}</div>
+        </div>
+        <div class="column alter">
+          <div translate class="geneStaTitles">{{'LBL_DLG' | translate}} {{'LBL_MOBILE_NUMBER' | translate}}</div>
+          <div class="mtop_10 details">{{merchantObj.dlgMob}}</div>
+        </div>
+      </div>
+       <div class="fieldContainer alter">
+        <div translate class="geneStaTitles">LBL_EMAIL</div>
+        <div class="mtop_10 details">{{merchantObj.dlgEmail}}</div>
+      </div>
+      <div class="row">
+        <div class="column alter">
+          <div translate class="geneStaTitles">{{'LBL_TEC_CNT' | translate}} {{'LBL_FNAME' | translate}}</div>
+          <div class="mtop_10 details">{{merchantObj.tcFirstName}}</div>
+        </div>
+        <div class="column alter">
+          <div translate class="geneStaTitles">{{'LBL_TEC_CNT' | translate}} {{'LBL_LNAME' | translate}}</div>
+          <div class="mtop_10 details">{{merchantObj.tcLastName}}</div>
+        </div>
+        <div class="column alter">
+          <div translate class="geneStaTitles">{{'LBL_TEC_CNT' | translate}} {{'LBL_MOBILE_NUMBER' | translate}}</div>
+          <div class="mtop_10 details">{{merchantObj.tcMob}}</div>
+        </div>
+      </div>
+      <div class="fieldContainer alter addBottomBorder">
+        <div translate class="geneStaTitles">{{'LBL_TEC_CNT' | translate}} {{'LBL_EMAIL' | translate}}</div>
+        <div class="mtop_10 details">{{merchantObj.tcEmail}}</div>
+      </div>
+      <div class="row">
+        <div class="column alter">
+          <div translate class="geneStaTitles">LBL_WEB_URL</div>
+          <div class="mtop_10 details">{{merchantObj.websiteURL}}</div>
+        </div>
+        <div class="column alter">
+          <div translate class="geneStaTitles">LBL_PAYMENT_TYPE</div>
+          <div class="mtop_10 details">{{merchantObj.pmtType}}</div>
+        </div>
+        <div class="column alter">
+          <div translate class="geneStaTitles">LBL_PMT_SRV_PROVD</div>
+          <div class="mtop_10 details">{{merchantObj.pmtSrvProvider}}</div>
+        </div>
+        <div class="column alter">
+          <div translate class="geneStaTitles">LBL_SCHEMA</div>
+          <div class="mtop_10 details">{{merchantObj.schemas}}</div>
+        </div>
+        <div class="column alter">
+          <div translate class="geneStaTitles">LBL_GATEWAY</div>
+          <div class="mtop_10 details">{{merchantObj.gateWay}}</div>
+        </div>
+        <div class="column alter">
+          <div translate class="geneStaTitles">LBL_COMMENTS</div>
+          <div class="mtop_10 details">{{merchantObj.comment}}</div>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="btnGroup" *ngIf="!hideBtn || modify">
+    <app-tertiary-button  buttonValue="LBL_CANCEL" (click)="onClickCancel()" ></app-tertiary-button>
+    <app-primary-button  buttonValue="LBL_FTCH_FEE" (click)="fectchFee()"></app-primary-button>
+</div>

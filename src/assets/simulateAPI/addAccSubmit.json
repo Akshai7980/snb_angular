@@ -1,0 +1,10 @@
+{
+    "dataValue": {
+        "INPUT_REFERENCE_NO": "TBC2208181448012",
+        "OD_STATUS": "",
+        "OD_STATUS_DESC": "Success"
+    },
+    "headerValue": {
+        "moduleId": "ACOPNINIT"
+    }
+}

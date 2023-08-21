@@ -1,0 +1,55 @@
+.content-header {
+    margin-bottom: 20px;
+}
+
+th.mat-header-cell:first-of-type {
+    padding-left: 0px !important;
+    width: 23%;
+}
+
+td.mat-cell:first-of-type {
+    padding-left: 0px !important;
+}
+
+.tableContainer {
+    margin-left: 20px;
+}
+
+::ng-deep .mat-tooltip {
+    width: 186px;
+    min-height: 20px;
+    padding: 5px;
+    background-color: #d18686;
+    background-size: cover;
+    font-family: 'HelveticaNeue', Arial, sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+    line-height: 16px;
+    z-index: 1;
+    position: absolute;
+    top: 5px;
+    right: 4px;
+    border-radius: 4px;
+}
+
+::ng-deep .mat-tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 50%;
+    transform: rotate(180deg);
+    margin-right: 5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #d18686 transparent transparent transparent;
+}
+
+::ng-deep .mat-tooltip {
+    display: inline;
+    position: relative;
+
+}
+
+ul li a {
+    cursor: pointer;
+}

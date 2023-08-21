@@ -1,0 +1,16 @@
+<div class="mainContainer" >
+    <div *ngIf="!rootScopeData.hideBeneficiaryToggle" >
+    <div class="mainTitle" *ngIf="!rootScopeData.changeAddBeneficiaryHeading" translate>LBL_ADD_BENEFICIARY</div>
+    <div class="mainTitle" *ngIf="rootScopeData.changeAddBeneficiaryHeading" translate>LBL_REVIEW</div>
+    <div class="subContainer">
+        <div class="paymentToggels" *ngIf="!rootScopeData.changeAddBeneficiaryHeading">
+            <div id="toggle1" class="toggle" routerLink="beneficiaryWithinbank" [class.active]="rootScopeData.paymentActiveTabName == 'withInBank'" translate>LBL_WITHIN_SNB</div>
+            <div id="toggle2" class="toggle" routerLink="beneficiaryLocal" [class.active]="rootScopeData.paymentActiveTabName == 'local'" translate>LBL_LOCAL</div>
+            <div id="toggle3" class="toggle" routerLink="beneficiaryInternational" [class.active]="rootScopeData.paymentActiveTabName == 'international'" translate>LBL_INTERNATIONAL</div>
+        </div>
+    </div>
+    </div>
+        <div class="beneficiaryWorkspace">
+            <router-outlet></router-outlet>
+        </div>
+</div>

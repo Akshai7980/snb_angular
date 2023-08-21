@@ -1,0 +1,341 @@
+{
+    "headerValue": {
+      "moduleId": "VIEWTRASH",
+      "simulate": "N",
+      "sortColumn": "odRelNumber",
+      "sortOrder": "desc",
+      "totalCount": "127"
+    },
+    "data": [
+      {
+        "mailId": "1734314",
+        "messageStrTs": "19/04/2022 17:34:31",
+        "odMailBody": null,
+        "odMailSubject": "HI",
+        "odMailSubproduct": "ACCSTA",
+        "odRelNumber": "1734314",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1732013",
+        "messageStrTs": "19/04/2022 17:32:01",
+        "odMailBody": null,
+        "odMailSubject": "HI",
+        "odMailSubproduct": "ACCSTA",
+        "odRelNumber": "1732013",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1414463",
+        "messageStrTs": "05/05/2022 14:14:46",
+        "odMailBody": null,
+        "odMailSubject": "Kanmani",
+        "odMailSubproduct": "SWPCNT",
+        "odRelNumber": "1414463",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1237572",
+        "messageStrTs": "23/06/2022 12:37:57",
+        "odMailBody": null,
+        "odMailSubject": "Hi",
+        "odMailSubproduct": "ACCINT",
+        "odRelNumber": "1237572",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "18530",
+        "messageStrTs": "04/07/2022 12:06:44",
+        "odMailBody": "Welcome to CBX",
+        "odMailSubject": "HI",
+        "odMailSubproduct": "NA",
+        "odRelNumber": "18530",
+        "odStatus": "S",
+        "totalCount": null,
+        "userId": "202122004600"
+      },
+      {
+        "mailId": "18529",
+        "messageStrTs": "04/07/2022 12:05:16",
+        "odMailBody": "\r\n-- Message sent by sheik maker --\r\n",
+        "odMailSubject": "Re:Hi",
+        "odMailSubproduct": "Re:Hi",
+        "odRelNumber": "18529",
+        "odStatus": "S",
+        "totalCount": null,
+        "userId": "202122004600"
+      },
+      {
+        "mailId": "1734314",
+        "messageStrTs": "19/04/2022 17:34:31",
+        "odMailBody": null,
+        "odMailSubject": "HI",
+        "odMailSubproduct": "ACCSTA",
+        "odRelNumber": "1734314",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1732013",
+        "messageStrTs": "19/04/2022 17:32:01",
+        "odMailBody": null,
+        "odMailSubject": "HI",
+        "odMailSubproduct": "ACCSTA",
+        "odRelNumber": "1732013",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1414463",
+        "messageStrTs": "05/05/2022 14:14:46",
+        "odMailBody": null,
+        "odMailSubject": "Kanmani",
+        "odMailSubproduct": "SWPCNT",
+        "odRelNumber": "1414463",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1237572",
+        "messageStrTs": "23/06/2022 12:37:57",
+        "odMailBody": null,
+        "odMailSubject": "Hi",
+        "odMailSubproduct": "ACCINT",
+        "odRelNumber": "1237572",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "18530",
+        "messageStrTs": "04/07/2022 12:06:44",
+        "odMailBody": "Welcome to CBX",
+        "odMailSubject": "HI",
+        "odMailSubproduct": "NA",
+        "odRelNumber": "18530",
+        "odStatus": "S",
+        "totalCount": null,
+        "userId": "202122004600"
+      },
+      {
+        "mailId": "18529",
+        "messageStrTs": "04/07/2022 12:05:16",
+        "odMailBody": "\r\n-- Message sent by sheik maker --\r\n",
+        "odMailSubject": "Re:Hi",
+        "odMailSubproduct": "Re:Hi",
+        "odRelNumber": "18529",
+        "odStatus": "S",
+        "totalCount": null,
+        "userId": "202122004600"
+      },
+      {
+        "mailId": "1734314",
+        "messageStrTs": "19/04/2022 17:34:31",
+        "odMailBody": null,
+        "odMailSubject": "HI",
+        "odMailSubproduct": "ACCSTA",
+        "odRelNumber": "1734314",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1732013",
+        "messageStrTs": "19/04/2022 17:32:01",
+        "odMailBody": null,
+        "odMailSubject": "HI",
+        "odMailSubproduct": "ACCSTA",
+        "odRelNumber": "1732013",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1414463",
+        "messageStrTs": "05/05/2022 14:14:46",
+        "odMailBody": null,
+        "odMailSubject": "Kanmani",
+        "odMailSubproduct": "SWPCNT",
+        "odRelNumber": "1414463",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1237572",
+        "messageStrTs": "23/06/2022 12:37:57",
+        "odMailBody": null,
+        "odMailSubject": "Hi",
+        "odMailSubproduct": "ACCINT",
+        "odRelNumber": "1237572",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "18530",
+        "messageStrTs": "04/07/2022 12:06:44",
+        "odMailBody": "Welcome to CBX",
+        "odMailSubject": "HI",
+        "odMailSubproduct": "NA",
+        "odRelNumber": "18530",
+        "odStatus": "S",
+        "totalCount": null,
+        "userId": "202122004600"
+      },
+      {
+        "mailId": "18529",
+        "messageStrTs": "04/07/2022 12:05:16",
+        "odMailBody": "\r\n-- Message sent by sheik maker --\r\n",
+        "odMailSubject": "Re:Hi",
+        "odMailSubproduct": "Re:Hi",
+        "odRelNumber": "18529",
+        "odStatus": "S",
+        "totalCount": null,
+        "userId": "202122004600"
+      },
+      {
+        "mailId": "1734314",
+        "messageStrTs": "19/04/2022 17:34:31",
+        "odMailBody": null,
+        "odMailSubject": "HI",
+        "odMailSubproduct": "ACCSTA",
+        "odRelNumber": "1734314",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1732013",
+        "messageStrTs": "19/04/2022 17:32:01",
+        "odMailBody": null,
+        "odMailSubject": "HI",
+        "odMailSubproduct": "ACCSTA",
+        "odRelNumber": "1732013",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1414463",
+        "messageStrTs": "05/05/2022 14:14:46",
+        "odMailBody": null,
+        "odMailSubject": "Kanmani",
+        "odMailSubproduct": "SWPCNT",
+        "odRelNumber": "1414463",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1237572",
+        "messageStrTs": "23/06/2022 12:37:57",
+        "odMailBody": null,
+        "odMailSubject": "Hi",
+        "odMailSubproduct": "ACCINT",
+        "odRelNumber": "1237572",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "18530",
+        "messageStrTs": "04/07/2022 12:06:44",
+        "odMailBody": "Welcome to CBX",
+        "odMailSubject": "HI",
+        "odMailSubproduct": "NA",
+        "odRelNumber": "18530",
+        "odStatus": "S",
+        "totalCount": null,
+        "userId": "202122004600"
+      },
+      {
+        "mailId": "18529",
+        "messageStrTs": "04/07/2022 12:05:16",
+        "odMailBody": "\r\n-- Message sent by sheik maker --\r\n",
+        "odMailSubject": "Re:Hi",
+        "odMailSubproduct": "Re:Hi",
+        "odRelNumber": "18529",
+        "odStatus": "S",
+        "totalCount": null,
+        "userId": "202122004600"
+      },
+      {
+        "mailId": "1734314",
+        "messageStrTs": "19/04/2022 17:34:31",
+        "odMailBody": null,
+        "odMailSubject": "HI",
+        "odMailSubproduct": "ACCSTA",
+        "odRelNumber": "1734314",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1732013",
+        "messageStrTs": "19/04/2022 17:32:01",
+        "odMailBody": null,
+        "odMailSubject": "HI",
+        "odMailSubproduct": "ACCSTA",
+        "odRelNumber": "1732013",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1414463",
+        "messageStrTs": "05/05/2022 14:14:46",
+        "odMailBody": null,
+        "odMailSubject": "Kanmani",
+        "odMailSubproduct": "SWPCNT",
+        "odRelNumber": "1414463",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "1237572",
+        "messageStrTs": "23/06/2022 12:37:57",
+        "odMailBody": null,
+        "odMailSubject": "Hi",
+        "odMailSubproduct": "ACCINT",
+        "odRelNumber": "1237572",
+        "odStatus": "D",
+        "totalCount": null,
+        "userId": "BANK"
+      },
+      {
+        "mailId": "18530",
+        "messageStrTs": "04/07/2022 12:06:44",
+        "odMailBody": "Welcome to CBX",
+        "odMailSubject": "HI",
+        "odMailSubproduct": "NA",
+        "odRelNumber": "18530",
+        "odStatus": "S",
+        "totalCount": null,
+        "userId": "202122004600"
+      },
+      {
+        "mailId": "18529",
+        "messageStrTs": "04/07/2022 12:05:16",
+        "odMailBody": "\r\n-- Message sent by sheik maker --\r\n",
+        "odMailSubject": "Re:Hi",
+        "odMailSubproduct": "Re:Hi",
+        "odRelNumber": "18529",
+        "odStatus": "S",
+        "totalCount": null,
+        "userId": "202122004600"
+      }
+    ]
+  }

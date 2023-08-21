@@ -1,0 +1,119 @@
+<div class="outerContainer">
+  <div class="subTitles" translate>LBL_TERMINAL_MANAGEMENT</div>
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_ACCOUNT</div>
+    <table>
+      <tr class="tableHeader">
+        <th translate>LBL_ACC_NUMBER</th>
+        <th translate>LBL_NICK_NAME</th>
+        <th translate>LBL_FULL_NAME</th>
+        <th translate>LBL_STATUS</th>
+        <th translate>LBL_BALANCE</th>
+      </tr>
+      <ng-container>
+        <tr class="tableRowConatiner">
+          <td>SA1010 0100 1000 0000123</td>
+          <td>Dameer</td>
+          <td>Dameer Ahsan</td>
+          <td>Active</td>
+          <td>1,235.00 SAR</td>
+          <div class="downArrowAcc"></div>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_SELECT_MERCHANT</div>
+    <table>
+      <tr class="tableHeader">
+        <th translate>LBL_MERCHANT_NAME</th>
+        <th translate>LBL_MERCHANT_NAME_ARABIC</th>
+        <th translate>LBL_MERCHANT_NUMBER</th>
+
+        <th translate>LBL_SHOP_NAME</th>
+      </tr>
+      <ng-container>
+        <tr class="tableRowConatiner">
+          <td>Adhara Alam</td>
+          <td>علم أذار</td>
+          <td>1010 0100 1000 0000 0123</td>
+
+          <td>Zamzam Water</td>
+          <div class="downArrowAcc"></div>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+
+  <div class="accountDetails">
+    <div class="subTitles" translate>LBL_TERMINAL_DETAIL</div>
+    <div class="title" translate>LBL_SOFT_TERMINAL</div>
+
+    <div class="displayFlx">
+      <div class="width30 cards">
+        <p translate class="marginTop40 headerColor">LBL_SCHEMES</p>
+        <p translate>LBL_MADA_CARD</p>
+        <p translate>LBL_CREDIT_CARD</p>
+      </div>
+      <div class="physicalTerminalDetails marginTop20">
+        <tr class="displayFlxContainer">
+          <td class="width30">Mada Percentage</td>
+          <td class="width70">Fees as per terms and conditions</td>
+        </tr>
+        <tr class="displayFlxContainer">
+          <td class="width30">Mada Cap</td>
+          <td class="width70">160 SAR</td>
+        </tr>
+        <tr class="displayFlxContainer">
+          <td class="width30">Credit Card Percentage</td>
+          <td class="width70">25%</td>
+        </tr>
+        <tr class="displayFlxContainer">
+          <td class="width30">Terminal Type</td>
+          <td class="width70">GPRS</td>
+        </tr>
+        <tr class="displayFlxContainer">
+          <td class="width30">GCC</td>
+          <td class="width70">15%</td>
+        </tr>
+        <small
+          >*Note: In case there is more than one location, please open a new
+          request for each location determining number of termminals in each
+          location</small
+        >
+      </div>
+    </div>
+    <div>
+      <p class="subTitles marginTop40">Terminal Data 1</p>
+      <div class="terminalDataContainer">
+        <div>
+          <div translate class="headerColor">
+            LBL_USER_ID <span class="errorMsg">*</span>
+          </div>
+          <div class="titleValue">user001</div>
+        </div>
+        <div>
+          <div translate class="headerColor">
+            LBL_DATE_OF_BIRTH <span class="errorMsg">*</span>
+          </div>
+          <div class="titleValue">24/06/1987</div>
+        </div>
+        <div>
+          <div translate class="headerColor">
+            LBL_MOBILE <span class="errorMsg">*</span>
+          </div>
+          <div class="titleValue">+966 00966 1 2411681</div>
+        </div>
+        <div class="marginTop20">
+          <div translate class="headerColor">
+            LBL_EMAIL <span class="errorMsg">*</span>
+          </div>
+          <div class="titleValue">dameer@zamzam.info</div>
+        </div>
+      </div>
+      <div class="buttonContainer">
+        <app-tertiary-button buttonValue="Back" (click)="back()"></app-tertiary-button>
+      </div>
+    </div>
+  </div>
+</div>

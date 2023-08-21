@@ -1,0 +1,47 @@
+<div class="detailsContainer" id="chequeBookDetailsPrintSection">
+    <div class="row" id="logoPrint">
+        <div><img class="logo" src="{{logo}}"> </div>
+        <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+    </div>
+<div class="titleContainer">
+   <div class="titleContainerLeft">{{'LBL_CHEQUE_BOOK_REQUEST' | translate}} {{'LBL_LOWERCASE_TO' | translate}} {{'LBL_ACC_SHORTFORM' | translate}} <span *ngIf="chequeBookDetailsData">{{chequeBookDetailsData.ACCOUNT_NAME}},</span><span *ngIf="chequeBookDetailsData"> {{chequeBookDetailsData.DEBIT_ACCOUNT_NO}}</span></div>
+   <!-- <div class="titleContainerRight">
+       <app-summary-tools [printSection]="printSection"></app-summary-tools>
+   </div> -->
+</div>
+<div class="subTitleContainer">
+    <div class="subTitleContainerLeft">{{'LBL_TRANSACTION_REF_NUM' | translate}} <span *ngIf="chequeBookDetailsData">{{chequeBookDetailsData.INPUT_REFERENCE_NO}}</span></div>
+</div>
+<div class="statusContainerLeft">
+    <button class="status-green-button" *ngIf="chequeBookDetailsData" [class.status-red-button]="(chequeBookDetailsData.OD_STATUS === 'RN') || (chequeBookDetailsData.OD_STATUS === 'RS') || (chequeBookDetailsData.OD_STATUS === 'RE') || (chequeBookDetailsData.OD_STATUS === 'RO') || (chequeBookDetailsData.OD_STATUS === 'RH')">{{chequeBookDetailsData.OD_STATUS_DESCRIPTION}}</button>
+</div>
+<div class="dataContainer">
+    <span class="header" translate>LBL_CHEQUE_BOOK_DETAILS</span>
+    <div class="fxContainer mt-top">
+        <div class="column1">
+            <label class="label" translate>LBL_NO_OF_BOOKS</label>
+            <div class="dataInfo" *ngIf="chequeBookDetailsData">{{chequeBookDetailsData.NO_BK}}</div>
+        </div>
+        <div class="column2">
+            <label class="label" translate>LBL_CHEQUE_BOOK_TYPE</label>
+            <div class="dataInfo" *ngIf="chequeBookDetailsData">{{chequeBookDetailsData.CUST_CHEQUE_TYPE}}</div>
+        </div>
+        <div class="column3">
+            <label class="label" translate>LBL_DELIVERY</label>
+            <div class="dataInfo" *ngIf="chequeBookDetailsData">{{chequeBookDetailsData.CHE_DEL}} : {{chequeBookDetailsData.COL}}</div>
+        </div>
+    </div>
+    <span class="header" translate>LBL_CHARGE_DTLS</span>
+    <div class="fxContainer mt-top">
+        <div class="column1">
+            <label class="label" translate>LBL_CHARGE_AMT</label>
+            <div class="dataInfo" *ngIf="chequeBookDetailsData">{{chargeAmt | currencyFormat:chequeBookDetailsData.CURRENCY}} {{chequeBookDetailsData.CURRENCY}}</div>
+        </div>
+        <div class="column2">
+            <label class="label" translate>LBL_TAX_AMT</label>
+            <div class="dataInfo" *ngIf="chequeBookDetailsData">{{taxAmt | currencyFormat:chequeBookDetailsData.CURRENCY}} {{chequeBookDetailsData.CURRENCY}}</div>
+        </div>
+    </div>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

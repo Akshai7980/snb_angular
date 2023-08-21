@@ -1,0 +1,12 @@
+{
+    "data": [
+        {
+            "mtTrackerStatus": "SUCCESS",
+            "status": "SUCCESS",
+            "ReferenceNo": ""
+        }
+    ],
+    "headerValue": {
+        "moduleId": "GENERATEMT940"
+    }
+}

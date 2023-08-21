@@ -1,0 +1,25 @@
+{
+    "headerValue":{
+       "moduleId":"",
+       "simulate":"N",
+       "export":null,
+       "exportType":null
+    },
+    "data":[
+       {
+          "branchDesc":"Head Office",
+          "branchSwiftCode":"AAAARSBGXXX",
+          "branchCode":"1"
+       },
+       {
+          "branchDesc":"Main Office",
+          "branchSwiftCode":"BBKUBHB0XXX",
+          "branchCode":"2"
+       },
+       {
+          "branchDesc":"Manama Branch",
+          "branchSwiftCode":"ARABBHBMMAN",
+          "branchCode":"2002"
+       }
+    ]
+ }

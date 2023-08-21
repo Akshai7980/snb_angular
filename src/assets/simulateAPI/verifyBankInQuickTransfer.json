@@ -1,0 +1,32 @@
+{
+    "data": {
+        "zipCode": "11554",
+            "city": "RIYADH",
+            "streetAddress1": "AL-MAATHER",
+            "streetAddress2": "FLOOR GF",
+            "streetAddress3": "",
+            "headOfficeKey": "BD0000000HU3",
+            "bicCode": "BSFRSARIGEM",
+            "streetAddress4": "",
+            "branch": "GEM",
+            "institutionStatus": "BANK",
+            "nationalId": "",
+            "recordKey": "BD0000000HU0",
+            "institutionName": "AL RAJHI BANK",
+            "parentOfficeKey": "BD0000000HU3",
+            "chipsId": "",
+            "officeType": "DB"
+    },
+    "headerValue": {
+        "moduleId": "BENEBANKDETAILS",
+        "simulate": null,
+        "_dinsess": "dd2b8046-8c21-4a39-a2dd-eeb3886e1ce6",
+        "export": null,
+        "exportType": null,
+        "languageId": null,
+        "sortColumn": null,
+        "sortOrder": null,
+        "totalCount": null,
+        "sortcolumn": null
+    }
+}

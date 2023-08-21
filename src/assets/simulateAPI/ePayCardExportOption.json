@@ -1,0 +1,17 @@
+{
+    "headerValue": {
+        "moduleId": "EPYCRDEXPT"
+    },
+    "data": [
+        {
+            "exportAs": [
+                {
+                    "export": "PDF"
+                },
+                {
+                    "export": "CSV "
+                }
+            ]
+        }
+    ]
+}

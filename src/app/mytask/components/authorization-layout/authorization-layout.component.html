@@ -1,0 +1,28 @@
+<div class="detailsTitleContainer">
+    <div>
+    <div class="backIcon backArrow" routerLink="/mytask/detailsLayout"></div>
+    <div class="mainTitle" translate>LBL_AUTHORIZE_CHEQUEBOOK_REQ</div>
+    </div>
+</div>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-authorize-cheque-book-request></app-authorize-cheque-book-request>
+      </div>
+</section>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-authorization></app-authorization>
+      </div>
+</section>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+      <app-authentication></app-authentication>
+    </div>
+</section>
+<section>
+    <div class="btnContainer">
+        <button class="button-secondary" routerLink="/mytask/serviceRequest" translate>LBL_CANCEL</button>
+        <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button>
+     </div>
+</section>
+

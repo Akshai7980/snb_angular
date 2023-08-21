@@ -1,0 +1,29 @@
+// .paginationLeft{
+//     float: left;
+//     width: 50%;
+//     font-family: 'HelveticaNeue BlackCond', arial, sans-serif;
+//     margin-top: 26px;
+//     font-size: 15px;
+// }
+// .paginationRight .mat-paginator{margin-top: 10px;}
+.paginationRight{
+    margin-top:10px;
+    display: flex;
+    float: right;
+    // width: 50%;
+    text-align: end;
+     font-family: 'HelveticaNeue BlackCond', arial, sans-serif;
+    }
+.paginationCntr{
+    display: flex;
+    margin-left: 17px;
+    margin-right:17px;
+    justify-content: flex-end;
+}
+.paginatorLabel{align-self: center; font-size: 14px;font-family: "HelveticaNeue";margin: 0px 0px 0px 7px !important;color: var(--paginator-label-color);}
+.mat-paginator-page-size-label{
+    font-family: 'HelveticaNeue BlackCond', arial, sans-serif;
+}
+.mat-paginator {
+    background: var(--primary-widget-bg-color);
+}

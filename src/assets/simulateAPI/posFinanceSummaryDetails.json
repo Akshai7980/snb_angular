@@ -1,0 +1,23 @@
+{
+  "data": 
+    {
+      "refNo": "TBC2208301819244",
+      "currency": "SAR",   
+      "tenor": "24 Months",
+     "requestId":"102487701094",
+      "cifNo":"SA1010010010000000123",
+          "crNo":"1010756546",
+                   "accNo":"7387356683468",
+                    "makerName":"Dameer",
+          "rmReferral":"00006534341562010",
+       "rejectReason":null,
+           "maxFinanceAmt":"700.87",
+            "status":"RA",
+                "financeAmt":"1,000,000.00",
+      "statusDesc":"Ready For Authorization"
+    }
+  ,
+  "headerValue": {
+    "moduleId": "POSFININQDET"
+  }
+}

@@ -1,0 +1,10 @@
+{
+    "dataValue": {
+        "INPUT_REFERENCE_NO": "TBC2209021631238",
+        "OD_STATUS": "CANCELLED",
+        "OD_STATUS_DESC": "Already Cancelled"
+    },
+    "headerValue": {
+        "moduleId": "CNCLTXNINIT"
+    }
+}

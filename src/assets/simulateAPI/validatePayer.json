@@ -1,0 +1,206 @@
+{
+  "data": [
+    {
+      "billerID": "373",
+      "billCategory": "PARTIAL",
+      "dueAmount": "75000.00",
+      "dueDate": "09/01/2020",
+      "invoiceNumber": "Factoring_UAT_0526_004",
+      "billStatus": "Approved",
+      "PaymentRange": {
+        "billType": "Oneoff",
+        "range": {
+          "lowerRange": "37500.00",
+          "upperRange": "75000.00"
+        }
+      },
+      "message": "",
+      "billerName": "Development and Co",
+      "buyerName": "Buyer Company 5",
+      "invoiceCode": "864199938125"
+    },
+    {
+      "billerID": "588",
+      "billCategory": "PARTIAL",
+      "dueAmount": "100.00",
+      "dueDate": "20/06/2021",
+      "invoiceNumber": "Test_PARTIAL_INVOICE_263579820",
+      "billStatus": "Pending",
+      "PaymentRange": {
+        "billType": "Oneoff",
+        "range": {
+          "lowerRange": "10.00",
+          "upperRange": "100.00"
+        }
+      },
+      "message": "",
+      "billerName": "KnowledgeNet",
+      "buyerName": "Buyer Company 5",
+      "invoiceCode": "675795475413"
+    },
+    {
+      "billerID": "588",
+      "billCategory": "PARTIAL",
+      "dueAmount": "100.00",
+      "dueDate": "20/06/2021",
+      "invoiceNumber": "Test_PARTIAL_INVOICE_263579821",
+      "billStatus": "Pending",
+      "PaymentRange": {
+        "billType": "Oneoff",
+        "range": {
+          "lowerRange": "10.00",
+          "upperRange": "100.00"
+        }
+      },
+      "message": "",
+      "billerName": "KnowledgeNet",
+      "buyerName": "Buyer Company 5",
+      "invoiceCode": "117768124149"
+    },
+    {
+      "billerID": "588",
+      "billCategory": "PARTIAL",
+      "dueAmount": "100.00",
+      "dueDate": "20/06/2021",
+      "invoiceNumber": "Test_PARTIAL_INVOICE_263579822",
+      "billStatus": "Pending",
+      "PaymentRange": {
+        "billType": "Oneoff",
+        "range": {
+          "lowerRange": "10.00",
+          "upperRange": "100.00"
+        }
+      },
+      "message": "",
+      "billerName": "KnowledgeNet",
+      "buyerName": "Buyer Company 5",
+      "invoiceCode": "483424948937"
+    },
+    {
+      "billerID": "588",
+      "billCategory": "PARTIAL",
+      "dueAmount": "100.00",
+      "dueDate": "20/06/2021",
+      "invoiceNumber": "Test_PARTIAL_INVOICE_263579823",
+      "billStatus": "Pending",
+      "PaymentRange": {
+        "billType": "Oneoff",
+        "range": {
+          "lowerRange": "10.00",
+          "upperRange": "100.00"
+        }
+      },
+      "message": "",
+      "billerName": "KnowledgeNet",
+      "buyerName": "Buyer Company 5",
+      "invoiceCode": "299841952250"
+    },
+    {
+      "billerID": "588",
+      "billCategory": "PARTIAL",
+      "dueAmount": "100.00",
+      "dueDate": "20/06/2021",
+      "invoiceNumber": "Test_PARTIAL_INVOICE_263579824",
+      "billStatus": "Pending",
+      "PaymentRange": {
+        "billType": "Oneoff",
+        "range": {
+          "lowerRange": "10.00",
+          "upperRange": "100.00"
+        }
+      },
+      "message": "",
+      "billerName": "KnowledgeNet",
+      "buyerName": "Buyer Company 5",
+      "invoiceCode": "855832249728"
+    },
+    {
+      "billerID": "170",
+      "billCategory": "EXACT",
+      "dueAmount": "1000.00",
+      "dueDate": "25/01/2022",
+      "invoiceNumber": "ESAL_7688650302",
+      "billStatus": "Pending",
+      "PaymentRange": {
+        "billType": "",
+        "range": {
+          "lowerRange": "",
+          "upperRange": ""
+        }
+      },
+      "message": "",
+      "billerName": "ajlan and bros",
+      "buyerName": "Buyer Company 5",
+      "invoiceCode": "267438802536"
+    },
+    {
+      "billerID": "170",
+      "billCategory": "EXACT",
+      "dueAmount": "1000.00",
+      "dueDate": "25/01/2022",
+      "invoiceNumber": "ESAL_7688650307",
+      "billStatus": "Pending",
+      "PaymentRange": {
+        "billType": "",
+        "range": {
+          "lowerRange": "",
+          "upperRange": ""
+        }
+      },
+      "message": "",
+      "billerName": "ajlan and bros",
+      "buyerName": "Buyer Company 5",
+      "invoiceCode": "812088192710"
+    },
+    {
+      "billerID": "170",
+      "billCategory": "EXACT",
+      "dueAmount": "1000.00",
+      "dueDate": "25/01/2022",
+      "invoiceNumber": "ESAL_7688650308",
+      "billStatus": "Pending",
+      "PaymentRange": {
+        "billType": "",
+        "range": {
+          "lowerRange": "",
+          "upperRange": ""
+        }
+      },
+      "message": "",
+      "billerName": "ajlan and bros",
+      "buyerName": "Buyer Company 5",
+      "invoiceCode": "514349561915"
+    },
+    {
+      "billerID": "170",
+      "billCategory": "EXACT",
+      "dueAmount": "1000.00",
+      "dueDate": "25/01/2022",
+      "invoiceNumber": "ESAL_7688650311",
+      "billStatus": "Pending",
+      "PaymentRange": {
+        "billType": "",
+        "range": {
+          "lowerRange": "",
+          "upperRange": ""
+        }
+      },
+      "message": "",
+      "billerName": "ajlan and bros",
+      "buyerName": "Buyer Company 5",
+      "invoiceCode": "540664037613"
+    }
+  ],
+  "headerValue": {
+    "moduleId": "ESALPAYERFETCH",
+    "simulate": "N",
+    "export": null,
+    "totalCount": null,
+    "exportType": null,
+    "_dinsess": "cb9ba700-b8e8-4865-80a0-26331a5eac11",
+    "languageId": null,
+    "sortColumn": null,
+    "sortOrder": null,
+    "sortcolumn": null
+  }
+}

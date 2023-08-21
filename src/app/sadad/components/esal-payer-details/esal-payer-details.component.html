@@ -1,0 +1,61 @@
+<div class="mainContainer">
+  <div class="subTitle" translate>LBL_PAYER_DETAILS</div>
+  <div class="childContainer" *ngIf="!rootScopeData.addEsalPayerReviewMode">
+    <div class="field">
+      <div class="label" translate>
+        LBL_PAYER_ID<span class="required">*</span>
+      </div>
+      <div class="information">
+        <input type="text" [(ngModel)]="payerId" maxlength="12" (change)="passPayerDetails()" (blur)="validatePayerId()" />
+        <div *ngIf="payerDetails.payerIdError">
+          <small class="required" translate>{{
+            payerDetails.payerIdError
+            }}</small>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <div class="label" translate>
+        LBL_PAYER_SHORT_NAME<span class="required">*</span>
+      </div>
+      <div class="information">
+        <input type="text" [(ngModel)]="shortName" (change)="passPayerDetails()" maxlength="35"
+          (keypress)="nickNameValidation($event)" />
+        <div *ngIf="payerDetails.shortNameError">
+          <small class="required" translate>{{
+            payerDetails.shortNameError
+            }}</small>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <div class="label" translate>
+        LBL_PAYER_FULL_NAME<span class="required">*</span>
+      </div>
+      <div class="information">
+        <input type="text" [(ngModel)]="fullName" (change)="passPayerDetails()" />
+        <div *ngIf="payerDetails.fullNameError">
+          <small class="required" translate>{{
+            payerDetails.fullNameError
+            }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="childContainer" *ngIf="rootScopeData.addEsalPayerReviewMode">
+    <div class="field">
+      <div class="label" translate>LBL_PAYER_ID</div>
+      <div class="information data">{{ payerId }}</div>
+    </div>
+    <div class="field sname">
+      <div class="label" translate>LBL_PAYER_SHORT_NAME</div>
+      <div class="information">{{ shortName }}</div>
+    </div>
+    <div class="field">
+      <div class="label" translate>LBL_PAYER_FULL_NAME</div>
+      <div class="information data">{{ fullName }}</div>
+    </div>
+  </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

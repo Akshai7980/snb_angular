@@ -1,0 +1,94 @@
+<div id="payOnboarding">
+	<div class="beneficiaryDetails">
+		<div class="subTitles" translate>LBL_FEE_DETAILS</div>
+		<div class="rowInnerCntr">
+	
+			<div class="field">
+				<div class="label" translate>
+					LBL_CHARGE_ACC
+				</div>
+				<div *ngIf="!accNoReadonly" class="information">
+					<mat-select panelClass="dropDownOption" disableOptionCentering class="selectInput"
+						placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}" name="accountNumber"
+						[(ngModel)]="accountDetails.OD_ACC_NO">
+						<mat-option class="option" *ngFor="let account of accountLists" [value]="account.OD_ACC_NO"
+							(click)="onSelectedAccountNumber(account)">{{ account.OD_ACC_NO }}</mat-option>
+					</mat-select>
+				</div>
+				<div *ngIf="accNoReadonly" class="information">{{accountDetails.OD_ACC_NO}}</div>
+				<span class="errorMsg" translate *ngIf="selectAccountError">LBL_SELECT_ACCOUNT</span>
+			</div>
+	
+			<div class="field">
+				<div class="label" translate>
+					LBL_SETUP_FEE
+				</div>
+				<div *ngIf="onboardingFeeDetails.setupFee" class="information">
+					{{onboardingFeeDetails.setupFee}} {{onboardingFeeDetails.ccy}}
+				</div>
+				<div *ngIf="!onboardingFeeDetails.setupFee" class="information">
+					--
+				</div>
+			</div>
+	
+			<div class="field">
+				<div class="label" translate>
+					LBL_MONTHLY_FEE
+				</div>
+				<div *ngIf="onboardingFeeDetails.monthlyFee" class="information">
+					{{onboardingFeeDetails.monthlyFee}} {{onboardingFeeDetails.ccy}}
+				</div>
+				<div *ngIf="!onboardingFeeDetails.monthlyFee" class="information">
+					--
+				</div>
+			</div>
+	
+			<div class="field">
+				<div class="label" translate>
+					LBL_PREPAID_CARD
+				</div>
+				<div *ngIf="onboardingFeeDetails.prepaidCards" class="information">
+					{{onboardingFeeDetails.prepaidCards}} {{onboardingFeeDetails.ccy}}
+				</div>
+				<div *ngIf="!onboardingFeeDetails.prepaidCards" class="information">
+					--
+				</div>
+			</div>
+	
+			<div class="field">
+				<div class="label" translate>
+					LBL_PER_SNB_RECORD
+				</div>
+				<div *ngIf="onboardingFeeDetails.perSNBrecord" class="information">
+					{{onboardingFeeDetails.perSNBrecord}} {{onboardingFeeDetails.ccy}}
+				</div>
+				<div *ngIf="!onboardingFeeDetails.perSNBrecord" class="information">
+					--
+				</div>
+			</div>
+	
+			<div class="field">
+				<div class="label" translate>
+					LBL_PER_SARIE_RECORD
+				</div>
+				<div *ngIf="onboardingFeeDetails.perSarieRecord" class="information">
+					{{onboardingFeeDetails.perSarieRecord}} {{onboardingFeeDetails.ccy}}
+				</div>
+				<div *ngIf="!onboardingFeeDetails.perSarieRecord" class="information">
+					--
+				</div>
+			</div>
+		</div>
+	
+		<div class="rowInnerCntr">
+			<div class="field">
+				<div class="label textNote" translate>
+					LBL_FEE_VAT
+				</div>
+			</div>
+		</div>
+	
+	</div>
+</div>
+
+<app-ajax-loader class="ajaxLoaderMedium" [hidden]="isLoadingCompelete"></app-ajax-loader>

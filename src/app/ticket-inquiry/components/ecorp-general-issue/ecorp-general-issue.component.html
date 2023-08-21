@@ -1,0 +1,63 @@
+<div class="outerContainer">
+  <div *ngIf="showEcorpDetails || showTitle" class="title" translate>LBL_ECORP_GENERAL_ISSUE</div>
+  <div class="title" *ngIf="showEcoprReview && reviewLabel" translate>LBL_REVIEW</div>
+
+
+  <div *ngIf="hideDebitLookupData">
+    <div *ngIf="!norecordflag">
+      <app-debit-lookup id="fromDebitLookup" *ngIf="fromAccountsObject "
+      (onAccountSelect)="onFromAccountSelection($event)" [debitAccDetails]="fromAccountsObject" [shownsearch]="true"
+      [tableId]="'ecorpGeneralIssue'"></app-debit-lookup>
+      <div *ngIf="norecordflag">
+        <app-no-record-found [noRecordFoundInfo]="noRecordFoundInfoObj"></app-no-record-found>
+      </div>
+    </div>
+   
+    <div class="issueDetails" *ngIf="showEcorpDetails">
+      <div class="subTitles" translate>LBL_ISSUE_DETAILS</div>
+      <div class="felxContainer">
+        <div class="inputlabel ">
+          <div class="labels" translate>
+            LBL_MOBILE_NUMBER <span class="errorMsg">*</span>
+          </div>
+          <input *ngIf="showEcorpDetails" maxlength="15" class="inputContainer " (keypress)="allowNumbersOnly($event)"
+            [(ngModel)]="mobileNo" />
+
+        </div>
+        <div class=" inputlabel m-left">
+          <div class="labels" translate>
+            LBL_DESCRIPTION
+          </div>
+          <textarea *ngIf="showEcorpDetails" maxlength="250" class="textArea" [(ngModel)]="description"></textarea>
+        </div>
+      </div>
+      <div class="uploadContainer txtfile" *ngIf="showEcorpDetails">
+        <div class="upload-file">
+          <app-file-upload class="notRequired" [uploadInput]="uploadInput"
+            (titleCreated)="onFileAdded($event)"></app-file-upload>
+          <div class="validSec">
+            <small class="errorMsg mr10" translate
+              *ngIf="fileTypeValidationErrorMessage">LBL_SUPPORTED_FILE_JPG_XLS_PDF</small>
+            <small class="errorMsg mr10" translate *ngIf="
+                    !fileTypeValidationErrorMessage && fileNameValidationErrorMessage
+                  ">LBL_INVALID_FILE_NAME</small>
+            <small class="errorMsg" translate *ngIf="
+                    !fileTypeValidationErrorMessage &&
+                    !fileNameValidationErrorMessage &&
+                    fileSizeValidationErrorMessage
+                  ">LBL_SUPPORTED_FILE_SIZE</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="buttonConatiner" *ngIf="showEcorpDetails">
+      <app-tertiary-button buttonValue="LBL_CANCEL" (click)="cancel()"></app-tertiary-button>
+      <app-primary-button buttonValue="LBL_PROCEED" *ngIf="mobileNo " (click)="proceedToReview()">
+      </app-primary-button>
+    </div>
+  </div>
+</div>
+<app-ecorp-general-issue-review *ngIf="showEcoprReview" (hideDebitLookup)="hideDebitLookup($event)"
+  [ecropGeneralDetails]="ecropGeneralDetails" (cancelBtn)="backToform($event)"></app-ecorp-general-issue-review>
+ 
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

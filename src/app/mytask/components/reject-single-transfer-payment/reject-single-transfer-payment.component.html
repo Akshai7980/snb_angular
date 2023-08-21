@@ -1,0 +1,134 @@
+<div *ngIf="!receiptForm">
+  <div class="detailsTitleContainer">
+    <div>
+      <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+      <div class="mainTitle" translate>LBL_REJECT_PAYMENT</div>
+    </div>
+  </div>
+  <section class="summaryOuterConainer">
+    <div class="summaryConainer">
+      <div class="dataContainer">
+        <div class="detailsContainer">
+          <div class="subTitles">
+            {{ transferDetails.function_ID_DISPVAL }}
+            {{ "LBL_ACC_TO" | translate }} {{ transferDetails.bene_NAME }},
+            {{ transferDetails.bene_ACC_NO }}
+          </div>
+          <div class="refNO">
+            {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+            {{ transferDetails.ref_NO }}
+          </div>
+          <div class="title">
+            <div translate>
+              LBL_AMOUNT
+              <span
+                >{{
+                  transferDetails.debit_AMOUNT
+                    | currencyFormat: transferDetails.debit_CURRENCY
+                }}
+                {{ transferDetails.debit_CURRENCY }}</span
+              >
+              on
+              {{ transferDetails.value_DATE }}
+            </div>
+            <button
+              class="status-green-button"
+              translate
+              [class.status-red-button]="
+                transferDetails.status === 'RN' ||
+                transferDetails.status === 'RS' ||
+                transferDetails.status === 'RE' ||
+                transferDetails.status === 'RO' ||
+                transferDetails.status === 'RH'
+              "
+            >
+              {{ transferDetails.status_DISPVAL }}
+            </button>
+          </div>
+        </div>
+        <div class="rejectReasonContainer">
+          <div class="rejecthead" translate>
+            LBL_RJCT_RSN
+            <!-- <span class="required">*</span> -->
+          </div>
+          <div>
+            <div class="rejecttextarea">
+              <textarea
+                [(ngModel)]="rejectReason"
+                maxlength="140"
+                (blur)="checkRejectReason()"
+              ></textarea>
+              <div class="errorMsg" *ngIf="isRejectReasonInvalid" translate>
+                LBL_ERROR_MESSAGE_RJCT_RSN
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="summaryOuterConainer" *ngIf="transferDetails && transferDetails.function_ID_DISPVAL==='International Fund Transfer'">
+    <div class="summaryConainer mainContainer timerContainer">
+      <div class="subTitles" translate="">LBL_AMOUNT_DETAILS</div>
+      <div class="mtop_17 mbot_4 innerContainer">
+        <div class="flexWidth">
+            <div translate class="geneStaTitles">LBL_TRANSFER_AMOUNT</div>
+            <div class="mtop_10 ">            
+                <span class="dataContent" *ngIf="transferDetails && transferDetails.debit_AMOUNT">{{ transferDetails.debit_AMOUNT
+                  | currencyFormat: transferDetails.debit_CURRENCY}} {{transferDetails.debit_CURRENCY}}</span>
+                <span class="dataContent" *ngIf="transferDetails && !transferDetails.debit_AMOUNT">--</span>
+            </div>
+        </div>
+
+        <div class="flexWidth">
+            <div translate class="geneStaTitles">LBL_FEE</div>
+            <div class="mtop_10 dataContent ">            
+                <span class="dataContent" *ngIf="exchangeRateObj && exchangeRateObj.fee">{{exchangeRateObj.fee}}</span>
+                <span class="dataContent" *ngIf="exchangeRateObj && !exchangeRateObj.fee">--</span>
+            </div>
+        </div>        
+
+        <div class="flexWidth">
+            <div translate class="geneStaTitles">LBL_VAT</div>
+            <div class="mtop_10 dataContent">
+                <span class="dataContent" *ngIf="exchangeRateObj && exchangeRateObj.vat">{{exchangeRateObj.vat}}</span>
+                <span class="dataContent" *ngIf="exchangeRateObj && !exchangeRateObj.vat">--</span>
+            </div>
+        </div> 
+    </div>  
+      <div class="mbot_4 conversionMsgBox">
+        <div>
+          <div translate class="geneStaTitles">LBL_CURRENCY_CONVERSION_RATE</div>
+          <div class="mtop_10">            
+              <span class="dataContent" *ngIf="exchangeRateObj && exchangeRateObj.conversionMessage">{{exchangeRateObj.conversionMessage}}</span>
+              <span class="dataContent" *ngIf="exchangeRateObj && !exchangeRateObj.conversionMessage">--</span>
+          </div>
+          
+      </div>
+      <div class="counter">
+        <div *ngIf="!dispReset">{{dispTime}} {{'LBL_MINUTES' | translate}}</div>
+        <div *ngIf="dispReset"> <app-primary-button buttonValue="LBL_REFRESH_RATE" (onPrimarybtnemitClick) ="restTimmer($event)"> </app-primary-button></div>
+      </div>
+      </div>
+     
+    </div>
+  </section>
+  <section>
+    <div class="btnContainer">
+      <!-- <button class="button-primary" (click)="onClickSubmit()" [disabled]="disablBtn" [ngClass]="disablBtn?'btnDisable':''" translate>
+        LBL_SUBMIT
+      </button> -->
+      <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+    </div>
+  </section>
+</div>
+<app-receipt
+  (onInitAgainClick)="initiateAnotherRequest()"
+  [receiptDetails]="receiptData"
+  [saveReceiptObject]="saveReceiptObject"
+  *ngIf="receiptForm"
+  (DownloadReceiptClick)="downloadPdf($event)"
+  [rejectMsg] ="rejectMsg"
+>
+</app-receipt>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

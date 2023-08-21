@@ -1,0 +1,153 @@
+.subTitles{
+    padding-top: 0px;
+    font-size: 15px;
+}
+.subTitles_mtop21{
+//    margin-top:20px;
+   padding-top: 27px;
+   font-family: "HelveticaNeueMed", arial, sans-serif;
+    color: var(--tableData-header-color);
+}
+.geneStaTitles {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+    padding-top: 20px;
+}
+.innerContainer {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 24px);
+}
+
+input[type=text]{
+    width: 280px;
+    height: 40px;
+    padding: 0px 8px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    background-size: cover;
+    font-family: "HelveticaNeue";
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    background-color: var(--primary-widget-bg-color);
+
+}
+.rowInnerCntr {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0px;
+    padding-top: -7px;
+    width: calc(100% - 40px);
+    .field {
+        width: 33.33%;
+        height:100px;
+        padding-bottom: 40px;
+        .label{
+            font-family: 'HelveticaNeueMed', arial, sans-serif;
+            color: var(--table-header-color);
+            font-size: 14px;
+            padding-top: 28px;
+        }
+        .information{
+            padding-top: 2px;
+            color: var(--tableData-header-color);
+
+            &.data{
+                padding-top: 20px;
+            }
+        }
+    }
+    
+}
+.mat_10{
+    margin-top: 0px !important;
+}
+.selectInput{
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: #656565;
+    cursor: pointer;
+}
+
+.field_verify{
+  
+    margin-top: 61px;
+    margin-left: -23px;
+}
+
+.backButton{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    margin-right: 20px;
+    margin-top: -64px;
+}
+
+  .toggle{
+    cursor: pointer;
+    height: 40px;
+    min-width: 204px;
+    //to align the text center both vertically and horizontally
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-top: 1px solid var(--widget-border-color);
+    border-bottom: 1px solid var(--widget-border-color);
+    border-left: 1px solid var(--widget-border-color);
+    width:20%;
+    color: var(--default-text-color);
+    &:hover{
+        background-color:var(--toggle-hover-bg-color);
+    }
+
+    &.active{
+        background-color:var(--short-profile-txt-color) ;
+        color: #fff;
+        font-family: "HelveticaNeueMed", arial, sans-serif
+    }
+
+    &:first-child{
+        border-top-left-radius: 100px;
+        border-bottom-left-radius: 100px;
+    }
+
+    &:last-child{
+        border-right: 1px solid var(--widget-border-color);
+        border-top-right-radius: 100px;
+        border-bottom-right-radius: 100px;
+    }
+}
+
+.flexEnd{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+    
+.togglePayment{
+    display:flex;
+}
+
+.mat-option.mat-active {
+    color: var(--default-text-color);
+}
+
+.overlapInputInQuickTrans{
+    left: 5px;
+    position: absolute;
+    top: 13px;
+}
+
+.overlapPosition{
+    position: relative;
+}
+
+.overlapInputData{
+    padding-left: 25px !important;
+    width: 255px !important;
+}

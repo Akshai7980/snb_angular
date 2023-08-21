@@ -1,0 +1,131 @@
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-color: var(--static-white);
+  box-shadow: none;
+  margin-left: -23px;
+  cursor: pointer;
+}
+
+.tableAlignment {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 200px;
+}
+
+td.mat-cell {
+  border-bottom-style: none;
+
+}
+
+th.mat-header-cell {
+  border-bottom-style: none;
+  width: 185px;
+  height: 40px;
+  background-size: cover;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+  color: var(--table-header-color);
+  text-decoration: none solid var(--table-header-color);
+}
+
+.mat-row:nth-child(odd) {
+  background-color: var(--summary-row-bg-color);
+}
+
+.cheque-upload {
+  display: flex;
+  margin-right: 190px;
+}
+
+.name {
+  margin-right: 47px;
+  color: var(--table-header-color);
+}
+
+.date {
+  margin-right: 45px;
+  color: var(--table-header-color);
+}
+
+.file {
+  display: flex;
+  margin-right: 205px;
+}
+
+.file-type {
+  margin-right: 30px;
+  color: var(--table-header-color);
+}
+
+.download-img {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.floatRight {
+  float: right;
+  margin-top: 20px;
+}
+
+th {
+  font-weight: 12px !important;
+}
+
+td {
+  overflow: hidden;
+  width: auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+tr.mat-header-row {
+  height: 0px !important;
+}
+
+.mat-row:hover {
+  background-color: var(--summary-hover-color);
+}
+
+.flex {
+  display: flex;
+}
+
+.icons {
+  width: 20px;
+  margin-left: -25px;
+}
+
+::ng-deep .mat-tooltip{
+  width: 186px;
+min-height: 20px;
+padding: 5px;
+background-color: #d18686;
+background-size: cover;
+font-family: 'HelveticaNeue', Arial, sans-serif;
+font-size: 12px;
+color: #ffffff;
+line-height: 16px;
+z-index: 1;
+position: absolute;
+top: 5px;
+left: -4px;
+border-radius: 4px;
+}
+::ng-deep .mat-tooltip::after{
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  right: 50%;
+  transform: rotate(180deg);
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color:  #d18686 transparent transparent transparent;
+}
+::ng-deep .mat-tooltip {
+  display: inline;
+  position: relative;
+ 
+}

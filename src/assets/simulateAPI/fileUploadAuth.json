@@ -1,0 +1,19 @@
+{
+    "data": {
+        "selfAuth": "true",
+        "authList": [
+            {
+                "OD_LEVEL": "H",
+                "OD_GCIF": "7000020027",
+                "OD_USER_NO": "202204004840",
+                "AUTH_NAME": "Aadhiran Maker",
+                "OD_ROLE_DESC": "Maker",
+                "PARSED_RULE_ID": "1312"
+            }
+        ],
+        "flexiAuth": "true"
+    },
+    "headerValue": {
+        "moduleId": "PAYAUTHCHECK"
+    }
+}

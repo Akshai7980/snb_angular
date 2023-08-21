@@ -1,0 +1,12 @@
+{
+    "dataValue": {
+      "STATUS": "Success",
+      "SELECTED_RECORDS": "TBC2112291813533",
+      "STATUS_CODE": "UA",
+      "INTERNAL_REFERENCE_NO": "TBC2201101650186"
+    },
+    "headerValue": {
+      "moduleId": "PAYFILEREJ",
+      "TXN_PROCESS_DATE_TIME": ""
+    }
+  }

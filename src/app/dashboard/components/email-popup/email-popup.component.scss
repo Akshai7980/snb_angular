@@ -1,0 +1,128 @@
+.mainContainer {
+    height: 350px;
+}
+
+.primaryBtn {
+    width: 100px;
+    height: 36px;
+    padding: 0px 8px;
+    border-radius: 100px;
+    background-color: #dce9f5;
+    background-size: cover;
+    // font-family: 'Helvetica Neue';
+    font-size: 14px;
+    color: var(--primary-btn-txt-color);
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.secondaryBtn {
+    width: 100px;
+    height: 36px;
+    padding: 0px 16px;
+    border: 1px solid var(--secondary-btn-border-color);
+    border-radius: 100px;
+    background-color: var(--secondary-btn-bg-color);
+    background-size: cover;
+    // font-family: 'Helvetica Neue';
+    font-size: 14px;
+    color: var(--secondary-btn-txt-color);
+    text-align: center;
+    cursor: pointer;
+}
+
+.topOptions {
+    display: flex;
+    justify-content: space-between;
+
+    .closelabel {
+        cursor: pointer;
+    }
+}
+
+.mat-dialog-close {
+    background: url(../../../../assets/images/icoClose.svg) no-repeat center;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transform: translate(0px, 5px);
+}
+
+.formCntr {
+    .field {
+        height: 70px;
+        display: flex;
+        justify-content: flex-start;
+
+        input {
+            width: 300px;
+            outline: none;
+            height: 35px;
+            border-radius: 3px;
+            padding: 0px 5px;
+            border: 1px solid #c4c4c4;
+        }
+
+        label {
+            width: 100px;
+            transform: translate(0px, 5px);
+        }
+
+        span {
+            transform: translateY(50px);
+            width: 100px;
+        }
+
+        #myProgress {
+            width: 15%;
+            height: 10px;
+            transform: translateY(54px);
+            background-color: #ddd;
+        }
+
+        .myBar {
+            // width: 1%;
+            height: 10px;
+            background-color: var(--secondary-btn-bg-color);
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+            transform: translateY(50px);
+        }
+    }
+}
+
+input {
+    border: 0;
+    outline: 0;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+textarea {
+    width: 305px;
+    height: 80px;
+    border: 1px solid #c4c4c4;
+    outline: none;
+    resize: none;
+}
+
+.bottomBtnCntr {
+    float: right;
+
+    button {
+        margin-right: 20px;
+    }
+}
+.mandatory {
+    color: #d05151;
+  }
+.errorMsg{
+    color: #FF0000;
+}  

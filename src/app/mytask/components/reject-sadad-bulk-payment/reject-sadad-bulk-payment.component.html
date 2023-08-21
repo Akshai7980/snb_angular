@@ -1,0 +1,125 @@
+<div *ngIf="!receiptForm">
+    <div class="detailsTitleContainer">
+      <div>
+        <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+        <div class="mainTitle" translate>LBL_REJECT_SADAD_BULK_PAYMENT</div>
+      </div>
+    </div>
+    <div class="container" >
+
+      <section class="summaryOuterContainer" *ngIf="selectedTransfer">
+        <div>
+          <div class="">
+            <div class="subTitles">
+              {{ selectedTransfer.uploadType?selectedTransfer.uploadType:"--" }} {{ "LBL_FROM" | translate }}
+              {{ selectedTransfer.makerName ? selectedTransfer.makerName : "--" }},
+              {{ selectedTransfer.accNo ? selectedTransfer.accNo : "--" }}
+            </div>
+            <div class="refNO">
+              {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+              {{ selectedTransfer.odDRefNo?selectedTransfer.odDRefNo:"--" }}
+            </div>
+            <div class="title">
+              <div>
+                {{ "LBL_AMOUNT" | translate }}
+                <span *ngIf="selectedTransfer.odFileAmount"
+                  >{{
+                    selectedTransfer.odFileAmount
+                      | currencyFormat: selectedTransfer.odTxnCy
+                  }}
+                  {{ selectedTransfer.odTxnCy }}
+                </span>
+                <span *ngIf="!selectedTransfer.odFileAmount">--</span>
+                {{ "LBL_ON" | translate }}
+                <span *ngIf="selectedTransfer.odMakerDate">{{ selectedTransfer.odMakerDate | dateFormat }}</span>
+                <span *ngIf="!selectedTransfer.odMakerDate">--</span>
+              </div>
+            </div>
+            <div class="subContainer">
+              <div class="subTitles" translate>LBL_TRANSFER_DETAILS</div>
+              <div class="rowInnerCntr">
+                <div class="field">
+                  <div class="label" translate>LBL_UPLOAD_TRANSACTION_ID</div>
+                  <div class="information">
+                    {{ selectedTransfer.odDRefNo?selectedTransfer.odDRefNo:"--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_FILE_NAME</div>
+                  <div class="information">
+                    {{ selectedTransfer.odFileName?selectedTransfer.odFileName:"--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_FILE_FORMAT</div>
+                  <div class="information">
+                    {{ selectedTransfer.fileFormat?selectedTransfer.fileFormat:"--" }}
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_ACC_NUMBER</div>
+                  <div class="information">{{ selectedTransfer.accNo?selectedTransfer.accNo:"--" }}</div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_RECORDS</div>
+                  <div class="information">{{ selectedTransfer.odNoOfTrans?selectedTransfer.odNoOfTrans:"--" }}</div>
+                </div>
+                <div class="field">
+                  <div class="label" translate>LBL_AMOUNT</div>
+                  <div class="information" *ngIf="selectedTransfer.odFileAmount">
+                    {{
+                      selectedTransfer.odFileAmount
+                        | currencyFormat: selectedTransfer.odTxnCy
+                    }}
+                    {{ selectedTransfer.odTxnCy }}
+                  </div>
+                  <div class="information" *ngIf="!selectedTransfer.odFileAmount">--</div>
+                </div>
+                <!-- <div class="field">
+                  <div class="label" translate>LBL_VAT</div>
+                  <div class="information" *ngIf="selectedTransfer.feeAmount">
+                    {{
+                      selectedTransfer.feeAmount
+                        | currencyFormat: selectedTransfer.currency
+                    }}
+                    {{ selectedTransfer.currency }}
+                  </div>
+                  <div class="information" *ngIf="!selectedTransfer.feeAmount">--</div>
+                </div> -->
+                <div class="field">
+                  <div class="label" translate>LBL_FILE_STATUS</div>
+                  <div class="information">{{ selectedTransfer.odStatus?selectedTransfer.odStatus:"--" }}</div>
+                </div>
+                <!-- <div class="field">
+                  <div class="label" translate>LBL_RJCT_RSN</div>
+                  <div class="information">{{ selectedTransfer.odRejectReason?selectedTransfer.odRejectReason:"--" }}</div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="rejectReasonContainer">
+        <div class="rejecthead" translate>LBL_RJCT_RSN
+          <!-- <span class="required">*</span> -->
+        </div>
+        <div>
+          <div class="rejecttextarea">
+            <textarea [(ngModel)]="rejectreason" maxlength="140" (blur)="rejectReasonValidation()"></textarea>
+            <div class="errorMsg" *ngIf="isrejectreasonValid" translate>LBL_ERROR_MESSAGE_RJCT_RSN
+            </div>
+          </div>
+        </div>
+      </div>
+      <section>
+        <div class="btnContainer">
+          <!-- <button class="button-primary" (click)="onClickSubmit()" translate>LBL_SUBMIT</button> -->
+          <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+        </div>
+      </section>
+    </div>
+    </div>
+    <app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)">
+    </app-receipt>
+    <app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

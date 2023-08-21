@@ -1,0 +1,28 @@
+{
+    "headerValue": {
+        "moduleId": "RCENTLTABS",
+        "simulate": null,
+        "export": null,
+        "exportType": null,
+        "_dinsess": null,
+        "sortColumn": null,
+        "sortOrder": null,
+        "sortDirection": null
+    },
+    "data": 
+        {
+            "entitledSubPdt": [
+                {
+                    "subProdCode": "RSECMPT",
+                    "subProdDesc": "Raise Complaint",
+                    "functionCode": "PAYFNC"
+                },
+                {
+                    "subProdCode": "RSECMPT",
+                    "subProdDesc": "Raise Complaint",
+                    "functionCode": "TRFFNC"
+                }
+            ]
+        }
+    
+}

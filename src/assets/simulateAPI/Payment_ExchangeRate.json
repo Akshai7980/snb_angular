@@ -1,0 +1,19 @@
+{
+    "headerValue": {
+      "moduleId": "EXCHANGERATE"
+    },
+    "data": [
+      {
+        "baseCcy": "BHD",
+        "paymentAmt": "964.57",
+        "resValidTime": "null",
+        "sellRate": "0.103673",
+        "buyRate": "9.645713",
+        "conversionMessage": "BHD 1 = AED 9.64570000; BHD 100.000 = AED 964.57",
+        "creditCcy": "AED",
+        "debitCcy": "BHD",
+        "rateRefNo": "REF123456789",
+        "targetAmount": "189"
+      }
+    ]
+  }

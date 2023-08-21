@@ -1,0 +1,35 @@
+.detailsTitleContainer {
+    margin: -15px 0px -27px 30px;
+}
+.summaryOuterConainer {
+    .summaryConainer {
+        border-radius: 10px;
+        background: var(--primary-widget-bg-color);
+        border: 1px solid var(--widget-border-color);
+        margin-right: 30px;
+        margin-top: 20px;
+        margin-left: 30px;
+        padding-bottom: 15px !important;
+    }
+}
+
+.button-secondary:hover {
+    background-color: #e8e8e8
+}
+
+.btnContainer {
+    float: right;
+    margin-top: 25px;
+    padding-right: 30px;
+}
+.backArrow {
+    top: 40px;
+    left: -20px;
+}
+.button-primary:hover{
+    background-color: var(--primary-btn-hover-color);
+    border-color: var(--primary-btn-hover-color);
+}
+.afterproceed{
+    margin: 5px 30px 0px 30px;
+  }

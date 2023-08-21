@@ -1,0 +1,28 @@
+<div class="detailsTitleContainer">
+    <div class="mainTitle" translate>LBL_ESAL_DETAILS</div>
+</div>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-esal-biller-details></app-esal-biller-details>
+      </div>
+</section>
+<section class="summaryOuterConainer">    
+    <div class="summaryConainer">
+        <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+      </div>
+</section>
+<section class="summaryOuterConainer">    
+    <div class="summaryConainer">
+        <app-history [historyData]="workFlowHistoryParams"></app-history>
+      </div>
+</section>
+<section>
+    <div class="btnContainer">
+        <!-- <button class="button-secondary backButton" routerLink="/mytask/billerManagement/esal-biller" translate>LBL_BACK</button>
+        <button class="button-print-secondary" (click)="onClickReject()" translate>LBL_REJECT</button>
+        <button class="button-print-secondary" (click)="onClickAuthorize()" translate>LBL_AUTHORIZE</button> -->
+        <app-tertiary-button buttonValue="LBL_BACK" (click)="back()"></app-tertiary-button>
+        <app-secondary-button buttonValue="LBL_REJECT" (click)="onClickReject()"></app-secondary-button>
+        <app-secondary-button buttonValue="LBL_AUTHORIZE" (click)="onClickAuthorize()"></app-secondary-button>
+     </div>
+</section>

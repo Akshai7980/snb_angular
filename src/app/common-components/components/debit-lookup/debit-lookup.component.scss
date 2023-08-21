@@ -1,0 +1,67 @@
+// .mainContainer{
+//     padding: 0px 25px 0px 20px;
+// }
+.subContainer{
+    border-radius: 6px;
+    background-color: var(--primary-widget-bg-color);
+    padding: 19px 20px 20px 20px ;
+    border: 1px solid var(--widget-border-color);
+    // margin-left: 15px;
+}
+.subTitles{
+    font-size: 16px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    color: var(--tableData-header-color);
+}
+.searchCntnr{
+    display:flex;
+    margin-top: 19px;
+}
+.tableInfo{
+    margin-top: 21px;
+    // margin-left: -4px !important;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    // margin: 10px;  26.8.22
+    table-layout: fixed;
+    th:last-child, td:last-child{
+        width: 20px;
+    }
+    &.mat-table {background-color: var(--primary-widget-bg-color);}
+}
+th, td {
+    padding: 5px !important;
+    text-align: left;
+    border-bottom: 1px solid rgb(230, 228, 228);
+}
+.downArrow{
+    background: url(../../../../assets/images/iconDownGreen.svg) no-repeat center ;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    cursor: pointer;
+    transition: 1s transform;
+}
+.arrowRotate{
+    transform: rotate(180deg);
+    margin-top: 12px;
+}
+
+.selected {
+    background-color: var(--summary-hover-color) !important;
+}
+
+.searchCntnr {
+    margin: 20px 15px 25px 0px !important;
+}
+
+.nicknameWord{
+    word-break: break-word;
+}
+.setWidth{
+    th:nth-child(2),td:nth-child(2){
+        width: 23%;
+    }
+}

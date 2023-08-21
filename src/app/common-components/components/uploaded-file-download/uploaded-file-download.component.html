@@ -1,0 +1,6 @@
+<div class="uploadedSct" (click)="downloadStatement()" *ngIf="downloadSection">
+    
+    <div class="downloadText" >{{fileUploadedDetails?.fileActualName}}</div>
+    <div class="downloadIcon" ></div>
+</div>
+    <app-ajax-loader-small [hidden]="isLoadingCompelete" class="icons"></app-ajax-loader-small>

@@ -1,0 +1,34 @@
+{
+    "headerValue": {
+    "moduleId": "NATADDCIFLKUP",
+    "simulate": "N"
+     },
+     "dataValue": [{
+    
+     "cifNo":"00122",
+     "unitId":"IGTBSA",
+     "gcif":"10000187",
+     "country":"SA",
+     "customerName":"test",
+     "countryName":"Saudi Arabia",
+     "city":"Jeddah",
+     "zipCode":"332322",
+     "streetName":"Macronh S",
+    "distName":"Mushrifah",
+    "buildNo":"7712"
+    },
+    {
+    
+        "cifNo":"12365",
+        "unitId":"IGTBSA",
+        "gcif":"10000188",
+        "country":"SA",
+        "customerName":"test",
+        "countryName":"SAUDI ARABIA",
+        "city":"Jeddah City",
+        "zipCode":"332326",
+        "streetName":"Macronh St",
+       "distName":"FinancialDistrict",
+       "buildNo":"6612"
+    }]
+}

@@ -1,0 +1,86 @@
+.outerContainer {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.merchantDetails {
+  padding: 15px;
+  margin-top: 15px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 10px;
+  background-color: var(--primary-widget-bg-color);
+  background-size: cover;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+}
+
+.subTitles {
+  margin-bottom: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.tableHeader {
+  color: var(--secondary-font-color);
+  background-size: cover;
+  font-family: "HelveticaNeue", arial, sans-serif;
+  font-size: 14px;
+}
+
+.tableRowConatiner {
+  background-color: var(--summary-hover-color);
+  font-size: 14px;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+}
+
+.downArrowAcc {
+  background: url(../../../../assets/images/iconDownGreen.svg) no-repeat center;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  cursor: pointer;
+  transform: rotate(180deg);
+  transition: 1s transform;
+  margin-top: 6px;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+}
+td:last-of-type {
+  border-top-right-radius: 10px 10px;
+  border-bottom-right-radius: 10px 10px;
+  text-align: right;
+}
+
+::placeholder {
+  text-align: right;
+}
+
+td:first-of-type {
+  border-top-left-radius: 10px 10px;
+  border-bottom-left-radius: 10px 10px;
+}
+
+.btnContainer {
+  float: right;
+  margin: 20px;
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-btn-bg-color);
+}

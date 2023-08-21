@@ -1,0 +1,22 @@
+{
+    "headerValue": {
+        "moduleId": "MADACARD",
+        "sortColumn": null,
+        "sortOrder": null,
+        "sortDirection": null
+    },
+    "data": [
+        {
+            "madaCard": [
+                {
+                    "reasonDesc": "Lost",
+                    "reasonCode": "L"
+                },
+                {
+                    "reasonDesc": "Stolen",
+                    "reasonCode": "S"
+                }
+            ]
+        }
+    ]
+}

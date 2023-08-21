@@ -1,0 +1,74 @@
+<div
+  class="filter-search-popup"
+  *ngIf="showAdvancedSearchPopup"
+  (click)="stopAdvancedSearchClose($event)"
+>
+  <div translate class="header">LBL_FILTER
+    <img src="assets/images/closeIcon.svg" class="close-icon" mat-dialog-close (click)="closeFilter($event)">
+  </div>
+
+  <div class="flexCntr">
+    <div class="fieldCntr">
+      <div class="fieldLabel" translate>LBL_REQ_ID</div>
+      <input type="text" [(ngModel)]="reqId" class="txt-fld mt-top" />
+    </div>
+    <div class="fieldCntr">
+      <div class="fieldLabel" translate>LBL_STATUS</div>
+      <mat-select
+        panelClass="dropDownOption advdownWidth_300"
+        class="selectInput"
+        [(ngModel)]="status"
+        placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+        disableOptionCentering
+      >
+      <mat-option
+          *ngFor="let item of statuslist"
+          [value]="item.statusDesc"
+          >{{ item.statusDesc }}
+        </mat-option>
+      </mat-select>
+    </div>
+  </div>
+  <div class="flexCntr">
+    <div class="fieldCntr">
+      <div class="fromto">
+        <div class="datefrom">
+          <div translate class="fieldLabel" id="proctm">LBL_DATE_FROM</div>
+          <div class="shortDatePicker mt-top">
+            <app-date-picker
+              [clearFlag]="clearFlag"
+              [showDateErrorMessage]="showDateErrorMessage"
+              (dateValue)="getFromDate($event)"
+              [newDate]="fromDateValue"
+            ></app-date-picker>
+          </div>
+        </div>
+        <div class="dateto">
+          <div translate class="fieldLabel" id="proctm">LBL_TO</div>
+          <div class="shortDatePicker mt-top">
+            <app-date-picker
+              [clearFlag]="clearFlag"
+              [showDateErrorMessage]="showDateErrorMessage"
+              (dateValue)="getToDate($event)"
+              [minDate]="fromDateValue"
+              [newDate]="toDateValue"
+            ></app-date-picker>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="submt">
+    <div>
+      <!-- <button class="clr" (click)="onClickClear()" translate>LBL_CLEAR</button> -->
+      <app-tertiary-button buttonValue="LBL_CLEAR" (click)="onClickClear()" class="clr"></app-tertiary-button>
+    </div>
+    <div>
+      <!-- <button class="apply" (click)="onClickApply()" translate>
+        LBL_APPLY
+      </button> -->
+      <app-primary-button (click)="onClickApply()" buttonValue="LBL_APPLY"></app-primary-button>
+    </div>
+  </div>
+</div>

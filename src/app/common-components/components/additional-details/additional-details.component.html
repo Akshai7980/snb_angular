@@ -1,0 +1,41 @@
+<div class="additionDetailsContainer">
+    <div class="flexContainer">
+      <div translate class="subTitles">LBL_ADDITION_DETAILS</div>
+        <span class="edits" *ngIf="showEdit" (click)="editData()"><span class="editText">Edit</span></span>
+    </div>
+
+  <div class="container" *ngIf="displayReadOnly">
+    <div class="rightContent">
+      <div translate>LBL_VALUE_DATE</div>
+      <div class="mtop_10"class="dataContent">{{ additionalDetailsObj.date | dateFormat }}</div>
+    </div>
+
+    <div class="leftContent">
+      <div class="feilds">
+        <div translate>LBL_PAYMENT_DETAILS</div>
+        <textarea name="" id="" class="comment mtop_10" maxlength="35" [(ngModel)]="additionalDetailsObj.paymentDetails"(blur)="emitData()"></textarea>
+      </div>
+
+      <div class="feilds">
+        <div translate>LBL_CUSTOMER_REFERENCE</div>
+        <textarea name="" id="" class="comment mtop_10" maxlength="16" [(ngModel)]="additionalDetailsObj.customerRef"(blur)="emitData()"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="container readOnlyContainer" *ngIf="!displayReadOnly">
+    <div class="fixedWidth">
+      <div translate>LBL_VALUE_DATE</div>
+      <div class="mtop_10"[ngClass]="date!=null?'dataContent':'noDataContent'">{{ additionalDetailsObj.date | dateFormat }}</div>
+    </div>
+
+    <div class="fixedWidth">
+      <div translate>LBL_PAYMENT_DETAILS</div>
+      <div class="mtop_10"[ngClass]="additionalDetailsObj.paymentDetails!=''?'dataContent':'noDataContent'">{{additionalDetailsObj.paymentDetails==''?'Not Provided':additionalDetailsObj.paymentDetails}}</div>
+    </div>
+
+    <div class="fixedWidth">
+      <div translate>LBL_CUSTOMER_REFERENCE</div>
+      <div class="mtop_10"[ngClass]="additionalDetailsObj.customerRef!=''?'dataContent':'noDataContent'">{{additionalDetailsObj.customerRef==''?'Not Provided':additionalDetailsObj.customerRef}}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,252 @@
+.title {
+    width: 215px;
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    margin: 5px 0px 0px 25px;
+    font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+
+.debitContainer {
+    padding: 0px 25px;
+}
+
+.buttonContainer {
+    display: flex;
+    margin: 20px 25px 0px 0px;
+    justify-content: end;
+}
+
+.subContainer {
+    border-radius: 6px;
+    background-color: var(--primary-widget-bg-color);
+    padding: 19px 20px 31px 20px;
+    border: 1px solid var(--widget-border-color);
+}
+
+.subTitles {
+    font-size: 16px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    color: var(--tableData-header-color);
+}
+
+.searchCntnr {
+    display: flex;
+    margin-top: 19px;
+}
+
+.tableInfo {
+    margin-top: 21px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+    table-layout: fixed;
+
+    th:last-child,
+    td:last-child {
+        width: 20px;
+    }
+
+    &.mat-table {
+        background-color: var(--primary-widget-bg-color);
+    }
+}
+
+th,
+td {
+    padding: 5px !important;
+    text-align: left;
+    border-bottom: 1px solid rgb(230, 228, 228);
+}
+
+.downArrow {
+    background: url(../../../../assets/images/iconDownGreen.svg) no-repeat center;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    cursor: pointer;
+    transition: 1s transform;
+}
+
+.arrowRotate {
+    transform: rotate(180deg);
+    margin-top: 12px;
+}
+
+.selected {
+    background-color: var(--summary-hover-color) !important;
+}
+
+.searchCntnr {
+    margin: 20px 15px 25px 0px !important;
+}
+
+.nicknameWord {
+    word-break: break-word;
+}
+
+.setWidth {
+
+    th:nth-child(2),
+    td:nth-child(2) {
+        width: 23%;
+    }
+}
+
+app-debit-lookup {
+    .subContainer {
+        border: none !important;
+    }
+}
+
+mat-button-toggle-group {
+    width: 800px;
+    height: 40px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 1px;
+    margin-top: 20px;
+}
+
+mat-button-toggle {
+    font-size: 14px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    width: 300px;
+    transition: all .3s;
+}
+
+.hoverSelected {
+    background-color: var(--short-profile-txt-color);
+    color: var(--promotions-fontColor);
+}
+
+.baseSelected:hover {
+    background-color: var(--toggle-hover-bg-color)
+}
+
+.mat-button-toggle-group-appearance-standard .mat-button-toggle+.mat-button-toggle {
+    border-left: solid 1px var(--widget-border-color);
+}
+
+.mat-button-toggle-group-appearance-standard {
+    border: solid 1px var(--widget-border-color);
+}
+
+.baseSelected {
+    background-color: var(--toggle-base-color);
+    color: var(--tableData-header-color);
+}
+
+.information {
+    position: relative;
+    height: 40px;
+    padding: 0px 8px;
+    border: 1px solid var(--widget-border-color);
+    background-color: var(--primary-widget-bg-color);
+    border-radius: 4px;
+    background-size: cover;
+    font-family: "HelveticaNeue";
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    width: 300px;
+
+    &.data {
+        padding-top: 20px;
+    }
+
+    .currency {
+        position: relative;
+        top: 12px;
+        left: 30px;
+    }
+}
+
+input[type="text"] {
+    position: relative;
+    width: 80%;
+    height: 30px;
+    padding: 0px 0px;
+    float: left;
+    left: 0;
+    top: 5px;
+    border: 1px solid var(--static-white);
+    font-family: "HelveticaNeue";
+    font-size: 14px;
+    color: var(--tableData-header-color);
+}
+
+textarea[type="text"] {
+    border: 1px solid var(--widget-border-color);
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+    font-family: "HelveticaNeue";
+
+}
+
+.topContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dailyLimitContainer {
+    margin-right: 30px;
+}
+
+.creditListContainer {
+    margin-top: 25px;
+}
+
+.cardDetailsContainer {
+    margin: 0px 25px;
+}
+
+.fromDetails {
+    margin-left: 15px;
+    margin-top: 25px;
+}
+
+.innerTitle {
+    font-size: 14px;
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    color: var(--tableData-header-color);
+}
+
+.toggleContainer {
+    margin: 25px 25px 0px 25px;
+}
+
+.amountContainer {
+    margin-top: 20px;
+    padding: 0px 20px;
+}
+
+.containerLabel {
+    color: rgb(162, 162, 162);
+    text-align: left;
+    font-family: 'HelveticaNeueMed', arial, sans-serif !important;
+    font-size: 14px !important;
+}
+
+.containerContent {
+    font-family: 'HelveticaNeue';
+    text-align: left;
+    font-size: 14px;
+}
+
+.commentContainer {
+    margin-top: 30px;
+}
+
+.specificAmountContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

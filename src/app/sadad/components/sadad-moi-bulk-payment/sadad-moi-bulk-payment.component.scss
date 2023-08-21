@@ -1,0 +1,282 @@
+.title {
+  width: 215px;
+  height: 30px;
+  padding: 0px 0px 0px 5px;
+  background-size: cover;
+  font-size: 18px;
+  color: var(--tableData-header-color);
+  margin: 0px;
+  font-family: 'HelveticaNeueMed', arial, sans-serif;
+}
+
+.mLeft_45 {
+  margin-left: 30px;
+}
+
+.subContainer {
+  border-radius: 6px;
+  background-color: var(--primary-widget-bg-color);
+  border: 1px solid var(--widget-border-color);
+  margin-bottom: 20px;
+
+  &.billerTop {
+    margin-top: 1rem;
+  }
+}
+
+.payment_refund_toggle {
+position: relative;
+height: 43px;
+  &.payment-top {
+    padding:  20px 20px 0px 20px;
+  }
+
+}
+
+mat-button-toggle-group {
+  height: 40px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 1px;position:absolute;
+}
+
+mat-button-toggle {
+  font-size: 14px;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  width: 204px;
+  transition: all .3s;
+}
+
+.baseSelected {
+  background-color: var(--toggle-base-color);
+  color: var(--tableData-header-color);
+}
+.baseSelected:hover{
+  background-color:var(--toggle-hover-bg-color)
+}
+.mTop_18 {
+  margin-top: 20px;
+}
+
+.hoverSelected {
+  border: 1px solid var(--short-profile-txt-color);
+  background-color: var(--short-profile-txt-color);
+  color: var(--promotions-fontColor);
+}
+
+table.casaTable td:last-child, table.casaTable th:last-child {
+  text-align: left !important;
+}
+
+.tableInfo {
+  margin-left: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 98%;
+  margin: 10px;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid rgb(230, 228, 228);
+}
+
+.footerText {
+  margin-top: 30px;
+  display: inline-block;
+  font-family: "HelveticaNeue", arial, sans-serif;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+
+  .termsContainer {
+    color: var(--short-profile-txt-color);
+  }
+}
+
+.actionGroup {
+  float: right;
+  display: flex;
+  align-self: flex-end;
+  justify-content: flex-end;
+  margin-top: 30px;
+  margin-right: 18px;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 25px 0px 0px;
+}
+
+.subTransfers {
+  padding: 15px 5px 5px 0px;
+  font-family: "HelveticaNeue", arial, sans-serif;
+  font-size: 14px;
+  color: #5d5d5d;
+}
+
+table {
+  margin-left: 0px !important;
+
+  th.mat-header-cell:first-of-type,
+  td.mat-cell:first-of-type,
+  td.mat-footer-cell:first-of-type {
+    padding-left: 5px !important;
+  }
+}
+
+.marginBottom_4 {
+  margin-bottom: 4px;
+}
+
+.uploadContainer {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px 0px;
+  margin-left: 15px;
+
+  .upload-file {
+    width: 28%;
+
+    .upload-file-title {
+      font-family: 'HelveticaNeueMed', sans-serif;
+    }
+  }
+
+  .download-template {
+    width: calc(100% - 28%);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    top: 23px;
+    left: 180px;
+
+    app-download-template {
+      display: flex;
+      align-items: center;
+      width: calc(100% - 20%);
+      margin-top: 22px;
+    }
+
+  }
+}
+
+.noteText {
+  color: var(--table-header-color);
+  font-size: 14px;
+  padding: 15px;
+  font-family: 'HelveticaNeue', sans-serif;
+
+  span {
+    margin-right: 5px;
+  }
+}
+
+.downloadFile {
+  display: flex;
+  align-items: center;
+
+  .downloadFile {
+    padding: 15px;
+    color: #006A52;
+    font-size: 14px;
+    font-family: 'HelveticaNeu', sans-serif;
+  }
+
+  .downloadIcon {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 1%;
+    background-image: url(/assets/images/ico-downloadTemp.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-right: 5px;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+  }
+}
+
+.subTitlesFileUpload {
+  margin-bottom: 1rem;
+  margin: 20px;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+.validSec {
+  padding: 0 20px;
+}
+.red {
+  color: red
+}
+
+.pR{position: relative;}
+.rowInnerCntr {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 10px;
+  padding-top: 15px;
+
+  .field {
+      width: 33.33%;
+      padding: 0 !important;
+  }
+}
+table.fileSummary{margin: 0 10px !important;}
+table.fileSummary tr>td, table.fileSummary tr>th{padding: 0 !important;}
+.pt0{padding-top: 0;}
+.uploadTitle{color:#a2a2a2}
+.submitSct .downloadFile{margin-left: 15px;padding-left: 0; color: #006a52;}
+.maxWdTitle{max-width:30%}
+.mat-button-toggle-group-appearance-standard .mat-button-toggle+.mat-button-toggle {
+  border-left: solid 1px var(--widget-border-color);
+}
+.footerText {
+  margin-top: 30px;
+  display: inline-block;
+  font-family: "HelveticaNeue",arial,sans-serif;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+  .termsContainer{
+    color: var(--secondary-btn-print-border-color);
+  }
+  a{
+    text-decoration: none;
+  }
+}
+.geneStaTitles {
+  color: var(--table-header-color);
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+}
+.plainText {
+  margin-top: 10px;
+  // font-family: "HelveticaNeue", arial, sans-serif;
+  font-family: "HelveticaNeueLight", arial, sans-serif;
+  font-size: 14px;
+  color: var(--tableData-header-color);
+}
+.row.sadadSuccessUpload{margin:20px 10px; column-gap: 20px; display: grid;grid-template-columns: repeat(3,1fr);}
+.downloadText{margin-left: 5px;}
+
+.errorMsgBottomMargin{
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.msgSize{
+  font-size: 13px !important;
+}

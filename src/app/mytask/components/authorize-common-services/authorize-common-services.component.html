@@ -1,0 +1,103 @@
+<div *ngIf="!receiptForm">
+    <div class="detailsTitleContainer">
+      <div>
+        <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+        <div class="mainTitle" translate>LBL_AUTHORIZE_PAYMENT</div>
+      </div>
+    </div>
+    <section class="summaryOuterConainer">
+      <div class="summaryConainer mainContainer">
+        <div class="subTitles">
+          {{ transferDetails.requestType }},
+          {{ transferDetails.crNum ? transferDetails.crNum : "--" }}
+        </div>
+        <div class="refNO">
+          {{ "LBL_TRANSACTION_REF_NUM" | translate }}
+          {{ transferDetails.refNo }}
+        </div>
+        
+      </div>
+    </section> 
+    
+    <section class="summaryOuterConainer"
+      *ngIf="transferDetails">
+      <div class="summaryConainer mainContainer timerContainer">
+        <div class="subTitles" translate="">LBL_ADDRESS_DETAILS</div>
+        <div class="mtop_17 mbot_4 innerContainer">
+          <div class="flexWidth">
+            <div translate class="geneStaTitles">LBL_BUILDING_NUMBER</div>
+            <div class="mtop_10 ">
+              <span class="dataContent">{{
+                transferDetails && transferDetails.buildNo ?  transferDetails.buildNo : '--' }}</span>
+            </div>
+          </div>
+  
+          <div class="flexWidth">
+            <div translate class="geneStaTitles">LBL_STREET_NAME</div>
+            <div class="mtop_10 dataContent ">
+              <span class="dataContent">
+                {{transferDetails && transferDetails.streetName ? transferDetails.streetName : '--'}}</span>
+            </div>
+          </div>
+  
+          <div class="flexWidth">
+            <div translate class="geneStaTitles">LBL_DISTRICT_NAME</div>
+            <div class="mtop_10 dataContent">
+              <span class="dataContent">
+                {{transferDetails && transferDetails.distName ? transferDetails.distName : '--'}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="mbot_4 innerContainer">
+          <div  class="flexWidth">
+            <div translate class="geneStaTitles">LBL_CITY</div>
+            <div class="mtop_10">
+              <span class="dataContent">
+                {{transferDetails && transferDetails.city ? transferDetails.city : '--'}}</span>
+            </div>
+          </div>
+
+          <div  class="flexWidth">
+            <div translate class="geneStaTitles">LBL_ZIP_CODE</div>
+            <div class="mtop_10">
+              <span class="dataContent">
+                {{transferDetails && transferDetails.zipCode ? transferDetails.zipCode : '--'}}</span>
+            </div>
+          </div>
+
+          <div  class="flexWidth">
+            <div translate class="geneStaTitles">LBL_COUNTRY</div>
+            <div class="mtop_10">
+              <span class="dataContent">
+                {{transferDetails && transferDetails.countryName ? transferDetails.countryName : '--'}}</span>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </section>
+  
+    <section class="summaryOuterConainer" *ngIf=" showAuthorization">
+      <div class="summaryConainer authContainer">
+        <app-authorization [authListDataSource]="authListArray" (authEmit)="autherizationDetailsReceived($event)" [authError]="authError"></app-authorization>
+      </div>
+  </section>  
+    <div class="footerText">
+      By submitting, I am accepting the
+      <span class="termsContainer">Terms & Conditions</span>
+    </div>
+    <section>
+      <div class="btnContainer">
+        <button class="button-secondary" routerLink="/mytask/commonServices" translate>
+          LBL_CANCEL
+        </button>
+        <button class="button-primary" (click)="onClickSubmit()" [disabled]="disablBtn"
+          [ngClass]="disablBtn?'btnDisable':''" translate>
+          LBL_SUBMIT
+        </button>
+      </div>
+    </section>
+  </div>
+  <app-receipt (onInitAgainClick)="initiateAnotherRequest()" [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf()"> 
+  </app-receipt>
+  <app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

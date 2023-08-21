@@ -1,0 +1,30 @@
+<div class="detailsTitleContainer">
+    <div class="mainTitle" translate>LBL_INSTANT_TRANSFER_DEREGISTER</div>
+</div>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-intant-transfer-deregister-details></app-intant-transfer-deregister-details>
+      </div>
+</section>
+<section class="summaryOuterConainer">
+    <div class="summaryConainer">
+        <app-proxy-identifier-deregistration></app-proxy-identifier-deregistration>
+      </div>
+</section>
+<section class="summaryOuterConainer">    
+    <div class="summaryConainer">
+        <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+      </div>
+</section>
+<section class="summaryOuterConainer">    
+    <div class="summaryConainer">
+        <app-history [historyData]="workFlowHistoryParams"></app-history>
+      </div>
+</section>
+<section>
+    <div class="btnContainer">
+        <button class="button-secondary backButton" routerLink="/mytask/instantTransferManagement" translate>LBL_BACK</button>
+        <button class="button-print-secondary" (click)="onClickReject()" translate>LBL_REJECT</button>
+        <button class="button-print-secondary" (click)="onClickAuthorize()" translate>LBL_AUTHORIZE</button>
+     </div>
+</section>

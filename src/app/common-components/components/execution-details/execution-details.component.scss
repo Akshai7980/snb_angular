@@ -1,0 +1,95 @@
+.mtop_17 {
+    margin-top: 17px;
+}
+
+.mbot_4 {
+    margin-bottom: 4px;
+}
+
+.feeContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: calc(100% - 19px);
+}
+
+// .pbot_20 {
+//     padding-bottom: 20px;
+// }
+.chargesContent{
+    flex-basis: 235px;
+}
+.geneStaTitles {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+    font-size: 14px;
+}
+
+.flxContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: calc(100% - 24px);
+}
+
+.selectInput {
+    width: 300px;
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--input-text-color);
+    cursor: pointer;
+}
+
+.executionContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% - 24px);
+    // justify-content: space-between;
+}
+
+.executionContainer>div {
+    margin-right: 45px;
+}
+
+.box {
+    width: 444px;
+    height: 40px;
+    padding: 0px 0px 0px 5px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    background-size: cover;
+    color: var(--default-text-color);
+}
+
+.selected {
+    background-color: var(--summary-hover-color) !important;
+}
+.feeBox{
+    padding-top: 10px;
+}
+.feeTypeSelected {
+    width: 443px;
+    height: 20px;
+    padding: 0px 0px 0px 5px;
+    border-radius: 53px;
+    // font-family: "HelveticaNeue";
+    font-size: 14px;
+    // color: var(--table-header-color);
+    line-height: 20px;
+}
+
+.chargesBox {
+     color: var(--default-text-color);
+}
+.feeReadOlyContainer{
+    display: flex;
+}
+.executionReadContainer{
+    display: flex;
+}
+.executionReadContainer>div{
+    width: 362px;
+}

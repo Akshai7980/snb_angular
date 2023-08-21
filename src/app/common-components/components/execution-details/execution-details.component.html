@@ -1,0 +1,98 @@
+<div *ngIf="true">
+    <div translate class="subTitles">LBL_EXECUTION_DETAILS</div>
+    <div class="mtop_17 mbot_4 flxContainer" *ngIf="initialState">
+        <div class="executionContainer">
+            <div class="pbot_20 chargesContent">
+                <div translate class="geneStaTitles">LBL_EXECUTION_TYPE</div>
+                <div class="mtop_10">            
+                    <mat-select class="selectInput" panelClass="dropDownOption" [(value)]="exeObj.type" disableOptionCentering (selectionChange)="executionsType($event)">                                
+                        <mat-option value="{{type}}" *ngFor="let type of executionType">
+                          <span *ngIf="type ==='Immediate'" translate>LBL_IMMEDIATE</span> 
+                          <span *ngIf="type ==='Standard'" translate>LBL_STANDARD</span> 
+                          <span *ngIf="type ==='Scheduled'" translate>LBL_SCHEDULED</span> 
+                        </mat-option>
+                    </mat-select>
+                </div>
+            </div>
+            <div class="pbot_20 chargesContent" *ngIf="exeObj.type==='Immediate' ||exeObj.type==='Standard' ">
+                <div translate class="geneStaTitles">LBL_FEE</div>
+                <div class="mtop_10 box">            
+                       <div class="feeBox">
+                        <div>{{exeObj.feeData}}  <span translate>LBL_FEE</span>: {{feeCharge?this.feeCharge:'--'}} {{ccy}} <span translate>LBL_VAT</span>: {{vatCharge?vatCharge:'--'}} {{ccy}}</div>
+                       </div>
+                </div>
+                
+            </div>
+            <div class="pbot_20" *ngIf="exeObj.type==='Scheduled'">
+                <div translate class="geneStaTitles">LBL_VALUE_DATE<span class="required">*</span></div>
+                <div class="mtop_10" *ngIf="checkType !=='Y'">
+                    <app-date-picker (dateValue)="getDate($event)" [filterArray]="dateArray" [minDate]="setMinDate" [showDateErrorMessage]="dateError"></app-date-picker>                
+                </div>
+                <div class="mtop_10" *ngIf="checkType ==='Y'">
+                    <app-date-picker (dateValue)="getDate($event)" [maxDate]="endDate" [minDate]="startDate" [showDateErrorMessage]="dateError"></app-date-picker>                
+                </div>
+            </div>
+        </div>
+        <div class="mtop_17 feeContainer">
+            <div class="pbot_20 chargesContent" *ngIf="exeObj.type==='Scheduled'">
+                <div translate class="geneStaTitles">LBL_FEE</div>
+                <div class="mtop_10 chargesBox">{{feeCharge}} {{ccy}}</div>               
+            </div>
+            <div class="pbot_20 chargesContent" *ngIf="exeObj.type==='Scheduled'">
+                <div translate class="geneStaTitles">LBL_VAT</div>
+                <div class="mtop_10 chargesBox">{{vatCharge}} {{ccy}}</div>               
+            </div>
+            <!-- <div class="pbot_20 chargesContent">
+                <div translate class="geneStaTitles">LBL_DEBIT_AMT</div>
+                <div class="mtop_10 chargesBox" *ngIf="exeObj.amt">{{exeObj.amount |currencyFormat:ccy}} {{ccy}}</div>               
+                <div class="mtop_10 chargesBox" *ngIf="!exeObj.amt">--</div>               
+            </div> -->
+             <div class="pbot_20 chargesContent">
+                <div translate class="geneStaTitles">LBL_DEBIT_AMT</div>
+                <div class="mtop_10 chargesBox" *ngIf="exeObj.amt">{{exeObj.amt |currencyFormat:debCcy}} {{debCcy}}</div>               
+                <div class="mtop_10 chargesBox" *ngIf="!exeObj.amt">--</div>               
+            </div>
+
+        </div>
+    </div>
+    <div class="mtop_17 mbot_4 flxContainer" *ngIf="!initialState">
+        <div class="executionReadContainer">
+            <div class="pbot_20">
+                <div translate class="geneStaTitles">LBL_EXECUTION_TYPE</div>
+                <div class="mtop_10">            
+                    <div class="chargesBox" *ngIf="exeObj.type === 'Immediate'" translate>LBL_IMMEDIATE</div>
+                    <div class="chargesBox" *ngIf="exeObj.type === 'Standard'" translate>LBL_STANDARD</div>
+                    <div class="chargesBox" *ngIf="exeObj.type === 'Scheduled'" translate>LBL_SCHEDULED</div>
+                </div>
+            </div>
+
+            <!-- AS PER CHINTHA TOLD WE ADDED FEE DETAILS FOR STANDAND ALSO ON 11-03-2023 -->
+            <div class="pbot_20" *ngIf="exeObj.type==='Immediate' || exeObj.type==='Standard'">
+                <div translate class="geneStaTitles">LBL_FEE</div>
+                <div class="mtop_10">            
+                       <div class="feeTypeSelected">{{exeObj.feeData}}  Fee: {{feeCharge?this.feeCharge:'--'}} {{ccy}} VAT: {{vatCharge?vatCharge:'--'}} {{ccy}}</div>
+                </div>
+                
+            </div>
+            <div class="pbot_20" *ngIf="exeObj.type==='Scheduled'">
+                <div translate class="geneStaTitles">LBL_VALUE_DATE</div>
+                <div class="mtop_10 chargesBox">{{exeObj.date | date:"dd/MM/yyyy"}}</div>
+            </div>
+        </div>
+        <div class="mtop_17 feeContainer">
+            <div class="pbot_20 chargesContent" *ngIf="exeObj.type==='Scheduled'">
+                <div translate class="geneStaTitles">LBL_FEE</div>
+                <div class="mtop_10 chargesBox">{{feeCharge}} {{ccy}}</div>               
+            </div>
+            <div class="pbot_20 chargesContent" *ngIf="exeObj.type==='Scheduled'">
+                <div translate class="geneStaTitles">LBL_VAT</div>
+                <div class="mtop_10 chargesBox">{{vatCharge}} {{ccy}}</div>               
+            </div>
+            <div class="pbot_20 chargesContent">
+                <div translate class="geneStaTitles">LBL_DEBIT_AMT</div>
+                <div class="mtop_10 chargesBox">{{exeObj.amt |currencyFormat:debCcy}} {{debCcy}}</div>               
+            </div>
+        </div>
+    </div>
+   
+</div>

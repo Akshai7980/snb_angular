@@ -1,0 +1,29 @@
+<div id="nationalAddressDetailsPrintSection">
+    <div class="detailsTitleContainer">
+        <div class="mainTitle" translate>LBL_NATIONAL_ADDRESS_DETAILS</div>
+        <app-summary-tools id="printCheque" [printSection]="printSection" [enabledProperty]="true" (onPDFdownloadChange)="toPdf('chequeBookDetailsPrintSection')"></app-summary-tools>
+    </div>
+    <div class="detailsDataCntr">
+        <section class="summaryOuterConainer">    
+            <div class="summaryConainer">
+                <app-national-address-details></app-national-address-details>
+            </div>
+        </section>
+        <section class="summaryOuterConainer">
+            <div class="summaryConainer">
+                <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+            </div>
+        </section>
+        <section class="summaryOuterConainer">
+            <div class="summaryConainer">
+                <app-history [historyData]="workFlowHistoryParams"></app-history>
+            </div>
+        </section>
+    </div>
+    <section>
+        <div class="btnContainer">
+            <!-- <button class="button-secondary backButton" routerLink="/accounts/service-request/otherrequest" translate>LBL_BACK</button> -->
+            <app-tertiary-button buttonValue="LBL_BACK" (click)="routeToOtherRequest()"></app-tertiary-button>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,32 @@
+{
+    "data": {
+        "refNo": "TBC2207021533397",
+        "accNo": "10107654360011",
+        "cardType": "Master Card",
+        "status": "inactive",
+        "merchantName": "765",
+        "merchantId": "76543322365",
+        "sequenceNo": "13123424",
+        "cardNo": "1233567890",
+        "epyDate": "20/08/2023",
+        "amount": "2345",
+        "currency": "SAR",
+        "email": "ertyg@gmail.com",
+        "mobileNo": "123443221",
+        "claimType": "claim-1",
+        "claimDesc": "swqdwd",
+        "records": "2",
+        "fileName": "sfsdfs.pdf",
+        "productCode": "CORESVS",
+        "subProductCode": "EPYRT",
+        "functionCode": "EPYRTFNC",
+        "rrn": "r3w3r",
+        "refundAmt": "321",
+        "refundType": "full",
+        "nickname": "Dameer",
+        "fullname": "Dameer Ahsan"
+    },
+    "headerValue": {
+        "moduleId": "EPYMCDDET"
+    }
+}

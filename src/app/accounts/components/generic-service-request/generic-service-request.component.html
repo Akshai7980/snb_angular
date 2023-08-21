@@ -1,0 +1,62 @@
+<div class="mainConatiner">
+    <div class="ttileConatiner">
+        <div class="backIcon"></div>
+        <div translate class="mainTitle">LBL_GENERIC_SERVICE_REQUEST</div>
+    </div>
+    <div class="bodyConatiners">
+        <div class="subconatiner">
+            <div class="dslk_flex">
+                <div>
+                    <div translate class="geneStaTitles genericTitles">LBL_CIF_NUMBER<span class="required">*</span>
+                    </div>
+                    <div class="mtop_10">
+                        <mat-select class="selectInput" panelClass="dropDownOption" disableOptionCentering
+                            [(ngModel)]="cifNumber" (selectionChange)="cifNumberSelected()"
+                            placeholder="Enter Product Name or Code">
+                            <mat-option *ngFor="let statementInfo of dataSource" [value]="statementInfo">
+                                {{statementInfo.CIF_NUM_LOOKUP}}</mat-option>
+                        </mat-select>
+                    </div>
+                    <div [ngClass]="cifNumberError ? '':'visibilityHide'"><small>Please select the option</small></div>
+                </div>
+                <div class="width_300">
+                    <div translate class="genericTitles">LBL_CORP_NAME</div>
+                    <div *ngIf="!corporateName" class="mtop_10">--</div>
+                    <div *ngIf="corporateName" class="mtop_10">{{corporateName}}</div>
+                </div>
+                <div class="width_300">
+                    <div translate class="genericTitles">LBL_COUNTRY</div>
+                    <div *ngIf="!country" class="mtop_10">--</div>
+                    <div *ngIf="country" class="mtop_10">{{country}}</div>
+                </div>
+            </div>
+            <div *ngIf="cifNumberisSelected">
+            <div class="dslk_flex_second mTop_15" >
+                <div>
+                    <div translate class="geneStaTitles genericTitles">LBL_SERVICE_TYPE<span class="required">*</span>
+                    </div>
+                    <div class="mtop_10">
+                        <mat-select class="selectInput" panelClass="dropDownOption" disableOptionCentering
+                            [(ngModel)]="serviceType" placeholder="Enter Product Name or Code">
+                            <mat-option value="lastWeek">Last 1 week</mat-option>
+                        </mat-select>
+                    </div>
+                    <div [ngClass]="serviceTypeError ? '':'visibilityHide'"><small>Please select the option</small>
+                    </div>
+                </div>
+                <div>
+                    <div translate class="genericTitles">LBL_WHAT_WANT_MODIFY<span class="required">*</span></div>
+                    <div class="mtop_10"><textarea class="textArea" [(ngModel)]="modify"></textarea></div>
+                    <div [ngClass]="modifyError ? '':'visibilityHide'"><small>Please select the option</small></div>
+                </div>
+            </div>
+            <div class="mtop_15"><mat-checkbox class="example-margin" [(ngModel)]="termsAccept"><span translate>LBL_I_ACCEPT </span><span translate class="termsAccept"> <a translate>LBL_THE_TERMS_AND_CONDITIONS</a></span></mat-checkbox></div>
+        </div>
+    </div>
+        <div class="btnGroup mtop_20">
+            <div><button type="button" class="clear" translate>LBL_CLEAR</button></div>
+            <div><button type="button" class="submit" (click)="submit()" translate>LBL_SUBMIT</button></div>
+        </div>
+    </div>
+
+</div>

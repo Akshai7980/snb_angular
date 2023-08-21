@@ -1,0 +1,86 @@
+.additionDetailsContainer {
+  padding: 20px;
+  border: 1px solid var(--widget-border-color); 
+  border-radius: 10px;
+  background-color: #ffffff;
+  background-size: cover;
+  font-family: "HelveticaNeueMed", arial, sans-serif;
+  font-size: 14px;
+  color: #5d5d5d;
+  margin-top:20px;
+}
+
+.container {
+  color: var(--table-header-color);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.rightContent {
+  flex-basis: 313px;
+}
+
+.leftContent {
+  margin-left: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.feilds {
+  margin-right: 40px;
+  
+}
+.comment {
+  width: 307px;
+  height: 80px;
+  border-radius: 4px;
+  border: 1px solid var(--input-border-color);
+  background-color: var(--primary-widget-bg-color);
+  color: var(--default-text-color);
+}
+
+textarea {
+  resize: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+.readOnlyContainer{
+display: flex;
+justify-content: space-between;
+flex-basis: 300px;
+// margin-right: 150px;
+}
+.fixedWidth{
+  flex-basis: 320px;
+}
+.noDataContent{
+  color: var(--tableData-header-color);
+  font-style: italic; 
+  // font-family: "HelveticaNeue", arial, sans-serif;
+  font-family: "HelveticaNeueLight", arial, sans-serif;
+}
+.dataContent{
+  color: var(--tableData-header-color);
+  // font-family: "HelveticaNeue", arial, sans-serif;
+  font-family: "HelveticaNeueLight", arial, sans-serif;
+}
+.flexContainer{
+  display: flex;
+  justify-content: space-between;
+}
+.editText{
+  background-size: cover;
+  font-family: "HelveticaNeue",arial,sans-serif;
+  font-size: 16px;
+  color: var(--secondary-btn-border-color);
+  margin-left: 20px;
+  text-transform: capitalize;
+}
+.edits{
+  background-image: url(../../../../assets/images/Icopencial.svg);
+  background-repeat: no-repeat;
+  cursor: pointer;
+}

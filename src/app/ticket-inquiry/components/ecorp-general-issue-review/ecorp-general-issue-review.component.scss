@@ -1,0 +1,109 @@
+.outerContainer {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .title {
+    width: 215px;
+    height: 30px;
+    padding: 0px 0px 0px 5px;
+    background-size: cover;
+    font-size: 18px;
+    color: var(--tableData-header-color);
+    font-family: "HelveticaNeueMed", arial, sans-serif;
+  }
+  .issueDetails {
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid var(--widget-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-widget-bg-color);
+    background-size: cover;
+    font-size: 14px;
+    color: var(--tableData-header-color);
+  }
+  .felxContainer{
+    display: flex;
+  }
+  .inputlabel{
+    margin-left: 10px;
+  }
+  .labels {
+    color: var(--table-header-color);
+    font-family: "HelveticaNeueMed", Arial, sans-serif;
+    margin-bottom: 4px;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  .m-left{
+    margin-left: 32%;
+  }
+  .rowInnerCntr {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 11px;
+    padding-top: 14px;
+
+    .field {
+      width: 33.33%;
+      padding-bottom: 20px;
+
+      &.field-bottom {
+        padding-bottom: 5px;
+      }
+
+      .label {
+        font-family: "HelveticaNeueMed", arial, sans-serif;
+        color: var(--table-header-color);
+        font-size: 14px;
+      }
+
+      .label-content {
+        font-family: "HelveticaNeueLight", arial, sans-serif;
+        font-size: 14px;
+        text-decoration: none solid var(--text-decoration-color);
+      }
+
+      .information {
+        padding-top: 10px;
+        color: var(--tableData-header-color);
+
+        &.data {
+          padding-top: 20px;
+        }
+      }
+    }
+
+  }
+  .buttonConatiner {
+    position: relative;
+    float: right;
+    bottom: 10px;
+  }
+  .authenticationContainer{
+    margin-bottom: 20px;
+  }
+
+  .fileNameDownloadContainer{
+    display: flex;
+  app-uploaded-file-download {
+    display: contents !important;
+
+    .uploadedSct {
+      width: 73% !important;
+      padding-left: 0px !important;
+      margin-top: 0px !important;
+
+      .downloadIcon {
+        width: 30%;
+      }
+    }
+  }
+}
+
+.fileNameDownload {
+  margin-left: -25px;
+  margin-top: -8px;
+  font-size: 14px;
+}
+
+

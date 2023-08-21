@@ -1,0 +1,21 @@
+{
+    "HEADER_VALUE": {
+      "MODULE_ID": "CREDITUTIL",
+      "TXN_PROCESS_DATE_TIME": "13\/07\/2021 12:03:16"
+    },
+    "DATA": {
+      "ALL_RECORDS": [
+        {
+          "GCIF": "7000020027",
+          "LOGIN_ID": "202020003780",
+          "UNIT": "IGTBAE",
+          "TOTAL_LIMIT": "9,999,999",
+          "USED_LIMIT": "4,999,000",
+          "AVAIL_LIMIT": "5,000,999",
+          "USED_PERCENT": "49",
+          "AVAIL_PERCENT": "51",
+          "CCY": "AED"
+        }
+      ]
+    }
+  }

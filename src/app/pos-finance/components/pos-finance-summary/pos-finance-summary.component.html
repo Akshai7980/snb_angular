@@ -1,0 +1,123 @@
+<div class="parentDiv" id="posFinanceSummaryPrintSection">
+    <div class="row" id="logoPrint">
+        <div><img class="logo" src="{{ logo }}" /></div>
+        <div class="divFooter" translate>LBL_PRINT_FOOTER_CONTENT_1</div>
+    </div>
+    <div class="mainTitle cusTitle">
+        <div class="backIcon backArrow" routerLink="/posFinance/posInquiry"></div>
+        <span translate>LBL_POS_FINANCE_SUMMARY</span>
+    </div>
+    <div class="summarytools">
+        <app-summary-tools [printSection]="printSection" [moduleId]="moduleId"></app-summary-tools>
+    </div>
+    <div class="container">
+        <div class="fileDetails">
+            <div class="title bold">
+                {{ "LBL_POS_FINANCE" | translate }} {{ "LBL_FROM" | translate }}
+                {{ posFinanceSummaryDetails.makerName }},
+                {{ posFinanceSummaryDetails.accNo }}
+            </div>
+            <div class="title">
+                {{ "LBL_REFERENCE_NO" | translate }}
+                <b>&nbsp;{{ posFinanceSummaryDetails.refNo }}</b>
+            </div>
+            <div class="title">
+                {{ "LBL_FINANCE_AMOUNT" | translate }}
+                <b *ngIf="posFinanceSummaryDetails.financeAmt">&nbsp;{{
+                    posFinanceSummaryDetails.financeAmt
+                    | currencyFormat : posFinanceSummaryDetails.currency
+                    }}
+                    {{
+                    posFinanceSummaryDetails.currency
+                    ? posFinanceSummaryDetails.currency
+                    : "--"
+                    }}</b>
+                <b *ngIf="!posFinanceSummaryDetails.financeAmt">&nbsp;--</b>
+                <div class="pad_l_60">
+                    <button class="status-red-button statusButton" translate>
+                        {{ posFinanceSummaryDetails.statusDesc }}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cardDetailsContainer">
+            <div class="subContainer">
+                <div class="subTitles" translate>LBL_FINANCE_DETAILS</div>
+                <div class="rowInnerCntr">
+                    <div class="field">
+                        <div class="label" translate>LBL_CIF_NUMBER</div>
+                        <div class="information">
+                            {{ posFinanceSummaryDetails.cifNo }}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_TENURE</div>
+                        <div class="information">
+                            {{ posFinanceSummaryDetails.tenor }}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_MAX_FINANCE_AMOUNT</div>
+                        <div class="information" *ngIf="posFinanceSummaryDetails.maxFinanceAmt">
+                            {{
+                            posFinanceSummaryDetails.maxFinanceAmt
+                            | currencyFormat : posFinanceSummaryDetails.currency
+                            }}
+                            {{
+                            posFinanceSummaryDetails.currency
+                            ? posFinanceSummaryDetails.currency
+                            : "--"
+                            }}
+                        </div>
+                        <div class="information" *ngIf="!posFinanceSummaryDetails.maxFinanceAmt">
+                            --
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_REQ_ID</div>
+                        <div class="information">
+                            {{ posFinanceSummaryDetails.requestId }}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_CR_NUMBER</div>
+                        <div class="information">
+                            {{ posFinanceSummaryDetails.crNo }}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label" translate>LBL_RM_REFERRAL</div>
+                        <div class="information">
+                            {{ posFinanceSummaryDetails.rmReferral }}
+                        </div>
+                    </div>
+                    <div class="field width_unset">
+                        <div class="label" translate>LBL_RESPONSE</div>
+                        <div class="information">
+                            {{ "LBL_CLAIM_SAVED_MESSAGE" | translate }}
+                            {{ posFinanceSummaryDetails.requestId }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="summaryOuterConainer">
+        <div class="summaryConainer">
+            <app-work-flow [workFlowData]="workFlowHistoryParams"></app-work-flow>
+        </div>
+    </section>
+    <section class="summaryOuterConainer">
+        <div class="summaryConainer">
+            <app-history [historyData]="workFlowHistoryParams"></app-history>
+        </div>
+    </section>
+
+    <div class="btnGroup mtop_20">
+        <div class="btnContainer">
+            <app-tertiary-button buttonValue="LBL_BACK" routerLink="/posFinance/posInquiry"></app-tertiary-button>
+        </div>
+    </div>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

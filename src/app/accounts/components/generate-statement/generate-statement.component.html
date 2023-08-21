@@ -1,0 +1,182 @@
+
+<div *ngIf="generateStatementForm">
+<div class="mainConatiner">
+    <div class="ttileConatiner">
+        <div class="icon-back" (click)="backToDashboard()"></div>
+        <div translate class="mainTitle">LBL_GENERATE_STATEMENT</div>
+    </div>
+    <div class="detailsDataCntr">
+
+   
+    <div class="bodyConatiners">
+        <app-debit-lookup *ngIf="debitAccountDetailsObj" (onAccountSelect)="afterFromAccountSelection($event)" [debitAccDetails]="debitAccountDetailsObj" [clear]="clearFlag"  [shownsearch]="searchShownFlag" [tableId]="'gStatementt'"></app-debit-lookup>
+        <!-- <div class="subconatiner">
+            <div translate class="subTitles">LBL_FROM</div>
+            <div class="dslk_flex mtop_19">
+                <div class="searchCntnrLeft">
+                    <app-search (childEvent)="triggerSearchFilter($event)"></app-search>
+                </div>
+            </div>
+            <div class="mtop_21" id="generateStatementInquirytable">
+                <table mat-table [dataSource]="dataSource" class="tableInfo casaTable" [ngClass]="rowLength == 1 ? 'isFromSelected':''">
+                    <ng-container matColumnDef="nickName">
+                        <th mat-header-cell *matHeaderCellDef translate>LBL_NICKNAME</th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.ALIAS_NAME}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="accNumber">
+                        <th mat-header-cell *matHeaderCellDef translate>LBL_ACC_NUMBER</th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.OD_ACC_NO}}
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="accStatus">
+                        <th mat-header-cell *matHeaderCellDef translate>LBL_ACCOUNT_STATUS
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.STATUS}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="balance">
+                        <th mat-header-cell *matHeaderCellDef translate>LBL_BALANCE </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.CURR_AVAIL_BAL_AMT}}
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let element">
+                            <div *ngIf="dataSource.length == 1" [ngClass]="dataSource.length == 1 ? 'arrowRotate':''"
+                                class="downArrow"></div>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectedRow(row)"></tr>
+                </table>
+            </div>
+        </div> -->
+        <div *ngIf="showStatementDetails">
+            <div class="subconatiner mtop_20">
+                <div translate class="subTitles">LBL_STATEMENT_DETAILS</div>
+                <div class="mtop_17 mbot_4 generateStatementContainer">
+                    <div>
+                        <div translate class="geneStaTitles">LBL_PERIOD<span class="required">*</span></div>
+                        <div class="mtop_10">
+                           
+                            <mat-select class="selectInput" panelClass="dropDownOption"  [(value)]="period" disableOptionCentering (selectionChange)="periodChanged($event)" (blur)="clearErr('period')">                                
+                                <mat-option value="">{{'LBL_CHOOSE_AN_OPTION' | translate}}</mat-option>
+                                <mat-option value="oneweek">{{'LBL_LAST_ONE_WEEK' | translate}}</mat-option>
+                                <mat-option value="twoweek">{{'LBL_LAST_TWO_WEEK' | translate}}</mat-option>
+                                <mat-option value="lastmonth">{{'LBL_LAST_MONTH' | translate}}</mat-option>
+                                <mat-option value="customDate">{{'LBL_CUSTOM_DATe' | translate}}</mat-option>
+                            </mat-select>
+                            <div *ngIf="errorObj.periodErr">
+                            <small translate class="required">LBL_PLSE_SELECT_PERIOD</small>
+                        </div>
+                        </div>
+                    </div>
+                    <div *ngIf="selectedPeriod === 'customDate'" class="customeDateConatiner">
+                    <div>
+                        <div translate class="geneStaTitles">LBL_FROM</div>
+                        <div class="mtop_10 shortDatePicker">
+                            <app-date-picker (dateValue)="fromValue($event)" [maxDate]="maxDate" [newDate]="fromDateValue"></app-date-picker>
+                            <div *ngIf="errorObj.fromDateErr">
+                                <small class="required" translate>LBL_PLSE_SELECT_FROMDATE</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div translate class="geneStaTitles">LBL_TO</div>
+                        <div class="mtop_10 shortDatePicker">
+                            <app-date-picker (dateValue)="toValue($event)" [maxDate]="maxDate" [minDate]="fromDateValue" [newDate]="toDateValue"></app-date-picker>
+                            <div *ngIf="errorObj.toDateErr">
+                                <small class="required" translate>LBL_PLSE_SELECT_TODATE</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div>
+                        <div translate class="geneStaTitles">LBL_EXPORT_AS<span class="required">*</span></div>
+                        <div class="mtop_10">
+                            <mat-select panelClass="dropDownOption" disableRipple class="selectInput" [(value)]="exportAs" disableOptionCentering (blur)="clearErr('export')">
+                                <mat-option value="">{{'LBL_CHOOSE_AN_OPTION' | translate}}</mat-option>
+                                <mat-option value="PDF">PDF</mat-option>
+                                <mat-option value="XLS">XLS</mat-option>
+                                <mat-option value="CSV">CSV</mat-option>
+                            </mat-select>
+                            <div  *ngIf="errorObj.exportErr">
+                                <small class="required" translate>LBL_PLSE_SELECT_EXPORT_AS</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="emptyFormField" *ngIf="selectedPeriod !== 'customDate'"></div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="btnGroup mtop_20" *ngIf="showStatementDetails">
+        <!-- <div><button type="button" class="button-secondary" (click)="clear()" translate>LBL_CLEAR</button></div>
+        <div><button type="button" class="button-primary" (click)="submit()" translate>LBL_SUBMIT</button></div> -->
+        <app-tertiary-button buttonValue="LBL_CLEAR" (click)="clear()"></app-tertiary-button>
+        <app-primary-button buttonValue="LBL_SUBMIT" (click)="submit()"></app-primary-button>
+    </div>
+</div>
+</div>
+<!-- successfull -->
+<app-receipt [receiptDetails]="receiptData" [saveReceiptObject]="saveReceiptObject" (onInitAgainClick)="initGenerateStatement()" *ngIf="receiptForm" (DownloadReceiptClick)="downloadPdf($event)"></app-receipt>
+<!-- <div class="receiptConatiner" *ngIf="receiptForm">
+    <div translate class="mainTitle">LBL_RECEIPT</div>
+    <div class="receiptSubconatiner">
+        <div class="titleContainer">
+            <div class="textalign_center"><img class="shieldIcon" src="../../../../assets/images/iconShield.png"
+                    alt="success"></div>
+            <div class="textalign_center subTitles" translate>LBL_GENERATE_STATEMENT_SUCCESS</div>
+            <div class="textalign_center infoFontSize" translate>LBL_GENERATE_STATEMENT_DOWNLOAD</div>
+        </div>
+        <div class="fromContainer ">
+            <div translate class="subTitles">LBL_FROM</div>
+            <div class="fromsubConatiner mtop_12">
+                <div>
+                    <div translate class="geneStaTitles">LBL_ACTION_BY</div>
+                    <div class="mtop_4 infoFontSize">{{selecteddata.OD_ACC_NAME}}</div>
+                </div>
+                <div>
+                    <div translate class="geneStaTitles">LBL_ACC_NUMBER</div>
+                    <div class="mtop_4 infoFontSize">{{selecteddata.OD_ACC_NO}}</div>
+                </div>
+                <div>
+                    <div translate class="geneStaTitles">LBL_NICKNAME</div>
+                    <div class="mtop_4 infoFontSize setcontent"> {{selecteddata.OD_ACC_NAME}}</div>
+                </div>
+            </div>
+        </div>
+        <hr class="seperator">
+        <div class="statementDetails">
+            <div translate class="subTitles">LBL_STATEMENT_DETAILS</div>
+            <div class="statementDetailsSubConatiner mtop_12">
+                <div>
+                    <div translate class="geneStaTitles">LBL_PERIOD</div>
+                    <div class="mtop_4 infoFontSize">{{selectedPeriod}}</div>
+                </div>
+                <div>
+                    <div translate class="geneStaTitles">LBL_EXPORT_AS</div>
+                    <div class="mtop_4 infoFontSize">{{exportAs}}</div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+    <div class="btnGroup mtop_24">
+        <button type="button" class="button-print-secondary" translate><span ><img class="printIcon" src="../../../../assets/images/icoPrinter.png" alt="print"></span><span translate>LBL_PRINT</span></button>
+            <button type="button" class="button-print-secondary download" translate><span class="downloadIcon"></span> <span translate>LBL_DOWNLOAD</span></button>
+        <button type="button" class="button-primary finish" translate>LBL_FINISH</button>
+    </div>
+</div> -->
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

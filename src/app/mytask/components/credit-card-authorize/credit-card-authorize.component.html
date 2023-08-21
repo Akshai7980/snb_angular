@@ -1,0 +1,27 @@
+<div class="parentDiv" *ngIf="!showReceipt">
+  <div class="mainTitle cusTitle">
+    <div class="backIcon backArrow" (click)="onBackArrowClick()"></div>
+    <span translate>LBL_REVIEW</span>
+  </div>
+  <div class="container">
+    <app-credit-card-details></app-credit-card-details>
+  </div>
+  <section class="summaryOuterContainer" *ngIf="showAuthorization">
+    <div class="summaryContainer">
+      <app-authorization [authListDataSource]="authorizersList" (authEmit)="getData($event)">
+      </app-authorization>
+    </div>
+  </section>
+
+  <div class="btnGroup mtop_20">
+    <div class="btnContainer">
+      <app-tertiary-button buttonValue="LBL_CANCEL" routerLink="/mytask/cards/creditCard"></app-tertiary-button>
+      <app-primary-button buttonValue="LBL_SUBMIT" (click)="onSubmit()"></app-primary-button>
+    </div>
+  </div>
+</div>
+<div id="creditCardAuthorizeReceipt">
+  <app-receipt *ngIf="showReceipt" [receiptDetails]="receiptObject" (onInitAgainClick)="initiateAnotherRequest()"
+    (DownloadReceiptClick)="downloadPdf()" (viewPinEmit)="onViewPinClick()"></app-receipt>
+</div>
+<app-ajax-loader [hidden]="isLoadingComplete"></app-ajax-loader>

@@ -1,0 +1,129 @@
+.header {
+  font-family: 'HelveticaNeueMed', Arial, sans-serif;
+  margin-bottom: -24px;
+  font-size: 16px;
+  color: var(--default-text-color);
+}
+
+.fromto {
+  display: flex;
+}
+
+.dateto {
+  margin-left: 10px;
+}
+
+.fieldLabel {
+  color: #a2a2a2;
+  font-family: 'HelveticaNeueMed', Arial, sans-serif;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.submt {
+  display: flex;
+  float: right;
+  position: relative;
+  margin-top: 30px;
+}
+
+.clr {
+  border-radius: 100px;
+  text-align: center;
+  padding: 5px 8px;
+  background-color: rgb(217, 221, 224);
+  color: var(--announcement-fontColor);
+  border: none;
+  height: 40px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.apply {
+  background-color: var(--short-profile-txt-color);
+  text-align: center;
+  border-radius: 100px;
+  border-color: var(--short-profile-txt-color);
+  border: none;
+  text-align: center;
+  padding: 5px 8px;
+  color: rgb(255, 255, 255);
+  height: 40px;
+  width: 100px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.filter-search-popup {
+  width: 660px;
+  padding: 20px 20px 20px 20px;
+  border: 1px solid var(--widget-border-color);
+  border-radius: 5px;
+  background-color: var(--advance-filter-bg-color);
+  color: #565656;
+  text-decoration: none;
+  line-height: 18px;
+  position: absolute;
+  left: -320px;
+  top: 46px;
+  z-index: 1;
+}
+
+.selectInput {
+  width: 288px;
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--input-text-color);
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: var(--primary-widget-bg-color);
+}
+
+.mat-option {
+  padding: 5px;
+  border-left: 1px solid var(--widget-border-color);
+  border-right: 1px solid var(--widget-border-color);
+  border-bottom: 1px solid var(--widget-border-color);
+  line-height: 40px !important;
+  font-family: 'HelveticaNeue', Arial, sans-serif;
+  color: var(--default-text-color);
+}
+
+.mt-top {
+  margin-top: 10px
+}
+
+.flexCntr {
+  display: flex;
+  flex-wrap: wrap;
+}
+.fieldCntr{
+  width: 50%;
+  margin-top: 25px;
+}
+
+.txt-fld{
+  line-height: 40px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  width: 282px !important;
+  background-color: var(--primary-widget-bg-color);
+}
+.apply:hover{
+  background-color: var(--primary-btn-hover-color);
+}
+.clr:hover {
+  background-color: var(--button-secondory-hover);
+}
+.close-icon {
+  float: right;
+  cursor: pointer;
+}
+button{
+  font-family: "HelveticaNeue", arial, sans-serif;
+}

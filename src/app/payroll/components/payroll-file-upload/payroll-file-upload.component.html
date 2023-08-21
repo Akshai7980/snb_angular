@@ -1,0 +1,28 @@
+<app-payroll-detail
+  *ngIf="!showUploadDetails && !showUploadAuth"
+  (getClickEmit)="getData($event, 'fileUpload')"
+  (getFormData)="getData($event, 'uploadDetails')" (getValueDate)="getChangedDate($event)"
+></app-payroll-detail>
+<app-payroll-file-summary-details
+  *ngIf="showUploadDetails && !showReceipt && !showUploadAuth"
+  (getClickEmit)="getData($event, 'fileUploadDetails')"
+  (getDateValueEmitted)="getDateValue($event)"
+></app-payroll-file-summary-details>
+<app-payroll-file-upload-details
+  *ngIf="showUploadAuth && !showReceipt && !showUploadDetails"
+  (getClickEmit)="getData($event, 'fileUploadAuth')"
+  (getAuthEmit)="getAuthEmit($event)"
+  (getFormData)="getData($event, 'uploadDetails')"
+  [uploadFileDetails]="uploadDetails"
+  (getOtpDetailsEmit)="getOtpDetails($event)"
+  [otpErrorFromParent]="otpError"
+></app-payroll-file-upload-details>
+<app-receipt
+  (onInitAgainClick)="initiateAnotherRequest()"
+  *ngIf="showReceipt"
+  [receiptDetails]="receiptData"
+  [saveReceiptObject]="saveReceiptObject"
+  (DownloadReceiptClick)="downloadPdf($event)"
+></app-receipt>
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

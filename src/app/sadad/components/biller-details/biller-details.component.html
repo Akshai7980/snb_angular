@@ -1,0 +1,52 @@
+<div class="beneficiaryDetails">
+  <div class="subTitles" translate>LBL_BILLER_DETAILS</div>
+  <div class="rowInnerCntr">
+    <div class="field">
+      <div class="label" translate>LBL_BILLER<span class="required">*</span></div>
+      <div class="information" *ngIf="!proceedStatus">
+        <mat-select
+          panelClass="dropDownOption"
+          disableOptionCentering
+          class="selectInput"
+          [(value)]="selectedBiller"
+          placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}">
+          <mat-option
+            value="{{ biller.billerName }}"
+            translate
+            *ngFor="let biller of billerListDataSource"  (click)="onBillerSelect(biller)"
+            >{{ biller.billerName }}
+          </mat-option>
+        </mat-select>
+      </div>
+      <div class="information" *ngIf="proceedStatus">
+        <mat-label>{{billerName}}</mat-label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="label" translate>
+        LBL_SERVICE_TYPE <span class="required">*</span>
+      </div>
+      <div class="information" *ngIf="!proceedStatus">
+        <mat-select
+          panelClass="dropDownOption"
+          disableOptionCentering
+          class="selectInput"
+          [(value)]="selectedServiceType"
+          required
+          placeholder="{{ 'LBL_CHOOSE_AN_SELECT_OPTION' | translate }}"
+        >
+          <mat-option
+            value="{{ serviceType.serviceName }}"
+            translate
+            *ngFor="let serviceType of serviceTypeListDataSource" (click)="onServiceTypeSelect(serviceType)"
+            >{{ serviceType.serviceName }} 
+          </mat-option>
+        </mat-select>
+      </div>
+
+      <div class="information" *ngIf="proceedStatus">
+        <mat-label>{{selectedServiceType}}</mat-label>
+      </div>
+    </div>
+  </div>
+</div>

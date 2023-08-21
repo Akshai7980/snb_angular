@@ -1,0 +1,39 @@
+.casaTable {
+    width: 100%;
+}
+
+.position_rel {
+    position: relative;
+    min-width: max-content;
+    display: inline;
+}
+
+.mat-row:hover .EditIcon {
+    display: inline-block;
+}
+
+td.mat-cell:first-of-type {
+    width: 20%;
+    padding-left: 4px;
+}
+th.mat-header-cell:first-of-type{
+    padding-left: 4px;
+}
+
+.searchCntnrLeft {
+    margin-left: 3px;
+}
+span{
+    width: 16px;
+}
+
+.actionsConatiner {
+    display: flex;
+    justify-content: space-between;
+
+    .leftPannel {
+        display: flex;
+        min-width: 40%;
+        justify-content: space-between;
+    }
+}

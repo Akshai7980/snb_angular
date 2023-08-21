@@ -1,0 +1,28 @@
+{
+    "data": [
+        {    
+            "bank_NAME": "Core Account Services",
+            "sender_REF": "202204007005",
+            "received_DATE": "700",
+            "send_DATE": "20:54:16",
+            "sender_DEDUCTS": "CORESVS"
+        },
+        {    
+            "bank_NAME": "Core Account Services",
+            "sender_REF": "202204007005",
+            "received_DATE": "700",
+            "send_DATE": "20:54:16",
+            "sender_DEDUCTS": "CORESVS"
+        }
+        
+    ],
+    "headerValue": {
+        "moduleId": "GETHISTORY",
+        "simulate": "N",
+        "export": null,
+        "exportType": null,
+        "_dinsess": "69f518ea-108c-4de8-b240-c5371e7d879c",
+        "languageId": null,
+        "sortColumn":null
+    }
+}

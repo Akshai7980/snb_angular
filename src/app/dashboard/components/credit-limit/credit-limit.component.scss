@@ -1,0 +1,84 @@
+.creditContainer{
+    padding: 10px 20px;
+    color: var(--primary-fontColor);
+    .creditLimit{
+        font-size: 16px;
+        font-family:'HelveticaNeueMed', arial, sans-serif;
+      }
+    .creditLimit:after {
+        content: "";
+        display: block;
+        background: url(../../../../assets/images/creditLimit.png) no-repeat center center;
+        width: 27px;
+        height: 20px;
+        float: right;
+    }
+    .text{font-size: 12px; padding-top: 5px;}
+    .balance{font-size: 14px;font-family:'HelveticaNeueMed', arial, sans-serif;}
+    .chartContainer{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .chart {
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		background-image: conic-gradient(#ef9600 var(--value), #84bd00 var(--value));
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+        margin-top: -10px;
+	}
+	.chart::after {
+		content: "";
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: calc(100% - 20px);
+		height: calc(100% - 20px);
+		background: #fff;
+		border-radius: inherit;
+	}
+	span {
+		position: relative;
+		z-index: 1;
+		font-size: 14px;
+        font-family:'HelveticaNeueMed', arial, sans-serif;
+	}
+    .percent {
+        --value: 45%;
+    }
+    #table {
+        width: 90%;
+        display: table;
+        margin-top: 13px;
+    }
+    #tableBody{
+        display: table-row-group;
+    }
+    .tableRow{
+        display: table-row;
+    }
+    .tableCell{
+        display: table-cell;
+        vertical-align: top;
+        font-size: 12px;
+    }
+    .navigationArrow{
+        background: url(../../../../assets/images/icoNextArrow.svg) no-repeat center;
+        width: 40px;
+        height: 40px;
+        background-size: contain;
+        float: right;
+        cursor: pointer;
+        margin-top: -11px;
+        margin-right: -19px;
+    }
+    .availablePercent{
+        position: relative;
+        top: 14px;
+        left: 59px;
+    }
+}

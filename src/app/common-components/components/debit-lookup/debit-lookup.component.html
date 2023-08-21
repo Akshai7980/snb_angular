@@ -1,0 +1,68 @@
+<div class="mainContainer">
+        <div class="subContainer">
+            <div translate class="subTitles">{{accountDetailsToDisplay.title}}</div>
+
+            <div class="searchCntnr" *ngIf="isSearchShhown && accountDetailsToDisplay.data.length > 1">
+                <div class="searchCntnrLeft">
+                    <app-search (childEvent)="triggerSearchFilter($event)"></app-search>
+                </div>
+            </div>
+            <div class="tableInfo" id="{{tableId}}">
+                <table class="mat-table cdk-table tableInfo casaTable" [ngClass]="setWidth ? 'setWidth' : ''">
+                    <tr>
+                        <th class="mat-header-cell cdk-header-cell chequesTitles cdk-column-nickName mat-column-nickName" *ngFor="let field of debitAccDetails.fieldDetails" translate>{{field.dispKey}}</th>
+                        <th class="mat-header-cell cdk-header-cell chequesTitles cdk-column-nickName mat-column-nickName"></th>
+                    </tr>
+                    <tr (click)="selectedRow(rowData)" class="mat-row cdk-row" [ngClass]="{selected:accountDetailsToDisplay.data.length == 1}" *ngFor="let rowData of accountDetailsToDisplay.data" [ngStyle]="{'background-color': rootScopeData.changeHeading === 'Review' ? 'rgb(240, 252, 249)' : ''}">
+                        <td class="mat-cell cdk-cell tableInfoFonts cdk-column-nickName mat-column-nickName nicknameWord" *ngFor="let field of debitAccDetails.fieldDetails">{{rowData[field.dataKey]}} <span *ngIf="rowData[field.dataKeySupport]">{{rowData[field.dataKeySupport]}}</span></td>
+                        <td class="mat-cell cdk-cell tableInfoFonts cdk-column-nickName mat-column-nickName"><div *ngIf="accountDetailsToDisplay.data.length == 1" [ngStyle]="{'display': (rootScopeData.changeHeading === 'Review' || isDownArrowNotRequired) ? 'none' : 'block'}" [ngClass]="accountDetailsToDisplay.data.length == 1 ? 'arrowRotate':''" class="downArrow" (click)="selectedRow('iconClick')" ></div></td>
+                    </tr>
+                </table>
+                <!-- <table mat-table [dataSource]="dataSource" class="tableInfo casaTable">
+                    <ng-container matColumnDef="nickName">
+                        <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">LBL_NICKNAME</th>
+                        <td mat-cell *matCellDef="let element"  class="tableInfoFonts">
+                            {{element.EMB_NAME}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="accNumber">
+                        <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">LBL_ACC_NUMBER</th>
+                        <td mat-cell *matCellDef="let element"  class="tableInfoFonts">
+                            {{element.CARD_ACC_NO}}
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="fullname">
+                        <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">LBL_FULL_NAME</th>
+                        <td mat-cell *matCellDef="let element"  class="tableInfoFonts">
+                            {{element.FULL_NAME}}
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Status">
+                        <th mat-header-cell *matHeaderCellDef translate class="chequesTitles">LBL_STATUS
+                        </th>
+                        <td mat-cell *matCellDef="let element"  class="tableInfoFonts">
+                            {{element.STAT}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="balance">
+                        <th mat-header-cell *matHeaderCellDef translate class="chequesTitles"> LBL_BALANCE </th>
+                        <td mat-cell *matCellDef="let element"  class="tableInfoFonts">
+                            {{element.PAY_DUE_AMT}}
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let element">
+                            <div *ngIf="dataSource.length == 1" [ngClass]="dataSource.length == 1 ? 'arrowRotate':''" class="downArrow" (click)="selectedRow('iconClick')" ></div>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectedRow(row)" ></tr>
+                </table> -->
+            </div>
+        </div>
+</div>
+

@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "refNo": "TBC2208301819244",
+      "transactionId": "TBC2208301819244",
+          "productCode":"CORESVS",
+      "subproductCode":"POSFIN",
+      "functionCode":"PFINFNC",
+      "crNo":"1010667896",
+          "accNo": "SA 1010010010000000123",
+      "financeAmt":"1,000,000.00",
+      "currency":"SAR",
+      "requestId":"102487701000",
+      "status":"RA",
+      "statusDesc":"Ready For Authorization"
+                 
+    }
+  ],
+  "headerValue": {
+   
+    "moduleId": "MYTASKPOSFINSUMY",
+    "totalCount": "148"
+  }
+}

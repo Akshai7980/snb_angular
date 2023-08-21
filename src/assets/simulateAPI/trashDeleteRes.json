@@ -1,0 +1,14 @@
+{
+    "headerValue": {
+      "moduleId": "DELETEMAIL",
+      "simulate": "N",
+      "languageId": null,
+      "_dinsess": "af4b5851-8192-4814-9f37-43a8647e0c14"
+    },
+    "data": [
+      {
+        "deleteDesc": "Success",
+        "deleteCode": "00000"
+      }
+    ]
+  }

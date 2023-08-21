@@ -1,0 +1,67 @@
+{
+  "data": {
+    "selfAuth": "false",
+    "authList": [
+      {
+        "PARSED_RULE_ID": "1234",
+        "OD_LEVEL": "H",
+        "OD_GCIF": "7000020027",
+        "OD_USER_NO": "202204004840",
+        "AUTH_NAME": "Aadhiran Maker",
+        "OD_ROLE_DESC": "Maker"
+      },
+      {
+        "PARSED_RULE_ID": "1234",
+        "OD_LEVEL": "H",
+        "OD_GCIF": "7000020027",
+        "OD_USER_NO": "202020003780",
+        "AUTH_NAME": "JAISON SMITH",
+        "OD_ROLE_DESC": "Maker"
+      },
+      {
+        "PARSED_RULE_ID": "1234",
+        "OD_LEVEL": "H",
+        "OD_GCIF": "7000020027",
+        "OD_USER_NO": "202204004843",
+        "AUTH_NAME": "Aadhiran Maker",
+        "OD_ROLE_DESC": "Maker"
+      },
+      {
+        "PARSED_RULE_ID": "1234",
+        "OD_LEVEL": "H",
+        "OD_GCIF": "7000020027",
+        "OD_USER_NO": "202204004860",
+        "AUTH_NAME": "Aadhiran Maker",
+        "OD_ROLE_DESC": "Maker"
+      },
+      {
+        "PARSED_RULE_ID": "1234",
+        "OD_LEVEL": "H",
+        "OD_GCIF": "7000020027",
+        "OD_USER_NO": "202023003800",
+        "AUTH_NAME": "BENLY SIC",
+        "OD_ROLE_DESC": "Maker"
+      },
+      {
+        "PARSED_RULE_ID": "1234",
+        "OD_LEVEL": "H",
+        "OD_GCIF": "7000020027",
+        "OD_USER_NO": "202220004960",
+        "AUTH_NAME": "Sam Caser",
+        "OD_ROLE_DESC": "Maker"
+      },
+      {
+        "PARSED_RULE_ID": "1234",
+        "OD_LEVEL": "H",
+        "OD_GCIF": "7000020027",
+        "OD_USER_NO": "202201004820",
+        "AUTH_NAME": "Aadhiran 001",
+        "OD_ROLE_DESC": "Maker"
+      }
+    ],
+    "flexiAuth": "true"
+  },
+  "headerValue": {
+    "moduleId": "SADAUTHCHECK"
+  }
+}

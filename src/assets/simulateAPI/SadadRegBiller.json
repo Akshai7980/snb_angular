@@ -1,0 +1,62 @@
+{
+    "headerValue": {
+        "moduleId": "SADPAYREGBILLS",
+        "simulate": "N"
+      },
+      "data": [
+       {    
+            "nickName":"testSadad1",
+            "billerName":"Airtel",
+                "billerGroup":"TeleCom1",
+            "billAccount": 102907506,
+            "shortName": "testststs",
+            "customerNumber":"111000",
+            "billerId": 1,
+            "status": "ACTIVE",
+            "beneficiary": "",
+            "beneficiaryIdType": "",
+            "paymentType":"Prepaid or Postpaid",
+            "minAmount":"10",
+            "statusDesc":"ACTIVE",
+            "refNo":"TBC2009300036338",
+            "currency":"SAR"
+                    
+       },
+       {    
+        "nickName":"testSadad2",
+        "billerName":"Vodafone",
+        "billerGroup":"TeleCom2",
+        "billAccount": 102907507,
+        "shortName": "testststs",
+        "customerNumber":"111000",
+        "billerId": 2,
+        "status": "ACTIVE",
+        "beneficiary": "",
+        "beneficiaryIdType": "",
+        "paymentType":"Prepaid or Postpaid",
+        "minAmount":"10",
+        "statusDesc":"ACTIVE",
+        "refNo":"TBC2009300036337",
+        "currency":"SAR"
+                
+    },
+    {    
+      "nickName":"testSadad3",
+      "billerName":"Aircel",
+      "billerGroup":"TeleCom3",
+      "billAccount": 102907508,
+      "shortName": "testststs",
+      "customerNumber":"111000",
+      "billerId": 3,
+      "status": "ACTIVE",
+      "beneficiary": "",
+      "beneficiaryIdType": "",
+      "paymentType":"Prepaid or Postpaid",
+      "minAmount":"10.00",
+      "statusDesc":"ACTIVE",
+      "refNo":"TBC2009300036339",
+      "currency":"SAR"
+              
+    }
+      ]
+    }

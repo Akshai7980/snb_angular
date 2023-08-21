@@ -1,0 +1,297 @@
+<!-- USER DETAILS FATCA SECTION END HERE -->
+<div class="mainContainer" *ngIf="!showReview && !showReceipt">
+    <div translate class="title">LBL_FATCA</div>
+    <div class="subContainer">
+        <div class="subTitles" translate>LBL_USER_DETAILS</div>
+        <div class="detailsContainer">
+
+            <div class="cifContainer">
+                <div class="column">
+                    <div class="geneStaTitles" translate>LBL_CIF<span class="required mandatory">*</span>
+                    </div>
+                    <div class="mtop_10 details">
+                        <mat-select id="tax residency" [(ngModel)]="selectedCif" class="box" name="taxResidency"
+                            panelClass="dropDownOption" (selectionChange)="onSelectCif($event)"
+                            placeholder="{{ 'LBL_PLEASE_SELECT' | translate }}" disableOptionCentering>
+                            <mat-option *ngFor="let cif of cifLooUp" [value]="cif">{{cif?.cifNo}}</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="showUserDetails">
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_ESTABLISHMENT_NAME</div>
+                    <div *ngIf="user" class="mtop_10 dataContainer"> {{ selectedCif?.customerName ?
+                        selectedCif.customerName : '--' }} </div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_OWNER_NAME</div>
+                    <div *ngIf="user" class="mtop_10 dataContainer">{{user?.ownerName ? user.ownerName : "--"}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_NATIONALITY</div>
+                    <div *ngIf="user" class="mtop_10 dataContainer">{{user?.nationality ? user.nationality : "--"}}
+                    </div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_COUNTRY_OF_BIRTH</div>
+                    <div *ngIf="user" class="mtop_10 dataContainer">{{user?.country_of_Birth ? user.country_of_Birth :
+                        "--"}}</div>
+                </div>
+            </div>
+            <div>
+                <div class="column" *ngIf="showUserDetails">
+                    <div class="geneStaTitles" translate>LBL_TAX_RESIDENCY<span class="required mandatory">*</span>
+                    </div>
+                    <div class="mtop_10 details">
+                        <mat-select id="tax residency" [(ngModel)]="residency" class="box" name="taxResidency"
+                            panelClass="dropDownOption" (selectionChange)="validate($event, 'residency')"
+                            placeholder="{{ 'LBL_PLEASE_SELECT' | translate }}" disableOptionCentering>
+                            <mat-option *ngFor="let tax of taxResidency" [value]="tax">{{tax?.name}}</mat-option>
+                        </mat-select>
+                    </div>
+                    <div class="required" *ngIf="taxError" translate>LBL_PLS_SELECT_ONE_OPTION</div>
+                </div>
+            </div>
+            <div class="country" *ngIf="residency && residency.name === 'Yes'">
+                <div class="row">
+                    <div class="column">
+                        <div class="geneStaTitles" translate>LBL_COUNTRY_1<span class="required mandatory">*</span>
+                        </div>
+                        <div class="mtop_10 details">
+                            <mat-select id="tax residency" class="box" [(ngModel)]="country1"
+                                (selectionChange)="validate($event, 'country1')" name="country1"
+                                panelClass="dropDownOption" placeholder="{{ 'LBL_PLEASE_SELECT' | translate }}"
+                                disableOptionCentering>
+                                <mat-option *ngFor="let country1 of countries"
+                                    [value]="country1">{{country1?.countryName}}
+                                </mat-option>
+                            </mat-select>
+                        </div>
+                        <div class="required" *ngIf="countryError" translate>LBL_PLS_SELECT_COUNTRY</div>
+                        <div class="required" *ngIf="countryDiffError1" translate>LBL_PLS_SELECT_DIFFERENT_COUNTRY</div>
+                    </div>
+                    <div class="column">
+                        <div class="geneStaTitles" translate>LBL_TAX_NUMBER_COUNTRY_1</div>
+                        <div class="mtop_10 details">
+                            <input type="text" class="box" [(ngModel)]="taxNumber"
+                                (keypress)="taxvalid($event,country1); numberOnly($event)"
+                                (blur)="onBlurTaxNum($event, country1)" autocomplete="off"
+                                maxlength="{{country1 && country1.countryISOcode==='US' ? 9 : 35}}">
+                        </div>
+                        <div class="required" *ngIf="taxNumberErr && country1?.countryISOcode === 'US'" translate>
+                            LBL_PLEASE_ENTER_TAX_IDENTIFICATION_NUMBER
+                        </div>
+
+                        <div class="required" *ngIf="taxNumberErr && country1?.countryISOcode !== 'US'" translate>
+                            LBL_PLEASE_ENTER_TAX_IDENTIFICATION_NUM
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="geneStaTitles" translate>LBL_COUNTRY_2</div>
+                        <div class="mtop_10 details">
+                            <mat-select id="tax residency" class="box" [(ngModel)]="country2" name="country2"
+                                panelClass="dropDownOption" (selectionChange)="validate($event, 'country2')"
+                                placeholder="{{ 'LBL_PLEASE_SELECT' | translate }}" disableOptionCentering>
+                                <mat-option *ngFor="let country2 of countries"
+                                    [value]="country2">{{country2?.countryName}}
+                                </mat-option>
+                            </mat-select>
+                        </div>
+                        <div class="required" *ngIf="countryDiffError2" translate>LBL_PLS_SELECT_DIFFERENT_COUNTRY</div>
+                    </div>
+                    <div class="column">
+                        <div class="geneStaTitles" translate>LBL_TAX_NUMBER_COUNTRY_2</div>
+                        <div class="mtop_10 details">
+                            <input type="text" class="box" [(ngModel)]="taxNumber2"
+                                (keypress)="taxvalid($event,country2); numberOnly($event)" autocomplete="off"
+                                maxlength="{{country2 && country2.countryISOcode==='US'? 9 : 35}}">
+                        </div>
+                        <div class="required" *ngIf="taxNumberErr2 && country2?.countryISOcode === 'US'" translate>
+                            LBL_PLEASE_ENTER_TAX_IDENTIFICATION_NUMBER
+                        </div>
+
+                        <div class="required" *ngIf="taxNumberErr2 && country2?.countryISOcode !== 'US'" translate>
+                            LBL_PLEASE_ENTER_TAX_IDENTIFICATION_NUM
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="geneStaTitles" translate>LBL_COUNTRY_3</div>
+                        <div class="mtop_10 details">
+                            <mat-select id="tax residency" class="box" [(ngModel)]="country3" name="country3"
+                                panelClass="dropDownOption" (selectionChange)="validate($event, 'country3')"
+                                placeholder="{{ 'LBL_PLEASE_SELECT' | translate }}" disableOptionCentering>
+                                <mat-option *ngFor="let country3 of countries"
+                                    [value]="country3">{{country3?.countryName}}
+                                </mat-option>
+                            </mat-select>
+                        </div>
+                        <div class="required" *ngIf="countryDiffError3" translate>LBL_PLS_SELECT_DIFFERENT_COUNTRY</div>
+                    </div>
+                    <div class="column">
+                        <div class="geneStaTitles" translate>LBL_TAX_NUMBER_COUNTRY_3</div>
+                        <div class="mtop_10 details">
+                            <input type="text" class="box" [(ngModel)]="taxNumber3"
+                                (keypress)="taxvalid($event,country3); numberOnly($event)" autocomplete="off"
+                                maxlength="{{country3 && country3.countryISOcode==='US'? 9 : 35}}">
+                        </div>
+                        <div class="required" *ngIf="taxNumberErr3 && country3?.countryISOcode === 'US'" translate>
+                            LBL_PLEASE_ENTER_TAX_IDENTIFICATION_NUMBER
+                        </div>
+
+                        <div class="required" *ngIf="taxNumberErr3 && country3?.countryISOcode !== 'US'" translate>
+                            LBL_PLEASE_ENTER_TAX_IDENTIFICATION_NUM
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="note" translate *ngIf="residency && residency.name === 'No'">
+                LBL_SAUDI_TAX_RESIDENCY_NOTE
+            </div>
+            <div class="note" *ngIf="residency && residency.name === 'I refuse to disclose'" translate>
+                LBL_REFUSER_SAUDI_TAX_RESIDENCY_NOTE
+            </div>
+        </div>
+    </div>
+    <div *ngIf="showUserDetails">
+        <div class="mtop_20"> <span translate> LBL_FATCA_FOOTER_TEXT </span> <span> {{ user?.ownerName ? user.ownerName
+                :
+                "--" }} </span> <span translate>LBL_FATCA_FOOTER_TEXT_SECOND</span> </div>
+        <div class="btnGroup">
+            <app-tertiary-button buttonValue="LBL_CANCEL" (click)="onClickCancel()"></app-tertiary-button>
+            <app-primary-button buttonValue="LBL_PROCEED" (click)="onClickProceed()"></app-primary-button>
+        </div>
+    </div>
+</div>
+<!-- USER DETAILS FATCA SECTION END HERE -->
+
+<!-- REVIEW FATCA SECTION START HERE -->
+<div class="mainContainer" *ngIf="showReview && !showReceipt">
+    <div translate class="title">LBL_REVIEW</div>
+    <div class="subContainer">
+        <div class="subTitles" translate>LBL_USER_DETAILS</div>
+        <div class="detailsContainer">
+            <div class="row">
+
+                <div class="column">
+                    <div class="geneStaTitles" translate>LBL_CIF
+                    </div>
+                    <div class="mtop_10 details">
+                        <div *ngIf="user" class="mtop_10 dataContainer">{{ selectedCif?.cifNo ? selectedCif.cifNo : "--"
+                            }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_ESTABLISHMENT_NAME</div>
+                    <div *ngIf="user" class="mtop_10 dataContainer">{{ selectedCif?.customerName ?
+                        selectedCif.customerName : '--' }}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_OWNER_NAME</div>
+                    <div *ngIf="user" class="mtop_10 dataContainer">{{user?.ownerName ? user.ownerName : "--"}}</div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_NATIONALITY</div>
+                    <div *ngIf="user" class="mtop_10 dataContainer">{{user?.nationality ? user.nationality : "--"}}
+                    </div>
+                </div>
+                <div class="column">
+                    <div translate class="geneStaTitles">LBL_COUNTRY_OF_BIRTH</div>
+                    <div *ngIf="user" class="mtop_10 dataContainer">{{user?.country_of_Birth ? user.country_of_Birth :
+                        "--"}}</div>
+                </div>
+            </div>
+            <div>
+                <div class="column">
+                    <div class="geneStaTitles" translate>LBL_TAX_RESIDENCY
+                    </div>
+                    <div class="mtop_10 details">
+                        <div *ngIf="user" class="mtop_10 dataContainer">{{ residency?.name ? residency.name : "--" }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="country" *ngIf="residency && residency.name === 'Yes'">
+                <div class="row" *ngIf="country1?.countryName">
+                    <div class="column">
+                        <div class="geneStaTitles" translate>LBL_COUNTRY_1
+                        </div>
+                        <div class="mtop_10 details">
+                            <div *ngIf="user" class="mtop_10 dataContainer">{{ country1?.countryName ?
+                                country1.countryName : "--" }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="geneStaTitles" translate>LBL_TAX_NUMBER_COUNTRY_1</div>
+                        <div class="mtop_10 details">
+                            <div *ngIf="user" class="mtop_10 dataContainer">{{ taxNumber ? taxNumber : "--" }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="country2?.countryName">
+                    <div class="column">
+                        <div class="geneStaTitles" translate>LBL_COUNTRY_2</div>
+                        <div class="mtop_10 details">
+                            <div *ngIf="user" class="mtop_10 dataContainer">{{ country2?.countryName ?
+                                country2.countryName : "--" }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="geneStaTitles" translate>LBL_TAX_NUMBER_COUNTRY_2</div>
+                        <div class="mtop_10 details">
+                            <div *ngIf="user" class="mtop_10 dataContainer">{{ taxNumber2 ? taxNumber2 : "--" }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="country3?.countryName">
+                    <div class="column">
+                        <div class="geneStaTitles" translate>LBL_COUNTRY_3</div>
+                        <div class="mtop_10 details">
+                            <div *ngIf="user" class="mtop_10 dataContainer">{{ country3?.countryName ?
+                                country3.countryName : "--" }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="geneStaTitles" translate>LBL_TAX_NUMBER_COUNTRY_3</div>
+                        <div class="mtop_10 details">
+                            <div *ngIf="user" class="mtop_10 dataContainer">{{ taxNumber3 ? taxNumber3 : "--" }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="note" translate *ngIf="residency && residency.name === 'No'">
+                LBL_SAUDI_TAX_RESIDENCY_NOTE
+            </div>
+            <div class="note" *ngIf="residency && residency.name === 'I refuse to disclose'" translate>
+                LBL_REFUSER_SAUDI_TAX_RESIDENCY_NOTE
+            </div>
+        </div>
+    </div>
+    <div class="footerAlign">
+        <div class="mtop_20"> <span translate> LBL_TERMS </span> <a href="{{url}}" target="_blank"><span
+                    class="termsContainer" translate>LBL_THE_TERMS_AND_CONDITIONS</span></a>
+        </div>
+        <div>
+            <app-tertiary-button buttonValue="LBL_CANCEL" (click)="onClickCancel()"></app-tertiary-button>
+            <app-primary-button buttonValue="LBL_SUBMIT" (click)="onClickSubmit()"></app-primary-button>
+        </div>
+    </div>
+</div>
+<!-- REVIEW FATCA SECTION END HERE -->
+
+<app-receipt [receiptDetails]="receiptData" [hideButton]="true" *ngIf="showReceipt"
+    [saveReceiptObject]="saveReceiptObject" [ChannelId]='ChannelId'
+    (DownloadReceiptClick)="downloadPdf($event)"></app-receipt>
+
+<app-ajax-loader [hidden]="isLoadingCompelete"></app-ajax-loader>

@@ -1,0 +1,12 @@
+{
+    "dataValue":{
+       "nationalId":"5951129916",
+       "validateAddAccount":"SUCCESS",
+       "mobileNumber":"966549837307",
+       "email":"jason@gmail.com",
+       "bankCode":"010"
+    },
+    "headerValue":{
+       "moduleId":"CORPDETAIL"
+    }
+ }
